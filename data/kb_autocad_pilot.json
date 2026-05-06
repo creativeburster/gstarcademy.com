@@ -1,0 +1,58 @@
+{
+  "pilot": "autocad",
+  "oem_reference": {
+    "marketing_overview": "https://www.autodesk.com/products/autocad/overview",
+    "help_network": "https://help.autodesk.com/view/ACAD"
+  },
+  "structure_notes": [
+    "LearnBuffett-style: taxonomy pages list terms; each term gets /kb/terms/{slug} later.",
+    "Raman-style: /kb/qa/{product}/ grouped by tags; static-first, search later.",
+    "Graph page: viz on top + curated excerpts from term/vendor/software pilots."
+  ],
+  "term_clusters": [
+    {
+      "id": "drafting-model",
+      "label_en": "2D & 3D drafting",
+      "label_zh": "二维与三维制图",
+      "seed_slugs": ["dwg", "cartesian-coordinates", "polyline", "solid-model"]
+    },
+    {
+      "id": "drawing-data",
+      "label_en": "Drawing structure",
+      "label_zh": "图形数据组织",
+      "seed_slugs": ["layer", "block", "xref", "layout"]
+    },
+    {
+      "id": "output",
+      "label_en": "Documentation & publish",
+      "label_zh": "输出与文档",
+      "seed_slugs": ["plot", "dimension", "annotation-scale", "sheet-set"]
+    },
+    {
+      "id": "toolsets-oem",
+      "label_en": "Industry toolsets (OEM)",
+      "label_zh": "专业化工具组合（官方划分）",
+      "seed_slugs": [
+        "architecture-toolset",
+        "mechanical-toolset",
+        "mep-toolset",
+        "electrical-toolset",
+        "plant-3d-toolset",
+        "map-3d-toolset",
+        "raster-design-toolset"
+      ]
+    },
+    {
+      "id": "ca-x-domain",
+      "label_en": "Absorbed from CAx/domains lanes",
+      "label_zh": "由 CAx / 领域页并入的条目方向",
+      "seed_slugs": ["cae-workflow-overview", "cam-basics", "aec-vs-mfg-drafting"]
+    }
+  ],
+  "company": {
+    "slug": "autodesk",
+    "name": "Autodesk",
+    "note": "Vendor page stub: future /kb/vendors/autodesk.html lists AutoCAD plus Revit, Civil 3D, Inventor..."
+  },
+  "qa_tags": ["install", "interface", "draw", "modify", "layer", "block", "plot", "xref", "licensing"]
+}

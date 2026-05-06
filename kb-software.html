@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAD Knowledge Base · Software · OEM documentation &amp; vendor gateways</title>
+    <meta
+      name="description"
+      content="Curated gateways to OEM help centers and integrator-facing CAD SDK / interoperability entry points (viewing, exchange, 3D rendering)—always link out."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="/kb-software.html" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preload" href="./styles.css?v=20260430kb_hero" as="style" />
+    <link rel="stylesheet" href="./styles.css?v=20260430kb_hero" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "DefinedTermSet",
+        "name": "CAD Software · OEM documentation and vendor gateways",
+        "url": "https://learncad.io/kb-software.html",
+        "description": "Gateways to Autodesk, Dassault, Siemens, PTC, and other OEM help and support portals, plus CAD SDK entry points for integrators."
+      }
+    </script>
+  </head>
+  <body data-page="knowledge">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="./index.html">
+          <span class="brand-badge">LC</span>
+          <span>LearnCAD</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" data-nav="home" href="./index.html">Home</a>
+          <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
+          <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
+          <a class="nav-link" data-nav="news" href="./news.html">News</a>
+          <a class="nav-link" data-nav="about" href="./about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="kb-app kb-faq-shell" id="kb-app">
+      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" aria-label="Knowledge base navigation">
+        <div class="kb-rail-toolbar">
+          <span class="kb-rail-toolbar-label" id="kb-rail-label">Navigation</span>
+          <button
+            type="button"
+            class="kb-rail-toggle"
+            id="kb-rail-toggle"
+            aria-labelledby="kb-rail-label"
+            aria-controls="kb-rail"
+            aria-expanded="true"
+            title="Hide navigation (wider reading)"
+          >
+            <span class="kb-rail-toggle-icon" aria-hidden="true">◀</span>
+            <span class="kb-sr-only">Collapse navigation sidebar</span>
+          </button>
+        </div>
+        <label class="kb-sr-only" for="kb-sidebar-search">Search knowledge base</label>
+        <input
+          type="search"
+          id="kb-sidebar-search"
+          class="kb-portal-search"
+          placeholder="Search titles &amp; terms…"
+          autocomplete="off"
+        />
+
+                    <div class="kb-index-box">
+              <strong class="kb-index-title">Six lanes</strong>
+              <p class="meta kb-sidebar-taxonomy-note">
+                Mirrors the top strip—taxonomy view of the same routes (expect overlap).
+              </p>
+              <a class="kb-index-link" href="./knowledge-base.html">Overview</a>
+              <a class="kb-index-link" href="./kb-software.html">Software</a>
+              <a class="kb-index-link" href="./kb-terms.html">Terms</a>
+              <a class="kb-index-link" href="./kb-faq.html">FAQ</a>
+              <a class="kb-index-link" href="./kb-graph.html">Graph</a>
+              <a class="kb-index-link" href="./kb/software/index.html">Software profiles</a>
+            </div>
+
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="true">Drill down</button>
+              <div class="kb-nav-links">
+                <a class="kb-side-link" href="./tutorials.html">Tutorial library</a>
+                <a class="kb-side-link" href="./knowledge-glossary.html">Term glossary (cards)</a>
+              </div>
+            </div>
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="true">Topics</button>
+              <div class="kb-nav-links">
+                <a class="kb-side-link" href="./knowledge-base.html">Hub overview</a>
+                <a class="kb-side-link" href="./news.html">CAD news</a>
+              </div>
+            </div>
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="false">Meta</button>
+              <div class="kb-nav-links kb-collapsed">
+                <a class="kb-side-link" href="./knowledge-base.html#kb-about">About this hub</a>
+              </div>
+            </div>
+</aside>
+      <div class="kb-stage">
+                <nav class="kb-subnav" aria-label="Knowledge base sections">
+          <a class="kb-subnav-link" href="./knowledge-base.html">Overview</a>
+          <a class="kb-subnav-link active" href="./kb-software.html">Software</a>
+          <a class="kb-subnav-link" href="./kb-terms.html">Terms</a>
+          <a class="kb-subnav-link" href="./kb-faq.html">FAQ</a>
+          <a class="kb-subnav-link" href="./kb-graph.html">Graph</a>
+        </nav>
+        <div class="kb-stage-scroll">
+          <div class="kb-main kb-main--portal">
+            <div id="kb-vendor-docs" class="kb-section kb-anchor-target kb-portal-landing kb-soft-landing kb-cax-primer">
+              <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+                <a href="./index.html">Home</a>
+                <span aria-hidden="true"> / </span>
+                <a href="./knowledge-base.html">Knowledge base</a>
+                <span aria-hidden="true"> / </span>
+                <span aria-current="page">Software</span>
+              </nav>
+
+              <div class="kb-portal-hero-block">
+                <div class="kb-faq-hero-icon" aria-hidden="true">🧰</div>
+                <h1 class="kb-portal-title">Software · OEM help &amp; support</h1>
+                <p class="kb-portal-tagline">
+                  Curated gateways to official documentation and support trees—outbound links only; we never mirror OEM PDFs.
+                </p>
+                <p class="kb-portal-soft-lede">
+                  Per-seat learning summaries live in the
+                  <a href="./kb/software/index.html">software profiles index</a>.
+                </p>
+              </div>
+
+              <section id="software-profiles" class="kb-concept-group" style="margin-top: 32px;">
+                <h2 class="kb-portal-quick-heading" style="border-bottom: 2px solid #2563eb; padding-bottom: 8px;">Software Profiles</h2>
+                <div class="panel" style="margin-top: 18px; overflow-x: auto; background: #fff; border-radius: 12px; border: 1px solid #edf2f7; padding: 16px;">
+                  <table style="width: 100%; border-collapse: collapse">
+                    <thead>
+                      <tr style="border-bottom: 2px solid #f1f5f9;">
+                        <th style="text-align: left; padding: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; font-size: 0.85rem;">Product</th>
+                        <th style="text-align: left; padding: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; font-size: 0.85rem;">Vendor</th>
+                        <th style="text-align: left; padding: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; font-size: 0.85rem;">Lane</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/fastview-3d.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">3D FastView</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Large 3D CAD visualization</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/archicad.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">Archicad</a></td>
+                        <td style="padding: 12px;">GRAPHISOFT</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">BIM authoring (architectural-first)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/autocad.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">AutoCAD</a></td>
+                        <td style="padding: 12px;">Autodesk</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">2D / 3D authoring (DWG ecosystem)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/bricscad.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">BricsCAD</a></td>
+                        <td style="padding: 12px;">Bricsys</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">DWG-native CAD (2D/3D)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/civil-3d.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">Civil 3D</a></td>
+                        <td style="padding: 12px;">Autodesk</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Civil infrastructure (terrain, corridors, documents)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/dwg-fastview.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">DWG FastView</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Cloud & cross-platform DWG viewer / light editor</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/dwg-fastview-plus.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">DWG FastView Plus</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Windows viewer tier (CadWonder line)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/freecad.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">FreeCAD</a></td>
+                        <td style="padding: 12px;">Community (FOSS)</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Open-source parametric CAD</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/fusion-360.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">Fusion 360</a></td>
+                        <td style="padding: 12px;">Autodesk</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Parametric CAD / CAM (product development)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/gstarbim.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">GstarBIM</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">BIM authoring (architecture / interiors)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/gstarcad.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">GstarCAD</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">2D/3D DWG-native CAD (desktop)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/gstarcad-365.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">GstarCAD 365</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Cloud collaboration for DWG projects</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/gstarcad-architecture.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">GstarCAD Architecture</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">AEC vertical (architectural objects on DWG)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/gstarcad-mechanical.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">GstarCAD Mechanical</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Mechanical vertical (ACAD Mechanical–style tools)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/gstarcad-point-cloud.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">GstarCAD Point Cloud</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Point cloud processing on DWG</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/houseplan.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">Houseplan</a></td>
+                        <td style="padding: 12px;">Gstarsoft</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Lightweight 3D house design & rendering</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/inventor.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">Inventor</a></td>
+                        <td style="padding: 12px;">Autodesk</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Mechanical CAD (parametric parts & assemblies)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/onshape.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">Onshape</a></td>
+                        <td style="padding: 12px;">PTC</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Cloud-native MCAD (browser/desktop clients)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/revit.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">Revit</a></td>
+                        <td style="padding: 12px;">Autodesk</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">BIM authoring (building model)</td>
+                      </tr>
+                      <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 12px;"><a href="./kb/software/solidworks.html" style="font-weight: 600; color: #2563eb; text-decoration: none;">SOLIDWORKS</a></td>
+                        <td style="padding: 12px;">Dassault Systèmes</td>
+                        <td style="padding: 12px; color: #64748b; font-size: 0.9rem;">Mechanical CAD (parametric solids & drawings)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <div id="cad-sdk" class="kb-anchor-target kb-software-post-hero">
+                <p style="margin: 0">
+                  <strong>SDKs · interoperability</strong>
+                  —
+                  <a href="https://apryse.com/products/core-sdk/cad" rel="noopener noreferrer">Apryse CAD</a>,
+                  <a href="https://en.dwgfastview.com/cloud/cad-sdk/" rel="noopener noreferrer">DWG FastView</a>,
+                  <a href="https://pages.techsoft3d.com/hoops-visualize-the-leading-graphics-sdk-for-3d-cad-rendering" rel="noopener noreferrer">HOOPS</a>,
+                  <a href="https://www.datakit.com/en/" rel="noopener noreferrer">Datakit</a>,
+                  <a href="https://www.scan2cad.com/" rel="noopener noreferrer">Scan2CAD</a>.
+                  Also:
+                  <a href="./kb-terms.html#kb-term-jump">Terms</a>,
+                  <a href="./kb-graph.html">Graph</a>.
+                </p>
+              </div>
+
+              <div class="vendor-docs-wrap" style="margin-top: 24px;">
+                <h2 class="kb-portal-quick-heading" style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--text-main); font-weight: 800; letter-spacing: -0.02em;">Enterprise CAD Vendor Gateways</h2>
+                
+                <div class="kb-premium-table-wrapper" style="background: #ffffff; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #edf2f7; overflow: hidden;">
+                  <table class="vendor-docs-table" style="width: 100%; border-collapse: separate; border-spacing: 0;">
+                    <thead>
+                      <tr style="background: #f8fafc;">
+                        <th scope="col" style="padding: 20px 24px; text-align: left; font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #edf2f7; width: 18%;">Company</th>
+                        <th scope="col" style="padding: 20px 24px; text-align: left; font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #edf2f7; width: 32%;">Typical Scope (CAD / Adjacent)</th>
+                        <th scope="col" style="padding: 20px 24px; text-align: left; font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #edf2f7; width: 25%;">Primary Documentation</th>
+                        <th scope="col" style="padding: 20px 24px; text-align: left; font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #edf2f7; width: 25%;">Support · KB · FAQ</th>
+                      </tr>
+                    </thead>
+                    <tbody style="background: #fff;">
+                      <!-- Autodesk -->
+                      <tr class="kb-table-row-hover">
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <strong style="font-size: 1.1rem; color: #0f172a; font-weight: 800;">Autodesk</strong>
+                            <span style="font-size: 0.75rem; color: #3b82f6; font-weight: 600; text-transform: uppercase;">AEC · Manufacturing</span>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; color: #475569; font-size: 0.95rem; line-height: 1.6;">AutoCAD, Revit, Inventor, Civil 3D, Fusion, AEC / manufacturing</td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <a href="https://help.autodesk.com/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #eff6ff; color: #2563eb; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            Official Help <span style="margin-left: 6px; opacity: 0.7;">↗</span>
+                          </a>
+                          <div style="margin-top: 10px; font-size: 0.8rem; color: #94a3b8;">· product/year pickers</div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <a href="https://www.autodesk.com/support" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            Support Hub
+                          </a>
+                          <div style="margin-top: 10px; font-size: 0.8rem; color: #94a3b8;">· searchable articles</div>
+                        </td>
+                      </tr>
+                      <!-- Bentley -->
+                      <tr class="kb-table-row-hover">
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <strong style="font-size: 1.1rem; color: #0f172a; font-weight: 800;">Bentley Systems</strong>
+                            <span style="font-size: 0.75rem; color: #3b82f6; font-weight: 600; text-transform: uppercase;">Infrastructure</span>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; color: #475569; font-size: 0.95rem; line-height: 1.6;">MicroStation, OpenFlows, BIM / infrastructure portfolios</td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <a href="https://docs.bentley.com/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #eff6ff; color: #2563eb; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            docs.bentley.com
+                          </a>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <a href="https://www.bentley.com/support/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            Bentley Support
+                          </a>
+                        </td>
+                      </tr>
+                      <!-- Dassault -->
+                      <tr class="kb-table-row-hover">
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <strong style="font-size: 1.1rem; color: #0f172a; font-weight: 800;">Dassault Systemes</strong>
+                            <span style="font-size: 0.75rem; color: #3b82f6; font-weight: 600; text-transform: uppercase;">3D Experience</span>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; color: #475569; font-size: 0.95rem; line-height: 1.6;">SOLIDWORKS · CATIA · DELMIA · 3DEXPERIENCE stacks</td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+                            <a href="https://help.solidworks.com/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 4px 10px; background: #eff6ff; color: #2563eb; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">SOLIDWORKS Help</a>
+                            <a href="https://www.3ds.com/support/documentation/user-guides/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 4px 10px; background: #eff6ff; color: #2563eb; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">3DS User Guides</a>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top; color: #64748b; font-size: 0.9rem; line-height: 1.5;">
+                          Per-product portals on 3ds.com/support. <strong>3DEXPERIENCE often credential-gated.</strong>
+                        </td>
+                      </tr>
+                      <!-- Nemetschek -->
+                      <tr class="kb-table-row-hover">
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <strong style="font-size: 1.1rem; color: #0f172a; font-weight: 800;">Nemetschek Group</strong>
+                            <span style="font-size: 0.75rem; color: #3b82f6; font-weight: 600; text-transform: uppercase;">AEC · BIM</span>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; color: #475569; font-size: 0.95rem; line-height: 1.6;">GRAPHISOFT Archicad · Vectorworks · ALLPLAN</td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+                            <a href="https://help.graphisoft.com/AC/29/INT/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 4px 10px; background: #eff6ff; color: #2563eb; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">Archicad Hub</a>
+                            <a href="https://app-help.vectorworks.net/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 4px 10px; background: #eff6ff; color: #2563eb; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">Vectorworks Help</a>
+                            <a href="https://www.allplan.com/help/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 4px 10px; background: #eff6ff; color: #2563eb; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">ALLPLAN Service</a>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top; color: #64748b; font-size: 0.9rem; line-height: 1.5;">
+                          Brand sites (vectorworks.net, graphisoft.com, allplan.com) maintain KB tiles.
+                        </td>
+                      </tr>
+                      <!-- HCL -->
+                      <tr class="kb-table-row-hover">
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <strong style="font-size: 1.1rem; color: #0f172a; font-weight: 800;">HCL Software</strong>
+                            <span style="font-size: 0.75rem; color: #3b82f6; font-weight: 600; text-transform: uppercase;">Manufacturing</span>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; color: #475569; font-size: 0.95rem; line-height: 1.6;">CAMWorks CAM-on-CAD, manufacturing add-ins</td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top; color: #94a3b8; font-size: 0.85rem;">In-product help + partner tiles</td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+                            <a href="https://camworks.com/customer-support/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 4px 10px; background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">CAMWorks Support</a>
+                            <a href="https://support.hcl-software.com/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 4px 10px; background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">HCL Support</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Siemens -->
+                      <tr class="kb-table-row-hover">
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <strong style="font-size: 1.1rem; color: #0f172a; font-weight: 800;">Siemens DISW</strong>
+                            <span style="font-size: 0.75rem; color: #3b82f6; font-weight: 600; text-transform: uppercase;">Product Lifecycle</span>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; color: #475569; font-size: 0.95rem; line-height: 1.6;">NX, Solid Edge, Teamcenter, Simcenter, Tecnomatix</td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <a href="https://support.sw.siemens.com/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #eff6ff; color: #2563eb; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            Support Center <span style="margin-left: 6px; opacity: 0.7;">↗</span>
+                          </a>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top; color: #64748b; font-size: 0.9rem; line-height: 1.5;">
+                          Unified Support Center. <strong>Entitlement-gated KB & downloads.</strong>
+                        </td>
+                      </tr>
+                      <!-- PTC -->
+                      <tr class="kb-table-row-hover">
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <strong style="font-size: 1.1rem; color: #0f172a; font-weight: 800;">PTC Inc.</strong>
+                            <span style="font-size: 0.75rem; color: #3b82f6; font-weight: 600; text-transform: uppercase;">PLM · CAD · IoT</span>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; color: #475569; font-size: 0.95rem; line-height: 1.6;">Creo, Windchill, Vuforia, Arena…</td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <a href="https://www.ptc.com/en/support/help/creo" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #eff6ff; color: #2563eb; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            Creo Help Hub
+                          </a>
+                        </td>
+                        <td style="padding: 24px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
+                          <a href="https://www.ptc.com/en/support/help" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            PTC Help Center
+                          </a>
+                        </td>
+                      </tr>
+                      <!-- Gstarsoft -->
+                      <tr class="kb-table-row-hover">
+                        <td style="padding: 24px; border-bottom: none; vertical-align: top;">
+                          <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <strong style="font-size: 1.1rem; color: #0f172a; font-weight: 800;">Gstarsoft</strong>
+                            <a href="./kb/vendors/gstarsoft.html" style="font-size: 0.8rem; color: #3b82f6; text-decoration: none; font-weight: 600;">Full Profile →</a>
+                          </div>
+                        </td>
+                        <td style="padding: 24px; border-bottom: none; color: #475569; font-size: 0.95rem; line-height: 1.6;">GstarCAD / verticals · GstarCAD 365 · GstarBIM · Houseplan · DWG FastView ecosystem</td>
+                        <td style="padding: 24px; border-bottom: none; vertical-align: top;">
+                          <a href="https://www.gstarcad.net/support/help" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #eff6ff; color: #2563eb; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            Support › Help
+                          </a>
+                        </td>
+                        <td style="padding: 24px; border-bottom: none; vertical-align: top;">
+                          <a href="https://en.dwgfastview.com/" class="kb-pill-link" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 6px 14px; background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">
+                            DWG FastView
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div id="vendor-docs-excluded" class="vendor-docs-excluded card" style="margin: 22px 0 18px; padding: 14px 16px">
+                <h4 style="margin-top: 0; font-size: 1rem">Not listed for international self-service</h4>
+                <p class="meta" style="margin: 0 0 10px">
+                  The table lists only vendors with a <strong>credible English-global help or support surface</strong>. The OEMs below rely on <strong>domestic Greater China or mainland China</strong> documentation and sales channels; they do not maintain an equivalent <strong>standalone English-first help hub</strong> for overseas users, so we omit them from the main grid to avoid implying parity.
+                </p>
+                <ul class="meta" style="margin: 0; padding-left: 1.2rem">
+                  <li>
+                    <strong>VHSoft (纬衡科技)</strong> — VHCAD and AEC-related tools are marketed heavily through regional Greater China sites. Public material is predominantly Chinese-facing; there is no consolidated global documentation tree comparable to the international vendors in the table above.
+                  </li>
+                  <li>
+                    <strong>CAXA · Digitalchina</strong> — CAD and enterprise PLM lines target mainland China deployments with region-specific licensing and help launchers. International English documentation is not presented as a primary, self-contained portal for the same scope of products.
+                  </li>
+                </ul>
+              </div>
+
+              <h4 class="vendor-docs-editorials-title">Per-vendor navigation notes</h4>
+              <p class="meta" style="margin: 0 0 12px; max-width: 52rem">
+                Short <strong>original</strong> pointers on how each official site is usually navigated (not quoted from OEM manuals). Expand a row to read; all deep content remains on the vendor.
+              </p>
+
+              <div class="vendor-docs-editorials">
+                <details class="vendor-docs-details">
+                  <summary>Autodesk — how to enter</summary>
+                  <p>
+                    Begin at <strong>help.autodesk.com</strong> and lock the <strong>product + release year</strong> before searching—command names and palettes drift between versions. Use the Autodesk Knowledge Network / support hub when you have an error code or install ID; downloads and some articles require <strong>Autodesk Account</strong> entitlement. In desktop apps, Help → Learn often jumps to the matching web tree for your build.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Bentley — how to enter</summary>
+                  <p>
+                    <strong>docs.bentley.com</strong> is the documentation front door; filter by product family and whether you are on CONNECT-hosted services or legacy installs. Large infrastructure portfolios split across multiple microsites, so prefer product-specific landing pages from Bentley’s support navigation rather than guessing paths. Entitlement-gated downloads and communities sit under <strong>bentley.com/support</strong>.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Dassault Systèmes — how to enter</summary>
+                  <p>
+                    Treat <strong>SOLIDWORKS web help</strong> and <strong>3DS platform / CATIA / DELMIA</strong> catalogs as separate worlds—URLs and login behavior differ. Consumer-grade discovery works from the public user-guides portal; <strong>3DEXPERIENCE</strong>-hosted documentation often needs credentials even for browsing. Always match service pack or hotfix level when the tree is versioned.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Nemetschek brands — how to enter</summary>
+                  <p>
+                    GRAPHISOFT, Vectorworks, and ALLPLAN operate <strong>distinct help domains</strong>; bookmark the brand you use. Archicad paths embed version segments (e.g., <code>/29/</code>)—swap only when you upgrade. Vectorworks uses rolling online help per release. ALLPLAN merges help and service ticketing on the brand site—pick language early because regional bundles differ.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>HCL / CAMWorks — how to enter</summary>
+                  <p>
+                    CAM documentation is split between <strong>in-product help</strong>, CAMWorks.com customer tiles, and the broader <strong>HCL Software support</strong> umbrella. Start from CAMWorks Support for CAM-specific FAQs; escalate through HCL when you need entitlement-backed patches or account-level tickets. Expect manufacturing partners to route some requests before HCL.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Siemens — how to enter</summary>
+                  <p>
+                    Use the <strong>Siemens Support Center</strong> as the single gate for Doc Center articles, downloads, and PR/ISR references—almost everything valuable is tied to <strong>customer entitlement</strong>. NX, Solid Edge, Teamcenter, and Simcenter each have their own manuals inside the tree; search with exact build numbers. Legacy GTAC-era bookmarks may still redirect—follow the unified portal when in doubt.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Synopsys — how to enter</summary>
+                  <p>
+                    Semiconductor EDA stacks here—not mechanical CAD. Public marketing pages point to documentation, but <strong>SolvNetPlus</strong> hosts the real manuals and is <strong>customer-gated</strong>. Use the documentation landing to see what exists, then sign in for PDFs and interactive help. TCAD vs digital-implementation products use different tool families; scope your search narrowly.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>PTC — how to enter</summary>
+                  <p>
+                    PTC splits <strong>Creo</strong>, <strong>Windchill</strong>, and add-ons into separate help centers under <strong>ptc.com/en/support/help</strong>; pick the product line first. Articles and Windchill administrative guides often assume a running server—filter for your deployment model. When Windchill redirects to PLM cloud topics, confirm whether you are Creo + desktop Windchill vs SaaS environment.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Ansys — how to enter</summary>
+                  <p>
+                    Ansys documentation is organized by product (Discovery, Mechanical, Fluent, Rocky, etc.) inside secured help trees—your install or license role controls depth. Start from the Customer Support Space for patches and release guidance, then open the HTML help that matches your installed <strong>major.minor</strong> version. Academic users may see separate Innovation Space learning hubs.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Altium — how to enter</summary>
+                  <p>
+                    The <strong>product documentation</strong> site is the canonical command and UI reference; Altium 365 and Designer share patterns but not identical menus. The public <strong>wiki</strong> is community-sourced—use it for workflow ideas, but trust the official docs for semantics. Knowledge Base articles bridge licensing, updates, and interoperability with ECAD data management.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Hexagon — how to enter</summary>
+                  <p>
+                    Hexagon aggregates many acquisitions—<strong>MSC / Vero / metrology</strong> documentation may live on different subdomains (e.g., SimCompanion vs Hexagon MI docs). Identify your division first, then search within that silo; cross-product licensing is not always obvious from generic search. Login walls are common for solver downloads and full CAE decks.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Altair — how to enter</summary>
+                  <p>
+                    The <strong>help.altair.com</strong> launcher routes to HyperWorks, Inspire, OptiStruct, and related solvers—pick the suite that matches your seat file. Examples and release notes are version-stamped; mixing 2023 and 2025 trees causes broken deep links. Regional support portals handle tickets after you exhaust the public help tree for install-time issues.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>ESI — how to enter</summary>
+                  <p>
+                    ESI’s public doc surface is deliberately thin: substantive PDFs and bundles sit in <strong>myESI</strong> behind customer login. Use the software-documentation page to learn what exists, then authenticate for downloads. Product marketing pages sometimes list high-level release notes suitable for pre-sales questions only.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Corel — how to enter</summary>
+                  <p>
+                    CorelDRAW and technical suites ship <strong>webhelp shells</strong> per OS and major version—open the landing that matches your product name. The knowledge base aggregates official PDF redistribution statements and version-specific user guides. Graphic suite bundles may share core documentation; confirm whether you are on subscription vs perpetual channel.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Gstarsoft — how to enter</summary>
+                  <p>
+                    Start from <strong>gstarcad.net</strong> for product positioning, then open <strong>Support → Help</strong> for the PDF index (filter by product + version). Match <strong>language</strong> and <strong>year</strong> to your install—Linux builds ship separate guide titles when published. Viewers and cloud tools (DWG FastView, GstarCAD 365) use different accounts from desktop seats; keep credentials straight before troubleshooting sync issues. Deeper LearnCAD mapping: <a href="./kb/vendors/gstarsoft.html">vendor profile</a> and <a href="./kb/software/index.html">software profiles</a>.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>ZWCAD / ZWSOFT — how to enter</summary>
+                  <p>
+                    Stay on the <strong>English Global</strong> support skin when possible. The <strong>ZWCAD Help Center</strong> aggregates FAQs, tutorials, and task articles; <strong>help.zwsoft.com</strong> exposes the full HTML help bundles with product and language selectors. For command-level lookup, the Functions &amp; commands index is usually faster than guessing categories. ZW3D users should switch product context before searching—do not reuse ZWCAD-only paths.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Graebert — how to enter</summary>
+                  <p>
+                    Graebert maintains <strong>ARES branded help</strong> plus deep <strong>onlinehelp</strong> trees; OEM partners (DraftSight and others) sometimes skin the same core. Start from learn.graebert.com, then drop into onlinehelp for command-level topics. Help Center articles cover licensing and known issues—bookmark the exact ARES generation you deploy (service release matters for API behavior).
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Bricsys / BricsCAD — how to enter</summary>
+                  <p>
+                    Bricsys combines a <strong>command encyclopedia</strong> with knowledge base entries on one subdomain—search works well if you paste exact command names. BIM vs Mechanical licenses expose different palettes; filter product mode before blaming “missing” tools. Released builds also publish changelog-style notes near downloads—pair them with Help Center entries when diagnosing regressions.
+                  </p>
+                </details>
+                <details class="vendor-docs-details">
+                  <summary>Nanosoft nanoCAD — how to enter</summary>
+                  <p>
+                    Pick your <strong>product line first</strong> on the Learning / Help Center chooser—plus, Mechanical, BIM, and platform builds diverge. On Windows, bundled PDF/HTML under <code>\help</code> remains authoritative when offline. The KB covers activation and interoperability; localized pages may duplicate English topics—prefer the newest revision date when both exist.
+                  </p>
+                </details>
+              </div>
+
+              <p class="meta vendor-docs-tail" style="margin-top: 48px;">
+                <strong>Next steps for scaling coverage:</strong> add per-product “start here” subpages keyed to OEM headings; track yearly URL migrations and entitlement notes; link out only—keep each expandable note concise so the page stays editorial, not a manual mirror (<a href="./legal.html">legal</a>).
+              </p>
+
+              <ul class="seo-link-list kb-cax-sources">
+                <li><a href="./kb/software/index.html">Software profiles index — per-seat pages</a></li>
+                <li><a href="./tutorials.html">Tutorial library — third-party instructors</a></li>
+              </ul>
+            </div> <!-- End kb-section (#kb-vendor-docs) -->
+          </div> <!-- End kb-main -->
+        </div> <!-- End kb-stage-scroll -->
+      </div> <!-- End kb-stage -->
+    </div> <!-- End kb-app -->
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to original sources and do not host third-party videos.</p>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Learn</h4>
+          <ul class="site-footer-links">
+            <li><a href="./tutorials.html">Tutorials</a></li>
+            <li><a href="./knowledge-base.html">Knowledge base</a></li>
+            <li><a href="./news.html">CAD news</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Site</h4>
+          <ul class="site-footer-links">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Legal</h4>
+          <ul class="site-footer-links">
+            <li><a href="./privacy.html">Privacy policy</a></li>
+            <li><a href="./terms.html">Terms of use</a></li>
+            <li><a href="./legal.html">Copyright &amp; disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="./app.js" defer></script>
+    <script src="./knowledge.js?v=20260506_gstarcad" defer></script>
+    <script>
+      document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

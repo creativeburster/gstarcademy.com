@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software profiles · CAD Knowledge Base</title>
+    <meta name="description" content="Index of per-software KB profiles with links to tutorials and vendor documentation hubs." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="https://learncad.io/kb/software/index.html" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.css?v=20260427kb12" as="style" />
+    <link rel="stylesheet" href="../../styles.css?v=20260427kb12" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "CAD software profiles",
+        "url": "https://learncad.io/kb/software/index.html",
+        "description": "Index of per-software knowledge base profile pages."
+      }
+    </script>
+  </head>
+  <body data-page="knowledge">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="../../index.html">
+          <span class="brand-badge">LC</span>
+          <span>LearnCAD</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+          <a class="nav-link" data-nav="knowledge" href="../../knowledge-base.html">Knowledge Base</a>
+          <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+          <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+          <a class="nav-link" data-nav="about" href="../../about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="kb-app" id="kb-app">
+      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" aria-label="Knowledge base navigation">
+        <div class="kb-rail-toolbar">
+          <span class="kb-rail-toolbar-label" id="kb-rail-label">Navigation</span>
+          <button
+            type="button"
+            class="kb-rail-toggle"
+            id="kb-rail-toggle"
+            aria-labelledby="kb-rail-label"
+            aria-controls="kb-rail"
+            aria-expanded="true"
+            title="Hide navigation (wider reading)"
+          >
+            <span class="kb-rail-toggle-icon" aria-hidden="true">◀</span>
+            <span class="kb-sr-only">Collapse navigation sidebar</span>
+          </button>
+        </div>
+        <label class="kb-sr-only" for="kb-sidebar-search">Search knowledge base</label>
+        <input
+          type="search"
+          id="kb-sidebar-search"
+          class="kb-portal-search"
+          placeholder="Search titles &amp; terms…"
+          autocomplete="off"
+        />
+
+            <div class="kb-index-box">
+              <strong class="kb-index-title">Six lanes</strong>
+              <p class="meta kb-sidebar-taxonomy-note">
+                Mirrors the top strip—taxonomy view of the same routes (expect overlap).
+              </p>
+              <a class="kb-index-link" href="../../knowledge-base.html">Overview</a>
+              <a class="kb-index-link" href="../../kb-software.html">Software</a>
+              <a class="kb-index-link" href="../../kb-terms.html">Terms</a>
+              <a class="kb-index-link" href="../../kb-faq.html">FAQ</a>
+              <a class="kb-index-link" href="../../kb-graph.html">Graph</a>
+              <a class="kb-index-link" href="./index.html">Software profiles</a>
+            </div>
+
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="true">Drill down</button>
+              <div class="kb-nav-links">
+                <a class="kb-side-link" href="../../tutorials.html">Tutorial library</a>
+                <a class="kb-side-link" href="../../knowledge-glossary.html">Term glossary (cards)</a>
+              </div>
+            </div>
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="true">Topics</button>
+              <div class="kb-nav-links">
+                <a class="kb-side-link" href="../../knowledge-base.html">Hub overview</a>
+                <a class="kb-side-link" href="../../news.html">CAD news</a>
+              </div>
+            </div>
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="false">Meta</button>
+              <div class="kb-nav-links kb-collapsed">
+                <a class="kb-side-link" href="../../knowledge-base.html#kb-about">About this hub</a>
+              </div>
+            </div>
+      </aside>
+      <div class="kb-stage">
+        <nav class="kb-subnav" aria-label="Knowledge base sections">
+          <a class="kb-subnav-link" href="../../knowledge-base.html">Overview</a>
+          <a class="kb-subnav-link active" href="../../kb-software.html">Software</a>
+          <a class="kb-subnav-link" href="../../kb-terms.html">Terms</a>
+          <a class="kb-subnav-link" href="../../kb-faq.html">FAQ</a>
+          <a class="kb-subnav-link" href="../../kb-graph.html">Graph</a>
+        </nav>
+        <div class="kb-stage-scroll">
+          <div class="kb-main kb-main--portal">
+
+            <div class="kb-section kb-anchor-target">
+              <div class="kb-section-head">
+                <h1 style="margin: 0">Software profiles</h1>
+                <span class="section-note">Stable URLs for each product</span>
+              </div>
+              <p class="meta" style="margin-top: 10px; max-width: 52rem">
+                Each row links to a lightweight <strong>product profile</strong> you can reference from terms and tutorial notes. Source data: <code>data/kb_software.json</code>. Regenerate with
+                <code>python scripts/render_kb_software_pages.py</code>.
+              </p>
+              <p class="meta" style="margin-top: 8px">
+                <a href="../../kb-software.html">← Software landscape (hub)</a>
+              </p>
+
+              <div class="panel" style="margin-top: 18px; overflow-x: auto">
+                <table style="width: 100%; border-collapse: collapse">
+                  <thead>
+                    <tr>
+                      <th style="text-align: left; padding: 8px">Product</th>
+                      <th style="text-align: left; padding: 8px">Vendor</th>
+                      <th style="text-align: left; padding: 8px">Lane</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            <tr>
+              <td><a href="./fastview-3d.html">3D FastView</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">Large 3D CAD visualization</td>
+            </tr>
+            <tr>
+              <td><a href="./archicad.html">Archicad</a></td>
+              <td>GRAPHISOFT</td>
+              <td class="meta">BIM authoring (architectural-first)</td>
+            </tr>
+            <tr>
+              <td><a href="./autocad.html">AutoCAD</a></td>
+              <td>Autodesk</td>
+              <td class="meta">2D / 3D authoring (DWG ecosystem)</td>
+            </tr>
+            <tr>
+              <td><a href="./bricscad.html">BricsCAD</a></td>
+              <td>Bricsys</td>
+              <td class="meta">DWG-native CAD (2D/3D)</td>
+            </tr>
+            <tr>
+              <td><a href="./civil-3d.html">Civil 3D</a></td>
+              <td>Autodesk</td>
+              <td class="meta">Civil infrastructure (terrain, corridors, documents)</td>
+            </tr>
+            <tr>
+              <td><a href="./dwg-fastview.html">DWG FastView</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">Cloud &amp; cross-platform DWG viewer / light editor</td>
+            </tr>
+            <tr>
+              <td><a href="./dwg-fastview-plus.html">DWG FastView Plus</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">Windows viewer tier (CadWonder line)</td>
+            </tr>
+            <tr>
+              <td><a href="./freecad.html">FreeCAD</a></td>
+              <td>Community (FOSS)</td>
+              <td class="meta">Open-source parametric CAD</td>
+            </tr>
+            <tr>
+              <td><a href="./fusion-360.html">Fusion 360</a></td>
+              <td>Autodesk</td>
+              <td class="meta">Parametric CAD / CAM (product development)</td>
+            </tr>
+            <tr>
+              <td><a href="./gstarbim.html">GstarBIM</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">BIM authoring (architecture / interiors)</td>
+            </tr>
+            <tr>
+              <td><a href="./gstarcad.html">GstarCAD</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">2D/3D DWG-native CAD (desktop)</td>
+            </tr>
+            <tr>
+              <td><a href="./gstarcad-365.html">GstarCAD 365</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">Cloud collaboration for DWG projects</td>
+            </tr>
+            <tr>
+              <td><a href="./gstarcad-architecture.html">GstarCAD Architecture</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">AEC vertical (architectural objects on DWG)</td>
+            </tr>
+            <tr>
+              <td><a href="./gstarcad-mechanical.html">GstarCAD Mechanical</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">Mechanical vertical (ACAD Mechanical–style tools)</td>
+            </tr>
+            <tr>
+              <td><a href="./gstarcad-point-cloud.html">GstarCAD Point Cloud</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">Point cloud processing on DWG</td>
+            </tr>
+            <tr>
+              <td><a href="./houseplan.html">Houseplan</a></td>
+              <td>Gstarsoft</td>
+              <td class="meta">Lightweight 3D house design &amp; rendering</td>
+            </tr>
+            <tr>
+              <td><a href="./inventor.html">Inventor</a></td>
+              <td>Autodesk</td>
+              <td class="meta">Mechanical CAD (parametric parts &amp; assemblies)</td>
+            </tr>
+            <tr>
+              <td><a href="./onshape.html">Onshape</a></td>
+              <td>PTC</td>
+              <td class="meta">Cloud-native MCAD (browser/desktop clients)</td>
+            </tr>
+            <tr>
+              <td><a href="./revit.html">Revit</a></td>
+              <td>Autodesk</td>
+              <td class="meta">BIM authoring (building model)</td>
+            </tr>
+            <tr>
+              <td><a href="./solidworks.html">SOLIDWORKS</a></td>
+              <td>Dassault Systèmes</td>
+              <td class="meta">Mechanical CAD (parametric solids &amp; drawings)</td>
+            </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to original sources and do not host third-party videos.</p>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Learn</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../tutorials.html">Tutorials</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge base</a></li>
+            <li><a href="../../tutorials.html">Tutorial library</a></li>
+            <li><a href="../../news.html">CAD news</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Site</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Legal</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../privacy.html">Privacy policy</a></li>
+            <li><a href="../../terms.html">Terms of use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="../../app.js" defer></script>
+    <script src="../../knowledge.js?v=20260506_gstarcad" defer></script>
+  </body>
+</html>

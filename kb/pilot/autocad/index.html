@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoCAD Knowledge Pilot · IA prototype · LearnCAD</title>
+    <meta
+      name="description"
+      content="Pilot hub for reorganized CAD KB: Autodesk reference, clustered term stubs, QA lane, links to graph and software profile."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="https://learncad.io/kb/pilot/autocad/index.html" />
+    <link rel="icon" type="image/svg+xml" href="../../../favicon.svg" />
+    <link rel="preload" href="../../../styles.css?v=20260427kb12" as="style" />
+    <link rel="stylesheet" href="../../../styles.css?v=20260427kb12" />
+  </head>
+  <body data-page="knowledge">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="../../../index.html">
+          <span class="brand-badge">LC</span>
+          <span>LearnCAD</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="../../../index.html">Home</a>
+          <a class="nav-link" data-nav="knowledge" href="../../../knowledge-base.html">Knowledge Base</a>
+          <a class="nav-link" href="../../../tutorials.html">Tutorials</a>
+          <a class="nav-link" href="../../../news.html">News</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="max-width: 52rem; padding: 28px 16px 64px">
+      <p class="meta" style="margin-top: 0">
+        <a href="../../../knowledge-base.html">Knowledge base</a>
+        ·
+        <a href="../../software/autocad.html">AutoCAD · software profile</a>
+      </p>
+      <h1 style="margin: 12px 0 8px">AutoCAD pilot · knowledge IA</h1>
+      <p class="meta" style="max-width: 48rem">
+        This page prototypes the target structure you described—<strong>term indexes</strong> (LearnBuffett-style
+        clustered lists leading to per-term pages later), <strong>vendor/software</strong> hooks, <strong>Q&amp;A lane</strong>
+        (forum-style grouping), and upstream links to Autodesk’s messaging (not scraped content). CAx/domain ideas are
+        intentionally folded here as term clusters rather than standalone thin hub pages.
+      </p>
+
+      <section class="section" style="padding-top: 18px">
+        <h2 class="section-title">快速入口 Quick entry</h2>
+        <div class="grid grid-3" style="margin-top: 12px">
+          <a class="card" href="../../software/autocad.html">
+            <h3 style="margin-top: 0">Software · AutoCAD</h3>
+            <p class="meta">Stable product profile · outputs · drill-down links.</p>
+          </a>
+          <a class="card" href="#term-index">
+            <h3 style="margin-top: 0">Terms · clustered index</h3>
+            <p class="meta">Grouped slugs placeholder until /kb/terms/{slug} exists.</p>
+          </a>
+          <a class="card" href="./qa.html">
+            <h3 style="margin-top: 0">AutoCAD Q&amp;A · pilot</h3>
+            <p class="meta">Tagged questions (Raman QA pattern, static first).</p>
+          </a>
+          <a class="card" href="../../../kb-graph.html">
+            <h3 style="margin-top: 0">Knowledge graph</h3>
+            <p class="meta">Roadmap: graph on top, excerpts below from entities.</p>
+          </a>
+          <a class="card" href="https://www.autodesk.com/products/autocad/overview" rel="noopener noreferrer">
+            <h3 style="margin-top: 0">Autodesk · product story</h3>
+            <p class="meta">Official overview (workflow, AI assist, collaboration, toolsets).</p>
+          </a>
+          <a class="card" href="../../../kb-software.html">
+            <h3 style="margin-top: 0">Help · Autodesk entry</h3>
+            <p class="meta">Navigate to Autodesk Help hub (versioned commands).</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="vendor" class="section" style="padding-top: 8px">
+        <h2 class="section-title">Company lane (stub)</h2>
+        <p class="meta" style="max-width: 48rem">
+          <strong>Autodesk</strong> — future <code>/kb/vendors/autodesk.html</code> should enumerate AutoCAD, Revit, Civil 3D,
+          Inventor, Fusion 360, etc., each linking back here and to sibling products.
+        </p>
+      </section>
+
+      <section id="term-index" class="section kb-anchor-target" style="padding-top: 8px">
+        <h2 class="section-title">Term index · clustered (LearnBuffett-style outline)</h2>
+        <p class="meta">Each slug below should become its own glossary card with Related terms + Related software. Data seeds live in <code>data/kb_autocad_pilot.json</code>.</p>
+
+        <h3 style="margin: 18px 0 8px">2D &amp; 3D drafting</h3>
+        <ul class="seo-link-list">
+          <li><code>dwg</code>, <code>cartesian-coordinates</code>, <code>polyline</code>, <code>solid-model</code></li>
+        </ul>
+
+        <h3 style="margin: 18px 0 8px">Drawing structure</h3>
+        <ul class="seo-link-list">
+          <li><code>layer</code>, <code>block</code>, <code>xref</code>, <code>layout</code></li>
+        </ul>
+
+        <h3 style="margin: 18px 0 8px">Documentation &amp; publish</h3>
+        <ul class="seo-link-list">
+          <li><code>plot</code>, <code>dimension</code>, <code>annotation-scale</code>, <code>sheet-set</code></li>
+        </ul>
+
+        <h3 style="margin: 18px 0 8px">Industry toolsets (aligned with Autodesk product page)</h3>
+        <ul class="seo-link-list">
+          <li>Architecture · Mechanical · MEP · Electrical · Plant 3D · Map 3D · Raster Design — stubs only; deepen per customer workflow.</li>
+        </ul>
+
+        <h3 style="margin: 18px 0 8px">From former CAx / domains hubs</h3>
+        <p class="meta">Fold thin domain copy into terminology: CAD vs CAE workflow, machining introduction, AEC drafting contrast.</p>
+        <ul class="seo-link-list">
+          <li><code>cae-workflow-overview</code>, <code>cam-basics</code>, <code>aec-vs-mfg-drafting</code></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-desc">Pilot IA page — not OEM documentation.</p>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> LearnCAD</p>
+      </div>
+    </footer>
+    <script src="../../../app.js" defer></script>
+  </body>
+</html>

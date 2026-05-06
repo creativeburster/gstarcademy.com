@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAD Knowledge Base · CAD, CAE &amp; CAM</title>
+    <meta
+      name="description"
+      content="CAD vs CAE vs CAM literacy primer and curated sources."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="/knowledge-cax.html" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preload" href="./styles.css?v=20260427kb12" as="style" />
+    <link rel="stylesheet" href="./styles.css?v=20260427kb12" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "DefinedTermSet",
+        "name": "CAD Knowledge Base",
+        "url": "https://learncad.io/knowledge-cax.html",
+        "description": "CAD vs CAE vs CAM literacy primer and curated sources."
+      }
+    </script>
+  </head>
+  <body data-page="knowledge">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="./index.html">
+          <span class="brand-badge">LC</span>
+          <span>LearnCAD</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" data-nav="home" href="./index.html">Home</a>
+          <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
+          <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
+          <a class="nav-link" data-nav="news" href="./news.html">News</a>
+          <a class="nav-link" data-nav="about" href="./about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="kb-app" id="kb-app">
+      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" aria-label="Knowledge base navigation">
+        <div class="kb-rail-toolbar">
+          <span class="kb-rail-toolbar-label" id="kb-rail-label">Navigation</span>
+          <button
+            type="button"
+            class="kb-rail-toggle"
+            id="kb-rail-toggle"
+            aria-labelledby="kb-rail-label"
+            aria-controls="kb-rail"
+            aria-expanded="true"
+            title="Hide navigation (wider reading)"
+          >
+            <span class="kb-rail-toggle-icon" aria-hidden="true">◀</span>
+            <span class="kb-sr-only">Collapse navigation sidebar</span>
+          </button>
+        </div>
+        <label class="kb-sr-only" for="kb-sidebar-search">Search knowledge base</label>
+        <input
+          type="search"
+          id="kb-sidebar-search"
+          class="kb-portal-search"
+          placeholder="Search titles &amp; terms…"
+          autocomplete="off"
+        />
+
+                                                            <div class="kb-index-box">
+              <strong class="kb-index-title">Six lanes</strong>
+              <p class="meta kb-sidebar-taxonomy-note">
+                Mirrors the top strip—taxonomy view of the same routes (expect overlap).
+              </p>
+              <a class="kb-index-link" href="./knowledge-base.html">Overview</a>
+              <a class="kb-index-link" href="./kb-software.html">Software</a>
+              <a class="kb-index-link" href="./kb-terms.html">Terms</a>
+              <a class="kb-index-link" href="./kb-faq.html">FAQ</a>
+              <a class="kb-index-link" href="./kb-graph.html">Graph</a>
+              <a class="kb-index-link" href="./kb/software/index.html">Software profiles</a>
+            </div>
+
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="true">Drill down</button>
+              <div class="kb-nav-links">
+                <a class="kb-side-link" href="./tutorials.html">Tutorial library</a>
+                <a class="kb-side-link" href="./knowledge-glossary.html">Term glossary (cards)</a>
+              </div>
+            </div>
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="true">Topics</button>
+              <div class="kb-nav-links">
+                <a class="kb-side-link" href="./knowledge-base.html">Hub overview</a>
+                <a class="kb-side-link" href="./news.html">CAD news</a>
+              </div>
+            </div>
+            <div class="kb-nav-group">
+              <button class="kb-nav-toggle" aria-expanded="false">Meta</button>
+              <div class="kb-nav-links kb-collapsed">
+                <a class="kb-side-link" href="./knowledge-base.html#kb-about">About this hub</a>
+              </div>
+            </div>
+</aside>
+      <div class="kb-stage">
+                                        <nav class="kb-subnav" aria-label="Knowledge base sections">
+          <a class="kb-subnav-link active" href="./knowledge-base.html">Overview</a>
+          <a class="kb-subnav-link" href="./kb-software.html">Software</a>
+          <a class="kb-subnav-link" href="./kb-terms.html">Terms</a>
+          <a class="kb-subnav-link" href="./kb-faq.html">FAQ</a>
+          <a class="kb-subnav-link" href="./kb-graph.html">Graph</a>
+        </nav>
+        <div class="kb-stage-scroll">
+          <div class="kb-main kb-main--portal">
+            <div id="kb-cax" class="kb-section kb-anchor-target kb-cax-primer">
+              <div class="card" style="margin: 0 0 14px; padding: 12px 14px; border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 12px; background: rgba(37, 99, 235, 0.04)">
+                <p class="meta" style="margin: 0; max-width: 52rem">
+                  <strong>What this “CAx” page is for:</strong> a single orientation map for
+                  <strong>computer-aided anything</strong>—<em>CAD</em> (author geometry &amp; drawings),
+                  <em>CAE</em> (simulate), <em>CAM</em> (prepare manufacturing). It is <strong>literacy</strong>, not a product shoot-out. When you are ready to practise, use
+                  <a href="./paths.html">Learning paths</a>; when you need influencer videos, jump to <a href="./tutorials.html">Tutorials</a>.
+                  <strong>OEM docs vs SDKs:</strong> end-user manuals and support hubs are under
+                  <a href="./kb-software.html">Software</a>; if you embed CAD into <em>your</em> product, see
+                  <a href="./kb-software.html#cad-sdk">CAD SDK &amp; interoperability APIs</a>.
+                </p>
+              </div>
+              <div class="kb-section-head">
+                <h3>CAD, CAE &amp; CAM — foundations</h3>
+                <span class="section-note">Literacy primer · not a substitute for official docs</span>
+              </div>
+              <p class="meta" style="margin-top: 0; max-width: 52rem">
+                This page distills widely used definitions and workflows so you can read job posts, vendor pages, and tutorials without getting lost in acronyms. It is a <strong>structured rewrite</strong> informed by general-reference and educational sources listed at the end—not a verbatim copy of any single site.
+              </p>
+
+              <h4 class="kb-cax-h">What computer-aided design (CAD) is</h4>
+              <p class="meta">
+                <strong>CAD</strong> means using a computer to create, change, analyze, or refine a design. Practically, you work in <strong>2D</strong> (drawings, layouts) and/or <strong>3D</strong> (solids, surfaces, assemblies). Good CAD data carries more than pretty geometry: materials, dimensions, tolerances, and other notes needed for review, procurement, and manufacturing. Output is often electronic files for plotting, machining, or collaboration.
+              </p>
+              <p class="meta">
+                CAD is one piece of <strong>digital product development</strong>. Alongside it you typically meet <strong>CAE</strong> (simulation), <strong>CAM</strong> (manufacturing prep), rendering, data management (PDM/PLM), and—for electronics—<strong>EDA</strong> tools. You do not need every license on day one; you need to know <em>which role each class of tool plays</em>.
+              </p>
+
+              <h4 class="kb-cax-h">CAD vs. CAE vs. CAM (simple distinctions)</h4>
+              <dl class="kb-cax-dl">
+                <dt>CAD — “shape the thing”</dt>
+                <dd>
+                  Authors geometry and drawings: parts, assemblies, details, BIM models, etc. Designers and drafters spend much of their time here; other roles consume CAD data for review and release.
+                </dd>
+                <dt>CAE — “test the thing in the computer”</dt>
+                <dd>
+                  <strong>Computer-aided engineering</strong> covers simulation and analysis: loads, motion, heat, fluids, optimization. Common families include finite-element analysis (FEA), computational fluid dynamics (CFD), and broader multidisciplinary optimization. CAE reduces physical prototypes by iterating on <strong>virtual prototypes</strong> (sometimes called digital twins in marketing language).
+                </dd>
+                <dt>CAM — “tell machines how to make it”</dt>
+                <dd>
+                  <strong>Computer-aided manufacturing</strong> turns design data into instructions for production—CNC toolpaths, robot programs, additive jobs, and related automation—so repeatable parts come off the floor efficiently and with controlled material use.
+                </dd>
+              </dl>
+              <p class="meta">
+                In practice the three blur at the edges: modern suites integrate CAD + CAE + CAM, and data loops back when manufacturing feedback forces design changes. Still, the labels help you understand <strong>which question you are answering</strong>: geometry (CAD), physics/performance (CAE), or process/motion (CAM).
+              </p>
+
+              <h4 class="kb-cax-h">Why the history still matters</h4>
+              <p class="meta">
+                Numerical control and early drafting automation go back to the 1950s–60s; CAD and CAM grew up together as industries moved from boards to disks. Today’s “obvious” features—layers, constraints, BOMs, interference checks—were once revolutionary. Knowing this helps when legacy drawings, odd file formats, or job titles (“drafter” vs “designer” vs “analyst”) show up in real teams.
+              </p>
+
+              <h4 class="kb-cax-h">Engineering software market — big picture only</h4>
+              <p class="meta">
+                Analysts group <strong>CAD, CAM, CAE</strong> with adjacent domains such as <strong>AEC</strong> (built-environment design) and <strong>EDA</strong> (chip/board design) when they size the “engineering software” market. Forecasts vary by firm and methodology; one public summary (Reanin, 2026) cites roughly <strong>USD 43B</strong> in 2025 rising toward <strong>USD 82B</strong> by 2032 at about <strong>10% CAGR</strong>, driven by integrated suites, cloud delivery, simulation depth, and SMB access via subscriptions. Treat any single number as indicative, not exact.
+              </p>
+              <p class="meta">
+                Trends called out across reports: <strong>integrated design-to-production</strong> stacks, <strong>cloud collaboration</strong>, more <strong>simulation earlier</strong> in programs, and <strong>AI-assisted</strong> geometry or meshing (quality and governance still matter). Your first job is literacy; vendor selection comes after you know your domain.
+              </p>
+
+              <h4 class="kb-cax-h">Sources &amp; further reading</h4>
+              <ul class="seo-link-list kb-cax-sources">
+                <li>
+                  <a href="https://en.wikipedia.org/wiki/Computer-aided_design" rel="noopener noreferrer">Wikipedia — Computer-aided design</a> (general definition, PLM context, 2D/3D overview)
+                </li>
+                <li>
+                  <a href="https://online.egr.msu.edu/articles/cad-vs-cae-vs-cam-what-is-the-difference/" rel="noopener noreferrer">Michigan State University (Engineering online) — CAD vs. CAE vs. CAM</a> (educational explainer)
+                </li>
+                <li>
+                  <a href="https://encycam.com/articles/what-are-cad-cam-and-cae/" rel="noopener noreferrer">ENCY — What are CAD, CAM and CAE?</a> (industry education; CAM vendor site)
+                </li>
+                <li>
+                  <a href="https://encycam.com/articles/understanding-the-difference-between-cad-cam-and-cae-a-comprehensive-guide/" rel="noopener noreferrer">ENCY — CAD, CAM &amp; CAE differences (guide)</a>
+                </li>
+                <li>
+                  <a href="https://www.reanin.com/reports/engineering-software-market" rel="noopener noreferrer">Reanin — Engineering software (CAD, CAM, CAE, AEC, EDA) market report</a> (commercial market sizing; figures approximate)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to original sources and do not host third-party videos.</p>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Learn</h4>
+          <ul class="site-footer-links">
+            <li><a href="./tutorials.html">Tutorials</a></li>
+            <li><a href="./knowledge-base.html">Knowledge base</a></li>
+            <li><a href="./news.html">CAD news</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Site</h4>
+          <ul class="site-footer-links">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Legal</h4>
+          <ul class="site-footer-links">
+            <li><a href="./privacy.html">Privacy policy</a></li>
+            <li><a href="./terms.html">Terms of use</a></li>
+            <li><a href="./legal.html">Copyright &amp; disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="./app.js" defer></script>
+    <script src="./knowledge.js?v=20260506_gstarcad" defer></script>
+  </body>
+</html>

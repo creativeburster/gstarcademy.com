@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knowledge Graph · CAD Knowledge Base · LearnCAD</title>
+    <meta
+      name="description"
+      content="Explore connections between CAD concepts, vendor ecosystems, and product nodes via an interactive force-directed graph. Filter by tags and share deep links."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="/kb-graph.html" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preload" href="./styles.css?v=20260430kb_hero" as="style" />
+    <link rel="stylesheet" href="./styles.css?v=20260430kb_hero" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "DefinedTermSet",
+        "name": "CAD Knowledge Graph",
+        "url": "https://learncad.io/kb-graph.html",
+        "description": "Interactive knowledge graph connecting concepts, file formats, vendors, and product nodes."
+      }
+    </script>
+  </head>
+  <body data-page="knowledge" class="page-kb-graph">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="./index.html">
+          <span class="brand-badge">LC</span>
+          <span>LearnCAD</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" data-nav="home" href="./index.html">Home</a>
+          <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
+          <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
+          <a class="nav-link" data-nav="news" href="./news.html">News</a>
+          <a class="nav-link" data-nav="about" href="./about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="kb-app kb-faq-shell" id="kb-app">
+      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" aria-label="Knowledge base navigation">
+        <div class="kb-rail-toolbar">
+          <span class="kb-rail-toolbar-label" id="kb-rail-label">Navigation</span>
+          <button
+            type="button"
+            class="kb-rail-toggle"
+            id="kb-rail-toggle"
+            aria-labelledby="kb-rail-label"
+            aria-controls="kb-rail"
+            aria-expanded="true"
+            title="Hide navigation (wider reading)"
+          >
+            <span class="kb-rail-toggle-icon" aria-hidden="true">◀</span>
+            <span class="kb-sr-only">Collapse navigation sidebar</span>
+          </button>
+        </div>
+        <label class="kb-sr-only" for="kb-sidebar-search">Search knowledge base</label>
+        <input
+          type="search"
+          id="kb-sidebar-search"
+          class="kb-portal-search"
+          placeholder="Search titles &amp; terms…"
+          autocomplete="off"
+        />
+
+        <div class="kb-index-box">
+          <strong class="kb-index-title">Six lanes</strong>
+          <p class="meta kb-sidebar-taxonomy-note">
+            Mirrors the top strip—taxonomy view of the same routes (expect overlap).
+          </p>
+          <a class="kb-index-link" href="./knowledge-base.html">Overview</a>
+          <a class="kb-index-link" href="./kb-software.html">Software</a>
+          <a class="kb-index-link" href="./kb-terms.html">Terms</a>
+          <a class="kb-index-link" href="./kb-faq.html">FAQ</a>
+          <a class="kb-index-link" href="./kb-graph.html">Graph</a>
+          <a class="kb-index-link" href="./kb/software/index.html">Software profiles</a>
+        </div>
+
+        <div class="kb-nav-group">
+          <button class="kb-nav-toggle" aria-expanded="true">Drill down</button>
+          <div class="kb-nav-links">
+            <a class="kb-side-link" href="./tutorials.html">Tutorial library</a>
+            <a class="kb-side-link" href="./knowledge-glossary.html">Term glossary (cards)</a>
+          </div>
+        </div>
+        <div class="kb-nav-group">
+          <button class="kb-nav-toggle" aria-expanded="true">Topics</button>
+          <div class="kb-nav-links">
+            <a class="kb-side-link" href="./knowledge-base.html">Hub overview</a>
+            <a class="kb-side-link" href="./news.html">CAD news</a>
+          </div>
+        </div>
+        <div class="kb-nav-group">
+          <button class="kb-nav-toggle" aria-expanded="false">Meta</button>
+          <div class="kb-nav-links kb-collapsed">
+            <a class="kb-side-link" href="./knowledge-base.html#kb-about">About this hub</a>
+          </div>
+        </div>
+      </aside>
+
+      <div class="kb-stage">
+        <nav class="kb-subnav" aria-label="Knowledge base sections">
+          <a class="kb-subnav-link" href="./knowledge-base.html">Overview</a>
+          <a class="kb-subnav-link" href="./kb-software.html">Software</a>
+          <a class="kb-subnav-link" href="./kb-terms.html">Terms</a>
+          <a class="kb-subnav-link" href="./kb-faq.html">FAQ</a>
+          <a class="kb-subnav-link active" href="./kb-graph.html">Graph</a>
+        </nav>
+        <div class="kb-stage-scroll">
+          <div class="kb-main kb-main--portal">
+            <div id="kb-graph" class="kb-section kb-anchor-target kb-portal-landing kb-graph-landing">
+              <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+                <a href="./index.html">Home</a>
+                <span aria-hidden="true"> / </span>
+                <a href="./knowledge-base.html">Knowledge Base</a>
+                <span aria-hidden="true"> / </span>
+                <span aria-current="page">Graph</span>
+              </nav>
+
+              <div class="kb-portal-hero-block">
+                <div class="kb-faq-hero-icon" aria-hidden="true">🕸️</div>
+                <h1 class="kb-portal-title kb-portal-title--mixed">Knowledge Graph</h1>
+                <p class="kb-portal-tagline">
+                  Hover to focus neighborhoods; click nodes to update the <code>?node=</code> parameter for sharing.
+                </p>
+                <p class="kb-portal-soft-lede">
+                  Filters match the Term Cards; for guided sequences, see
+                  <a href="./paths.html">Learning Paths</a>.
+                </p>
+              </div>
+
+              <div class="kb-graph-toolbar-row">
+                <div class="kb-tag-cloud kb-graph-filters kb-pill-strip" aria-label="按维度筛选节点">
+                  <button type="button" class="kb-tag" data-filter="all">All</button>
+                  <button type="button" class="kb-tag" data-filter="concepts">Concepts</button>
+                  <button type="button" class="kb-tag" data-filter="terms">Terms</button>
+                  <button type="button" class="kb-tag" data-filter="beginner">Beginner</button>
+                  <button type="button" class="kb-tag" data-filter="2d">2D</button>
+                  <button type="button" class="kb-tag" data-filter="3d">3D</button>
+                  <button type="button" class="kb-tag" data-filter="aec">AEC</button>
+                  <button type="button" class="kb-tag" data-filter="mfg">MFG</button>
+                </div>
+                <div class="kb-graph-path-row">
+                  <button type="button" id="kbPathToggle" class="kb-tag kb-graph-path-toggle">
+                    Highlight beginner walk (in-graph)
+                  </button>
+                </div>
+              </div>
+
+              <section class="kb-graph-card-shell" aria-label="交互式知识图谱画布">
+                <div class="kb-graph-card">
+                  <div
+                    id="kbGraphStage"
+                    class="kb-graph-stage kb-graph-stage--immersive graph-wrapper-kb kb-graph-stage--solo"
+                    aria-label="CAD 通识力导向图"
+                  >
+                    <div class="kb-graph-hover-strip" aria-hidden="true">
+                      <span class="kb-graph-hover-ico" aria-hidden="true">🖱</span>
+                      <span class="kb-graph-hover-label"
+                        >Hover nodes to highlight associations · Click to update URL · Gesture/Wheel to zoom · Drag canvas</span
+                      >
+                    </div>
+
+                    <svg
+                      id="kbGraphSvg"
+                      class="kb-graph-svg-el kb-graph-svg-el--solo"
+                      width="1100"
+                      height="620"
+                      xmlns="http://www.w3.org/2000/svg"
+                    ></svg>
+                    <div id="kbGraphTooltip" class="kb-graph-tooltip" hidden data-kb-tooltip>
+                      <div class="kb-graph-tooltip-title" data-tip-title></div>
+                      <div class="kb-graph-tooltip-type" data-tip-type></div>
+                      <div class="kb-graph-tooltip-desc" data-tip-desc></div>
+                    </div>
+                    <div class="kb-graph-controls-graph" aria-label="缩放控制">
+                      <button type="button" id="kbGraphReset" title="重置平移与缩放">Reset</button>
+                      <button type="button" id="kbGraphZoomIn" title="放大">+</button>
+                      <button type="button" id="kbGraphZoomOut" title="缩小">−</button>
+                    </div>
+                    <p class="kb-graph-d3-msg" hidden data-kb-graph-d3-fallback>
+                      Graph failed to initialize (d3.min.js required in root).
+                    </p>
+                  </div>
+
+                  <div class="kb-info-panel kb-info-panel--below-graph" id="kbInfoPanel">
+                    <div class="kb-info-panel-heading">
+                      <h4 id="kbInfoTitle">Selected Node Info</h4>
+                    </div>
+                    <p id="kbInfoDesc" class="meta">
+                      Click a node or open a sharing link: <code>?node=Name</code>.
+                    </p>
+                    <div class="kb-info-block">
+                      <strong>Neighboring Concepts</strong>
+                      <div id="kbInfoRelated" class="kb-tag-cloud kb-pill-strip">
+                        <span class="kb-tag kb-static">Select a node to see relations</span>
+                      </div>
+                    </div>
+                    <div class="kb-info-actions" id="kbInfoActions" style="margin-top: 16px; display: none;">
+                      <a href="#" id="kbViewDetailsBtn" class="btn btn-primary" style="font-size: 13px; padding: 8px 16px;">View Full Concept Details →</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to original sources and do not host third-party videos.</p>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Learn</h4>
+          <ul class="site-footer-links">
+            <li><a href="./tutorials.html">Tutorials</a></li>
+            <li><a href="./knowledge-base.html">Knowledge base</a></li>
+            <li><a href="./news.html">CAD news</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Site</h4>
+          <ul class="site-footer-links">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Legal</h4>
+          <ul class="site-footer-links">
+            <li><a href="./privacy.html">Privacy policy</a></li>
+            <li><a href="./terms.html">Terms of use</a></li>
+            <li><a href="./legal.html">Copyright &amp; disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="./d3.min.js" defer></script>
+    <script src="./app.js" defer></script>
+    <script src="./knowledge.js?v=20260506_gstarcad" defer></script>
+  </body>
+</html>
