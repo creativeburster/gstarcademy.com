@@ -2797,108 +2797,23 @@ a.kb-pdf-matrix-rowlink:hover {
   width: 100%;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: rgba(15, 23, 42, 0.65);
-  color: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  background: rgba(255, 255, 255, 0.65);
+  color: #0f172a;
   font-size: 13px;
   outline: none;
+  transition: all 0.2s ease;
 }
 
 .kb-portal-search::placeholder {
-  color: rgba(148, 163, 184, 0.85);
+  color: rgba(15, 23, 42, 0.45);
 }
 
 .kb-portal-search:focus {
-  border-color: rgba(96, 165, 250, 0.55);
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+  border-color: rgba(37, 99, 235, 0.55);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  background: #ffffff;
 }
-
-.kb-sidebar--portal .kb-index-box {
-  background: rgba(15, 23, 42, 0.45);
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  border-radius: 12px;
-  padding: 12px;
-}
-
-.kb-sidebar--portal .kb-index-title {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(148, 163, 184, 0.95);
-  margin-bottom: 10px;
-}
-
-.kb-sidebar--portal .kb-index-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 6px;
-  border-radius: 8px;
-  color: rgba(226, 232, 240, 0.92);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 550;
-}
-
-.kb-sidebar--portal .kb-index-link:hover {
-  background: rgba(37, 99, 235, 0.2);
-}
-
-.kb-sidebar--portal .kb-index-link span {
-  font-size: 11px;
-  font-weight: 700;
-  color: rgba(147, 197, 253, 0.95);
-  background: rgba(30, 58, 138, 0.45);
-  padding: 2px 7px;
-  border-radius: 999px;
-}
-
-.kb-sidebar--portal .kb-nav-group + .kb-nav-group {
-  margin-top: 8px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.kb-sidebar--portal .kb-nav-toggle {
-  width: 100%;
-  text-align: left;
-  padding: 8px 6px;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
-  color: rgba(226, 232, 240, 0.95);
-  font-size: 12px;
-  font-weight: 650;
-  cursor: pointer;
-}
-
-.kb-sidebar--portal .kb-nav-toggle:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.kb-sidebar--portal .kb-nav-links {
-  margin-top: 4px;
-  padding-left: 4px;
-  display: grid;
-  gap: 2px;
-}
-
-.kb-sidebar--portal .kb-side-link {
-  padding: 7px 8px;
-  border-radius: 8px;
-  color: rgba(203, 213, 225, 0.9);
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.kb-sidebar--portal .kb-side-link:hover,
-.kb-sidebar--portal .kb-side-link.active {
-  background: rgba(37, 99, 235, 0.28);
-  color: #f8fafc;
-}
-
 .kb-stage {
   position: relative;
   flex: 1;
