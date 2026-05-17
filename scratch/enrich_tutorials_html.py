@@ -1,126 +1,32 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CAD Tutorial Library - Filter by Software, Task, and Source</title>
-    <meta name="description" content="Browse a curated CAD tutorial library with filters for software, task, level, industry, language, and source platforms." />
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="canonical" href="/tutorials.html" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="preload" href="./styles.css?v=v3_theme_separation" as="style" />
-    <link rel="stylesheet" href="./styles.css?v=v3_theme_separation" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "CAD Tutorial Library",
-        "url": "https://learncad.io/tutorials.html",
-        "about": "CAD tutorials filtered by software, task, level, and source"
-      }
-    </script>
-    <style>
-      .container { width: 1800px !important; max-width: 98% !important; margin: 0 auto !important; }
-      .hero-wide-rounded {
-        background: #0f172a !important;
-        width: 100% !important;
-        padding: 50px 40px !important;
-        color: #fff !important;
-        border-radius: 24px !important;
-        margin-bottom: 30px !important;
-        box-sizing: border-box !important;
-        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
-      }
-      .hero-page-header-flex { display: flex !important; justify-content: space-between !important; align-items: center !important; }
-      .hero-page-title { font-size: 32px !important; font-weight: 800 !important; margin: 0 !important; color: #ffffff !important; }
-      .stats-row { display: flex !important; gap: 24px !important; color: #94a3b8 !important; }
-    
-      /* Interactive filters premium styles */
-      .chips .chip {
-        cursor: pointer !important;
-        transition: all 0.2s ease !important;
-        user-select: none !important;
-      }
-      .chips .chip:hover {
-        background: var(--accent-soft) !important;
-        color: var(--accent) !important;
-        transform: translateY(-1px) !important;
-      }
-      .chips .chip.active {
-        background: var(--accent) !important;
-        color: #ffffff !important;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2) !important;
-      }
-      /* Badges styles */
-      .badge {
-        font-size: 11px !important;
-        font-weight: 800 !important;
-        padding: 4px 8px !important;
-        border-radius: 6px !important;
-        margin-left: 8px !important;
-        display: inline-block !important;
-        vertical-align: middle !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.05em !important;
-      }
-      .badge-free {
-        background: rgba(34, 197, 94, 0.1) !important;
-        color: #22c55e !important;
-      }
-      .badge-paid {
-        background: rgba(239, 68, 68, 0.1) !important;
-        color: #ef4444 !important;
-      }
-      .tutorial-item {
-        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
-      }
-      .tutorial-item:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05) !important;
-      }
-    </style>
-  </head>
-  <body data-page="tutorials">
-    
-    <div class="header-stack">
-      <aside
-        class="site-notice"
-        id="site-notice"
-        data-notice-id="global-v2"
-        aria-label="Announcement"
-      >
-        <div class="site-notice-inner container">
-          <p class="site-notice-text">
-            Tip: open the
-            <a class="site-notice-link" href="./tutorials.html">tutorial library</a>
-            to filter by software, task, level, and source—then follow outbound links to the originals.
-          </p>
-          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </aside>
-      <header class="topbar">
-      <div class="container topbar-inner">
-        <a class="brand" href="./index.html">
-          <span class="brand-badge">LC</span>
-          <span>LearnCAD</span>
-        </a>
-        <nav class="nav">
-          <a class="nav-link" data-nav="home" href="./index.html">Home</a>
-          <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
-          <a class="nav-link active" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
-          <a class="nav-link" data-nav="news" href="./news.html">News</a>
-          <a class="nav-link" data-nav="about" href="./about.html">About</a>
-        </nav>
-      </div>
-    </header>
-    </div>
+import re
 
-    <main class="container">
-      <section class="section" style="padding-top: 0">
-        <div class="layout">
-          <aside class="panel card-glass" style="border-radius: 24px; padding: 30px;">
+with open("tutorials.html", "r", encoding="utf-8") as f:
+    html = f.read()
+
+# 1. Replace the search sidebar with high-quality multi-dimensional chips
+old_sidebar = """          <aside class="panel card-glass" style="border-radius: 24px; padding: 30px;">
+            <h2 class="panel-title" style="color: var(--accent); font-size: 20px; margin-bottom: 20px;">Refine Search</h2>
+            <div class="filter-group">
+              <h4 style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Software Ecosystem</h4>
+              <div class="chips">
+                <span class="chip">AutoCAD</span><span class="chip">Revit</span><span class="chip">Fusion 360</span><span class="chip">SOLIDWORKS</span><span class="chip">Inventor</span><span class="chip">Civil 3D</span><span class="chip">Rhino</span>
+              </div>
+            </div>
+            <div class="filter-group" style="margin-top: 24px;">
+              <h4 style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Learning Task</h4>
+              <div class="chips">
+                <span class="chip">2D Drafting</span><span class="chip">BIM</span><span class="chip">3D Modeling</span><span class="chip">Rendering</span>
+              </div>
+            </div>
+            <div class="filter-group" style="margin-top: 24px;">
+              <h4 style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Level</h4>
+              <div class="chips">
+                <span class="chip">Beginner</span><span class="chip">Pro</span>
+              </div>
+            </div>
+          </aside>"""
+
+new_sidebar = """          <aside class="panel card-glass" style="border-radius: 24px; padding: 30px;">
             <h2 class="panel-title" style="color: var(--accent); font-size: 20px; margin-bottom: 20px;">Refine Search</h2>
             
             <div class="filter-group">
@@ -169,64 +75,18 @@
                 <span class="chip" data-filter-value="paid">Paid 💳</span>
               </div>
             </div>
-          </aside>
+          </aside>"""
 
-          <div class="list">
-            <header class="hero-wide-rounded">
-              <div class="hero-page-header-flex">
-                <div class="hero-page-content">
-                  <p style="color: #60a5fa; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; font-size: 11px;">Discovery Library</p>
-                  <h1 class="hero-page-title">Find the perfect CAD lesson.</h1>
-                  <p style="color: #94a3b8; font-size: 16px; margin-top: 6px;">Aggregated tutorials from the public web.</p>
-                </div>
-                <div class="hero-page-actions">
-                  <div class="search-row" style="display: flex; background: #fff; border-radius: 12px; overflow: hidden; height: 48px; width: 360px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                    <input type="text" placeholder="Search 1,200+ tutorials..." aria-label="Search" style="flex: 1; border: none; padding: 0 16px; font-size: 14px; outline: none;" />
-                    <button type="button" class="btn btn-primary" style="border-radius: 0; padding: 0 20px; font-weight: 800;">Search</button>
-                  </div>
-                  <div class="stats-row" style="margin-top: 12px; display: flex; gap: 20px; color: #94a3b8; font-size: 12px; justify-content: flex-end;">
-                    <div class="stats-item"><strong>1.2k+</strong> Lessons</div>
-                    <div class="stats-item"><strong>15+</strong> Tools</div>
-                  </div>
-                </div>
-              </div>
-            </header>
+html = html.replace(old_sidebar, new_sidebar)
 
-            <div class="panel card-glass" style="border-radius: 24px;">
-              <div class="section-head" style="margin-bottom: 16px">
-                <h2 class="panel-title" style="margin: 0">Primary Aggregation Hubs</h2>
-                <span class="chip" style="background: var(--accent-soft); color: var(--accent);">Official & Certified</span>
-              </div>
-              <div class="grid grid-3">
-                <a class="card card-glass" href="https://www.autodesk.com/learn" rel="noopener noreferrer" style="border-color: rgba(37,99,235,0.1);">
-                  <h3 style="font-size: 16px;">Autodesk Learn Hub</h3>
-                  <p class="meta">Official certification paths and vendor-direct modules for the entire AEC/MFG collection.</p>
-                </a>
-                <a class="card card-glass" href="https://www.coursera.org/courses?query=cad" rel="noopener noreferrer" style="border-color: rgba(37,99,235,0.1);">
-                  <h3 style="font-size: 16px;">Coursera Specialized</h3>
-                  <p class="meta">University-backed CAD programs and professional BIM specialization tracks.</p>
-                </a>
-                <a class="card card-glass" href="https://www.mycadsite.com/" rel="noopener noreferrer" style="border-color: rgba(37,99,235,0.1);">
-                  <h3 style="font-size: 16px;">myCADsite (Free)</h3>
-                  <p class="meta">Structured, no-cost progression for AutoCAD learners with quizzes and drills.</p>
-                </a>
-              </div>
-            </div>
+# 2. Fully replace the tutorials container content with high-quality tagged lessons and premium Outbound courses
+# Find the range from the Sort panel down to sections
+target_start_needle = '<!-- youtube-build:begin -->'
+target_end_needle = '<!-- youtube-build:end -->'
 
-            <div class="panel">
-              <div class="section-head" style="margin-bottom: 0">
-                <h2 class="panel-title" style="margin: 0">Sort</h2>
-                <div class="chips" style="margin-top: 0">
-                  <span class="chip pill-ok">Most Relevant</span>
-                  <span class="chip">Newest</span>
-                  <span class="chip">Shortest Duration</span>
-                  <span class="chip">Best for Beginners</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- youtube-build:begin -->
-            <!-- YouTube Discovery Section (Fully Tagged) -->
+# Let's rebuild the entire list of tagged tutorials (YouTube + premium Outbound)
+TUTORIALS_REPLACEMENT = """<!-- youtube-build:begin -->
+            <!-- YouTube discovery (Tag-Filterable) -->
             <article class="tutorial-item tutorial-item--youtube" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="free">
               <div class="thumb thumb--cover" style="background-image: url('https://i.ytimg.com/vi/9HBNzsFX3A0/hqdefault.jpg')" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
@@ -260,7 +120,7 @@
               <div class="item-body">
                 <h3>AutoCAD for Beginners - Full University Course <span class="badge badge-free">🎁 Free</span></h3>
                 <p class="meta">Source: YouTube · Channel: freeCodeCamp.org · Published: 2022-01-24 · Duration: 6h 18m 15s</p>
-                <p class="meta">Editorial: Long-form free course—architectural 2D drill if you want one deep block. · Software: AutoCAD · Task: 2D drafting basics · Level: Beginner</p>
+                <p class="meta">Editorial: Long-form free course—architectural 2D drill if you want one deep block. · Software: AutoCAD · Task: 2D drafting (extended) · Level: Beginner</p>
                 <div class="item-tags"><span class="tag">YouTube</span><span class="tag">freeCodeCamp</span><span class="tag">Long course</span></div>
                 <div class="actions">
                   <a class="btn btn-primary" href="https://www.youtube.com/watch?v=VtLXKU1PpRU" rel="noopener noreferrer" target="_blank">Watch on YouTube</a>
@@ -274,7 +134,7 @@
               <div class="item-body">
                 <h3>Revit 2026 - 15 Minute Tutorial For BEGINNERS! <span class="badge badge-free">🎁 Free</span></h3>
                 <p class="meta">Source: YouTube · Channel: Verwey Drafting Inc. · Published: 2025-08-07 · Duration: 15m 38s</p>
-                <p class="meta">Editorial: Under-20-minute Revit sprint: walls, slabs, openings, simple roof—good first BIM session. · Software: Revit · Task: BIM · Level: Beginner</p>
+                <p class="meta">Editorial: Under-20-minute Revit sprint: walls, slabs, openings, simple roof—good first BIM session. · Software: Revit · Task: BIM starter project · Level: Beginner</p>
                 <div class="item-tags"><span class="tag">YouTube</span><span class="tag">AEC</span><span class="tag">BIM</span></div>
                 <div class="actions">
                   <a class="btn btn-primary" href="https://www.youtube.com/watch?v=NtF5Yf3VxFs" rel="noopener noreferrer" target="_blank">Watch on YouTube</a>
@@ -288,7 +148,7 @@
               <div class="item-body">
                 <h3>Autodesk Revit - Full Beginner Course | Complete Project <span class="badge badge-free">🎁 Free</span></h3>
                 <p class="meta">Source: YouTube · Channel: Balkan Architect · Published: 2024-09-10 · Duration: 1h 22m 03s</p>
-                <p class="meta">Editorial: Full free building project—use when you want a narrative course, not a single feature. · Software: Revit · Task: BIM · Level: Beginner</p>
+                <p class="meta">Editorial: Full free building project—use when you want a narrative course, not a single feature. · Software: Revit · Task: Full project walk-through · Level: Beginner</p>
                 <div class="item-tags"><span class="tag">YouTube</span><span class="tag">BIM</span><span class="tag">Long course</span></div>
                 <div class="actions">
                   <a class="btn btn-primary" href="https://www.youtube.com/watch?v=chom9hiewXI" rel="noopener noreferrer" target="_blank">Watch on YouTube</a>
@@ -408,6 +268,7 @@
                 </div>
               </div>
             </article>
+            <!-- youtube-build:end -->
 
             <!-- Premium Outbound & Specialized paid platforms (Highly Curated) -->
             <article class="tutorial-item" data-software="solidworks" data-task="3d-modeling" data-level="beginner" data-price="paid">
@@ -415,7 +276,7 @@
               <div class="item-body">
                 <h3>SOLIDWORKS 3D CAD Specialization (Coursera) <span class="badge badge-paid">💳 Premium</span></h3>
                 <p class="meta">Source: Coursera · Type: Professional Certificate · Updated: May 2026</p>
-                <p class="meta">Editorial note: Highly structured 4-course sequence covering modeling, assembly mates, configurations, and drawing title links. Prepares you for the official CSWA/CSWP certifications.</p>
+                <p class="meta">Editorial note: Highly structured 4-course sequence cover modeling, assembly mates, configurations, and drawing title links. Prepares you for the official CSWA/CSWP certifications.</p>
                 <div class="item-tags">
                   <span class="tag">Coursera</span><span class="tag">SOLIDWORKS</span><span class="tag">3D Modeling</span><span class="tag">Certificate</span>
                 </div>
@@ -452,7 +313,7 @@
                   <span class="tag">PTC</span><span class="tag">Creo</span><span class="tag">Advanced Part</span><span class="tag">Vendor</span>
                 </div>
                 <div class="actions">
-                  <a class="btn btn-primary" href="https://www.ptc.com/en/support/university" rel="noopener noreferrer" target="_blank">Open PTC University</a>
+                  <a class="btn btn-primary" href="https://www.ptc.com/en/support/university" rel="noopener noreferrer" target="_blank">Open PTC university</a>
                   <a class="btn" href="./tutorial-detail.html">View details</a>
                 </div>
               </div>
@@ -462,7 +323,7 @@
               <div class="thumb">Siemens</div>
               <div class="item-body">
                 <h3>NX Wave Geometry Linker and Large Assemblies (Siemens Academy) <span class="badge badge-paid">💳 Premium</span></h3>
-                <p class="meta">Source: Siemens Xcelerator Academy · Type: Specialized Class · Updated: Apr 2026</p>
+                <p class="meta">Source: Siemens Xcelerator Academy · Type: Specialized Enterprise Class · Updated: Apr 2026</p>
                 <p class="meta">Editorial note: The ultimate tutorial for aerospace coordinators on how to model complex inter-part associations using NX WAVE geometric linkers to avoid circular dependencies.</p>
                 <div class="item-tags">
                   <span class="tag">Siemens</span><span class="tag">NX</span><span class="tag">WAVE Linker</span><span class="tag">Large Assembly</span>
@@ -477,11 +338,11 @@
             <article class="tutorial-item" data-software="gstarcad" data-task="2d-drafting" data-level="beginner" data-price="free">
               <div class="thumb">Gstarsoft</div>
               <div class="item-body">
-                <h3>GstarCAD Official Tutorial &amp; Video Library <span class="badge badge-free">🎁 Free</span></h3>
+                <h3>GstarCAD Official Tutorial &amp; video Library <span class="badge badge-free">🎁 Free</span></h3>
                 <p class="meta">Source: Gstarsoft Learning · Type: Structured Video Sequence · Updated: May 2026</p>
                 <p class="meta">Editorial note: Extremely clean, vendor-authorized library offering structured training on drafting toolsets, CUI custom settings, parameters formula managers, and LISP porting guides.</p>
                 <div class="item-tags">
-                  <span class="tag">Gstarsoft</span><span class="tag">GstarCAD</span><span class="tag">Free Video</span><span class="tag">Official</span>
+                  <span class="tag">Gstarsoft</span><span class="tag">GstarCAD</span><span class="tag">Free video</span><span class="tag">Official</span>
                 </div>
                 <div class="actions">
                   <a class="btn btn-primary" href="https://www.gstarcad.net/support/" rel="noopener noreferrer" target="_blank">Open Gstarsoft Learning</a>
@@ -649,62 +510,19 @@
                   <a class="btn" href="./tutorial-detail.html">View details</a>
                 </div>
               </div>
-            </article>
-            </article>
-          </div>
-        </div>
-      </section>
+            </article>"""
 
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">Related Learning Routes</h2>
-          <span class="section-note">Find the next page quickly</span>
-        </div>
-        <article class="card">
-          <ul class="seo-link-list">
-            <li><a href="./paths.html">Follow a day-by-day CAD learning path with milestones</a></li>
-            <li><a href="./tutorial-detail.html">Compare sources for one CAD topic before selecting</a></li>
-            <li><a href="./paths.html">Follow a structured learning path with checkpoints</a></li>
-            <li><a href="./knowledge-base.html">Review CAD terms and concepts in the knowledge base</a></li>
-          </ul>
-        </article>
-      </section>
-    </main>
+# Find and replace the range of existing tutorials
+# We will look for <!-- youtube-build:begin --> up to the last static item
+html = re.sub(
+    r'<!-- youtube-build:begin -->.*?<!-- youtube-build:end -->.*?<article class="tutorial-item">.*?</article>\s*</article>',
+    TUTORIALS_REPLACEMENT, 
+    html, 
+    flags=re.DOTALL
+)
 
-    <footer class="footer site-footer">
-      <div class="container site-footer-inner">
-        <div class="site-footer-brand">
-          <p class="site-footer-tagline">LearnCAD</p>
-          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to original sources and do not host third-party videos.</p>
-        </div>
-        <div class="site-footer-col">
-          <h4 class="site-footer-heading">Learn</h4>
-          <ul class="site-footer-links">
-            <li><a href="./tutorials.html">Tutorials</a></li>
-            <li><a href="./knowledge-base.html">Knowledge base</a></li>
-            <li><a href="./news.html">CAD news</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h4 class="site-footer-heading">Site</h4>
-          <ul class="site-footer-links">
-            <li><a href="./about.html">About</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h4 class="site-footer-heading">Legal</h4>
-          <ul class="site-footer-links">
-            <li><a href="./privacy.html">Privacy policy</a></li>
-            <li><a href="./terms.html">Terms of use</a></li>
-            <li><a href="./legal.html">Copyright &amp; disclaimer</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
-      </div>
-    </footer>
-    <script src="./app.js" defer></script>
-  </body>
-</html>
+# Wait! Let's write the target replace logic extremely cleanly and without complex regex errors.
+# Let's inspect which specific segment of static list starts from `<article class="tutorial-item">` for myCADsite down to Investintech.
+# Let's write the python replacer directly to do two clean string swaps:
+# One for the sidebar chips.
+# One for the list body and JS.
