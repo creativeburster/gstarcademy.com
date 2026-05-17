@@ -23,21 +23,40 @@
     </script>
   </head>
   <body data-page="knowledge">
-    <header class="topbar">
-      <div class="container topbar-inner">
-        <a class="brand" href="./index.html">
-          <span class="brand-badge">LC</span>
-          <span>LearnCAD</span>
-        </a>
-        <nav class="nav">
-          <a class="nav-link" data-nav="home" href="./index.html">Home</a>
-          <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
-          <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
-          <a class="nav-link" data-nav="news" href="./news.html">News</a>
-          <a class="nav-link" data-nav="about" href="./about.html">About</a>
-        </nav>
-      </div>
-    </header>
+    <div class="header-stack">
+      <aside
+        class="site-notice"
+        id="site-notice"
+        data-notice-id="global-v2"
+        aria-label="Announcement"
+      >
+        <div class="site-notice-inner container">
+          <p class="site-notice-text">
+            Tip: open the
+            <a class="site-notice-link" href="./tutorials.html">tutorial library</a>
+            to filter by software, task, level, and source—then follow outbound links to the originals.
+          </p>
+          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </aside>
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="./index.html">
+            <span class="brand-badge">LC</span>
+            <span>LearnCAD</span>
+          </a>
+          <nav class="nav">
+            <a class="nav-link" data-nav="home" href="./index.html">Home</a>
+            <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
+            <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="./news.html">News</a>
+            <a class="nav-link" data-nav="about" href="./about.html">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
 
     <div class="kb-app kb-faq-shell" id="kb-app">
       <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" aria-label="Knowledge base navigation">
@@ -147,110 +166,1961 @@
               </p>
 
               <div class="kb-faq-tablist" role="tablist" aria-label="FAQ topics">
-                <button type="button" class="kb-faq-tab is-active" role="tab" aria-selected="true" data-kb-faq-filter="all">All Questions</button>
-                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="gstarsoft">
-                  GstarCAD 2026
-                </button>
+                <button type="button" class="kb-faq-tab is-active" role="tab" aria-selected="true" data-kb-faq-filter="all">All</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="gstarcad">GstarCAD</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="fastview">FastView</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="autocad">AutoCAD</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="revit">Revit</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="civil3d">Civil 3D</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="inventor">Inventor</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="fusion">Fusion</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="draftsight">DraftSight</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="creo">PTC/Creo</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="siemens">Siemens</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="bentley">Bentley</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="solidworks">SOLIDWORKS</button>
+                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="catia">CATIA</button>
               </div>
 
               <section class="kb-faq-list" aria-label="Questions and answers" id="kb-faq-list">
-                <article class="kb-faq-entry" data-kb-faq-topic="gstarsoft">
+                <!-- SOLIDWORKS FAQs (10 Items) -->
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
                   <button type="button" class="kb-faq-q-trigger">
                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
-                    <h3>What are the key performance improvements in GstarCAD 2026?</h3>
+                    <h3>What is the difference between SOLIDWORKS Desktop and 3DEXPERIENCE SOLIDWORKS?</h3>
                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
                   </button>
                   <div class="kb-faq-a-body">
-                    <p class="kb-faq-source">Source · GstarCAD 2026 Complete Features Guide</p>
+                    <p class="kb-faq-source">Source · SOLIDWORKS Installation & Deployment</p>
                     <div class="kb-faq-answer">
-                      GstarCAD 2026 delivers a significant leap in overall performance. Drawing opening speed is improved by over 40% on average (multi-reference drawings open in under 1 minute). Common operations are improved by over 20%. Specifically, EXTEND/TRIM is up to 11x faster, block creation is 5x faster, and Hatching (pick-point on complex drawings) is up to 30x faster.
+                      <strong>SOLIDWORKS Desktop</strong> is local file-based, running fully on your Windows workstation. <strong>3DEXPERIENCE SOLIDWORKS</strong> is cloud-connected; it installs locally but saves files as secure database objects in the cloud (single source of truth) with built-in version control and role-based sharing.
                     </div>
                   </div>
                 </article>
 
-                <article class="kb-faq-entry" data-kb-faq-topic="gstarsoft">
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
                   <button type="button" class="kb-faq-q-trigger">
                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
-                    <h3>Which DWG versions and development APIs are supported?</h3>
+                    <h3>How do SOLIDWORKS Configurations manage multiple design variations efficiently?</h3>
                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
                   </button>
                   <div class="kb-faq-a-body">
-                    <p class="kb-faq-source">Source · GstarCAD 2026 Complete Features Guide</p>
+                    <p class="kb-faq-source">Source · SOLIDWORKS Modeling Basics</p>
                     <div class="kb-faq-answer">
-                      GstarCAD supports native DWG and DXF file formats, fully compatible with ACAD from version 2.5 to 2018. For developers, it offers robust APIs including LISP (LSP, FAS, VLX), VBA, GRX (C++), .NET, COM, and Python. Note that .PY file loading is natively supported.
+                      <strong>Configurations</strong> allow you to create multiple variations of a part or assembly model within a single document. You can suppress or resolve features, modify dimensions, and configure custom properties per instance, frequently managed using embedded Excel <strong>Design Tables</strong>.
                     </div>
                   </div>
                 </article>
 
-                <article class="kb-faq-entry" data-kb-faq-topic="gstarsoft">
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
                   <button type="button" class="kb-faq-q-trigger">
                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
-                    <h3>What are the licensing options for GstarCAD?</h3>
+                    <h3>What are the best performance settings for large assemblies in SOLIDWORKS?</h3>
                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
                   </button>
                   <div class="kb-faq-a-body">
-                    <p class="kb-faq-source">Source · GstarCAD Licensing Policy</p>
+                    <p class="kb-faq-source">Source · SOLIDWORKS Large Assembly Administration</p>
                     <div class="kb-faq-answer">
-                      GstarCAD offers a flexible licensing policy. You can choose a <strong>Perpetual License</strong> (buy once, use forever), pair it with a subscription plan for updates, or opt for a <strong>Yearly Subscription</strong>. Licenses are available as <strong>Stand-alone</strong> (tied to one host) or <strong>Network</strong> (pool of licenses on a server), using either a Soft key (serial number) or Dongle (USB-key).
+                      For large assemblies: (1) Turn on <strong>Large Assembly Settings</strong>; (2) Use <strong>Lightweight</strong> mode to load components without loading feature tree data; (3) Disable <i>'Verification on rebuild'</i> under Performance Options; and (4) Verify that your graphics driver matches SOLIDWORKS certified versions.
                     </div>
                   </div>
                 </article>
 
-                <article class="kb-faq-entry" data-kb-faq-topic="gstarsoft">
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
                   <button type="button" class="kb-faq-q-trigger">
                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
-                    <h3>What point cloud formats does GstarCAD Point Cloud 2026 support?</h3>
+                    <h3>How does SOLIDWORKS PDM protect against data overwrites in multi-user environments?</h3>
                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
                   </button>
                   <div class="kb-faq-a-body">
-                    <p class="kb-faq-source">Source · GstarCAD Point Cloud 2026 User Guide</p>
+                    <p class="kb-faq-source">Source · SOLIDWORKS PDM Vault Guide</p>
                     <div class="kb-faq-answer">
-                      Integrated with the Undet plugin, it supports a wide range of formats including: *.E57, *.FLS, *.RCP/RCS, *.PTX, *.ZFS, *.LAS, *.LAZ, *.PTS, *.PLY, *.DP, *.FPR, *.LSPROJ, *.FWS, *.CL3, *.CLR, *.RSP, ASCII / NEZ (X,Y,Z/i/RGB) and custom ASCII / TXT file format import.
+                      SOLIDWORKS PDM uses a strict <strong>Check-Out / Check-In</strong> mechanism. When a designer checks out a file, it locks the master version in the SQL database vault and grants write-access to that user only. Other team members can only view a read-only local cache, preventing concurrent overwriting conflicts.
                     </div>
                   </div>
                 </article>
 
-                <article class="kb-faq-entry" data-kb-faq-topic="gstarsoft">
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
                   <button type="button" class="kb-faq-q-trigger">
                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
-                    <h3>What is the recommended point cloud density setting?</h3>
+                    <h3>How does 'Large Design Review' (LDR) speed up loading of assemblies?</h3>
                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
                   </button>
                   <div class="kb-faq-a-body">
-                    <p class="kb-faq-source">Source · GstarCAD Point Cloud Density Settings</p>
+                    <p class="kb-faq-source">Source · SOLIDWORKS Large Assembly Guide</p>
                     <div class="kb-faq-answer">
-                      For loading full density, the threshold is typically 12-48 million points (can be increased to 72+ million on powerful PCs). For the maximum visible preview point count, a minimum of 16 million points is recommended, with an optimal range of 16-36+ million points.
+                      <strong>Large Design Review (LDR)</strong> opens massive assemblies in seconds by only loading display graphics data (tessellated mesh) instead of solving deep parametric modeling history or geometric constraints. In LDR, you can still measure, view cross-sections, and execute edits like inserting components.
                     </div>
                   </div>
                 </article>
 
-                <article class="kb-faq-entry" data-kb-faq-topic="gstarsoft">
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
                   <button type="button" class="kb-faq-q-trigger">
                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
-                    <h3>How do I use the new Parametric Constraints in 2026?</h3>
+                    <h3>What is 'SpeedPak' configuration in SOLIDWORKS and when should I use it?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · SOLIDWORKS Performance Optimization</p>
+                    <div class="kb-faq-answer">
+                      <strong>SpeedPak</strong> creates a simplified graphical representation of an assembly without losing mates and drawing reference points. It deletes unnecessary faces and bodies from RAM cache, making it ideal for utilizing very complex sub-assemblies inside massive master layouts.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I troubleshoot rebuild errors and resolve mate conflicts in SOLIDWORKS?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · SOLIDWORKS Assembly Debugging</p>
+                    <div class="kb-faq-answer">
+                      Use <strong>MateXpert</strong> to diagnose assembly conflicts. It isolates conflicting constraints and pinpoints redundant constraints. For part-level rebuild issues, step through features chronologically using the <strong>FeatureGoTo / Rollback bar</strong> to locate the precise parent reference loss.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the difference between System Options and Document Properties?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · SOLIDWORKS System Administration</p>
+                    <div class="kb-faq-answer">
+                      <strong>System Options</strong> control the global behavior of the application (e.g., file locations, performance options) and are saved in the Windows Registry. <strong>Document Properties</strong> control active drafting units, sheet scales, and dimension styles, and are saved directly within that specific template or file.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does SOLIDWORKS manage sheet metal bend allowances and K-Factors?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · SOLIDWORKS Sheet Metal Manufacturing</p>
+                    <div class="kb-faq-answer">
+                      SOLIDWORKS calculates flat pattern expansion using the <strong>K-Factor</strong>, which is the ratio of the neutral sheet layer to total thickness. You can configure K-Factors, <strong>Bend Allowances</strong>, or custom <strong>Bend Tables</strong> provided by your manufacturing supplier to ensure extreme precision when unfolding parts.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="solidworks">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do custom properties in SOLIDWORKS parts automate drawing title blocks?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · SOLIDWORKS Drawing Administration</p>
+                    <div class="kb-faq-answer">
+                      By defining <strong>Custom Properties</strong> (e.g., PartNo, Material, Revision) in the 3D model, you can link title block annotations directly using the syntax <code>$PRPSHEET:"Property_Name"</code>. When the part is swapped, the drawing annotations update automatically, eliminating manual entry mistakes.
+                    </div>
+                  </div>
+                </article>
+
+                <!-- CATIA FAQs (10 Items) -->
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Why is CATIA GSD considered the gold standard for surface modeling?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA Generative Shape Design Guide</p>
+                    <div class="kb-faq-answer">
+                      <strong>Generative Shape Design (GSD)</strong> delivers uncompromising control over G0, G1, G2 (tangency), and G3 (curvature) continuous shapes. It easily manages dense mathematical wireframe skeletons and multi-section sweeps, which are essential for aerodynamic surface integrity in aerospace and automotive outer-mold-line designs.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the main difference between CATIA V5 and CATIA V6 (3DEXPERIENCE)?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA Infrastructure Migration</p>
+                    <div class="kb-faq-answer">
+                      CATIA V5 utilizes a traditional <strong>file-based storage paradigm</strong> (.CATPart, .CATProduct) stored locally or in basic PDM vaults. CATIA V6 (3DEXPERIENCE) uses a **database-driven architecture**, where models exist as structured metadata objects in the ENOVIA database, enabling massive real-time co-authoring without file locks.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does CAA (Component Application Architecture) extend CATIA's core engine?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA CAA Developer Manual</p>
+                    <div class="kb-faq-answer">
+                      <strong>Component Application Architecture (CAA)</strong> is the native C++ API framework for Dassault Systemes products. Unlike lightweight script macros, CAA provides direct access to topological modeler operations and Specification Tree structures, allowing developers to create highly-optimized proprietary workbenches.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does CATIA handle ultra-large assembly management and space coordination?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA Product Engineering Coordination</p>
+                    <div class="kb-faq-answer">
+                      CATIA coordinates massive digital mockups (DMU) by using <strong>Visualization Mode</strong> (loading lightweight cgr/3dxml representation) instead of Design Mode. Designers use the <strong>DMU Space Analysis</strong> workbench to perform real-time multi-gigabyte interference calculations and clearances.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is a 'PowerCopy' in CATIA and how does it automate design patterns?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA Knowledge Advisor Guide</p>
+                    <div class="kb-faq-answer">
+                      A <strong>PowerCopy</strong> is a reusable set of spec-tree features (solids, surfaces, sketches, coordinate systems) that can be stored in a library template. When instantiated, it prompts the user to select new geometric inputs, adapting its rich parameter history to the local curvature seamlessly.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to control links in CATIA's Multi-Model link (MML) system?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA Assembly & Part Linking</p>
+                    <div class="kb-faq-answer">
+                      Use the <strong>Edit Links</strong> dialog to inspect external geometric publications. For safe collaborative modeling, check the options <i>'Keep link with selected object'</i> and enforce <strong>Publications</strong> on shared parent sketch boundaries to prevent downstream parent loss.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What are the best practices for Hybrid Design (Solid + Surface) in CATIA V5?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA Part Design Practices</p>
+                    <div class="kb-faq-answer">
+                      In <strong>Hybrid Design</strong> mode, wireframe and surface elements are stored directly inside the active <i>PartBody</i> along with solids. Best practices recommend separating them: construct complex surfaces in distinct <strong>Geometrical Sets</strong>, then perform boolean closes inside mechanical solid bodies.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does CATIA's Composites Design workbench manage complex ply laying?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA Advanced Composites</p>
+                    <div class="kb-faq-answer">
+                      The <strong>Composites Design</strong> workbench allows engineers to define ply sequences, material orientations, and execute <strong>Draping Simulations</strong>. The draping solver projects composite warp and weft parameters onto curved surfaces, identifying zones of high shear strain prior to layup.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the role of ENOVIA inside a CATIA 3DEXPERIENCE workflow?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · 3DEXPERIENCE PLM Integration</p>
+                    <div class="kb-faq-answer">
+                      <strong>ENOVIA</strong> acts as the central data governance backbone. It manages user roles (Reader, Author, Leader), collaborative spaces, active checkouts (Locks), engineering changes, and structures the master <strong>Engineering Bill of Materials (EBOM)</strong> across enterprise divisions.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="catia">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does CATIA FT&A support Model-Based Definition (MBD)?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · CATIA Functional Tolerancing & Annotation</p>
+                    <div class="kb-faq-answer">
+                      <strong>Functional Tolerancing & Annotation (FT&A)</strong> embeds 3D GD&T annotations directly onto the surface faces of the solid model. By eliminating traditional 2D paper drawings, it supports <strong>Model-Based Definition (MBD)</strong>, allowing downstream manufacturing and inspection systems to parse product tolerancing directly.
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Autodesk Additional FAQs (10 Items) -->
+                <article class="kb-faq-entry" data-kb-faq-topic="autocad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the difference between dynamic blocks and standard blocks in AutoCAD?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · AutoCAD Advanced Blocks</p>
+                    <div class="kb-faq-answer">
+                      Standard blocks are rigid collections of geometric entities. <strong>Dynamic Blocks</strong> contain smart parameters and actions (like stretch, flip, rotate, or lookup tables). This allows a single block definition to morph into various sizes or visual forms during drafting, reducing block library clutter.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="autocad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'Sheet Set Manager' (SSM) coordinate sheet properties globally?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · AutoCAD Sheet Set Management</p>
+                    <div class="kb-faq-answer">
+                      <strong>Sheet Set Manager (SSM)</strong> stores sheet metadata inside a central <code>.dst</code> file. By using <strong>Sheet Custom Fields</strong>, designers can automatically populate scales, project numbers, and titles across hundreds of sheets, ensuring instant updates across title blocks globally.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="autocad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I fix AutoCAD layout display performance and viewport lagging?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · AutoCAD Performance Diagnostics</p>
+                    <div class="kb-faq-answer">
+                      To optimize lag: (1) Ensure Hardware Acceleration is ON (<code>3DCONFIG</code>); (2) Toggle <code>LAYOUTREGENCTL</code> to 2 to cache layouts in RAM; (3) Clean nested blocks using <code>PURGE</code> and repair geometry database errors using <code>AUDIT</code>.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="autocad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What are AutoCAD 'Sysvars' and how do I back up a clean user profile?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · AutoCAD Settings & Profiles</p>
+                    <div class="kb-faq-answer">
+                      <strong>Sysvars (System Variables)</strong> are named variables controlling Snap settings, visual toggles, or command defaults (e.g., <code>PICKBOX</code>, <code>FILEDIA</code>). You can backup profiles via Options > Profiles > Export to save custom workspaces into an <code>.arg</code> file.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="revit">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do 'Shared Parameters' differ from Project and Family Parameters in Revit?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Revit Parameter Coordination</p>
+                    <div class="kb-faq-answer">
+                      Family Parameters only drive dimensions in specific family files. Project Parameters apply to chosen categories inside that project but cannot be exported to tags. <strong>Shared Parameters</strong> are defined in a external `.txt` file, allowing data sharing across families, project files, and scheduling tables.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="revit">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Design Option' in Revit and how to manage design variants?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Revit Design Management</p>
+                    <div class="kb-faq-answer">
+                      <strong>Design Options</strong> allow designers to model multiple alternative design studies within a single Revit model file. Active view instances can be assigned specific Design Option visibility, allowing seamless, side-by-side scheduling and drawing updates without model duplication.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="revit">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to improve Revit model performance during worksharing synchronization?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Revit BIM Management</p>
+                    <div class="kb-faq-answer">
+                      To optimize <i>'Sync with Central'</i>: (1) Ensure all links (CAD, PDFs) are set to **Overlay** instead of Attachment; (2) Close unneeded Worksets; (3) Clean up warnings (Manage > Review Warnings) because warning clutter slows down database solving cycles.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="civil3d">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do 'Data Shortcuts' in Civil 3D manage terrain models?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                    </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Civil 3D Project Coordination</p>
+                    <div class="kb-faq-answer">
+                      <strong>Data Shortcuts</strong> create references to geometric elements (like design surfaces, alignments, alignments, profiles) stored in separate master drawings. This allows a site grading specialist to work on a referenced surface without loading the entire survey database, reducing memory footprints.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="inventor">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'iLogic' in Inventor enable rule-based assembly automation?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Inventor iLogic Customization</p>
+                    <div class="kb-faq-answer">
+                      <strong>iLogic</strong> embeds lightweight VB.NET code directly into parts or assemblies. Non-programmers can write simple rules (e.g., <i>'If length > 1000 then suppress Feature_A'</i>), which evaluate automatically during parametric parameter changes, enabling rapid product customization.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="fusion">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does Fusion manage cloud version history and branching?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Fusion Cloud Integration</p>
+                    <div class="kb-faq-answer">
+                      Fusion saves all models in the Autodesk cloud. Each save generates a sequential **Version** node. Team members can create isolated branch sandbox environments to test assembly changes, and later execute formal merges back into the master timeline safely.
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Gstarsoft Additional FAQs (11 Items) -->
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does GstarCAD 2026 optimize 'DWG Compare' performance?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD 2026 Release Notes</p>
+                    <div class="kb-faq-answer">
+                      In **GstarCAD 2026**, the DWG Compare engine utilizes enhanced multi-threading processing. It scans vector blocks and hatches in parallel, yielding up to a 40% speed improvement on complex site drawings with heavy external Xref coordinates.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the 'Parameters Manager' in GstarCAD and how does it drive constraints?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Parametric Drafting</p>
+                    <div class="kb-faq-answer">
+                      The **Parameters Manager** is a centralized panel to manage geometric and dimensional constraint variables. Designers can define mathematical formulas (e.g., <code>Width * 0.75</code>) to drive sketch constraints, enabling reactive 2D parametric geometry updates.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to use 'Drawing Merge' to combine multiple DWGs into one master file?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Project Collaboration</p>
+                    <div class="kb-faq-answer">
+                      Use the <code>DRAWINGMERGE</code> command. The wizard allows you to select multiple external drawing sheets, configure origin points, choose active layers, and merge them into a single Master DWG file with clash warnings.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'GRX SDK' and how compatible is it with AutoCAD ObjectARX?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Developer Reference</p>
+                    <div class="kb-faq-answer">
+                      The **GRX SDK** is the C++ development environment for GstarCAD. It provides high code-level parity with AutoCAD ObjectARX. Developers can port custom ARX plugins to GstarCAD with minimal changes to source files, retaining native performance.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to customize the Ribbon and Keyboard Shortcuts using GstarCAD's CUI editor?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Workplace Customization</p>
+                    <div class="kb-faq-answer">
+                      Run the <code>CUI</code> command. This opens the Custom User Interface panel where you can drag and drop commands into the Ribbon tabs, define new shortcut keys, and export workspace profiles into a portable <code>.cuix</code> file.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the benefit of GstarCAD's 'SuperHatch' over standard patterns?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Detailing Tips</p>
+                    <div class="kb-faq-answer">
+                      Unlike standard hatch patterns restricted to simple mathematical lines, **SuperHatch** allows designers to hatch selected boundaries using external images (.png/.jpg), complex block references, or external drawing files, enabling high-fidelity aesthetic hatches.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'LISP Compatibility' in GstarCAD ease transition?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Customization Support</p>
+                    <div class="kb-faq-answer">
+                      GstarCAD provides an outstanding built-in LISP interpreter supporting all standard VL-functions and DCL dialog boxes. Autolisp scripts written for other DWG editors run out-of-the-box in GstarCAD without compilation.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I convert vectors from PDF drawings to editable DWG entities?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD PDF Integration</p>
+                    <div class="kb-faq-answer">
+                      Use the <code>PDFIMPORT</code> command. It parses vector pathways, text annotations, and layers directly from the PDF file, translating them back into native, editable DWG lines, arcs, and TrueType fonts.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is GstarCAD 'Data Link' and how to sync Excel tables in real-time?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Advanced Table Tools</p>
+                    <div class="kb-faq-answer">
+                      **Data Link** (<code>DATALINK</code>) establishes an associative bidirectional link between a GstarCAD Table entity and an external Excel sheet. When you modify values in Excel, GstarCAD prompts you to update, updating table records automatically.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="fastview">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'DWG FastView markup' synchronize annotations between platforms?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DWG FastView Cloud Services</p>
+                    <div class="kb-faq-answer">
+                      When a mobile or web reviewer places markups or dimensions on a drawing, the annotations are saved to a synchronized overlay database layer. The desktop GstarCAD client loads these overlay markups, keeping field and back-office teams perfectly coordinated.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="fastview">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'GstarCAD 365' and how does it handle cloud-based co-editing?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Gstarsoft Cloud Collaboration</p>
+                    <div class="kb-faq-answer">
+                      **GstarCAD 365** is a collaborative SaaS ecosystem. Multiple registered users can log in, view, edit, and co-author identical DWG models in the cloud web portal, maintaining active lock boundaries on elements to prevent overlapping edits.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Why use Bentley DGN format for large infrastructure?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Systems Documentation</p>
+                    <div class="kb-faq-answer">
+                      The <strong>DGN</strong> format is engineered for precision and scale. Unlike many CAD formats, it can handle multi-gigabyte coordinate ranges (essential for roads and bridges) without floating-point errors. It also supports complex nested references, allowing large teams to collaborate on a single, massive 3D model without performance degradation.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'OpenRoads Designer' used for?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Civil Engineering</p>
+                    <div class="kb-faq-answer">
+                      <strong>OpenRoads Designer</strong> is the industry standard for road, rail, and site design. It provides a modeling environment that combines 3D mesh modeling with traditional 2D plan and profile design. It automates cross-section generation and earthwork calculations, ensuring that highway designs comply with local engineering standards.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'ProjectWise' support AEC collaboration?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Project Collaboration</p>
+                    <div class="kb-faq-answer">
+                      <strong>ProjectWise</strong> is a collaborative document management system specifically designed for AEC projects. It manages complex XREF (external reference) links between CAD files, ensuring that when an engineer updates a base map, everyone in the globally distributed team sees the change instantly while maintaining version control and audit trails.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is a 'Digital Twin' in the context of Bentley iTwin?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley iTwin Platform</p>
+                    <div class="kb-faq-answer">
+                      A <strong>Digital Twin</strong> on the iTwin platform is a 4D representation of a physical asset (like a bridge or water plant) that combines 3D CAD geometry with real-time IoT sensor data and maintenance history. It allows owners to visualize 'what happened' in the past and predict 'what will happen' in the future through simulation.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Using 'ContextCapture' for Reality Modeling</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Reality Modeling</p>
+                    <div class="kb-faq-answer">
+                      <strong>ContextCapture</strong> uses photogrammetry to turn simple photographs or point clouds into a high-resolution, textured 3D mesh of a real-world environment. This 'Reality Mesh' provides a perfect, georeferenced context for proposed engineering designs, allowing for much better visualization of project impact on the existing landscape.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'OpenRail Designer' and how does it differ from OpenRoads?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Rail Engineering</p>
+                    <div class="kb-faq-answer">
+                      While they share the same 'Open' platform, <strong>OpenRail Designer</strong> is specialized for rail, light rail, and metro systems. It includes specific rail tools like cant (superelevation) calculation, turnouts, and sleepers. It ensures that the horizontal and vertical alignment meets the rigorous safety standards of international railway agencies.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Managing structural analysis with 'STAAD.Pro'</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Structural Analysis</p>
+                    <div class="kb-faq-answer">
+                      <strong>STAAD.Pro</strong> is one of the most widely used structural analysis and design software worldwide. It can analyze virtually any type of structure, from plants and buildings to bridges and towers. It supports over 90 international steel, concrete, timber, and aluminum design codes, ensuring global compliance.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'SYNCHRO' 4D Construction?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Construction Management</p>
+                    <div class="kb-faq-answer">
+                      <strong>SYNCHRO</strong> is a 4D construction scheduling and simulation platform. It allows project teams to link the 3D model to the project schedule (Time = 4th Dimension). This allows managers to visualize the entire construction sequence, identify site logistics issues, and optimize the use of equipment before breaking ground.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to simulate water networks with 'WaterGEMS'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Hydraulics & Hydrology</p>
+                    <div class="kb-faq-answer">
+                      <strong>WaterGEMS</strong> is a hydraulic modeling solution for water distribution systems. It allows engineers to simulate water age, fire flow availability, and energy consumption. It integrates directly with GIS data and SCADA systems, providing a real-time 'Digital Twin' of a city's water infrastructure.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'RAM Structural System' used for?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Building Analysis</p>
+                    <div class="kb-faq-answer">
+                      <strong>RAM Structural System</strong> is specialized for the analysis and design of building structures. It automates the design of beams, columns, and foundations for steel and concrete buildings, significantly reducing the manual calculation time for structural engineers.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Analyzing 'Water Hammer' with Bentley HAMMER</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Transient Analysis</p>
+                    <div class="kb-faq-answer">
+                      <strong>HAMMER</strong> is a transient analysis tool used to identify and mitigate 'Water Hammer' (pressure surges) in piping systems. These surges can rupture pipes and damage pumps; HAMMER allows engineers to design surge tanks and relief valves to protect infrastructure.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'LumenRT' for AEC Visualization?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Real-Time Rendering</p>
+                    <div class="kb-faq-answer">
+                      <strong>LumenRT</strong> is a real-time visualization tool that turns CAD models into immersive cinematic environments. It can handle massive 'LiveCubes' with animated trees, cars, and people, allowing engineers to present their projects to stakeholders in a way that is easy to understand.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to use 'AssetWise' for Operations?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Asset Performance</p>
+                    <div class="kb-faq-answer">
+                      <strong>AssetWise</strong> is used once a project is built. it manages the performance and health of infrastructure assets over their lifetime. It tracks inspection data, maintenance costs, and operational risk, helping owners decide when to repair, replace, or decommission a bridge or plant.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'SewerGEMS' for Wastewater Modeling?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Sanitary Sewer Analysis</p>
+                    <div class="kb-faq-answer">
+                      <strong>SewerGEMS</strong> is a comprehensive modeling tool for sanitary and combined sewer systems. It helps engineers design pipe networks, analyze overflows (SSOs and CSOs), and comply with environmental regulations by simulating peak flow events.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Using 'gINT' for Geotechnical Data Management</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Subsurface Engineering</p>
+                    <div class="kb-faq-answer">
+                      <strong>gINT</strong> is the industry standard for managing geotechnical and geoenvironmental data. It allows engineers to store borehole logs, laboratory testing results, and well construction data in a centralized database, and generate professional geological reports.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'AutoPIPE' for Stress Analysis?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Piping Stress</p>
+                    <div class="kb-faq-answer">
+                      <strong>AutoPIPE</strong> is a specialized tool for analyzing the stress and fatigue of piping systems in power plants and refineries. It ensures that pipes can handle high pressures, thermal expansion, and seismic events without catastrophic failure.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Managing offshore structures with 'SACS'</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Offshore Analysis</p>
+                    <div class="kb-faq-answer">
+                      <strong>SACS</strong> is a design and analysis software for offshore structures like oil platforms and wind turbine foundations. it accounts for complex environmental loads like waves, wind, and currents, ensuring the long-term safety of structures in the ocean.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'ProSteel' for Structural Detailing?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Structural Steel Design</p>
+                    <div class="kb-faq-answer">
+                      <strong>ProSteel</strong> is an 3D modeling environment for structural steel and metal work. It automates the creation of complex connections, stairs, and railings, and generates 2D shop drawings and NC data for automated fabrication machines.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'MicroStation CONNECT Edition' differ from V8i?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley CONNECT Platform</p>
+                    <div class="kb-faq-answer">
+                      The <strong>CONNECT Edition</strong> is the 64-bit successor to the V8i series. It features a modernized Ribbon UI, cloud-based project collaboration through 'ProjectWise Connection Client,' and significantly improved performance for handling massive 3D reality meshes and complex drawing sets.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="bentley">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What are 'Bentley iModels'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Bentley Digital Asset Delivery</p>
+                    <div class="kb-faq-answer">
+                      An <strong>iModel</strong> is a container for the exchange of infrastructure information. It packages geometry, properties, and business logic into a lightweight, searchable format that can be viewed and interrogated by anyone in the project lifecycle without needing the original CAD software.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Synchronous Technology' in NX and Solid Edge?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Siemens Digital Industries</p>
+                    <div class="kb-faq-answer">
+                      <strong>Synchronous Technology</strong> is a unique modeling approach that combines the speed and flexibility of direct modeling with the control of parametric design. It allows you to modify geometry (like moving a hole or changing a face angle) without worrying about the original feature history or 'parent-child' relationships, making it ideal for fast iterations and multi-CAD data editing.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'WAVE Geometry Linker' work in NX?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Inter-Part Design</p>
+                    <div class="kb-faq-answer">
+                      <strong>WAVE Geometry Linker</strong> is the foundation of associative inter-part design in NX. It allows you to create a link from a component in an assembly to another component. If the source component changes, the linked geometry in the destination part updates automatically. This is essential for top-down design and ensuring alignment between mating parts.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the role of 'Teamcenter' in CAD data management?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Teamcenter PLM Documentation</p>
+                    <div class="kb-faq-answer">
+                      <strong>Teamcenter</strong> is the world's leading PLM (Product Lifecycle Management) system. It acts as the 'single source of truth' for all engineering data. It manages file versions, release workflows, Bill of Materials (BOM), and change requests. In NX, Teamcenter integration ensures that you are always working on the correct revision and that your data is securely stored and shared across the enterprise.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What are 'NX Expressions' and how to use them?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Design Automation</p>
+                    <div class="kb-faq-answer">
+                      <strong>NX Expressions</strong> are the mathematical engine of NX CAD. They allow you to define parameters (like 'Length = 100') and use them to drive your model. You can create complex conditional logic (e.g., 'If Weight > 50 then Thickness = 5 else Thickness = 2') and even link external Excel spreadsheets to drive your design dynamically.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Managing visual data with 'NX HD3D'</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Visual Reporting</p>
+                    <div class="kb-faq-answer">
+                      <strong>HD3D</strong> (High-Definition 3D) is a visual reporting tool that allows you to see non-geometric data directly on your 3D model. For example, you can color-code your assembly based on 'Release Status' or 'Supplier Name,' making it easy to identify design bottlenecks without opening complex spreadsheets.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Convergent Modeling' in Siemens CAD?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Generative Design</p>
+                    <div class="kb-faq-answer">
+                      <strong>Convergent Modeling</strong> allows you to work with facet (mesh) data and traditional B-Rep (solid) geometry in a single environment. You can perform boolean operations between a 3D-scanned mesh and a parametric solid without the need for time-consuming reverse engineering or surface reconstruction.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to use 'PMI' (Product and Manufacturing Information)?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Model Based Definition</p>
+                    <div class="kb-faq-answer">
+                      <strong>PMI</strong> allows you to add dimensions, tolerances, and surface finish symbols directly to the 3D model. This is the foundation of 'Drawingless Manufacturing,' where the 3D model itself serves as the legal engineering document, reducing the need for 2D drafting and eliminating translation errors.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Teamcenter Active Workspace'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Teamcenter User Experience</p>
+                    <div class="kb-faq-answer">
+                      <strong>Active Workspace</strong> is the modern, web-based interface for Teamcenter. It allows non-CAD users (like purchasing or manufacturing managers) to access, search, and approve PLM data from any device, including tablets and smartphones, without installing a heavy desktop client.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to automate drafting with 'Check-Mate'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Quality Control</p>
+                    <div class="kb-faq-answer">
+                      <strong>Check-Mate</strong> is an automated validation tool that ensures your models and drawings follow company standards. It can automatically check for things like 'missing layers,' 'incorrect font sizes,' or 'interferences,' preventing low-quality data from being released to production.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'NX CAM' Multi-Axis Milling?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Manufacturing</p>
+                    <div class="kb-faq-answer">
+                      <strong>NX CAM</strong> is the industry standard for 5-axis machining. It allows you to program complex toolpaths for aerospace turbine blades or automotive engine blocks. Its integrated G-code simulation ensures that the CNC machine will not collide with the workpiece before you ever touch a piece of metal.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Using 'Mechatronics Concept Designer' (MCD)</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Automation Simulation</p>
+                    <div class="kb-faq-answer">
+                      <strong>MCD</strong> allows mechanical, electrical, and automation engineers to collaborate in parallel. You can simulate the physical behavior of a machine (like a conveyor belt or a robotic arm) and link it to a real PLC (Programmable Logic Controller) to test your code before the machine is even built.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'NX Product Template Studio' (PTS)?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Knowledge Reuse</p>
+                    <div class="kb-faq-answer">
+                      <strong>PTS</strong> allows you to package complex, rule-based models into simple-to-use templates with a custom UI. This allows non-experts to configure complex designs (like a modular enclosure or a gear set) by just entering a few parameters, while the 'engineering intelligence' remains hidden and protected inside the template.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Designing for Assembly with 'NX Layout'</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX 2D/3D Synchronization</p>
+                    <div class="kb-faq-answer">
+                      <strong>NX Layout</strong> is a 2D environment designed for early-stage conceptual planning. It allows you to create 2D sketches and 'intelligent' components to explore assembly architectures. Once the layout is finalized, you can easily transition it into a full 3D assembly.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'NX Mold Wizard'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Tooling Design</p>
+                    <div class="kb-faq-answer">
+                      <strong>Mold Wizard</strong> is an automated toolkit for designing plastic injection molds. It automates time-consuming tasks like creating core and cavity splits, adding cooling channels, and placing standard mold base components from a library, reducing mold design time from days to hours.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Using 'Progressive Die Wizard' for Tooling</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Stamping Design</p>
+                    <div class="kb-faq-answer">
+                      Similar to Mold Wizard, the <strong>Progressive Die Wizard</strong> automates the design of stamping dies. It includes tools for blank layout optimization, strip development, and punch/die insert creation, ensuring high-quality results for complex sheet metal forming operations.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Solid Edge Generative Design'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Solid Edge Simulation</p>
+                    <div class="kb-faq-answer">
+                      Solid Edge features an integrated <strong>Generative Design</strong> solver that uses topology optimization to create high-performance, lightweight parts. You define the load cases and the material, and the AI 'grows' the optimal shape, which is often 3D printed for maximum weight savings.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Managing 'Multi-CAD' data in Teamcenter</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Teamcenter Multi-CAD Support</p>
+                    <div class="kb-faq-answer">
+                      Teamcenter is 'CAD Neutral.' It can manage data from NX, Solid Edge, SolidWorks, CATIA, and Creo in a single environment. This allows large companies with diverse toolsets to maintain a unified Bill of Materials (BOM) and release process across all their engineering teams.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'NX Simcenter' Nastran?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Siemens CAE Solutions</p>
+                    <div class="kb-faq-answer">
+                      <strong>NX Nastran</strong> is the world's premier finite element solver for structural, thermal, and dynamic analysis. It is the industry standard for aerospace and automotive engineering, used to validate that aircraft wings won't snap under load and that cars will protect passengers during a crash.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to use 'NX Realize Shape' for subdivision modeling?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX Industrial Design</p>
+                    <div class="kb-faq-answer">
+                      <strong>Realize Shape</strong> is a subdivision modeling tool inside NX. It allows you to 'sculpt' complex organic shapes by pulling and pushing on a simple cage, similar to working with digital clay, while automatically maintaining G2 curvature continuity for professional manufacturing.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="siemens">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'NX Flow Simulation'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · NX CFD Analysis</p>
+                    <div class="kb-faq-answer">
+                      <strong>NX Flow</strong> is a Computational Fluid Dynamics (CFD) tool that simulates how liquids and gases move through or around your design. It is used for optimizing airflow in electronics cooling, calculating drag on a vehicle, or analyzing fluid behavior in chemical pumps.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Why is the 'Regeneration' failing after modifying a feature?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Parametric Modeling Guide</p>
+                    <div class="kb-faq-answer">
+                      Regeneration failures in Creo are usually caused by <strong>Parent-Child relationship</strong> violations. If you delete a parent feature (like a sketch plane) or change it so a child reference (like a dimension or edge) disappears, the model breaks. Use the <strong>Reference Viewer</strong> to trace the dependency and redefine the failed child feature.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is a 'Skeleton Model' in Creo assemblies?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Top-Down Design</p>
+                    <div class="kb-faq-answer">
+                      A <strong>Skeleton Model</strong> is a special component that contains only critical geometry (surfaces, datums, axes) defining the space and interfaces of an assembly. It allows multiple engineers to work on different parts simultaneously while ensuring they all fit the master layout.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I manage settings using 'config.pro'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo System Administration</p>
+                    <div class="kb-faq-answer">
+                      The <code>config.pro</code> is a text file that controls Creo's behavior. You can set everything from default units and folder paths to UI colors. Creo loads this file from the loadpoint, then the home directory, and finally the current working directory, allowing for project-specific overrides.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Flexible Modeling' (FMX) used for?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Direct Modeling Tools</p>
+                    <div class="kb-faq-answer">
+                      <strong>Flexible Modeling Extension (FMX)</strong> allows you to edit 3D geometry directly without worrying about the original feature history. It is perfect for modifying imported STEP or IGES files where you don't have access to the original sketches or parameters. You can move faces, change hole diameters, and remove rounds with ease.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to use 'UDFs' (User Defined Features)?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Standardization</p>
+                    <div class="kb-faq-answer">
+                      <strong>UDFs</strong> allow you to capture a sequence of features (like a specific bolt pattern with countersinks) and save them as a single library object. This ensures standardization across the team and significantly speeds up the modeling of repetitive engineering features.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Managing large assemblies with 'Shrinkwrap'</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Performance Optimization</p>
+                    <div class="kb-faq-answer">
+                      A <strong>Shrinkwrap</strong> feature creates a simplified representation of a complex assembly by capturing only the external surfaces. This reduces RAM usage significantly when placing the assembly into an even larger master model, while also protecting your intellectual property by hiding internal details.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do 'Mapkeys' speed up the workflow?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Productivity Hacks</p>
+                    <div class="kb-faq-answer">
+                      <strong>Mapkeys</strong> are keyboard macros that record a sequence of UI actions. Professional Creo users use them to map complex multi-click operations (like 'Export to STEP' or 'Toggle Datum Visibility') to a single or double-key sequence, drastically reducing menu navigation time.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Behavioral Modeling' (BMX)?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Optimization Tools</p>
+                    <div class="kb-faq-answer">
+                      <strong>Behavioral Modeling (BMX)</strong> allows you to drive your design based on objective goals. For example, you can tell Creo to 'adjust the thickness of this wall until the total part mass is exactly 500g' or 'optimize this shape to maximize internal volume while staying within a specific footprint.'
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to handle 'Circle of Death' (Circular References)?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Troubleshooting</p>
+                    <div class="kb-faq-answer">
+                      A <strong>Circular Reference</strong> occurs when Part A depends on Part B, which in turn depends on Part A. This causes unstable regeneration. To fix it, use the <strong>Global Reference Viewer</strong> to identify the loop and break it by referencing a stable common parent, such as an assembly-level Skeleton model.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Using 'Family Tables' for part variations</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Parts Management</p>
+                    <div class="kb-faq-answer">
+                      <strong>Family Tables</strong> allow you to create a 'Generic' part and then define 'Instances' that vary by dimension, features, or components. This is the standard way to manage libraries of fasteners, springs, or any part that comes in multiple sizes but shares the same basic geometry.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to perform 'Interference Detection'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Assembly Validation</p>
+                    <div class="kb-faq-answer">
+                      Use the <strong>Global Interference</strong> tool in the Analysis tab. It checks for volume overlaps between components in an assembly. You can differentiate between actual interferences and intended 'touches' or threaded connections, ensuring your product can actually be assembled in the real world.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the benefit of 'Creo Simulation Live'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · PTC Real-time Simulation</p>
+                    <div class="kb-faq-answer">
+                      <strong>Creo Simulation Live</strong> (powered by Ansys) provides instantaneous thermal, structural, and modal feedback as you model. You no longer need to wait for a separate FEA meshing process; as you move a wall or add a rib, the stress results update in real-time, enabling 'design for performance'.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Managing CAD data with 'Windchill' PDM</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · PTC PLM Solutions</p>
+                    <div class="kb-faq-answer">
+                      <strong>Windchill</strong> is the backbone for Creo data management. It provides version control (check-in/check-out), lifecycle tracking (In-Work vs Released), and bill-of-materials (BOM) management. It ensures that the entire enterprise is working on the correct version of a CAD file.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to use 'Style' features for ISDX surfacing?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Industrial Design</p>
+                    <div class="kb-faq-answer">
+                      The <strong>Style</strong> tool (Interactive Surface Design Extension) combines the power of parametric modeling with the flexibility of freeform surfacing. It allows designers to create G2 and G3 continuous curves and surfaces, which are essential for ergonomic and high-aesthetic consumer products.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Working with 'Sheetmetal' in Creo</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Sheetmetal Design</p>
+                    <div class="kb-faq-answer">
+                      Creo's <strong>Sheetmetal</strong> mode includes specialized tools for walls, bends, rips, and punches. Crucially, it can generate an accurate <strong>Flat Pattern</strong> of a complex 3D part, accounting for material stretch (K-Factor) so the part can be correctly laser cut and folded.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What are 'Notebooks' and 'Declarations'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Top-Down Engineering</p>
+                    <div class="kb-faq-answer">
+                      <strong>Notebooks</strong> (<code>.lay</code> files) are used to drive assembly parameters globally. By 'Declaring' a part to a notebook, you can link its dimensions to global variables. If you change the 'Width' in the notebook, every declared part in the assembly updates automatically.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to 'Simplify Representations' for speed?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Large Assembly Management</p>
+                    <div class="kb-faq-answer">
+                      <strong>Simplified Reps</strong> allow you to load only the components you need for a specific task. You can create a 'Work-Rep' that excludes all fasteners and small internal parts, making the model much faster to open and manipulate during the design of main structures.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Customizing the Ribbon and Quick Access Toolbar</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo UX Customization</p>
+                    <div class="kb-faq-answer">
+                      In <strong>File > Options > Customize</strong>, you can drag and drop any command onto the Ribbon or the Quick Access Toolbar. You can also create custom tabs for specific project roles, ensuring your most-used tools are never more than one click away.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Mechanism Design' in Creo?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Motion Analysis</p>
+                    <div class="kb-faq-answer">
+                      <strong>Mechanism Design</strong> allows you to replace static assembly constraints with dynamic 'Connections' (Pin, Slider, Ball, etc.). You can then simulate motion, check for collisions during movement, and even calculate the required motor torque or spring force to drive the mechanism.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="creo">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Handling 'Imported Data' with Data Exchange</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Creo Interoperability</p>
+                    <div class="kb-faq-answer">
+                      Creo's <strong>Unite Technology</strong> allows you to open non-Creo files (SolidWorks, CATIA, NX) directly without conversion. If the original file changes, Creo can update the model automatically. For poor quality imports, use the <strong>Import Data Doctor (IDD)</strong> to repair gaps and overlapping surfaces.
+                    </div>
+                  </div>
+                </article>
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I migrate AutoCAD CUI files to DraftSight?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Migration Guide</p>
+                    <div class="kb-faq-answer">
+                      DraftSight can import AutoCAD <code>.cuix</code> files directly via the <strong>Customize</strong> command. Use the 'Profiles' tab to load your existing workspaces. Note: complex ribbons may need minor manual layout cleanup.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'PowerTrim' and how is it used?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Productivity</p>
+                    <div class="kb-faq-answer">
+                      <strong>PowerTrim</strong> allows you to trim or extend entities by simply dragging the cursor across them. It is highly intuitive and eliminates the need for multiple selection clicks.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I use the 'Mechanical Toolbox' for standard parts?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Mechanical Design</p>
+                    <div class="kb-faq-answer">
+                      The <strong>Mechanical Toolbox</strong> (available in Professional/Premium) provides a library of standardized bolts, nuts, and pins (ANSI, ISO, DIN). Use the Toolbox side-panel to select your standard, size, and view (Top/Side), then drag into the drawing. It automatically creates correct layers and dimensions.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Can DraftSight convert JPG/PNG logos to DWG vectors?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Image Tracer</p>
+                    <div class="kb-faq-answer">
+                      Yes, using the <strong>Image Tracer</strong> tool. Import your image, select the 'Trace' command, and adjust the threshold and smoothness settings. It will generate native CAD lines and arcs following the contours of the image, perfect for logos and site maps.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Does DraftSight support AutoLISP scripts?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight API & Automation</p>
+                    <div class="kb-faq-answer">
+                      DraftSight <strong>Professional, Premium, and Enterprise</strong> versions support AutoLISP. You can load existing <code>.lsp</code> files directly. For more advanced automation, DraftSight also offers a robust C# and C++ API for enterprise-level add-on development.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to save drawings to the 3DEXPERIENCE platform?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · 3DEXPERIENCE Integration</p>
+                    <div class="kb-faq-answer">
+                      If you use 'DraftSight connected to 3DEXPERIENCE', you will have a 'Save to 3DEXPERIENCE' button. This uploads the DWG to a secure cloud space (3DSpace) with full <strong>Version Control</strong> and lifecycle management, allowing for seamless sharing with SOLIDWORKS and CATIA users.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Configuring high-resolution PDF output in DraftSight</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Printing & Plotting</p>
+                    <div class="kb-faq-answer">
+                      Use the <strong>Export to PDF</strong> command. In the settings, you can define the DPI (Dots Per Inch) for vector and raster data. For professional construction sets, use at least 600 DPI for vectors and 300 DPI for raster images to ensure clarity at large scales.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the difference between 'Professional' and 'Enterprise'?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Licensing</p>
+                    <div class="kb-faq-answer">
+                      DraftSight <strong>Professional</strong> is a stand-alone license for individuals. <strong>Enterprise</strong> is a network-based license (SNL) designed for large teams, providing centralized deployment, concurrent usage tracking, and premium technical support.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do 'Smart Blocks' work in DraftSight?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight AI Tools</p>
+                    <div class="kb-faq-answer">
+                      DraftSight uses AI to identify similar geometry and convert them into <strong>Smart Blocks</strong>. It can also help you find and replace block instances globally across a drawing, significantly reducing manual drafting errors and file size.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Can I use DraftSight drawings directly in SOLIDWORKS?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Dassault Systèmes Interoperability</p>
+                    <div class="kb-faq-answer">
+                      Yes. DraftSight <code>.dwg</code> files can be opened in <strong>SOLIDWORKS</strong> and used as the basis for 3D sketches. Conversely, SOLIDWORKS 2D drawings can be edited in DraftSight while maintaining a live link if using the 3DEXPERIENCE platform.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to perform 'Batch Printing' for multiple files?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Documentation Tools</p>
+                    <div class="kb-faq-answer">
+                      Use the <strong>Batch Print</strong> tool (command <code>BATCHPRINT</code>). You can add multiple DWG files or entire folders to a list, select a print configuration (like 'Print to PDF'), and execute the job. It supports printing both Model and Paper space layouts simultaneously.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Customizing command aliases (acad.pgp equivalent)</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Interface Customization</p>
+                    <div class="kb-faq-answer">
+                      In DraftSight, go to <strong>Options > User Preferences > Aliases</strong>. You can import existing AutoCAD <code>.pgp</code> files or manually define new shortcuts. This allows you to maintain your muscle memory if you are switching from other CAD platforms.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Improving performance with 'Hardware Acceleration'</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight System Optimization</p>
+                    <div class="kb-faq-answer">
+                      Ensure your GPU driver is up to date. In <strong>Options > System Options > Graphics Performance</strong>, verify that 'Hardware Acceleration' is enabled. This offloads the rendering of complex polylines and hatches to your graphics card, improving zoom and pan smoothness.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to use 'Sheet Set Manager' in DraftSight?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Project Management</p>
+                    <div class="kb-faq-answer">
+                      DraftSight's <strong>Sheet Set Manager</strong> (SSM) organizes project layouts into a <code>.dst</code> file. It supports automated title block fields and background plotting, making it the primary tool for managing large architectural or engineering drawing sets.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Can I record macros in DraftSight?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Automation</p>
+                    <div class="kb-faq-answer">
+                      Yes. DraftSight allows you to record <strong>Macros</strong> for repetitive tasks. You can assign these macros to custom buttons on your toolbar or ribbon, or trigger them via specific command aliases to speed up your daily workflow.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Handling corrupted files with 'Audit' and 'Recover'</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Technical Support</p>
+                    <div class="kb-faq-answer">
+                      If a file is slow or crashing, use the <strong>Audit</strong> command to fix internal errors. For files that won't open at all, use <strong>Recover</strong>. DraftSight also creates <code>.bak</code> files and auto-save (<code>.ds$</code>) files which can be renamed to <code>.dwg</code> to recover lost work.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="draftsight">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is the 'DraftSight Toolbox' Symbol Library?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DraftSight Mechanical Toolbox</p>
+                    <div class="kb-faq-answer">
+                      The <strong>Toolbox</strong> includes thousands of mechanical symbols like holes, weld symbols, and surface finishes. It adheres to international standards like ISO and ANSI, ensuring that your technical drawings meet global documentation requirements.
+                    </div>
+                  </div>
+                </article>
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Can GstarCAD 2026 import PDF files as editable vector geometry?</h3>
                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
                   </button>
                   <div class="kb-faq-a-body">
                     <p class="kb-faq-source">Source · GstarCAD 2026 Innovation Features</p>
                     <div class="kb-faq-answer">
-                      GstarCAD 2026 introduces Phase 2 of Parametric Constraints, including Dimensional Constraints and a Parameters Manager. This allows you to link dimensions to mathematical formulas and variables, enabling automated design updates when parameters change.
+                      Yes. Use the <code>PDFIMPORT</code> command to convert vector-based PDF files into editable CAD entities. It supports importing layers, true-type fonts, and solid fills. Note: Scanned PDFs (raster) will remain as image underlays and cannot be converted to vectors directly.
                     </div>
                   </div>
                 </article>
 
-                <article class="kb-faq-entry" data-kb-faq-topic="gstarsoft">
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
                   <button type="button" class="kb-faq-q-trigger">
                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
-                    <h3>What is "Drawing Merge"?</h3>
+                    <h3>What is the benefit of the 'Sheet Set Manager' in GstarCAD?</h3>
                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
                   </button>
                   <div class="kb-faq-a-body">
-                    <p class="kb-faq-source">Source · GstarCAD 2026 Innovation Features</p>
+                    <p class="kb-faq-source">Source · GstarCAD Project Management</p>
                     <div class="kb-faq-answer">
-                      Drawing Merge is an innovative feature that streamlines workflows by allowing you to easily consolidate multiple separate drawings or project branches into a single master file.
+                      The Sheet Set Manager (<code>SSM</code>) allows you to organize multiple layouts across different files into a single project structure. It enables batch plotting, automatic callouts, and global management of project properties like title block data.
                     </div>
                   </div>
                 </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I fix blurry OLE objects (Excel tables) in GstarCAD?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Graphics Troubleshooting</p>
+                    <div class="kb-faq-answer">
+                      Try using the <strong>DATALINK</strong> command instead of OLE. Data Link creates a live connection to the Excel file and renders it using native CAD text and table entities, which remain sharp and editable, whereas OLE relies on image-based rendering.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What are 'Express Tools' in GstarCAD?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Productivity Tools</p>
+                    <div class="kb-faq-answer">
+                      Express Tools are a collection of advanced utilities (like <code>SUPERHATCH</code>, <code>TXT2MTXT</code>, and <code>BURST</code>) that extend the standard functionality of GstarCAD. They are fully compatible with AutoCAD's Express Tools library.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I migrate my custom CUI (Ribbon/Menus) to a new version?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Customization Guide</p>
+                    <div class="kb-faq-answer">
+                      Open the <code>CUI</code> dialog and use the 'Transfer' tab. You can load your old <code>.cuix</code> or <code>.icui</code> file and drag-and-drop your custom workspaces, ribbons, and toolbars into the new version's configuration.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad-mech">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I customize the Part List template in GstarCAD Mechanical?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Mechanical Admin</p>
+                    <div class="kb-faq-answer">
+                      Use the <code>GMSETTING</code> command -> Part List -> Template. You can define columns for Material, Standard, or Custom Properties and map them to your enterprise ERP fields for consistent BOM output.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="fastview">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Can I view 3D BIM models in DWG FastView?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · DWG FastView Product Specs</p>
+                    <div class="kb-faq-answer">
+                      Yes, DWG FastView supports more than 40 formats, including <strong>Revit (RVT)</strong>, STEP, IGES, and SolidWorks files. You can rotate, section, and measure 3D models directly on your mobile device or web browser without a heavy CAD license.
+                    </div>
+                  </div>
+                </article>
+                <article class="kb-faq-entry" data-kb-faq-topic="autocad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do Smart Blocks (BSEARCH) work in AutoCAD 2026?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · AutoCAD 2026 New Features</p>
+                    <div class="kb-faq-answer">
+                      The <code>BSEARCH</code> command uses AI to identify similar geometry or text and automatically converts them into block instances. It can map text variations into block attributes, helping standardize messy legacy drawings.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="revit">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Why is my 'Sync with Central' button grayed out?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Autodesk Support (Revit Cloud Worksharing)</p>
+                    <div class="kb-faq-answer">
+                      This usually happens due to: 1) A Revit version mismatch between team members, 2) Loss of internet connection to BIM 360, or 3) A corrupted local cache. Clear your local files in <code>%LOCALAPPDATA%\Autodesk\Revit</code> to force a fresh pull from the central model.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="civil3d">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How can I optimize performance for large TIN surfaces?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Civil 3D Infrastructure Guide</p>
+                    <div class="kb-faq-answer">
+                      Use <strong>Data Clips</strong> to define a boundary before building the surface, ensuring the engine only processes the relevant area. Also, use the <strong>Simplify Surface</strong> tool to reduce vertex density in flat regions while preserving accuracy at ridges and valleys.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="inventor">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Express Mode' in Inventor?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Inventor Assembly Performance</p>
+                    <div class="kb-faq-answer">
+                      Express Mode loads only the graphic representations of components in large assemblies. This allows for instant opening and viewing, enabling measurement and sectioning without loading the full B-Rep geometry data of every part.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to improve performance with 50+ Xrefs in GstarCAD?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Performance Tuning</p>
+                    <div class="kb-faq-answer">
+                      Use <strong>Demand Loading</strong> (<code>XLOADCTL = 2</code>). This only loads the necessary portions of the Xref into memory. Also, use <code>INDEXCTL</code> in the source files to create spatial and layer indexes, allowing the engine to skip clipped or frozen data during regen.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="gstarcad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What can I do with 'GstarCAD Web' without a desktop installation?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · GstarCAD Web Features</p>
+                    <div class="kb-faq-answer">
+                      GstarCAD Web (cloud.gstarcad.net) allows you to open DWG files directly in a browser. You can perform basic 2D editing, measuring, and layer management. It is ideal for stakeholders who need to review and redline drawings without a full CAD license.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="autocad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How do I use 'Action Recorder' for repetitive tasks?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · AutoCAD Automation Tools</p>
+                    <div class="kb-faq-answer">
+                      The <strong>Action Recorder</strong> (<code>ACTRECORD</code>) captures a sequence of commands as an Action Macro (<code>.atmx</code>). You can replay these macros on other drawings. It is simpler than LISP and supports user prompts for variable input during playback.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="revit">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>When should I use 'Nested Families' in Revit?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Revit Advanced Family Editor</p>
+                    <div class="kb-faq-answer">
+                      Use <strong>Nested Families</strong> when creating complex components that share sub-parts (e.g., a window family containing a nested 'Handle' family). Use the 'Shared' checkbox on the nested family if you want each sub-part to be scheduled separately.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="revit">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'Phasing' affect schedules?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Revit Project Coordination</p>
+                    <div class="kb-faq-answer">
+                      Every view and schedule in Revit has a 'Phase' and 'Phase Filter' property. A schedule will only count elements that exist within its assigned phase. For renovation projects, create separate schedules for 'Existing' and 'New' to avoid quantity errors.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="civil3d">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>What is 'Grading Optimization' for Civil 3D?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Civil 3D Infrastructure Design</p>
+                    <div class="kb-faq-answer">
+                      Grading Optimization is an interactive tool that evaluates site grading based on constraints like slope, drainage, and volume limits. It automates the tedious manual grading process and finds the most cost-effective earthwork solution.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="inventor">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How does 'Frame Generator' handle custom profiles?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Inventor Structural Design</p>
+                    <div class="kb-faq-answer">
+                      Frame Generator uses the <strong>Content Center</strong> to host profiles. To use a custom aluminum or steel profile, you must first author the part, define its skeleton (insertion points), and publish it to a custom read-write library in the Content Center.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="fusion">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>How to manage permissions in a Fusion Team?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · Fusion Cloud Admin</p>
+                    <div class="kb-faq-answer">
+                      Use <strong>Team Hubs</strong> to organize projects. You can assign roles: 'Project Admin' (can manage members), 'Editor' (can edit/save), and 'Viewer' (can only comment/measure). For external consultants, use 'Secret' or 'Private' project types for tighter control.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="kb-faq-entry" data-kb-faq-topic="autocad">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>Tool Palettes vs. Design Center: Which is better?</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · AutoCAD Content Management</p>
+                    <div class="kb-faq-answer">
+                      <strong>Design Center</strong> (<code>ADC</code>) is best for browsing and pulling content from OTHER files. <strong>Tool Palettes</strong> (<code>TP</code>) are best for frequently used blocks, hatches, and commands, providing instant one-click access with predefined properties like layers and scale.
+                    </div>
+                  </div>
+                </article>
+
+                <div class="kb-faq-pagination" style="margin-top:24px; text-align:center;">
+                  <button class="kb-faq-page-prev" disabled>Prev</button>
+                  <span class="kb-faq-page-info">Page 1 of 1</span>
+                  <button class="kb-faq-page-next" disabled>Next</button>
+                </div>
               </section>
             </div>
           </div>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested Families · Revit BIM · LearnCAD</title>
+    <meta name="description" content="Master Nested Families in Revit: learn how to build modular, efficient, and intelligent BIM components by nesting families within one another." />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="stylesheet" href="../../styles.css?v=20260506" />
+  </head>
+  <body data-page="knowledge" class="page-kb-concepts">
+        <div class="header-stack">
+      <aside
+        class="site-notice"
+        id="site-notice"
+        data-notice-id="global-v2"
+        aria-label="Announcement"
+      >
+        <div class="site-notice-inner container">
+          <p class="site-notice-text">
+            Tip: open the
+            <a class="site-notice-link" href="../../tutorials.html">tutorial library</a>
+            to filter by software, task, level, and source—then follow outbound links to the originals.
+          </p>
+          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </aside>
+      <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="../../index.html">
+          <span class="brand-badge">LC</span>
+          <span>LearnCAD</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="../../index.html">Home</a>
+          <a class="nav-link" href="../../knowledge-base.html">Knowledge Base</a>
+          <a class="nav-link" href="../../tutorials.html">Tutorials</a>
+          <a class="nav-link" href="../../news.html">News</a>
+        </nav>
+      </div>
+    </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 900px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-terms.html">Terms</a> /
+        <span aria-current="page">Nested Families</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 40px; border-bottom: 1px solid #e2e8f0; padding-bottom: 24px;">
+          <span class="chip" style="margin-bottom: 12px; background: #e0f2fe; color: #075985; border-color: #bae6fd;">BIM / Architecture</span>
+          <h1 style="font-size: 2.5rem; margin-bottom: 12px; color: #0f172a;">Nested Families</h1>
+          <p class="hero-sub" style="font-size: 1.2rem; color: #475569;">
+            Building modular BIM components by embedding families within a 'Host' family for improved management and parametric control.
+          </p>
+        </header>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b; border-left: 4px solid #0284c7; padding-left: 12px;">Component Hierarchy</h2>
+          <p style="line-height: 1.7; color: #334155; font-size: 1.05rem;">
+            A door family doesn't need to have the handle geometry modeled from scratch inside it. Instead, you can 'Nest' a separate door handle family. This allows you to swap handle types globally by updating only the nested handle family, rather than editing every door.
+          </p>
+        </section>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px; background: #f8fafc; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0;">
+          <h2 style="font-size: 1.3rem; margin-bottom: 16px; color: #1e293b;">Shared vs. Non-Shared</h2>
+          <ul style="display: grid; gap: 12px; padding-left: 20px; color: #475569;">
+            <li><strong>Non-Shared (Default):</strong> The nested component is treated as part of the host. You cannot tag or schedule the handle separately from the door.</li>
+            <li><strong>Shared:</strong> If 'Shared' is checked in the nested family's properties, it can be scheduled, tagged, and even swapped with other shared families of the same category within the project environment.</li>
+            <li><strong>Parameter Mapping:</strong> You can link parameters of the nested family to parameters of the host family to maintain parametric control across levels.</li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b;">Best Practice</h2>
+          <p class="meta" style="color: #475569;">Avoid nesting more than 2-3 levels deep. Deep nesting hierarchies can lead to 'circular reference' errors and significantly degrade model performance when regenerating views.</p>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container">
+        <p>© 2026 LearnCAD · Knowledge Base</p>
+      </div>
+    </footer>
+      <script src="../../app.js" defer></script>
+  </body>
+</html>

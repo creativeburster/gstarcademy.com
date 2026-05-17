@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Config.pro Mastery · PTC Creo · LearnCAD</title>
+    <meta name="description" content="Master Creo Config.pro: learn how to customize system behavior, set default units, manage search paths, and optimize your CAD environment." />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="stylesheet" href="../../styles.css?v=20260506" />
+  </head>
+  <body data-page="knowledge" class="page-kb-concepts">
+        <div class="header-stack">
+      <aside
+        class="site-notice"
+        id="site-notice"
+        data-notice-id="global-v2"
+        aria-label="Announcement"
+      >
+        <div class="site-notice-inner container">
+          <p class="site-notice-text">
+            Tip: open the
+            <a class="site-notice-link" href="../../tutorials.html">tutorial library</a>
+            to filter by software, task, level, and source—then follow outbound links to the originals.
+          </p>
+          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </aside>
+      <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="../../index.html">
+          <span class="brand-badge">LC</span>
+          <span>LearnCAD</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="../../index.html">Home</a>
+          <a class="nav-link" href="../../knowledge-base.html">Knowledge Base</a>
+          <a class="nav-link" href="../../tutorials.html">Tutorials</a>
+          <a class="nav-link" href="../../news.html">News</a>
+        </nav>
+      </div>
+    </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 900px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-terms.html">Terms</a> /
+        <span aria-current="page">Config.pro Mastery</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 40px; border-bottom: 1px solid #e2e8f0; padding-bottom: 24px;">
+          <span class="chip" style="margin-bottom: 12px; background: #f8fafc; color: #475569; border-color: #e2e8f0;">System Config</span>
+          <h1 style="font-size: 2.5rem; margin-bottom: 12px; color: #0f172a;">Config.pro Mastery</h1>
+          <p class="hero-sub" style="font-size: 1.2rem; color: #475569;">
+            The engine room: Using the master configuration file to tailor every aspect of the Creo experience.
+          </p>
+        </header>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b; border-left: 4px solid #64748b; padding-left: 12px;">The Core Configuration</h2>
+          <p style="line-height: 1.7; color: #334155; font-size: 1.05rem;">
+            Almost everything about how Creo looks, feels, and calculates is controlled by a simple text file called <strong>config.pro</strong>. From the default unit system (mm vs inch) to the search paths for your part library, this file is the brain of your Creo installation.
+          </p>
+        </section>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px; background: #f8fafc; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0;">
+          <h2 style="font-size: 1.3rem; margin-bottom: 16px; color: #1e293b;">The Loading Sequence</h2>
+          <p style="margin-bottom: 16px; color: #475569;">Creo loads configuration files in a specific order, with later files overriding earlier ones:</p>
+          <ul style="display: grid; gap: 12px; padding-left: 20px; color: #475569;">
+            <li><strong>Loadpoint:</strong> Global settings for all users in an organization.</li>
+            <li><strong>Home Directory:</strong> Personal settings that follow the user.</li>
+            <li><strong>Current Working Directory:</strong> Project-specific settings (e.g., custom tolerances for a specific client).</li>
+            <li><strong>Config.sup:</strong> A 'super-config' that cannot be overridden by users (for IT enforcement).</li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b;">Critical Options</h2>
+          <p class="meta" style="color: #475569;">Essential options include <code>template_solidpart</code> for default templates, <code>drawing_setup_file</code> for drafting standards, and <code>search_path</code> for linking external libraries without moving files.</p>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container">
+        <p>© 2026 LearnCAD · Knowledge Base</p>
+      </div>
+    </footer>
+      <script src="../../app.js" defer></script>
+  </body>
+</html>

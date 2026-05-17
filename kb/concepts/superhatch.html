@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuperHatch · Advanced Drafting · LearnCAD</title>
+    <meta name="description" content="Master the SuperHatch command in GstarCAD and AutoCAD: filling areas with images, blocks, or Xrefs for realistic rendering and complex patterns." />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="stylesheet" href="../../styles.css?v=20260506" />
+  </head>
+  <body data-page="knowledge" class="page-kb-concepts">
+        <div class="header-stack">
+      <aside
+        class="site-notice"
+        id="site-notice"
+        data-notice-id="global-v2"
+        aria-label="Announcement"
+      >
+        <div class="site-notice-inner container">
+          <p class="site-notice-text">
+            Tip: open the
+            <a class="site-notice-link" href="../../tutorials.html">tutorial library</a>
+            to filter by software, task, level, and source—then follow outbound links to the originals.
+          </p>
+          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </aside>
+      <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="../../index.html">
+          <span class="brand-badge">LC</span>
+          <span>LearnCAD</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="../../index.html">Home</a>
+          <a class="nav-link" href="../../knowledge-base.html">Knowledge Base</a>
+          <a class="nav-link" href="../../tutorials.html">Tutorials</a>
+          <a class="nav-link" href="../../news.html">News</a>
+        </nav>
+      </div>
+    </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 900px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-terms.html">Terms</a> /
+        <span aria-current="page">SuperHatch</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 40px; border-bottom: 1px solid #e2e8f0; padding-bottom: 24px;">
+          <span class="chip" style="margin-bottom: 12px; background: #fffbeb; color: #92400e; border-color: #fef3c7;">Express Tools</span>
+          <h1 style="font-size: 2.5rem; margin-bottom: 12px; color: #0f172a;">SuperHatch</h1>
+          <p class="hero-sub" style="font-size: 1.2rem; color: #475569;">
+            Taking hatching to the next level: Filling boundaries with non-traditional patterns like images, blocks, and external references.
+          </p>
+        </header>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b; border-left: 4px solid #d97706; padding-left: 12px;">Unlimited Patterns</h2>
+          <p style="line-height: 1.7; color: #334155; font-size: 1.05rem;">
+            Standard hatching is limited to vector patterns (lines/dots). <strong>SuperHatch</strong> (part of the Express Tools library) allows you to use an image (like a brick texture) or a block (like a complex tile) to fill an area, creating high-fidelity plans and realistic material representations.
+          </p>
+        </section>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px; background: #f8fafc; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0;">
+          <h2 style="font-size: 1.3rem; margin-bottom: 16px; color: #1e293b;">Supported Object Types</h2>
+          <ul style="display: grid; gap: 12px; padding-left: 20px; color: #475569;">
+            <li><strong>Images:</strong> Use <code>.jpg</code> or <code>.png</code> textures for grass, gravel, or flooring.</li>
+            <li><strong>Blocks:</strong> Use a single 'tree' block to fill a forest area with correctly clipped boundaries.</li>
+            <li><strong>Xrefs:</strong> Reference an entire external drawing as a repeating pattern.</li>
+            <li><strong>Wipeouts:</strong> Mask areas while maintaining the hatch boundary logic.</li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b;">Performance Consideration</h2>
+          <p class="meta" style="color: #475569;">SuperHatch with high-resolution images can significantly increase file size and redraw time. Always optimize your images before use and consider using <strong>Image Clipping</strong> (<code>IMAGECLIP</code>) manually if performance drops.</p>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container">
+        <p>© 2026 LearnCAD · Knowledge Base</p>
+      </div>
+    </footer>
+      <script src="../../app.js" defer></script>
+  </body>
+</html>

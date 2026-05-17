@@ -45,14 +45,15 @@ document.getElementById("footer-year")?.append(String(new Date().getFullYear()))
   }
   const handleAccept = (e) => {
     if (e) e.preventDefault();
-    banner.style.display = "none"; // 强制立即隐藏
     banner.classList.add("is-dismissed");
     try {
       localStorage.setItem(key, "1");
     } catch { /* ignore */ }
   };
 
-  banner.querySelector(".cookie-consent-accept")?.addEventListener("click", handleAccept);
+  banner.querySelectorAll(".cookie-consent-actions button")?.forEach(btn => {
+    btn.addEventListener("click", handleAccept);
+  });
   banner.querySelector(".cookie-consent-close")?.addEventListener("click", handleAccept);
 })();
 
