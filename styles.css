@@ -1997,7 +1997,7 @@ a.kb-domain-card:hover .kb-domain-card-cta {
 
 :root {
   color-scheme: light;
-  /* Page: cool mist under hero → warm paper (not pure white; easy on eyes) */
+  /* Fallback values for safety */
   --bg: #f1ece6;
   --bg-soft: #e8e4de;
   --surface: rgba(252, 251, 248, 0.94);
@@ -2013,19 +2013,57 @@ a.kb-domain-card:hover .kb-domain-card-cta {
   --shadow-lg: 0 16px 34px rgba(29, 22, 12, 0.1);
 }
 
-body {
+/* Warm Newspaper Yellow Theme - strictly for Knowledge Base pages */
+body[data-page="knowledge"] {
+  --bg: #f1ece6;
+  --bg-soft: #e8e4de;
+  --surface: rgba(252, 251, 248, 0.94);
+  --surface-strong: #faf8f5;
+  --line: #dcd4c9;
+  --line-soft: #e8e2d8;
+  --text: #1f2937;
+  --muted: #5f6777;
+  --shadow: 0 10px 24px rgba(29, 22, 12, 0.07);
+  --shadow-lg: 0 16px 34px rgba(29, 22, 12, 0.1);
+
   background:
     radial-gradient(ellipse 95% 42% at 50% 0%, rgba(15, 23, 42, 0.055), transparent 52%),
     radial-gradient(42rem 24rem at 0% 18%, rgba(192, 176, 151, 0.09), transparent 56%),
     radial-gradient(36rem 20rem at 100% 12%, rgba(148, 163, 184, 0.06), transparent 54%),
-    linear-gradient(180deg, #e8eaf0 0%, #ebe7e1 14%, #f0ebe4 38%, #f3efe8 100%);
+    linear-gradient(180deg, #e8eaf0 0%, #ebe7e1 14%, #f0ebe4 38%, #f3efe8 100%) !important;
 }
 
-body::before {
+body[data-page="knowledge"]::before {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.12)),
     radial-gradient(circle at 22% 12%, rgba(99, 102, 241, 0.035), transparent 36%),
     radial-gradient(circle at 78% 8%, rgba(145, 123, 90, 0.035), transparent 34%);
+}
+
+/* Premium Cool Slate & Ice White Theme - for all other pages (Home, Tutorials, News, About, etc.) */
+body:not([data-page="knowledge"]) {
+  --bg: #f8fafc;
+  --bg-soft: #f1f5f9;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --line: #cbd5e1;
+  --line-soft: #e2e8f0;
+  --text: #0f172a;
+  --muted: #475569;
+  --shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 16px 34px rgba(15, 23, 42, 0.06);
+
+  background:
+    radial-gradient(ellipse 95% 42% at 50% 0%, rgba(37, 99, 235, 0.02), transparent 52%),
+    radial-gradient(36rem 20rem at 100% 12%, rgba(148, 163, 184, 0.04), transparent 54%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
+}
+
+body:not([data-page="knowledge"])::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)),
+    radial-gradient(circle at 22% 12%, rgba(37, 99, 235, 0.02), transparent 36%),
+    radial-gradient(circle at 78% 8%, rgba(148, 163, 184, 0.02), transparent 34%);
 }
 
 .hero-card,
@@ -2038,60 +2076,68 @@ body::before {
 .kb-quick,
 .kb-person,
 .kb-stat {
-  border-color: var(--line);
-  background: linear-gradient(180deg, rgba(253, 252, 249, 0.99), rgba(247, 244, 238, 0.97));
-  box-shadow: var(--shadow);
+  border-color: var(--line) !important;
+  background: var(--surface) !important;
+  box-shadow: var(--shadow) !important;
 }
 
 .chip,
 .tag,
 .kb-tag {
-  border-color: #ded6cb;
-  background: #f8f4ec;
-  color: #596274;
+  border-color: var(--line-soft) !important;
+  background: var(--bg-soft) !important;
+  color: var(--muted) !important;
 }
 
 .btn {
-  border-color: #d7cec1;
-  background: #fffdfa;
-  color: #283548;
+  border-color: var(--line) !important;
+  background: var(--surface-strong) !important;
+  color: var(--text) !important;
+  box-shadow: var(--shadow) !important;
+  transition: all 0.2s ease !important;
 }
 
 .btn:hover {
-  background: #f7f2e9;
-  box-shadow: 0 8px 16px rgba(39, 29, 16, 0.1);
+  background: var(--bg-soft) !important;
+  box-shadow: var(--shadow-lg) !important;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3d485b, #58647a);
-  box-shadow: 0 10px 20px rgba(39, 49, 72, 0.24);
+  background: linear-gradient(135deg, #1e293b, #334155) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+  color: #ffffff !important;
 }
 
 .kb-sidebar {
-  background: linear-gradient(180deg, #fffdf8, #f7f2e9);
-  color: #1f2937;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, #fffdf8, #f7f2e9) !important;
+  color: #1f2937 !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: var(--shadow) !important;
 }
 
-.kb-nav-group { border-top-color: #e4dbcf; }
+.kb-nav-group { border-top-color: #e4dbcf !important; }
 .kb-nav-toggle,
-.kb-nav-title { color: #6b7280; }
-.kb-side-link { color: #4f5a70; }
+.kb-nav-title { color: #6b7280 !important; }
+.kb-side-link { color: #4f5a70 !important; }
 .kb-side-link:hover,
-.kb-side-link.active { background: #eef2ff; color: #334155; }
+.kb-side-link.active { background: #eef2ff !important; color: #334155 !important; }
 
 .kb-feature,
 .kb-about {
-  background: linear-gradient(180deg, #fffdf8, #f7f2e9);
-  color: #1f2937;
-  border-color: var(--line);
+  background: linear-gradient(180deg, #fffdf8, #f7f2e9) !important;
+  color: #1f2937 !important;
+  border-color: var(--line) !important;
 }
 
 .kb-mini-btn {
-  background: #fffdfa;
-  border-color: #d9d1c6;
-  color: #334155;
+  background: #fffdfa !important;
+  border-color: #d9d1c6 !important;
+  color: #334155 !important;
 }
 
 .kb-daily,
