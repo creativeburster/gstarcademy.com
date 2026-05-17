@@ -44,17 +44,6 @@ body {
   line-height: 1.6;
 }
 
-body[data-page="home"], 
-body[data-page="tutorials"], 
-body[data-page="news"] {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
-}
-
-/* Maintain original background for Knowledge Base as requested */
-body[data-page="knowledge"] {
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
-}
-
 body::before {
   content: "";
   position: fixed;
@@ -2041,6 +2030,11 @@ body[data-page="knowledge"]::before {
 }
 
 /* Premium Cool Slate & Ice White Theme - for all other pages (Home, Tutorials, News, About, etc.) */
+body[data-page="home"],
+body[data-page="tutorials"],
+body[data-page="news"],
+body[data-page="about"],
+body[data-page="contact"],
 body:not([data-page="knowledge"]) {
   --bg: #f8fafc;
   --bg-soft: #f1f5f9;
@@ -2059,6 +2053,11 @@ body:not([data-page="knowledge"]) {
     linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
 }
 
+body[data-page="home"]::before,
+body[data-page="tutorials"]::before,
+body[data-page="news"]::before,
+body[data-page="about"]::before,
+body[data-page="contact"]::before,
 body:not([data-page="knowledge"])::before {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)),
