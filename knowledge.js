@@ -686,6 +686,9 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     ["3DEXPERIENCE", "ENOVIA"],
     ["SIMULIA", "Abaqus"],
     ["DELMIA", "DELMIA Simulation"],
+    ["Autodesk", "Navisworks"],
+    ["Civil 3D", "Grading Optimization"],
+    ["Navisworks", "NWD/NWF"],
   ];
   const beginnerPath = [
     "CAD Basics",

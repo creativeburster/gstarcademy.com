@@ -2103,18 +2103,74 @@
                 </article>
 
                 <article class="kb-faq-entry" data-kb-faq-topic="autocad">
-                  <button type="button" class="kb-faq-q-trigger">
-                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
-                    <h3>Tool Palettes vs. Design Center: Which is better?</h3>
-                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
-                  </button>
-                  <div class="kb-faq-a-body">
-                    <p class="kb-faq-source">Source · AutoCAD Content Management</p>
-                    <div class="kb-faq-answer">
-                      <strong>Design Center</strong> (<code>ADC</code>) is best for browsing and pulling content from OTHER files. <strong>Tool Palettes</strong> (<code>TP</code>) are best for frequently used blocks, hatches, and commands, providing instant one-click access with predefined properties like layers and scale.
-                    </div>
-                  </div>
-                </article>
+                   <button type="button" class="kb-faq-q-trigger">
+                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                     <h3>Tool Palettes vs. Design Center: Which is better?</h3>
+                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                   </button>
+                   <div class="kb-faq-a-body">
+                     <p class="kb-faq-source">Source · AutoCAD Content Management</p>
+                     <div class="kb-faq-answer">
+                       <strong>Design Center</strong> (<code>ADC</code>) is best for browsing and pulling content from OTHER files. <strong>Tool Palettes</strong> (<code>TP</code>) are best for frequently used blocks, hatches, and commands, providing instant one-click access with predefined properties like layers and scale.
+                     </div>
+                   </div>
+                 </article>
+
+                 <article class="kb-faq-entry" data-kb-faq-topic="autocad">
+                   <button type="button" class="kb-faq-q-trigger">
+                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                     <h3>Should I use 'Relative Path' or 'Absolute Path' for Xrefs in AutoCAD?</h3>
+                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                   </button>
+                   <div class="kb-faq-a-body">
+                     <p class="kb-faq-source">Source · AutoCAD External References</p>
+                     <div class="kb-faq-answer">
+                       Always prefer <strong>Relative Path</strong> (e.g., <code>.\xrefs\base.dwg</code>) for external references in team projects. Absolute paths include the drive letter and absolute directory structure (e.g., <code>D:\Project\Base.dwg</code>), which breaks as soon as a colleague opens the project on a different workstation or a cloud drive with a different network mapping.
+                     </div>
+                   </div>
+                 </article>
+
+                 <article class="kb-faq-entry" data-kb-faq-topic="revit">
+                   <button type="button" class="kb-faq-q-trigger">
+                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                     <h3>How do I resolve coordinate origin mismatches in Revit?</h3>
+                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                   </button>
+                   <div class="kb-faq-a-body">
+                     <p class="kb-faq-source">Source · Revit Shared Coordinates</p>
+                     <div class="kb-faq-answer">
+                       Revit maintains three coordinate systems: the invisible **Startup Location (Internal Origin)**, the **Project Base Point** (local construction reference), and the **Survey Point** (real-world geodesic coordinates). To resolve mismatches across linked models, establish a single master file with physical site benchmarks and use <strong>Acquire Coordinates</strong> to push coordinates to all linked discipline models.
+                     </div>
+                   </div>
+                 </article>
+
+                 <article class="kb-faq-entry" data-kb-faq-topic="civil3d">
+                   <button type="button" class="kb-faq-q-trigger">
+                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                     <h3>How do I set up coordinate projection systems in Civil 3D?</h3>
+                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                   </button>
+                   <div class="kb-faq-a-body">
+                     <p class="kb-faq-source">Source · Civil 3D Geolocation</p>
+                     <div class="kb-faq-answer">
+                       In Civil 3D, go to <strong>Drawing Settings</strong> -> <strong>Units and Zone</strong> tab. Select your target country/state and choose the correct EPSG code/geodetic datum (e.g., NAD83 State Plane or UTM zone). Setting the projection zone correctly enables the <strong>Geolocation (Bing Maps)</strong> overlay and ensures that LandXML exports align with GIS databases.
+                     </div>
+                   </div>
+                 </article>
+
+                 <article class="kb-faq-entry" data-kb-faq-topic="navisworks">
+                   <button type="button" class="kb-faq-q-trigger">
+                     <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                     <h3>What tolerance settings should I use in Navisworks Clash Detective?</h3>
+                     <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                   </button>
+                   <div class="kb-faq-a-body">
+                     <p class="kb-faq-source">Source · Navisworks Coordination</p>
+                     <div class="kb-faq-answer">
+                       Tolerance determines how close objects must be to trigger a clash. Setting the tolerance too low (e.g., <code>0</code> or <code>1mm</code>) will result in thousands of irrelevant "noise" clashes (such as touching bolts or drywall layers). Use a standard structural-to-MEP tolerance of **25mm (1 inch)** for rough piping/ductwork, and reduce to **5mm** for precise mechanical layout.
+                     </div>
+                   </div>
+                 </article>
 
                 <div class="kb-faq-pagination" style="margin-top:24px; text-align:center;">
                   <button class="kb-faq-page-prev" disabled>Prev</button>
