@@ -2112,19 +2112,19 @@ body:not([data-page="knowledge"])::before {
   color: #ffffff !important;
 }
 
-.kb-sidebar {
+.kb-sidebar:not(.kb-sidebar--portal) {
   background: linear-gradient(180deg, #fffdf8, #f7f2e9) !important;
   color: #1f2937 !important;
   border: 1px solid var(--line) !important;
   box-shadow: var(--shadow) !important;
 }
 
-.kb-nav-group { border-top-color: #e4dbcf !important; }
-.kb-nav-toggle,
-.kb-nav-title { color: #6b7280 !important; }
-.kb-side-link { color: #4f5a70 !important; }
-.kb-side-link:hover,
-.kb-side-link.active { background: #eef2ff !important; color: #334155 !important; }
+.kb-sidebar:not(.kb-sidebar--portal) .kb-nav-group { border-top-color: #e4dbcf !important; }
+.kb-sidebar:not(.kb-sidebar--portal) .kb-nav-toggle,
+.kb-sidebar:not(.kb-sidebar--portal) .kb-nav-title { color: #6b7280 !important; }
+.kb-sidebar:not(.kb-sidebar--portal) .kb-side-link { color: #4f5a70 !important; }
+.kb-sidebar:not(.kb-sidebar--portal) .kb-side-link:hover,
+.kb-sidebar:not(.kb-sidebar--portal) .kb-side-link.active { background: #eef2ff !important; color: #334155 !important; }
 
 .kb-feature,
 .kb-about {
