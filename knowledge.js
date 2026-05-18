@@ -769,6 +769,14 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     const simNodes = nodes.map((n) => ({ ...n }));
     const simLinks = links.map(([source, target]) => ({ source, target }));
 
+    // Compute link degrees dynamically (frequently appearing / connected nodes are larger)
+    const degreeMap = {};
+    simNodes.forEach((n) => { degreeMap[n.id] = 0; });
+    links.forEach(([source, target]) => {
+      if (degreeMap[source] !== undefined) degreeMap[source]++;
+      if (degreeMap[target] !== undefined) degreeMap[target]++;
+    });
+
     let width = Math.max(graphStage?.clientWidth || 920, 320);
     let height = computeGraphHeight();
 
@@ -779,6 +787,12 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       const ang = (i / Math.max(arr.length, 1)) * Math.PI * 2 - Math.PI / 2;
       n.x = cxSeed + ring * Math.cos(ang);
       n.y = cySeed + ring * Math.sin(ang);
+      
+      const deg = degreeMap[n.id] || 0;
+      // Core base size is 12. Connective nodes get larger up to +12px (max 24px)
+      const sizeBoost = Math.min(deg * 1.5, 12);
+      const baseSize = 12 + sizeBoost;
+      n.baseRadius = n.type === "vendor" ? baseSize + 3 : baseSize;
     });
 
     let hoverId = "";
@@ -824,8 +838,15 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       )
       .force("charge", d3.forceManyBody().strength(-600))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide().radius(80))
-      .velocityDecay(0.2);
+      .force("collision", d3.forceCollide().radius((d) => d.baseRadius + 50))
+      .velocityDecay(0.08); // High energy starting dynamics
+
+    // 3-second dynamic kinetic entrance animation
+    simulation.alpha(1.5).restart();
+    setTimeout(() => {
+      // Smoothly cool down to structured equilibrium after 3 seconds
+      simulation.velocityDecay(0.42);
+    }, 3000);
 
     const linkSel = gZoom
       .append("g")
@@ -869,25 +890,25 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     nodeG
       .append("circle")
       .attr("class", "kb-graph-node-shape")
-      .attr("r", (d) => (d.type === "vendor" ? 18 : 14))
-      .attr("stroke", (d) => colorMap[d.type] || "#8b9dcf")
-      .attr("stroke-width", 3)
-      .attr("fill", "#ffffff")
-      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.06))");
+      .attr("r", (d) => d.baseRadius)
+      .attr("stroke", "#ffffff")
+      .attr("stroke-width", 2)
+      .attr("fill", (d) => colorMap[d.type] || "#8b9dcf")
+      .style("filter", "none");
 
     // Text label
     nodeG
       .append("text")
       .attr("class", "kb-graph-node-label")
       .attr("text-anchor", "middle")
-      .attr("dy", 34)
+      .attr("dy", (d) => d.baseRadius + 16)
       .text((d) => d.id);
 
     // Fixed-size invisible interaction sensor overlay on top
     nodeG
       .append("circle")
       .attr("class", "kb-graph-node-sensor")
-      .attr("r", 35)
+      .attr("r", (d) => Math.max(d.baseRadius + 15, 35))
       .attr("fill", "transparent");
 
     const tooltip = document.getElementById("kbGraphTooltip");
@@ -1051,18 +1072,31 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         .style("stroke-opacity", (d) => {
           const sa = typeof d.source === "object" ? d.source.id : d.source;
           const tb = typeof d.target === "object" ? d.target.id : d.target;
-          if (focusId === sa || focusId === tb) return 0.8;
-          return rel ? 0.05 : 0.12; // Dim others when focusing, subtle when idle
+          if (focusId) {
+            // Highlight connected lines, completely fade out others
+            return (focusId === sa || focusId === tb) ? 0.95 : 0.03;
+          }
+          return 0.15; // steady idle state opacity
         })
         .style("stroke-width", (d) => {
           const sa = typeof d.source === "object" ? d.source.id : d.source;
           const tb = typeof d.target === "object" ? d.target.id : d.target;
-          return (focusId === sa || focusId === tb) ? 3 : 1.5;
+          if (focusId) {
+            return (focusId === sa || focusId === tb) ? 3.5 : 1.0;
+          }
+          return 1.5;
         })
         .style("stroke", (d) => {
           const sa = typeof d.source === "object" ? d.source.id : d.source;
           const tb = typeof d.target === "object" ? d.target.id : d.target;
-          return (focusId === sa || focusId === tb) ? "var(--accent)" : "#94a3b8";
+          if (focusId) {
+            if (focusId === sa || focusId === tb) {
+              const otherId = focusId === sa ? tb : sa;
+              const otherNode = simNodes.find((x) => x.id === otherId);
+              return otherNode ? colorMap[otherNode.type] : "var(--accent)";
+            }
+          }
+          return "#475569";
         });
 
       // Update Nodes
@@ -1077,17 +1111,14 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         g.style("opacity", op);
 
         g.select(".kb-graph-node-shape")
-          .attr("r", (d) => {
-            const base = d.type === "vendor" ? 18 : 14;
-            return isFocus ? base * 1.25 : base;
-          })
-          .attr("stroke-width", isFocus ? 4.5 : 3)
-          .attr("stroke", (d) => colorMap[d.type] || "#8b9dcf")
-          .attr("fill", (d) => isFocus ? (colorMap[d.type] || "#8b9dcf") : "#ffffff")
-          .style("filter", isFocus ? `drop-shadow(0 4px 12px ${colorMap[d.type]}80)` : "drop-shadow(0 2px 4px rgba(0,0,0,0.06))");
+          .attr("r", isFocus ? d.baseRadius * 1.25 : d.baseRadius)
+          .attr("stroke-width", isFocus ? 3.5 : 2)
+          .attr("stroke", "#ffffff")
+          .attr("fill", colorMap[d.type] || "#8b9dcf")
+          .style("filter", "none"); // absolutely no glow shadow!
 
         g.select(".kb-graph-node-label")
-          .attr("dy", isFocus ? 38 : 34)
+          .attr("dy", isFocus ? d.baseRadius * 1.25 + 18 : d.baseRadius + 16)
           .style("font-weight", isFocus ? "800" : "700")
           .style("font-size", isFocus ? "13px" : "11px");
       });
