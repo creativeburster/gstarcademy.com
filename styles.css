@@ -499,7 +499,7 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
   user-select: none;
   fill: var(--text-main);
-  text-shadow: 0 0 8px #fff, 0 0 4px #fff;
+  text-shadow: none;
 }
 
 .kb-graph-tooltip {
@@ -2542,10 +2542,29 @@ body[data-page="knowledge"] {
   overflow-x: hidden;
 }
 
-/* Fuse global topbar with KB chrome: no bright seam, no inherited card radius on the rail */
+/* Fuse global topbar with KB chrome: premium unified dark navigation row with no visual seam */
 body[data-page="knowledge"] > .topbar {
-  border-bottom: none;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.42);
+  background: linear-gradient(180deg, #252a36 0%, #1e232e 100%) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+body[data-page="knowledge"] > .topbar .brand {
+  color: #f8fafc !important;
+}
+
+body[data-page="knowledge"] > .topbar .nav-link {
+  color: rgba(203, 213, 225, 0.88) !important;
+}
+
+body[data-page="knowledge"] > .topbar .nav-link:hover {
+  color: #f8fafc !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+body[data-page="knowledge"] > .topbar .nav-link.active {
+  color: #fde68a !important;
+  background: rgba(0, 0, 0, 0.25) !important;
 }
 
 body[data-page="knowledge"] > .kb-app {
@@ -4169,6 +4188,7 @@ a.kb-tag.kb-pill-link:hover {
   pointer-events: none !important;
   user-select: none !important;
   fill: #f8fafc !important; /* High contrast bright white for dark immersive graph gradient */
+  text-shadow: none !important; /* Flat design style, no fuzzy white glow */
   font-size: 11px !important;
   font-weight: 700 !important;
   paint-order: stroke fill !important;
