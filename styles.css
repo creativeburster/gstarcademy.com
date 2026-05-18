@@ -2542,7 +2542,15 @@ body[data-page="knowledge"] {
   overflow-x: hidden;
 }
 
-/* Fuse global topbar with KB chrome: premium unified dark navigation row with no visual seam */
+/* Make global site header non-sticky so it scrolls away naturally on Knowledge pages */
+body[data-page="knowledge"] .header-stack,
+body[data-page="knowledge"] > .topbar {
+  position: relative !important;
+  top: auto !important;
+  z-index: 10 !important;
+}
+
+/* Maintain premium unified dark styling when scrolled to the very top */
 body[data-page="knowledge"] > .topbar {
   background: linear-gradient(180deg, #252a36 0%, #1e232e 100%) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25) !important;
@@ -2574,6 +2582,21 @@ body[data-page="knowledge"] > .kb-app {
 body[data-page="knowledge"] .kb-app {
   gap: 0;
   background: #151923;
+}
+
+/* Force sticky behavior at top: 0 for sidebar and subnavigation bar when global header scrolls away */
+body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+  z-index: 100 !important;
+}
+
+body[data-page="knowledge"] .kb-subnav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 99 !important;
 }
 
 .kb-app {
