@@ -865,34 +865,30 @@ if (document.body.getAttribute("data-page") === "knowledge") {
           })
       );
 
+    // Visible shape circle
     nodeG
       .append("circle")
       .attr("class", "kb-graph-node-shape")
-      .attr("r", (d) =>
-        d.type === "vendor"
-          ? 19
-          : d.type === "domain"
-          ? 17
-          : d.type === "product"
-          ? 15
-          : d.type === "sdk"
-          ? 15
-          : d.type === "resource"
-          ? 16
-          : d.type === "skill"
-          ? 14
-          : 15
-      )
-      .attr("stroke", "#fff")
-      .attr("stroke-width", 1.75)
-      .attr("fill", (d) => colorMap[d.type] || "#8b9dcf");
+      .attr("r", (d) => (d.type === "vendor" ? 18 : 14))
+      .attr("stroke", (d) => colorMap[d.type] || "#8b9dcf")
+      .attr("stroke-width", 3)
+      .attr("fill", "#ffffff")
+      .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.06))");
 
+    // Text label
     nodeG
       .append("text")
       .attr("class", "kb-graph-node-label")
       .attr("text-anchor", "middle")
-      .attr("dy", 38)
+      .attr("dy", 34)
       .text((d) => d.id);
+
+    // Fixed-size invisible interaction sensor overlay on top
+    nodeG
+      .append("circle")
+      .attr("class", "kb-graph-node-sensor")
+      .attr("r", 35)
+      .attr("fill", "transparent");
 
     const tooltip = document.getElementById("kbGraphTooltip");
 
@@ -1079,26 +1075,26 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         const op = match ? (focusId ? (isRel ? 1 : 0.2) : 1) : 0.1;
         
         g.transition()
-          .duration(300)
+          .duration(260)
           .style("opacity", op);
 
-        g.select("circle")
+        g.select(".kb-graph-node-shape")
           .transition()
-          .duration(300)
+          .duration(260)
           .attr("r", (d) => {
-            const base = d.type === "vendor" ? 22 : 18;
-            return isFocus ? base * 1.3 : isRel ? base * 1.1 : base;
+            const base = d.type === "vendor" ? 18 : 14;
+            return isFocus ? base * 1.25 : base;
           })
-          .attr("stroke-width", isFocus ? 4 : 2)
-          .attr("stroke", isFocus ? "var(--accent)" : "#fff")
-          .style("filter", isFocus ? "drop-shadow(0 0 12px var(--accent-glow))" : "none");
+          .attr("stroke-width", isFocus ? 4.5 : 3)
+          .attr("stroke", (d) => colorMap[d.type] || "#8b9dcf")
+          .attr("fill", (d) => isFocus ? (colorMap[d.type] || "#8b9dcf") : "#ffffff")
+          .style("filter", isFocus ? `drop-shadow(0 4px 12px ${colorMap[d.type]}80)` : "drop-shadow(0 2px 4px rgba(0,0,0,0.06))");
 
-        g.select("text")
+        g.select(".kb-graph-node-label")
           .transition()
-          .duration(300)
-          .style("font-weight", isFocus ? "800" : "500")
-          .attr("dy", isFocus ? 45 : 38)
-          .style("font-size", isFocus ? "14px" : "12px");
+          .duration(260)
+          .attr("dy", isFocus ? 38 : 34)
+          .style("font-size", isFocus ? "13px" : "11px");
       });
     }
 

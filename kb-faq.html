@@ -11,8 +11,8 @@
     <meta name="robots" content="noindex, nofollow" />
     <link rel="canonical" href="/kb-faq.html" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="preload" href="./styles.css?v=v5_sidebar_box_dark_fix" as="style" />
-    <link rel="stylesheet" href="./styles.css?v=v5_sidebar_box_dark_fix" />
+    <link rel="preload" href="./styles.css?v=v6_faq_graph_perfection" as="style" />
+    <link rel="stylesheet" href="./styles.css?v=v6_faq_graph_perfection" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -2172,11 +2172,7 @@
                    </div>
                  </article>
 
-                <div class="kb-faq-pagination" style="margin-top:24px; text-align:center;">
-                  <button class="kb-faq-page-prev" disabled>Prev</button>
-                  <span class="kb-faq-page-info">Page 1 of 1</span>
-                  <button class="kb-faq-page-next" disabled>Next</button>
-                </div>
+                <div class="kb-faq-pagination"></div>
               </section>
             </div>
           </div>
@@ -2219,25 +2215,112 @@
       </div>
     </footer>
     <script src="./app.js" defer></script>
-    <script src="./knowledge.js?v=20260506_gstarcad" defer></script>
+    <script src="./knowledge.js?v=v6_faq_graph_perfection" defer></script>
     <script>
       (function () {
         var tabs = document.querySelectorAll(".kb-faq-tab");
         var entries = document.querySelectorAll("[data-kb-faq-topic]");
         var triggers = document.querySelectorAll(".kb-faq-q-trigger");
+        var paginationContainer = document.querySelector(".kb-faq-pagination");
+
+        var currentPage = 1;
+        var currentFilter = "all";
+
+        function renderPagination(totalItems, pageSize, totalPages) {
+          if (totalItems <= 0) {
+            paginationContainer.style.display = "none";
+            return;
+          }
+          paginationContainer.style.display = "flex";
+          paginationContainer.innerHTML = "";
+
+          // Prev Button
+          var prevBtn = document.createElement("button");
+          prevBtn.className = "kb-faq-page-prev";
+          prevBtn.textContent = "Prev";
+          if (currentPage === 1) {
+            prevBtn.disabled = true;
+          }
+          prevBtn.addEventListener("click", function () {
+            if (currentPage > 1) {
+              currentPage--;
+              updatePageDisplay();
+            }
+          });
+          paginationContainer.appendChild(prevBtn);
+
+          // Page Number Buttons
+          for (var p = 1; p <= totalPages; p++) {
+            (function (pageIndex) {
+              var pageBtn = document.createElement("button");
+              pageBtn.className = "kb-faq-page-num";
+              if (pageIndex === currentPage) {
+                pageBtn.classList.add("active");
+              }
+              pageBtn.textContent = pageIndex;
+              pageBtn.addEventListener("click", function () {
+                currentPage = pageIndex;
+                updatePageDisplay();
+              });
+              paginationContainer.appendChild(pageBtn);
+            })(p);
+          }
+
+          // Next Button
+          var nextBtn = document.createElement("button");
+          nextBtn.className = "kb-faq-page-next";
+          nextBtn.textContent = "Next";
+          if (currentPage === totalPages) {
+            nextBtn.disabled = true;
+          }
+          nextBtn.addEventListener("click", function () {
+            if (currentPage < totalPages) {
+              currentPage++;
+              updatePageDisplay();
+            }
+          });
+          paginationContainer.appendChild(nextBtn);
+        }
+
+        function updatePageDisplay() {
+          var filteredEntries = Array.from(entries).filter(function (el) {
+            var topic = el.getAttribute("data-kb-faq-topic") || "";
+            return currentFilter === "all" || topic === currentFilter;
+          });
+
+          var totalItems = filteredEntries.length;
+          var totalPages = totalItems > 1 ? 2 : 1;
+          var pageSize = Math.ceil(totalItems / 2);
+
+          // Hide all entries first
+          entries.forEach(function (el) {
+            el.classList.add("kb-hidden");
+            el.classList.remove("is-open");
+            var ico = el.querySelector(".kb-faq-toggle-ico");
+            if (ico) ico.textContent = "＋";
+          });
+
+          var start = (currentPage - 1) * pageSize;
+          var end = currentPage * pageSize;
+          var pageEntries = filteredEntries.slice(start, end);
+          pageEntries.forEach(function (el) {
+            el.classList.remove("kb-hidden");
+          });
+
+          renderPagination(totalItems, pageSize, totalPages);
+        }
 
         function apply(filter) {
-          var f = filter || "all";
+          currentFilter = filter || "all";
+          currentPage = 1; // Reset to first page on category change
+
           tabs.forEach(function (btn) {
-            var on = (btn.getAttribute("data-kb-faq-filter") || "all") === f;
+            var on = (btn.getAttribute("data-kb-faq-filter") || "all") === currentFilter;
             btn.classList.toggle("is-active", on);
             btn.setAttribute("aria-selected", on ? "true" : "false");
           });
-          entries.forEach(function (el) {
-            var topic = el.getAttribute("data-kb-faq-topic") || "";
-            var show = f === "all" || topic === f;
-            el.classList.toggle("kb-hidden", !show);
-          });
+
+          updatePageDisplay();
         }
 
         tabs.forEach(function (btn) {
@@ -2250,10 +2333,8 @@
           t.addEventListener("click", function () {
             var entry = t.closest(".kb-faq-entry");
             var isOpen = entry.classList.contains("is-open");
-            // Optional: Close others
-            // document.querySelectorAll('.kb-faq-entry.is-open').forEach(e => e.classList.remove('is-open'));
             entry.classList.toggle("is-open", !isOpen);
-            t.querySelector('.kb-faq-toggle-ico').textContent = isOpen ? '＋' : '－';
+            t.querySelector(".kb-faq-toggle-ico").textContent = isOpen ? "＋" : "－";
           });
         });
 

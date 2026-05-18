@@ -4100,3 +4100,78 @@ a.kb-tag.kb-pill-link:hover {
 .kb-card-link:hover .kb-detail-card { border-color: #6366f1; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 .kb-detail-card { cursor: pointer; height: 100%; transition: all 0.2s ease; }
 
+/* —— Premium FAQ Pagination Controls —— */
+.kb-faq-pagination {
+  margin-top: 32px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.kb-faq-pagination button {
+  background: #ffffff !important;
+  border: 1px solid rgba(90, 74, 58, 0.15) !important;
+  color: #5c5348 !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  outline: none !important;
+}
+
+.kb-faq-pagination button:hover:not(:disabled) {
+  background: #b45309 !important;
+  color: #ffffff !important;
+  border-color: #b45309 !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 4px 10px rgba(180, 83, 9, 0.18) !important;
+}
+
+.kb-faq-pagination button:disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed !important;
+}
+
+.kb-faq-pagination button.active {
+  background: #b45309 !important;
+  color: #ffffff !important;
+  border-color: #b45309 !important;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.3) !important;
+}
+
+/* —— Premium Knowledge Graph Visuals (Academic Force Layout) —— */
+.kb-graph-svg-el {
+  background: #fffdfa !important; /* Premium Warm Newspaper Stage Background */
+}
+
+/* Zero Jitter/Shaking Overlay Concept */
+.kb-graph-node-sensor {
+  fill: transparent !important;
+  stroke: none !important;
+  pointer-events: all !important;
+  cursor: pointer !important;
+}
+
+.kb-graph-node-shape {
+  pointer-events: none !important; /* Completely delegating all hover detection to fixed-size invisible overlay sensor */
+  transition: r 0.25s ease, fill 0.25s ease, stroke 0.25s ease, filter 0.25s ease !important;
+}
+
+.kb-graph-node-label {
+  font-family: "Outfit", -apple-system, sans-serif !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  fill: #1e293b !important; /* Deep contrast dark slate */
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  paint-order: stroke fill !important;
+  stroke: #fffdfa !important; /* Smooth halo outlines behind text */
+  stroke-width: 4px !important;
+  stroke-linejoin: round !important;
+  transition: font-size 0.25s ease, dy 0.25s ease !important;
+}
+
+
