@@ -2585,6 +2585,102 @@ body[data-page="knowledge"] .kb-app {
     border-color 0.22s ease;
 }
 
+/* —— Premium Dark Portal Sidebar (kb-sidebar--portal) Inner Elements —— */
+.kb-sidebar--portal .kb-index-box {
+  background: rgba(15, 23, 42, 0.45) !important;
+  border: 1px solid rgba(148, 163, 184, 0.12) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+}
+
+.kb-sidebar--portal .kb-index-title {
+  display: block !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: rgba(148, 163, 184, 0.95) !important;
+  margin-bottom: 10px !important;
+}
+
+.kb-sidebar--portal .kb-index-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 6px !important;
+  border-radius: 8px !important;
+  color: rgba(226, 232, 240, 0.92) !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+  font-weight: 550 !important;
+}
+
+.kb-sidebar--portal .kb-index-link:hover {
+  background: rgba(37, 99, 235, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.kb-sidebar--portal .kb-index-link span {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: rgba(147, 197, 253, 0.95) !important;
+  background: rgba(30, 58, 138, 0.45) !important;
+  padding: 2px 7px !important;
+  border-radius: 999px !important;
+}
+
+.kb-sidebar--portal .kb-sidebar-taxonomy-note {
+  margin: -2px 0 10px !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  color: rgba(148, 163, 184, 0.92) !important;
+}
+
+.kb-sidebar--portal .kb-nav-group + .kb-nav-group {
+  margin-top: 8px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.kb-sidebar--portal .kb-nav-toggle {
+  width: 100% !important;
+  text-align: left !important;
+  padding: 8px 6px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: rgba(226, 232, 240, 0.95) !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  cursor: pointer !important;
+}
+
+.kb-sidebar--portal .kb-nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.kb-sidebar--portal .kb-nav-links {
+  margin-top: 4px !important;
+  padding-left: 4px !important;
+  display: grid !important;
+  gap: 2px !important;
+}
+
+.kb-sidebar--portal .kb-side-link {
+  padding: 7px 8px !important;
+  border-radius: 8px !important;
+  color: rgba(203, 213, 225, 0.9) !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+}
+
+.kb-sidebar--portal .kb-side-link:hover,
+.kb-sidebar--portal .kb-side-link.active {
+  background: rgba(37, 99, 235, 0.28) !important;
+  color: #f8fafc !important;
+}
+
+
 body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-sidebar.kb-sidebar--portal {
   width: 52px;
   min-width: 52px;

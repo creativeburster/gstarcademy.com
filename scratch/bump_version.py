@@ -2,8 +2,8 @@ import os
 
 def main():
     root_dir = r"f:\CAD-tutorial"
-    target = "styles.css?v=v3_theme_separation"
-    replacement = "styles.css?v=v4_sidebar_dark_fix"
+    target = "styles.css?v=v4_sidebar_dark_fix"
+    replacement = "styles.css?v=v5_sidebar_box_dark_fix"
     
     count = 0
     for root, dirs, files in os.walk(root_dir):
