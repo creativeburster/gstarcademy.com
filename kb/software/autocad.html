@@ -145,45 +145,71 @@
 
               <div class="kb-section-head">
                 <h1 style="margin: 0">AutoCAD</h1>
-                <span class="section-note">2D / 3D authoring (DWG ecosystem)</span>
+                <span class="section-note">The Universal Standard for 2D Drafting &amp; 3D Detailing</span>
               </div>
-              <p class="meta" style="margin-top: 6px"><strong>Autodesk</strong> · status: draft</p>
+              <p class="meta" style="margin-top: 6px">
+                <a href="../vendors/autodesk.html">Autodesk</a> · status: <strong>enriched</strong>
+              </p>
 
-              <p class="meta" style="margin-top: 12px; max-width: 52rem">Widely used DWG-based CAD for documentation, detailing, and drawing release.</p>
+              <p class="meta" style="margin-top: 12px; max-width: 52rem; line-height: 1.6;">
+                <strong>AutoCAD</strong> is the world's most ubiquitous computer-aided design software. Launched in 1982, it democratized digital drafting and established the <strong>.DWG</strong> format as the de facto industry standard for geometric data exchange. While often associated with 2D floor plans and mechanical layouts, AutoCAD features a robust 3D surface and solid modeling engine, and serves as the foundation for numerous discipline-specific "vertical" toolsets.
+              </p>
 
               <div class="panel" style="margin-top: 16px">
-                <h3 class="panel-title">Overview</h3>
-                <p style="margin: 10px 0 0 0; max-width: 52rem; line-height: 1.6">AutoCAD is a general-purpose CAD application centered on the DWG drawing format. It appears in AEC and manufacturing workflows for plans, details, and sheet sets. Licensing and vertical bundles change over time—confirm on the vendor site before purchasing.</p>
+                <h3 class="panel-title">Core Drafting Paradigms</h3>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6; max-width: 52rem;">
+                  <li>
+                    <strong>Command-Line Interface (CLI):</strong> AutoCAD's enduring power lies in its command prompt. Power users navigate entirely via keyboard aliases (e.g., <code>L</code> for Line, <code>TR</code> for Trim, <code>O</code> for Offset), bypassing ribbons for extreme efficiency.
+                  </li>
+                  <li>
+                    <strong>Model Space vs. Paper Space:</strong> Geometry is drafted at a 1:1 true scale in an infinite <em>Model Space</em>. Layouts for plotting (with title blocks and scaled viewports) are arranged in <em>Paper Space</em>, ensuring drawing integrity regardless of final print size.
+                  </li>
+                  <li>
+                    <strong>Coordinate Systems:</strong> Relies on the World Coordinate System (WCS) for global truth, while users actively manipulate the User Coordinate System (UCS) to draft on angled planes or 3D faces.
+                  </li>
+                  <li>
+                    <strong>Annotative Scaling:</strong> A modern system where text, dimensions, and hatches automatically resize their display scale based on the viewport scale, eliminating the need for multiple dimension layers.
+                  </li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Typical outputs &amp; exchange</h3>
-                <ul style="margin: 10px 0 0 18px">              <li>DWG</li>
-              <li>DXF</li>
-              <li>PDF</li>
-</ul>
+                <h3 class="panel-title">Specialized Toolsets (Verticals)</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  Modern "One AutoCAD" subscriptions include specialized toolsets built on the core AutoCAD engine, featuring intelligent objects and automated BOMs:
+                </p>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                  <li><strong>AutoCAD Architecture:</strong> Provides AEC-specific intelligent objects (walls, doors, windows) that automatically clean up intersections and generate elevations.</li>
+                  <li><strong>AutoCAD Mechanical:</strong> Includes libraries of 700,000+ standard manufacturing parts (fasteners, bearings), automated layer management, and advanced BOM generation.</li>
+                  <li><strong>AutoCAD Electrical:</strong> Built for control system designers to create panel layouts, schematic design, and automatic wire numbering.</li>
+                  <li><strong>AutoCAD Map 3D / Plant 3D:</strong> Extends AutoCAD into GIS topologies and P&amp;ID process piping routing.</li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Where it commonly shows up</h3>
-                <ul style="margin: 10px 0 0 18px">              <li>AEC</li>
-              <li>Mechanical detailing</li>
-              <li>MEP</li>
-</ul>
+                <h3 class="panel-title">Extensibility &amp; Automation</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  AutoCAD's massive ecosystem is driven by its open architecture, allowing firms to automate repetitive tasks:
+                </p>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                  <li><strong>AutoLISP:</strong> A dialect of LISP built directly into AutoCAD. Still the most popular way for end-users to write custom macros and parametric scripts.</li>
+                  <li><strong>ObjectARX (C++):</strong> The lowest-level, highest-performance API. Used by major developers (like Autodesk themselves) to create custom entity types and deep integrations.</li>
+                  <li><strong>.NET API &amp; Python:</strong> Modern managed APIs (C#/VB.NET) for interacting with external databases (SQL/ERP) and building complex WPF dialogs.</li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Drill down</h3>
+                <h3 class="panel-title">Drill Down &amp; Glossary</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  <strong>Explore Core Concepts:</strong> 
+                  <a href="../concepts/layer.html">Layer Strategy</a>, 
+                  <a href="../concepts/block.html">Dynamic Blocks</a>, 
+                  <a href="../concepts/xref.html">Xref Management</a>, 
+                  <a href="../concepts/sheet-set-manager.html">Sheet Set Manager (SSM)</a>.
+                </p>
                 <p class="meta" style="margin-top: 8px">
-                  <strong>Tutorials:</strong>
-                  <a href="../../tutorials.html">Open tutorial discovery</a>
-                  <span class="meta"> — try keyword “AutoCAD” in filters or search when available.</span>
-                </p>
-                <p class="meta" style="margin-top: 10px">
-                  <strong>Related glossary keys (anchors TBD):</strong> dwg, cartesian-coordinates
-                </p>
-                <p class="meta" style="margin-top: 10px">
-                  <strong>OEM / official tree:</strong> <a href="../../kb-software.html#kb-vendor-docs">Vendor documentation hubs</a>
+                  <strong>Learn CAD:</strong>
+                  <a href="../../tutorials.html">Search AutoCAD Tutorials</a>
                 </p>
               </div>
             </article>

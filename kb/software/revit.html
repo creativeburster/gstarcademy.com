@@ -145,45 +145,70 @@
 
               <div class="kb-section-head">
                 <h1 style="margin: 0">Revit</h1>
-                <span class="section-note">BIM authoring (building model)</span>
+                <span class="section-note">The Preeminent AEC Building Information Modeling (BIM) Platform</span>
               </div>
-              <p class="meta" style="margin-top: 6px"><strong>Autodesk</strong> · status: draft</p>
+              <p class="meta" style="margin-top: 6px">
+                <a href="../vendors/autodesk.html">Autodesk</a> · status: <strong>enriched</strong>
+              </p>
 
-              <p class="meta" style="margin-top: 12px; max-width: 52rem">Model-based AEC authoring where drawings and schedules derive from the building dataset.</p>
+              <p class="meta" style="margin-top: 12px; max-width: 52rem; line-height: 1.6;">
+                <strong>Revit</strong> is Autodesk's flagship authoring software for Building Information Modeling (BIM). Unlike CAD software that relies on 2D linework, Revit builds a unified, 3D relational database of a building. This single source of truth means that a change made in a 3D view is instantly and bidirectionally updated across all floor plans, elevations, sections, and schedules. It is the dominant architectural and engineering tool for large-scale commercial and infrastructure projects globally.
+              </p>
 
               <div class="panel" style="margin-top: 16px">
-                <h3 class="panel-title">Overview</h3>
-                <p style="margin: 10px 0 0 0; max-width: 52rem; line-height: 1.6">Revit supports architectural, structural, and MEP disciplines in one model-centric workflow—often paired with IFC exchange and documentation standards. Suitability varies by regional practice and LOD expectations.</p>
+                <h3 class="panel-title">Core BIM Paradigms</h3>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6; max-width: 52rem;">
+                  <li>
+                    <strong>Bidirectional Associativity:</strong> The fundamental engine of Revit. Everything is a view of the same database. If you delete a window in an elevation view, it disappears from the floor plan and the window schedule simultaneously.
+                  </li>
+                  <li>
+                    <strong>Worksharing &amp; Cloud Collaboration:</strong> Enterprise teams work concurrently via Worksharing. Users sync local copies of the model to a Central Model (often hosted on Autodesk Construction Cloud/BIM 360), borrowing elements and worksets to avoid conflicts.
+                  </li>
+                  <li>
+                    <strong>Project Phasing &amp; Design Options:</strong> Built-in timelines allow architects to model "Existing", "Demolition", and "New Construction" in the same file, while <em>Design Options</em> allow teams to present multiple layouts (e.g., Option A vs Option B) without duplicating the file.
+                  </li>
+                  <li>
+                    <strong>Data-Driven Schedules:</strong> The "I" (Information) in BIM. Revit schedules are not dumb spreadsheets; they are live views of the model data. Changing a door's fire rating in the schedule updates the physical 3D door's metadata instantly.
+                  </li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Typical outputs &amp; exchange</h3>
-                <ul style="margin: 10px 0 0 18px">              <li>RVT</li>
-              <li>IFC (export contexts vary)</li>
-              <li>PDF</li>
-</ul>
+                <h3 class="panel-title">Revit Family Hierarchy</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  In Revit, every element is a "Family". Understanding the hierarchy is crucial for modeling discipline:
+                </p>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                  <li><strong>System Families:</strong> Built-in elements that assemble continuously on site (Walls, Floors, Roofs, Ceilings). You cannot save these as separate <code>.rfa</code> files; they live strictly within the project.</li>
+                  <li><strong>Loadable Families:</strong> Standalone components that are purchased and delivered to the site (Doors, Windows, Furniture, MEP Equipment). These are created in the Family Editor and loaded into projects as <code>.rfa</code> files.</li>
+                  <li><strong>In-Place Families:</strong> Custom, one-off geometry modeled directly in the project context (e.g., a highly specific reception desk). Highly discouraged for repetitive elements due to file performance impacts.</li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Where it commonly shows up</h3>
-                <ul style="margin: 10px 0 0 18px">              <li>Architecture</li>
-              <li>Structure</li>
-              <li>MEP</li>
-</ul>
+                <h3 class="panel-title">Multi-Discipline Coordination</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  Revit acts as the central hub for the three major AEC disciplines, allowing intense clash detection and coordination:
+                </p>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                  <li><strong>Revit Architecture:</strong> Focused on space planning, envelope design, and life-safety compliance.</li>
+                  <li><strong>Revit Structure:</strong> Used for analytical modeling of steel and concrete framing, rebars, and foundation loads.</li>
+                  <li><strong>Revit MEP:</strong> Mechanical, Electrical, and Plumbing engineering. Evaluates pressure drops, duct routing, electrical panel schedules, and HVAC spatial coordination.</li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Drill down</h3>
+                <h3 class="panel-title">Drill Down &amp; Glossary</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  <strong>Explore Core Concepts:</strong> 
+                  <a href="../concepts/cloud-worksharing.html">Cloud Worksharing</a>, 
+                  <a href="../concepts/shared-parameters.html">Shared Parameters</a>, 
+                  <a href="../concepts/revit-phasing.html">Phasing Logic</a>, 
+                  <a href="../concepts/nested-families.html">Nested Families</a>.
+                </p>
                 <p class="meta" style="margin-top: 8px">
-                  <strong>Tutorials:</strong>
-                  <a href="../../tutorials.html">Open tutorial discovery</a>
-                  <span class="meta"> — try keyword “Revit” in filters or search when available.</span>
-                </p>
-                <p class="meta" style="margin-top: 10px">
-                  <strong>Related glossary keys (anchors TBD):</strong> bim, ifc
-                </p>
-                <p class="meta" style="margin-top: 10px">
-                  <strong>OEM / official tree:</strong> <a href="../../kb-software.html#kb-vendor-docs">Vendor documentation hubs</a>
+                  <strong>Learn CAD:</strong>
+                  <a href="../../tutorials.html">Search Revit Tutorials</a>
                 </p>
               </div>
             </article>
