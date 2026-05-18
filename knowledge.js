@@ -1074,13 +1074,9 @@ if (document.body.getAttribute("data-page") === "knowledge") {
 
         const op = match ? (focusId ? (isRel ? 1 : 0.2) : 1) : 0.1;
         
-        g.transition()
-          .duration(260)
-          .style("opacity", op);
+        g.style("opacity", op);
 
         g.select(".kb-graph-node-shape")
-          .transition()
-          .duration(260)
           .attr("r", (d) => {
             const base = d.type === "vendor" ? 18 : 14;
             return isFocus ? base * 1.25 : base;
@@ -1091,9 +1087,8 @@ if (document.body.getAttribute("data-page") === "knowledge") {
           .style("filter", isFocus ? `drop-shadow(0 4px 12px ${colorMap[d.type]}80)` : "drop-shadow(0 2px 4px rgba(0,0,0,0.06))");
 
         g.select(".kb-graph-node-label")
-          .transition()
-          .duration(260)
           .attr("dy", isFocus ? 38 : 34)
+          .style("font-weight", isFocus ? "800" : "700")
           .style("font-size", isFocus ? "13px" : "11px");
       });
     }

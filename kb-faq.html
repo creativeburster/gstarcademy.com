@@ -2289,8 +2289,16 @@
           });
 
           var totalItems = filteredEntries.length;
-          var totalPages = totalItems > 1 ? 2 : 1;
-          var pageSize = Math.ceil(totalItems / 2);
+          var pageSize = 20; // Standard 20 items per page
+          var totalPages = Math.ceil(totalItems / pageSize) || 1;
+
+          // Guard current page
+          if (currentPage > totalPages) {
+            currentPage = totalPages;
+          }
+          if (currentPage < 1) {
+            currentPage = 1;
+          }
 
           // Hide all entries first
           entries.forEach(function (el) {
