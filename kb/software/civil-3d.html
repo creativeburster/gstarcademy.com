@@ -145,45 +145,66 @@
 
               <div class="kb-section-head">
                 <h1 style="margin: 0">Civil 3D</h1>
-                <span class="section-note">Civil infrastructure (terrain, corridors, documents)</span>
+                <span class="section-note">Industry Standard for Civil Infrastructure &amp; Dynamic Survey Modeling</span>
               </div>
-              <p class="meta" style="margin-top: 6px"><strong>Autodesk</strong> · status: draft</p>
+              <p class="meta" style="margin-top: 6px">
+                <a href="../vendors/autodesk.html">Autodesk</a> · status: <strong>enriched</strong>
+              </p>
 
-              <p class="meta" style="margin-top: 12px; max-width: 52rem">Civil engineering design environment built on the DWG platform with BIM-style objects.</p>
+              <p class="meta" style="margin-top: 12px; max-width: 52rem; line-height: 1.6;">
+                <strong>Autodesk Civil 3D</strong> is the dominant civil engineering design and documentation platform globally. Built on the AutoCAD DWG engine, it extends classic drafting with smart, dynamic civil objects (surfaces, corridors, grading, pressure and gravity pipe networks). This allows road designers and site planners to model infrastructure in 3D while automatically generating cross-sections, profiles, and earthwork calculations in real time.
+              </p>
 
               <div class="panel" style="margin-top: 16px">
-                <h3 class="panel-title">Overview</h3>
-                <p style="margin: 10px 0 0 0; max-width: 52rem; line-height: 1.6">Civil 3D supports roadway, corridor, grading, pipe networks, and plan production workflows for transportation and site projects—often alongside AutoCAD skills and surveying inputs.</p>
+                <h3 class="panel-title">Core Civil BIM Paradigms</h3>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6; max-width: 52rem;">
+                  <li>
+                    <strong>Dynamic Model Objects:</strong> Unlike plain AutoCAD circles or lines, Civil 3D utilizes intelligent civil database objects. An alignment (road centerline) is linked to its profile (vertical elevation) and assembly (cross-section). Changing the alignment horizontally dynamically recalculates the road profile, the 3D corridor mesh, and cut/fill volumes instantly.
+                  </li>
+                  <li>
+                    <strong>Data Shortcuts (XML Pointers):</strong> The standard enterprise mechanism for multi-discipline coordination. Instead of loading an entire 2GB site model into a single drawing, designers create lightweight "Data Shortcuts" (surfaces, alignments, pipes) that reference the master data, saving file size and allowing parallel engineering work.
+                  </li>
+                  <li>
+                    <strong>TIN Surface Modeling:</strong> Models topographic elevations by generating a <em>Triangulated Irregular Network (TIN)</em> from point clouds, survey data, contours, or breaklines, allowing complex volume calculations (e.g., existing ground vs. proposed grading).
+                  </li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Typical outputs &amp; exchange</h3>
-                <ul style="margin: 10px 0 0 18px">              <li>DWG</li>
-              <li>LandXML (workflow-dependent)</li>
-              <li>PDF</li>
-</ul>
+                <h3 class="panel-title">Corridor Modeling Engine</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  The heart of infrastructure design in Civil 3D is <strong>Corridor Modeling</strong>, which builds a 3D road, railway, or embankment:
+                </p>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                  <li><strong>Horizontal Alignments:</strong> Defines the plan path of the corridor, incorporating transition spirals, superelevations, and station offsets.</li>
+                  <li><strong>Vertical Profiles:</strong> Profiles existing terrain elevations and maps the designed vertical slope grades (crests, sags).</li>
+                  <li><strong>Assemblies &amp; Subassemblies:</strong> Represent typical cross-sections (lanes, curbs, daylight grading) built using parameterized logic via the Subassembly Composer.</li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Where it commonly shows up</h3>
-                <ul style="margin: 10px 0 0 18px">              <li>Transportation</li>
-              <li>Site civil</li>
-              <li>Storm/sanitary (with rulesets)</li>
-</ul>
+                <h3 class="panel-title">Hydraulic &amp; Site Toolsets</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  Civil 3D provides robust site-development toolsets that dynamically calculate drainage and contours:
+                </p>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                  <li><strong>Grading Optimization:</strong> Uses cloud-scale heuristic algorithms to grade parking lots, retention ponds, or building pads based on slope, elevation, and volume limits.</li>
+                  <li><strong>Gravity &amp; Pressure Pipe Networks:</strong> Lays out storm sewers, sanitary pipes, and pressurized water mains. Integrates hydraulic rules to check pipe slopes, diameters, invert elevations, and utility clearances.</li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Drill down</h3>
+                <h3 class="panel-title">Drill Down &amp; Glossary</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  <strong>Explore Core Concepts:</strong> 
+                  <a href="../concepts/grading-optimization.html">Grading Optimization</a>, 
+                  <a href="../concepts/pressure-pipes.html">Pipe Networks</a>, 
+                  <a href="../concepts/ifc-interoperability.html">IFC for Infrastructure</a>, 
+                  <a href="../concepts/xref.html">Drawing References (Xref)</a>.
+                </p>
                 <p class="meta" style="margin-top: 8px">
-                  <strong>Tutorials:</strong>
-                  <a href="../../tutorials.html">Open tutorial discovery</a>
-                  <span class="meta"> — try keyword “Civil 3D” in filters or search when available.</span>
-                </p>
-                <p class="meta" style="margin-top: 10px">
-                  <strong>Related glossary keys (anchors TBD):</strong> surface-model, corridor
-                </p>
-                <p class="meta" style="margin-top: 10px">
-                  <strong>OEM / official tree:</strong> <a href="../../kb-software.html#kb-vendor-docs">Vendor documentation hubs</a>
+                  <strong>Learn CAD:</strong>
+                  <a href="../../tutorials.html">Search Civil 3D Tutorials</a>
                 </p>
               </div>
             </article>

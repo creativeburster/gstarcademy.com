@@ -145,45 +145,70 @@
 
               <div class="kb-section-head">
                 <h1 style="margin: 0">Inventor</h1>
-                <span class="section-note">Mechanical CAD (parametric parts &amp; assemblies)</span>
+                <span class="section-note">Professional-Grade 3D Mechanical Design &amp; Product Automation</span>
               </div>
-              <p class="meta" style="margin-top: 6px"><strong>Autodesk</strong> · status: draft</p>
+              <p class="meta" style="margin-top: 6px">
+                <a href="../vendors/autodesk.html">Autodesk</a> · status: <strong>enriched</strong>
+              </p>
 
-              <p class="meta" style="margin-top: 12px; max-width: 52rem">Desktop MCAD focused on mechanical design, assembly modeling, and drawing production.</p>
+              <p class="meta" style="margin-top: 12px; max-width: 52rem; line-height: 1.6;">
+                <strong>Autodesk Inventor</strong> is a professional-grade 3D mechanical CAD software used for product design, simulation, tooling creation, and design automation. Leveraging a powerful parametric modeling engine, Inventor allows engineers to build highly accurate digital twins of complex machinery and discrete parts. It stands as Autodesk's primary challenger in the desktop MCAD market, competing directly with SOLIDWORKS.
+              </p>
 
               <div class="panel" style="margin-top: 16px">
-                <h3 class="panel-title">Overview</h3>
-                <p style="margin: 10px 0 0 0; max-width: 52rem; line-height: 1.6">Inventor is commonly used in mechanical industries for part/assembly modeling, drawings, and design automation. It complements (rather than replaces) tools like AutoCAD in many engineering offices.</p>
+                <h3 class="panel-title">Core Mechanical Design Paradigms</h3>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6; max-width: 52rem;">
+                  <li>
+                    <strong>Parametric Solid Modeling:</strong> Models are built chronologically through features (extrusions, revolves, sweeps, fillets) driven by dimensions and geometric constraints. Modifying a parent sketch dynamically updates the entire downstream solid.
+                  </li>
+                  <li>
+                    <strong>Assembly Constraints &amp; Joints:</strong> Parts are positioned in 3D space using mate, flush, angle, and tangent constraints. Alternatively, the modern <em>Joints</em> system defines motion relationships (rotational, slider, cylindrical) in a single step by capturing degrees of freedom.
+                  </li>
+                  <li>
+                    <strong>Adaptive Technology:</strong> Allows part features in an assembly to dynamically resize or move based on relationships to neighboring components, helping coordinate fit and clearance without hardcoding dimensions.
+                  </li>
+                  <li>
+                    <strong>Multi-Body Part Modeling:</strong> A highly efficient top-down methodology where multiple solid bodies are created in a single part file (<code>.ipt</code>), then pushed into an assembly (<code>.iam</code>) as individual components once spatial relationships are frozen.
+                  </li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Typical outputs &amp; exchange</h3>
-                <ul style="margin: 10px 0 0 18px">              <li>IPT/IAM/IDW</li>
-              <li>STEP</li>
-              <li>PDF</li>
-</ul>
+                <h3 class="panel-title">iLogic Design Automation</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  One of Inventor's most powerful features is <strong>iLogic</strong>, which allows non-programmers to embed rules-based design directly into models:
+                </p>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                  <li><strong>Conditional Logic:</strong> Using simple VB.NET-based rules (e.g., <code>If Length > 1000 Then Width = 500</code>), engineers can automate part suppression, resize geometries, and change custom properties.</li>
+                  <li><strong>Dynamic Configurator Panels:</strong> Designers can instantly generate custom user forms with sliders, dropdowns, and text inputs to guide sales teams or clients in configuring variants.</li>
+                  <li><strong>Data Links:</strong> Easily reads and writes dimensions to external Excel databases or ERP systems to sync engineering drawings with supply chain specifications.</li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Where it commonly shows up</h3>
-                <ul style="margin: 10px 0 0 18px">              <li>Machinery</li>
-              <li>Industrial equipment</li>
-              <li>Consumables tooling</li>
-</ul>
+                <h3 class="panel-title">Advanced Toolsets</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  Inventor packs specialized toolsets designed to accelerate common fabrication tasks:
+                </p>
+                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                  <li><strong>Frame Generator:</strong> Rapidly applies structural steel sections (beams, angles, channels) to 2D/3D wireframe sketches, automatically generating complex mitered cuts and end caps.</li>
+                  <li><strong>Sheet Metal:</strong> Generates specialized sheet metal folds, relief cuts, and dynamically calculates flat patterns based on customized K-factors and bend tables.</li>
+                  <li><strong>Tube and Pipe:</strong> Automates the routing of rigid piping, bent tubes, and flexible hoses based on defined piping standards and fitting libraries.</li>
+                </ul>
               </div>
 
               <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Drill down</h3>
+                <h3 class="panel-title">Drill Down &amp; Glossary</h3>
+                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
+                  <strong>Explore Core Concepts:</strong> 
+                  <a href="../concepts/ilogic-automation.html">iLogic Automation</a>, 
+                  <a href="../concepts/frame-generator.html">Frame Generator</a>, 
+                  <a href="../concepts/tube-and-pipe.html">Tube and Pipe routing</a>, 
+                  <a href="../concepts/parametric-constraints.html">Parametric Constraints</a>.
+                </p>
                 <p class="meta" style="margin-top: 8px">
-                  <strong>Tutorials:</strong>
-                  <a href="../../tutorials.html">Open tutorial discovery</a>
-                  <span class="meta"> — try keyword “Inventor” in filters or search when available.</span>
-                </p>
-                <p class="meta" style="margin-top: 10px">
-                  <strong>Related glossary keys (anchors TBD):</strong> parametric-modeling, assembly-constraints
-                </p>
-                <p class="meta" style="margin-top: 10px">
-                  <strong>OEM / official tree:</strong> <a href="../../kb-software.html#kb-vendor-docs">Vendor documentation hubs</a>
+                  <strong>Learn CAD:</strong>
+                  <a href="../../tutorials.html">Search Inventor Tutorials</a>
                 </p>
               </div>
             </article>
