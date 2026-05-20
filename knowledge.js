@@ -279,13 +279,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       descZh: "",
       hint: "On-site page listing product families + where to drill next.",
     },
-    {
-      id: "Learning branch",
-      type: "resource",
-      tags: ["beginner"],
-      descZh: "",
-      hint: "Pedagogical fork inside this visualization (not gamified Paths).",
-    },
+
     {
       id: "Autodesk",
       type: "vendor",
@@ -563,10 +557,9 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     ["DraftSight", "Mechanical Toolbox"],
     ["DraftSight", "DWG"],
     ["CAD Basics", "Software Map"],
-    ["Software Map", "Learning branch"],
-    ["Learning branch", "Autodesk"],
-    ["Learning branch", "Gstarsoft"],
-    ["Learning branch", "Dassault"],
+    ["Software Map", "Autodesk"],
+    ["Software Map", "Gstarsoft"],
+    ["Software Map", "Dassault"],
     ["Dassault", "DraftSight"],
     ["DraftSight", "3DEXPERIENCE"],
     ["DraftSight", "PowerTrim"],
@@ -587,7 +580,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     ["DraftSight", "Perf Tuning"],
     ["DraftSight", "Interop (DS)"],
     ["DraftSight", "DWG"],
-    ["Learning branch", "PTC"],
+    ["Software Map", "PTC"],
     ["PTC", "Creo Parametric"],
     ["PTC", "Windchill"],
     ["PTC", "Mathcad"],
@@ -610,7 +603,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     ["Creo Parametric", "Config.pro (PTC)"],
     ["Creo Parametric", "Simp Reps (PTC)"],
     ["PTC", "STEP"],
-    ["Learning branch", "Siemens"],
+    ["Software Map", "Siemens"],
     ["Siemens", "NX"],
     ["Siemens", "Solid Edge"],
     ["Siemens", "Teamcenter"],
@@ -636,7 +629,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     ["Teamcenter", "Multi-CAD (Siemens)"],
     ["NX", "NX Expressions"],
     ["NX", "HD3D"],
-    ["Learning branch", "Bentley"],
+    ["Software Map", "Bentley"],
     ["Bentley", "MicroStation"],
     ["Bentley", "OpenRoads"],
     ["Bentley", "ProjectWise"],
@@ -658,8 +651,8 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     ["Bentley", "AutoPIPE"],
     ["Bentley", "SACS"],
     ["Bentley", "ProSteel"],
-    ["Learning branch", "AEC"],
-    ["Learning branch", "MFG"],
+    ["Software Map", "AEC"],
+    ["Software Map", "MFG"],
     ["Siemens", "STEP"],
     ["Dassault", "SOLIDWORKS"],
     ["Dassault", "CATIA"],
@@ -696,7 +689,6 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     "2D Drafting",
     "Command Line",
     "File Formats",
-    "Learning branch",
   ];
 
   // filter buttons: cards + graph
@@ -833,20 +825,21 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         d3
           .forceLink(simLinks)
           .id((d) => d.id)
-          .distance(160)
-          .strength(0.5)
+          .distance(110)
+          .strength(0.6)
       )
-      .force("charge", d3.forceManyBody().strength(-600))
+      .force("charge", d3.forceManyBody().strength(-240))
+      .force("x", d3.forceX(width / 2).strength(0.16))
+      .force("y", d3.forceY(height / 2).strength(0.16))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide().radius((d) => d.baseRadius + 50))
-      .velocityDecay(0.08); // High energy starting dynamics
+      .force("collision", d3.forceCollide().radius((d) => d.baseRadius + 22))
+      .velocityDecay(0.18); // Stable initial decay
 
-    // 3-second dynamic kinetic entrance animation
-    simulation.alpha(1.5).restart();
+    // Kinetic entrance animation settling smoothly
+    simulation.alpha(1.2).restart();
     setTimeout(() => {
-      // Smoothly cool down to structured equilibrium after 3 seconds
-      simulation.velocityDecay(0.42);
-    }, 3000);
+      simulation.velocityDecay(0.38);
+    }, 2000);
 
     const linkSel = gZoom
       .append("g")
@@ -1015,6 +1008,170 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       });
     }
 
+    const nodeUrlMap = {
+      "CAD Basics": "./knowledge-base.html",
+      "Terminology": "./kb-terms.html",
+      "2D Drafting": "./knowledge-roadmap.html",
+      "3D Modeling": "./knowledge-roadmap.html",
+      "Command Line": "./kb/concepts/command-alias.html",
+      "File Formats": "./kb-terms.html",
+      "AEC": "./knowledge-domains.html#aec-detail",
+      "MFG": "./knowledge-domains.html#mfg-detail",
+      "BIM": "./kb/concepts/bim.html",
+      "DWG": "./kb/concepts/dwg-compatibility.html",
+      "STEP": "./knowledge-cax.html",
+      "IFC": "./kb/concepts/ifc-interoperability.html",
+      "Software Map": "./kb-software.html",
+      "Autodesk": "./kb/vendors/autodesk.html",
+      "AutoCAD": "./kb/software/autocad.html",
+      "Revit": "./kb/software/revit.html",
+      "Gstarsoft": "./kb/vendors/gstarsoft.html",
+      "GstarCAD": "./kb/software/gstarcad.html",
+      "DWG FastView": "./kb/software/dwg-fastview.html",
+      "DWG Compare": "./kb/concepts/dwg-compare.html",
+      "Parametric Constraints": "./kb/concepts/parametric-constraints.html",
+      "Drawing Merge": "./kb/concepts/drawing-merge.html",
+      "Grasshopper": "./kb-software.html",
+      "CAD SDK ecosystem": "./kb-software.html#cad-sdk",
+      "Apryse CAD SDK": "./kb-software.html#cad-sdk",
+      "HOOPS Visualize": "./kb-software.html#cad-sdk",
+      "Datakit": "./kb-software.html#cad-sdk",
+      "Civil 3D": "./kb/software/civil-3d.html",
+      "Inventor": "./kb/software/inventor.html",
+      "Fusion": "./kb/software/fusion-360.html",
+      "Navisworks": "./kb/concepts/navisworks-formats.html",
+      "GstarCAD Mechanical": "./kb/software/gstarcad-mechanical.html",
+      "GstarCAD Architecture": "./kb/software/gstarcad-architecture.html",
+      "Intelligent Objects": "./kb/concepts/intelligent-objects.html",
+      "Mobile BIM": "./kb/concepts/bim-mobile-viewing.html",
+      "Python API": "./kb/concepts/python-api.html",
+      "PyRx": "./kb/concepts/grx-sdk.html",
+      "Hardware Acceleration": "./kb/concepts/hardware-acceleration.html",
+      "Smart Blocks": "./kb/concepts/smart-blocks.html",
+      "Cloud Worksharing": "./kb/concepts/cloud-worksharing.html",
+      "Scan to BIM": "./kb/concepts/scan-to-bim.html",
+      "Generative Design": "./kb/concepts/generative-design.html",
+      "iLogic": "./kb/concepts/ilogic-automation.html",
+      "NWD/NWF": "./kb/concepts/navisworks-formats.html",
+      "Grading Optimization": "./kb/concepts/grading-optimization.html",
+      "Sheet Set Manager": "./kb/concepts/sheet-set-manager.html",
+      "Annotative Scaling": "./kb/concepts/annotative-scaling.html",
+      "GRX SDK": "./kb/concepts/grx-sdk.html",
+      "CUI Custom": "./kb/concepts/cui-customization.html",
+      "Data Link": "./kb/concepts/data-link.html",
+      "SuperHatch": "./kb/concepts/superhatch.html",
+      "PDF to DWG": "./kb/concepts/pdf-to-dwg.html",
+      "Dassault": "./kb-software.html",
+      "DraftSight": "./kb-software.html",
+      "PowerTrim": "./kb/concepts/powertrim-efficiency.html",
+      "G-Code Gen": "./kb/concepts/g-code-generator.html",
+      "Mechanical Toolbox": "./kb/concepts/mechanical-toolbox.html",
+      "3DEXPERIENCE": "./kb/concepts/3dexperience-platform.html",
+      "Image Tracer": "./kb/concepts/image-tracer.html",
+      "DraftSight API": "./kb/concepts/draftsight-api.html",
+      "Smart Blocks (DS)": "./kb/concepts/smart-block-ds.html",
+      "Mech Symbols": "./kb/concepts/ds-mechanical-symbols.html",
+      "Batch Print": "./kb/concepts/ds-batch-print.html",
+      "Alias Custom": "./kb/concepts/ds-alias-customization.html",
+      "LISP (DS)": "./kb/concepts/ds-lisp-automation.html",
+      "Xref (DS)": "./kb/concepts/ds-xref-manager.html",
+      "Properties (DS)": "./kb/concepts/ds-entity-properties.html",
+      "SSM (DS)": "./kb/concepts/ds-sheet-set-manager.html",
+      "3D (DS)": "./kb/concepts/ds-3d-modeling.html",
+      "Markup (DS)": "./kb/concepts/ds-markup-tools.html",
+      "Licensing (DS)": "./kb/concepts/ds-license-types.html",
+      "Perf Tuning": "./kb/concepts/ds-performance-tuning.html",
+      "Interop (DS)": "./kb/concepts/ds-file-interoperability.html",
+      "PTC": "./kb-software.html",
+      "Creo Parametric": "./kb-software.html",
+      "Windchill": "./kb/concepts/windchill-pdm.html",
+      "Skeleton Modeling": "./kb/concepts/skeleton-modeling.html",
+      "Flexible Modeling": "./kb/concepts/creo-flexible-modeling.html",
+      "Regeneration Logic": "./kb/concepts/creo-regeneration-logic.html",
+      "Mathcad": "./kb-software.html",
+      "MBD (PTC)": "./kb/concepts/creo-mbd.html",
+      "Generative (PTC)": "./kb/concepts/creo-generative-design.html",
+      "Additive (PTC)": "./kb/concepts/creo-additive-mfg.html",
+      "Cabling (PTC)": "./kb/concepts/creo-cabling-harness.html",
+      "Piping (PTC)": "./kb/concepts/creo-piping-design.html",
+      "Sheetmetal (PTC)": "./kb/concepts/creo-sheetmetal-design.html",
+      "Mechanism (PTC)": "./kb/concepts/creo-mechanism-sim.html",
+      "Sim Live (PTC)": "./kb/concepts/creo-simulation-live.html",
+      "ISDX (PTC)": "./kb/concepts/creo-isdx-surfacing.html",
+      "TDD (PTC)": "./kb/concepts/creo-top-down-design.html",
+      "Mapkeys (PTC)": "./kb/concepts/creo-mapkeys.html",
+      "Config.pro (PTC)": "./kb/concepts/creo-config-pro.html",
+      "Simp Reps (PTC)": "./kb/concepts/creo-simplified-reps.html",
+      "Siemens": "./kb-software.html",
+      "NX": "./kb-software.html",
+      "Solid Edge": "./kb-software.html",
+      "Teamcenter": "./kb/concepts/teamcenter-plm.html",
+      "Synchronous Tech": "./kb/concepts/siemens-synchronous-technology.html",
+      "WAVE Linker": "./kb/concepts/nx-wave-geometry-linker.html",
+      "Simcenter": "./kb/concepts/simcenter-nastran.html",
+      "Convergent Modeling": "./kb/concepts/siemens-convergent-modeling.html",
+      "PMI (Siemens)": "./kb/concepts/siemens-pmi-mbd.html",
+      "Active Workspace": "./kb/concepts/teamcenter-active-workspace.html",
+      "Check-Mate": "./kb/concepts/nx-check-mate.html",
+      "NX CAM": "./kb/concepts/nx-cam-manufacturing.html",
+      "NX MCD": "./kb/concepts/nx-mcd-simulation.html",
+      "NX PTS": "./kb/concepts/nx-product-template-studio.html",
+      "NX Layout": "./kb/concepts/nx-layout-design.html",
+      "NX Mold Wizard": "./kb/concepts/nx-mold-wizard.html",
+      "NX Progressive Die": "./kb/concepts/nx-progressive-die-wizard.html",
+      "Nastran": "./kb/concepts/simcenter-nastran.html",
+      "Realize Shape": "./kb/concepts/nx-realize-shape.html",
+      "NX Flow": "./kb/concepts/nx-flow-simulation.html",
+      "Multi-CAD (Siemens)": "./kb/concepts/siemens-multi-cad-mgmt.html",
+      "NX Expressions": "./kb/concepts/nx-expressions.html",
+      "HD3D": "./kb/concepts/nx-hd3d-reporting.html",
+      "Bentley": "./kb-software.html",
+      "MicroStation": "./kb/concepts/bentley-microstation.html",
+      "OpenRoads": "./kb/concepts/openroads-designer.html",
+      "ProjectWise": "./kb/concepts/projectwise-collaboration.html",
+      "iTwin": "./kb/concepts/bentley-itwin-platform.html",
+      "DGN Format": "./kb/concepts/bentley-microstation.html",
+      "STAAD.Pro": "./kb/concepts/bentley-staad-pro.html",
+      "SYNCHRO": "./kb/concepts/synchro-4d-construction.html",
+      "WaterGEMS": "./kb/concepts/bentley-watergems.html",
+      "RAM Structural": "./kb/concepts/ram-structural-system.html",
+      "HAMMER": "./kb/concepts/bentley-hammer-transient.html",
+      "LumenRT": "./kb/concepts/bentley-lumenrt.html",
+      "AssetWise": "./kb/concepts/bentley-assetwise.html",
+      "SewerGEMS": "./kb/concepts/bentley-sewergems.html",
+      "gINT": "./kb/concepts/bentley-gint-geotech.html",
+      "AutoPIPE": "./kb/concepts/bentley-autopipe.html",
+      "SACS": "./kb/concepts/bentley-sacs-offshore.html",
+      "ProSteel": "./kb/concepts/bentley-prosteel.html",
+      "CONNECT Ed.": "./kb/concepts/microstation-connect-edition.html",
+      "iModels": "./kb/concepts/bentley-imodels.html",
+      "ContextCapture": "./kb/concepts/bentley-contextcapture.html",
+      "SOLIDWORKS": "./kb-software.html",
+      "CATIA": "./kb/concepts/catia-part-design.html",
+      "ENOVIA": "./kb/concepts/enovia-plm.html",
+      "SIMULIA": "./kb/concepts/simulia-abaqus.html",
+      "DELMIA": "./kb/concepts/delmia-digital-mfg.html",
+      "SOLIDWORKS PDM": "./kb/concepts/solidworks-pdm.html",
+      "CATIA GSD": "./kb/concepts/catia-gsd.html",
+      "CAA SDK": "./kb/concepts/catia-caa-sdk.html",
+      "SOLIDWORKS API": "./kb/concepts/solidworks-api.html",
+      "SOLIDWORKS Configurations": "./kb/concepts/solidworks-configurations.html",
+      "Abaqus": "./kb/concepts/simulia-abaqus.html",
+      "PowerCopy": "./kb/concepts/catia-part-design.html",
+      "Hybrid Design": "./kb/concepts/catia-v5-v6-hybrid.html",
+      "Composites Design": "./kb/concepts/catia-composites-design.html",
+      "FT&A MBD": "./kb/concepts/siemens-pmi-mbd.html",
+      "SpeedPak": "./kb/concepts/large-assembly.html",
+      "eDrawings": "./kb/concepts/solidworks-edrawings.html",
+      "Collaborative Sharing": "./kb/concepts/3dexperience-collaborative-sharing.html",
+      "Large Design Review": "./kb/concepts/large-assembly.html",
+      "Weldments (SW)": "./kb/concepts/solidworks-weldments.html",
+      "Sheet Metal (SW)": "./kb/concepts/solidworks-sheetmetal.html",
+      "Part Design (CATIA)": "./kb/concepts/catia-part-design.html",
+      "Assembly Design (CATIA)": "./kb/concepts/catia-assembly-design.html",
+      "DELMIA Simulation": "./kb/concepts/delmia-digital-mfg.html"
+    };
+
     function selectGraphNode(d, opts) {
       const o = opts || {};
       const doZoom = o.zoom !== false;
@@ -1024,9 +1181,13 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       const detailsBtn = document.getElementById("kbViewDetailsBtn");
       if (actions && detailsBtn) {
         actions.style.display = "block";
-        // Map node ID to concept filename (slug)
-        const slug = d.id.toLowerCase().replace(/\s+/g, "-");
-        detailsBtn.href = `./kb/concepts/${slug}.html`;
+        const customUrl = nodeUrlMap[d.id];
+        if (customUrl) {
+          detailsBtn.href = customUrl;
+        } else {
+          const slug = d.id.toLowerCase().replace(/\s+/g, "-");
+          detailsBtn.href = `./kb/concepts/${slug}.html`;
+        }
       }
 
       fillGraphRelatedLinks([...neighborIds(d.id)].slice(0, 8));
@@ -1109,13 +1270,14 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         const op = match ? (focusId ? (isRel ? 1 : 0.2) : 1) : 0.1;
         
         g.style("opacity", op);
+        g.classed("kb-focus", isFocus); // Toggle focus class for high contrast CSS animations
 
         g.select(".kb-graph-node-shape")
           .attr("r", isFocus ? d.baseRadius * 1.25 : d.baseRadius)
           .attr("stroke-width", isFocus ? 3.5 : 2)
           .attr("stroke", "#ffffff")
           .attr("fill", colorMap[d.type] || "#8b9dcf")
-          .style("filter", "none"); // absolutely no glow shadow!
+          .style("filter", null); // Remove hardcoded override to allow CSS filters to work!
 
         g.select(".kb-graph-node-label")
           .attr("dy", isFocus ? d.baseRadius * 1.25 + 18 : d.baseRadius + 16)
@@ -1167,7 +1329,30 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       })
       .on("click", (event, d) => {
         event.stopPropagation();
-        selectGraphNode(d, { replaceURL: false, zoom: true });
+        const customUrl = nodeUrlMap[d.id];
+        const dest = customUrl || `./kb/concepts/${d.id.toLowerCase().replace(/\s+/g, "-")}.html`;
+        
+        // Protocol check: file:// protocol blocks HEAD fetches, so navigate directly
+        if (window.location.protocol === "file:") {
+          window.location.href = dest;
+          return;
+        }
+
+        // Live check to prevent 404 and fallback elegantly
+        fetch(dest, { method: "HEAD" })
+          .then((res) => {
+            if (res.ok) {
+              window.location.href = dest;
+            } else {
+              window.location.href = `./kb-terms.html?search=${encodeURIComponent(d.id)}`;
+            }
+          })
+          .catch(() => {
+            window.location.href = dest;
+          });
+      })
+      .on("dblclick", (event, d) => {
+        event.stopPropagation();
       });
 
     const tickPositions = () => {

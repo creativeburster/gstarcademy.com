@@ -853,8 +853,8 @@ input::placeholder { color: #8a9abb; }
 
 .site-footer-inner {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 36px; /* Slightly tighter gap to support 5 columns cleanly */
   margin-bottom: 60px;
 }
 
@@ -1515,17 +1515,49 @@ a.kb-domain-card:hover .kb-domain-card-cta {
   font-weight: 600;
 }
 
+.kb-graph-node-group {
+  transition: opacity 0.3s ease;
+}
+
 .kb-graph-node-shape {
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.35));
+  transition: r 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), stroke 0.3s ease, stroke-width 0.3s ease;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.25));
 }
 
-.kb-graph-node-shape--pulse {
-  filter: drop-shadow(0 0 10px rgba(255, 200, 100, 0.65));
+.kb-graph-node-label {
+  transition: dy 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), font-size 0.3s ease, font-weight 0.3s ease, fill 0.3s ease;
 }
 
-.kb-graph-node-shape--selected {
-  stroke: #0f172a !important;
-  stroke-width: 3px !important;
+/* Hovering Micro-interactions */
+.kb-graph-node-group:hover .kb-graph-node-shape {
+  stroke: #ffffff !important;
+  stroke-width: 3.5px !important;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.65)) !important;
+}
+
+.kb-graph-node-group:hover .kb-graph-node-label {
+  fill: #ffffff !important;
+}
+
+/* Selected Focus State & Breathing Glow Animation */
+.kb-graph-node-group.kb-focus .kb-graph-node-shape {
+  stroke: #60a5fa !important; /* High contrast premium light blue outline */
+  stroke-width: 4.5px !important;
+  animation: kb-node-pulse 2s infinite alternate ease-in-out;
+}
+
+.kb-graph-node-group.kb-focus .kb-graph-node-label {
+  fill: #60a5fa !important;
+  font-weight: 800 !important;
+}
+
+@keyframes kb-node-pulse {
+  0% {
+    filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.95));
+  }
 }
 
 .kb-info-panel .kb-tag-cloud a.kb-tag {
@@ -1987,6 +2019,7 @@ a.kb-domain-card:hover .kb-domain-card-cta {
 :root {
   color-scheme: light;
   /* Fallback values for safety */
+  --hero-blend-color: 248, 250, 252;
   --bg: #f1ece6;
   --bg-soft: #e8e4de;
   --surface: rgba(252, 251, 248, 0.94);
@@ -2004,6 +2037,7 @@ a.kb-domain-card:hover .kb-domain-card-cta {
 
 /* Warm Newspaper Yellow Theme - strictly for Knowledge Base pages */
 body[data-page="knowledge"] {
+  --hero-blend-color: 241, 236, 230;
   --bg: #f1ece6;
   --bg-soft: #e8e4de;
   --surface: rgba(252, 251, 248, 0.94);
@@ -2036,6 +2070,7 @@ body[data-page="news"],
 body[data-page="about"],
 body[data-page="contact"],
 body:not([data-page="knowledge"]) {
+  --hero-blend-color: 248, 250, 252;
   --bg: #f8fafc;
   --bg-soft: #f1f5f9;
   --surface: rgba(255, 255, 255, 0.9);
@@ -2183,10 +2218,19 @@ body:not([data-page="knowledge"])::before {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: min(72px, 12vw);
+  bottom: -1px;
+  height: clamp(80px, 12vw, 140px); /* Smooth, taller height for natural transition */
   pointer-events: none;
-  background: linear-gradient(180deg, transparent, rgba(241, 236, 230, 0.88));
+  background: linear-gradient(
+    180deg,
+    rgba(var(--hero-blend-color), 0) 0%,
+    rgba(var(--hero-blend-color), 0.08) 22%,
+    rgba(var(--hero-blend-color), 0.22) 44%,
+    rgba(var(--hero-blend-color), 0.48) 66%,
+    rgba(var(--hero-blend-color), 0.78) 84%,
+    rgba(var(--hero-blend-color), 0.96) 94%,
+    var(--bg) 100%
+  );
 }
 
 .hero.hero-premium .hero-inner {
@@ -2933,24 +2977,26 @@ a.kb-pdf-matrix-rowlink:hover {
 
 .kb-portal-search {
   width: 100%;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(15, 23, 42, 0.15);
-  background: rgba(255, 255, 255, 0.65);
-  color: #0f172a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.22);
+  background: #ffffff !important; /* Premium crisp solid white background */
+  color: #0f172a !important; /* Excellent readability text color */
   font-size: 13px;
   outline: none;
   transition: all 0.2s ease;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.05);
 }
 
 .kb-portal-search::placeholder {
-  color: rgba(15, 23, 42, 0.45);
+  color: #64748b !important; /* Highly visible slate-500 placeholder text */
+  opacity: 1 !important;
 }
 
 .kb-portal-search:focus {
-  border-color: rgba(37, 99, 235, 0.55);
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
-  background: #ffffff;
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2), inset 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+  background: #ffffff !important;
 }
 .kb-stage {
   position: relative;

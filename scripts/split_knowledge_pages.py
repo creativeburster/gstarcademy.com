@@ -116,7 +116,6 @@ SIDEBAR = f"""      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" ar
               </p>
               <a class="kb-index-link" href="./knowledge-base.html">Overview</a>
               <a class="kb-index-link" href="./knowledge-cax.html">CAD / CAE / CAM</a>
-              <a class="kb-index-link" href="./paths.html">Learning tracks</a>
               <a class="kb-index-link" href="./kb-terms.html#kb-term-jump">Terms <span>40+</span></a>
               <a class="kb-index-link" href="./knowledge-domains.html">Domain tracks</a>
               <a class="kb-index-link" href="./kb-graph.html">Knowledge graph</a>
@@ -128,7 +127,6 @@ SIDEBAR = f"""      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" ar
               <button class="kb-nav-toggle" aria-expanded="true">Maps &amp; lanes</button>
               <div class="kb-nav-links">
                 <a class="kb-side-link" href="./knowledge-cax.html">CAD · CAE · CAM</a>
-                <a class="kb-side-link" href="./paths.html">Learning paths · tracks</a>
                 <a class="kb-side-link" href="./kb-graph.html">Knowledge graph</a>
               </div>
             </div>
@@ -219,7 +217,7 @@ def head_block(*, title: str, canonical: str, description: str, ld_url: str) -> 
           <a class="nav-link" data-nav="home" href="./index.html">Home</a>
           <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
           <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
-          <a class="nav-link" data-nav="paths" href="./paths.html">Learning Paths</a>
+          <a class="nav-link" data-nav="news" href="./news.html">News</a>
           <a class="nav-link" data-nav="about" href="./about.html">About</a>
         </nav>
       </div>
@@ -240,7 +238,7 @@ FOOTER = f"""    <footer class="footer site-footer">
           <ul class="site-footer-links">
             <li><a href="./tutorials.html">Tutorials</a></li>
             <li><a href="./knowledge-base.html">Knowledge base</a></li>
-            <li><a href="./paths.html">Learning paths</a></li>
+            <li><a href="./news.html">CAD news</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
@@ -385,10 +383,6 @@ def main() -> None:
         '                  <a class="kb-portal-tile" href="./kb-graph.html">\n'
         '                    <span class="kb-portal-tile-emoji" aria-hidden="true">🕸️</span>\n'
         "                    <span>Knowledge graph</span>\n"
-        "                  </a>\n"
-        '                  <a class="kb-portal-tile" href="./paths.html">\n'
-        '                    <span class="kb-portal-tile-emoji" aria-hidden="true">🪜</span>\n'
-        "                    <span>Learning tracks</span>\n"
         "                  </a>\n"
         '                  <a class="kb-portal-tile" href="./knowledge-cax.html">\n'
         '                    <span class="kb-portal-tile-emoji" aria-hidden="true">⚙️</span>\n'
