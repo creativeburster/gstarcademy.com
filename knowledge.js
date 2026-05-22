@@ -1075,7 +1075,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     nodeG
       .append("circle")
       .attr("class", "kb-graph-node-shape")
-      .attr("r", (d) => d.baseRadius)
+      .attr("r", (d) => d.radius || d.baseRadius || 8)
       .attr("stroke", "#ffffff")
       .attr("stroke-width", 2)
       .attr("fill", (d) => colorMap[d.type] || "#8b9dcf")
