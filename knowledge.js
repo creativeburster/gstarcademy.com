@@ -927,15 +927,17 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       product: "Product Name",
       sdk: "SDK / Toolkit",
     };
+    // Deep Ink Engineering — graph palette aligned with site tokens.
+    // Vendor + flagship product nodes use champagne to signal authority.
     const colorMap = {
-      concept: "#6a82ff",
-      skill: "#4ecdc4",
-      domain: "#c77dff",
-      format: "#35b69d",
-      resource: "#f0a22f",
-      vendor: "#fb7185",
-      product: "#38bdf8",
-      sdk: "#a78bfa",
+      concept: "#7C8AFF",   // sapphire-violet (primary)
+      skill:   "#A6B0FF",   // softer sapphire for skills/workflows
+      domain:  "#8A6BC7",   // muted violet for industry lanes
+      format:  "#5DC2A7",   // sage — file/schema neutral
+      resource:"#D9B074",   // champagne — meta / curated nodes
+      vendor:  "#E8C68A",   // champagne brighter — vendors
+      product: "#5BB6E5",   // cool steel blue — products
+      sdk:     "#B198F2",   // lilac — SDKs / extensions
     };
     const nodeHint = (d) => (d && d.hint) || d.descZh || "";
 
