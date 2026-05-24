@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Knowledge Graph · CAD Knowledge Base · LearnCAD</title>
+    <title>Knowledge Graph · CAD Wiki · LearnCAD</title>
     <meta
       name="description"
       content="Explore connections between CAD concepts, vendor ecosystems, and product nodes via an interactive force-directed graph. Filter by tags and share deep links."
@@ -50,13 +50,20 @@
           </a>
           <nav class="nav">
             <a class="nav-link" data-nav="home" href="./index.html">Home</a>
-            <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
+            <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Wiki</a>
             <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+
             <a class="nav-link" data-nav="news" href="./news.html">News</a>
             <a class="nav-link" data-nav="about" href="./about.html">About</a>
           </nav>
         </div>
-      </header>
+      
+        <div class="nav-overlay" aria-hidden="true"></div></header>
     </div>
 
     <div class="kb-app kb-faq-shell" id="kb-app">
@@ -134,7 +141,7 @@
               <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
                 <a href="./index.html">Home</a>
                 <span aria-hidden="true"> / </span>
-                <a href="./knowledge-base.html">Knowledge Base</a>
+                <a href="./knowledge-base.html">Wiki</a>
                 <span aria-hidden="true"> / </span>
                 <span aria-current="page">Graph</span>
               </nav>

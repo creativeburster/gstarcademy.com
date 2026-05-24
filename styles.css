@@ -324,6 +324,48 @@ a { color: inherit; text-decoration: none; }
 
 .nav { display: flex; align-items: center; gap: 4px; }
 
+/* Hamburger menu button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger:hover {
+  background: var(--accent-soft);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background: var(--text-main);
+  margin: 3px 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 .nav-link {
   padding: 8px 16px;
   border-radius: 10px;
@@ -956,17 +998,173 @@ input::placeholder { color: #8a9abb; }
 
 @media (max-width: 780px) {
   .topbar-inner {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
     padding: 8px 0;
-    min-height: 0;
+    min-height: 64px;
   }
-  .hero { padding-top: 34px; }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px) saturate(180%);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 24px 24px;
+    gap: 8px;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+  
+  .nav.active {
+    right: 0;
+  }
+  
+  .nav-link {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+  
+  .hero { padding-top: 24px; }
   .search-row, .grid-3, .grid-2, .kpis, .tutorial-item, .hero-split, .kb-grid {
     grid-template-columns: 1fr;
   }
   .thumb { min-height: 140px; }
   .source-link-grid { grid-template-columns: 1fr; }
+  
+  /* Overlay for mobile menu */
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+  }
+  
+  .nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Additional mobile optimizations */
+  .container {
+    width: 94%;
+  }
+  
+  /* Hero section mobile */
+  .hero-premium {
+    padding: 40px 0 60px;
+  }
+  
+  .hero-title-premium {
+    font-size: 1.8rem;
+  }
+  
+  .hero-sub-premium {
+    font-size: 1rem;
+  }
+  
+  /* Site notice mobile */
+  .site-notice-inner {
+    padding: 12px 16px;
+  }
+  
+  .site-notice-text {
+    font-size: 0.9rem;
+  }
+  
+  /* Card padding mobile */
+  .card {
+    padding: 16px;
+  }
+  
+  /* Footer mobile */
+  .site-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 40px 0;
+  }
+  
+  /* Hero search mobile */
+  .hero-search-shell {
+    padding: 12px;
+  }
+  
+  .search-row {
+    gap: 8px;
+  }
+  
+  .search-row input {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+  
+  /* Buttons mobile */
+  .btn {
+    padding: 12px 20px;
+  }
+  
+  /* Tutorial item mobile */
+  .tutorial-item {
+    grid-template-columns: 1fr;
+  }
+  
+  .tutorial-item .thumb {
+    min-height: 120px;
+  }
+  
+  /* KB app mobile */
+  .kb-app {
+    grid-template-columns: 1fr;
+  }
+  
+  .kb-rail {
+    position: relative;
+    top: auto;
+    height: auto;
+    max-height: 300px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .brand span {
+    font-size: 1rem;
+  }
+  
+  .brand-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+  
+  .hero-title-premium {
+    font-size: 1.6rem;
+  }
+  
+  .hero-sub-premium {
+    font-size: 0.95rem;
+  }
+  
+  .site-notice-text {
+    font-size: 0.85rem;
+  }
 }
 
 .kb-app {
