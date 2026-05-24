@@ -332,9 +332,9 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -350,17 +350,17 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hamburger-line {
-  width: 20px;
+  width: 13px;
   height: 2px;
   background: var(--text-main);
-  margin: 3px 0;
+  margin: 2px 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
   display: block;
 }
 
 .hamburger.active .hamburger-line:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(5px) rotate(45deg);
 }
 
 .hamburger.active .hamburger-line:nth-child(2) {
@@ -368,7 +368,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hamburger.active .hamburger-line:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 .nav-link {
