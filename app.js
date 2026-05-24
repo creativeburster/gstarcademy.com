@@ -28,6 +28,11 @@ if (hamburger) {
   hamburger.addEventListener("click", toggleMenu);
 }
 
+const navClose = document.querySelector(".nav-close");
+if (navClose) {
+  navClose.addEventListener("click", toggleMenu);
+}
+
 if (navOverlay) {
   navOverlay.addEventListener("click", toggleMenu);
 }
