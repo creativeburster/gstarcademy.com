@@ -3,28 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Input · CAD Concepts · LearnCAD</title>
-    <meta name="description" content="Provides a command interface near the cursor to help keep focus on the drafting area." />
+    <title>Dynamic Input (AutoCAD) · AutoCAD · CAD Knowledge Base · LearnCAD</title>
+    <meta name="description" content="On-cursor command tooltips that show prompts and accept relative or absolute coordinates as you type." />
+    <link rel="canonical" href="https://learncad.io/kb/concepts/dynamic-input.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Dynamic Input (AutoCAD)" />
+    <meta property="og:description" content="On-cursor command tooltips that show prompts and accept relative or absolute coordinates as you type." />
+    <meta property="og:url" content="https://learncad.io/kb/concepts/dynamic-input.html" />
+    <meta property="og:site_name" content="LearnCAD" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dynamic Input (AutoCAD)" />
+    <meta name="twitter:description" content="On-cursor command tooltips that show prompts and accept relative or absolute coordinates as you type." />
+
+    <link rel="preload" href="../../styles.css?v=v8_deep_ink" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
     <link rel="stylesheet" href="../../styles.css?v=v8_deep_ink" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Dynamic Input (AutoCAD)","description":"On-cursor command tooltips that show prompts and accept relative or absolute coordinates as you type.","url":"https://learncad.io/kb/concepts/dynamic-input.html","datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"LearnCAD","url":"https://learncad.io"},"mainEntityOfPage":"https://learncad.io/kb/concepts/dynamic-input.html","author":{"@type":"Organization","name":"LearnCAD Editorial Team","url":"https://learncad.io/about.html"},"publisher":{"@type":"Organization","name":"LearnCAD","url":"https://learncad.io/","logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"AEC Review Desk","jobTitle":"Reviewer (AEC / BIM)","url":"https://learncad.io/about.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Dynamic Input (AutoCAD)","description":"On-cursor command tooltips that show prompts and accept relative or absolute coordinates as you type.","url":"https://learncad.io/kb/concepts/dynamic-input.html","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://learncad.io/kb-terms.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://learncad.io/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://learncad.io/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://learncad.io/kb-terms.html"},{"@type":"ListItem","position":4,"name":"Dynamic Input (AutoCAD)","item":"https://learncad.io/kb/concepts/dynamic-input.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-concepts">
-        <div class="header-stack">
-      <aside
-        class="site-notice"
-        id="site-notice"
-        data-notice-id="global-v2"
-        aria-label="Announcement"
-      >
+    <div class="header-stack">
+      <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the
-            <a class="site-notice-link" href="../../tutorials.html">tutorial library</a>
-            to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -32,51 +38,80 @@
         </div>
       </aside>
       <header class="topbar">
-      <div class="container topbar-inner">
-        <a class="brand" href="../../index.html">
-          <span class="brand-badge">LC</span>
-          <span>LearnCAD</span>
-        </a>
-        <nav class="nav">
-          <a class="nav-link" href="../../index.html">Home</a>
-          <a class="nav-link" href="../../knowledge-base.html">Knowledge Base</a>
-          <a class="nav-link" href="../../tutorials.html">Tutorials</a>
-          <a class="nav-link" href="../../news.html">News</a>
-        </nav>
-      </div>
-    </header>
+        <div class="container topbar-inner">
+          <a class="brand" href="../../index.html">
+            <span class="brand-badge">LC</span>
+            <span>LearnCAD</span>
+          </a>
+          <nav class="nav">
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Knowledge Base</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
+          </nav>
+        </div>
+      </header>
     </div>
 
-    <main class="container" style="margin-top: 32px; max-width: 900px;">
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
         <a href="../../index.html">Home</a> /
         <a href="../../knowledge-base.html">Knowledge Base</a> /
         <a href="../../kb-terms.html">Terms</a> /
-        <span aria-current="page">Dynamic Input</span>
+        <a href="../software/autocad.html">AutoCAD</a> /
+        <span aria-current="page">Dynamic Input (AutoCAD)</span>
       </nav>
 
       <article class="kb-concept-detail">
-        <header class="kb-concept-header" style="margin-bottom: 40px; border-bottom: 1px solid #e2e8f0; padding-bottom: 24px;">
-          <span class="chip" style="margin-bottom: 12px; background: #fef3c7; color: #92400e; border-color: #fde68a;">Atomic Knowledge</span>
-          <h1 style="font-size: 2.5rem; margin-bottom: 12px; color: #0f172a;">Dynamic Input</h1>
-          <p class="hero-sub" style="font-size: 1.2rem; color: #475569;">
-            Provides a command interface near the cursor to help keep focus on the drafting area.
-          </p>
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">Atomic Knowledge · AutoCAD</span>
+          <h1 style="margin-top: 12px;">Dynamic Input (AutoCAD)</h1>
+          <p class="hero-sub">On-cursor command tooltips that show prompts and accept relative or absolute coordinates as you type.</p>
         </header>
 
-        <section class="kb-concept-section" style="margin-bottom: 48px;">
-          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b; border-left: 4px solid #d97706; padding-left: 12px;">Core Definition</h2>
-          <p style="line-height: 1.7; color: #334155; font-size: 1.05rem;">
-            Provides a command interface near the cursor to help keep focus on the drafting area.
-          </p>
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> LearnCAD Editorial Team</span>
+          <span><strong>Reviewed by</strong> AEC Review Desk</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-05-24">2026-05-24</time></span>
+          <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+        </div>
+
+        
+        <section class="kb-concept-section">
+          <h2>Definition</h2>
+          <p>Dynamic Input (toggled by F12 or the status-bar button, controlled by DYNMODE system variable) shows the current command prompt at the cursor rather than only on the command line, and changes coordinate-entry behaviour: by default, typed coordinates are treated as relative (distance, then tab, then angle).</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why it matters</h2>
+          <p>Dynamic Input speeds drafting for users who like to look at the cursor rather than the command line. It also changes how to enter precise coordinates — knowing the convention prevents &#x27;why didn&#x27;t my line go to 100,100?&#x27; confusion.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common pitfalls</h2>
+          <ul><li>Forgetting to prepend # for absolute coordinates when Dynamic Input is on.</li>
+<li>Toggling F12 by accident and not noticing input behaviour changed.</li>
+<li>Using polar relative entry (@) habits in Dynamic Input where it isn&#x27;t needed.</li></ul>
         </section>
 
-        <section class="kb-concept-section" style="margin-bottom: 48px; background: #f8fafc; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0;">
-          <h2 style="font-size: 1.3rem; margin-bottom: 16px; color: #1e293b;">Additional Details</h2>
-          <p style="line-height: 1.7; color: #475569;">
-            Press F12 to toggle on and off.
-          </p>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Related concepts</h2>
+          <ul class="ink-source-list"><li><a href="./polyline-autocad.html">Polyline (AutoCAD)</a></li></ul>
         </section>
+
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>See in context</h2>
+          <ul class="ink-source-list">
+            <li><a href="../software/autocad.html">AutoCAD — full software profile</a></li>
+            <li><a href="../../kb-graph.html#dynamic-input">Open this node in the knowledge graph</a></li>
+            <li><a href="../../kb-faq.html#autocad">Browse AutoCAD FAQs</a></li>
+            <li><a href="../../tutorials.html">Find tutorials on AutoCAD</a></li>
+          </ul>
+        </section>
+
+        
+
+        <p class="meta" style="margin-top: 36px; font-size: 12px;">Article text is original commentary by LearnCAD editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -139,6 +174,6 @@
         <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
       </div>
     </footer>
-      <script src="../../app.js" defer></script>
+    <script src="../../app.js?v=v8_deep_ink" defer></script>
   </body>
 </html>
