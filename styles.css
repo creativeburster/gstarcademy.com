@@ -4417,30 +4417,37 @@ h3 { line-height: 1.25; }
 .site-notice-link { color: #E8C68A !important; text-decoration-color: rgba(232,198,138,0.55) !important; }
 .site-notice-link:hover { color: #F7DDA8 !important; }
 
-/* ---- Hero — engineering monograph cover ---- */
+/* ---- Hero — deep-ink engineering monograph (CAD industry palette) ---- */
 .hero, .hero-premium, .hero-page, .hero-wide-rounded {
   position: relative;
-  background: linear-gradient(180deg, #FBFAF4 0%, #F2EEDF 100%) !important;
-  border: 1px solid var(--ink-line) !important;
-  border-top: 3px solid var(--ink-accent) !important;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -15%, rgba(59, 71, 217, 0.28), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 90% 110%, rgba(20, 64, 90, 0.55), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 10% 110%, rgba(14, 22, 38, 0.65), transparent 55%),
+    linear-gradient(180deg, #050A14 0%, #0A1224 38%, #0B1828 72%, #07101C 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-top: 2px solid var(--ink-accent) !important;
   border-radius: var(--ink-r-xl) !important;
   overflow: hidden;
   margin: 28px auto 32px;
   padding: 56px 48px !important;
-  color: var(--ink-text) !important;
+  color: #E8ECF5 !important;
+  box-shadow:
+    0 24px 60px -28px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
 }
 .hero::before, .hero-premium::before, .hero-page::before, .hero-wide-rounded::before {
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(rgba(14,20,34,0.035) 1px, transparent 1px) 0 0 / 24px 24px,
-    linear-gradient(90deg, rgba(14,20,34,0.035) 1px, transparent 1px) 0 0 / 24px 24px,
-    radial-gradient(60rem 28rem at 110% -10%, rgba(59,71,217,0.10), transparent 60%),
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 26px 26px,
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 26px 26px,
+    radial-gradient(60rem 30rem at 110% -10%, rgba(127, 154, 220, 0.12), transparent 60%),
     radial-gradient(40rem 24rem at -10% 110%, rgba(182,138,78,0.10), transparent 60%);
   pointer-events: none;
-  opacity: 1;
-  mask-image: linear-gradient(180deg, black 0%, black 85%, transparent 100%);
-  -webkit-mask-image: linear-gradient(180deg, black 0%, black 85%, transparent 100%);
+  opacity: 0.85;
+  mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
 }
 .hero-inner, .hero-page-header-flex { position: relative; z-index: 1; }
 
@@ -4450,23 +4457,73 @@ h3 { line-height: 1.25; }
   font-size: clamp(38px, 5.4vw, 64px) !important;
   line-height: 1.05 !important;
   letter-spacing: -0.025em !important;
-  color: var(--ink-text) !important;
+  color: #F5F0E0 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35) !important;
   margin: 12px 0 14px !important;
 }
-.hero-sub, .ink-hero-sub {
+.hero-sub, .ink-hero-sub, .hero-page .hero-page-lead {
   font-size: clamp(16px, 1.45vw, 19px) !important;
   line-height: 1.55 !important;
-  color: var(--ink-text-soft) !important;
+  color: rgba(232, 236, 245, 0.78) !important;
   max-width: 64ch;
 }
-.hero-eyebrow-premium, .hero-premium .eyebrow {
-  color: var(--ink-accent-strong) !important;
+
+/* Eyebrow pill — champagne on dark hero (scoped to hero context only) */
+.hero-eyebrow-premium,
+.hero-premium .eyebrow,
+.hero .eyebrow,
+.hero-page .hero-page-eyebrow,
+.hero-page .eyebrow,
+.hero-wide-rounded .eyebrow {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  background: rgba(182, 138, 78, 0.14) !important;
+  color: #E5C794 !important;
+  border: 1px solid rgba(182, 138, 78, 0.42) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.18em !important;
+  font-family: var(--ink-font-body) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  margin-bottom: 18px !important;
+  width: fit-content;
 }
 
+/* Generic eyebrow (cards / non-hero contexts) — light theme champagne */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--ink-font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-accent-strong);
+  background: var(--ink-accent-soft);
+  border: 1px solid rgba(182, 138, 78, 0.32);
+  padding: 4px 11px;
+  border-radius: 999px;
+}
+
+/* Hero stats / breadcrumb / small links — readable on dark */
+.hero-page .stats-row,
+.hero-page .stats-item,
+.hero .stats-row,
+.hero .stats-item {
+  color: rgba(232, 236, 245, 0.85) !important;
+}
+.hero-page .stats-item strong,
+.hero .stats-item strong { color: #F5F0E0 !important; }
+
 .hero-search-shell, .hero-page-actions .search-row {
-  background: #FFFFFF !important;
-  border: 1px solid var(--ink-line-strong) !important;
-  box-shadow: var(--ink-shadow-md) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 10px 30px -12px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.06) !important;
   border-radius: var(--ink-r-pill) !important;
   padding: 4px !important;
   margin-top: 8px;
@@ -4477,9 +4534,49 @@ h3 { line-height: 1.25; }
   background: transparent !important;
   padding: 14px 22px !important;
   font-size: 15px !important;
-  color: var(--ink-text) !important;
+  color: #F5F0E0 !important;
 }
-.hero-search-shell input[type="text"]::placeholder { color: #8893A6 !important; }
+.hero-search-shell input[type="text"]::placeholder,
+.hero-page-actions .search-row input[type="text"]::placeholder {
+  color: rgba(232, 236, 245, 0.5) !important;
+}
+
+/* CTA buttons inside hero — make primary stand out on dark */
+.hero .btn-primary,
+.hero-premium .btn-primary,
+.hero-page .btn-primary {
+  background: var(--ink-accent, #B68A4E) !important;
+  color: #0A0F1A !important;
+  border-color: var(--ink-accent, #B68A4E) !important;
+  font-weight: 700 !important;
+}
+.hero .btn-primary:hover,
+.hero-premium .btn-primary:hover,
+.hero-page .btn-primary:hover {
+  background: #C99F66 !important;
+  border-color: #C99F66 !important;
+}
+.hero .btn:not(.btn-primary),
+.hero-premium .btn:not(.btn-primary),
+.hero-page .btn:not(.btn-primary) {
+  background: rgba(255,255,255,0.04) !important;
+  color: #E8ECF5 !important;
+  border-color: rgba(255,255,255,0.18) !important;
+}
+.hero .btn:not(.btn-primary):hover,
+.hero-premium .btn:not(.btn-primary):hover,
+.hero-page .btn:not(.btn-primary):hover {
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.28) !important;
+}
+
+/* Breadcrumb on dark hero (KB page hero) */
+.hero .ink-breadcrumbs,
+.hero-premium .ink-breadcrumbs,
+.hero-page .ink-breadcrumbs { color: rgba(232,236,245,0.7) !important; }
+.hero .ink-breadcrumbs a,
+.hero-premium .ink-breadcrumbs a,
+.hero-page .ink-breadcrumbs a { color: rgba(229, 199, 148, 0.95) !important; }
 
 /* ---- Buttons — sober, confident ---- */
 .btn {
