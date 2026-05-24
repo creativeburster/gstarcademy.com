@@ -810,13 +810,19 @@ def patch_graph(software_list: list[dict]) -> None:
     """Inject software-derived graph nodes/links into knowledge.js.
 
     We append after the current `nodes = [` and `links = [` arrays.
-    Idempotent via AUTO-GEN sentinels.
+    Idempotent via AUTO-GEN sentinels. Deduplicates against pre-existing
+    node IDs in knowledge.js so D3 doesn't fail on duplicate identifiers.
     """
     kj = ROOT / "knowledge.js"
     text = kj.read_text(encoding="utf-8")
 
+    # Discover pre-existing node IDs (everything before AUTO-GEN block) so we
+    # don't inject duplicates that break the D3 force layout.
+    pre_text = text.split(NODES_START)[0] if NODES_START in text else text
+    existing_ids = set(re.findall(r'{\s*id:\s*"([^"]+)"', pre_text))
+
     # Build node + link lines
-    seen_ids: set[str] = set()
+    seen_ids: set[str] = set(existing_ids)
     node_lines = []
     link_lines = []
     for sw in software_list:
