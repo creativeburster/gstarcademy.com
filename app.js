@@ -7,43 +7,76 @@ navLinks.forEach((link) => {
 
 document.getElementById("footer-year")?.append(String(new Date().getFullYear()));
 
-// Mobile hamburger menu functionality
-const hamburger = document.querySelector(".hamburger");
-const nav = document.querySelector(".nav");
-const navOverlay = document.querySelector(".nav-overlay");
+// ---- Mobile hamburger menu ----
+// Use event delegation on document so the handler keeps working even if
+// the hamburger / nav / overlay nodes are duplicated or re-rendered, and
+// even if this script runs before any of those nodes are present.
+function getTopbarNav() {
+  // Always re-query — the first `.nav` in DOM is the primary topbar nav.
+  return document.querySelector(".nav");
+}
+function getTopbarHamburger() {
+  return document.querySelector(".hamburger");
+}
+function getNavOverlay() {
+  return document.querySelector(".nav-overlay");
+}
+function toggleMenu(forceState) {
+  const nav = getTopbarNav();
+  const hb = getTopbarHamburger();
+  const ov = getNavOverlay();
+  if (!nav) return;
+  const willOpen = typeof forceState === "boolean"
+    ? forceState
+    : !nav.classList.contains("active");
+  nav.classList.toggle("active", willOpen);
+  if (hb) hb.classList.toggle("active", willOpen);
+  if (ov) ov.classList.toggle("active", willOpen);
+  // Prevent background scroll when the drawer is open.
+  document.body.style.overflow = willOpen ? "hidden" : "";
+}
 
-function toggleMenu() {
-  if (hamburger && nav) {
-    hamburger.classList.toggle("active");
-    nav.classList.toggle("active");
-    if (navOverlay) {
-      navOverlay.classList.toggle("active");
-    }
-    // Prevent scrolling when menu is open
-    document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
+// Delegated tap/click handler — survives DOM swaps, late hydration, etc.
+function _navDelegatedHandler(ev) {
+  const target = ev.target;
+  if (!target || !target.closest) return;
+  if (target.closest(".hamburger")) {
+    ev.preventDefault();
+    toggleMenu();
+    return;
+  }
+  if (target.closest(".nav-close")) {
+    ev.preventDefault();
+    toggleMenu(false);
+    return;
+  }
+  if (target.closest(".nav-overlay")) {
+    toggleMenu(false);
+    return;
+  }
+  // If a nav link is clicked AND the drawer is open, close it after.
+  const link = target.closest(".nav .nav-link, .nav [data-nav]");
+  const navEl = getTopbarNav();
+  if (link && navEl && navEl.classList.contains("active")) {
+    toggleMenu(false);
   }
 }
+document.addEventListener("click", _navDelegatedHandler);
+document.addEventListener("touchend", function (ev) {
+  // Only handle the hamburger via touch to keep delays low; click handles the rest.
+  const t = ev.target;
+  if (t && t.closest && t.closest(".hamburger")) {
+    ev.preventDefault();
+    toggleMenu();
+  }
+}, { passive: false });
 
-if (hamburger) {
-  hamburger.addEventListener("click", toggleMenu);
-}
-
-const navClose = document.querySelector(".nav-close");
-if (navClose) {
-  navClose.addEventListener("click", toggleMenu);
-}
-
-if (navOverlay) {
-  navOverlay.addEventListener("click", toggleMenu);
-}
-
-// Close menu when a link is clicked
-navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    if (nav && nav.classList.contains("active")) {
-      toggleMenu();
-    }
-  });
+// Close on Escape for keyboard users.
+document.addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape") {
+    const nav = getTopbarNav();
+    if (nav && nav.classList.contains("active")) toggleMenu(false);
+  }
 });
 
 (function initSiteNotice() {

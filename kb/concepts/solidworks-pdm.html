@@ -3,24 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOLIDWORKS PDM · CAD Concepts · LearnCAD</title>
-    <meta name="description" content="Learn about SOLIDWORKS Product Data Management (PDM) for file versioning, secure check-in/out, and collaborative workflows." />
+    <title>SOLIDWORKS PDM · SOLIDWORKS · CAD Knowledge Base · LearnCAD</title>
+    <meta name="description" content="Vaulted product data management for SOLIDWORKS files — check-in/check-out, revisions, workflow state, search, and replication." />
+    <link rel="canonical" href="https://learncad.io/kb/concepts/solidworks-pdm.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-    <link rel="stylesheet" href="../../styles.css?v=v7_graph_fix" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="SOLIDWORKS PDM" />
+    <meta property="og:description" content="Vaulted product data management for SOLIDWORKS files — check-in/check-out, revisions, workflow state, search, and replication." />
+    <meta property="og:url" content="https://learncad.io/kb/concepts/solidworks-pdm.html" />
+    <meta property="og:site_name" content="LearnCAD" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SOLIDWORKS PDM" />
+    <meta name="twitter:description" content="Vaulted product data management for SOLIDWORKS files — check-in/check-out, revisions, workflow state, search, and replication." />
+
+    <link rel="preload" href="../../styles.css?v=v8_4_hamburger" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v8_4_hamburger" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"SOLIDWORKS PDM","description":"Vaulted product data management for SOLIDWORKS files — check-in/check-out, revisions, workflow state, search, and replication.","url":"https://learncad.io/kb/concepts/solidworks-pdm.html","datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"LearnCAD","url":"https://learncad.io"},"mainEntityOfPage":"https://learncad.io/kb/concepts/solidworks-pdm.html","author":{"@type":"Organization","name":"LearnCAD Editorial Team","url":"https://learncad.io/about.html"},"publisher":{"@type":"Organization","name":"LearnCAD","url":"https://learncad.io/","logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"Mechanical Review Desk","jobTitle":"Reviewer (MCAD / PLM)","url":"https://learncad.io/about.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"SOLIDWORKS PDM","description":"Vaulted product data management for SOLIDWORKS files — check-in/check-out, revisions, workflow state, search, and replication.","url":"https://learncad.io/kb/concepts/solidworks-pdm.html","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://learncad.io/kb-terms.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://learncad.io/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://learncad.io/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://learncad.io/kb-terms.html"},{"@type":"ListItem","position":4,"name":"SOLIDWORKS PDM","item":"https://learncad.io/kb/concepts/solidworks-pdm.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-concepts">
     <div class="header-stack">
-      <aside
-        class="site-notice"
-        id="site-notice"
-        data-notice-id="global-v2"
-        aria-label="Announcement"
-      >
+      <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the
-            <a class="site-notice-link" href="../../tutorials">tutorial library</a>
-            to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -29,61 +39,91 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../index">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">LC</span>
             <span>LearnCAD</span>
           </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
           <nav class="nav">
-          <div class="nav-header">
-            <button class="nav-close" aria-label="Close navigation menu">
-              <span class="nav-close-icon">×</span>
-            </button>
-          </div>
-          <a class="nav-link" href="../../index.html">Home</a>
-          <a class="nav-link" href="../../knowledge-base.html">Wiki</a>
-          <a class="nav-link" href="../../tutorials.html">Tutorials</a>
-          <a class="nav-link" href="../../news.html">News</a>
-        </nav>
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+<a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
+          </nav>
         </div>
-      
-        <div class="nav-overlay" aria-hidden="true"></div></header>
+          <div class="nav-overlay" aria-hidden="true"></div>
+
+      </header>
     </div>
 
-    <main class="container" style="margin-top: 32px; max-width: 900px;">
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../index">Home</a> /
-        <a href="../../knowledge-base">Wiki</a> /
-        <a href="../../kb-terms">Terms</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-terms.html">Terms</a> /
+        <a href="../software/solidworks.html">SOLIDWORKS</a> /
         <span aria-current="page">SOLIDWORKS PDM</span>
       </nav>
 
       <article class="kb-concept-detail">
-        <header class="kb-concept-header" style="margin-bottom: 40px; border-bottom: 1px solid #e2e8f0; padding-bottom: 24px;">
-          <span class="chip" style="margin-bottom: 12px; background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">Data Management</span>
-          <h1 style="font-size: 2.5rem; margin-bottom: 12px; color: #0f172a;">SOLIDWORKS PDM</h1>
-          <p class="hero-sub" style="font-size: 1.2rem; color: #475569;">
-            Secure data management, revision control, and automated team collaboration.
-          </p>
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">Atomic Knowledge · SOLIDWORKS</span>
+          <h1 style="margin-top: 12px;">SOLIDWORKS PDM</h1>
+          <p class="hero-sub">Vaulted product data management for SOLIDWORKS files — check-in/check-out, revisions, workflow state, search, and replication.</p>
         </header>
 
-        <section class="kb-concept-section" style="margin-bottom: 48px;">
-          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b; border-left: 4px solid #38bdf8; padding-left: 12px;">Core Concepts</h2>
-          <p style="line-height: 1.7; color: #334155; font-size: 1.05rem;">
-            <strong>SOLIDWORKS PDM (Product Data Management)</strong> is a centralized database-driven solution that helps design teams manage their CAD files. By utilizing a local 'Vault' paradigm, it prevents accidental data loss, overwrites, and manages drawing revisions through secure check-in/check-out permissions.
-          </p>
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> LearnCAD Editorial Team</span>
+          <span><strong>Reviewed by</strong> Mechanical Review Desk</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-05-24">2026-05-24</time></span>
+          <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+        </div>
+
+        
+        <section class="kb-concept-section">
+          <h2>Definition</h2>
+          <p>SOLIDWORKS PDM (formerly Enterprise PDM / EPDM) is a SQL Server-backed vault that wraps the file system. Files are checked out to a local cache, edited, then checked in. PDM tracks revisions, custom data cards, file references, and workflow transitions (e.g., Engineering → Manufacturing → Released). PDM Professional adds workflow customisation, web client, and replication across sites.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why it matters</h2>
+          <p>On any project beyond a handful of files, PDM is the difference between coherent product data and chaos. Without PDM, file references break, two engineers overwrite each other&#x27;s edits, and &#x27;which is the latest?&#x27; becomes a daily question.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common pitfalls</h2>
+          <ul><li>Editing files outside the vault — local copy diverges from vaulted master.</li>
+<li>Renaming files in Windows Explorer instead of inside PDM — reference graph breaks.</li>
+<li>Skipping check-in comments — change history loses traceability.</li></ul>
         </section>
 
-        <section class="kb-concept-section" style="margin-bottom: 48px; background: #f8fafc; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0;">
-          <h2 style="font-size: 1.3rem; margin-bottom: 16px; color: #1e293b;">Key Advantages & Applications</h2>
-          <ul style="display: grid; gap: 12px; padding-left: 20px; color: #475569;">
-            <li><strong>Revision Control:</strong> Automatically increments drawing revisions based on engineering workflow approvals.</li><li><strong>Where Used Tracking:</strong> Instantly check which assemblies contain a specific part before making major geometry changes.</li><li><strong>BOM Synchronization:</strong> Translates CAD custom properties into exact bill-of-materials exports.</li>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Related concepts</h2>
+          <ul class="ink-source-list"><li><a href="./configurations-solidworks.html">Configurations (SOLIDWORKS)</a></li></ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>See in context</h2>
+          <ul class="ink-source-list">
+            <li><a href="../software/solidworks.html">SOLIDWORKS — full software profile</a></li>
+            <li><a href="../../kb-graph.html#solidworks-pdm">Open this node in the knowledge graph</a></li>
+            <li><a href="../../kb-faq.html#solidworks">Browse SOLIDWORKS FAQs</a></li>
+            <li><a href="../../tutorials.html">Find tutorials on SOLIDWORKS</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section" style="margin-bottom: 48px;">
-          <h2 style="font-size: 1.5rem; margin-bottom: 16px; color: #1e293b;">Industry Best Practices</h2>
-          <p class="meta" style="color: #475569; line-height: 1.6;">Ensure all designers complete daily check-ins. Never reference files outside the local PDM vault to avoid breaking external assembly links.</p>
-        </section>
+        
+
+        <p class="meta" style="margin-top: 36px; font-size: 12px;">Article text is original commentary by LearnCAD editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -146,6 +186,6 @@
         <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js" defer></script>
+    <script src="../../app.js?v=v8_4_hamburger" defer></script>
   </body>
 </html>

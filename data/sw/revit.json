@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "slug": "revit",
+  "name": "Revit",
+  "tagline": "Autodesk's flagship BIM authoring tool — the building model becomes the single source of truth for plans, sections, schedules, and clash detection.",
+  "meta_desc": "Revit profile: BIM workflow, families, worksharing, phasing, licensing, plus 17 deep-dive terms and 17 FAQs reviewed by LearnCAD editors.",
+  "category_label": "DesignApplication",
+  "vendor": {"slug": "autodesk", "name": "Autodesk"},
+  "first_released": "2000 (Revit Technology Corp.); acquired by Autodesk in 2002",
+  "current_track": "Annual release — Revit 2025 with the One Revit single product (Architecture, Structure, MEP unified)",
+  "license_model": "Subscription only (named-user). Flex tokens available. AEC Collection bundles Revit with Civil 3D, Navisworks, InfraWorks, AutoCAD, and others.",
+  "platforms": ["Windows (64-bit only)"],
+  "file_formats": ["RVT (project)", "RFA (family)", "RTE (template)", "IFC (export/import)", "DWG (export/link)", "NWC (Navisworks)", "RCP/RCS (point clouds)"],
+  "primary_alternatives": ["ArchiCAD", "Vectorworks Architect", "Allplan", "Bentley OpenBuildings", "GstarBIM"],
+  "domains": ["Architecture", "Structural engineering", "MEP", "Construction documentation", "Facilities operations"],
+  "last_reviewed": "2026-05-24",
+  "default_reviewer_id": "lc-aec-review",
+
+  "profile": {
+    "what_it_is": "Revit is a Building Information Modeling (BIM) authoring tool. Unlike DWG-based CAD, the file (.rvt) holds a coordinated 3D model of typed building elements — walls, floors, roofs, columns, beams, doors, windows, ducts, pipes — each carrying parametric, classified, schedulable data. Every plan, section, elevation, 3D view, schedule, and sheet is a *view* of that single model rather than an independent file.\n\nThis is the model-of-record proposition: change a wall type in the model and every view, schedule, and quantity that references it updates simultaneously. The cost is a steeper learning curve and a tighter constraint regime — Revit will refuse operations that would produce an inconsistent model.",
+    "where_used": "Revit is now the default BIM authoring tool in most large architecture and engineering firms in North America, the UK, and increasingly in Asia. Public infrastructure clients (LACMTA, Network Rail, Singapore BCA) and large healthcare/aviation clients commonly mandate Revit deliverables. Structural engineers use Revit Structure for analytical-ready models linked to Robot Structural Analysis or third-party FEM. MEP engineers use Revit MEP for ducts, pipes, conduits, and equipment schedules. Construction teams consume Revit models in Navisworks for clash detection, 4D scheduling, and quantity takeoff.",
+    "learning_curve": "Revit's learning curve is non-linear. The first month is hard because almost every workflow requires understanding the *Revit way* — host relationships, levels, work planes, types vs. instances, families, worksets. The second through fourth months are productive but error-prone because the user can produce models that look right but contain hidden coordination problems. Real fluency takes about a year of project work with feedback from senior staff.\n\nThe biggest conceptual hurdle is *families*. Almost every problem reduces to 'pick the right family template, build the right parameters, control its host behaviour.' Skipping family fundamentals creates models that look fine but cannot be scheduled, quantified, or exported cleanly to IFC.",
+    "licensing_reality": "Revit ships only via Autodesk subscription, almost always through the AEC Collection which also includes AutoCAD, Civil 3D, Navisworks, InfraWorks, ReCap, and others. Single-product Revit subscriptions exist but are rarely cost-effective vs. the AEC Collection. Education licenses are free with annual renewal. There is no perpetual license available for new buyers; old perpetuals receive no updates and are slowly losing compatibility with shared deliverables.",
+    "ecosystem": "Revit's ecosystem is dominated by Dynamo (visual programming) and the Revit API (.NET, also via Python / IronPython). Almost any office of meaningful size develops internal Dynamo graphs and Revit add-ins. Notable external ecosystem members include Enscape and Twinmotion (real-time rendering), Rhino+Grasshopper with the Rhino.Inside.Revit bridge (computational design), pyRevit (Python toolkit, Apache-licensed), and dRofus (room data sheets and FM database).\n\nFor data exchange, IFC is the official open standard (IFC2x3, IFC4); the quality of Revit's IFC export has improved markedly in recent releases but is still settings-sensitive.",
+    "common_pitfalls": "**Family overload.** Bloating projects with too many in-place families or families with unconstrained reference planes — the model becomes slow and brittle.\n\n**Mixing levels and reference planes.** Hosting elements on the wrong level/reference produces wall-tops at the wrong elevation and complicates section views.\n\n**Skipping worksets in collaboration projects.** Without a worksharing plan, sync conflicts proliferate and ownership becomes ambiguous.\n\n**Treating schedules as decoration.** Schedules are the model's data; if they look wrong, the model is wrong — fixing the schedule formula does not fix the underlying issue.\n\n**Round-tripping through DWG.** Exporting DWG, editing in AutoCAD, then re-linking back into Revit usually loses the model intelligence the exercise was supposed to preserve.",
+    "when_to_use_vs_alternative": "Use Revit when the project requires BIM deliverables, IFC exchange with consultants, coordinated MEP modelling, schedule-driven quantification, or downstream model handover to a facilities management system.\n\nChoose AutoCAD (or a DWG-compatible tool) for small jobs, retrofits, or detail-level deliverables where BIM overhead is not justified. Choose ArchiCAD when the team prefers its workflow and the client accepts ArchiCAD or IFC deliverables. Choose Vectorworks for design studios that value its mixed 2D/3D illustration and rendering. Choose Bentley OpenBuildings/OpenRoads for transport-infrastructure projects where Civil 3D and Revit do not provide adequate corridor or alignment tooling.",
+    "recommended_learning_path": [
+      {"stage": "Week 1 — Concepts", "focus": "Project file, [levels & grids](./levels-grids-revit.html), [families taxonomy](./families-revit.html), view types, types vs. instances. Place a wall, a door, a window. Open every default view."},
+      {"stage": "Week 2 — Modelling foundations", "focus": "Walls, floors, roofs, [stair tools](./stair-revit.html), [work planes](./work-plane-revit.html), rooms, [phasing](./phasing-revit.html). Produce a simple plan + section + 3D view."},
+      {"stage": "Week 3 — Documentation", "focus": "Sheets, viewports, [view templates](./view-template-revit.html), [tags](./tags-revit.html), [schedules](./schedules-revit.html), titleblocks. Print one coordinated sheet set."},
+      {"stage": "Week 4 — Families", "focus": "Family editor basics, parametric reference planes, type catalogs, shared parameters. Build one usable family from scratch."},
+      {"stage": "Month 2 — Collaboration", "focus": "[Worksharing](./worksets-revit.html), [linked models](./linked-models-revit.html), copy/monitor, coordinate system, [shared coordinates](./shared-coordinates-revit.html). Run a coordination meeting in Navisworks."},
+      {"stage": "Month 3+ — Automation & exchange", "focus": "Dynamo basics, IFC export presets, pyRevit, Power BI / Excel data exchange. Move from modeller to coordinator."}
+    ]
+  },
+
+  "sources": [
+    {"label": "Revit product overview", "url": "https://www.autodesk.com/products/revit/overview", "publisher": "Autodesk"},
+    {"label": "Revit Help (online)", "url": "https://help.autodesk.com/view/RVT/2025/ENU/", "publisher": "Autodesk Knowledge Network"},
+    {"label": "IFC support documentation", "url": "https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/", "publisher": "buildingSMART"}
+  ],
+
+  "terms": [
+    {
+      "slug": "families-revit",
+      "title": "Families (Revit)",
+      "short_def": "The core unit of content in Revit — every wall, window, door, beam, light fixture, and tag is an instance of a family.",
+      "definition": "Revit families come in three categories: **system families** (built into Revit: walls, floors, roofs, stairs, ducts, pipes — type properties only, no .rfa file), **loadable families** (.rfa files loaded into a project: doors, windows, furniture, fixtures, structural connections, plumbing fixtures — fully parametric, can be shared), and **in-place families** (one-off geometry created inside the project for unique situations).\n\nEach family has parameters (instance or type), reference planes, host behaviour (level-based, face-based, wall-hosted), and a category (which controls behaviour, filtering, and tagging).",
+      "why_matters": "Almost every Revit limitation traces back to a family-authoring decision. A door family without proper reference planes resists scheduling. A door family hosted to a face instead of a wall fails to relocate when the wall moves. Family discipline is what separates productive Revit from frustrating Revit.",
+      "common_pitfalls": [
+        "Using in-place families when a loadable family would be reusable.",
+        "Not setting type catalog data for families that come in 20+ size variants.",
+        "Mixing host categories — a generic-model 'door' that doesn't trigger door-related behaviours.",
+        "Constraining geometry to reference lines instead of reference planes (lines don't constrain inserts properly)."
+      ],
+      "related_term_slugs": ["work-plane-revit", "schedules-revit"]
+    },
+    {
+      "slug": "worksets-revit",
+      "title": "Worksets (Revit)",
+      "short_def": "Revit's worksharing partition — a named subset of the model that one team member at a time can own and edit.",
+      "definition": "A workset is a logical group of elements (e.g., Shell, Interiors, MEP-Mechanical, Site). When a project is worksharing-enabled, every element belongs to one workset, and only the workset's owner can change ownership-bound properties. Other users see the workset read-only until they request ownership.\n\nWorksharing requires a central model on a shared location (network or Autodesk Construction Cloud) and local copies for each user, synchronised via Sync With Central (SWC).",
+      "why_matters": "Worksets are the only way multiple modellers can edit one Revit project simultaneously. Without a workset plan, sync collisions, accidental edits, and 'who changed this?' arguments dominate every day.",
+      "common_pitfalls": [
+        "Assigning a workset to a level rather than to a discipline/system — produces unusable filters.",
+        "Mass-relinquishing without warning teammates — others lose their edits if they had borrowed elements.",
+        "Forgetting that linked models occupy their own workset that controls visibility.",
+        "Skipping daily SWC and ending up with hour-long merge sessions."
+      ],
+      "related_term_slugs": ["linked-models-revit", "shared-coordinates-revit"]
+    },
+    {
+      "slug": "linked-models-revit",
+      "title": "Linked Models (Revit)",
+      "short_def": "External Revit models attached into a host project as a coordinated reference — the multi-discipline coordination pattern.",
+      "definition": "A linked model is another .rvt referenced into the host project by path (relative or absolute) and stored as a single linked instance. The link can carry a position-by-shared-coordinates relationship so structural, architectural, and MEP teams each work in their own central file but visualise each other's models in their own views.\n\nLinks reload on host open or on Manage Links > Reload. Worksets can isolate the link from active workset borrowing; visibility per view template controls which links display in which views.",
+      "why_matters": "On any project bigger than a small house, the multi-discipline workflow is impossible without linked models. Coordination quality is largely determined by link discipline: shared coordinates, naming conventions, copy/monitor of grids/levels, and the discipline of each team to keep their published link clean.",
+      "common_pitfalls": [
+        "Linking by absolute path on a network share — moves break silently.",
+        "Not using shared coordinates — link inserts at internal origin and is half a city away from where it should be.",
+        "Importing instead of linking when the intent is dynamic — copies don't update.",
+        "Trusting copy/monitor blindly — it warns about changes but does not auto-fix them."
+      ],
+      "related_term_slugs": ["worksets-revit", "shared-coordinates-revit"]
+    },
+    {
+      "slug": "shared-coordinates-revit",
+      "title": "Shared Coordinates (Revit)",
+      "short_def": "Revit's mechanism for tying its internal coordinate system to a real-world site coordinate system shared across linked models and surveys.",
+      "definition": "Every Revit project has an internal origin (Project Base Point) and a survey origin (Survey Point). Shared coordinates establish a real-world reference (e.g., state plane, OS National Grid) that travels through linked models. Acquire Coordinates copies coordinates from a linked model into the host; Publish Coordinates writes the host's coordinate system into the link.\n\nWhen shared correctly, every team's Revit model places at the same world position regardless of who is the host.",
+      "why_matters": "Without shared coordinates, linked models end up overlapping at internal origins (typically near 0,0,0) instead of at the building footprint. Aligning by visual snap is unreliable and breaks down on subsequent link updates.",
+      "common_pitfalls": [
+        "Confusing Project Base Point and Survey Point — moving one without understanding the difference relocates the model.",
+        "Publishing coordinates from the wrong host — locks the link into a coordinate origin nobody intended.",
+        "Not documenting which model is the coordinate source — every subsequent linker has to guess.",
+        "Acquiring coordinates from a CAD link without checking units — produces 304.8× scale errors (feet vs. inches)."
+      ],
+      "related_term_slugs": ["linked-models-revit", "worksets-revit"]
+    },
+    {
+      "slug": "phasing-revit",
+      "title": "Phasing (Revit)",
+      "short_def": "Revit's mechanism for marking when elements are created and demolished, enabling phase-aware views and schedules.",
+      "definition": "Phasing assigns each element two phases: Phase Created and Phase Demolished. Views have Phase and Phase Filter properties. Phase Filters define how elements are displayed (e.g., 'New' in solid, 'Existing' in greyscale, 'Demo' in dashed). Standard phases ship as 'Existing' and 'New Construction' but can be customised.",
+      "why_matters": "Renovation and adaptive-reuse projects depend on phasing. Without it, demolition plans, temporary works, and as-built views cannot be produced cleanly from a single model.",
+      "common_pitfalls": [
+        "Forgetting to set the phase of a newly placed wall — defaults to current view's phase, which may be wrong.",
+        "Overriding view phase rather than using phase filters — produces inconsistent displays.",
+        "Using two adjacent walls of different phases instead of one wall demolished and one new — produces schedule and join errors."
+      ],
+      "related_term_slugs": ["view-template-revit"]
+    },
+    {
+      "slug": "view-template-revit",
+      "title": "View Templates (Revit)",
+      "short_def": "Named saved configurations of view properties — visibility, graphics overrides, scale, detail level, V/G filters — applied to multiple views consistently.",
+      "definition": "A view template is a snapshot of a view's properties: V/G visibility per category and subcategory, filters, scale, detail level, view range, phase filter, model graphics style, halftone settings. Templates are stored in the project and can be applied as a one-shot or assigned (so the view tracks any subsequent template change).",
+      "why_matters": "Without view templates, every view drifts into its own ad-hoc graphic state and no two plans look alike. With them, applying 'A-Plan-Architectural' to a hundred views takes one click.",
+      "common_pitfalls": [
+        "Editing view-template properties directly without realising every assigned view will inherit the change.",
+        "Mixing one-shot apply with persistent assignment — confusing teammates who can't tell which views drift.",
+        "Forgetting to include filter rules in the template — filters drift per view despite the template."
+      ],
+      "related_term_slugs": ["schedules-revit", "tags-revit"]
+    },
+    {
+      "slug": "schedules-revit",
+      "title": "Schedules (Revit)",
+      "short_def": "Live tabular reports of model element data — door schedules, window schedules, room schedules, quantity takeoffs.",
+      "definition": "Revit schedules query the model for elements of a chosen category, expose chosen parameters as columns, apply filters and sorting/grouping, and display the result as a live table inside the project. Schedules can include calculated fields, totals, and conditional formatting. They place onto sheets like any other view.\n\nMaterial takeoffs are a special schedule type that pulls per-material quantities from compound construction elements (walls, floors, roofs).",
+      "why_matters": "Schedules are how Revit demonstrates the 'I' in BIM. They produce contract-quality deliverables (door schedules, equipment schedules) and quantity takeoffs straight from the model without re-entry.",
+      "common_pitfalls": [
+        "Filtering on a parameter that not every element carries — silent omissions in the schedule.",
+        "Schedule formulas referencing parameters that are project-parameter on some elements and shared-parameter on others.",
+        "Using calculated fields where a proper shared parameter would be more maintainable.",
+        "Not understanding that schedules update on data change but not always immediately on view open."
+      ],
+      "related_term_slugs": ["tags-revit", "view-template-revit"]
+    },
+    {
+      "slug": "tags-revit",
+      "title": "Tags (Revit)",
+      "short_def": "Annotation families that display element parameter values in a view — door numbers, room names, structural marks.",
+      "definition": "A tag is a 2D annotation family attached to a 3D model element. The tag reads selected parameters (Mark, Type Mark, Family and Type, Comments) and displays them per view. Tags are view-specific; placing a tag in one view does not place it in another.\n\nTag families can be simple (one parameter label) or complex (multi-line, multi-parameter, with graphics).",
+      "why_matters": "Tags are how Revit communicates element identity on sheets. A door tag showing 'D-101' on the plan must match the door's schedule row and door submittal — this is where modelling rigour meets construction reality.",
+      "common_pitfalls": [
+        "Manually overriding Mark numbers on individual instances, then losing track of which the schedule shows.",
+        "Tagging in 3D views (technically possible but produces unmaintainable graphics).",
+        "Forgetting to load the discipline-appropriate tag family — Revit places a generic tag that looks correct but reports incorrect parameters."
+      ],
+      "related_term_slugs": ["schedules-revit", "view-template-revit"]
+    },
+    {
+      "slug": "levels-grids-revit",
+      "title": "Levels and Grids (Revit)",
+      "short_def": "Project datums in Revit — levels are horizontal datums that host floors and ceilings; grids are vertical datums for column lines.",
+      "definition": "Levels are infinite horizontal planes at a named elevation (Level 1, Roof, T.O. Slab). Floors, ceilings, walls, and most hosted elements reference a level. Grids are vertical datums at named locations (Grid A, Grid 1) for column lines, beam-end conditions, and dimensioning. Grids and levels are both shown across many views by setting their 2D/3D extents and view-specific visibility.",
+      "why_matters": "Levels and grids organise the entire model. Misnaming, mispositioning, or duplicating them propagates through every view, schedule, and link.",
+      "common_pitfalls": [
+        "Creating a level just to host a section line — produces a level that shouldn't exist in the schedule.",
+        "Editing level elevation directly without checking which floors are pinned to it (may not move).",
+        "Different files using different grid letter conventions in a multi-discipline project — disastrous in linked workflow."
+      ],
+      "related_term_slugs": ["families-revit"]
+    },
+    {
+      "slug": "work-plane-revit",
+      "title": "Work Plane (Revit)",
+      "short_def": "The active 2D plane that drawing and family-editor tools operate on — equivalent to AutoCAD's UCS but more strict.",
+      "definition": "Almost every Revit creation tool — extrusion, sweep, sketched element, in-place geometry — requires an explicit work plane. Work planes can be levels, named reference planes, or faces of existing elements. The Set Work Plane tool lets the user pick one; the active work plane is shown by a checkered icon.\n\nWork-plane-based families (lights on a ceiling, signage on a wall) keep their host relationship to the chosen face.",
+      "why_matters": "A misplaced work plane is the root cause of many 'why won't this anchor?' problems. Family-editor work-plane discipline determines whether the resulting family hosts cleanly.",
+      "common_pitfalls": [
+        "Forgetting that named reference planes are required for the Set Work Plane > Name option.",
+        "Hosting to a level when a face would be more correct — element doesn't follow geometry edits.",
+        "Mixing work planes between extrusions in the same family — geometry gets locked into incompatible planes."
+      ],
+      "related_term_slugs": ["families-revit"]
+    },
+    {
+      "slug": "stair-revit",
+      "title": "Stairs (Revit)",
+      "short_def": "A built-in compound element that generates risers, treads, stringers, and railings from sketched runs or components.",
+      "definition": "Revit offers two stair workflows: **stair by component** (multi-story automatic, with run, landing, and support components) and **stair by sketch** (legacy, freeform). Component stairs schedule cleanly, support multi-story copy, and are the recommended modern path.\n\nRailings are separate elements that can host on stairs, floors, ramps, or be free-standing.",
+      "why_matters": "Stairs and railings are persistent sources of frustration. A poorly modelled stair fails to schedule, fails to render, and fails to coordinate with structure. Mastering stair-by-component is the productivity multiplier for vertical circulation.",
+      "common_pitfalls": [
+        "Using sketch stairs when component would solve the problem more cleanly.",
+        "Setting tread depth and riser height that violate building-code minimums silently.",
+        "Building railing types with unconstrained baluster spacing — produces irregular spacing on landings."
+      ],
+      "related_term_slugs": ["families-revit", "phasing-revit"]
+    },
+    {
+      "slug": "navisworks-clash-detection",
+      "title": "Navisworks Clash Detection (from Revit)",
+      "short_def": "The standard Revit-to-Navisworks coordination workflow — clash test architectural / structural / MEP models against each other.",
+      "definition": "Navisworks Manage hosts coordination by importing Revit (.rvt or .nwc), AutoCAD, IFC, and other discipline models into a single navigable aggregate. The Clash Detective runs tests pair-wise: 'Mechanical ducts vs. Structural beams' returns every clash with a 3D snapshot, a coordinate, and an assignable resolution status.\n\nThe Revit side exports an NWC (Navisworks Cache); Navisworks aggregates NWCs into an NWF (federated file) which produces an NWD (published snapshot).",
+      "why_matters": "Clash detection is the single biggest construction-cost-savings mechanism BIM delivers. Without it, beams and ducts collide on site rather than on screen.",
+      "common_pitfalls": [
+        "Running clash without proper filtering — millions of false-positive clashes inside walls.",
+        "Treating every flagged clash as equal — some are model-noise (e.g., a fastener inside a steel section).",
+        "Not coordinating tolerance values across teams — different clash thresholds produce different reports."
+      ],
+      "related_term_slugs": ["linked-models-revit", "ifc-export-revit"]
+    },
+    {
+      "slug": "dynamo-revit",
+      "title": "Dynamo (Revit)",
+      "short_def": "Revit's bundled visual-programming environment for model querying, batch operations, and parametric workflows.",
+      "definition": "Dynamo is a node-based programming environment included with Revit since version 2017. Nodes represent operations (Get Element, Set Parameter, Math.Add, Excel.Read). Wires connect data flows. Custom Python script nodes provide a fallback for anything the node library cannot do. Packages (third-party node libraries) extend coverage — Clockwork, archi-lab, Bumblebee are the heavyweights.\n\nDynamo scripts run on demand or via Dynamo Player (one-click execution by non-authors).",
+      "why_matters": "A Dynamo script that batch-renames 800 views, applies view templates, or pulls element data into Excel is the practical productivity floor in modern Revit work. Hand-doing those tasks at scale is unreasonable.",
+      "common_pitfalls": [
+        "Building scripts without input validation — runs on a fresh project and bricks it.",
+        "Sharing scripts that depend on packages teammates don't have installed.",
+        "Hardcoding workset IDs or category names — breaks across project templates."
+      ],
+      "related_term_slugs": ["families-revit", "schedules-revit"]
+    },
+    {
+      "slug": "ifc-export-revit",
+      "title": "IFC Export (Revit)",
+      "short_def": "Revit's open-standard model exchange — IFC2x3 and IFC4 supported with extensive mapping options.",
+      "definition": "IFC (Industry Foundation Classes) is an open BIM model standard maintained by buildingSMART. Revit exports IFC via Export > IFC, controlled by setup files that map Revit categories to IFC entity types (IfcWall, IfcDoor, IfcSlab) and choose Pset (property set) inclusion.\n\nThe correct export setup depends on the receiving software and on the BIM Execution Plan: IFC2x3 Coordination View 2.0 for older toolchains, IFC4 Reference View for modern.",
+      "why_matters": "IFC is how Revit models reach Bentley, ArchiCAD, Solibri, Revizto, and government-mandated archival systems. The quality of the IFC determines whether downstream clash, code-checking, and FM workflows succeed.",
+      "common_pitfalls": [
+        "Exporting with default settings to a recipient who specified a specific MVD — model fails their import.",
+        "Using Revit categories that don't have natural IFC mappings — produces IfcBuildingElementProxy soup.",
+        "Forgetting to set Project Phase before export — exports the wrong as-of-when snapshot."
+      ],
+      "related_term_slugs": ["navisworks-clash-detection", "shared-coordinates-revit"]
+    },
+    {
+      "slug": "type-vs-instance-revit",
+      "title": "Type vs. Instance Parameters",
+      "short_def": "Revit's two-tier parameter scheme — type parameters apply to all instances of a type; instance parameters apply to one placement at a time.",
+      "definition": "Every element in Revit has a Type (the named definition: Single-Flush 36\" x 84\") and one or more Instances (each placement). Parameters live at one of these two scopes. Changing a type parameter (e.g., overall width) updates every instance of that type; changing an instance parameter (e.g., head height) updates only the selected instance.\n\nFamily authors choose type vs. instance per parameter at creation time. Project parameters also have this scope.",
+      "why_matters": "Scope confusion is the single most common Revit modelling mistake. A door height set as instance when it should be type produces inconsistent doors across a project; a type parameter where instance was needed forces 200 type variants to model.",
+      "common_pitfalls": [
+        "Authoring a family with too many instance parameters — every placement requires manual setting.",
+        "Reading a project parameter as type-scope when it was created instance-scope — schedules look wrong.",
+        "Migrating an existing family from instance to type parameters mid-project — instance data is lost."
+      ],
+      "related_term_slugs": ["families-revit", "schedules-revit"]
+    },
+    {
+      "slug": "shared-parameters-revit",
+      "title": "Shared Parameters (Revit)",
+      "short_def": "Externally stored parameter definitions that families and projects share by reference — the basis of consistent multi-family scheduling.",
+      "definition": "A shared parameter is defined in a shared-parameter file (.txt) external to the family or project. Both the family and the project (or another family) reference the same parameter GUID. Schedules can tag and report the same parameter across categories because all the families share the GUID.\n\nProject parameters can be either non-shared (cannot be scheduled across categories) or shared (recommended for almost every project-level data attribute).",
+      "why_matters": "Without shared parameters, multi-discipline schedules — equipment lists, fire-rating reports, material inventories — cannot be produced because the parameters in different families are technically different parameters.",
+      "common_pitfalls": [
+        "Keeping the shared-parameter file on a single user's machine — others can't load families that reference it.",
+        "Recreating a 'lost' shared parameter with the same name — different GUID, schedule columns silently mismatch.",
+        "Confusing shared parameter (GUID-keyed) with global parameter (project-wide expressions)."
+      ],
+      "related_term_slugs": ["families-revit", "type-vs-instance-revit"]
+    }
+  ],
+
+  "faqs": [
+    {"question": "Is Revit available on macOS?", "answer": "No. Revit is Windows-only. Mac users typically run Revit inside Parallels, VMware Fusion, or Boot Camp (Intel Macs). On Apple Silicon, virtualisation requires Windows-on-ARM and is officially unsupported by Autodesk. The closest cross-platform alternative is ArchiCAD."},
+    {"question": "Can Revit open RVT files from older versions?", "answer": "Yes — Revit can open any older RVT, upgrading it on open. Once upgraded, the file cannot be saved back to the older version. For cross-version coordination, export to IFC or DWG, or maintain a parallel older file."},
+    {"question": "Why is my Revit project so slow?", "answer": "Most common causes: too many in-place families, oversized linked DWG CAD files, raster image imports, links not workset-isolated, unused worksets visible in all views, view templates not used (so views render with unique graphics settings), and too many parameters in mass schedules. Use Manage > Purge Unused and Audit on open."},
+    {"question": "What's the difference between Sync With Central and Save?", "answer": "Save writes only your local file. Sync With Central (SWC) pushes your edits to the central worksharing model and pulls others' edits down. SWC includes implicit Save; Save without SWC leaves your work invisible to teammates. Always SWC before lunch, end of day, and after major edits."},
+    {"question": "Can multiple Revit models share one site coordinate system?", "answer": "Yes — that's exactly what shared coordinates exist for. One model (typically architectural) is designated as the coordinate source; structural, MEP, civil teams Acquire Coordinates from the linked source. Once acquired, all models position consistently in world space."},
+    {"question": "How do I migrate a project from AutoCAD to Revit mid-design?", "answer": "Honest answer: it's painful. The cheap approach is to link the DWG as a background and re-model in Revit. The expensive approach is to use Dynamo / pyRevit scripts to walk known geometry. There is no clean automated DWG-to-Revit BIM conversion — DWGs lack the typed elements that Revit needs."},
+    {"question": "What happens if two users edit the same element in different worksets?", "answer": "The first user to request ownership wins; the second user sees an editing-permission warning. If the second user has already changed the element, they will be prompted to either relinquish (lose their edits) or request and merge. Daily SWC reduces collisions but cannot eliminate them on heavy-traffic elements."},
+    {"question": "How do I export a Revit model to IFC for another consultant?", "answer": "Use File > Export > IFC. Choose the appropriate IFC version (IFC2x3 Coordination View 2.0 or IFC4 Reference View) and an export setup that matches what your consultant requested. Always do a test export and open it in IFC viewers (Solibri, BIMcollab Zoom, or free IfcOpenShell viewers) before sending."},
+    {"question": "What is a Revit Project Template (.rte)?", "answer": "A template is a project file used as the starting point for new projects. It carries pre-loaded families, view templates, schedules, sheet templates, browser organisation, project parameters, and units. Office templates can replace Revit's default templates organisation-wide via Application Options > File Locations."},
+    {"question": "Do I need Navisworks if I have Revit?", "answer": "For single-discipline projects, no. For multi-discipline coordination — especially MEP with structure — Navisworks Manage adds clash detection, model federation, 4D scheduling, and quantity takeoffs that Revit alone does not provide cleanly."},
+    {"question": "Why won't my family schedule?", "answer": "Three common causes: (1) the family category is generic-model rather than a discipline category like doors, (2) parameters in the family are not project-parameter or shared-parameter, (3) the schedule filter excludes the family. Check the family category and parameter scope first."},
+    {"question": "How do I copy a view template from one project to another?", "answer": "Use Transfer Project Standards: open both projects, on the destination run Manage > Transfer Project Standards, choose the source project, and select View Templates. Filters and graphics overrides referenced by the template transfer with it."},
+    {"question": "Can Revit import a Sketchup model?", "answer": "Yes — File > Insert > Link CAD supports SKP, and Insert from File supports SKP and SAT. The geometry imports as a non-editable mass. Use it as a study reference, not as production geometry."},
+    {"question": "How big can a Revit central model be before performance degrades?", "answer": "Practical limit is roughly 300–500 MB for a working central. Beyond that, sync times exceed five minutes and view regeneration starts to feel sluggish. Break the project into linked models (by floor, by tower, by discipline) before the limit becomes painful."},
+    {"question": "What is the difference between a workset and a phase?", "answer": "A workset is an ownership partition for collaboration (who edits what). A phase is a temporal partition (when did this element exist). A demolition wall lives in the 'Existing' phase and an 'Arch' workset simultaneously — they are orthogonal."},
+    {"question": "Where do I learn Dynamo for Revit?", "answer": "Start with the official Dynamo Primer (free, open source). Then explore the LearnDynamo videos, Sol Amour's YouTube channel, and the Clockwork/archi-lab GitHub repos. The community is very generous and most office workflows have public-domain Dynamo predecessors."},
+    {"question": "Is Revit BIM Level 2 compliant out of the box?", "answer": "Revit is technically capable of supporting UK BIM Level 2 deliverables (IFC, COBie, federated coordination) but is not 'Level 2 compliant' as a product. Compliance lives in the project's Execution Plan, naming conventions, COBie data plan, and IFC export discipline, not in Revit alone."}
+  ],
+
+  "graph_nodes": [
+    {"id": "Revit", "type": "product", "tags": ["autodesk", "bim", "architecture"], "hint": "Autodesk's flagship BIM authoring tool for AEC.", "group": 1, "radius": 14},
+    {"id": "Revit Families", "type": "concept", "tags": ["revit", "content"], "hint": "Loadable, system, in-place — the unit of content.", "group": 2, "radius": 10},
+    {"id": "Revit Worksets", "type": "concept", "tags": ["revit", "collaboration"], "hint": "Worksharing ownership partitions.", "group": 2, "radius": 9},
+    {"id": "Revit Linked Models", "type": "skill", "tags": ["revit", "coordination"], "hint": "Multi-discipline RVT linking.", "group": 2, "radius": 9},
+    {"id": "Revit Shared Coordinates", "type": "concept", "tags": ["revit", "coordination"], "hint": "Tie internal origin to real-world site.", "group": 2, "radius": 8},
+    {"id": "Revit Phasing", "type": "concept", "tags": ["revit", "renovation"], "hint": "Existing / new / demolished mark-up.", "group": 2, "radius": 8},
+    {"id": "Revit View Template", "type": "concept", "tags": ["revit", "documentation"], "hint": "Saved view-graphic configurations.", "group": 2, "radius": 8},
+    {"id": "Revit Schedules", "type": "skill", "tags": ["revit", "documentation", "data"], "hint": "Live tabular reports from the model.", "group": 2, "radius": 9},
+    {"id": "Dynamo", "type": "sdk", "tags": ["revit", "automation"], "hint": "Visual programming bundled with Revit.", "group": 2, "radius": 9},
+    {"id": "Revit IFC Export", "type": "format", "tags": ["revit", "ifc", "interop"], "hint": "Open-standard model exchange.", "group": 2, "radius": 8},
+    {"id": "Navisworks", "type": "product", "tags": ["autodesk", "coordination"], "hint": "Federated clash detection on Revit models.", "group": 1, "radius": 10},
+    {"id": "Revit Shared Parameters", "type": "concept", "tags": ["revit", "data"], "hint": "External GUID-keyed parameter store.", "group": 2, "radius": 8}
+  ],
+  "graph_links": [
+    ["Revit", "Autodesk"],
+    ["Revit Families", "Revit"],
+    ["Revit Worksets", "Revit"],
+    ["Revit Linked Models", "Revit"],
+    ["Revit Shared Coordinates", "Revit Linked Models"],
+    ["Revit Phasing", "Revit"],
+    ["Revit View Template", "Revit"],
+    ["Revit Schedules", "Revit"],
+    ["Revit Schedules", "Revit Families"],
+    ["Dynamo", "Revit"],
+    ["Revit IFC Export", "Revit"],
+    ["Navisworks", "Revit"],
+    ["Navisworks", "Autodesk"],
+    ["Revit IFC Export", "Navisworks"],
+    ["Revit Shared Parameters", "Revit Families"]
+  ]
+}

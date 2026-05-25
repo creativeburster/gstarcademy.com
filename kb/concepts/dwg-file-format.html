@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DWG File Format · AutoCAD · CAD Knowledge Base · LearnCAD</title>
+    <meta name="description" content="Autodesk&#x27;s native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications." />
+    <link rel="canonical" href="https://learncad.io/kb/concepts/dwg-file-format.html" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="DWG File Format" />
+    <meta property="og:description" content="Autodesk&#x27;s native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications." />
+    <meta property="og:url" content="https://learncad.io/kb/concepts/dwg-file-format.html" />
+    <meta property="og:site_name" content="LearnCAD" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DWG File Format" />
+    <meta name="twitter:description" content="Autodesk&#x27;s native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications." />
+
+    <link rel="preload" href="../../styles.css?v=v8_4_hamburger" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v8_4_hamburger" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DWG File Format","description":"Autodesk's native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications.","url":"https://learncad.io/kb/concepts/dwg-file-format.html","datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"LearnCAD","url":"https://learncad.io"},"mainEntityOfPage":"https://learncad.io/kb/concepts/dwg-file-format.html","author":{"@type":"Organization","name":"LearnCAD Editorial Team","url":"https://learncad.io/about.html"},"publisher":{"@type":"Organization","name":"LearnCAD","url":"https://learncad.io/","logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"AEC Review Desk","jobTitle":"Reviewer (AEC / BIM)","url":"https://learncad.io/about.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"DWG File Format","description":"Autodesk's native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications.","url":"https://learncad.io/kb/concepts/dwg-file-format.html","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://learncad.io/kb-terms.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://learncad.io/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://learncad.io/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://learncad.io/kb-terms.html"},{"@type":"ListItem","position":4,"name":"DWG File Format","item":"https://learncad.io/kb/concepts/dwg-file-format.html"}]}</script>
+  </head>
+  <body data-page="knowledge" class="page-kb-concepts">
+    <div class="header-stack">
+      <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
+        <div class="site-notice-inner container">
+          <p class="site-notice-text">
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+          </p>
+          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </aside>
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../index.html">
+            <span class="brand-badge">LC</span>
+            <span>LearnCAD</span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+<a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
+          </nav>
+        </div>
+          <div class="nav-overlay" aria-hidden="true"></div>
+
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-terms.html">Terms</a> /
+        <a href="../software/autocad.html">AutoCAD</a> /
+        <span aria-current="page">DWG File Format</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">Atomic Knowledge · AutoCAD</span>
+          <h1 style="margin-top: 12px;">DWG File Format</h1>
+          <p class="hero-sub">Autodesk&#x27;s native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> LearnCAD Editorial Team</span>
+          <span><strong>Reviewed by</strong> AEC Review Desk</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-05-24">2026-05-24</time></span>
+          <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+        </div>
+
+        
+        <section class="kb-concept-section">
+          <h2>Definition</h2>
+          <p>DWG is a binary, versioned file format whose internal structure includes entities (lines, polylines, blocks), tables (layers, linetypes, text styles, dimension styles, UCS), and a header block holding system variables. Each AutoCAD release introduces a new DWG version (e.g., AutoCAD 2018 DWG, current through 2024+); older AutoCAD cannot open newer DWGs without conversion.</p>
+<p>The DWG format is reverse-engineered and supported by the Open Design Alliance&#x27;s libraries, which is what allows BricsCAD, GstarCAD, ZWCAD, and many CAD viewers to read and write DWGs natively.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why it matters</h2>
+          <p>Choosing the right DWG version for outgoing files matters: a 2018-format DWG sent to a consultant on AutoCAD 2010 won&#x27;t open. The SAVEAS dialog lets you save down. Equally, signing off on a contract DWG without checking what is inside (purgeable junk, anonymous blocks, embedded raster) is a quality control miss.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common pitfalls</h2>
+          <ul><li>Sending current-format DWGs to clients on older releases without saving down.</li>
+<li>Trusting file-size as a proxy for content complexity — embedded PDFs and rasters can balloon DWG size.</li>
+<li>Not running PURGE and AUDIT before issuing — leaks staff workspace settings, anonymous blocks, unused styles.</li></ul>
+        </section>
+
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Related concepts</h2>
+          <ul class="ink-source-list"><li><a href="./dxf-file-format.html">DXF File Format</a></li><li><a href="./xref-autocad.html">External Reference (XREF)</a></li></ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>See in context</h2>
+          <ul class="ink-source-list">
+            <li><a href="../software/autocad.html">AutoCAD — full software profile</a></li>
+            <li><a href="../../kb-graph.html#dwg-file-format">Open this node in the knowledge graph</a></li>
+            <li><a href="../../kb-faq.html#autocad">Browse AutoCAD FAQs</a></li>
+            <li><a href="../../tutorials.html">Find tutorials on AutoCAD</a></li>
+          </ul>
+        </section>
+
+        
+
+        <p class="meta" style="margin-top: 36px; font-size: 12px;">Article text is original commentary by LearnCAD editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+      </article>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Software Hubs</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Technical Core</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../kb/concepts/intelligent-objects.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/parametric-constraints.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/command-alias.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/drawing-merge.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/dwg-compare.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layer.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/xref.html">Xrefs &amp; Blocks</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Structured Learn</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="../../app.js?v=v8_4_hamburger" defer></script>
+  </body>
+</html>

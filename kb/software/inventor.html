@@ -3,41 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventor · Software profile · CAD Wiki</title>
-    <meta name="description" content="Desktop MCAD focused on mechanical design, assembly modeling, and drawing production." />
-    <meta name="robots" content="noindex, nofollow" />
+    <title>Inventor — software profile, learning path, ecosystem · LearnCAD</title>
+    <meta name="description" content="Inventor profile: parametric MCAD workflow, assemblies, frame generator, iLogic, Vault, plus 15 deep-dive terms and 15 FAQs reviewed by LearnCAD editors." />
     <link rel="canonical" href="https://learncad.io/kb/software/inventor.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-    <link rel="preload" href="../../styles.css?v=v7_graph_fix" as="style" />
-    <link rel="stylesheet" href="../../styles.css?v=v7_graph_fix" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Inventor",
-        "applicationCategory": "DesignApplication",
-        "description": "Desktop MCAD focused on mechanical design, assembly modeling, and drawing production. Inventor is commonly used in mechanical industries for part/assembly modeling, drawings, and design automation. It complements (rather than replaces) tools like AutoCAD in many engineering offices.",
-        "url": "https://learncad.io/kb/software/inventor.html",
-        "brand": {
-          "@type": "Brand",
-          "name": "Autodesk"
-        }
-      }
-    </script>
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Inventor — software profile" />
+    <meta property="og:description" content="Inventor profile: parametric MCAD workflow, assemblies, frame generator, iLogic, Vault, plus 15 deep-dive terms and 15 FAQs reviewed by LearnCAD editors." />
+    <meta property="og:url" content="https://learncad.io/kb/software/inventor.html" />
+    <meta property="og:site_name" content="LearnCAD" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Inventor — software profile" />
+    <meta name="twitter:description" content="Inventor profile: parametric MCAD workflow, assemblies, frame generator, iLogic, Vault, plus 15 deep-dive terms and 15 FAQs reviewed by LearnCAD editors." />
+
+    <link rel="preload" href="../../styles.css?v=v8_4_hamburger" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v8_4_hamburger" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Inventor","applicationCategory":"DesignApplication","operatingSystem":"Windows (64-bit only)","url":"https://learncad.io/kb/software/inventor.html","description":"Inventor profile: parametric MCAD workflow, assemblies, frame generator, iLogic, Vault, plus 15 deep-dive terms and 15 FAQs reviewed by LearnCAD editors.","brand":{"@type":"Brand","name":"Autodesk"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Inventor — software profile, learning path, ecosystem","description":"Inventor profile: parametric MCAD workflow, assemblies, frame generator, iLogic, Vault, plus 15 deep-dive terms and 15 FAQs reviewed by LearnCAD editors.","url":"https://learncad.io/kb/software/inventor.html","datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en","mainEntityOfPage":"https://learncad.io/kb/software/inventor.html","author":{"@type":"Organization","name":"LearnCAD Editorial Team","url":"https://learncad.io/about.html"},"publisher":{"@type":"Organization","name":"LearnCAD","url":"https://learncad.io/","logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"Mechanical Review Desk","jobTitle":"Reviewer (MCAD / PLM)","url":"https://learncad.io/about.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://learncad.io/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://learncad.io/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Software","item":"https://learncad.io/kb-software.html"},{"@type":"ListItem","position":4,"name":"Inventor","item":"https://learncad.io/kb/software/inventor.html"}]}</script>
   </head>
-  <body data-page="knowledge">
-        <div class="header-stack">
-      <aside
-        class="site-notice"
-        id="site-notice"
-        data-notice-id="global-v2"
-        aria-label="Announcement"
-      >
+  <body data-page="knowledge" class="page-kb-software">
+    <div class="header-stack">
+      <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the
-            <a class="site-notice-link" href="../../tutorials.html">tutorial library</a>
-            to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -61,173 +54,258 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
-            <a class="nav-link" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+<a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
             <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
             <a class="nav-link" data-nav="news" href="../../news.html">News</a>
             <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
-      
-        <div class="nav-overlay" aria-hidden="true"></div></header>
+          <div class="nav-overlay" aria-hidden="true"></div>
+
+      </header>
     </div>
 
-    <div class="kb-app" id="kb-app">
-      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" aria-label="Knowledge base navigation">
-        <div class="kb-rail-toolbar">
-          <span class="kb-rail-toolbar-label" id="kb-rail-label">Navigation</span>
-          <button
-            type="button"
-            class="kb-rail-toggle"
-            id="kb-rail-toggle"
-            aria-labelledby="kb-rail-label"
-            aria-controls="kb-rail"
-            aria-expanded="true"
-            title="Hide navigation (wider reading)"
-          >
-            <span class="kb-rail-toggle-icon" aria-hidden="true">◀</span>
-            <span class="kb-sr-only">Collapse navigation sidebar</span>
-          </button>
+    <main class="container" style="margin-top: 24px; max-width: 1100px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-software.html">Software</a> /
+        <span aria-current="page">Inventor</span>
+      </nav>
+
+      <section class="hero hero-premium" style="margin-top: 20px;">
+        <div class="hero-inner">
+          <span class="eyebrow">Software profile · Autodesk</span>
+          <h1 class="hero-title">Inventor</h1>
+          <p class="hero-sub">Autodesk&#x27;s Windows-native parametric MCAD — strong on large mechanical assemblies, sheet metal, frame generator, and integration with Autodesk Vault and Revit.</p>
         </div>
-        <label class="kb-sr-only" for="kb-sidebar-search">Search knowledge base</label>
-        <input
-          type="search"
-          id="kb-sidebar-search"
-          class="kb-portal-search"
-          placeholder="Search titles &amp; terms…"
-          autocomplete="off"
-        />
+      </section>
 
-            <div class="kb-index-box">
-              <strong class="kb-index-title">Six lanes</strong>
-              <p class="meta kb-sidebar-taxonomy-note">
-                Mirrors the top strip—taxonomy view of the same routes (expect overlap).
-              </p>
-              <a class="kb-index-link" href="../../knowledge-base.html">Overview</a>
-              <a class="kb-index-link" href="../../kb-software.html">Software</a>
-              <a class="kb-index-link" href="../../kb-terms.html">Terms</a>
-              <a class="kb-index-link" href="../../kb-faq.html">FAQ</a>
-              <a class="kb-index-link" href="../../kb-graph.html">Graph</a>
-              <a class="kb-index-link" href="./index.html">Software profiles</a>
-            </div>
-
-            <div class="kb-nav-group">
-              <button class="kb-nav-toggle" aria-expanded="true">Drill down</button>
-              <div class="kb-nav-links">
-                <a class="kb-side-link" href="../../tutorials.html">Tutorial library</a>
-                <a class="kb-side-link" href="../../knowledge-glossary.html">Term glossary (cards)</a>
-              </div>
-            </div>
-            <div class="kb-nav-group">
-              <button class="kb-nav-toggle" aria-expanded="true">Topics</button>
-              <div class="kb-nav-links">
-                <a class="kb-side-link" href="../../knowledge-base.html">Hub overview</a>
-                <a class="kb-side-link" href="../../news.html">CAD news</a>
-              </div>
-            </div>
-            <div class="kb-nav-group">
-              <button class="kb-nav-toggle" aria-expanded="false">Meta</button>
-              <div class="kb-nav-links kb-collapsed">
-                <a class="kb-side-link" href="../../knowledge-base.html#kb-about">About this hub</a>
-              </div>
-            </div>
-      </aside>
-      <div class="kb-stage">
-        <nav class="kb-subnav" aria-label="Knowledge base sections">
-          <a class="kb-subnav-link" href="../../knowledge-base.html">Overview</a>
-          <a class="kb-subnav-link active" href="../../kb-software.html">Software</a>
-          <a class="kb-subnav-link" href="../../kb-terms.html">Terms</a>
-          <a class="kb-subnav-link" href="../../kb-faq.html">FAQ</a>
-          <a class="kb-subnav-link" href="../../kb-graph.html">Graph</a>
-        </nav>
-        <div class="kb-stage-scroll">
-          <div class="kb-main kb-main--portal">
-
-            <article class="kb-section kb-anchor-target" data-kb-profile-slug="inventor">
-              <nav class="meta kb-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 14px">
-                <a href="../../index.html">Home</a>
-                <span aria-hidden="true"> · </span>
-                <a href="../../knowledge-base.html">Knowledge base</a>
-                <span aria-hidden="true"> · </span>
-                <a href="../../kb-software.html">Software</a>
-                <span aria-hidden="true"> · </span>
-                <span aria-current="page">Inventor</span>
-              </nav>
-
-              <div class="kb-section-head">
-                <h1 style="margin: 0">Inventor</h1>
-                <span class="section-note">Professional-Grade 3D Mechanical Design &amp; Product Automation</span>
-              </div>
-              <p class="meta" style="margin-top: 6px">
-                <a href="../vendors/autodesk.html">Autodesk</a> · status: <strong>enriched</strong>
-              </p>
-
-              <p class="meta" style="margin-top: 12px; max-width: 52rem; line-height: 1.6;">
-                <strong>Autodesk Inventor</strong> is a professional-grade 3D mechanical CAD software used for product design, simulation, tooling creation, and design automation. Leveraging a powerful parametric modeling engine, Inventor allows engineers to build highly accurate digital twins of complex machinery and discrete parts. It stands as Autodesk's primary challenger in the desktop MCAD market, competing directly with SOLIDWORKS.
-              </p>
-
-              <div class="panel" style="margin-top: 16px">
-                <h3 class="panel-title">Core Mechanical Design Paradigms</h3>
-                <ul style="margin: 10px 0 0 18px; line-height: 1.6; max-width: 52rem;">
-                  <li>
-                    <strong>Parametric Solid Modeling:</strong> Models are built chronologically through features (extrusions, revolves, sweeps, fillets) driven by dimensions and geometric constraints. Modifying a parent sketch dynamically updates the entire downstream solid.
-                  </li>
-                  <li>
-                    <strong>Assembly Constraints &amp; Joints:</strong> Parts are positioned in 3D space using mate, flush, angle, and tangent constraints. Alternatively, the modern <em>Joints</em> system defines motion relationships (rotational, slider, cylindrical) in a single step by capturing degrees of freedom.
-                  </li>
-                  <li>
-                    <strong>Adaptive Technology:</strong> Allows part features in an assembly to dynamically resize or move based on relationships to neighboring components, helping coordinate fit and clearance without hardcoding dimensions.
-                  </li>
-                  <li>
-                    <strong>Multi-Body Part Modeling:</strong> A highly efficient top-down methodology where multiple solid bodies are created in a single part file (<code>.ipt</code>), then pushed into an assembly (<code>.iam</code>) as individual components once spatial relationships are frozen.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">iLogic Design Automation</h3>
-                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
-                  One of Inventor's most powerful features is <strong>iLogic</strong>, which allows non-programmers to embed rules-based design directly into models:
-                </p>
-                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
-                  <li><strong>Conditional Logic:</strong> Using simple VB.NET-based rules (e.g., <code>If Length > 1000 Then Width = 500</code>), engineers can automate part suppression, resize geometries, and change custom properties.</li>
-                  <li><strong>Dynamic Configurator Panels:</strong> Designers can instantly generate custom user forms with sliders, dropdowns, and text inputs to guide sales teams or clients in configuring variants.</li>
-                  <li><strong>Data Links:</strong> Easily reads and writes dimensions to external Excel databases or ERP systems to sync engineering drawings with supply chain specifications.</li>
-                </ul>
-              </div>
-
-              <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Advanced Toolsets</h3>
-                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
-                  Inventor packs specialized toolsets designed to accelerate common fabrication tasks:
-                </p>
-                <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
-                  <li><strong>Frame Generator:</strong> Rapidly applies structural steel sections (beams, angles, channels) to 2D/3D wireframe sketches, automatically generating complex mitered cuts and end caps.</li>
-                  <li><strong>Sheet Metal:</strong> Generates specialized sheet metal folds, relief cuts, and dynamically calculates flat patterns based on customized K-factors and bend tables.</li>
-                  <li><strong>Tube and Pipe:</strong> Automates the routing of rigid piping, bent tubes, and flexible hoses based on defined piping standards and fitting libraries.</li>
-                </ul>
-              </div>
-
-              <div class="panel" style="margin-top: 14px">
-                <h3 class="panel-title">Drill Down &amp; Glossary</h3>
-                <p class="meta" style="margin-top: 8px; line-height: 1.6;">
-                  <strong>Explore Core Concepts:</strong> 
-                  <a href="../concepts/ilogic-automation.html">iLogic Automation</a>, 
-                  <a href="../concepts/frame-generator.html">Frame Generator</a>, 
-                  <a href="../concepts/tube-and-pipe.html">Tube and Pipe routing</a>, 
-                  <a href="../concepts/parametric-constraints.html">Parametric Constraints</a>.
-                </p>
-                <p class="meta" style="margin-top: 8px">
-                  <strong>Learn CAD:</strong>
-                  <a href="../../tutorials.html">Search Inventor Tutorials</a>
-                </p>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </div>
+      <article class="kb-concept-detail">
+        <div class="ink-byline">
+      <span><strong>By</strong> LearnCAD Editorial Team</span>
+      <span><strong>Reviewed by</strong> Mechanical Review Desk</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-05-24">2026-05-24</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
     </div>
+
+        
+        <section class="kb-concept-section">
+          <h2>At a glance</h2>
+          <table style="width:100%; border-collapse: collapse; font-size:14.5px;">
+            <tbody><tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Vendor</th><td style="padding:8px 0; color:var(--ink-text);"><a href="../vendors/autodesk.html">Autodesk</a></td></tr>
+<tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">First released</th><td style="padding:8px 0; color:var(--ink-text);">1999</td></tr>
+<tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Current release track</th><td style="padding:8px 0; color:var(--ink-text);">Annual release — Inventor 2025; included in Product Design &amp; Manufacturing Collection</td></tr>
+<tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Licensing model</th><td style="padding:8px 0; color:var(--ink-text);">Subscription via Product Design &amp; Manufacturing Collection (typical) or single-product. Education free.</td></tr>
+<tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Platforms</th><td style="padding:8px 0; color:var(--ink-text);">Windows (64-bit only)</td></tr>
+<tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Native / common formats</th><td style="padding:8px 0; color:var(--ink-text);">IPT (part), IAM (assembly), IDW / DWG (drawing), IPN (presentation), STEP, IGES, Parasolid, JT, STL / 3MF</td></tr>
+<tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Typical domains</th><td style="padding:8px 0; color:var(--ink-text);">Machinery, Industrial equipment, Steel structures, Tooling &amp; fixtures, Plant equipment, Sheet metal fabrication</td></tr>
+<tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Common alternatives</th><td style="padding:8px 0; color:var(--ink-text);">SOLIDWORKS, Creo Parametric, Solid Edge, Fusion 360, NX</td></tr></tbody>
+          </table>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>What it is</h2>
+          <p>Inventor is Autodesk&#x27;s traditional Windows desktop MCAD application — parametric, feature-based, with separate parts (.ipt), assemblies (.iam), drawings (.idw / .dwg), and presentations (.ipn). It is the Autodesk product for serious mechanical engineering teams: machine builders, OEMs, plant designers, and any organisation that wants a deep desktop MCAD with strong assembly performance, Vault PDM integration, and clean Revit linkage.</p>
+<p>Where Fusion 360 is cloud-first and consolidates many disciplines, Inventor is file-based and depth-first in its core MCAD competencies — frame generator, weldments, sheet metal, content centre, iLogic automation.</p>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>Where it is used</h2>
+          <p>Inventor is widely used in industrial machinery, factory automation, packaging machines, heavy equipment, and steel-structure design. Strong adoption in companies that have standardised on the Autodesk stack (Inventor + AutoCAD Mechanical + Vault + Revit for plant context). Less common in consumer-product design (SOLIDWORKS territory) and aerospace (NX/CATIA territory).</p>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>Learning curve and getting started</h2>
+          <p>Inventor&#x27;s learning curve is comparable to SOLIDWORKS — a few weeks to model and document parts, a few months to assemblies, half a year to senior. Its UI is more Windows-native than SOLIDWORKS, and many users find the Application Options and project (.ipj) file system unfamiliar at first.</p>
+<p>The hardest concepts are usually iLogic (rules engine) and Frame Generator (steel-structure modelling). Both are powerful but their conventions are specific to Inventor.</p>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>Licensing reality</h2>
+          <p>Subscription only. The Product Design &amp; Manufacturing Collection (PDMC) bundles Inventor with AutoCAD, AutoCAD Mechanical, Inventor Nastran, Inventor Tolerance Analysis, Factory Design Utilities, and others — usually cheaper than buying Inventor alone. Education licenses are free with annual renewal.</p>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>Ecosystem and extensions</h2>
+          <p>Vault is Inventor&#x27;s natural PDM (also serves AutoCAD and Revit data). Notable add-ins: Inventor Nastran (FEA), Tolerance Analysis (stack-up), Factory Design Utilities (factory layout from Inventor assemblies), Autodesk CFD. Third-party: Frame Generator extensions, sheet metal nesting tools (NestingWorks-equivalent), and CAM (Inventor CAM, formerly HSM).</p>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>Common pitfalls and misconceptions</h2>
+          <p><strong>Project file mismanagement.</strong> Inventor&#x27;s .ipj defines library/workspace paths. Working outside the project produces broken references.</p>
+<p><strong>Adaptive parts.</strong> Adaptive geometry is powerful but slow to recompute in large assemblies.</p>
+<p><strong>Content centre offline.</strong> Without a synced content centre library, standard parts produce missing-reference errors.</p>
+<p><strong>Sheet metal style on per-part basis.</strong> Without standardised styles in the template, every part has different bend allowance.</p>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>When to use vs. alternatives</h2>
+          <p>Use Inventor when (a) the team is on Autodesk infrastructure (Vault, Revit, AutoCAD), (b) the work is large-assembly mechanical design, or (c) you need Inventor-specific strengths (frame generator, content centre integration).</p>
+<p>Choose SOLIDWORKS when the team prefers its UX and ecosystem. Choose Fusion 360 for cross-platform, cloud-data, integrated CAM. Choose Creo / NX for very large aerospace / automotive assemblies.</p>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>Recommended learning path</h2>
+          <ol class="ink-source-list"><li><strong>Week 1 — Foundations.</strong> <a href="./project-file-inventor.html">Project file (.ipj)</a>, sketching, <a href="./features-inventor.html">feature-based modelling</a>, basic part modelling.</li>
+<li><strong>Week 2 — Drawings.</strong> Drawing template, <a href="./drawing-views-inventor.html">drawing views</a>, dimensions, BOMs.</li>
+<li><strong>Week 3 — Assemblies.</strong> <a href="./constraints-joints-inventor.html">Assembly constraints / joints</a>, <a href="./subassemblies-inventor.html">sub-assemblies</a>, BOM, presentation.</li>
+<li><strong>Week 4 — Sheet metal &amp; frames.</strong> <a href="./sheet-metal-inventor.html">Sheet metal</a> styles + bends, <a href="./frame-generator-inventor.html">frame generator</a>, <a href="./content-centre-inventor.html">content centre</a>.</li>
+<li><strong>Month 2 — Automation.</strong> <a href="./ilogic-inventor.html">iLogic</a>, <a href="./iparts-inventor.html">iParts / iAssemblies</a>, parameters, Vault basics.</li>
+<li><strong>Month 3+ — Production &amp; exchange.</strong> Drawing automation, Revit interop, <a href="./dwg-mode-inventor.html">DWG mode</a>, Inventor CAM, large-assembly performance.</li></ol>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>Core terminology &amp; workflows (15)</h2>
+          <p class="meta">Atomic concepts our editors broke out from official documentation and real practice. Each is a standalone, linkable definition with sources.</p>
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../concepts/project-file-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Project File (.ipj, Inventor)</h3>
+              <p class="meta">Inventor&#x27;s project definition — sets workspace, content centre paths, library locations, units, and templates.</p>
+            </a>
+<a class="card" href="../concepts/features-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Features (Inventor)</h3>
+              <p class="meta">The fundamental building blocks of an Inventor part — Extrude, Revolve, Sweep, Loft, Hole, Fillet, Shell, Coil, Rib, Thread.</p>
+            </a>
+<a class="card" href="../concepts/constraints-joints-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Constraints &amp; Joints (Inventor)</h3>
+              <p class="meta">Inventor&#x27;s assembly relationships — Classic Constraints (mate, flush, angle, tangent, insert) and Joints (rigid, rotational, slider, cylindrical, planar, ball).</p>
+            </a>
+<a class="card" href="../concepts/subassemblies-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Sub-assemblies (Inventor)</h3>
+              <p class="meta">Nested assemblies inside an assembly — used for logical grouping, mechanism representation, and BOM structure.</p>
+            </a>
+<a class="card" href="../concepts/frame-generator-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Frame Generator (Inventor)</h3>
+              <p class="meta">The bundled tool for structural-frame design from skeleton geometry plus standard structural shapes (AISC, ANSI, ISO).</p>
+            </a>
+<a class="card" href="../concepts/sheet-metal-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Sheet Metal (Inventor)</h3>
+              <p class="meta">Inventor&#x27;s sheet-metal feature set — flange, edge flange, contour flange, bend, unfold, flat pattern, bend table.</p>
+            </a>
+<a class="card" href="../concepts/ilogic-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>iLogic (Inventor)</h3>
+              <p class="meta">Inventor&#x27;s rule engine — VB.NET-based rules attached to parts, assemblies, or drawings that automate parameter changes, suppress features, drive iParts, and integrate with external data.</p>
+            </a>
+<a class="card" href="../concepts/iparts-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>iParts / iAssemblies (Inventor)</h3>
+              <p class="meta">Family-table-driven configurations — one part file representing a family of variants via an embedded factory table.</p>
+            </a>
+<a class="card" href="../concepts/content-centre-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Content Center (Inventor)</h3>
+              <p class="meta">Inventor&#x27;s library of standard parts (fasteners, bearings, structural shapes, plumbing fittings) backed by SQL Server or Vault.</p>
+            </a>
+<a class="card" href="../concepts/drawing-views-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Drawing Views (Inventor)</h3>
+              <p class="meta">Inventor&#x27;s 2D drawing-view types — base, projected, section, detail, broken, cropped, isometric, perspective.</p>
+            </a>
+<a class="card" href="../concepts/presentations-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Presentations (.ipn, Inventor)</h3>
+              <p class="meta">Animated exploded-view files derived from an assembly — used for assembly instructions and animations.</p>
+            </a>
+<a class="card" href="../concepts/vault-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Vault (with Inventor)</h3>
+              <p class="meta">Autodesk&#x27;s PDM system — file vaulting, revision control, lifecycle management, and ECO workflow for Inventor + AutoCAD + Revit data.</p>
+            </a>
+<a class="card" href="../concepts/dwg-mode-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>DWG TrueConnect (Inventor)</h3>
+              <p class="meta">Inventor&#x27;s ability to read/write native AutoCAD DWG files in addition to its native IPT/IAM/IDW formats.</p>
+            </a>
+<a class="card" href="../concepts/tolerance-analysis-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Tolerance Analysis (Inventor)</h3>
+              <p class="meta">Inventor&#x27;s stack-up analysis tool — combines feature tolerances to predict the variation in critical assembly dimensions.</p>
+            </a>
+<a class="card" href="../concepts/model-states-inventor.html" style="display:block; padding:18px 20px;">
+              <h3>Model States (Inventor)</h3>
+              <p class="meta">Configurations within a single Inventor part or assembly — alternate suppression, dimensions, and feature states under one file.</p>
+            </a></div>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>Frequently asked questions (15)</h2>
+          <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What&#x27;s the difference between Inventor and Fusion 360?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Inventor is Windows-only desktop, file-based, deep MCAD with Vault integration. Fusion 360 is cross-platform (Win/Mac), cloud-data, broader scope (CAM, electronics, generative design), simpler assemblies. Inventor for established mechanical engineering teams; Fusion 360 for makers, small teams, integrated CAM workflows.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">Can Inventor open SOLIDWORKS files?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Indirectly. Inventor doesn&#x27;t natively read .sldprt/.sldasm; export from SOLIDWORKS to STEP or Parasolid, then open in Inventor. Features import as static geometry without parametric history.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What&#x27;s in the Product Design &amp; Manufacturing Collection?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Inventor, AutoCAD, AutoCAD Mechanical, Inventor Nastran (FEA), Inventor Tolerance Analysis, Factory Design Utilities, Inventor CAM, Vault Basic, ReCap Pro, and Fusion 360 (selected modules). Most production Inventor users are on PDMC rather than standalone Inventor.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">Why are my Inventor assemblies so slow?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Common causes: too many adaptive parts (recompute on every change), unresolved references (Inventor searches for missing files repeatedly), too many flexible sub-assemblies, complex contact sets, and visual styles using high-quality silhouettes. Use Express Mode (lightweight) for review-only work.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the difference between Constraints and Joints?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Constraints remove one DOF per constraint — stack multiple (mate + flush + angle) to fully position. Joints define a full DOF relationship in one definition (revolute, slider, etc.). Joints are easier for typical mechanism modelling; constraints offer finer control.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">How do I migrate from AutoCAD to Inventor?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use DWG underlays as references during transition. Convert AutoCAD blocks to Inventor parts using Inventor&#x27;s DWG conversion utility for simple shapes. Most complex AutoCAD 2D drafting doesn&#x27;t translate well — re-modelling in Inventor is usually faster than converting.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">Can Inventor work with Revit?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Yes — Inventor parts/assemblies can be imported into Revit as families (via .rfa or .adsk format) for fit checking inside the building model. Revit links work both ways: Inventor can use Revit linked models for context.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What&#x27;s the workflow for sheet metal in Inventor?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Start with Sheet Metal template, set the Sheet Metal Style (material, thickness, bend radius, K-factor). Use Face, Flange, Edge Flange, Contour Flange tools. Generate the flat pattern via Create Flat Pattern. Drawings show both folded view and flat pattern with bend table.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">How do I run iLogic rules from outside Inventor?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>iLogic rules can be triggered from Inventor&#x27;s Task Scheduler, from VB.NET applications via the API, from external buttons added via iLogic Browser, or from Vault lifecycle transitions. For automated configure-to-order systems, this is the typical pattern.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the difference between iPart and Model State?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>iPart uses an embedded factory table with rows = members. Model States are named alternate states without a table — useful for fewer configurations. Both serve similar purposes; Model States are newer and simpler for low-volume configurations; iParts scale better to 100+ members.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">Can Inventor publish to Vault?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Yes — Vault is the natural PDM for Inventor. The Inventor Vault add-in handles check-in, check-out, reference updates, and lifecycle transitions directly from inside Inventor. Vault Office is needed for non-CAD users to participate in the workflow.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">Why are content center parts missing?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Content Center requires SQL Server (Express bundled with Inventor, or full SQL for shared use). If the database is offline or the libraries are unsubscribed in Project Settings, parts can&#x27;t insert. Re-subscribe libraries via Manage &gt; Content Center Editor.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">How do I share an Inventor project externally?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use Pack and Go (File &gt; Save Copy As &gt; Pack and Go) to gather the assembly and all references into a zip. The recipient extracts and points their Inventor at the .ipj inside the package. For one-time review, export the assembly as STEP or 3D PDF.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">Does Inventor run on macOS?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>No native macOS version. Run via Parallels, VMware Fusion, or Boot Camp (Intel Macs). Apple Silicon Macs have limited virtualisation options. The closest cross-platform Autodesk option is Fusion 360.</p></div>
+            </details>
+<details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+              <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">Where do I learn Inventor systematically?</summary>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Autodesk Inventor Learning Path on learn.autodesk.com is the official starting point. ASCENT books (e.g., Autodesk Inventor 2024: Fundamentals) and CADLearning provide structured curricula. For iLogic specifically, the Inventor blog and Autodesk Community posts by Curtis Waguespack are highly regarded.</p></div>
+            </details>
+          <p class="meta" style="margin-top:14px;"><a href="../../kb-faq.html#inventor">All Inventor FAQs ›</a></p>
+        </section>
+        
+        <section class="kb-concept-section">
+          <h2>Sources &amp; further reading</h2>
+          <ul class="ink-source-list"><li><a href="https://www.autodesk.com/products/inventor/overview" rel="noopener noreferrer nofollow" target="_blank">Inventor product page</a> · <span class="meta">Autodesk</span></li>
+<li><a href="https://help.autodesk.com/view/INVNTOR/2025/ENU/" rel="noopener noreferrer nofollow" target="_blank">Inventor Help</a> · <span class="meta">Autodesk</span></li></ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Continue exploring</h2>
+          <ul class="ink-source-list">
+            <li><a href="../vendors/autodesk.html">Autodesk — vendor profile</a></li>
+            <li><a href="../../kb-graph.html">Open the Inventor cluster in the knowledge graph</a></li>
+            <li><a href="../../tutorials.html">Find tutorials on Inventor</a></li>
+            <li><a href="../../kb-terms.html">All CAD terms</a></li>
+          </ul>
+        </section>
+
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by LearnCAD editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+      </article>
+    </main>
 
     <footer class="footer site-footer">
       <div class="container site-footer-inner">
@@ -288,7 +366,6 @@
         <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js" defer></script>
-    <script src="../../knowledge.js?v=v7_graph_fix" defer></script>
+    <script src="../../app.js?v=v8_4_hamburger" defer></script>
   </body>
 </html>
