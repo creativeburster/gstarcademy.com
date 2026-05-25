@@ -18,7 +18,7 @@ def generate_footer_html(prefix):
     return f"""<footer class="footer site-footer">
       <div class="container site-footer-inner">
         <div class="site-footer-brand">
-          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-tagline">Gstarcademy</p>
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
@@ -71,7 +71,7 @@ def generate_footer_html(prefix):
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
+        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>"""
 

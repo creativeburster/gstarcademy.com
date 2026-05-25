@@ -210,8 +210,8 @@ def head_block(*, title: str, canonical: str, description: str, ld_url: str) -> 
     <header class="topbar">
       <div class="container topbar-inner">
         <a class="brand" href="./index.html">
-          <span class="brand-badge">LC</span>
-          <span>LearnCAD</span>
+          <span class="brand-badge">GC</span>
+          <span>Gstarcademy</span>
         </a>
         <nav class="nav">
           <a class="nav-link" data-nav="home" href="./index.html">Home</a>
@@ -230,7 +230,7 @@ def head_block(*, title: str, canonical: str, description: str, ld_url: str) -> 
 FOOTER = f"""    <footer class="footer site-footer">
       <div class="container site-footer-inner">
         <div class="site-footer-brand">
-          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-tagline">Gstarcademy</p>
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to original sources and do not host third-party videos.</p>
         </div>
         <div class="site-footer-col">
@@ -258,7 +258,7 @@ FOOTER = f"""    <footer class="footer site-footer">
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
+        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
     <script src="./app.js" defer></script>

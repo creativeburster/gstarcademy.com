@@ -41,7 +41,7 @@ def run_server():
         try:
             server = socketserver.TCPServer(("", port), handler)
             print("\n" + "="*50)
-            print(f" LearnCAD Clean URLs Dev Server is active!")
+            print(f" Gstarcademy Clean URLs Dev Server is active!")
             print(f" Local URL: http://localhost:{port}")
             print(" Press Ctrl+C to stop the server.")
             print("="*50 + "\n")
