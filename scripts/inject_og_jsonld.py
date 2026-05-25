@@ -21,8 +21,8 @@ SKIP_PATTERNS = ["kb/concepts/", "kb/software/", "kb/vendors/", "kb/pilot/"]
 # Map page basename → (og_type, og_title_suffix)
 PAGE_META = {
     "index.html": ("website", None),
-    "about.html": ("article", "About LearnCAD"),
-    "contact.html": ("article", "Contact LearnCAD"),
+    "about.html": ("article", "About Gstarcademy"),
+    "contact.html": ("article", "Contact Gstarcademy"),
     "knowledge-base.html": ("article", "CAD Knowledge Base — Overview"),
     "kb-software.html": ("article", "CAD Software Profiles"),
     "kb-terms.html": ("article", "CAD Terminology Index"),
@@ -75,8 +75,8 @@ def extract_canonical(html: str) -> str | None:
 
 def build_og_block(html: str, basename: str) -> str:
     og_type, _suffix = PAGE_META.get(basename, ("article", None))
-    title = extract_title(html) or "LearnCAD"
-    description = extract_meta(html, "description") or "LearnCAD — structured CAD knowledge base and tutorial navigation."
+    title = extract_title(html) or "Gstarcademy"
+    description = extract_meta(html, "description") or "Gstarcademy — structured CAD knowledge base and tutorial navigation."
     canonical = extract_canonical(html) or f"/{basename}"
     if canonical.startswith("/"):
         canonical_url = f"{SITE_URL}{canonical}"
@@ -87,7 +87,7 @@ def build_og_block(html: str, basename: str) -> str:
 
     # Strip trailing site brand from title for cleaner OG
     og_title = title
-    for sep in [" · LearnCAD", " — LearnCAD", " - LearnCAD", " | LearnCAD"]:
+    for sep in [" · Gstarcademy", " — Gstarcademy", " - Gstarcademy", " | Gstarcademy"]:
         if sep in og_title:
             og_title = og_title.split(sep, 1)[0]
             break
@@ -97,7 +97,7 @@ def build_og_block(html: str, basename: str) -> str:
         f'    <meta property="og:title" content="{_escape(og_title)}" />\n'
         f'    <meta property="og:description" content="{_escape(description)}" />\n'
         f'    <meta property="og:url" content="{canonical_url}" />\n'
-        f'    <meta property="og:site_name" content="LearnCAD" />\n'
+        f'    <meta property="og:site_name" content="Gstarcademy" />\n'
         f'    <meta name="twitter:card" content="summary_large_image" />\n'
         f'    <meta name="twitter:title" content="{_escape(og_title)}" />\n'
         f'    <meta name="twitter:description" content="{_escape(description)}" />'
@@ -112,21 +112,21 @@ def _escape(s: str) -> str:
 def build_jsonld(basename: str, canonical_url: str, og_title: str, description: str) -> str:
     """Build Organization + WebSite JSON-LD for index, Article JSON-LD for others."""
     publisher_json = (
-        '"publisher":{"@type":"Organization","name":"LearnCAD","url":"https://learncad.io/",'
+        '"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://learncad.io/",'
         '"logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"},'
         '"sameAs":["https://learncad.io/about.html"]}'
     )
     if basename == "index.html":
         organization = (
             '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization",'
-            '"name":"LearnCAD","url":"https://learncad.io/",'
+            '"name":"Gstarcademy","url":"https://learncad.io/",'
             '"logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"},'
-            '"description":"LearnCAD is a structured CAD knowledge base and tutorial navigation site for AEC, MFG, and Civil Engineering professionals.",'
+            '"description":"Gstarcademy is a structured CAD knowledge base and tutorial navigation site for AEC, MFG, and Civil Engineering professionals.",'
             '"sameAs":["https://learncad.io/about.html","https://learncad.io/editorial-process.html"]}</script>'
         )
         website = (
             '<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite",'
-            '"name":"LearnCAD","url":"https://learncad.io/",'
+            '"name":"Gstarcademy","url":"https://learncad.io/",'
             '"potentialAction":{"@type":"SearchAction",'
             '"target":{"@type":"EntryPoint","urlTemplate":"https://learncad.io/kb-terms.html?q={search_term_string}"},'
             '"query-input":"required name=search_term_string"}}</script>'
@@ -140,7 +140,7 @@ def build_jsonld(basename: str, canonical_url: str, og_title: str, description: 
         f'"url":"{canonical_url}",'
         '"datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en",'
         '"mainEntityOfPage":"' + canonical_url + '",'
-        '"author":{"@type":"Organization","name":"LearnCAD Editorial Team","url":"https://learncad.io/about.html"},'
+        '"author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://learncad.io/about.html"},'
         + publisher_json
         + "}</script>"
     )

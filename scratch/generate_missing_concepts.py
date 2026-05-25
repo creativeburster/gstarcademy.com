@@ -163,7 +163,7 @@ template = """<!doctype html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} · CAD Concepts · LearnCAD</title>
+    <title>{title} · CAD Concepts · Gstarcademy</title>
     <meta name="description" content="{description}" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="stylesheet" href="../../styles.css?v=v6_faq_graph_perfection" />
@@ -183,8 +183,8 @@ template = """<!doctype html>
       <header class="topbar">
         <div class="container topbar-inner">
           <a class="brand" href="../../index.html">
-            <span class="brand-badge">LC</span>
-            <span>LearnCAD</span>
+            <span class="brand-badge">GC</span>
+            <span>Gstarcademy</span>
           </a>
           <nav class="nav">
             <a class="nav-link" href="../../index.html">Home</a>
@@ -227,7 +227,7 @@ template = """<!doctype html>
 
     <footer class="footer site-footer">
       <div class="container">
-        <p>© 2026 LearnCAD · Knowledge Base</p>
+        <p>© 2026 Gstarcademy · Knowledge Base</p>
       </div>
     </footer>
     <script src="../../app.js" defer></script>

@@ -14,7 +14,7 @@ It also rewrites blocks marked by AUTO-GEN sentinels in:
 Run from repo root:
   python scripts/build_software_content.py
 
-Content is original commentary by LearnCAD editors; this script only assembles
+Content is original commentary by Gstarcademy editors; this script only assembles
 the static HTML. Every concept page emits:
   - Article + DefinedTerm + BreadcrumbList JSON-LD (E-E-A-T compliant)
   - Author + Reviewer byline (from data/editorial.json)
@@ -99,8 +99,8 @@ def topbar_html(relpath: str, page: str = "knowledge") -> str:
       <header class="topbar">
         <div class="container topbar-inner">
           <a class="brand" href="{relpath}index.html">
-            <span class="brand-badge">LC</span>
-            <span>LearnCAD</span>
+            <span class="brand-badge">GC</span>
+            <span>Gstarcademy</span>
           </a>
           <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span class="hamburger-line"></span>
@@ -129,7 +129,7 @@ def footer_html(relpath: str) -> str:
     return f"""<footer class="footer site-footer">
       <div class="container site-footer-inner">
         <div class="site-footer-brand">
-          <p class="site-footer-tagline">LearnCAD</p>
+          <p class="site-footer-tagline">Gstarcademy</p>
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
@@ -182,7 +182,7 @@ def footer_html(relpath: str) -> str:
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> LearnCAD. All rights reserved.</p>
+        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>"""
 
@@ -227,7 +227,7 @@ def open_graph(title: str, desc: str, url: str, kind: str = "article") -> str:
         f'    <meta property="og:title" content="{esc(title)}" />\n'
         f'    <meta property="og:description" content="{esc(desc)}" />\n'
         f'    <meta property="og:url" content="{esc(url)}" />\n'
-        f'    <meta property="og:site_name" content="LearnCAD" />\n'
+        f'    <meta property="og:site_name" content="Gstarcademy" />\n'
         f'    <meta name="twitter:card" content="summary_large_image" />\n'
         f'    <meta name="twitter:title" content="{esc(title)}" />\n'
         f'    <meta name="twitter:description" content="{esc(desc)}" />\n'
@@ -270,7 +270,7 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
         "datePublished": published,
         "dateModified": last_reviewed,
         "inLanguage": "en",
-        "isPartOf": {"@type": "WebSite", "name": "LearnCAD", "url": SITE_URL},
+        "isPartOf": {"@type": "WebSite", "name": "Gstarcademy", "url": SITE_URL},
         "mainEntityOfPage": url,
         **author_jsonld(editorial),
     }
@@ -371,7 +371,7 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
 
     byline = f"""<div class="ink-byline" role="contentinfo">
           <span><strong>By</strong> {esc(editorial['editorial_team'][0]['name'])}</span>
-          <span><strong>Reviewed by</strong> {esc(reviewer['name']) if reviewer else 'LearnCAD Editorial Team'}</span>
+          <span><strong>Reviewed by</strong> {esc(reviewer['name']) if reviewer else 'Gstarcademy Editorial Team'}</span>
           <span><strong>Last reviewed</strong> <time datetime="{last_reviewed}">{last_reviewed}</time></span>
           <span><a href="../../about.html#editorial-process">Editorial process</a></span>
         </div>"""
@@ -381,7 +381,7 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{esc(title)} · {sw_name} · CAD Knowledge Base · LearnCAD</title>
+    <title>{esc(title)} · {sw_name} · CAD Knowledge Base · Gstarcademy</title>
     <meta name="description" content="{esc(desc)}" />
     <link rel="canonical" href="{url}" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
@@ -586,7 +586,7 @@ def render_software_profile(sw: dict, editorial: dict, all_terms_index: dict[str
 
     byline = f"""<div class="ink-byline">
       <span><strong>By</strong> {esc(editorial['editorial_team'][0]['name'])}</span>
-      <span><strong>Reviewed by</strong> {esc(reviewer['name']) if reviewer else 'LearnCAD Editorial Team'}</span>
+      <span><strong>Reviewed by</strong> {esc(reviewer['name']) if reviewer else 'Gstarcademy Editorial Team'}</span>
       <span><strong>Last reviewed</strong> <time datetime="{last_reviewed}">{last_reviewed}</time></span>
       <span><a href="../../about.html#editorial-process">Editorial process</a></span>
     </div>"""
@@ -596,7 +596,7 @@ def render_software_profile(sw: dict, editorial: dict, all_terms_index: dict[str
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{esc(name)} — software profile, learning path, ecosystem · LearnCAD</title>
+    <title>{esc(name)} — software profile, learning path, ecosystem · Gstarcademy</title>
     <meta name="description" content="{esc(desc)}" />
     <link rel="canonical" href="{url}" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
@@ -740,7 +740,7 @@ def render_vendor(vendor: dict, software_under_vendor: list[dict], editorial: di
 
     byline = f"""<div class="ink-byline">
       <span><strong>By</strong> {esc(editorial['editorial_team'][0]['name'])}</span>
-      <span><strong>Reviewed by</strong> {esc(reviewer['name']) if reviewer else 'LearnCAD Editorial Team'}</span>
+      <span><strong>Reviewed by</strong> {esc(reviewer['name']) if reviewer else 'Gstarcademy Editorial Team'}</span>
       <span><strong>Last reviewed</strong> <time datetime="{last_reviewed}">{last_reviewed}</time></span>
       <span><a href="../../about.html#editorial-process">Editorial process</a></span>
     </div>"""
@@ -750,7 +750,7 @@ def render_vendor(vendor: dict, software_under_vendor: list[dict], editorial: di
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{esc(name)} — CAD vendor profile · LearnCAD</title>
+    <title>{esc(name)} — CAD vendor profile · Gstarcademy</title>
     <meta name="description" content="{esc(desc)}" />
     <link rel="canonical" href="{url}" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
@@ -1015,7 +1015,7 @@ def patch_terms_index(software_list: list[dict]) -> None:
     wrapper = (
         f'<section class="section" id="auto-generated-terms" style="margin-top: 56px;">\n'
         f'          <div class="section-head"><h2 class="section-title">Software-specific terminology</h2>'
-        f'<span class="section-note">{sum(len(v) for v in rows.values())} terms · authored & reviewed by LearnCAD editors</span></div>\n'
+        f'<span class="section-note">{sum(len(v) for v in rows.values())} terms · authored & reviewed by Gstarcademy editors</span></div>\n'
         f'          <p class="meta" style="margin-bottom: 18px;">Atomic concepts broken out per CAD product family. Each links to a dedicated page with definition, why-it-matters, common pitfalls, and sources.</p>\n'
         f"{chr(10).join(sections)}\n"
         f"        </section>"
