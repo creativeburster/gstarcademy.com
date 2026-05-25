@@ -7,6 +7,45 @@ navLinks.forEach((link) => {
 
 document.getElementById("footer-year")?.append(String(new Date().getFullYear()));
 
+// Mobile hamburger menu functionality
+const hamburger = document.querySelector(".hamburger");
+const nav = document.querySelector(".nav");
+const navOverlay = document.querySelector(".nav-overlay");
+
+function toggleMenu() {
+  if (hamburger && nav) {
+    hamburger.classList.toggle("active");
+    nav.classList.toggle("active");
+    if (navOverlay) {
+      navOverlay.classList.toggle("active");
+    }
+    // Prevent scrolling when menu is open
+    document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
+  }
+}
+
+if (hamburger) {
+  hamburger.addEventListener("click", toggleMenu);
+}
+
+const navClose = document.querySelector(".nav-close");
+if (navClose) {
+  navClose.addEventListener("click", toggleMenu);
+}
+
+if (navOverlay) {
+  navOverlay.addEventListener("click", toggleMenu);
+}
+
+// Close menu when a link is clicked
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    if (nav && nav.classList.contains("active")) {
+      toggleMenu();
+    }
+  });
+});
+
 (function initSiteNotice() {
   const notice = document.getElementById("site-notice");
   if (!notice) return;
