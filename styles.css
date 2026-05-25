@@ -326,6 +326,9 @@ a { color: inherit; text-decoration: none; }
 
 .nav { display: flex; align-items: center; gap: 4px; }
 
+/* nav-header + nav-close only exist for the mobile drawer; hidden on desktop. */
+.nav-header { display: none; }
+
 /* Hamburger menu button */
 .hamburger {
   display: none;
@@ -4682,14 +4685,21 @@ h3 { line-height: 1.25; }
 .site-notice-link { color: #E8C68A !important; text-decoration-color: rgba(232,198,138,0.55) !important; }
 .site-notice-link:hover { color: #F7DDA8 !important; }
 
-/* ---- Hero — deep-ink engineering monograph (CAD industry palette) ---- */
+/* ---- Hero — CAD modelspace dark grid (industry viewport aesthetic) ---- */
+/* Reference: AutoCAD / Inventor / Civil 3D modelspace default background. */
+/* Flat dark slate-navy plate + 2-level grid (minor 24px, major 120px). */
 .hero, .hero-premium, .hero-page, .hero-wide-rounded {
   position: relative;
-  background:
-    radial-gradient(ellipse 80% 55% at 50% -15%, rgba(59, 71, 217, 0.28), transparent 60%),
-    radial-gradient(ellipse 60% 45% at 90% 110%, rgba(20, 64, 90, 0.55), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 10% 110%, rgba(14, 22, 38, 0.65), transparent 55%),
-    linear-gradient(180deg, #050A14 0%, #0A1224 38%, #0B1828 72%, #07101C 100%) !important;
+  background-color: #1d2434 !important;
+  background-image:
+    /* major grid lines (every 5th = 120px) */
+    linear-gradient(rgba(125, 158, 192, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 158, 192, 0.16) 1px, transparent 1px),
+    /* minor grid lines (every 24px) */
+    linear-gradient(rgba(125, 158, 192, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 158, 192, 0.07) 1px, transparent 1px) !important;
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px !important;
+  background-position: 0 0, 0 0, 0 0, 0 0 !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   border-top: 2px solid var(--ink-accent) !important;
   border-radius: var(--ink-r-xl) !important;
@@ -4701,18 +4711,16 @@ h3 { line-height: 1.25; }
     0 24px 60px -28px rgba(0,0,0,0.55),
     inset 0 1px 0 rgba(255,255,255,0.05) !important;
 }
+/* Subtle vignette + accent glow on top of the grid for hierarchy and legibility. */
 .hero::before, .hero-premium::before, .hero-page::before, .hero-wide-rounded::before {
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 26px 26px,
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 26px 26px,
-    radial-gradient(60rem 30rem at 110% -10%, rgba(127, 154, 220, 0.12), transparent 60%),
-    radial-gradient(40rem 24rem at -10% 110%, rgba(182,138,78,0.10), transparent 60%);
+    radial-gradient(70rem 32rem at 50% -10%, rgba(59, 71, 217, 0.20), transparent 65%),
+    radial-gradient(56rem 28rem at 100% 110%, rgba(20, 64, 90, 0.35), transparent 65%),
+    radial-gradient(40rem 24rem at 0% 110%, rgba(14, 22, 38, 0.50), transparent 60%);
   pointer-events: none;
-  opacity: 0.85;
-  mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
-  -webkit-mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
+  opacity: 1;
 }
 .hero-inner, .hero-page-header-flex { position: relative; z-index: 1; }
 
@@ -5483,6 +5491,264 @@ body[data-page="knowledge"] .kb-subnav {
   .kb-subnav-link { color: rgba(232,236,245,0.85) !important; }
   .kb-subnav-link:hover { background: rgba(255,255,255,0.05) !important; color: #FFFFFF !important; }
   .kb-subnav-link.active { color: var(--ink-accent, #B68A4E) !important; }
+}
+
+/* ============================================================
+   v8_3_mobile — comprehensive mobile responsive layer
+   The base styles target a desktop-first canvas. This block patches
+   the broken pieces so the entire site reads cleanly on phones.
+
+   Breakpoints:
+     <= 1024px   tablet / small laptop fine-tuning
+     <= 768px    phone-major break (most layout swaps happen here)
+     <= 480px    very small phones (extra-tight typography)
+   ============================================================ */
+
+/* ---- Tablet sweep (1024px) ---- */
+@media (max-width: 1024px) {
+  .kb-main--portal { padding: 36px 24px 80px; }
+  .kb-subnav { padding: 12px 20px; }
+  .container { width: min(92vw, 1100px); }
+}
+
+/* ---- Phone sweep (768px) ---- */
+@media (max-width: 768px) {
+  /* Headline padding for the new CAD grid hero on phones */
+  .hero, .hero-premium, .hero-page, .hero-wide-rounded {
+    margin: 18px 12px 22px !important;
+    padding: 36px 22px !important;
+    border-radius: var(--ink-r-lg) !important;
+    /* Make the grid feel tighter on small screens so each "cell" is still legible */
+    background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px !important;
+  }
+  .hero-title, .hero-page-title, .ink-hero-title {
+    font-size: clamp(26px, 8vw, 36px) !important;
+    line-height: 1.12 !important;
+  }
+  .hero-sub, .ink-hero-sub, .hero-page .hero-page-lead {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+  }
+  .hero-page-header-flex {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .hero-page-actions {
+    align-items: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+  .hero-page-actions .search-row { max-width: 100% !important; }
+  .hero-search-shell, .hero-page-actions .search-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+  .hero.hero-premium .hero-cta-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .hero.hero-premium .btn-premium-primary.btn-primary,
+  .hero.hero-premium .btn-premium-secondary,
+  .hero.hero-premium .btn-premium-ghost {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .hero.hero-premium .hero-chips-row { justify-content: center; }
+  .hero.hero-premium .hero-trust {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  .hero-eyebrow-premium,
+  .hero-premium .eyebrow,
+  .hero .eyebrow,
+  .hero-page .hero-page-eyebrow,
+  .hero-page .eyebrow,
+  .hero-wide-rounded .eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 0.14em !important;
+    padding: 5px 10px !important;
+  }
+
+  /* ---- KB portal: stack the rail above the stage on phones ---- */
+  body[data-page="knowledge"] .kb-app,
+  .kb-app {
+    flex-direction: column !important;
+    min-height: 0 !important;
+    background: var(--ink-bg-soft) !important;
+  }
+  body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal,
+  .kb-sidebar.kb-sidebar--portal {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 320px !important;
+    position: relative !important;
+    top: auto !important;
+    overflow-y: auto !important;
+    padding: 14px 14px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--ink-line) !important;
+    box-shadow: none !important;
+    gap: 10px !important;
+  }
+  /* When the user clicks the collapse caret, fully hide the rail on mobile */
+  body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-sidebar.kb-sidebar--portal {
+    max-height: 56px !important;
+    overflow: hidden !important;
+    padding: 8px 12px !important;
+  }
+  .kb-stage, .kb-main--portal, .kb-stage-scroll {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .kb-main--portal { padding: 24px 16px 64px !important; }
+  .kb-main { padding: 22px 16px !important; border-radius: 14px !important; }
+
+  /* KB subnav: horizontal scroll instead of wrap so labels stay readable */
+  .kb-subnav,
+  body[data-page="knowledge"] .kb-subnav {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding: 10px 14px !important;
+    gap: 6px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .kb-subnav::-webkit-scrollbar { height: 0; }
+  .kb-subnav-link {
+    flex-shrink: 0;
+    padding: 6px 11px !important;
+    font-size: 0.82rem !important;
+    white-space: nowrap;
+  }
+
+  /* Software-profile two-column → one-column */
+  .sw-grid, .sw-overview-grid, .sw-meta-grid, .vendor-grid,
+  .sw-profile-grid, .kb-software-grid,
+  .kb-software-related-grid, .kb-software-children-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .sw-at-a-glance dl,
+  .kb-meta-table { grid-template-columns: 110px 1fr !important; }
+
+  /* Knowledge graph: smaller stage, hide some heavy filters */
+  .kb-graph-stage, .kb-graph-canvas, .kb-graph-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .kb-graph-controls, .kb-graph-filters {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+  .kb-graph-legend { font-size: 0.78rem !important; }
+  svg.kb-graph-svg, .kb-graph-svg { width: 100% !important; height: 60vh !important; }
+
+  /* Generic content layout overrides */
+  .container { width: 94% !important; }
+  .grid-2, .grid-3, .grid-4, .grid-5,
+  .hero-split, .kpis, .nav-grid, .quick-grid, .pillar-grid,
+  .tutorial-grid, .news-grid, .source-link-grid,
+  .footer-grid, .site-footer-inner {
+    grid-template-columns: 1fr !important;
+  }
+  .tutorial-item, .news-item, .card { padding: 16px !important; }
+  .card h3, .tutorial-item h3, .news-item h3 { font-size: 1.05rem !important; }
+
+  /* Wide data tables: horizontal scroll. Key-value tables: stack labels */
+  .vendor-docs-table, .editorial-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+  /* "At a glance" style key/value tables inside .kb-concept-section:
+     stack the rows so the value column gets the full width. */
+  .kb-concept-section table { width: 100% !important; font-size: 13.5px !important; }
+  .kb-concept-section table th, .kb-concept-section table td {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    padding: 4px 0 !important;
+    white-space: normal !important;
+  }
+  .kb-concept-section table th {
+    padding-top: 14px !important;
+    font-size: 11px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-text-muted, #6b7280) !important;
+    font-weight: 700 !important;
+  }
+  .kb-concept-section table tr + tr th {
+    border-top: 1px solid var(--ink-line, rgba(0,0,0,0.07)) !important;
+    margin-top: 10px;
+  }
+
+  /* Breadcrumbs wrap nicely */
+  .breadcrumbs, .kb-breadcrumbs, .kb-faq-breadcrumbs {
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    font-size: 0.82rem;
+  }
+
+  /* Editorial / concept body: tighter padding */
+  .kb-concept-detail { padding: 22px 16px !important; }
+  .kb-concept-detail h1 { font-size: 1.65rem !important; line-height: 1.2 !important; }
+  .kb-concept-detail h2 { font-size: 1.2rem !important; }
+  .kb-concept-detail h3 { font-size: 1.05rem !important; }
+  .kb-concept-detail p, .kb-concept-detail li { font-size: 0.96rem !important; }
+  .kb-concept-detail blockquote, .ink-callout { padding: 14px 16px !important; }
+
+  /* Site notice / footer */
+  .site-notice-inner { padding: 10px 14px !important; flex-wrap: wrap; gap: 8px; }
+  .site-notice-text { font-size: 0.84rem !important; line-height: 1.45 !important; }
+  .site-footer-inner {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 32px 16px !important;
+  }
+  .site-footer h4 { margin-top: 0; }
+
+  /* Buttons: touch-friendly height + full-width by default in primary CTAs */
+  .btn, .btn-primary, .btn-secondary, .btn-ghost,
+  .hero-cta-row .btn { min-height: 44px; padding: 10px 18px; }
+
+  /* Stats / kpis */
+  .kpis, .stats-row { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .stats-row .stats-item { padding: 10px 12px; }
+
+  /* Anchor hashlink scroll offset */
+  :target { scroll-margin-top: 80px; }
+}
+
+/* ---- Very small phones (480px) ---- */
+@media (max-width: 480px) {
+  .hero, .hero-premium, .hero-page, .hero-wide-rounded {
+    margin: 12px 8px 18px !important;
+    padding: 28px 16px !important;
+    background-size: 60px 60px, 60px 60px, 15px 15px, 15px 15px !important;
+  }
+  .hero-title, .hero-page-title, .ink-hero-title {
+    font-size: clamp(22px, 8.5vw, 30px) !important;
+  }
+  .hero-sub, .ink-hero-sub, .hero-page .hero-page-lead {
+    font-size: 13.5px !important;
+  }
+  .hero.hero-premium .hero-trust { grid-template-columns: 1fr !important; }
+  .kpis, .stats-row { grid-template-columns: 1fr !important; }
+  .kb-subnav-link { font-size: 0.78rem !important; padding: 5px 9px !important; }
+  .kb-main { padding: 18px 12px !important; }
+  .kb-main--portal { padding: 18px 10px 56px !important; }
+  .breadcrumbs, .kb-breadcrumbs, .kb-faq-breadcrumbs { font-size: 0.78rem; }
+  .btn { font-size: 0.92rem !important; }
+  .container { width: 96% !important; }
+  .brand span { font-size: 1rem !important; }
 }
 
 /* ---- Print friendly (E-E-A-T compliance: printable concept pages) ---- */

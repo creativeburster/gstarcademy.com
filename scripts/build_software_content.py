@@ -102,14 +102,25 @@ def topbar_html(relpath: str, page: str = "knowledge") -> str:
             <span class="brand-badge">LC</span>
             <span>LearnCAD</span>
           </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
           <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
             <a class="nav-link" data-nav="home" href="{relpath}index.html">Home</a>
-            <a class="nav-link{' active' if page=='knowledge' else ''}" data-nav="knowledge" href="{relpath}knowledge-base.html">Knowledge Base</a>
+            <a class="nav-link{' active' if page=='knowledge' else ''}" data-nav="knowledge" href="{relpath}knowledge-base.html">Wiki</a>
             <a class="nav-link" data-nav="tutorials" href="{relpath}tutorials.html">Tutorials</a>
             <a class="nav-link" data-nav="news" href="{relpath}news.html">News</a>
             <a class="nav-link" data-nav="about" href="{relpath}about.html">About</a>
           </nav>
         </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
       </header>
     </div>"""
 
