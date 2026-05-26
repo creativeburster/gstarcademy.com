@@ -2901,6 +2901,11 @@ body[data-page="knowledge"] .kb-app {
   gap: 0;
   background: #151923;
 }
+@media (max-width: 768px) {
+  body[data-page="knowledge"] .kb-app {
+    background: transparent;
+  }
+}
 
 /* Force sticky behavior at top: 0 for sidebar and subnavigation bar when global header scrolls away */
 body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
@@ -3093,8 +3098,7 @@ body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-subnav {
 
 /* Nudge rail toggle + label down to match `.kb-subnav` row (same 48px band as stage chrome) */
 body[data-page="knowledge"] .kb-rail-toolbar {
-  padding-top: 6px;
-  padding-bottom: 0;
+  padding: 0;
 }
 
 .kb-rail-toolbar-label {
@@ -5762,4 +5766,44 @@ body[data-page="knowledge"] .kb-subnav {
   .topbar, .site-notice, .kb-rail, .footer, .ink-callout { display: none !important; }
   body, body::before { background: #FFFFFF !important; }
   .kb-concept-detail { box-shadow: none !important; border: none !important; padding: 0 !important; }
+}
+
+@media (max-width: 768px) {
+  /* Sidebar as sliding drawer */
+  .kb-sidebar {
+    position: fixed;
+    inset: 0;
+    width: 80%;
+    max-width: 280px;
+    background: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+    padding: 1rem;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  }
+  .kb-sidebar.kb-sidebar-collapsed {
+    transform: translateX(0);
+  }
+  .kb-sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 998;
+  }
+  .kb-app.kb-sidebar-collapsed .kb-main { margin-left: 0; }
+  .kb-portal-tile, .kb-detail-card {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+  .kb-portal-tile {
+    display: block;
+  }
+  body[data-page="knowledge"] {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  #kbGraphStage, .kb-graph-node-group { max-width: 100%; height: auto; }
 }

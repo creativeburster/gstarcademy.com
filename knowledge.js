@@ -14,6 +14,10 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   const applyKbRailCollapsed = (collapsed) => {
     if (!kbApp || !kbRail) return;
     kbApp.classList.toggle("kb-sidebar-collapsed", collapsed);
+    // overlay & body scroll handling for mobile
+    const overlayEl = document.querySelector('.kb-sidebar-overlay');
+    if (overlayEl) overlayEl.style.display = collapsed ? 'none' : 'block';
+    document.body.style.overflow = collapsed ? '' : 'hidden';
     try {
       localStorage.setItem(KB_RAIL_LS, collapsed ? "1" : "0");
     } catch (_) {
@@ -46,6 +50,12 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     const next = !kbApp.classList.contains("kb-sidebar-collapsed");
     applyKbRailCollapsed(next);
   });
+
+  // Create overlay for mobile sidebar
+  const overlay = document.createElement('div');
+  overlay.className = 'kb-sidebar-overlay';
+  overlay.addEventListener('click', () => applyKbRailCollapsed(true));
+  document.body.appendChild(overlay);
 
   // collapsible sidebar groups - Default to Expanded
   document.querySelectorAll(".kb-nav-toggle").forEach((btn) => {
