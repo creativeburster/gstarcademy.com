@@ -2914,6 +2914,7 @@ body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
   height: 100vh !important;
   overflow-y: auto !important;
   z-index: 100 !important;
+  border-radius: 0 !important;
 }
 
 body[data-page="knowledge"] .kb-subnav {
@@ -3062,10 +3063,12 @@ body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-sidebar.kb-sidebar-
 }
 
 body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toolbar {
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
   width: 100%;
+  padding: 0;
 }
 
 body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toolbar-label {
