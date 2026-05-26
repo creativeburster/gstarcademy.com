@@ -6052,27 +6052,27 @@ body[data-page="knowledge"] .kb-subnav {
    2. Mobile Sidebar Slide Fix & Floating Toggle
    ---------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Use left transitions instead of transform to prevent containing-block trap, and offset top to avoid covering header logo */
+  /* Use left transitions instead of transform to prevent containing-block trap, and offset top below subnav (64px header + 48px subnav = 112px) */
   body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
-    top: 56px !important; /* Starts exactly below header topbar */
-    height: calc(100vh - 56px) !important; /* Takes remaining height */
+    top: 112px !important; /* Starts exactly below subnav bar to never cover it */
+    height: calc(100vh - 112px) !important; /* Takes remaining height */
     left: -100% !important; /* Collapsed state position */
     transform: none !important; /* Free position: fixed descendants! */
     transition: left 0.3s ease !important;
   }
 
-  /* When open, slide in from the left and start below topbar */
+  /* When open, slide in from the left and start below subnav */
   body[data-page="knowledge"] .kb-app:not(.kb-sidebar-collapsed) .kb-sidebar.kb-sidebar--portal {
     left: 0 !important;
-    top: 56px !important;
-    height: calc(100vh - 56px) !important;
+    top: 112px !important;
+    height: calc(100vh - 112px) !important;
     transform: none !important;
   }
 
   body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-sidebar.kb-sidebar--portal {
     left: -100% !important;
-    top: 56px !important;
-    height: calc(100vh - 56px) !important;
+    top: 112px !important;
+    height: calc(100vh - 112px) !important;
     transform: none !important;
   }
 
@@ -6085,7 +6085,7 @@ body[data-page="knowledge"] .kb-subnav {
   body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toolbar {
     position: fixed !important;
     left: 12px !important;
-    top: 62px !important; /* Center vertically inside subnav bar (56px to 104px vertical zone) */
+    top: 70px !important; /* Centered perfectly inside subnav bar (64px to 112px vertical zone) */
     width: auto !important;
     height: auto !important;
     z-index: 10001 !important;
@@ -6117,6 +6117,11 @@ body[data-page="knowledge"] .kb-subnav {
    3. Mobile Hamburger Menu Positioning & High Contrast
    ---------------------------------------------------- */
 @media (max-width: 780px) {
+  /* Elevate topbar z-index when mobile nav is open to prevent subnav (z-index 99) from covering the Home link */
+  body[data-page="knowledge"] > .topbar:has(.nav.active) {
+    z-index: 10005 !important;
+  }
+
   /* Position hamburger relatively under topbar bottom edge to ignore notices and height shifts */
   .nav {
     position: absolute !important;
