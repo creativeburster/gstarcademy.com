@@ -5958,3 +5958,197 @@ body[data-page="knowledge"] .kb-subnav {
   }
   #kbGraphStage, .kb-graph-node-group { max-width: 100%; height: auto; }
 }
+
+/* ============================================================
+   GSTACADEMY BRANDING & COLLAPSED SIDEBAR MOBILE FIXES
+   ============================================================ */
+
+/* ----------------------------------------------------
+   1. Brand Logo Styling (Gstar in Oval + cad Underlined)
+   ---------------------------------------------------- */
+.brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin-right: auto !important; /* Force logo strictly to the left */
+  gap: 0 !important;
+  text-decoration: none !important;
+}
+
+.brand::after {
+  content: none !important; /* Disable any old layout leftovers */
+}
+
+/* Solid transparent oval container for Gstar */
+.brand .brand-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 3px 12px !important;
+  border: 2px solid currentColor !important; /* Oval border outline matching context */
+  border-radius: 999px !important; /* Perfect oval shape */
+  background: transparent !important;
+  box-shadow: none !important;
+  margin-right: 6px !important;
+  color: inherit !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-shadow: none !important;
+}
+
+/* Inject "Gstar" inside the oval */
+.brand .brand-badge::after {
+  content: "Gstar" !important;
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: currentColor !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  font-family: "Outfit", "Inter", sans-serif !important;
+}
+
+/* Hide original Gstarcademy text and style inline span */
+.brand span:not(.brand-badge) {
+  font-size: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  color: inherit !important;
+}
+
+/* Inject "cad" with high quality underline */
+.brand span:not(.brand-badge)::before {
+  content: "cad" !important;
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: inherit !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  line-height: 1 !important;
+  font-family: "Outfit", "Inter", sans-serif !important;
+  text-transform: none !important;
+  display: inline-block !important;
+}
+
+/* Inject "emy" plain next to it */
+.brand span:not(.brand-badge)::after {
+  content: "emy" !important;
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  font-family: "Outfit", "Inter", sans-serif !important;
+  text-transform: none !important;
+  display: inline-block !important;
+}
+
+/* ----------------------------------------------------
+   2. Mobile Sidebar Slide Fix & Floating Toggle
+   ---------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Use left transitions instead of transform to prevent containing-block trap */
+  body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
+    left: -100% !important; /* Collapsed state position */
+    transform: none !important; /* Free position: fixed descendants! */
+    transition: left 0.3s ease !important;
+  }
+
+  /* When open, slide in from the left */
+  body[data-page="knowledge"] .kb-app:not(.kb-sidebar-collapsed) .kb-sidebar.kb-sidebar--portal {
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-sidebar.kb-sidebar--portal {
+    left: -100% !important;
+    transform: none !important;
+  }
+
+  /* Style the collapsed toolbar as a viewport-fixed floating button */
+  body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toolbar {
+    position: fixed !important;
+    left: 12px !important;
+    top: 76px !important; /* Floating vertically to align perfectly with content stage */
+    width: auto !important;
+    height: auto !important;
+    z-index: 10001 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Make the collapsed toggle icon a clean, hovering circular action button */
+  body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toggle {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+    background: #ffffff !important;
+    border: 1px solid var(--ink-line-strong) !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+  }
+}
+
+/* ----------------------------------------------------
+   3. Mobile Hamburger Menu Positioning & High Contrast
+   ---------------------------------------------------- */
+@media (max-width: 780px) {
+  /* Position hamburger relatively under topbar bottom edge to ignore notices and height shifts */
+  .nav {
+    position: absolute !important;
+    top: 100% !important;
+    margin-top: 8px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .nav.active {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Force highly legible dark text inside the white dropdown mobile drawer on all pages */
+  body .topbar-inner .nav .nav-link {
+    display: block !important;
+    color: #1e293b !important; /* High contrast dark Slate */
+    background: transparent !important;
+    padding: 12px 20px !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body .topbar-inner .nav .nav-link:hover {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+  }
+
+  /* Style active page links beautifully */
+  body .topbar-inner .nav .nav-link.active,
+  body[data-page="knowledge"] .topbar-inner .nav .nav-link.active {
+    background: #0f172a !important;
+    color: #ffffff !important;
+  }
+}
+
