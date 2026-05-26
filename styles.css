@@ -5971,6 +5971,7 @@ body[data-page="knowledge"] .kb-subnav {
   align-items: center !important;
   justify-content: flex-start !important;
   margin-right: auto !important; /* Force logo strictly to the left */
+  margin-left: -15px !important; /* Shift entire logo left by 15px */
   gap: 0 !important;
   text-decoration: none !important;
 }
@@ -5988,12 +5989,12 @@ body[data-page="knowledge"] .kb-subnav {
   height: auto !important;
   min-width: 0 !important;
   min-height: 0 !important;
-  padding: 1px 6px !important; /* Tight oval padding around text */
+  padding: 1px 2px !important; /* Extra tight oval padding (reduced by 8px total) */
   border: 2px solid currentColor !important; /* Oval border outline matching context */
   border-radius: 999px !important; /* Perfect oval shape */
   background: transparent !important;
   box-shadow: none !important;
-  margin-right: 2px !important; /* Move cademy extremely close to the oval */
+  margin-right: 0px !important; /* Move cademy to immediately touch the oval */
   color: inherit !important;
   font-size: 0 !important;
   line-height: 0 !important;
@@ -6118,6 +6119,7 @@ body[data-page="knowledge"] .kb-subnav {
     transform: translateY(-10px) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15) !important;
+    overflow: visible !important; /* Ensure Home link or any other links are never cut off by height boundary */
   }
 
   .nav.active {
@@ -6129,6 +6131,8 @@ body[data-page="knowledge"] .kb-subnav {
   /* Force highly legible dark text inside the white dropdown mobile drawer on all pages */
   body .topbar-inner .nav .nav-link {
     display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     color: #1e293b !important; /* High contrast dark Slate */
     background: transparent !important;
     padding: 12px 20px !important;
@@ -6137,6 +6141,14 @@ body[data-page="knowledge"] .kb-subnav {
     text-align: left !important;
     width: 100% !important;
     box-sizing: border-box !important;
+  }
+
+  /* Explicitly guarantee the Home menu item is forced visible on all pages */
+  body .topbar-inner .nav .nav-link[data-nav="home"],
+  body .topbar-inner .nav .nav-link[href*="index"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   body .topbar-inner .nav .nav-link:hover {
