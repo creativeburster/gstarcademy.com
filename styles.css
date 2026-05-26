@@ -303,56 +303,72 @@ a { color: inherit; text-decoration: none; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 4px !important; /* 让 [Gstar] 与 cademy 紧密连贯 */
+  gap: 0 !important; /* 零间距贴合，消除距离过远的问题 */
   font-weight: 800;
   font-size: 1.1rem;
   color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
-/* 改造原有的 GC 徽标为带框的 Gstar 纯 CSS 文本 */
+/* 彻底重塑 GC 徽标为高逼格的 Gstar 椭圆圈线框 */
 .brand-badge {
   width: auto !important;
   height: auto !important;
   min-width: 0 !important;
-  padding: 3px 8px !important; /* 精致框内边距 */
-  border: 2px solid currentColor !important; /* 继承前景色线框，完美自适应深浅顶栏 */
-  border-radius: 0 !important; /* 100% 直角线框 */
+  padding: 2px 10px !important; /* 精致椭圆框内边距 */
+  border: 2px solid currentColor !important; /* 继承色线框，自适应深浅顶栏 */
+  border-radius: 999px !important; /* 椭圆圈线框 */
   background: transparent !important; /* 透明背景 */
-  box-shadow: none !important; /* 丢掉原有的发光阴影 */
-  font-size: 0 !important; /* 隐藏原本写死的 GC */
+  box-shadow: none !important; /* 丢掉发光阴影 */
+  font-size: 0 !important; /* 隐藏 GC */
+  line-height: 0 !important; /* 隐藏 GC */
+  color: transparent !important; /* 彻底隐形 GC，防止移动端残留 */
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: inherit !important;
-  line-height: 1 !important;
+  margin-right: 4px !important; /* 让椭圆圈与后面的文字保持刚好 4px 黄金间距 */
 }
 
 .brand-badge::after {
   content: "Gstar" !important;
   font-size: 1.15rem !important;
   font-weight: 900 !important;
-  color: inherit !important;
+  color: currentColor !important; /* 恢复继承前景色 */
   text-transform: none !important;
-  line-height: 1 !important;
+  line-height: 1.2 !important;
   font-family: "Outfit", "Inter", sans-serif !important;
 }
 
-/* 改造后面的 span 元素，使其显示 cademy 并完美衔接 */
+/* 改造后面的 span 元素，使其仅显示 cad 并且加上下划线 */
 .brand span:not(.brand-badge) {
-  font-size: 0 !important; /* 隐藏原本写死的 Gstarcademy */
+  font-size: 0 !important; /* 隐藏原有的 Gstarcademy */
   display: inline-block !important;
   line-height: 1 !important;
+  color: inherit !important;
 }
 
 .brand span:not(.brand-badge)::after {
-  content: "cademy" !important;
+  content: "cad" !important;
+  font-size: 1.15rem !important;
+  font-weight: 900 !important;
+  color: inherit !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  text-decoration: underline !important; /* cad 三个字加下划线 */
+  text-underline-offset: 3px !important; /* 下划线精致偏移量 */
+  font-family: "Outfit", "Inter", sans-serif !important;
+}
+
+/* 利用 brand 的伪元素在最末尾拼装上不带下划线的 emy */
+.brand::after {
+  content: "emy" !important;
   font-size: 1.15rem !important;
   font-weight: 900 !important;
   color: inherit !important;
   text-transform: none !important;
   line-height: 1 !important;
   font-family: "Outfit", "Inter", sans-serif !important;
+  display: inline-block !important;
 }
 
 .nav { display: flex; align-items: center; gap: 4px; }
@@ -5814,6 +5830,12 @@ body[data-page="knowledge"] .kb-subnav {
     display: none !important;
   }
 
+  /* 汉堡菜单顶部安全留白，彻底解决 Home 菜单项被遮挡的烦恼 */
+  .nav {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
   /* 强行将侧栏从文档流脱离，变为优雅的滑出式抽屉，彻底消灭顶部的米色巨无霸空白区 */
   body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
     position: fixed !important;
@@ -5832,11 +5854,48 @@ body[data-page="knowledge"] .kb-subnav {
     border-radius: 0 !important;
     border: none !important;
     border-right: 1px solid var(--ink-line) !important;
+    
+    /* 强制内部子元素垂直堆叠排列，彻底解决并排挤变形的问题 */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
   }
 
-  /* 展开状态（JS 里的 logic：collapsed 为 false 时类名变化） */
+  /* 修复侧栏子容器，消除 Devin 顶部横条样式产生的并排拉伸 */
+  body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal .kb-nav-group {
+    width: 100% !important;
+    flex: none !important;
+    min-width: 0 !important;
+    display: block !important;
+    margin-bottom: 12px !important;
+  }
+
+  body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal .kb-index-box {
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 展开状态（抽屉拉出显示） */
   body[data-page="knowledge"] .kb-app:not(.kb-sidebar-collapsed) .kb-sidebar.kb-sidebar--portal {
     transform: translateX(0) !important;
+  }
+
+  /* 展开状态下的内部工具栏，处于抽屉顶部正常渲染 */
+  body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal .kb-rail-toolbar {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: 1px solid var(--ink-line) !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+    background: transparent !important;
   }
 
   /* 折叠状态（即默认隐藏，抽屉收起） */
@@ -5847,25 +5906,26 @@ body[data-page="knowledge"] .kb-subnav {
     overflow-y: auto !important;
   }
 
-  /* 在移动端下，强行将开关工具栏拉出来，固定在页面左侧悬浮，使用户始终能点到它 */
-  body[data-page="knowledge"] .kb-rail-toolbar {
+  /* 折叠状态下，在主屏幕左上角强行将开关工具栏拉出来贴顶，实现与 subnav 的像素级完美对齐 */
+  body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toolbar {
     position: fixed !important;
-    left: 12px !important;
-    top: 72px !important; /* 处于主导航栏下方 56px + 16px 的黄金悬浮位置 */
-    width: 42px !important;
-    height: 42px !important;
+    left: 0 !important;
+    top: 56px !important; /* 紧贴 56px 顶栏底边 */
+    width: 52px !important;
+    height: 48px !important; /* 与 subnav 顶高完全一致 */
     z-index: 10001 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: transparent !important;
+    background: var(--ink-bg-soft) !important; /* 视觉无缝融合 */
     border: none !important;
+    border-bottom: 1px solid var(--ink-line) !important;
     padding: 0 !important;
     margin: 0 !important;
   }
 
   /* 强制让开关按钮在移动端处于绝对悬浮的显眼层 */
-  body[data-page="knowledge"] .kb-rail-toggle {
+  body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toggle {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
     background: #ffffff !important;
     border: 1px solid var(--ink-line-strong) !important;
