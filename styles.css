@@ -303,25 +303,56 @@ a { color: inherit; text-decoration: none; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 4px !important; /* 让 [Gstar] 与 cademy 紧密连贯 */
   font-weight: 800;
   font-size: 1.1rem;
   color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
+/* 改造原有的 GC 徽标为带框的 Gstar 纯 CSS 文本 */
 .brand-badge {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.25);
-  font-size: 12px;
-  font-weight: 900;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  padding: 3px 8px !important; /* 精致框内边距 */
+  border: 2px solid currentColor !important; /* 继承前景色线框，完美自适应深浅顶栏 */
+  border-radius: 0 !important; /* 100% 直角线框 */
+  background: transparent !important; /* 透明背景 */
+  box-shadow: none !important; /* 丢掉原有的发光阴影 */
+  font-size: 0 !important; /* 隐藏原本写死的 GC */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: inherit !important;
+  line-height: 1 !important;
+}
+
+.brand-badge::after {
+  content: "Gstar" !important;
+  font-size: 1.15rem !important;
+  font-weight: 900 !important;
+  color: inherit !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  font-family: "Outfit", "Inter", sans-serif !important;
+}
+
+/* 改造后面的 span 元素，使其显示 cademy 并完美衔接 */
+.brand span:not(.brand-badge) {
+  font-size: 0 !important; /* 隐藏原本写死的 Gstarcademy */
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+.brand span:not(.brand-badge)::after {
+  content: "cademy" !important;
+  font-size: 1.15rem !important;
+  font-weight: 900 !important;
+  color: inherit !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  font-family: "Outfit", "Inter", sans-serif !important;
 }
 
 .nav { display: flex; align-items: center; gap: 4px; }
@@ -5778,23 +5809,74 @@ body[data-page="knowledge"] .kb-subnav {
 }
 
 @media (max-width: 768px) {
-  /* Sidebar as sliding drawer */
-  .kb-sidebar {
-    position: fixed;
-    inset: 0;
-    width: 80%;
-    max-width: 280px;
-    background: #fff;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 999;
-    overflow-y: auto;
-    padding: 1rem;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  /* 彻底削掉汉堡菜单顶部碍眼的一大截空白 */
+  .nav-header {
+    display: none !important;
   }
-  .kb-sidebar.kb-sidebar-collapsed {
-    transform: translateX(0);
+
+  /* 强行将侧栏从文档流脱离，变为优雅的滑出式抽屉，彻底消灭顶部的米色巨无霸空白区 */
+  body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 80% !important;
+    max-width: 280px !important;
+    height: 100vh !important;
+    max-height: none !important;
+    background: #ffffff !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    padding: 24px 16px !important;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 0 !important;
+    border: none !important;
+    border-right: 1px solid var(--ink-line) !important;
   }
+
+  /* 展开状态（JS 里的 logic：collapsed 为 false 时类名变化） */
+  body[data-page="knowledge"] .kb-app:not(.kb-sidebar-collapsed) .kb-sidebar.kb-sidebar--portal {
+    transform: translateX(0) !important;
+  }
+
+  /* 折叠状态（即默认隐藏，抽屉收起） */
+  body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-sidebar.kb-sidebar--portal {
+    transform: translateX(-100%) !important;
+    max-height: none !important;
+    padding: 24px 16px !important;
+    overflow-y: auto !important;
+  }
+
+  /* 在移动端下，强行将开关工具栏拉出来，固定在页面左侧悬浮，使用户始终能点到它 */
+  body[data-page="knowledge"] .kb-rail-toolbar {
+    position: fixed !important;
+    left: 12px !important;
+    top: 72px !important; /* 处于主导航栏下方 56px + 16px 的黄金悬浮位置 */
+    width: 42px !important;
+    height: 42px !important;
+    z-index: 10001 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 强制让开关按钮在移动端处于绝对悬浮的显眼层 */
+  body[data-page="knowledge"] .kb-rail-toggle {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+    background: #ffffff !important;
+    border: 1px solid var(--ink-line-strong) !important;
+    width: 34px !important;
+    height: 34px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+  }
+
   .kb-sidebar-overlay {
     display: none;
     position: fixed;
