@@ -5971,7 +5971,7 @@ body[data-page="knowledge"] .kb-subnav {
   align-items: center !important;
   justify-content: flex-start !important;
   margin-right: auto !important; /* Force logo strictly to the left */
-  margin-left: -15px !important; /* Shift entire logo left by 15px */
+  margin-left: -7px !important; /* Shift entire logo left by 7px (adjusted for perfect alignment) */
   gap: 0 !important;
   text-decoration: none !important;
 }
@@ -6052,29 +6052,40 @@ body[data-page="knowledge"] .kb-subnav {
    2. Mobile Sidebar Slide Fix & Floating Toggle
    ---------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Use left transitions instead of transform to prevent containing-block trap */
+  /* Use left transitions instead of transform to prevent containing-block trap, and offset top to avoid covering header logo */
   body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
+    top: 56px !important; /* Starts exactly below header topbar */
+    height: calc(100vh - 56px) !important; /* Takes remaining height */
     left: -100% !important; /* Collapsed state position */
     transform: none !important; /* Free position: fixed descendants! */
     transition: left 0.3s ease !important;
   }
 
-  /* When open, slide in from the left */
+  /* When open, slide in from the left and start below topbar */
   body[data-page="knowledge"] .kb-app:not(.kb-sidebar-collapsed) .kb-sidebar.kb-sidebar--portal {
     left: 0 !important;
+    top: 56px !important;
+    height: calc(100vh - 56px) !important;
     transform: none !important;
   }
 
   body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-sidebar.kb-sidebar--portal {
     left: -100% !important;
+    top: 56px !important;
+    height: calc(100vh - 56px) !important;
     transform: none !important;
   }
 
-  /* Style the collapsed toolbar as a viewport-fixed floating button */
+  /* Shunt the subnav to the right on mobile when collapsed so it doesn't get covered by the toggle button */
+  body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-subnav {
+    padding-left: 56px !important; /* Move text 56px to the right for perfect clearance */
+  }
+
+  /* Style the collapsed toolbar as a viewport-fixed floating button centered vertically in subnav */
   body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toolbar {
     position: fixed !important;
     left: 12px !important;
-    top: 76px !important; /* Floating vertically to align perfectly with content stage */
+    top: 62px !important; /* Center vertically inside subnav bar (56px to 104px vertical zone) */
     width: auto !important;
     height: auto !important;
     z-index: 10001 !important;
