@@ -3063,12 +3063,14 @@ body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-sidebar.kb-sidebar-
 }
 
 body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  width: 100%;
-  padding: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 48px !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-bottom: none !important;
 }
 
 body[data-page="knowledge"] .kb-app.kb-sidebar-collapsed .kb-rail-toolbar-label {
@@ -5473,6 +5475,9 @@ body[data-page="knowledge"] .kb-subnav {
   color: var(--ink-text) !important;
   border: 1px solid var(--ink-line-strong) !important;
   border-radius: 8px !important;
+  width: 34px !important;
+  height: 34px !important;
+  flex-shrink: 0 !important;
 }
 
 /* Dark mode: revert sidebar to deep-ink theme but keep correct contrast */
