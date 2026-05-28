@@ -204,70 +204,178 @@
                 </div>
               </div>
 
-              <div class="kb-portal-quick-wrap" style="margin-top: 32px;">
-                <h2 class="kb-portal-quick-heading">✨ Recent Atomic Insights</h2>
-                <div class="kb-detail-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
-                  <a href="./kb/concepts/dwg-compare.html" class="card" style="text-decoration: none; color: inherit;">
-                    <strong style="display: block; margin-bottom: 4px;">DWG Compare</strong>
-                    <p class="meta">Visual diffing for drawing versions.</p>
-                  </a>
-                  <a href="./kb/concepts/parametric-constraints.html" class="card" style="text-decoration: none; color: inherit;">
-                    <strong style="display: block; margin-bottom: 4px;">Parametric Constraints</strong>
-                    <p class="meta">Formula-driven design intent.</p>
-                  </a>
-                  <a href="./kb/concepts/drawing-merge.html" class="card" style="text-decoration: none; color: inherit;">
-                    <strong style="display: block; margin-bottom: 4px;">Drawing Merge</strong>
-                    <p class="meta">Data consolidation utility.</p>
+              <!-- ------------------------------------------------------------------
+                   KB Overview Highlights Dashboard
+                   ------------------------------------------------------------------- -->
+              <div class="kb-portal-quick-wrap" style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 32px;">
+                <h2 class="kb-portal-quick-heading">🧩 Knowledge Base Hub Highlights</h2>
+                <p class="meta" style="margin-top: -8px; margin-bottom: 24px;">A structured overview of our primary lanes: Software Profiles, Core Terms, collapsible Q&A, and Interactive Graph.</p>
+                
+                <!-- 1. Software Landscape Highlight -->
+                <div class="kb-section-highlight" style="margin-bottom: 32px; background: rgba(255,255,255,0.4); border: 1px solid #edf2f7; padding: 24px; border-radius: 18px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #1e3a8a; margin: 0; display: flex; align-items: center; gap: 8px;">
+                      <span aria-hidden="true">🧰</span> CAD Software Landscape Highlights
+                    </h3>
+                    <a href="./kb-software.html" class="kb-mini-btn" style="background: #2563eb; color: #ffffff; padding: 6px 12px; font-size: 11px; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                      View Full Profiles Grid &rarr;
+                    </a>
+                  </div>
+                  
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                    <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 1.2rem;" aria-hidden="true">📐</span>
+                        <strong style="font-size: 0.95rem; color: #0f172a;">AutoCAD</strong>
+                      </div>
+                      <p class="meta" style="font-size: 0.8rem; line-height: 1.4; margin: 0;">The global drafting standard, defining the native DWG ecosystem and coordinates drafting layouts.</p>
+                    </div>
+                    <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 1.2rem;" aria-hidden="true">🏙️</span>
+                        <strong style="font-size: 0.95rem; color: #0f172a;">Revit</strong>
+                      </div>
+                      <p class="meta" style="font-size: 0.8rem; line-height: 1.4; margin: 0;">Autodesk's BIM powerhouse, coordinating architectural, structural, and MEP objects under one database.</p>
+                    </div>
+                    <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 1.2rem;" aria-hidden="true">🎨</span>
+                        <strong style="font-size: 0.95rem; color: #0f172a;">GstarCAD</strong>
+                      </div>
+                      <p class="meta" style="font-size: 0.8rem; line-height: 1.4; margin: 0;">Highly optimized DWG-native alternative, renowned for extreme speed and low memory footprint.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Core Terms Highlight -->
+                <div class="kb-section-highlight" style="margin-bottom: 32px; background: rgba(255,255,255,0.4); border: 1px solid #edf2f7; padding: 24px; border-radius: 18px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #7c2d12; margin: 0; display: flex; align-items: center; gap: 8px;">
+                      <span aria-hidden="true">📇</span> Core Atomic Concepts & Terms
+                    </h3>
+                    <a href="./kb-terms.html" class="kb-mini-btn" style="background: #ea580c; color: #ffffff; padding: 6px 12px; font-size: 11px; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                      Explore Atomic Glossary &rarr;
+                    </a>
+                  </div>
+                  
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                    <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                      <strong style="display: block; font-size: 0.9rem; color: #0f172a; margin-bottom: 6px;">Parametric Constraints</strong>
+                      <p class="meta" style="font-size: 0.8rem; line-height: 1.4; margin: 0;">Formulaic mathematical relations driving automatic adjustments of geometries when sizes change.</p>
+                    </div>
+                    <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                      <strong style="display: block; font-size: 0.9rem; color: #0f172a; margin-bottom: 6px;">Intelligent Objects</strong>
+                      <p class="meta" style="font-size: 0.8rem; line-height: 1.4; margin: 0;">AEC modeling elements loaded with structural properties, scheduling parameters, and smart rules.</p>
+                    </div>
+                    <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                      <strong style="display: block; font-size: 0.9rem; color: #0f172a; margin-bottom: 6px;">Drawing Merge</strong>
+                      <p class="meta" style="font-size: 0.8rem; line-height: 1.4; margin: 0;">Data consolidation that coordinates cross-references (Xrefs) and model syncing for complex assemblies.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. Collapsible Q&A FAQs -->
+                <div class="kb-section-highlight" style="margin-bottom: 32px; background: rgba(255,255,255,0.4); border: 1px solid #edf2f7; padding: 24px; border-radius: 18px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #065f46; margin: 0; display: flex; align-items: center; gap: 8px;">
+                      <span aria-hidden="true">❓</span> Collapsible Popular FAQs Preview
+                    </h3>
+                    <a href="./kb-faq.html" class="kb-mini-btn" style="background: #059669; color: #ffffff; padding: 6px 12px; font-size: 11px; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                      Open Full Collapsible FAQ &rarr;
+                    </a>
+                  </div>
+                  
+                  <div style="max-width: 52rem;">
+                    <details class="vendor-docs-details">
+                      <summary>What is the fundamental difference between 2D CAD and BIM?</summary>
+                      <p>
+                        2D CAD coordinates visual vectors (lines, arcs, circles) representing geometry on a flat page. BIM (Building Information Modeling) operates on an active, multi-disciplinary relational database where elements represent real structural objects loaded with schedules, constraints, and smart behaviors.
+                      </p>
+                    </details>
+                    <details class="vendor-docs-details">
+                      <summary>Why does drawing engine memory optimization (e.g. GstarCAD vs AutoCAD) matter?</summary>
+                      <p>
+                        Large architectural files and mechanical assemblies can consume massive computer memory (RAM). Optimized engines utilize sophisticated database memory sharing to handle thousands of blocks and external references (Xrefs) with extremely rapid loading speeds and zero drafting lag.
+                      </p>
+                    </details>
+                  </div>
+                </div>
+
+                <!-- 4. Concept Graph Highlight -->
+                <div class="kb-section-highlight" style="margin-bottom: 32px; background: rgba(255,255,255,0.4); border: 1px solid #edf2f7; padding: 24px; border-radius: 18px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #581c87; margin: 0; display: flex; align-items: center; gap: 8px;">
+                      <span aria-hidden="true">🕸️</span> Interactive Concept Graph Hub
+                    </h3>
+                    <a href="./kb-graph.html" class="kb-mini-btn" style="background: #7c3aed; color: #ffffff; padding: 6px 12px; font-size: 11px; font-weight: 700; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                      Open Concept Visualizer &rarr;
+                    </a>
+                  </div>
+                  
+                  <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+                    <div style="font-size: 2.2rem; flex-shrink: 0;" aria-hidden="true">📊</div>
+                    <div style="flex: 1; min-width: 220px;">
+                      <strong style="display: block; font-size: 0.95rem; color: #0f172a; margin-bottom: 4px;">Structural Interactivity map</strong>
+                      <p class="meta" style="font-size: 0.8rem; line-height: 1.45; margin: 0;">
+                        Visualize how complex CAD structures are interrelated. See the links connecting BIM databases, parametric constraint systems, drawing merges, and command palettes in an active D3 force-directed diagram!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- 5. Selected Tutorials Teaser (少量) -->
+              <div class="kb-portal-quick-wrap" style="margin-top: 36px; border-top: 1px solid #e2e8f0; padding-top: 28px;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                  <span aria-hidden="true">📺</span> Curated Tutorials Discovery Teaser
+                </h3>
+                <div class="kb-feature" style="margin-bottom: 24px; padding: 24px; background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 18px; color: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                  <div style="flex: 1; min-width: 280px;">
+                    <span class="chip" style="background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">Active Track</span>
+                    <h4 style="margin: 8px 0 4px; font-size: 1.1rem; font-weight: 700; color: #ffffff;">Starter Sequence: CAD Literacy in 14 Days</h4>
+                    <p style="margin: 0; font-size: 0.82rem; color: #94a3b8; line-height: 1.4;">A structured learning roadmap aggregating YouTube, Coursera, and vendor help channels. Follow the curated outlines rather than endless search results.</p>
+                  </div>
+                  <a href="./tutorials.html" class="kb-mini-btn" style="background: #2563eb; color: #ffffff; padding: 10px 20px; font-size: 0.85rem; font-weight: 700; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,99,235,0.25); white-space: nowrap;">
+                    Open Tutorials Library &rarr;
                   </a>
                 </div>
               </div>
-            </div>
-            <div class="kb-feature">
-              <div>
-                <span class="chip pill-warn">Featured</span>
-                <h3 style="margin:8px 0 6px">Starter Track: CAD General Literacy in 14 Days</h3>
-                <p class="meta">
-                  A beginner sequence covering concepts, terminology, and software landscape.
-                </p>
+
+              <!-- 6. Curated News highlights (少量) -->
+              <div class="kb-portal-quick-wrap" style="margin-top: 32px; border-top: 1px solid #e2e8f0; padding-top: 28px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 8px;">
+                    <span aria-hidden="true">📢</span> Curated Industry News Highlights
+                  </h3>
+                  <a href="./news.html" style="font-size: 0.8rem; color: #2563eb; font-weight: 700; text-decoration: none;">View News Timeline &rarr;</a>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                  <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01);">
+                    <span style="font-size: 10px; font-weight: 800; color: #2563eb; text-transform: uppercase;">IFC Interoperability</span>
+                    <h4 style="margin: 6px 0 4px; font-size: 0.95rem; font-weight: 700; color: #0f172a;">Open BIM announcements and IFC ecosystem updates</h4>
+                    <p class="meta" style="font-size: 0.8rem; line-height: 1.4; margin: 0;">buildingSMART continues coordinating open specifications. Check standard cadence updates before deploying complex pipelines.</p>
+                  </div>
+                  <div style="background: #ffffff; border: 1px solid #edf2f7; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01);">
+                    <span style="font-size: 10px; font-weight: 800; color: #2563eb; text-transform: uppercase;">AEC Technology</span>
+                    <h4 style="margin: 6px 0 4px; font-size: 0.95rem; font-weight: 700; color: #0f172a;">Construction tech and BIM practice – Autodesk channel</h4>
+                    <p class="meta" style="font-size: 0.8rem; line-height: 1.4; margin: 0;">Curated articles tracking site coordination, field operations, and cloud sync frameworks that sit alongside CAD modeling.</p>
+                  </div>
+                </div>
               </div>
-              <div class="kb-feature-actions">
-                <a class="kb-mini-btn" href="./tutorials.html">Browse tutorials</a>
-                <a class="kb-mini-btn" href="./kb/software/index.html">Software profiles</a>
-                <a class="kb-mini-btn" href="./kb-graph.html">See concept graph</a>
-                <a class="kb-mini-btn" href="./knowledge-glossary.html">Browse term cards</a>
+
+              <!-- 7. Wiki Philosophy & About (少量) -->
+              <div id="kb-about" class="kb-portal-quick-wrap" style="margin-top: 32px; border-top: 1px solid #e2e8f0; padding-top: 28px; margin-bottom: 32px;">
+                <div class="card" style="background: rgba(255,255,255,0.45); border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.01);">
+                  <h4 style="margin: 0 0 8px; font-size: 1.05rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 6px;">
+                    🎯 Wiki Philosophy: Structured Literacy
+                  </h4>
+                  <p class="meta" style="line-height: 1.55; margin: 0; font-size: 0.82rem;">
+                    Inspired by the <strong>Structured Literacy</strong> approach, Gstarcademy prioritizes "the map before the app." We extract core concepts—atomic units of knowledge that remain completely consistent even when software tools shift. Every glossary term, FAQ card, and node in the Concept Graph is a verified atomic unit designed to provide a permanent mental framework for CAD learners.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="kb-daily">
-              <strong>Daily Read</strong>
-              <p>
-                “A beginner does not fail because CAD is hard, but because learning order is unclear.”
-              </p>
-              <span>— Gstarcademy Wiki</span>
-            </div>
-            <div id="kb-about" class="kb-about kb-anchor-target">
-              <div>
-                <h3 style="margin-bottom:6px">Wiki Philosophy: Structured Literacy</h3>
-                <p class="meta" style="line-height: 1.6">
-                  Inspired by the <strong>Structured Literacy</strong> and <strong>Atomic Knowledge</strong> approach (as seen in <a href="https://learnbuffett.com/" target="_blank">LearnBuffett</a>), this hub prioritizes "the map before the app." We move beyond linear tutorials to extract core concepts—atomic units of knowledge that are linked across software and industry domains. 
-                  <br><br>
-                  Every card in our <a href="./knowledge-glossary.html">Glossary</a> and every node in our <a href="./kb-graph.html">Knowledge Graph</a> is a verified atomic unit, derived from official documentation and AI-assisted analysis (e.g., our pilot integration of <strong>GstarCAD 2026</strong> feature sets). Our goal is to provide a mental model that persists even as your software tools change.
-                </p>
-              </div>
-            </div>
-            <div class="kb-section">
-              <div class="kb-section-head">
-                <h3>Related Pages</h3>
-                <span class="section-note">Internal link cluster</span>
-              </div>
-              <article class="card">
-                <ul class="seo-link-list">
-                  <li><a href="./kb/software/index.html">Software profiles — one page per product (AutoCAD, Revit, SOLIDWORKS, …)</a></li>
-                  <li><a href="./knowledge-glossary.html">Glossary · filterable term cards</a></li>
-                  <li><a href="./tutorials.html">Tutorial library (search by software &amp; task)</a></li>
-                  <li><a href="./tutorial-detail.html">Side-by-side tutorial comparison (example page)</a></li>
-                </ul>
-              </article>
-            </div> <!-- End kb-section -->
           </div> <!-- End kb-main -->
         </div> <!-- End kb-stage-scroll -->
       </div> <!-- End kb-stage -->
