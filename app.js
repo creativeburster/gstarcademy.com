@@ -140,3 +140,170 @@ document.addEventListener("keydown", (ev) => {
       "Demo only: nothing was transmitted. For real inquiries, use the mailbox links on this page.";
   });
 })();
+
+(function initTutorialFilters() {
+  if (document.body.getAttribute("data-page") !== "tutorials") return;
+
+  const chips = document.querySelectorAll(".chips .chip");
+  const searchInput = document.querySelector(".search-row input");
+  const searchBtn = document.querySelector(".search-row button");
+  const tutorialItems = document.querySelectorAll(".tutorial-item");
+
+  const state = {
+    software: "all",
+    task: "all",
+    level: "all",
+    price: "all",
+    search: ""
+  };
+
+  // 1. Function to apply the current filter state
+  function applyFilters() {
+    tutorialItems.forEach((item) => {
+      // Software filter (handles space-separated values)
+      const itemSoftwareAttr = item.getAttribute("data-software") || "";
+      const itemSoftwares = itemSoftwareAttr.split(/\s+/).filter(Boolean);
+      const matchesSoftware =
+        state.software === "all" || itemSoftwares.includes(state.software);
+
+      // Task filter
+      const matchesTask =
+        state.task === "all" || item.getAttribute("data-task") === state.task;
+
+      // Level filter
+      const matchesLevel =
+        state.level === "all" || item.getAttribute("data-level") === state.level;
+
+      // Price filter
+      const matchesPrice =
+        state.price === "all" || item.getAttribute("data-price") === state.price;
+
+      // Search text filter (title, description, tags)
+      let matchesSearch = true;
+      if (state.search.trim()) {
+        const query = state.search.toLowerCase();
+        const title = item.querySelector("h3")?.textContent.toLowerCase() || "";
+        const desc = item.querySelector("p")?.textContent.toLowerCase() || "";
+        const tags = Array.from(item.querySelectorAll(".tag"))
+          .map((t) => t.textContent.toLowerCase())
+          .join(" ");
+
+        matchesSearch =
+          title.includes(query) || desc.includes(query) || tags.includes(query);
+      }
+
+      if (matchesSoftware && matchesTask && matchesLevel && matchesPrice && matchesSearch) {
+        item.style.display = "";
+        setTimeout(() => {
+          item.style.opacity = "1";
+          item.style.transform = "translateY(0)";
+        }, 10);
+      } else {
+        item.style.display = "none";
+        item.style.opacity = "0";
+      }
+    });
+  }
+
+  // 2. Chip click handlers
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const groupEl = chip.closest(".chips");
+      if (!groupEl) return;
+
+      const groupName = groupEl.getAttribute("data-filter-group");
+      const filterValue = chip.getAttribute("data-filter-value");
+
+      if (!groupName || !filterValue) return;
+
+      // Toggle active classes in this group
+      groupEl.querySelectorAll(".chip").forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+
+      // Update state and apply
+      state[groupName] = filterValue;
+      applyFilters();
+    });
+  });
+
+  // 3. Search input handler
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      state.search = e.target.value;
+      applyFilters();
+    });
+
+    // Also handle search button click
+    searchBtn?.addEventListener("click", () => {
+      state.search = searchInput.value;
+      applyFilters();
+    });
+
+    // Support enter key on search input
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        state.search = searchInput.value;
+        applyFilters();
+      }
+    });
+  }
+
+  // 4. URL query parameter parsing
+  function parseUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    
+    // Check direct filter params (e.g. ?software=autocad)
+    ["software", "task", "level", "price"].forEach((key) => {
+      const val = params.get(key);
+      if (val) {
+        const chip = document.querySelector(`.chips[data-filter-group="${key}"] .chip[data-filter-value="${val}"]`);
+        if (chip) {
+          chip.click();
+        }
+      }
+    });
+
+    // Check generic search query parameter ?q=
+    const query = params.get("q");
+    if (query) {
+      const lowerQuery = query.toLowerCase();
+
+      // Check if query directly maps to one of our software values
+      let mappedSoftware = null;
+      if (lowerQuery.includes("autocad")) mappedSoftware = "autocad";
+      else if (lowerQuery.includes("autodesk")) mappedSoftware = "autocad"; // fallback to AutoCAD
+      else if (lowerQuery.includes("revit")) mappedSoftware = "revit";
+      else if (lowerQuery.includes("fusion")) mappedSoftware = "fusion";
+      else if (lowerQuery.includes("solidworks")) mappedSoftware = "solidworks";
+      else if (lowerQuery.includes("catia")) mappedSoftware = "catia";
+      else if (lowerQuery.includes("dassault")) mappedSoftware = "solidworks";
+      else if (lowerQuery.includes("inventor")) mappedSoftware = "inventor";
+      else if (lowerQuery.includes("civil")) mappedSoftware = "civil3d";
+      else if (lowerQuery.includes("creo")) mappedSoftware = "creo";
+      else if (lowerQuery.includes("ptc")) mappedSoftware = "creo";
+      else if (lowerQuery.includes("siemens")) mappedSoftware = "nx";
+      else if (lowerQuery.includes("nx")) mappedSoftware = "nx";
+      else if (lowerQuery.includes("gstarcad")) mappedSoftware = "gstarcad";
+      else if (lowerQuery.includes("gstarsoft")) mappedSoftware = "gstarcad";
+      else if (lowerQuery.includes("rhino")) mappedSoftware = "rhino";
+
+      if (mappedSoftware) {
+        const chip = document.querySelector(`.chips[data-filter-group="software"] .chip[data-filter-value="${mappedSoftware}"]`);
+        if (chip) {
+          chip.click();
+        }
+      } else {
+        // Just put it in the search input and filter
+        if (searchInput) {
+          searchInput.value = query;
+          state.search = query;
+          applyFilters();
+        }
+      }
+    }
+  }
+
+  // Run initial parsing on load
+  parseUrlParams();
+})();
+

@@ -6194,3 +6194,552 @@ body[data-page="knowledge"] .kb-subnav {
   }
 }
 
+/* ------------------------------------------------------------------
+   Modernized CAD Software Profiles Grid
+   ------------------------------------------------------------------- */
+.kb-software-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.kb-software-card {
+  background: var(--surface-strong, #ffffff);
+  border: 1px solid var(--line-soft, #e2e8f0);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.kb-software-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.kb-software-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+.kb-software-card:hover::before {
+  opacity: 1;
+}
+
+.kb-software-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.kb-software-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.kb-software-card-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text, #0f172a);
+}
+
+.kb-software-card-vendor {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted, #64748b);
+  font-weight: 600;
+}
+
+.kb-software-card-body {
+  font-size: 0.9rem;
+  color: var(--text-muted, #475569);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.kb-software-card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 6px;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+body[data-page="knowledge"] .kb-software-card-tag {
+  background: #e8e2d8;
+  color: #5f6777;
+}
+
+.kb-software-card-footer {
+  border-top: 1px solid var(--line-soft, #f1f5f9);
+  padding-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.kb-software-card-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s ease;
+}
+
+.kb-software-card-link:hover {
+  gap: 8px;
+  color: #1d4ed8;
+}
+
+/* ------------------------------------------------------------------
+   Modernized Vendor Gateways Table Upgrades
+   ------------------------------------------------------------------- */
+.kb-premium-table-wrapper {
+  margin-top: 24px;
+  border: 1px solid var(--line-soft, #e2e8f0) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.kb-table-row-hover {
+  transition: background-color 0.2s ease;
+}
+
+.kb-table-row-hover:hover {
+  background-color: rgba(248, 250, 252, 0.7) !important;
+}
+
+body[data-page="knowledge"] .kb-table-row-hover:hover {
+  background-color: rgba(244, 239, 233, 0.7) !important;
+}
+
+/* ------------------------------------------------------------------
+   Interactive CAD Software Matchmaker
+   ------------------------------------------------------------------- */
+.kb-matchmaker-container {
+  background: var(--surface, rgba(255, 255, 255, 0.94));
+  border: 1px solid var(--line, #cbd5e1);
+  border-radius: 24px;
+  padding: 32px;
+  margin-top: 40px;
+  box-shadow: var(--shadow-lg, 0 20px 40px rgba(0, 0, 0, 0.05));
+  position: relative;
+  overflow: hidden;
+}
+
+body[data-page="knowledge"] .kb-matchmaker-container {
+  background: rgba(252, 251, 248, 0.96);
+  border-color: #dcd4c9;
+}
+
+.kb-matchmaker-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.kb-matchmaker-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+.kb-matchmaker-main-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text, #0f172a);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.kb-matchmaker-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted, #64748b);
+  line-height: 1.5;
+}
+
+.kb-matchmaker-step-tracker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.kb-matchmaker-step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line, #e2e8f0);
+  transition: all 0.3s ease;
+}
+
+.kb-matchmaker-step-dot.active {
+  background: #3b82f6;
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.kb-matchmaker-step-dot.completed {
+  background: #10b981;
+}
+
+.kb-matchmaker-steps-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 220px;
+}
+
+.kb-matchmaker-step-panel {
+  display: none;
+  animation: mmFadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.kb-matchmaker-step-panel.active {
+  display: block;
+}
+
+.kb-matchmaker-question {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text, #0f172a);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.kb-matchmaker-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.kb-matchmaker-option {
+  background: var(--surface-strong, #ffffff);
+  border: 2px solid var(--line-soft, #e2e8f0);
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+}
+
+body[data-page="knowledge"] .kb-matchmaker-option {
+  border-color: #e8e2d8;
+}
+
+.kb-matchmaker-option:hover {
+  transform: translateY(-3px);
+  border-color: #3b82f6;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.08);
+}
+
+.kb-matchmaker-option.active {
+  border-color: #3b82f6;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbfeea 100%);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+}
+
+body[data-page="knowledge"] .kb-matchmaker-option.active {
+  background: linear-gradient(135deg, #f7f3ec 0%, #eff6ff 100%);
+  border-color: #2563eb;
+}
+
+.kb-matchmaker-option-icon {
+  font-size: 2.2rem;
+}
+
+.kb-matchmaker-option-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text, #0f172a);
+}
+
+.kb-matchmaker-option-desc {
+  font-size: 0.8rem;
+  color: var(--muted, #64748b);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.kb-matchmaker-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.kb-matchmaker-btn {
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kb-matchmaker-btn-prev {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+body[data-page="knowledge"] .kb-matchmaker-btn-prev {
+  background: #e8e2d8;
+  color: #5f6777;
+  border-color: #cbd5e1;
+}
+
+.kb-matchmaker-btn-prev:hover {
+  background: #e2e8f0;
+}
+
+.kb-matchmaker-btn-next {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.kb-matchmaker-btn-next:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+}
+
+.kb-matchmaker-btn-next:disabled {
+  background: #cbd5e1;
+  color: #94a3b8;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Matchmaker Results Style */
+.kb-matchmaker-results-card {
+  background: #ffffff;
+  border: 1px solid #3b82f6;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.08);
+  animation: mmFadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+body[data-page="knowledge"] .kb-matchmaker-results-card {
+  background: #faf8f5;
+  border-color: #2563eb;
+}
+
+.kb-matchmaker-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eff6ff;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+body[data-page="knowledge"] .kb-matchmaker-results-header {
+  border-bottom-color: #e8e2d8;
+}
+
+.kb-matchmaker-results-badge {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kb-matchmaker-results-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.kb-matchmaker-results-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+.kb-matchmaker-recommendations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.kb-matchmaker-rec-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+body[data-page="knowledge"] .kb-matchmaker-rec-item {
+  background: #f4efe9;
+  border-color: #cbd5e1;
+}
+
+.kb-matchmaker-rec-item:hover {
+  border-color: #3b82f6;
+  background: #ffffff;
+}
+
+.kb-matchmaker-rec-icon {
+  font-size: 1.6rem;
+}
+
+.kb-matchmaker-rec-name {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.kb-matchmaker-rec-reason {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.kb-matchmaker-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.kb-matchmaker-action-btn {
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.kb-matchmaker-action-btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.kb-matchmaker-action-btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.kb-matchmaker-action-btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
+  background: #e8e2d8;
+  color: #5f6777;
+  border-color: #cbd5e1;
+}
+
+.kb-matchmaker-action-btn-secondary:hover {
+  background: #cbd5e1;
+}
+
+@keyframes mmFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .kb-matchmaker-container {
+    padding: 20px 16px;
+  }
+  .kb-matchmaker-main-title {
+    font-size: 1.5rem;
+  }
+  .kb-matchmaker-options-grid {
+    grid-template-columns: 1fr;
+  }
+  .kb-matchmaker-actions {
+    justify-content: center;
+    width: 100%;
+  }
+  .kb-matchmaker-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
