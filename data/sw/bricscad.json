@@ -1,391 +1,163 @@
 {
+  "schema_version": "1.0",
   "slug": "bricscad",
   "name": "BricsCAD",
-  "tagline": "A high-performance DWG-native alternative offering powerful 2D drafting, 3D modeling, and BIM in one package.",
-  "meta_desc": "BricsCAD profile: DWG-native, 2D/3D hybrid, BIM coordination, LISP APIs, plus 15 terms and 15 FAQs reviewed by Gstarcademy editors.",
-  "category_label": "DesignApplication",
-  "vendor": {
-    "slug": "bricsys",
-    "name": "Bricsys (Hexagon)"
-  },
-  "first_released": "2002",
-  "current_track": "BricsCAD V24, V25 (annual major release with point updates)",
-  "license_model": "Perpetual, subscription, and network licensing options. Available in Lite, Pro, BIM, and Ultimate editions.",
-  "platforms": [
-    "Windows (64-bit)",
-    "Linux (x64)",
-    "macOS (Apple Silicon and Intel)"
-  ],
-  "file_formats": [
-    "DWG (native)",
-    "DXF",
-    "DGN",
-    "IFC (BIM edition)",
-    "STEP / IGES / Parasolid (Pro edition)"
-  ],
-  "primary_alternatives": [
-    "AutoCAD",
-    "Revit",
-    "SOLIDWORKS",
-    "GstarCAD",
-    "ZWCAD"
-  ],
-  "domains": [
-    "AEC",
-    "Mechanical drafting",
-    "BIM coordination",
-    "GIS integrations",
-    "Civil engineering"
-  ],
-  "last_reviewed": "2026-05-28",
-  "default_reviewer_id": "lc-mech-review",
-  "profile": {
-    "what_it_is": "BricsCAD is a DWG-native 2D/3D CAD platform developed by Bricsys (acquired by Hexagon). It is famous for offering AutoCAD command compatibility while operating on a unified codebase that scales from basic 2D drafting to complete BIM authoring and mechanical assembly modeling.",
-    "where_used": "Widely used across Europe and Asia by AEC offices, surveyors, industrial designers, and enterprise teams seeking an alternative to subscription-only CAD systems without losing LISP routine compatibility.",
-    "learning_curve": "Extremely gentle for AutoCAD veterans as command names, aliases, and visual workflows match closely. The unified 3D/BIM workflow has a moderate learning curve but is highly intuitive compared to separate platform environments.",
-    "licensing_reality": "Offers perpetual licenses (maintenance contracts optional) alongside subscription packages, making it popular for enterprises seeking capex-based asset ownership.",
-    "ecosystem": "Highly compatible with existing AutoCAD customization. The LISP engine is highly optimized, supporting VL, VLA, and VLX routines directly. Pro edition includes direct modeling and assembly constraints.",
-    "common_pitfalls": "Mixing BIM and plain 2D objects without defining correct classifications. Forgetting to verify custom LISP compatibility on non-Windows platforms. Overlooking template setups when importing complex styles.",
-    "when_to_use_vs_alternative": "Use when you want absolute DWG compatibility, optimized LISP performance, and perpetual license choices without subscription locked-in trees.",
-    "recommended_learning_path": [
-      {
-        "stage": "Week 1 — Drafting",
-        "focus": "Familiarize with layout, commands, [command aliases](./command-alias.html), and sheet sets."
-      },
-      {
-        "stage": "Week 2 — 3D Core",
-        "focus": "Explore direct modeling, quad cursor, and geometric constraints."
-      },
-      {
-        "stage": "Week 3 — BIM / MCAD",
-        "focus": "Test BIM conceptual modeling, mechanical sheet metal work, and parametric parts."
-      },
-      {
-        "stage": "Week 4 — Customization",
-        "focus": "Configure LISP routines, CUI settings, and custom tool palettes."
-      }
-    ]
-  },
-  "sources": [
-    {
-      "label": "Bricsys Official Site",
-      "url": "https://www.bricsys.com",
-      "publisher": "Bricsys"
-    },
-    {
-      "label": "BricsCAD Help Center",
-      "url": "https://help.bricsys.com",
-      "publisher": "Bricsys"
-    }
-  ],
+  "tagline": "Hexagon's unified DWG‑native CAD/BIM/MCAD platform.",
+  "meta_desc": "BricsCAD offers a familiar DWG interface with powerful 3D modeling, BIM, and mechanical design capabilities.",
+  "category_label": "CAD",
+  "vendor": "Hexagon",
   "terms": [
     {
-      "slug": "quad-cursor-bc",
-      "title": "Quad Cursor (BricsCAD)",
-      "short_def": "An AI-powered context-sensitive heads-up command palette that appears at the cursor location.",
-      "definition": "The Quad is BricsCAD's unique HUD editing cursor. It displays commands based on what entity type the mouse is currently hovering over, eliminating the need to search ribbons or type commands.",
-      "why_matters": "Improves drawing speed by up to 30% by reducing mouse travel time and keeping focus directly on the drawing canvas.",
-      "common_pitfalls": [
-        "Disabling the Quad out of initial unfamiliarity instead of tailoring its speed and suggestions.",
-        "Confusing the Quad recommendations with standard snap tooltips."
-      ],
+      "slug": "bricscad-term-1",
+      "title": "Direct Modeling",
+      "short_def": "Geometry creation without predefined history.",
+      "definition": "Direct Modeling lets users manipulate solid geometry instantly, adding, cutting, or reshaping faces without a parametric history tree, speeding up iterative design.",
+      "why_matters": "Enables quick concept iterations and reduces file bloat when the design intent changes frequently.",
+      "common_pitfalls": ["Losing design intent when over‑using push‑pull operations", "Creating non‑manifold geometry that fails downstream analysis"],
       "related_term_slugs": []
     },
     {
-      "slug": "direct-modeling-bc",
-      "title": "Direct Modeling (BricsCAD)",
-      "short_def": "History-free editing of 3D solids by pushing, pulling, and rotating faces.",
-      "definition": "BricsCAD Pro enables direct geometric manipulation of solids. Edits respect design intent (like coplanar faces) automatically inferred by the constraints engine.",
-      "why_matters": "Enables rapid conceptual design and modification of imported STEP or IGES files without rebuilding a parametric feature tree.",
-      "common_pitfalls": [
-        "Creating chaotic geometry by neglecting alignment axes during pushes.",
-        "Overcomplicating constraints when direct editing alone would suffice."
-      ],
+      "slug": "bricscad-term-2",
+      "title": "BIM Workflows",
+      "short_def": "Building Information Modeling integration.",
+      "definition": "BricsCAD includes BIM tools that let users create intelligent building elements (walls, doors, slabs) that carry metadata, supporting clash detection and schedule extraction.",
+      "why_matters": "Facilitates coordination between architects, MEP engineers, and contractors within a single DWG environment.",
+      "common_pitfalls": ["Missing attribute assignments on BIM objects", "Neglecting to update linked 2D plans after 3D changes"],
       "related_term_slugs": []
     },
     {
-      "slug": "lisp-optimization-bc",
-      "title": "LISP Optimization (BricsCAD)",
-      "short_def": "BricsCAD's high-speed AutoLISP compiler and execution engine.",
-      "definition": "BricsCAD Lite and Pro include a highly optimized LISP compiler that executes standard AutoCAD-compatible LISP routines at significantly faster speeds.",
-      "why_matters": "Enables instant migration of millions of lines of custom enterprise automation code without rewriting for new API platforms.",
-      "common_pitfalls": [
-        "Relying on Windows-only registry calls in LISP when running BricsCAD on Linux or macOS.",
-        "Not updating file path defaults in migrated code."
-      ],
+      "slug": "bricscad-term-3",
+      "title": "Mechanical Design Suite",
+      "short_def": "Integrated 2D/3D mechanical drafting.",
+      "definition": "Provides tools for creating sheet metal parts, assemblies, and exploded views directly inside the DWG file, with native BOM generation.",
+      "why_matters": "Reduces the need for separate mechanical CAD packages, streamlining the product development pipeline.",
+      "common_pitfalls": ["Incorrect layer management for mechanical components", "Overlooking tolerance specifications in sheet‑metal folds"],
       "related_term_slugs": []
     },
     {
-      "slug": "bimify-bc",
-      "title": "Bimify Tool (BricsCAD)",
-      "short_def": "An AI-driven classification engine that automatically identifies and tags BIM elements from raw solids.",
-      "definition": "Bimify analyzes the geometric properties of a 3D solid model and instantly classifies walls, slabs, columns, and rooms with standard IFC tags.",
-      "why_matters": "Drastically reduces the time required to convert conceptual sketch shapes into structured, data-rich BIM coordinated models.",
-      "common_pitfalls": [
-        "Expecting Bimify to classify highly irregular non-standard architectural designs flawlessly.",
-        "Failing to check classification overrides manually afterward."
-      ],
+      "slug": "bricscad-term-4",
+      "title": "Parametric Constraints",
+      "short_def": "Rules that maintain geometric relationships.",
+      "definition": "Constraints such as parallelism, equal length, or concentricity can be attached to entities, ensuring that modifications respect design intent.",
+      "why_matters": "Guarantees consistency across large assemblies and aids automated updating.",
+      "common_pitfalls": ["Over‑constraining sketches leading to solver failures", "Applying constraints to the wrong reference geometry"],
       "related_term_slugs": []
     },
     {
-      "slug": "sheet-metal-bc",
-      "title": "Sheet Metal (BricsCAD Mechanical)",
-      "short_def": "Parametric sheet metal toolset inside BricsCAD Pro/Mechanical.",
-      "definition": "Allows creating, editing, and generating flat patterns for sheet metal parts, utilizing automated corner relief and bend computations.",
-      "why_matters": "Enables direct sheet metal design on imported STEP files and generates direct flat patterns for CNC fabrication.",
-      "common_pitfalls": [
-        "Applying incorrect bend allowances for the actual shop materials.",
-        "Violating manufacturing geometric limits in parametric folds."
-      ],
+      "slug": "bricscad-term-5",
+      "title": "LISP Automation",
+      "short_def": "Custom scripting with AutoLISP.",
+      "definition": "BricsCAD ships a high‑performance LISP interpreter allowing users to write macros that automate repetitive drawing tasks.",
+      "why_matters": "Boosts productivity for power users and enables company‑wide standards.",
+      "common_pitfalls": ["Using global variables that persist across sessions", "Neglecting error handling causing crashes"],
       "related_term_slugs": []
     },
     {
-      "slug": "communicator-bc",
-      "title": "BricsCAD Communicator",
-      "short_def": "A high-performance import/export translation addon for neutral and proprietary 3D formats.",
-      "definition": "An optional module for BricsCAD Pro that translates high-end proprietary files from CATIA, Creo, NX, and Inventor into native DWG geometries.",
-      "why_matters": "Critical for manufacturing shops working with multi-CAD supplier chains who need exact B-Rep imports without data loss.",
-      "common_pitfalls": [
-        "Attempting to translate without updating the Communicator module to match recent CAD file format versions.",
-        "Not configuring import tolerances."
-      ],
+      "slug": "bricscad-term-6",
+      "title": "Dynamic Blocks",
+      "short_def": "Blocks with adjustable parameters.",
+      "definition": "Dynamic Blocks embed parameters (scale, rotation, visibility states) allowing a single block definition to represent many variants.",
+      "why_matters": "Reduces file size and simplifies panel schedule updates.",
+      "common_pitfalls": ["Excessive parameter nesting that becomes hard to maintain", "Missing attribute definitions for exported data"],
       "related_term_slugs": []
     },
     {
-      "slug": "parameters-manager-bc",
-      "title": "Parameters Manager (BricsCAD)",
-      "short_def": "A formula-driven variables dashboard for controlling dimensional relationships.",
-      "definition": "The central panel where user variables, Excel links, and mathematical formulas are registered to drive CAD geometry dynamically.",
-      "why_matters": "Enables advanced design automation and modular family assemblies direct in native DWG drawings.",
-      "common_pitfalls": [
-        "Creating circular reference formulas that lock the geometry tree.",
-        "Using spaces in parameter names which break formula parsers."
-      ],
+      "slug": "bricscad-term-7",
+      "title": "DWG TrueView Compatibility",
+      "short_def": "Seamless exchange with Autodesk DWG files.",
+      "definition": "BricsCAD reads and writes DWG files at the same version levels as Autodesk, ensuring no data loss when collaborating with external firms.",
+      "why_matters": "Preserves project continuity across mixed‑tool environments.",
+      "common_pitfalls": ["Using unsupported custom objects that dissolve on export", "Neglecting to audit line‑type scaling after import"],
       "related_term_slugs": []
     },
     {
-      "slug": "civil-points-bc",
-      "title": "Civil Points & TIN Surfaces",
-      "short_def": "Terrain generation tools from survey points in BricsCAD Pro.",
-      "definition": "Creates digital terrain models (TIN) from point files, contour lines, or surveys, supporting grading and volume analysis.",
-      "why_matters": "Allows site civil engineers to design corridors and perform cut-and-fill analysis directly inside a lightweight DWG workspace.",
-      "common_pitfalls": [
-        "Generating extremely dense TIN surfaces from uncleaned point files, degrading canvas frame rates.",
-        "Neglecting boundary definitions."
-      ],
+      "slug": "bricscad-term-8",
+      "title": "Cloud‑Based Collaboration",
+      "short_def": "Real‑time file sharing via Bricsys 24/7.",
+      "definition": "A hosted service where multiple users can view and edit the same DWG simultaneously, with version control and activity logs.",
+      "why_matters": "Accelerates design reviews and reduces the need for email attachments.",
+      "common_pitfalls": ["Over‑reliance on internet connectivity", "Insufficient permission granularity for external partners"],
       "related_term_slugs": []
     },
     {
-      "slug": "drawing-view-bc",
-      "title": "Drawing View (VIEWBASE)",
-      "short_def": "Generates associative 2D documentation views from 3D models.",
-      "definition": "Creates orthographic, section, and detail views in layout sheets linked directly to the parent 3D solid model.",
-      "why_matters": "Drawings update automatically when the 3D model geometry changes, preventing stale documentation.",
-      "common_pitfalls": [
-        "Overriding view scale values manually on layouts instead of using layout viewport properties.",
-        "Drawing manual linework directly over generated views."
-      ],
+      "slug": "bricscad-term-9",
+      "title": "Sheet Metal Design",
+      "short_def": "Specialized tools for bending and unfolding.",
+      "definition": "Enables creation of flat patterns from 3D sheet metal parts, automatically generating bend tables and material estimates.",
+      "why_matters": "Speeds up fabrication documentation and reduces manual calculations.",
+      "common_pitfalls": ["Incorrect bend radius settings producing infeasible cuts", "Missing K‑factor adjustments for material properties"],
       "related_term_slugs": []
     },
     {
-      "slug": "blade-lisp-ide",
-      "title": "BLADE IDE (BricsCAD)",
-      "short_def": "The integrated development environment for compiling and debugging LISP in BricsCAD.",
-      "definition": "BLADE (BricsCAD LISP Advanced Development Environment) provides syntax highlighting, auto-completion, and debugging hooks for custom scripting.",
-      "why_matters": "Gives developers a modern workstation for writing and maintaining enterprise-grade CAD automation code.",
-      "common_pitfalls": [
-        "Debugging complex routines without setting breakpoints, leading to unhandled loop crashes.",
-        "Neglecting code formatting options."
-      ],
+      "slug": "bricscad-term-10",
+      "title": "Data‑Driven BIM Attributes",
+      "short_def": "Linking external data sources to BIM objects.",
+      "definition": "Allows BIM elements to pull data from spreadsheets or databases (e.g., room schedules, equipment specs) via field mappings.",
+      "why_matters": "Ensures schedule accuracy and enables automated updates when source data changes.",
+      "common_pitfalls": ["Mismatched column headers causing null values", "Over‑loading BIM objects with excessive custom data"],
       "related_term_slugs": []
     },
     {
-      "slug": "dynamic-block-convert",
-      "title": "Dynamic Block Conversion",
-      "short_def": "BricsCAD's feature to convert AutoCAD dynamic blocks to native parametric blocks.",
-      "definition": "Converts legacy dynamic blocks containing visibility states and actions into BricsCAD's open parametric block structure.",
-      "why_matters": "Preserves decades of corporate library assets during platform migration without requiring manual block rebuilding.",
-      "common_pitfalls": [
-        "Expecting highly complex nested dynamic blocks with multi-parameter equations to translate perfectly without manual adjustments.",
-        "Not testing the converted actions."
-      ],
+      "slug": "bricscad-term-11",
+      "title": "API Extensibility",
+      "short_def": "Programmatic access via .NET, C++, and Python.",
+      "definition": "Developers can create plugins that interact with BricsCAD’s geometry kernel, UI, and data structures, enabling custom toolchains.",
+      "why_matters": "Tailors the CAD environment to niche industry workflows.",
+      "common_pitfalls": ["Version mismatches between SDK and runtime", "Insufficient testing causing crashes in production environments"],
       "related_term_slugs": []
     },
     {
-      "slug": "copy-guided-bc",
-      "title": "Copy Guided (BricsCAD)",
-      "short_def": "Smart alignment copying that matches target geometries automatically.",
-      "definition": "An AI-assisted copy tool that uses guide curves (like walls) to snap and orient copied items (like doors or symbols) automatically to new lines.",
-      "why_matters": "Reduces repetitive manual rotate and snap steps, transforming hours of layout updating into seconds.",
-      "common_pitfalls": [
-        "Selecting guide entities that contain slight skew deviations, leading to misaligned snap placement.",
-        "Selecting too many guides."
-      ],
+      "slug": "bricscad-term-12",
+      "title": "Parametric Assemblies",
+      "short_def": "Hierarchical component structures.",
+      "definition": "Components can be nested, with constraints propagating across levels, supporting large mechanical assemblies.",
+      "why_matters": "Facilitates design reuse and automated BOM extraction.",
+      "common_pitfalls": ["Circular constraints leading to solver divergence", "Missing component references after file moves"],
       "related_term_slugs": []
     },
     {
-      "slug": "blockify-bc",
-      "title": "Blockify (BricsCAD)",
-      "short_def": "Finds duplicate geometries and replaces them with standard block references automatically.",
-      "definition": "An AI-powered command that scans drawings for identical geometry sets and consolidates them into organized block definitions.",
-      "why_matters": "Shrinks file size drastically and organizes messy exploded files into clean, consistent drawings in one click.",
-      "common_pitfalls": [
-        "Running Blockify on complex drawings without checking matching tolerance limits.",
-        "Replacing intentionally unique geometry instances by mistake."
-      ],
+      "slug": "bricscad-term-13",
+      "title": "Rendering Module",
+      "short_def": "Realistic visual output using Iray.",
+      "definition": "Provides photorealistic rendering directly from the CAD model, with material libraries and lighting presets.",
+      "why_matters": "Helps stakeholders visualize design intent without exporting to separate render engines.",
+      "common_pitfalls": ["Excessive polygon count causing long render times", "Improper material assignments resulting in unrealistic surfaces"],
       "related_term_slugs": []
     },
     {
-      "slug": "assembly-constraints-bc",
-      "title": "Assembly Constraints (BricsCAD)",
-      "short_def": "Relationships defining component placement in BricsCAD Mechanical.",
-      "definition": "Defines kinematic mates (coincident, distance, parallel) between individual drawing references inside mechanical assemblies.",
-      "why_matters": "Crucial for verifying kinematic ranges of movement and checking clashes prior to fabrication.",
-      "common_pitfalls": [
-        "Applying excessive redundant constraints that lock up solver regeneration.",
-        "Constraining to non-durable edges."
-      ],
+      "slug": "bricscad-term-14",
+      "title": "Annotation Styles",
+      "short_def": "Standardized dimension and text settings.",
+      "definition": "Customizable annotation templates ensure consistent drawing standards across teams.",
+      "why_matters": "Reduces re‑drafting effort during QA reviews.",
+      "common_pitfalls": ["Using outdated style sheets that conflict with project standards", "Neglecting to update scale factors for large drawings"],
       "related_term_slugs": []
     },
     {
-      "slug": "ifc-export-bc",
-      "title": "IFC Export (BricsCAD BIM)",
-      "short_def": "Industry-standard open BIM collaboration output.",
-      "definition": "Outputs data-rich building models into certified IFC2x3, IFC4, or IFC4x1 schemas for multi-disciplinary coordination.",
-      "why_matters": "Ensures full compliance with global BIM deliverables mandates without requiring expensive proprietary single-source suites.",
-      "common_pitfalls": [
-        "Exporting custom geometry without assigning standard IFC spatial classification structures first.",
-        "Neglecting proper property set mapping."
-      ],
+      "slug": "bricscad-term-15",
+      "title": "Georeferencing",
+      "short_def": "Linking CAD geometry to real‑world coordinates.",
+      "definition": "Sets a coordinate system (e.g., EPSG:4326) for the drawing, enabling integration with GIS data and site plans.",
+      "why_matters": "Ensures that designs align with survey data and civil infrastructure.",
+      "common_pitfalls": ["Incorrect datum selection causing misalignment", "Forgetting to preserve geolocation when exporting to IFC"],
       "related_term_slugs": []
     }
   ],
   "faqs": [
-    {
-      "question": "Is BricsCAD fully compatible with AutoCAD DWG files?",
-      "answer": "Yes, BricsCAD is fully DWG-native. It reads and writes standard DWG files directly, preserving all layout sheets, layers, blocks, and dimensions without conversion or data loss."
-    },
-    {
-      "question": "What is the difference between BricsCAD Lite and Pro?",
-      "answer": "BricsCAD Lite is strictly for 2D drafting and running LISP routines. BricsCAD Pro adds 3D modeling, assembly design, civil engineering tools, third-party apps support, and is the prerequisite for BIM and Mechanical vertical add-ons."
-    },
-    {
-      "question": "Can I run my AutoCAD LISP routines in BricsCAD?",
-      "answer": "Yes, BricsCAD has a highly optimized, extremely compatible LISP engine. Most standard LISP routines (.lsp, .fas, .vlx) run directly in BricsCAD without any modifications."
-    },
-    {
-      "question": "Does BricsCAD offer perpetual licenses?",
-      "answer": "Yes, BricsCAD stands out by continuing to offer perpetual (buy-once, own-forever) licenses alongside annual subscription packages for all its editions."
-    },
-    {
-      "question": "What is BricsCAD Ultimate?",
-      "answer": "BricsCAD Ultimate is a comprehensive package that bundle all BricsCAD features (Lite, Pro, BIM, Mechanical) into a single master installation, perfect for multi-disciplinary design teams."
-    },
-    {
-      "question": "Does BricsCAD run on Mac and Linux?",
-      "answer": "Yes, BricsCAD is built on a cross-platform codebase, offering identical core CAD features across Windows, macOS, and supported Linux distributions (Ubuntu, Red Hat)."
-    },
-    {
-      "question": "What is the Quad cursor in BricsCAD?",
-      "answer": "The Quad is BricsCAD's context-sensitive heads-up menu that appears at the cursor location. It analyzes your current task and hover target to recommend the most relevant editing commands instantly."
-    },
-    {
-      "question": "How does BricsCAD BIM compare to Revit?",
-      "answer": "Unlike Revit's proprietary data structure, BricsCAD BIM is entirely DWG-native. It utilizes standard DWG solids classified with open IFC tags, enabling flexible modeling before forcing BIM classification structures."
-    },
-    {
-      "question": "What is the Blockify command?",
-      "answer": "Blockify is BricsCAD's AI tool that automatically scans a drawing for repeating groups of identical geometry and instantly replaces them with a single consolidated block reference, shrinking file sizes."
-    },
-    {
-      "question": "Can BricsCAD open SketchUp models?",
-      "answer": "Yes, BricsCAD Pro and above can import SketchUp (.skp) files directly, converting them into native CAD solids that can be edited, scaled, and classified with BIM data."
-    },
-    {
-      "question": "What is the Quad command hover delay?",
-      "answer": "You can customize the Quad's hover latency and size in the Settings dialog to ensure it only appears when you pause your cursor, avoiding unwanted visual clutter during fast drafting."
-    },
-    {
-      "question": "How do I license BricsCAD in an enterprise network?",
-      "answer": "BricsCAD offers Network License packages managed by a local network licensing server, allowing multiple designers to share a floating pool of seats across the organization."
-    },
-    {
-      "question": "What is the command to convert AutoCAD dynamic blocks?",
-      "answer": "Use the CONVERTDYNAMICBLOCKS command to automatically translate legacy AutoCAD dynamic blocks into BricsCAD's native, open parametric block format."
-    },
-    {
-      "question": "Can BricsCAD export to STEP and IGES?",
-      "answer": "Yes, BricsCAD Pro and above support exporting 3D solid geometries directly to standard neutral formats like STEP, IGES, and Parasolid for manufacturing."
-    },
-    {
-      "question": "What is BricsCAD's performance on Apple Silicon Macs?",
-      "answer": "BricsCAD is compiled natively for Apple Silicon, offering high-performance navigation, rapid drawing loads, and optimized memory usage on modern Mac workstations."
-    }
-  ],
-  "graph_nodes": [
-    {
-      "id": "BricsCAD",
-      "type": "product",
-      "tags": [
-        "bricsys",
-        "dwg",
-        "bim",
-        "mcad"
-      ],
-      "hint": "Hexagon's unified DWG-native CAD/BIM/MCAD platform.",
-      "group": 1,
-      "radius": 14
-    },
-    {
-      "id": "Quad Cursor",
-      "type": "concept",
-      "tags": [
-        "bricscad",
-        "ui"
-      ],
-      "hint": "Heads-up context-sensitive command palette.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "Blockify",
-      "type": "skill",
-      "tags": [
-        "bricscad",
-        "ai"
-      ],
-      "hint": "Consolidates matching geometry into blocks.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "BricsCAD LISP",
-      "type": "sdk",
-      "tags": [
-        "bricscad",
-        "api"
-      ],
-      "hint": "High-performance LISP execution engine.",
-      "group": 2,
-      "radius": 10
-    }
-  ],
-  "graph_links": [
-    [
-      "BricsCAD",
-      "Bricsys"
-    ],
-    [
-      "Quad Cursor",
-      "BricsCAD"
-    ],
-    [
-      "Blockify",
-      "BricsCAD"
-    ],
-    [
-      "BricsCAD LISP",
-      "BricsCAD"
-    ]
+    {"question": "How do I convert an existing DWG to a BricsCAD BIM model?", "answer": "Open the DWG in BricsCAD, run the `BIM2DWG` command, map existing layers to BIM categories, and use the `BIM Import` wizard to generate walls, floors, and structural elements automatically."},
+    {"question": "Can I use AutoLISP scripts written for AutoCAD in BricsCAD?", "answer": "Yes. BricsCAD ships a compatible LISP interpreter; most standard AutoLISP functions work out‑of‑the‑box. Minor API differences (e.g., custom object handling) may require small adjustments."},
+    {"question": "What is the best workflow for creating sheet‑metal parts?", "answer": "Start with a 3D solid, apply the `SheetMetal` command to define thickness, bend radius, and K‑factor, then use `Flatten` to generate the 2D flat pattern for fabrication."},
+    {"question": "How do I manage version control for large DWG assemblies?", "answer": "Enable Bricsys 24/7 cloud storage, check files in/out using the built‑in version manager, and tag releases with meaningful comments. For offline work, integrate with Git‑LFS for binary handling and keep a changelog."},
+    {"question": "Is there a way to automate dimensioning for repetitive features?", "answer": "Create a Dynamic Block with parameters for length/angle, then use the `Block Attribute Manager` to set dimension styles that update automatically when the block is edited."},
+    {"question": "How can I link external spreadsheets to BIM object attributes?", "answer": "Use the `BIM Data Link` tool, select the spreadsheet, map columns to BIM fields (e.g., room number, fire rating), and enable live sync so updates propagate to the drawing instantly."},
+    {"question": "What are the recommended hardware specs for smooth 3D modeling?", "answer": "A quad‑core CPU (Intel i7 or AMD Ryzen 7), 16 GB RAM minimum, a GPU with OpenGL 4.5 support (NVIDIA GTX 1660 or higher), and SSD storage for project files."},
+    {"question": "Can I export BricsCAD models to IFC for BIM collaboration?", "answer": "Yes. Use the `Export IFC` command, choose the appropriate IFC schema (IFC2x3 or IFC4), and configure mapping options for walls, doors, and structural elements before exporting."},
+    {"question": "How do I create a material library for rendering?", "answer": "Open the `Material Editor`, click `New`, define base color, roughness, metallic values, and optionally assign texture maps. Save the library file and reference it in the rendering settings panel."},
+    {"question": "What is the process for cleaning up a drawing before sending to a client?", "answer": "Run `Purge` to remove unused layers and blocks, `Audith` to fix geometry errors, and `Export` to a clean DWG version with the `+audit` flag to ensure compliance with industry standards."},
+    {"question": "How can I set up custom keyboard shortcuts for frequent commands?", "answer": "Open `Options → User Preferences → Keyboard`, click `Customize`, assign your desired key combos to commands, and export the shortcut file for team sharing."},
+    {"question": "Is there a built‑in clash detection tool?", "answer": "BricsCAD includes a lightweight clash detection module under the BIM tab. Select two BIM layers, run `Clash Detect`, and review the generated report highlighting intersecting objects."},
+    {"question": "How do I generate a BOM from an assembly?", "answer": "Select the assembly, run `BOM Generate`, configure attribute fields (part number, quantity, material), and export to CSV or Excel for downstream manufacturing processes."},
+    {"question": "Can I use Python for automation?", "answer": "Yes. BricsCAD provides a Python interpreter (`bricscadpy`). Install the `bricscadpy` package, write scripts using the `pybricscad` API, and run them from the command line or script manager."},
+    {"question": "What licensing options are available for corporate teams?", "answer": "BricsCAD offers network licenses, floating seats, and subscription plans with volume discounts. Contact sales for a customized quote based on user count and feature set."}
   ]
 }
