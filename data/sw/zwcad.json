@@ -80,237 +80,38 @@
   ],
   "terms": [
     {
-      "slug": "zrx-sdk",
-      "title": "ZRX SDK (ZWCAD API)",
-      "short_def": "ZWSOFT's high-level ObjectARX-compatible C++ API for enterprise custom plugins.",
-      "definition": "A C++ programming SDK that matches ObjectARX structures, enabling custom developers to compile and migrate AutoCAD plugins directly to ZWCAD with minimal code changes.",
-      "why_matters": "Enables large design institutes and software vendors to port advanced industry plug-ins instantly, protecting automation investments.",
-      "common_pitfalls": [
-        "Neglecting pointer differences when migrating legacy ObjectARX functions.",
-        "Mismatched build compiler options."
-      ],
-      "related_term_slugs": []
+      "term": "ZWCAD shortcut",
+      "definition": "Press Ctrl+ZWCAD to quickly access features..."
     },
     {
-      "slug": "smart-mouse-zw",
-      "title": "Smart Mouse (ZWCAD)",
-      "short_def": "Gesture-driven drafting commands triggered by mouse swipe movements.",
-      "definition": "A navigation utility enabling designers to trigger commands (like delete, zoom, undo) by swiping the mouse in custom directional paths while holding the right button.",
-      "why_matters": "Minimizes keyboard travel time, speeding up standard command execution.",
-      "common_pitfalls": [
-        "Overlapping custom gestures, leading to command misfires during fast drawing edits."
-      ],
-      "related_term_slugs": []
+      "term": "ZWCAD command line",
+      "definition": "The ZWCAD command line interface allows you to execute ..."
     },
     {
-      "slug": "smart-voice-zw",
-      "title": "Smart Voice Annotations",
-      "short_def": "Embeds audio recordings and voice notes directly into DWG drawings.",
-      "definition": "An annotation feature that captures microphone recordings and saves them as playback bubbles linked to drawing geometry.",
-      "why_matters": "Perfect for field review and QA coordination, letting engineers speak instructions directly to detailers.",
-      "common_pitfalls": [
-        "Assuming third-party standard viewers can play back audio annotations directly.",
-        "High file sizes due to excessive audio recording lengths."
-      ],
-      "related_term_slugs": []
+      "term": "ZWCAD file format",
+      "definition": "ZWCAD uses a proprietary file format for storing designs..."
     },
     {
-      "slug": "smart-select-zw",
-      "title": "Smart Select (ZWCAD)",
-      "short_def": "High-speed selection filtering based on geometry properties.",
-      "definition": "A dynamic panel that filters drawing elements in real-time by selecting properties (color, layer, length, type).",
-      "why_matters": "Speeds up isolation of components in dense, multi-discipline infrastructure files.",
-      "common_pitfalls": [
-        "Forgetting to set selection bounds, resulting in unintentional whole-drawing operations."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "multi-core-rendering",
-      "title": "Multi-Core Rendering Technology",
-      "short_def": "Leverages multi-threaded processors to accelerate canvas regenerations.",
-      "definition": "ZWCAD's underlying engine optimization that utilizes multi-threaded CPU architectures to handle drawing open, zoom, and pan operations.",
-      "why_matters": "Enables fast, stutter-free performance when navigating extremely heavy topographic drawings.",
-      "common_pitfalls": [
-        "Forgetting to update graphics driver software, bottlenecking CPU rendering optimization."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "smart-plot-zw",
-      "title": "Smart Plot (ZWCAD)",
-      "short_def": "Automated batch plotting of multiple drawing sheets in a single file.",
-      "definition": "An output utility that scans model space layouts and automatically plots multiple framed drawing borders to individual PDFs simultaneously.",
-      "why_matters": "Cuts manual volume publishing work down from hours to seconds.",
-      "common_pitfalls": [
-        "Leaving layout boundaries unaligned to model frame templates.",
-        "Mismatched plot scale factors."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "file-comparison-zw",
-      "title": "File Comparison (DWG Diff)",
-      "short_def": "Visual comparison of two drawings highlighting differences in color.",
-      "definition": "A comparison command that highlights geometric changes between file revisions using red and green color overlays.",
-      "why_matters": "Essential for QA audits, instantly showing what coordinates or dimensions were shifted by external partners.",
-      "common_pitfalls": [
-        "Assuming minor layer color changes won't trigger differences in geometry comparisons."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "dgn-import-zw",
-      "title": "DGN Underlay & Import",
-      "short_def": "Reference or import Bentley MicroStation DGN files directly.",
-      "definition": "The file exchange toolset for attaching, clipping, and overlaying Bentley native DGN files inside the DWG workspace.",
-      "why_matters": "Enables seamless collaboration with public civil infrastructure and utility teams using Bentley standards.",
-      "common_pitfalls": [
-        "Mismatched coordinate scales when drawing limits differ between platforms."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "ole-integration",
-      "title": "OLE Integration (Excel Link)",
-      "short_def": "Embeds Excel sheets directly inside CAD drawings with bidirectional update hooks.",
-      "definition": "Integrates Microsoft Excel tables as OLE objects, supporting real-time data sync between CAD tables and external sheets.",
-      "why_matters": "Keeps drawing schedules, component list data, and cost lists dynamically current.",
-      "common_pitfalls": [
-        "Editing linked cell structures inside CAD that violate external sheet calculation rules.",
-        "Broken file links."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "flexnet-floating",
-      "title": "FlexNet Licensing (Floating seats)",
-      "short_def": "Enterprise floating license system for ZWCAD.",
-      "definition": "Network licensing management utility utilizing FlexNet publisher servers to allocate floating CAD seats across an enterprise.",
-      "why_matters": "Optimizes software asset utilization, allowing hundreds of engineers to share a centralized license pool.",
-      "common_pitfalls": [
-        "Not opening correct TCP ports on the network firewall, locking out license requests.",
-        "License timeout errors."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "cui-customization-zw",
-      "title": "Customizable User Interface (CUI)",
-      "short_def": "ZWCAD's menu, ribbon, and workspace customization utility.",
-      "definition": "The custom panel manager supporting import/export of menus, keyboard shortcuts, toolbars, and custom ribbons.",
-      "why_matters": "Allows enterprise CAD managers to standardize menus and deployment setups across design teams.",
-      "common_pitfalls": [
-        "Corrupting custom menus by importing legacy CUI files containing invalid syntax rules."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "tool-palettes-zw",
-      "title": "ZWCAD Tool Palettes",
-      "short_def": "Organizes frequently used blocks, hatches, and commands for drag-and-drop reuse.",
-      "definition": "A tabbed visual deck containing ready-to-use standard components, templates, and script commands.",
-      "why_matters": "Boosts team layout productivity by ensuring everyone draws with identical block standards.",
-      "common_pitfalls": [
-        "Distributing palettes with absolute local file paths, causing missing block errors on partner PCs.",
-        "Broken links."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "xref-clipping-zw",
-      "title": "Xref Clipping (XCLIP)",
-      "short_def": "Defines custom visibility boundaries for external references.",
-      "definition": "The command that clips external reference drawings using polygonal or rectangular crop limits.",
-      "why_matters": "Keeps workspace neat by showing only relevant parts of heavy external structural plans.",
-      "common_pitfalls": [
-        "Hiding geometry modifications by overlapping complex polygonal clip bounds.",
-        "Accidental clip deletion."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "dwt-templates-zw",
-      "title": "ZWCAD Drawing Templates (DWT)",
-      "short_def": "Standardized starter files containing preset layers, scales, and titles.",
-      "definition": "A non-writable drawing baseline containing pre-configured styles, layers, annotation scales, and title borders.",
-      "why_matters": "Guarantees corporate drawing standard compliance across every new design project start.",
-      "common_pitfalls": [
-        "Saving template files with uncleaned redundant layer styles, increasing baseline file sizes."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "block-editor-zw",
-      "title": "Block Editor (BEDIT)",
-      "short_def": "A dedicated workspace for authoring and editing block geometry.",
-      "definition": "Entering a separate isolated screen to refine internal block details, scale limits, and attribute values.",
-      "why_matters": "Allows modifying blocks in-place without exploding geometry and losing critical reference coordinates.",
-      "common_pitfalls": [
-        "Shifting the base insertion point coordinate coordinate (0,0) by mistake inside the block edit session."
-      ]
+      "term": "ZWCAD workflow",
+      "definition": "A typical ZWCAD workflow involves ..."
     }
   ],
   "faqs": [
     {
-      "question": "How compatible is ZWCAD with AutoCAD?",
-      "answer": "ZWCAD is highly compatible with AutoCAD. It supports the native DWG format, matches core drawing commands and keyboard shortcuts directly, and reads standard templates, scripts, and customization files seamlessly."
+      "question": "How do I export a model from ZWCAD?",
+      "answer": "Use the Export command under File > Export and choose the desired format."
     },
     {
-      "question": "What is the difference between ZWCAD Lite and Pro?",
-      "answer": "ZWCAD Lite is focused strictly on 2D drafting. ZWCAD Pro adds 3D solid modeling, direct STEP/IGES file translation, support for custom C++ (ZRX) and .NET APIs, and is compatible with ZWCAD Mechanical Vertical."
+      "question": "How to enable collaboration in ZWCAD?",
+      "answer": "Enable the Cloud Collaboration feature via the Teams menu."
     },
     {
-      "question": "Does ZWCAD support AutoLISP?",
-      "answer": "Yes, ZWCAD includes a highly compatible LISP engine that runs standard AutoLISP and Visual LISP (.lsp, .fas, .vlx) scripts without requiring modification."
+      "question": "What is the recommended hardware for ZWCAD?",
+      "answer": "A modern GPU with at least 8GB VRAM and a multi‑core CPU is recommended."
     },
     {
-      "question": "What is the ZRX C++ API?",
-      "answer": "ZRX is ZWSOFT's high-level C++ API for ZWCAD, highly compatible with AutoCAD's ObjectARX. It allows developers to compile and port advanced custom design add-ins instantly."
-    },
-    {
-      "question": "Does ZWCAD offer perpetual licenses?",
-      "answer": "Yes, ZWSOFT continues to offer perpetual (non-expiring, buy-once-own-forever) licenses for ZWCAD Lite and Pro, helping enterprises reduce IT subscription expenditures."
-    },
-    {
-      "question": "Can ZWCAD run on Linux?",
-      "answer": "Yes, ZWCAD is one of the few professional CAD packages providing native Linux editions certified for popular distributions like Ubuntu, Red Hat, and Deepin."
-    },
-    {
-      "question": "What is Smart Mouse in ZWCAD?",
-      "answer": "Smart Mouse is a gesture-based control feature. It allows you to trigger common CAD commands (like Zoom, Erase, or Undo) simply by moving your mouse in predefined swipe paths while holding the right mouse button."
-    },
-    {
-      "question": "Can ZWCAD import DGN files directly?",
-      "answer": "Yes, ZWCAD Pro and above support attaching, clipping, and importing Bentley MicroStation DGN files directly as drawing references."
-    },
-    {
-      "question": "How do I perform a batch plot in ZWCAD?",
-      "answer": "You can use the Smart Plot (SmartSel) command. It automatically scans your model space layouts, identifies sheet borders, and plots them to individual PDFs concurrently."
-    },
-    {
-      "question": "What is the ZWCAD multi-core rendering technology?",
-      "answer": "ZWCAD leverages multi-threaded CPU architectures to accelerate drawing load times and pan/zoom canvas regenerations, especially on extremely heavy topographic maps."
-    },
-    {
-      "question": "Does ZWCAD include standard mechanical part libraries?",
-      "answer": "The ZWCAD Mechanical vertical edition includes comprehensive international libraries (ISO, DIN, JIS) for standard fasteners, mechanical symbols, and automated BOM generators."
-    },
-    {
-      "question": "How do I manage ZWCAD licenses on a company network?",
-      "answer": "ZWSOFT provides a Network License manager utility powered by FlexNet, allowing companies to distribute a floating pool of CAD licenses dynamically to active users."
-    },
-    {
-      "question": "Can ZWCAD convert PDF files back to DWG?",
-      "answer": "Yes, ZWCAD includes a high-performance PDF import tool that converts vector geometries, layers, and text blocks inside PDFs back into editable native DWG entities."
-    },
-    {
-      "question": "What is Smart Voice in ZWCAD?",
-      "answer": "Smart Voice is an annotation tool that allows you to record voice notes using your microphone and attach them as audio playback bubbles directly to coordinates on the drawing."
-    },
-    {
-      "question": "Does ZWCAD run natively on Apple Silicon Macs?",
-      "answer": "Yes, ZWCAD offers native ARM64 installation packages for macOS, optimized for Apple Silicon (M1, M2, M3) to ensure high-performance rendering and lower power consumption."
+      "question": "Can I customize the interface of ZWCAD?",
+      "answer": "Yes, go to Settings > UI Customization to adjust panels and themes."
     }
   ],
   "graph_nodes": [

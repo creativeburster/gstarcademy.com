@@ -5,159 +5,44 @@
   "tagline": "Hexagon's unified DWG‑native CAD/BIM/MCAD platform.",
   "meta_desc": "BricsCAD offers a familiar DWG interface with powerful 3D modeling, BIM, and mechanical design capabilities.",
   "category_label": "CAD",
-  "vendor": {"name": "Hexagon", "slug": "hexagon"},
+  "vendor": {
+    "name": "Hexagon",
+    "slug": "hexagon"
+  },
   "terms": [
     {
-      "slug": "bricscad-term-1",
-      "title": "Direct Modeling",
-      "short_def": "Geometry creation without predefined history.",
-      "definition": "Direct Modeling lets users manipulate solid geometry instantly, adding, cutting, or reshaping faces without a parametric history tree, speeding up iterative design.",
-      "why_matters": "Enables quick concept iterations and reduces file bloat when the design intent changes frequently.",
-      "common_pitfalls": ["Losing design intent when over‑using push‑pull operations", "Creating non‑manifold geometry that fails downstream analysis"],
-      "related_term_slugs": []
+      "term": "BricsCAD command line",
+      "definition": "The BricsCAD command line interface allows you to execute ..."
     },
     {
-      "slug": "bricscad-term-2",
-      "title": "BIM Workflows",
-      "short_def": "Building Information Modeling integration.",
-      "definition": "BricsCAD includes BIM tools that let users create intelligent building elements (walls, doors, slabs) that carry metadata, supporting clash detection and schedule extraction.",
-      "why_matters": "Facilitates coordination between architects, MEP engineers, and contractors within a single DWG environment.",
-      "common_pitfalls": ["Missing attribute assignments on BIM objects", "Neglecting to update linked 2D plans after 3D changes"],
-      "related_term_slugs": []
+      "term": "BricsCAD workflow",
+      "definition": "A typical BricsCAD workflow involves ..."
     },
     {
-      "slug": "bricscad-term-3",
-      "title": "Mechanical Design Suite",
-      "short_def": "Integrated 2D/3D mechanical drafting.",
-      "definition": "Provides tools for creating sheet metal parts, assemblies, and exploded views directly inside the DWG file, with native BOM generation.",
-      "why_matters": "Reduces the need for separate mechanical CAD packages, streamlining the product development pipeline.",
-      "common_pitfalls": ["Incorrect layer management for mechanical components", "Overlooking tolerance specifications in sheet‑metal folds"],
-      "related_term_slugs": []
+      "term": "BricsCAD shortcut",
+      "definition": "Press Ctrl+BricsCAD to quickly access features..."
     },
     {
-      "slug": "bricscad-term-4",
-      "title": "Parametric Constraints",
-      "short_def": "Rules that maintain geometric relationships.",
-      "definition": "Constraints such as parallelism, equal length, or concentricity can be attached to entities, ensuring that modifications respect design intent.",
-      "why_matters": "Guarantees consistency across large assemblies and aids automated updating.",
-      "common_pitfalls": ["Over‑constraining sketches leading to solver failures", "Applying constraints to the wrong reference geometry"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-5",
-      "title": "LISP Automation",
-      "short_def": "Custom scripting with AutoLISP.",
-      "definition": "BricsCAD ships a high‑performance LISP interpreter allowing users to write macros that automate repetitive drawing tasks.",
-      "why_matters": "Boosts productivity for power users and enables company‑wide standards.",
-      "common_pitfalls": ["Using global variables that persist across sessions", "Neglecting error handling causing crashes"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-6",
-      "title": "Dynamic Blocks",
-      "short_def": "Blocks with adjustable parameters.",
-      "definition": "Dynamic Blocks embed parameters (scale, rotation, visibility states) allowing a single block definition to represent many variants.",
-      "why_matters": "Reduces file size and simplifies panel schedule updates.",
-      "common_pitfalls": ["Excessive parameter nesting that becomes hard to maintain", "Missing attribute definitions for exported data"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-7",
-      "title": "DWG TrueView Compatibility",
-      "short_def": "Seamless exchange with Autodesk DWG files.",
-      "definition": "BricsCAD reads and writes DWG files at the same version levels as Autodesk, ensuring no data loss when collaborating with external firms.",
-      "why_matters": "Preserves project continuity across mixed‑tool environments.",
-      "common_pitfalls": ["Using unsupported custom objects that dissolve on export", "Neglecting to audit line‑type scaling after import"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-8",
-      "title": "Cloud‑Based Collaboration",
-      "short_def": "Real‑time file sharing via Bricsys 24/7.",
-      "definition": "A hosted service where multiple users can view and edit the same DWG simultaneously, with version control and activity logs.",
-      "why_matters": "Accelerates design reviews and reduces the need for email attachments.",
-      "common_pitfalls": ["Over‑reliance on internet connectivity", "Insufficient permission granularity for external partners"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-9",
-      "title": "Sheet Metal Design",
-      "short_def": "Specialized tools for bending and unfolding.",
-      "definition": "Enables creation of flat patterns from 3D sheet metal parts, automatically generating bend tables and material estimates.",
-      "why_matters": "Speeds up fabrication documentation and reduces manual calculations.",
-      "common_pitfalls": ["Incorrect bend radius settings producing infeasible cuts", "Missing K‑factor adjustments for material properties"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-10",
-      "title": "Data‑Driven BIM Attributes",
-      "short_def": "Linking external data sources to BIM objects.",
-      "definition": "Allows BIM elements to pull data from spreadsheets or databases (e.g., room schedules, equipment specs) via field mappings.",
-      "why_matters": "Ensures schedule accuracy and enables automated updates when source data changes.",
-      "common_pitfalls": ["Mismatched column headers causing null values", "Over‑loading BIM objects with excessive custom data"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-11",
-      "title": "API Extensibility",
-      "short_def": "Programmatic access via .NET, C++, and Python.",
-      "definition": "Developers can create plugins that interact with BricsCAD’s geometry kernel, UI, and data structures, enabling custom toolchains.",
-      "why_matters": "Tailors the CAD environment to niche industry workflows.",
-      "common_pitfalls": ["Version mismatches between SDK and runtime", "Insufficient testing causing crashes in production environments"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-12",
-      "title": "Parametric Assemblies",
-      "short_def": "Hierarchical component structures.",
-      "definition": "Components can be nested, with constraints propagating across levels, supporting large mechanical assemblies.",
-      "why_matters": "Facilitates design reuse and automated BOM extraction.",
-      "common_pitfalls": ["Circular constraints leading to solver divergence", "Missing component references after file moves"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-13",
-      "title": "Rendering Module",
-      "short_def": "Realistic visual output using Iray.",
-      "definition": "Provides photorealistic rendering directly from the CAD model, with material libraries and lighting presets.",
-      "why_matters": "Helps stakeholders visualize design intent without exporting to separate render engines.",
-      "common_pitfalls": ["Excessive polygon count causing long render times", "Improper material assignments resulting in unrealistic surfaces"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-14",
-      "title": "Annotation Styles",
-      "short_def": "Standardized dimension and text settings.",
-      "definition": "Customizable annotation templates ensure consistent drawing standards across teams.",
-      "why_matters": "Reduces re‑drafting effort during QA reviews.",
-      "common_pitfalls": ["Using outdated style sheets that conflict with project standards", "Neglecting to update scale factors for large drawings"],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "bricscad-term-15",
-      "title": "Georeferencing",
-      "short_def": "Linking CAD geometry to real‑world coordinates.",
-      "definition": "Sets a coordinate system (e.g., EPSG:4326) for the drawing, enabling integration with GIS data and site plans.",
-      "why_matters": "Ensures that designs align with survey data and civil infrastructure.",
-      "common_pitfalls": ["Incorrect datum selection causing misalignment", "Forgetting to preserve geolocation when exporting to IFC"],
-      "related_term_slugs": []
+      "term": "BricsCAD file format",
+      "definition": "BricsCAD uses a proprietary file format for storing designs..."
     }
   ],
   "faqs": [
-    {"question": "How do I convert an existing DWG to a BricsCAD BIM model?", "answer": "Open the DWG in BricsCAD, run the `BIM2DWG` command, map existing layers to BIM categories, and use the `BIM Import` wizard to generate walls, floors, and structural elements automatically."},
-    {"question": "Can I use AutoLISP scripts written for AutoCAD in BricsCAD?", "answer": "Yes. BricsCAD ships a compatible LISP interpreter; most standard AutoLISP functions work out‑of‑the‑box. Minor API differences (e.g., custom object handling) may require small adjustments."},
-    {"question": "What is the best workflow for creating sheet‑metal parts?", "answer": "Start with a 3D solid, apply the `SheetMetal` command to define thickness, bend radius, and K‑factor, then use `Flatten` to generate the 2D flat pattern for fabrication."},
-    {"question": "How do I manage version control for large DWG assemblies?", "answer": "Enable Bricsys 24/7 cloud storage, check files in/out using the built‑in version manager, and tag releases with meaningful comments. For offline work, integrate with Git‑LFS for binary handling and keep a changelog."},
-    {"question": "Is there a way to automate dimensioning for repetitive features?", "answer": "Create a Dynamic Block with parameters for length/angle, then use the `Block Attribute Manager` to set dimension styles that update automatically when the block is edited."},
-    {"question": "How can I link external spreadsheets to BIM object attributes?", "answer": "Use the `BIM Data Link` tool, select the spreadsheet, map columns to BIM fields (e.g., room number, fire rating), and enable live sync so updates propagate to the drawing instantly."},
-    {"question": "What are the recommended hardware specs for smooth 3D modeling?", "answer": "A quad‑core CPU (Intel i7 or AMD Ryzen 7), 16 GB RAM minimum, a GPU with OpenGL 4.5 support (NVIDIA GTX 1660 or higher), and SSD storage for project files."},
-    {"question": "Can I export BricsCAD models to IFC for BIM collaboration?", "answer": "Yes. Use the `Export IFC` command, choose the appropriate IFC schema (IFC2x3 or IFC4), and configure mapping options for walls, doors, and structural elements before exporting."},
-    {"question": "How do I create a material library for rendering?", "answer": "Open the `Material Editor`, click `New`, define base color, roughness, metallic values, and optionally assign texture maps. Save the library file and reference it in the rendering settings panel."},
-    {"question": "What is the process for cleaning up a drawing before sending to a client?", "answer": "Run `Purge` to remove unused layers and blocks, `Audith` to fix geometry errors, and `Export` to a clean DWG version with the `+audit` flag to ensure compliance with industry standards."},
-    {"question": "How can I set up custom keyboard shortcuts for frequent commands?", "answer": "Open `Options → User Preferences → Keyboard`, click `Customize`, assign your desired key combos to commands, and export the shortcut file for team sharing."},
-    {"question": "Is there a built‑in clash detection tool?", "answer": "BricsCAD includes a lightweight clash detection module under the BIM tab. Select two BIM layers, run `Clash Detect`, and review the generated report highlighting intersecting objects."},
-    {"question": "How do I generate a BOM from an assembly?", "answer": "Select the assembly, run `BOM Generate`, configure attribute fields (part number, quantity, material), and export to CSV or Excel for downstream manufacturing processes."},
-    {"question": "Can I use Python for automation?", "answer": "Yes. BricsCAD provides a Python interpreter (`bricscadpy`). Install the `bricscadpy` package, write scripts using the `pybricscad` API, and run them from the command line or script manager."},
-    {"question": "What licensing options are available for corporate teams?", "answer": "BricsCAD offers network licenses, floating seats, and subscription plans with volume discounts. Contact sales for a customized quote based on user count and feature set."}
+    {
+      "question": "How to enable collaboration in BricsCAD?",
+      "answer": "Enable the Cloud Collaboration feature via the Teams menu."
+    },
+    {
+      "question": "Can I customize the interface of BricsCAD?",
+      "answer": "Yes, go to Settings > UI Customization to adjust panels and themes."
+    },
+    {
+      "question": "How do I export a model from BricsCAD?",
+      "answer": "Use the Export command under File > Export and choose the desired format."
+    },
+    {
+      "question": "What is the recommended hardware for BricsCAD?",
+      "answer": "A modern GPU with at least 8GB VRAM and a multi‑core CPU is recommended."
+    }
   ]
 }

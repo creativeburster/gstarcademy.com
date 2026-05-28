@@ -16,28 +16,90 @@
       "model": "Perpetual licensing is the headline differentiator — GstarCAD sells one-time-purchase perpetual licenses (with optional paid subscription for updates and support) at a significantly lower price point than Autodesk subscription. Network and stand-alone licensing both available. Enterprise volume licensing with deployment tools. Verticals can be licensed separately or as bundles."
     },
     "products": [
-      {"name": "GstarCAD Professional", "url": "https://www.gstarcad.net/cad-software/gstarcad-professional/", "blurb": "Full 2D/3D DWG CAD platform — drafting, modeling, parametric constraints, AI-assisted commands."},
-      {"name": "GstarCAD Architecture", "url": "https://www.gstarcad.net/architecture/", "blurb": "Specialised AEC vertical — walls, doors/windows, columns, beams, stairs, tagged objects, drawings."},
-      {"name": "GstarCAD Mechanical", "url": "https://www.gstarcad.net/mechanical/", "blurb": "Mechanical drafting vertical — standard parts library, BOM, dimensioning per GB/ISO/ANSI standards."},
-      {"name": "GstarBIM", "url": "https://www.gstarcad.net/bim/", "blurb": "Native BIM platform — architectural, MEP, water supply, electrical modules with IFC import/export."},
-      {"name": "GstarCAD Mobile / Cloud", "url": "https://www.gstarcad.net/cloud/", "blurb": "Mobile DWG viewing, mark-up, and field drawing review; web-based DWG editor."}
+      {
+        "name": "GstarCAD Professional",
+        "url": "https://www.gstarcad.net/cad-software/gstarcad-professional/",
+        "blurb": "Full 2D/3D DWG CAD platform — drafting, modeling, parametric constraints, AI-assisted commands."
+      },
+      {
+        "name": "GstarCAD Architecture",
+        "url": "https://www.gstarcad.net/architecture/",
+        "blurb": "Specialised AEC vertical — walls, doors/windows, columns, beams, stairs, tagged objects, drawings."
+      },
+      {
+        "name": "GstarCAD Mechanical",
+        "url": "https://www.gstarcad.net/mechanical/",
+        "blurb": "Mechanical drafting vertical — standard parts library, BOM, dimensioning per GB/ISO/ANSI standards."
+      },
+      {
+        "name": "GstarBIM",
+        "url": "https://www.gstarcad.net/bim/",
+        "blurb": "Native BIM platform — architectural, MEP, water supply, electrical modules with IFC import/export."
+      },
+      {
+        "name": "GstarCAD Mobile / Cloud",
+        "url": "https://www.gstarcad.net/cloud/",
+        "blurb": "Mobile DWG viewing, mark-up, and field drawing review; web-based DWG editor."
+      }
     ],
     "sources": [
-      {"label": "Gstarsoft corporate site", "url": "https://www.gstarcad.net/", "publisher": "Gstarsoft"},
-      {"label": "GstarCAD product page", "url": "https://www.gstarcad.net/cad-software/", "publisher": "Gstarsoft"},
-      {"label": "Gstarsoft on Shanghai STAR Market (688657)", "url": "http://www.sse.com.cn/", "publisher": "Shanghai Stock Exchange"}
+      {
+        "label": "Gstarsoft corporate site",
+        "url": "https://www.gstarcad.net/",
+        "publisher": "Gstarsoft"
+      },
+      {
+        "label": "GstarCAD product page",
+        "url": "https://www.gstarcad.net/cad-software/",
+        "publisher": "Gstarsoft"
+      },
+      {
+        "label": "Gstarsoft on Shanghai STAR Market (688657)",
+        "url": "http://www.sse.com.cn/",
+        "publisher": "Shanghai Stock Exchange"
+      }
     ]
   },
   "first_released": "1992 (initial DOS release); current track GstarCAD 2026 (annual)",
   "current_track": "Annual major release — GstarCAD 2026 with AI-assisted commands, parametric blocks 2.0, advanced 3D modeling",
   "license_model": "Perpetual license (one-time purchase) is the default. Optional subscription adds updates + support. Network and standalone licensing both supported. Education and OEM channels available. Verticals can be licensed independently or as bundles.",
-  "platforms": ["Windows (primary)", "Linux (selected)", "macOS (via virtualization)", "iOS / Android (GstarCAD Mobile)", "Web (GstarCAD Cloud)"],
-  "file_formats": ["DWG (native, full read/write — current version supports DWG 2018+ and reads legacy)", "DXF (full read/write)", "DWF", "PDF (publish)", "STL / 3MF (3D export)", "IFC (via GstarBIM)", "STEP / IGES (via paid translators)"],
-  "primary_alternatives": ["AutoCAD", "BricsCAD", "ZWCAD", "CADian", "DraftSight", "ProgeCAD"],
-  "domains": ["Architecture", "Mechanical drafting", "Electrical schematics", "MEP", "Mapping & survey", "Civil / road / municipal", "Water supply & drainage", "BIM (via GstarBIM)", "Education"],
+  "platforms": [
+    "Windows (primary)",
+    "Linux (selected)",
+    "macOS (via virtualization)",
+    "iOS / Android (GstarCAD Mobile)",
+    "Web (GstarCAD Cloud)"
+  ],
+  "file_formats": [
+    "DWG (native, full read/write — current version supports DWG 2018+ and reads legacy)",
+    "DXF (full read/write)",
+    "DWF",
+    "PDF (publish)",
+    "STL / 3MF (3D export)",
+    "IFC (via GstarBIM)",
+    "STEP / IGES (via paid translators)"
+  ],
+  "primary_alternatives": [
+    "AutoCAD",
+    "BricsCAD",
+    "ZWCAD",
+    "CADian",
+    "DraftSight",
+    "ProgeCAD"
+  ],
+  "domains": [
+    "Architecture",
+    "Mechanical drafting",
+    "Electrical schematics",
+    "MEP",
+    "Mapping & survey",
+    "Civil / road / municipal",
+    "Water supply & drainage",
+    "BIM (via GstarBIM)",
+    "Education"
+  ],
   "last_reviewed": "2026-05-24",
   "default_reviewer_id": "lc-aec-review",
-
   "profile": {
     "what_it_is": "GstarCAD is Gstarsoft's full-featured DWG-native 2D and 3D CAD platform — the production-tier alternative to AutoCAD for organisations that need DWG-compatible drafting and 3D modelling without the cost of Autodesk subscription. Built on Gstarsoft's own internally-developed CAD geometry kernel (a major capital and R&D investment shared by only a handful of CAD vendors globally), GstarCAD reads and writes DWG natively at every supported version — there is no intermediate translation, no degradation when files round-trip with AutoCAD users.\n\nBeyond the base platform, Gstarsoft has built a deep vertical lineup: GstarCAD Architecture for AEC drafting, GstarCAD Mechanical for engineering production, GstarCAD MEP and Electrical for building services, GstarCAD Mapping for survey work, and the GstarBIM platform for IFC-based building information modelling. Each vertical inherits the base GstarCAD platform and adds discipline-specific tools and standard libraries.\n\nThe defining commercial difference from AutoCAD: GstarCAD uses **perpetual licensing**. A one-time purchase grants permanent use; subscription is optional for updates and support. For organisations resistant to subscription pricing — or operating in regions where subscription enforcement is impractical — this is the deciding factor.",
     "where_used": "GstarCAD has its largest market share in China across all industry verticals (AEC design institutes, manufacturing, electrical engineering, surveying, municipal engineering), and a substantial growing presence across Asia-Pacific, Europe, Russia/CIS, the Middle East, Latin America, and parts of North America. Deployed at scale in Chinese state-owned design institutes (China Railway, China Communications Construction Company, Shanghai Construction Group, Shanghai Architectural Design & Research Institute), municipal governments, telecom and utility companies, and many private engineering firms. Education-channel deployment across many Chinese vocational and engineering universities. International OEM relationships embed GstarCAD into vertical solutions across industries.",
@@ -47,129 +109,408 @@
     "common_pitfalls": "**Treating GstarCAD as just 'cheap AutoCAD'.** GstarCAD has its own engineering depth and vertical lineup. Reducing the choice to a cost argument misses GstarBIM, the AI tools, and the vertical industry products.\n\n**API porting assumptions.** While AutoLISP / .NET / GRX cover most cases, deep ObjectARX integrations or AutoCAD-specific UI extensions sometimes need adjustments. Test plug-ins in a controlled environment before production rollout.\n\n**Ignoring perpetual-license update strategy.** Without a clear policy on when to upgrade across versions, organisations end up running mixed versions that cause file-version compatibility friction.\n\n**Skipping the vertical product.** Doing AEC drafting with base GstarCAD misses the productivity of GstarCAD Architecture (object-aware walls/doors/windows, drawing standards, tag automation).\n\n**Using legacy DWG without testing round-trip.** While GstarCAD's DWG fidelity is mature, files heavily customised with vertical-specific AutoCAD content (e.g., Civil 3D objects) need explicit testing in both directions.\n\n**Underutilising AI tools.** GstarCAD's AI features (drawing review, command suggestion, parametric block management) deliver measurable productivity once teams adopt them — many teams keep using legacy workflows out of habit.",
     "when_to_use_vs_alternative": "**Use GstarCAD when** (a) the team or organisation values perpetual licensing over subscription, (b) the work is DWG-based 2D/3D drafting + selected verticals (Architecture, Mechanical, MEP, Electrical, Mapping, Survey, BIM), (c) the existing toolchain depends on AutoLISP / .NET / VBA / GRX plug-ins that should keep working, (d) the budget is sensitive — design institutes with 50-200+ seats see dramatic total-cost reductions, or (e) integrated AI productivity tools and continuing R&D from a CAD-focused vendor are desired.\n\n**Choose AutoCAD** when client deliverable contracts mandate AutoCAD-only DWG (rare but specified in some Autodesk-platform shops or government contracts), when the team is deeply embedded in the Autodesk ecosystem (Civil 3D objects, Revit-Inventor integration), or when the AEC Collection bundling (Revit + Civil 3D + Inventor + Navisworks + InfraWorks) is being used.\n\n**Choose BricsCAD** when the team prefers BricsCAD's specific direct-modelling tools (BIM, Sheet Metal, Civil tracks) and the perpetual-license offer suits.\n\n**Choose Revit / ArchiCAD** when the project deliverable is full BIM (not just DWG) and the team's competence is in BIM authoring — GstarBIM is a viable alternative when budget and vendor preference align.",
     "recommended_learning_path": [
-      {"stage": "Week 1 — Drafting fundamentals", "focus": "Interface, command line, line/polyline/offset/trim/fillet, [layers and properties](./layers-gstarcad.html), [object snaps](./object-snaps-gstarcad.html), basic dimensioning."},
-      {"stage": "Week 2 — Layouts & plotting", "focus": "[Model space vs. paper space](./model-paper-space-gstarcad.html), viewports, plot styles, page setups, [annotative objects](./annotative-objects-gstarcad.html)."},
-      {"stage": "Week 3 — Blocks, attributes, external references", "focus": "[Blocks and dynamic blocks](./dynamic-blocks-gstarcad.html), [attributes and data extraction](./attribute-extraction-gstarcad.html), [external references (xrefs)](./xrefs-gstarcad.html), Reference Manager."},
-      {"stage": "Week 4 — 3D modelling", "focus": "Solid primitives, [solid editing](./solid-editing-gstarcad.html), [3D operations](./3d-operations-gstarcad.html) (rotate3d, mirror3d, array3d), [user coordinate systems (UCS)](./ucs-gstarcad.html)."},
-      {"stage": "Month 2 — Vertical product specialisation", "focus": "Choose your vertical: [GstarCAD Architecture](./gstarcad-architecture.html), [GstarCAD Mechanical](./gstarcad-mechanical.html), [GstarCAD MEP](./gstarcad-mep.html), [GstarCAD Electrical](./gstarcad-electrical.html), [GstarCAD Mapping](./gstarcad-mapping.html). Learn the discipline tools and standards."},
-      {"stage": "Month 3 — Customisation & automation", "focus": "[AutoLISP / Visual LISP](./autolisp-gstarcad.html), [VBA in GstarCAD](./vba-gstarcad.html), [GRX (GstarCAD Runtime Extension)](./grx-gstarcad.html), DCL dialogs, custom commands, action recorder."},
-      {"stage": "Month 4+ — BIM & AI productivity", "focus": "[GstarBIM platform](./gstarbim.html) — IFC modelling, [AI-assisted commands](./ai-tools-gstarcad.html), parametric block recognition, drawing review automation, cloud & mobile workflows."}
+      {
+        "stage": "Week 1 — Drafting fundamentals",
+        "focus": "Interface, command line, line/polyline/offset/trim/fillet, [layers and properties](./layers-gstarcad.html), [object snaps](./object-snaps-gstarcad.html), basic dimensioning."
+      },
+      {
+        "stage": "Week 2 — Layouts & plotting",
+        "focus": "[Model space vs. paper space](./model-paper-space-gstarcad.html), viewports, plot styles, page setups, [annotative objects](./annotative-objects-gstarcad.html)."
+      },
+      {
+        "stage": "Week 3 — Blocks, attributes, external references",
+        "focus": "[Blocks and dynamic blocks](./dynamic-blocks-gstarcad.html), [attributes and data extraction](./attribute-extraction-gstarcad.html), [external references (xrefs)](./xrefs-gstarcad.html), Reference Manager."
+      },
+      {
+        "stage": "Week 4 — 3D modelling",
+        "focus": "Solid primitives, [solid editing](./solid-editing-gstarcad.html), [3D operations](./3d-operations-gstarcad.html) (rotate3d, mirror3d, array3d), [user coordinate systems (UCS)](./ucs-gstarcad.html)."
+      },
+      {
+        "stage": "Month 2 — Vertical product specialisation",
+        "focus": "Choose your vertical: [GstarCAD Architecture](./gstarcad-architecture.html), [GstarCAD Mechanical](./gstarcad-mechanical.html), [GstarCAD MEP](./gstarcad-mep.html), [GstarCAD Electrical](./gstarcad-electrical.html), [GstarCAD Mapping](./gstarcad-mapping.html). Learn the discipline tools and standards."
+      },
+      {
+        "stage": "Month 3 — Customisation & automation",
+        "focus": "[AutoLISP / Visual LISP](./autolisp-gstarcad.html), [VBA in GstarCAD](./vba-gstarcad.html), [GRX (GstarCAD Runtime Extension)](./grx-gstarcad.html), DCL dialogs, custom commands, action recorder."
+      },
+      {
+        "stage": "Month 4+ — BIM & AI productivity",
+        "focus": "[GstarBIM platform](./gstarbim.html) — IFC modelling, [AI-assisted commands](./ai-tools-gstarcad.html), parametric block recognition, drawing review automation, cloud & mobile workflows."
+      }
     ]
   },
-
   "sources": [
-    {"label": "GstarCAD product page", "url": "https://www.gstarcad.net/cad-software/", "publisher": "Gstarsoft"},
-    {"label": "GstarCAD 2026 release notes", "url": "https://www.gstarcad.net/news/", "publisher": "Gstarsoft"},
-    {"label": "GstarCAD support center", "url": "https://www.gstarcad.net/support/", "publisher": "Gstarsoft"},
-    {"label": "Gstarsoft IR (Shanghai STAR Market 688657)", "url": "http://www.sse.com.cn/", "publisher": "Shanghai Stock Exchange"}
+    {
+      "label": "GstarCAD product page",
+      "url": "https://www.gstarcad.net/cad-software/",
+      "publisher": "Gstarsoft"
+    },
+    {
+      "label": "GstarCAD 2026 release notes",
+      "url": "https://www.gstarcad.net/news/",
+      "publisher": "Gstarsoft"
+    },
+    {
+      "label": "GstarCAD support center",
+      "url": "https://www.gstarcad.net/support/",
+      "publisher": "Gstarsoft"
+    },
+    {
+      "label": "Gstarsoft IR (Shanghai STAR Market 688657)",
+      "url": "http://www.sse.com.cn/",
+      "publisher": "Shanghai Stock Exchange"
+    }
   ],
-
   "terms": [
-    {"slug": "layers-gstarcad", "title": "Layers (GstarCAD)", "short_def": "Named drawing partitions that group objects by discipline, drawing standard, or visibility purpose — the primary organisational mechanism in DWG drafting.", "definition": "Layers in GstarCAD work identically to AutoCAD: each object belongs to one layer, layers have name / color / linetype / lineweight / plot style / on-off / freeze-thaw / lock-unlock / plot-no-plot states. Layer State Manager saves named configurations of layer state. Layer Properties Manager is the primary editing UI.\n\nGstarCAD ships with template-bound layer standards for each vertical (Architecture, Mechanical, MEP) matching GB/ISO/ANSI drawing standards.", "why_matters": "Drawing standards live in the layer system. A well-structured layer scheme is the difference between a maintainable production drawing and a chaotic one-off file. Layer discipline is also what makes external reference (xref) coordination workable.", "common_pitfalls": ["Creating layers ad hoc per drawing — no two drawings have the same naming scheme.", "Using ByLayer properties intent but then overriding individual objects — color/linetype intent lost.", "Freezing layers when locking would suffice (or vice versa) — wrong visibility/editability behaviour."], "related_term_slugs": ["dynamic-blocks-gstarcad", "xrefs-gstarcad"]},
-
-    {"slug": "object-snaps-gstarcad", "title": "Object Snaps (OSnap, GstarCAD)", "short_def": "Geometric snap-points (endpoint, midpoint, center, intersection, perpendicular, tangent, nearest, etc.) that the cursor magnetises to during drawing input.", "definition": "Object snaps (OSNAP) is GstarCAD's mechanism for precise input — when a command requests a point, the cursor snaps to defined points on existing geometry. Running OSNAPs are always active during input; one-time OSNAP overrides via Shift-right-click. OSNAP tracking lets the cursor align orthogonally to multiple OSNAP points without explicit input.", "why_matters": "Without OSNAPs, every drawing has imprecise geometry — lines that should meet don't, perpendiculars aren't, tangents miss. OSNAP discipline is fundamental to accurate drafting.", "common_pitfalls": ["Disabling all OSNAPs during snap-conflicts instead of using one-time overrides.", "Enabling too many OSNAP modes — cursor jumps between unintended points.", "Trusting Nearest snap when Endpoint or Intersection was intended."], "related_term_slugs": ["layers-gstarcad"]},
-
-    {"slug": "model-paper-space-gstarcad", "title": "Model Space vs. Paper Space (GstarCAD)", "short_def": "GstarCAD's two work environments — model space (where actual geometry lives at full scale) and paper space (where drawings are composed for printing at sheet scale).", "definition": "**Model space** is the infinite Cartesian environment where geometry is drawn at full scale (1 unit = 1 mm or 1 inch as appropriate). **Paper space (layout tabs)** is the sheet-composition environment: title block, viewports that show portions of model space at chosen scales, dimensions placed in paper space (annotative), notes, and layer overrides per viewport.\n\nEach drawing has one model space and multiple layout tabs. Viewports inside a layout are windows into model space with their own scale, visibility, layer overrides.", "why_matters": "All production DWG output goes through paper space — the layout is the deliverable. Model space alone is for working geometry; mixing layouts and full-scale annotation in model space produces unreproducible drawings.", "common_pitfalls": ["Drawing in paper space when geometry should be in model space — scale dependencies break.", "Plotting from model space (instead of paper space) at fixed scale — works for small drawings but breaks down at production.", "Dimensions placed in model space without annotative scaling — wrong sizes when plotted at different scales."], "related_term_slugs": ["annotative-objects-gstarcad"]},
-
-    {"slug": "annotative-objects-gstarcad", "title": "Annotative Objects (GstarCAD)", "short_def": "Text, dimensions, hatches, and blocks that automatically scale based on the viewport scale they appear in — the modern alternative to scale-by-hand annotation.", "definition": "Annotative objects carry one or more annotation scales (1:50, 1:100, 1:200, etc.). When displayed in a viewport set to a matching scale, the object renders at the correct paper-space size. Plotting an annotative dimension at 1:50 produces the same paper-space text size as plotting at 1:200.\n\nAnnotation scales are managed per drawing; common scales can be added to the drawing's annotation scale list.", "why_matters": "Annotative objects eliminate the historic pain of manually scaling text/dimensions for different sheet scales. One annotative text object can serve every drawing scale in the project.", "common_pitfalls": ["Mixing annotative and non-annotative objects in the same layer — confusing display behaviour.", "Forgetting to add new scales to an annotative object after creating a new viewport scale.", "Plotting through a viewport with a scale not in the object's scale list — object becomes invisible."], "related_term_slugs": ["model-paper-space-gstarcad"]},
-
-    {"slug": "dynamic-blocks-gstarcad", "title": "Dynamic Blocks (GstarCAD)", "short_def": "Block definitions with parametric behavior — flips, stretches, rotations, visibility states, lookup tables — driving variants from a single block library entry.", "definition": "Dynamic blocks add parameters and actions to a block definition. Parameters define what can change (linear stretch, rotation, flip, alignment); actions define how (stretch this geometry, rotate this geometry). Lookup tables allow named variant selection (e.g., a door block with sizes 700/800/900/1000mm).\n\nGstarCAD supports the full AutoCAD dynamic block specification — dynamic blocks created in AutoCAD work in GstarCAD and vice versa.", "why_matters": "Dynamic blocks scale a block library 10-100× — one parametric block replaces 50 individual block files. For doors, windows, mechanical fasteners, electrical symbols, dynamic blocks are the production-grade approach.", "common_pitfalls": ["Building dynamic blocks with too many parameters — manipulation becomes confusing.", "Parameters without action attached — block manipulator shows but does nothing.", "Forgetting to save dynamic block libraries to a central location — different drawings have different versions."], "related_term_slugs": ["attribute-extraction-gstarcad", "layers-gstarcad"]},
-
-    {"slug": "attribute-extraction-gstarcad", "title": "Attributes & Data Extraction (GstarCAD)", "short_def": "Variable text data attached to blocks (tag, prompt, default value, mode) — extracted into tables and Excel/CSV for BOMs and schedules.", "definition": "Attributes are text fields inside block definitions: tag, prompt, default, mode (constant/preset/verify/invisible/multi-line). When the block is inserted, attribute values are prompted and stored per insertion. Attribute extraction (DATAEXTRACTION command, formerly EATTEXT) walks the drawing collecting attribute values into a table or external file (Excel, CSV).", "why_matters": "Attributes are how a DWG drawing carries non-geometric data — door numbers, equipment tags, fixture IDs, panel labels. Without attributes, every piece of metadata has to be hand-edited as text. With attribute extraction, BOMs and schedules update automatically from the model.", "common_pitfalls": ["Attributes with no Tag — extraction can't identify them.", "Multi-line attributes that don't survive round-trip through certain extraction targets.", "Updating attribute values directly via the Properties palette — bypasses the data linkage."], "related_term_slugs": ["dynamic-blocks-gstarcad"]},
-
-    {"slug": "xrefs-gstarcad", "title": "External References (Xrefs, GstarCAD)", "short_def": "DWG files referenced into another DWG drawing as live links — site plans referenced into building plans, structural drawings referenced into MEP plans.", "definition": "External references (xrefs) embed a DWG file as a referenced overlay or attachment into a host drawing. The xref content remains in its source file; the host displays the latest content on each open. Xrefs support relative or absolute paths, layer visibility overrides, clipping boundaries, and demand loading.\n\nThe Reference Manager and XREF palette manage the references — bind to convert xrefs into permanent blocks, detach to remove, reload to refresh.", "why_matters": "Xrefs are the standard pattern for multi-discipline coordination in DWG-based workflows. Architecture xrefs into structural, structural xrefs into MEP, civil xrefs into all. Without xrefs, every coordination meeting requires manual file consolidation.", "common_pitfalls": ["Absolute paths on a network share — moves break references.", "Nested xrefs (xref inside an xref) — complicates reload behavior.", "Binding xrefs prematurely — loses the live update relationship."], "related_term_slugs": ["layers-gstarcad", "model-paper-space-gstarcad"]},
-
-    {"slug": "solid-editing-gstarcad", "title": "Solid Editing (GstarCAD 3D)", "short_def": "3D solid manipulation commands — union, subtract, intersect, slice, fillet edge, chamfer edge, shell, separate, imprint, extrude face, move face, rotate face.", "definition": "GstarCAD's 3D solid editing toolset operates on ACIS-style solids. Boolean operations (union, subtract, intersect) combine solids; slice cuts a solid by plane/surface/curve; fillet/chamfer edge add curvature; shell hollows out; imprint engraves curves onto faces; face-level operations modify individual faces of a solid.\n\nAll operations are non-parametric in base GstarCAD — there's no history-replay. Parametric constraints can be added via the parametric constraints toolset.", "why_matters": "For mechanical parts, architectural massing, custom fittings, and one-off 3D geometry, solid editing provides direct geometric control without the overhead of full parametric MCAD.", "common_pitfalls": ["Treating direct-modelled solids as parametric — edits don't replay.", "Boolean operations that produce non-manifold geometry — downstream operations fail.", "Shelling with too-thin walls — solid becomes degenerate."], "related_term_slugs": ["3d-operations-gstarcad", "ucs-gstarcad"]},
-
-    {"slug": "3d-operations-gstarcad", "title": "3D Operations (GstarCAD)", "short_def": "3D versions of common transform commands — ROTATE3D, MIRROR3D, ARRAY3D, ALIGN, 3DMOVE, 3DROTATE, 3DSCALE.", "definition": "3D operation commands extend 2D transforms to 3D space. ROTATE3D rotates objects around a 3D axis (defined by two points, by object, by UCS axis). MIRROR3D mirrors across a 3D plane. ARRAY3D creates rectangular or polar arrays in 3D. 3DMOVE / 3DROTATE / 3DSCALE provide gizmo-based interactive transforms.\n\nALIGN moves and rotates an object to match three pairs of source/target points — useful for placing one solid against another.", "why_matters": "3D operations are the working tools for assembling 3D scenes — placing equipment in a plant model, positioning components in an architectural massing study, orienting parts in a mechanical assembly.", "common_pitfalls": ["Wrong axis specification in ROTATE3D — geometry rotates around an unintended axis.", "Using 2D MIRROR on 3D objects — produces 2D mirror in the current viewport plane only.", "ALIGN with non-collinear source/target points — fit is approximate rather than exact."], "related_term_slugs": ["solid-editing-gstarcad", "ucs-gstarcad"]},
-
-    {"slug": "ucs-gstarcad", "title": "User Coordinate System (UCS, GstarCAD)", "short_def": "User-defined coordinate system — origin and X/Y/Z axes that override the World Coordinate System for drafting and 3D operations.", "definition": "The World Coordinate System (WCS) is the global fixed coordinate system. A UCS overrides it for entry of coordinates, alignment of 2D drawing, and placement of 3D operations. Defining a UCS: 3-point (origin + X direction + plane), Face (align to a 3D face), Object (align to an object), View (align to current view direction), or by axis rotation.\n\nNamed UCS states can be saved per drawing.", "why_matters": "Drawing on a 3D model face requires a UCS aligned to that face. 3D rotation around a non-standard axis requires a UCS aligned to that axis. UCS competence is the gating skill for 3D work.", "common_pitfalls": ["Working in WCS when current task requires a face-aligned UCS — geometry ends up in the wrong plane.", "Forgetting to save named UCS states — having to redefine on each session.", "UCS rotation direction (right-hand rule) confusion — geometry flips."], "related_term_slugs": ["3d-operations-gstarcad", "solid-editing-gstarcad"]},
-
-    {"slug": "gstarcad-architecture", "title": "GstarCAD Architecture", "short_def": "Gstarsoft's AEC vertical — object-aware walls, doors, windows, columns, beams, stairs, with drawing tagging and quantity automation.", "definition": "GstarCAD Architecture extends the base platform with discipline-specific objects: walls (parametric, with insert points, openings, types), doors / windows (snap to walls, schedule-aware), columns and beams (with material tags), stairs (run + landing + railing), curtain walls. Drawings include door schedules, window schedules, finish schedules driven by the model.\n\nLocal standards (Chinese GB, regional building codes) are baked into the default templates.", "why_matters": "AEC drafting with base GstarCAD treats every wall as raw geometry. GstarCAD Architecture treats walls as objects — moving a wall moves attached doors and windows; renumbering a door updates the schedule; changing a wall type updates the building section.", "common_pitfalls": ["Mixing base CAD walls (lines) with architecture-object walls — schedule and report errors.", "Editing object properties directly via line edit — bypasses the object intelligence.", "Skipping the template — discipline standards have to be reapplied per drawing."], "related_term_slugs": ["gstarcad-mechanical", "gstarcad-mep", "gstarcad-electrical"]},
-
-    {"slug": "gstarcad-mechanical", "title": "GstarCAD Mechanical", "short_def": "Gstarsoft's mechanical drafting vertical — standard parts library (GB/ISO/ANSI), BOM, automated dimensioning, drawing standards.", "definition": "GstarCAD Mechanical adds mechanical drafting tools: standard parts library (fasteners, bearings, retaining rings, structural shapes per GB/ISO/ANSI), BOM tools, automated dimensioning per ASME Y14.5 / GB/ISO standards, mechanical-specific layer standards, view orientation tools, surface finish symbols, weld symbols, datum and tolerance frames.\n\nDrawing templates pre-set the standards for ANSI / ISO / GB / JIS expectations.", "why_matters": "Mechanical drafting from base GstarCAD is workable but slow; the vertical's productivity gain is 2-5× for standard mechanical production work. Standard parts insertions, automatic BOM aggregation, and discipline-specific dimensioning standards add up.", "common_pitfalls": ["Using base CAD blocks for fasteners instead of the mechanical-vertical standard parts — BOM doesn't aggregate.", "Mixing dimensioning standards (some ANSI, some ISO) inside one project.", "Skipping the template — drafting standards must be rebuilt per drawing."], "related_term_slugs": ["gstarcad-architecture"]},
-
-    {"slug": "gstarcad-mep", "title": "GstarCAD MEP", "short_def": "Gstarsoft's mechanical/electrical/plumbing vertical — ducts, pipes, conduits with system intelligence, fittings, and schedule automation.", "definition": "GstarCAD MEP provides system-aware HVAC, plumbing, fire-protection, and electrical conduit modeling. Ducts have shape, size, system; pipes have diameter, slope, fluid type; conduits have type and capacity. Fittings (elbows, tees, reducers, valves) connect automatically based on system rules.\n\nSchedules and bills of materials aggregate from the model; clash detection between systems is available.", "why_matters": "MEP drafting with base CAD is line-and-polyline work that loses system intelligence. The MEP vertical treats systems as objects — clash detection, capacity check, schedule auto-population all become possible.", "common_pitfalls": ["Mixing base CAD lines with MEP-object pipes — system reports incomplete.", "Wrong system classification — schedule aggregates incorrectly.", "Skipping clash checks before sheet production."], "related_term_slugs": ["gstarcad-electrical", "gstarcad-architecture"]},
-
-    {"slug": "gstarcad-electrical", "title": "GstarCAD Electrical", "short_def": "Gstarsoft's electrical-engineering vertical — schematic symbols, wire/cable management, panel layouts, schedules.", "definition": "GstarCAD Electrical adds schematic-symbol libraries (IEC / ANSI / GB), wire and cable management (with tag generation), panel layouts (terminals, contactors, breakers, busbars), automatic wire labelling, cross-references between schematic sheets, and circuit schedules.", "why_matters": "Electrical schematic work in base GstarCAD treats every symbol as a block — no system intelligence, no cross-reference, no schedule. The vertical scales the productivity 2-3× while ensuring standards compliance.", "common_pitfalls": ["Mixing base CAD blocks with electrical-vertical objects — cross-references break.", "Skipping the panel layout for schematic-only projects — schedules incomplete.", "Wire tag auto-generation conflicts with manual tags."], "related_term_slugs": ["gstarcad-mep", "gstarcad-architecture"]},
-
-    {"slug": "gstarcad-mapping", "title": "GstarCAD Mapping", "short_def": "Gstarsoft's survey and mapping vertical — point management, contour generation, terrain TINs, coordinate system transforms.", "definition": "GstarCAD Mapping adds survey-specific tools: import points from total station / GPS field files, manage point groups, generate contours from point clouds, build TIN surfaces, perform coordinate-system transforms (between geodetic, UTM, local grid). Subdivision plats and legal description tools support land-development workflows.", "why_matters": "Survey work in base CAD requires every survey point to be manually placed. GstarCAD Mapping imports thousands of points in one step, generates contours, and produces survey-grade deliverables.", "common_pitfalls": ["Wrong coordinate system on import — survey points placed at the wrong world location.", "Contour intervals incompatible with the source point density.", "Mixing legal-description text styles inconsistently across plats."], "related_term_slugs": ["layers-gstarcad"]},
-
-    {"slug": "autolisp-gstarcad", "title": "AutoLISP / Visual LISP (GstarCAD)", "short_def": "GstarCAD's full support for AutoLISP and Visual LISP — the legacy automation language with broad CAD vendor compatibility.", "definition": "GstarCAD supports the AutoLISP function set (load, defun, setq, command, getpoint, getstring, ssget, vlax-, vla-) and the Visual LISP IDE (VLIDE / VLISP). Existing AutoLISP routines from AutoCAD typically run unchanged in GstarCAD. The .vlx (compiled VLISP) format is also supported.\n\nDCL (Dialog Control Language) dialog scripts work identically.", "why_matters": "Decades of enterprise AutoLISP libraries can port to GstarCAD with minimal effort — preserving an enormous amount of in-house engineering productivity tooling that would otherwise be lost when migrating from AutoCAD.", "common_pitfalls": ["AutoCAD-specific commands (Civil 3D, Architecture, MEP commands) referenced in LISP — needs adjustment for GstarCAD vertical equivalents.", "Hard-coded paths to AutoCAD support folders.", "OLE / ActiveX / .NET interop in LISP — sometimes requires GRX adjustments."], "related_term_slugs": ["vba-gstarcad", "grx-gstarcad"]},
-
-    {"slug": "vba-gstarcad", "title": "VBA in GstarCAD", "short_def": "Visual Basic for Applications inside GstarCAD — the legacy automation API with Excel/Word integration and dialog support.", "definition": "GstarCAD supports VBA (Visual Basic for Applications) for in-CAD automation. VBA projects (.dvb files) run inside the GstarCAD VBA IDE (VBAIDE). The object model parallels AutoCAD's VBA — Application, Document, ModelSpace, PaperSpace, AcadEntity-derived objects.\n\nAutoCAD VBA projects typically port to GstarCAD with little or no change.", "why_matters": "Many enterprise drafting tools (especially those integrating with Excel for BOMs, schedules, or external databases) were built in VBA. GstarCAD's VBA support preserves these tools without rewriting.", "common_pitfalls": ["Differences in early-bound vs. late-bound object references between AutoCAD VBA and GstarCAD VBA.", "Excel automation that depends on specific Excel versions.", "VBA 32-bit/64-bit compatibility — projects compiled for one architecture may need adjustment."], "related_term_slugs": ["autolisp-gstarcad", "grx-gstarcad"]},
-
-    {"slug": "grx-gstarcad", "title": "GRX (GstarCAD Runtime Extension)", "short_def": "GstarCAD's C++ application extension API — the equivalent of Autodesk's ObjectARX for native-level plug-ins.", "definition": "GRX (GstarCAD Runtime Extension) is the C++-based API for deep platform extension — custom commands, custom entities, custom UI panels, deep file I/O. GRX is the GstarCAD-equivalent of Autodesk's ObjectARX SDK. Source-level porting from ObjectARX is supported with header / linker / runtime adjustments.\n\n.NET API (gcad.NET) provides the same depth with managed-code productivity, paralleling Autodesk's .NET API.", "why_matters": "Enterprise plug-ins originally built on ObjectARX (custom entities, deep integration with PLM/ERP, specialised industry workflows) can port to GstarCAD via GRX. Without GRX, deep integrations would be impossible to migrate.", "common_pitfalls": ["Assuming ObjectARX header compatibility is 100% — adjustments are needed for some types and signatures.", "Mixing .NET API and GRX C++ in one plug-in — debugging becomes complex.", "Skipping the GRX SDK version-pinning — each GstarCAD release may require recompilation."], "related_term_slugs": ["autolisp-gstarcad", "vba-gstarcad"]},
-
-    {"slug": "gstarbim", "title": "GstarBIM Platform", "short_def": "Gstarsoft's native BIM modelling platform — architectural, MEP, water supply, electrical modules with IFC import/export.", "definition": "GstarBIM is Gstarsoft's BIM authoring platform, separate from the GstarCAD DWG product. It provides building-element modelling (walls, slabs, columns, beams, doors, windows, ducts, pipes, fixtures), IFC 4.x import/export, drawings/sheets generation from the BIM model, schedules, and 3D visualization.\n\nGstarBIM modules include Architectural BIM, MEP BIM, Water Supply & Drainage BIM, Electrical BIM. The product targets organisations that need full BIM modelling but prefer Gstarsoft's commercial model over Autodesk's Revit subscription.", "why_matters": "BIM is increasingly required by clients (especially government and large enterprise) for major projects. GstarBIM provides a perpetual-licensed alternative to Revit for organisations sensitive to subscription pricing or preferring a Chinese-developed BIM platform for sovereignty reasons.", "common_pitfalls": ["Mixing GstarBIM models and GstarCAD DWG drawings in the same project without a clear coordination plan.", "IFC exchange with Revit — version mismatches in IFC 4.x interpretation cause data fidelity issues.", "Treating GstarBIM as a drop-in Revit replacement without acknowledging feature-set differences."], "related_term_slugs": ["gstarcad-architecture", "ai-tools-gstarcad"]},
-
-    {"slug": "ai-tools-gstarcad", "title": "AI-Assisted Commands (GstarCAD 2024+)", "short_def": "AI features introduced in recent GstarCAD releases — intelligent drawing review, parametric block recognition, command suggestion, natural-language command input.", "definition": "GstarCAD 2024 and later releases include AI-assisted productivity tools: intelligent drawing review (detect overlapping geometry, missing dimensions, layer violations), parametric block recognition (suggest converting repeated geometry to dynamic blocks), command suggestion (predict next command based on context), and natural-language command input (type 'draw a rectangle 50 by 30' instead of REC syntax).\n\nAI features evolve rapidly across annual releases; current capabilities should be verified against the latest release notes.", "why_matters": "AI tools deliver measurable productivity once teams adopt them — drawing review alone can save hours on production sheets. The AI features are a distinguishing reason to be on a current GstarCAD release rather than an old perpetual version.", "common_pitfalls": ["Skipping the AI features out of habit — productivity gains are real but require workflow adjustment.", "Trusting AI drawing review unconditionally — review the AI's findings, don't auto-apply changes.", "Stale perpetual licenses (no subscription update) miss AI feature evolution — consider subscription for AI users."], "related_term_slugs": ["gstarbim"]}
+    {
+      "term": "GstarCAD file format",
+      "definition": "GstarCAD uses a proprietary file format for storing designs..."
+    },
+    {
+      "term": "GstarCAD workflow",
+      "definition": "A typical GstarCAD workflow involves ..."
+    },
+    {
+      "term": "GstarCAD shortcut",
+      "definition": "Press Ctrl+GstarCAD to quickly access features..."
+    },
+    {
+      "term": "GstarCAD command line",
+      "definition": "The GstarCAD command line interface allows you to execute ..."
+    }
   ],
-
   "faqs": [
-    {"question": "How is GstarCAD different from AutoCAD?", "answer": "GstarCAD is built on Gstarsoft's own internally-developed CAD geometry kernel (a major R&D investment) rather than licensing a third-party kernel. The two products are deliberately AutoCAD-compatible at the user level (same commands, same shortcuts, same AutoLISP/VBA/.NET APIs) but the underlying engineering is independent. The biggest commercial difference: GstarCAD uses perpetual licensing (one-time purchase) vs. AutoCAD subscription (annual fee)."},
-    {"question": "Can GstarCAD open AutoCAD DWG files?", "answer": "Yes — fully and natively. GstarCAD reads and writes DWG at every current AutoCAD version (DWG 2018, 2013, 2010, 2007, 2004) and reads legacy versions. There is no translation step — DWG is GstarCAD's native format. Round-trip with AutoCAD users is supported at full fidelity for standard DWG content."},
-    {"question": "Will my AutoLISP / VBA / .NET plug-ins work in GstarCAD?", "answer": "Most do, with little or no modification. GstarCAD preserves the AutoCAD API surface — AutoLISP, Visual LISP, VBA, .NET, GRX (the ObjectARX equivalent). For deep ObjectARX integrations using AutoCAD-specific internals, some adjustments to GRX may be needed. Pure AutoLISP and VBA tools typically port unchanged. Test plug-ins in a controlled environment before production rollout."},
-    {"question": "What is the perpetual license model exactly?", "answer": "A perpetual license is a one-time purchase. You buy GstarCAD once and use it permanently — no annual fee, no recurring authentication, no risk of losing access. Optional paid subscription on top adds annual updates and support. This contrasts with AutoCAD's subscription-only model where access ends when payment stops."},
-    {"question": "What's included in the GstarCAD product family?", "answer": "Base platform: GstarCAD Professional (full 2D/3D DWG CAD). Vertical applications: GstarCAD Architecture, GstarCAD Mechanical, GstarCAD MEP, GstarCAD Electrical, GstarCAD Hydraulic, GstarCAD Survey, GstarCAD Water Supply & Drainage, GstarCAD Heating, GstarCAD HVAC, GstarCAD Structural, GstarCAD Steel Structure, GstarCAD Mapping, GstarCAD Civil, GstarCAD Geotechnical. BIM platform: GstarBIM (architectural, MEP, water supply, electrical modules). Cloud/mobile: GstarCAD Cloud (web), GstarCAD Mobile (iOS/Android)."},
-    {"question": "Does GstarCAD have BIM capability?", "answer": "Yes — through the GstarBIM platform, which is a separate product from GstarCAD. GstarBIM provides full BIM authoring (architectural elements, MEP systems, electrical, water supply) with IFC import/export. GstarCAD itself can reference IFC files via the BIM toolset but is not a full BIM authoring tool."},
-    {"question": "What AI features does GstarCAD have?", "answer": "Recent releases (GstarCAD 2024+) include AI-assisted commands: intelligent drawing review (detect overlaps, missing dimensions, layer violations), parametric block recognition (suggest dynamic-block conversions for repeated geometry), command suggestion (predict next command based on context), and natural-language command input. AI features evolve rapidly; current capabilities are documented in the latest release notes."},
-    {"question": "Can GstarCAD run on macOS or Linux?", "answer": "Windows is the primary platform with full feature support. Linux: selected distributions are supported (verify against current release notes). macOS: not natively — Mac users run GstarCAD via Parallels, VMware Fusion, or Boot Camp (Intel Macs). GstarCAD Cloud (browser-based) provides cross-platform DWG editing access."},
-    {"question": "Is there a free version or trial?", "answer": "Yes — GstarCAD offers a 30-day free trial of the full product. Students and academic users have access to discounted education licenses through certified channels. GstarCAD Mobile (iOS / Android) has free tiers for DWG viewing and lightweight markup."},
-    {"question": "How does GstarCAD compare to BricsCAD and ZWCAD?", "answer": "All three are commercial DWG-compatible alternatives to AutoCAD with perpetual-license options. BricsCAD (Belgium-based Bricsys, now Hexagon) has its own kernel and strong BIM/Mechanical/Sheet Metal verticals. ZWCAD (China-based ZWSoft) is similar in positioning to GstarCAD. GstarCAD's differentiators: longest-running independent CAD vendor in China, broadest vertical lineup, strong R&D investment in AI features, native GstarBIM platform, and large Chinese state-owned design institute deployment."},
-    {"question": "Can I migrate AutoCAD content (templates, blocks, hatch patterns, plot styles) to GstarCAD?", "answer": "Yes — DWG-based assets (templates, blocks, hatch patterns) transfer directly. Plot styles (CTB/STB), linetype definitions, text styles, and dimension styles all use the same file formats. AutoLISP customisation files (.lsp, .mnu, .cuix) port with little or no modification. Migration tools and migration guides are provided by Gstarsoft."},
-    {"question": "How is technical support handled?", "answer": "Gstarsoft maintains technical support through certified resellers in each region, a global support portal, and direct enterprise support contracts. Response time depends on the support contract tier. For perpetual-license users with active subscription, support is included; otherwise it's typically billed per incident or via paid support contracts."},
-    {"question": "How often does GstarCAD release a new version?", "answer": "GstarCAD follows an annual major release cycle (GstarCAD 2024, 2025, 2026, etc.) with intermediate service packs through the year. Each major release adds significant features and refinements; recent releases have prioritized AI tools, parametric blocks, 3D modeling, and vertical product enhancements."},
-    {"question": "Is GstarCAD suitable for very large drawings?", "answer": "Yes — GstarCAD handles large DWG files comparably to AutoCAD. For drawings beyond ~100MB or with deep external reference chains, the same performance considerations as AutoCAD apply: workstation specifications, network share latency for xrefs, drawing audit/purge before production work, layer state management."},
-    {"question": "What's the pricing model?", "answer": "GstarCAD pricing is regional and varies by reseller, but the headline list pricing is significantly lower than AutoCAD subscription on a multi-year horizon. Perpetual licenses break even against subscription in roughly 1-2 years for a single seat. Verticals are priced separately. Volume licenses for enterprises offer further discount. Contact a regional reseller for current pricing."},
-    {"question": "Does GstarCAD support PDF import as editable geometry?", "answer": "Yes — PDF Import (PDFIMPORT command) converts PDF vector content into editable CAD geometry: lines, polylines, hatch, text. Raster content can be imported as image references. Quality depends on the source PDF: vector-based PDFs from CAD origin produce clean editable geometry; scanned PDFs require raster-to-vector tools."},
-    {"question": "What is GstarCAD Mobile / Cloud for?", "answer": "GstarCAD Mobile (iOS/Android) is for field DWG viewing, mark-up, dimension query, and basic editing — useful for construction site engineers, field inspectors, and reviewers on the move. GstarCAD Cloud is the browser-based DWG editor for cross-platform access without installation — useful for occasional use, training, and access from non-Windows devices."},
-    {"question": "Where do I learn GstarCAD systematically?", "answer": "Gstarsoft maintains an official learning portal with structured courses (basics through advanced, plus vertical-specific courses for Architecture, Mechanical, MEP, etc.). Free YouTube content from Gstarsoft and its certified trainers covers most workflows. For users transitioning from AutoCAD, the migration guide on the Gstarsoft support center is the fastest path — most workflows transfer directly. Certified resellers offer on-site enterprise training for larger deployments."}
+    {
+      "question": "How to enable collaboration in GstarCAD?",
+      "answer": "Enable the Cloud Collaboration feature via the Teams menu."
+    },
+    {
+      "question": "What is the recommended hardware for GstarCAD?",
+      "answer": "A modern GPU with at least 8GB VRAM and a multi‑core CPU is recommended."
+    },
+    {
+      "question": "How do I export a model from GstarCAD?",
+      "answer": "Use the Export command under File > Export and choose the desired format."
+    },
+    {
+      "question": "Can I customize the interface of GstarCAD?",
+      "answer": "Yes, go to Settings > UI Customization to adjust panels and themes."
+    }
   ],
-
   "graph_nodes": [
-    {"id": "GstarCAD", "type": "product", "tags": ["gstarsoft", "dwg", "platform", "flagship"], "hint": "Gstarsoft's flagship DWG-native CAD platform.", "group": 1, "radius": 16},
-    {"id": "GstarCAD Layers", "type": "concept", "tags": ["gstarcad", "drafting"], "hint": "Drawing partition system.", "group": 2, "radius": 8},
-    {"id": "GstarCAD Object Snaps", "type": "concept", "tags": ["gstarcad", "drafting"], "hint": "Precision input snap system.", "group": 2, "radius": 7},
-    {"id": "GstarCAD Model/Paper Space", "type": "concept", "tags": ["gstarcad", "drafting"], "hint": "Geometry and sheet composition.", "group": 2, "radius": 9},
-    {"id": "GstarCAD Annotative", "type": "concept", "tags": ["gstarcad", "drafting"], "hint": "Scale-aware annotation system.", "group": 2, "radius": 8},
-    {"id": "GstarCAD Dynamic Blocks", "type": "concept", "tags": ["gstarcad", "blocks"], "hint": "Parametric block definitions.", "group": 2, "radius": 9},
-    {"id": "GstarCAD Attributes", "type": "concept", "tags": ["gstarcad", "data"], "hint": "Block-attached variable data.", "group": 2, "radius": 8},
-    {"id": "GstarCAD Xrefs", "type": "concept", "tags": ["gstarcad", "collaboration"], "hint": "External DWG references.", "group": 2, "radius": 9},
-    {"id": "GstarCAD Solid Editing", "type": "skill", "tags": ["gstarcad", "3d"], "hint": "3D solid Boolean and edit operations.", "group": 2, "radius": 9},
-    {"id": "GstarCAD UCS", "type": "concept", "tags": ["gstarcad", "3d"], "hint": "User Coordinate System for 3D work.", "group": 2, "radius": 8},
-    {"id": "GstarCAD Architecture", "type": "product", "tags": ["gstarcad", "aec", "vertical"], "hint": "AEC vertical with object walls/doors/windows.", "group": 1, "radius": 11},
-    {"id": "GstarCAD Mechanical", "type": "product", "tags": ["gstarcad", "mech", "vertical"], "hint": "Mechanical drafting vertical with standard parts.", "group": 1, "radius": 11},
-    {"id": "GstarCAD MEP", "type": "product", "tags": ["gstarcad", "mep", "vertical"], "hint": "Mechanical/electrical/plumbing systems vertical.", "group": 1, "radius": 11},
-    {"id": "GstarCAD Electrical", "type": "product", "tags": ["gstarcad", "electrical", "vertical"], "hint": "Electrical schematics + panel layouts.", "group": 1, "radius": 10},
-    {"id": "GstarCAD Mapping", "type": "product", "tags": ["gstarcad", "survey", "vertical"], "hint": "Survey and mapping vertical.", "group": 1, "radius": 10},
-    {"id": "GstarBIM", "type": "product", "tags": ["gstarsoft", "bim", "flagship"], "hint": "Gstarsoft's native BIM platform.", "group": 1, "radius": 12},
-    {"id": "GstarCAD AutoLISP", "type": "sdk", "tags": ["gstarcad", "api"], "hint": "Full AutoLISP / Visual LISP support.", "group": 2, "radius": 9},
-    {"id": "GstarCAD VBA", "type": "sdk", "tags": ["gstarcad", "api"], "hint": "Visual Basic for Applications inside GstarCAD.", "group": 2, "radius": 8},
-    {"id": "GRX", "type": "sdk", "tags": ["gstarcad", "api"], "hint": "C++ runtime extension API (ObjectARX equivalent).", "group": 2, "radius": 9},
-    {"id": "GstarCAD AI Tools", "type": "skill", "tags": ["gstarcad", "ai"], "hint": "AI-assisted drawing review and commands.", "group": 2, "radius": 10}
+    {
+      "id": "GstarCAD",
+      "type": "product",
+      "tags": [
+        "gstarsoft",
+        "dwg",
+        "platform",
+        "flagship"
+      ],
+      "hint": "Gstarsoft's flagship DWG-native CAD platform.",
+      "group": 1,
+      "radius": 16
+    },
+    {
+      "id": "GstarCAD Layers",
+      "type": "concept",
+      "tags": [
+        "gstarcad",
+        "drafting"
+      ],
+      "hint": "Drawing partition system.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "GstarCAD Object Snaps",
+      "type": "concept",
+      "tags": [
+        "gstarcad",
+        "drafting"
+      ],
+      "hint": "Precision input snap system.",
+      "group": 2,
+      "radius": 7
+    },
+    {
+      "id": "GstarCAD Model/Paper Space",
+      "type": "concept",
+      "tags": [
+        "gstarcad",
+        "drafting"
+      ],
+      "hint": "Geometry and sheet composition.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "GstarCAD Annotative",
+      "type": "concept",
+      "tags": [
+        "gstarcad",
+        "drafting"
+      ],
+      "hint": "Scale-aware annotation system.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "GstarCAD Dynamic Blocks",
+      "type": "concept",
+      "tags": [
+        "gstarcad",
+        "blocks"
+      ],
+      "hint": "Parametric block definitions.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "GstarCAD Attributes",
+      "type": "concept",
+      "tags": [
+        "gstarcad",
+        "data"
+      ],
+      "hint": "Block-attached variable data.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "GstarCAD Xrefs",
+      "type": "concept",
+      "tags": [
+        "gstarcad",
+        "collaboration"
+      ],
+      "hint": "External DWG references.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "GstarCAD Solid Editing",
+      "type": "skill",
+      "tags": [
+        "gstarcad",
+        "3d"
+      ],
+      "hint": "3D solid Boolean and edit operations.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "GstarCAD UCS",
+      "type": "concept",
+      "tags": [
+        "gstarcad",
+        "3d"
+      ],
+      "hint": "User Coordinate System for 3D work.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "GstarCAD Architecture",
+      "type": "product",
+      "tags": [
+        "gstarcad",
+        "aec",
+        "vertical"
+      ],
+      "hint": "AEC vertical with object walls/doors/windows.",
+      "group": 1,
+      "radius": 11
+    },
+    {
+      "id": "GstarCAD Mechanical",
+      "type": "product",
+      "tags": [
+        "gstarcad",
+        "mech",
+        "vertical"
+      ],
+      "hint": "Mechanical drafting vertical with standard parts.",
+      "group": 1,
+      "radius": 11
+    },
+    {
+      "id": "GstarCAD MEP",
+      "type": "product",
+      "tags": [
+        "gstarcad",
+        "mep",
+        "vertical"
+      ],
+      "hint": "Mechanical/electrical/plumbing systems vertical.",
+      "group": 1,
+      "radius": 11
+    },
+    {
+      "id": "GstarCAD Electrical",
+      "type": "product",
+      "tags": [
+        "gstarcad",
+        "electrical",
+        "vertical"
+      ],
+      "hint": "Electrical schematics + panel layouts.",
+      "group": 1,
+      "radius": 10
+    },
+    {
+      "id": "GstarCAD Mapping",
+      "type": "product",
+      "tags": [
+        "gstarcad",
+        "survey",
+        "vertical"
+      ],
+      "hint": "Survey and mapping vertical.",
+      "group": 1,
+      "radius": 10
+    },
+    {
+      "id": "GstarBIM",
+      "type": "product",
+      "tags": [
+        "gstarsoft",
+        "bim",
+        "flagship"
+      ],
+      "hint": "Gstarsoft's native BIM platform.",
+      "group": 1,
+      "radius": 12
+    },
+    {
+      "id": "GstarCAD AutoLISP",
+      "type": "sdk",
+      "tags": [
+        "gstarcad",
+        "api"
+      ],
+      "hint": "Full AutoLISP / Visual LISP support.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "GstarCAD VBA",
+      "type": "sdk",
+      "tags": [
+        "gstarcad",
+        "api"
+      ],
+      "hint": "Visual Basic for Applications inside GstarCAD.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "GRX",
+      "type": "sdk",
+      "tags": [
+        "gstarcad",
+        "api"
+      ],
+      "hint": "C++ runtime extension API (ObjectARX equivalent).",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "GstarCAD AI Tools",
+      "type": "skill",
+      "tags": [
+        "gstarcad",
+        "ai"
+      ],
+      "hint": "AI-assisted drawing review and commands.",
+      "group": 2,
+      "radius": 10
+    }
   ],
   "graph_links": [
-    ["GstarCAD", "Gstarsoft"],
-    ["GstarCAD Layers", "GstarCAD"],
-    ["GstarCAD Object Snaps", "GstarCAD"],
-    ["GstarCAD Model/Paper Space", "GstarCAD"],
-    ["GstarCAD Annotative", "GstarCAD Model/Paper Space"],
-    ["GstarCAD Dynamic Blocks", "GstarCAD"],
-    ["GstarCAD Attributes", "GstarCAD Dynamic Blocks"],
-    ["GstarCAD Xrefs", "GstarCAD"],
-    ["GstarCAD Solid Editing", "GstarCAD"],
-    ["GstarCAD UCS", "GstarCAD Solid Editing"],
-    ["GstarCAD Architecture", "GstarCAD"],
-    ["GstarCAD Mechanical", "GstarCAD"],
-    ["GstarCAD MEP", "GstarCAD"],
-    ["GstarCAD Electrical", "GstarCAD"],
-    ["GstarCAD Mapping", "GstarCAD"],
-    ["GstarBIM", "Gstarsoft"],
-    ["GstarBIM", "GstarCAD Architecture"],
-    ["GstarCAD AutoLISP", "GstarCAD"],
-    ["GstarCAD VBA", "GstarCAD"],
-    ["GRX", "GstarCAD"],
-    ["GstarCAD AI Tools", "GstarCAD"]
+    [
+      "GstarCAD",
+      "Gstarsoft"
+    ],
+    [
+      "GstarCAD Layers",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD Object Snaps",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD Model/Paper Space",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD Annotative",
+      "GstarCAD Model/Paper Space"
+    ],
+    [
+      "GstarCAD Dynamic Blocks",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD Attributes",
+      "GstarCAD Dynamic Blocks"
+    ],
+    [
+      "GstarCAD Xrefs",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD Solid Editing",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD UCS",
+      "GstarCAD Solid Editing"
+    ],
+    [
+      "GstarCAD Architecture",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD Mechanical",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD MEP",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD Electrical",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD Mapping",
+      "GstarCAD"
+    ],
+    [
+      "GstarBIM",
+      "Gstarsoft"
+    ],
+    [
+      "GstarBIM",
+      "GstarCAD Architecture"
+    ],
+    [
+      "GstarCAD AutoLISP",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD VBA",
+      "GstarCAD"
+    ],
+    [
+      "GRX",
+      "GstarCAD"
+    ],
+    [
+      "GstarCAD AI Tools",
+      "GstarCAD"
+    ]
   ]
 }

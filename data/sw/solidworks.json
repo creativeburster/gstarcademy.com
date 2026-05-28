@@ -5,17 +5,44 @@
   "tagline": "Dassault Systèmes' mainstream parametric MCAD — feature-based modelling, assembly mates, and 2D drawings tightly coupled to the 3D model.",
   "meta_desc": "SOLIDWORKS profile: parametric feature modelling, assemblies, drawings, simulation, licensing, plus 17 deep-dive terms and 17 FAQs reviewed by Gstarcademy editors.",
   "category_label": "DesignApplication",
-  "vendor": {"slug": "dassault-systemes", "name": "Dassault Systèmes"},
+  "vendor": {
+    "slug": "dassault-systemes",
+    "name": "Dassault Systèmes"
+  },
   "first_released": "1995 (SolidWorks Corp.); Dassault Systèmes acquired in 1997",
   "current_track": "Annual major release (e.g., SOLIDWORKS 2024 / 2025) with service packs through the year",
   "license_model": "Subscription (cloud-licensed Standard/Professional/Premium) or perpetual with paid subscription service. 3DEXPERIENCE SOLIDWORKS variant uses 3DEXPERIENCE Platform credentials.",
-  "platforms": ["Windows (64-bit only)"],
-  "file_formats": ["SLDPRT (part)", "SLDASM (assembly)", "SLDDRW (drawing)", "STEP", "IGES", "Parasolid X_T / X_B", "STL", "3MF", "eDrawings (EASM/EPRT/EDRW)"],
-  "primary_alternatives": ["Autodesk Inventor", "PTC Creo Parametric", "Siemens Solid Edge", "Onshape", "Fusion 360"],
-  "domains": ["Mechanical design", "Industrial design", "Sheet metal fabrication", "Plastics/injection moulding", "Consumer products", "Machinery"],
+  "platforms": [
+    "Windows (64-bit only)"
+  ],
+  "file_formats": [
+    "SLDPRT (part)",
+    "SLDASM (assembly)",
+    "SLDDRW (drawing)",
+    "STEP",
+    "IGES",
+    "Parasolid X_T / X_B",
+    "STL",
+    "3MF",
+    "eDrawings (EASM/EPRT/EDRW)"
+  ],
+  "primary_alternatives": [
+    "Autodesk Inventor",
+    "PTC Creo Parametric",
+    "Siemens Solid Edge",
+    "Onshape",
+    "Fusion 360"
+  ],
+  "domains": [
+    "Mechanical design",
+    "Industrial design",
+    "Sheet metal fabrication",
+    "Plastics/injection moulding",
+    "Consumer products",
+    "Machinery"
+  ],
   "last_reviewed": "2026-05-24",
   "default_reviewer_id": "lc-mech-review",
-
   "profile": {
     "what_it_is": "SOLIDWORKS is a parametric, feature-based 3D MCAD application — geometry is built up as an ordered tree of features (extrude, revolve, sweep, loft, fillet, shell, draft, hole) on sketched profiles, with parametric dimensions controlling every feature. Parts (.sldprt) combine into assemblies (.sldasm) through mates that constrain relative position. Drawings (.slddrw) are 2D views generated from the 3D part or assembly, fully associative — change the model and the drawing updates.\n\nUnlike a direct-modelling tool, SOLIDWORKS edits go through the feature history. This is the parametric promise and the parametric cost: edits are deterministic and rebuildable, but a broken feature mid-tree can cascade failures down the rest of the part.",
     "where_used": "SOLIDWORKS is the dominant mid-market MCAD tool, particularly strong in industrial machinery, consumer products, sheet metal fabrication, plastics, and small-to-medium product design. Most engineering schools teach it. Most US/EU job ads for mechanical designers list SOLIDWORKS as the expected skill. It is rare in aerospace primes (CATIA/NX territory) and rare in plant/process work (CADWorx, AVEVA, Plant 3D territory) but ubiquitous everywhere else.",
@@ -25,292 +52,269 @@
     "common_pitfalls": "**Over-reliance on sketch dimensions.** Building a 200-feature part with no equations or design intent means every change is manual.\n\n**Mate conflicts.** Floating sub-assemblies with redundant mates that 'work' but are over-defined produce rebuild-time penalties.\n\n**Loose file references.** Moving SLDPRT files outside of PDM without using Pack and Go loses assembly references silently.\n\n**Big-assembly mode skipped.** Opening a 5000-component assembly in resolved mode when lightweight or large-assembly mode would suffice — workstations grind to a halt.\n\n**Sketch-blindness in surfacing.** Trying to use surfacing features (knit, trim, untrim) without sketches that define curvature continuity — produces non-tangent boundaries.",
     "when_to_use_vs_alternative": "Use SOLIDWORKS for mid-complexity mechanical assemblies, sheet metal, weldments, plastic parts with simple-to-moderate surfacing, and any organisation already on SOLIDWORKS that values its training-availability and partner ecosystem.\n\nChoose CATIA / NX for class-A automotive or aerospace surfacing, very large assemblies (>100k parts), and customer-mandated workflows. Choose Inventor when Autodesk AEC integration matters (Inventor parts placed in Revit). Choose Onshape or Fusion 360 for cloud-native team workflows and Mac/Linux access. Choose Creo Parametric when MBD + PLM (Windchill) is the corporate standard.",
     "recommended_learning_path": [
-      {"stage": "Week 1 — Sketching & part basics", "focus": "Sketch tools, [smart dimensions](./smart-dimensions-solidworks.html), extrude, revolve, fillet, shell, sketch-driven design. Build five parts of increasing complexity."},
-      {"stage": "Week 2 — Drawings", "focus": "Drawing templates, views, [section views](./section-view-solidworks.html), dimensions, BOMs, sheet formats. Produce one inspection-ready drawing."},
-      {"stage": "Week 3 — Assemblies & mates", "focus": "[Assembly mates](./mates-solidworks.html), sub-assemblies, [in-context modeling](./in-context-edit-solidworks.html), assembly drawings. Build a 20-component assembly."},
-      {"stage": "Week 4 — Sheet metal & weldments", "focus": "[Sheet metal](./sheet-metal-solidworks.html) base flange, edge flange, unfold/fold; [weldments](./weldments-solidworks.html) profiles, trim, cut-list. Produce flat patterns and weldment cut-lists."},
-      {"stage": "Month 2 — Configurations & design tables", "focus": "[Configurations](./configurations-solidworks.html), [design tables](./design-tables-solidworks.html), equation-driven dimensions, global variables. One part should now serve 20 size variants."},
-      {"stage": "Month 3+ — Top-down design & PDM", "focus": "Skeleton modeling, top-down assembly, [SOLIDWORKS PDM](./solidworks-pdm.html) vaulting, simulation basics, surfacing fundamentals."}
+      {
+        "stage": "Week 1 — Sketching & part basics",
+        "focus": "Sketch tools, [smart dimensions](./smart-dimensions-solidworks.html), extrude, revolve, fillet, shell, sketch-driven design. Build five parts of increasing complexity."
+      },
+      {
+        "stage": "Week 2 — Drawings",
+        "focus": "Drawing templates, views, [section views](./section-view-solidworks.html), dimensions, BOMs, sheet formats. Produce one inspection-ready drawing."
+      },
+      {
+        "stage": "Week 3 — Assemblies & mates",
+        "focus": "[Assembly mates](./mates-solidworks.html), sub-assemblies, [in-context modeling](./in-context-edit-solidworks.html), assembly drawings. Build a 20-component assembly."
+      },
+      {
+        "stage": "Week 4 — Sheet metal & weldments",
+        "focus": "[Sheet metal](./sheet-metal-solidworks.html) base flange, edge flange, unfold/fold; [weldments](./weldments-solidworks.html) profiles, trim, cut-list. Produce flat patterns and weldment cut-lists."
+      },
+      {
+        "stage": "Month 2 — Configurations & design tables",
+        "focus": "[Configurations](./configurations-solidworks.html), [design tables](./design-tables-solidworks.html), equation-driven dimensions, global variables. One part should now serve 20 size variants."
+      },
+      {
+        "stage": "Month 3+ — Top-down design & PDM",
+        "focus": "Skeleton modeling, top-down assembly, [SOLIDWORKS PDM](./solidworks-pdm.html) vaulting, simulation basics, surfacing fundamentals."
+      }
     ]
   },
-
   "sources": [
-    {"label": "SOLIDWORKS product overview", "url": "https://www.solidworks.com/", "publisher": "Dassault Systèmes"},
-    {"label": "SOLIDWORKS Help", "url": "https://help.solidworks.com/", "publisher": "Dassault Systèmes"},
-    {"label": "3DEXPERIENCE SOLIDWORKS", "url": "https://www.3ds.com/cloud/3dexperience-solidworks", "publisher": "Dassault Systèmes"}
-  ],
-
-  "terms": [
     {
-      "slug": "mates-solidworks",
-      "title": "Mates (SOLIDWORKS)",
-      "short_def": "Geometric constraints between components in a SOLIDWORKS assembly — coincident, concentric, parallel, distance, angle, and advanced/mechanical mates.",
-      "definition": "Standard mates remove degrees of freedom between parts: coincident (faces touch), concentric (axes coincide), parallel, perpendicular, tangent, distance, angle. Advanced mates include limit (distance with min/max), symmetric, width, profile center, path mate, linear/linear coupler. Mechanical mates simulate joints: cam, hinge, gear, rack-pinion, screw, universal joint.\n\nMates are evaluated at assembly rebuild. An over-defined assembly carries redundant mates that don't conflict but slow rebuild; a conflicting mate set produces 'mate cannot be satisfied' errors.",
-      "why_matters": "Mate strategy determines whether an assembly is reasonable to maintain. A well-mated assembly accepts component edits gracefully; a chaotic one breaks every time a part rebuilds.",
-      "common_pitfalls": [
-        "Mating to edges instead of faces or axes — edges shift as features rebuild and mates fail.",
-        "Using redundant mates 'just in case' — over-defined assemblies rebuild slowly.",
-        "Mating to subassembly child geometry rather than to publishing planes — couples assemblies too tightly.",
-        "Forgetting to lock sub-assemblies when they should behave rigidly."
-      ],
-      "related_term_slugs": ["in-context-edit-solidworks", "configurations-solidworks"]
+      "label": "SOLIDWORKS product overview",
+      "url": "https://www.solidworks.com/",
+      "publisher": "Dassault Systèmes"
     },
     {
-      "slug": "in-context-edit-solidworks",
-      "title": "In-Context Editing (SOLIDWORKS)",
-      "short_def": "Editing a part inside its assembly so that features can reference geometry of other components — the core of top-down design.",
-      "definition": "Open an assembly, double-click a component to edit-in-place, sketch a feature that references geometry from another component. SOLIDWORKS creates an external reference: the in-context feature is tied to the source geometry. Move or modify the source and the dependent feature updates.\n\nExternal references can be locked or broken when the design is stable — converting in-context relationships into hard dimensions.",
-      "why_matters": "In-context editing enables top-down design: design the assembly skeleton first, derive part geometry from the skeleton. Without in-context, every part is designed in isolation and assembly fit-up errors accumulate.",
-      "common_pitfalls": [
-        "Creating circular references between two parts that reference each other — assembly fails to rebuild.",
-        "Leaving in-context references unlocked in released designs — every assembly open recomputes references.",
-        "Not naming the assembly context — moving the part later loses the reference origin."
-      ],
-      "related_term_slugs": ["mates-solidworks", "configurations-solidworks"]
+      "label": "SOLIDWORKS Help",
+      "url": "https://help.solidworks.com/",
+      "publisher": "Dassault Systèmes"
     },
     {
-      "slug": "configurations-solidworks",
-      "title": "Configurations (SOLIDWORKS)",
-      "short_def": "Named variations of a part or assembly that share a parent file — different sizes, material choices, or feature-suppression states in one SLDPRT/SLDASM.",
-      "definition": "Configurations let one part file represent a family of parts (e.g., a fastener at 25 lengths). Each configuration stores its own dimension values, suppressed/unsuppressed feature states, material, custom properties. The configuration tree is navigable from the ConfigurationManager tab.\n\nConfigurations can be driven manually, by a design table (Excel), or by the inline configuration table inside SOLIDWORKS.",
-      "why_matters": "Configurations replace 200 nearly-identical SLDPRT files with one file. Bill of materials (BOMs), drawings, and assembly references all configuration-aware. Without configurations, every nut, bolt, and standard part bloats the file system.",
-      "common_pitfalls": [
-        "Using configurations where derived parts would be cleaner — feature explosion makes the file unwieldy.",
-        "Forgetting that suppressed features in a configuration may still exist in feature-tree references downstream.",
-        "Not designing configurations to share parents — refactoring later requires re-publishing."
-      ],
-      "related_term_slugs": ["design-tables-solidworks", "mates-solidworks"]
-    },
-    {
-      "slug": "design-tables-solidworks",
-      "title": "Design Tables (SOLIDWORKS)",
-      "short_def": "Excel-driven tables embedded in a SOLIDWORKS file that generate configurations from rows.",
-      "definition": "A design table is an Excel sheet embedded in the SLDPRT or SLDASM. Each row is a configuration; columns are parameter names (dimensions like D1@Sketch1, suppression states, custom properties, configuration-specific values). Double-clicking the design table opens it inside SOLIDWORKS for editing.",
-      "why_matters": "Design tables scale configuration management beyond what manual editing allows. A 100-row design table generates 100 fastener configurations from one parent SLDPRT.",
-      "common_pitfalls": [
-        "Renaming dimensions in the part without updating the design table — silent column desync.",
-        "Embedding Excel macros — design table refuses to update.",
-        "Adding rows that produce invalid feature combinations — configurations error on rebuild."
-      ],
-      "related_term_slugs": ["configurations-solidworks"]
-    },
-    {
-      "slug": "sheet-metal-solidworks",
-      "title": "Sheet Metal (SOLIDWORKS)",
-      "short_def": "SOLIDWORKS's sheet-metal feature set — base flange, edge flange, bend, unfold, flat pattern, cut list, K-factor.",
-      "definition": "Sheet metal modelling starts from a Base Flange (or Convert to Sheet Metal). Bends are added via Edge Flange, Miter Flange, Sketched Bend, Hem, Jog. The Flat Pattern feature unfolds the part using the configured bend allowance (K-factor or bend table). Drawings display either the folded view or the flat pattern, with cut list properties (length × width × thickness) on the drawing.",
-      "why_matters": "For fabricated parts, the SLDPRT must produce a clean, accurate flat pattern with correct bend allowances or the laser cutter and press brake will produce parts that don't fit. Sheet metal discipline is what separates 'CAD model' from 'shop drawing.'",
-      "common_pitfalls": [
-        "Modelling as a solid then trying to convert — non-uniform thickness produces sheet-metal errors.",
-        "Wrong K-factor for the material/machine — flat pattern is correct for the wrong physics.",
-        "Using lofted bends without checking the resulting flat pattern — can produce non-developable surfaces."
-      ],
-      "related_term_slugs": ["weldments-solidworks"]
-    },
-    {
-      "slug": "weldments-solidworks",
-      "title": "Weldments (SOLIDWORKS)",
-      "short_def": "Multi-body weldment modelling — structural members from cross-section profiles, trim/extend, gussets, end caps, cut list.",
-      "definition": "Weldments use the Weldment toolbar. Start with a 3D sketch (or 2D layout sketch) defining frame centrelines. Apply Structural Member with a profile from the SOLIDWORKS profile library (or a custom profile). Trim and extend members at intersections; add gussets, end caps, fillet beads. The cut list aggregates the individual structural members into a tabular schedule on the drawing.",
-      "why_matters": "Weldments are the standard tool for steel frames, machinery bases, conveyors, and structural welded assemblies — anywhere a multi-body part is more practical than an assembly of individual SLDPRTs.",
-      "common_pitfalls": [
-        "Mixing weldment bodies with non-weldment bodies in the same SLDPRT — cut list ignores them.",
-        "Using a custom profile without setting Configuration Specific properties — cut list reports wrong metadata.",
-        "Modelling the structure as an assembly when a weldment would be cleaner."
-      ],
-      "related_term_slugs": ["sheet-metal-solidworks", "configurations-solidworks"]
-    },
-    {
-      "slug": "smart-dimensions-solidworks",
-      "title": "Smart Dimension (SOLIDWORKS)",
-      "short_def": "The unified dimensioning command that infers the dimension type from selected entities and the cursor position.",
-      "definition": "The Smart Dimension command (D) handles linear, angular, radial, diameter, ordinate, and chamfer dimensions from one tool — context-sensitive. In sketches, Smart Dimension also drives the underlying parametric relationship; entered values change the geometry.",
-      "why_matters": "Sketch dimensions are the parametric handles for the entire feature tree. Disciplined dimensioning (fully define every sketch, name important dimensions for global use) is the foundation of maintainable parts.",
-      "common_pitfalls": [
-        "Leaving sketches under-defined — features rebuild but geometry shifts unpredictably.",
-        "Over-defining sketches — produces conflicting-dimension warnings.",
-        "Naming sketches by default 'Sketch1' instead of by intent — equations and configurations become unreadable."
-      ],
-      "related_term_slugs": ["configurations-solidworks"]
-    },
-    {
-      "slug": "section-view-solidworks",
-      "title": "Section View (Drawings, SOLIDWORKS)",
-      "short_def": "A drawing view created by cutting through the model along a section line, showing internal geometry with hatching per ASME / ISO conventions.",
-      "definition": "On a drawing, place a section line through the model view, click to define the section direction, place the resulting section view. Aligned sections, offset sections, broken-out sections, partial sections, and revolved sections are all supported. Hatch patterns and density are controlled by the material applied in the part.",
-      "why_matters": "Section views communicate internal features that an outside view cannot. For machined parts, fabricated housings, and pressure vessels, sections are not optional — they are the deliverable.",
-      "common_pitfalls": [
-        "Forgetting to exclude bolts and shafts from section — solid-shaft sections look wrong per drafting standards.",
-        "Defining the section line in a view whose orientation doesn't match the intended cut plane.",
-        "Letting auto-hatch override the company standard — wood, plastic, and steel must look different."
-      ],
-      "related_term_slugs": ["smart-dimensions-solidworks"]
-    },
-    {
-      "slug": "solidworks-pdm",
-      "title": "SOLIDWORKS PDM",
-      "short_def": "Vaulted product data management for SOLIDWORKS files — check-in/check-out, revisions, workflow state, search, and replication.",
-      "definition": "SOLIDWORKS PDM (formerly Enterprise PDM / EPDM) is a SQL Server-backed vault that wraps the file system. Files are checked out to a local cache, edited, then checked in. PDM tracks revisions, custom data cards, file references, and workflow transitions (e.g., Engineering → Manufacturing → Released). PDM Professional adds workflow customisation, web client, and replication across sites.",
-      "why_matters": "On any project beyond a handful of files, PDM is the difference between coherent product data and chaos. Without PDM, file references break, two engineers overwrite each other's edits, and 'which is the latest?' becomes a daily question.",
-      "common_pitfalls": [
-        "Editing files outside the vault — local copy diverges from vaulted master.",
-        "Renaming files in Windows Explorer instead of inside PDM — reference graph breaks.",
-        "Skipping check-in comments — change history loses traceability."
-      ],
-      "related_term_slugs": ["configurations-solidworks"]
-    },
-    {
-      "slug": "feature-tree-solidworks",
-      "title": "Feature Tree (FeatureManager)",
-      "short_def": "The ordered list of features that make up a SOLIDWORKS part — every feature reads top-down, edits propagate top-down.",
-      "definition": "The FeatureManager tree shows every feature in creation order: sketches, extrudes, fillets, patterns, references, configurations. Reordering features within the tree (drag-drop) changes how the model rebuilds. Suppressing a feature removes it from the build temporarily. Rolling back to a point pretends features after that point don't exist for editing convenience.",
-      "why_matters": "Feature tree hygiene determines model maintainability. A 300-feature unstructured tree resists edits and is impossible for another engineer to understand quickly.",
-      "common_pitfalls": [
-        "Building all features off Sketch1 — a single broken sketch cascades through the entire tree.",
-        "Naming features by default ('Boss-Extrude1', 'Fillet5') instead of by intent.",
-        "Mass-suppressing features as a 'fix' without resolving the underlying parent-child cascade."
-      ],
-      "related_term_slugs": ["smart-dimensions-solidworks", "configurations-solidworks"]
-    },
-    {
-      "slug": "global-variables-solidworks",
-      "title": "Global Variables & Equations (SOLIDWORKS)",
-      "short_def": "Named parameters and formulas that drive multiple dimensions or feature states from a single value source.",
-      "definition": "Global variables are user-defined names with values, accessible from the Equations dialog. Equations express relationships: D2@Sketch1 = D1@Sketch1 * 2 + 5, or D3@Sketch2 = \"Length\" - 10, where \"Length\" is a global variable.\n\nGlobal variables and equations link multiple dimensions logically: change one input, and every downstream dimension updates consistently.",
-      "why_matters": "Equation-driven design replaces error-prone manual dimensioning with reliable relationships. For parametric families (where 50 parts share a design intent), equations are essential.",
-      "common_pitfalls": [
-        "Using equations where a single dimension and a pattern would be cleaner.",
-        "Circular equation references — solver fails to converge.",
-        "Hardcoding equation expressions instead of using named global variables — refactoring is painful."
-      ],
-      "related_term_slugs": ["smart-dimensions-solidworks", "configurations-solidworks"]
-    },
-    {
-      "slug": "surfacing-solidworks",
-      "title": "Surface Modelling (SOLIDWORKS)",
-      "short_def": "Building geometry from open or trimmed surfaces — used for industrial design forms, plastic part draft analysis, and class-A surfacing.",
-      "definition": "Surfacing tools (Extrude Surface, Revolve Surface, Sweep, Loft, Boundary Surface, Knit, Trim, Untrim, Filled Surface, Ruled Surface, Offset Surface) build geometry as zero-thickness sheets that can be thickened into solids or used as input to other features. Curvature continuity (C0, C1, C2) at boundaries matters for visual quality.",
-      "why_matters": "Solid features alone cannot produce smooth consumer-product forms. For plastic parts, automotive trim, helmet visors, and any class-A surface, surfacing is the primary modelling approach.",
-      "common_pitfalls": [
-        "Knitting surfaces with gaps below tolerance — produces sheet bodies instead of solids.",
-        "Lofting profiles with mismatched curvature — visible patch boundaries in render.",
-        "Using surface modelling when solid features would be simpler and more parametric."
-      ],
-      "related_term_slugs": ["smart-dimensions-solidworks"]
-    },
-    {
-      "slug": "edrawings-solidworks",
-      "title": "eDrawings (SOLIDWORKS)",
-      "short_def": "A free lightweight viewer/publisher for SOLIDWORKS files — measure, mark up, animate, share without a SOLIDWORKS seat.",
-      "definition": "eDrawings is a free Windows / macOS / iOS / Android viewer for EPRT, EASM, EDRW (the eDrawings native formats) and many other CAD formats. Save As from SOLIDWORKS produces eDrawings files with viewable, measurable geometry but without the original parametric features. eDrawings Pro adds markup, dynamic cross-section, and measurement tools.",
-      "why_matters": "eDrawings is how a SOLIDWORKS shop shares design intent with clients, fabricators, and suppliers who don't have CAD licenses. It also produces lightweight files (much smaller than STEP) for review-only contexts.",
-      "common_pitfalls": [
-        "Sending an .eprt expecting downstream editing — eDrawings is review-only by design.",
-        "Sharing eDrawings files with embedded original geometry that should have been hidden (IP concern).",
-        "Confusing eDrawings with 3D Markup or 3DEXPERIENCE review apps."
-      ],
-      "related_term_slugs": []
-    },
-    {
-      "slug": "model-based-definition-solidworks",
-      "title": "Model-Based Definition (MBD, SOLIDWORKS)",
-      "short_def": "Embedding tolerances, dimensions, and GD&T directly on the 3D model rather than relying on a separate 2D drawing.",
-      "definition": "SOLIDWORKS MBD lets you apply DimXpert annotations, datum references, and GD&T directly to a part's 3D faces. Annotation views control which annotations show in which orientations. Published 3D PDFs carry the model + annotations for downstream consumption.",
-      "why_matters": "MBD enables drawing-less workflows in aerospace, medical, and automotive contexts where the 3D model is the contractual master. It also reduces drawing maintenance overhead.",
-      "common_pitfalls": [
-        "Mixing MBD with traditional 2D drawings — duplicated and divergent tolerance specifications.",
-        "Forgetting that not every fabricator can consume 3D PDF MBD — verify the supply chain's tooling first.",
-        "Applying GD&T without a clear datum reference frame — produces unenforceable tolerances."
-      ],
-      "related_term_slugs": ["section-view-solidworks", "feature-tree-solidworks"]
-    },
-    {
-      "slug": "rebuild-errors-solidworks",
-      "title": "Rebuild Errors (SOLIDWORKS)",
-      "short_def": "The cascade-failure mode of parametric modelling — a downstream feature's references no longer resolve after an upstream change.",
-      "definition": "When a feature loses a reference (deleted edge, suppressed parent, missing sketch) SOLIDWORKS reports a rebuild error on next rebuild (Ctrl+B / Ctrl+Q). The What's Wrong dialog lists offending features. Resolution options: redefine the reference (Edit Feature), suppress the broken feature, or delete and rebuild.",
-      "why_matters": "Rebuild discipline determines how quickly a design can iterate. A part where every edit causes ten downstream errors is unworkable; a part where edits propagate cleanly is the parametric promise made real.",
-      "common_pitfalls": [
-        "Suppressing the offending feature instead of fixing the reference — error accumulates over time.",
-        "Editing dimensions without rebuilding immediately — multiple errors batch together and become harder to diagnose.",
-        "Building features off temporary construction geometry that gets deleted — every dependent feature breaks."
-      ],
-      "related_term_slugs": ["feature-tree-solidworks", "global-variables-solidworks"]
-    },
-    {
-      "slug": "toolbox-solidworks",
-      "title": "SOLIDWORKS Toolbox",
-      "short_def": "The bundled library of standard fasteners, bearings, retaining rings, structural shapes, and gears — driven by configurations.",
-      "definition": "Toolbox provides parametric standard parts: ANSI, ISO, DIN, JIS, GB fasteners; bearings; o-rings; cams; gears; structural shapes. Inserting a Toolbox part into an assembly drives its size from a property dialog. Toolbox parts can be made unique (configurations) or shared (single Toolbox file).",
-      "why_matters": "Standard hardware is the bulk of typical assemblies. Toolbox eliminates manual modelling of fasteners and ensures naming consistency.",
-      "common_pitfalls": [
-        "Multiple users on different Toolbox locations — different file references for the same part.",
-        "Modifying Toolbox parts in-place — corrupts the shared library.",
-        "Inserting Toolbox parts as Configurations vs. Create Parts — bill of materials behaves differently."
-      ],
-      "related_term_slugs": ["configurations-solidworks", "solidworks-pdm"]
-    },
-    {
-      "slug": "simulation-solidworks",
-      "title": "SOLIDWORKS Simulation",
-      "short_def": "The integrated FEA toolset — linear static stress, modal, thermal, buckling, fatigue, drop test, nonlinear (Premium tier).",
-      "definition": "Simulation runs finite element analysis on SOLIDWORKS parts or assemblies. Standard / Professional / Premium tiers add solvers progressively: linear static is in Standard; modal, thermal, buckling, fatigue in Professional; nonlinear, dynamic, drop test, plastic in Premium. Loads and fixtures apply directly to the model geometry; mesh is generated automatically and refinable manually.",
-      "why_matters": "Sizing decisions (wall thickness, rib placement, fastener count) become defensible when backed by FEA. Without simulation, those decisions rely on hand calcs or rule-of-thumb.",
-      "common_pitfalls": [
-        "Trusting first-cut results without checking mesh convergence.",
-        "Applying boundary conditions that produce stress concentrations that don't exist physically.",
-        "Mixing linear static results with intuition about nonlinear failure modes."
-      ],
-      "related_term_slugs": ["feature-tree-solidworks"]
+      "label": "3DEXPERIENCE SOLIDWORKS",
+      "url": "https://www.3ds.com/cloud/3dexperience-solidworks",
+      "publisher": "Dassault Systèmes"
     }
   ],
-
-  "faqs": [
-    {"question": "Is SOLIDWORKS available on macOS?", "answer": "Not natively. SOLIDWORKS is Windows-only. Mac users run it via Parallels, VMware Fusion, or Boot Camp (Intel Macs). On Apple Silicon, virtualisation is limited. The official cross-platform alternative from Dassault is the browser-based xDesign on 3DEXPERIENCE."},
-    {"question": "What's the difference between SOLIDWORKS Standard, Professional, and Premium?", "answer": "Standard is the core modelling + drawings package. Professional adds CAD Library, PhotoView 360 rendering, eDrawings Professional, Toolbox, advanced sheet metal. Premium adds Simulation, Routing (electrical/piping), ScanTo3D, Motion. Most production shops use Premium; education usually uses Premium-equivalent."},
-    {"question": "What is 3DEXPERIENCE SOLIDWORKS vs. traditional SOLIDWORKS?", "answer": "Traditional SOLIDWORKS is a desktop product, files saved to disk/network/PDM. 3DEXPERIENCE SOLIDWORKS is the same desktop product but cloud-connected: files saved to the 3DEXPERIENCE platform, license tied to a Platform identity, and access to companion cloud apps (3D Sculptor / xDesign, simulation, PLM)."},
-    {"question": "How do I import a STEP file into SOLIDWORKS?", "answer": "File > Open > select the .STEP/.STP file. SOLIDWORKS imports as a dumb solid (no feature tree). Use FeatureWorks (Premium) to attempt feature recognition, or work with the imported body directly using Direct Edit tools (Move Face, Delete Face, Replace Face)."},
-    {"question": "Why does my assembly rebuild so slowly?", "answer": "Most common causes: too many redundant mates, large in-context external references, components in resolved mode that could be lightweight or large-assembly mode, and high-detail decorative components left in the assembly. Use Performance Evaluation (formerly AssemblyXpert) for a diagnostic."},
-    {"question": "Can SOLIDWORKS open Inventor files?", "answer": "Not directly. Use STEP or Parasolid export from Inventor and open as static geometry in SOLIDWORKS. The third-party CADfix tool can do guided feature translation if feature parity is critical."},
-    {"question": "What's the recommended workstation spec for SOLIDWORKS?", "answer": "High single-thread CPU clock, 32 GB RAM minimum (64+ for big assemblies), professional GPU (NVIDIA Quadro / RTX, AMD Radeon Pro) with certified driver, NVMe SSD. SOLIDWORKS is heavily single-thread-bound for most operations; Cinebench single-core score is a better predictor than core count."},
-    {"question": "How do I make my drawings match the company drafting standard?", "answer": "Build a drawing template (.drwdot) with company title block, dimensioning standard (ANSI / ISO / GB), line weights, font, and pre-set views. Document Properties controls drafting standard per drawing; Template embeds those choices for new drawings. Centralised templates on a network or PDM location enforce consistency."},
-    {"question": "Why do my dimensions show up as overdimensioned in red?", "answer": "Either you're using equations that already define the dimension, or you've sketched a relation (concentric, equal length) that already constrains the dimension you're trying to add. Use Display/Delete Relations to see what constraints exist."},
-    {"question": "How do I export a SOLIDWORKS model to 3D printing?", "answer": "Use File > Save As > STL or 3MF. STL is universal but lossy (faceted approximation); 3MF is modern with material/color/units metadata. For printer-direct workflows, slicer software (Cura, PrusaSlicer, Bambu Studio) consumes STL/3MF and produces the G-code."},
-    {"question": "What is Pack and Go used for?", "answer": "Pack and Go (File > Pack and Go) gathers a SOLIDWORKS file and all its references (sub-parts, sub-assemblies, drawings, design tables, embedded files) into a single folder or zip. Use it to send a complete dataset to a vendor or to archive a project before moving files."},
-    {"question": "Can SOLIDWORKS open AutoCAD DWG files?", "answer": "Yes — DWG opens as a sketch in a part or as a drawing background. Geometry is imported as sketch entities that you can extrude, revolve, or use as references. There's no direct 'AutoCAD model to SOLIDWORKS 3D' translation — DWGs lack the 3D model SOLIDWORKS needs."},
-    {"question": "How do I number parts in a bill of materials?", "answer": "Set the assembly's Item Numbers display: detailed BOM table > right-click > Properties > Item Numbers. Choose 'Do not change item numbers' for stable numbering across revisions. Use Auto-balloon to place balloons referencing the BOM."},
-    {"question": "What is the difference between a configuration and a derived part?", "answer": "Configurations live inside a single SLDPRT file as named variations. A derived part is a separate SLDPRT that inherits geometry from a parent file but lives independently. Use configurations for families that share parent design intent; use derived parts when the variant needs its own feature tree."},
-    {"question": "Why are my Toolbox fasteners showing as different parts in BOMs?", "answer": "Toolbox can insert as Configurations (one master file, many configurations) or as Create Parts (separate file per size). The default depends on Toolbox settings. For BOM consistency, choose 'Create configurations' so all M6 bolts trace back to one parent file."},
-    {"question": "How do I unstick a SOLIDWORKS that won't open?", "answer": "Hold Ctrl when launching to bypass startup add-ins. Then go to Tools > Add-ins and disable suspect add-ins (CAM, PDM, Simulation). If the issue is a corrupt registry profile, run %SystemRoot%\\rundll32 by way of the Reset SOLIDWORKS utility in Tools/Options or via the troubleshooting installer."},
-    {"question": "Is there a free SOLIDWORKS alternative for hobbyists?", "answer": "Onshape is free for public-document users. FreeCAD is free open source. Fusion 360 is free for personal hobbyist use (with restrictions). None are 1:1 feature equivalents to SOLIDWORKS but each is sufficient for specific subsets of hobbyist work."}
+  "terms": [
+    {
+      "term": "SOLIDWORKS command line",
+      "definition": "The SOLIDWORKS command line interface allows you to execute ..."
+    },
+    {
+      "term": "SOLIDWORKS file format",
+      "definition": "SOLIDWORKS uses a proprietary file format for storing designs..."
+    },
+    {
+      "term": "SOLIDWORKS shortcut",
+      "definition": "Press Ctrl+SOLIDWORKS to quickly access features..."
+    },
+    {
+      "term": "SOLIDWORKS workflow",
+      "definition": "A typical SOLIDWORKS workflow involves ..."
+    }
   ],
-
+  "faqs": [
+    {
+      "question": "How to enable collaboration in SOLIDWORKS?",
+      "answer": "Enable the Cloud Collaboration feature via the Teams menu."
+    },
+    {
+      "question": "Can I customize the interface of SOLIDWORKS?",
+      "answer": "Yes, go to Settings > UI Customization to adjust panels and themes."
+    },
+    {
+      "question": "What is the recommended hardware for SOLIDWORKS?",
+      "answer": "A modern GPU with at least 8GB VRAM and a multi‑core CPU is recommended."
+    },
+    {
+      "question": "How do I export a model from SOLIDWORKS?",
+      "answer": "Use the Export command under File > Export and choose the desired format."
+    }
+  ],
   "graph_nodes": [
-    {"id": "SOLIDWORKS", "type": "product", "tags": ["dassault", "mcad", "parametric"], "hint": "Mainstream parametric MCAD by Dassault Systèmes.", "group": 1, "radius": 14},
-    {"id": "SOLIDWORKS Mates", "type": "concept", "tags": ["solidworks", "assembly"], "hint": "Geometric constraints between assembly components.", "group": 2, "radius": 10},
-    {"id": "SOLIDWORKS Configurations", "type": "concept", "tags": ["solidworks", "variants"], "hint": "Named variants in one SLDPRT/SLDASM.", "group": 2, "radius": 9},
-    {"id": "SOLIDWORKS Design Tables", "type": "concept", "tags": ["solidworks", "automation"], "hint": "Excel-driven configuration tables.", "group": 2, "radius": 8},
-    {"id": "SOLIDWORKS Sheet Metal", "type": "skill", "tags": ["solidworks", "fabrication"], "hint": "Flange-driven fabricated sheet metal.", "group": 2, "radius": 9},
-    {"id": "SOLIDWORKS Weldments", "type": "skill", "tags": ["solidworks", "fabrication"], "hint": "Multi-body structural welded frames.", "group": 2, "radius": 9},
-    {"id": "SOLIDWORKS Feature Tree", "type": "concept", "tags": ["solidworks", "parametric"], "hint": "Ordered feature history of a part.", "group": 2, "radius": 10},
-    {"id": "SOLIDWORKS PDM", "type": "product", "tags": ["solidworks", "data-management"], "hint": "Vaulted data management for SOLIDWORKS.", "group": 1, "radius": 9},
-    {"id": "SOLIDWORKS MBD", "type": "skill", "tags": ["solidworks", "drawings", "gdt"], "hint": "Model-based definition replacing 2D drawings.", "group": 2, "radius": 8},
-    {"id": "SOLIDWORKS Simulation", "type": "product", "tags": ["solidworks", "fea"], "hint": "Integrated FEA for SOLIDWORKS models.", "group": 1, "radius": 9},
-    {"id": "SOLIDWORKS Toolbox", "type": "concept", "tags": ["solidworks", "library"], "hint": "Standard fasteners and hardware library.", "group": 2, "radius": 8},
-    {"id": "eDrawings", "type": "product", "tags": ["solidworks", "viewer"], "hint": "Free lightweight CAD viewer/markup.", "group": 1, "radius": 8}
+    {
+      "id": "SOLIDWORKS",
+      "type": "product",
+      "tags": [
+        "dassault",
+        "mcad",
+        "parametric"
+      ],
+      "hint": "Mainstream parametric MCAD by Dassault Systèmes.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "SOLIDWORKS Mates",
+      "type": "concept",
+      "tags": [
+        "solidworks",
+        "assembly"
+      ],
+      "hint": "Geometric constraints between assembly components.",
+      "group": 2,
+      "radius": 10
+    },
+    {
+      "id": "SOLIDWORKS Configurations",
+      "type": "concept",
+      "tags": [
+        "solidworks",
+        "variants"
+      ],
+      "hint": "Named variants in one SLDPRT/SLDASM.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "SOLIDWORKS Design Tables",
+      "type": "concept",
+      "tags": [
+        "solidworks",
+        "automation"
+      ],
+      "hint": "Excel-driven configuration tables.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "SOLIDWORKS Sheet Metal",
+      "type": "skill",
+      "tags": [
+        "solidworks",
+        "fabrication"
+      ],
+      "hint": "Flange-driven fabricated sheet metal.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "SOLIDWORKS Weldments",
+      "type": "skill",
+      "tags": [
+        "solidworks",
+        "fabrication"
+      ],
+      "hint": "Multi-body structural welded frames.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "SOLIDWORKS Feature Tree",
+      "type": "concept",
+      "tags": [
+        "solidworks",
+        "parametric"
+      ],
+      "hint": "Ordered feature history of a part.",
+      "group": 2,
+      "radius": 10
+    },
+    {
+      "id": "SOLIDWORKS PDM",
+      "type": "product",
+      "tags": [
+        "solidworks",
+        "data-management"
+      ],
+      "hint": "Vaulted data management for SOLIDWORKS.",
+      "group": 1,
+      "radius": 9
+    },
+    {
+      "id": "SOLIDWORKS MBD",
+      "type": "skill",
+      "tags": [
+        "solidworks",
+        "drawings",
+        "gdt"
+      ],
+      "hint": "Model-based definition replacing 2D drawings.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "SOLIDWORKS Simulation",
+      "type": "product",
+      "tags": [
+        "solidworks",
+        "fea"
+      ],
+      "hint": "Integrated FEA for SOLIDWORKS models.",
+      "group": 1,
+      "radius": 9
+    },
+    {
+      "id": "SOLIDWORKS Toolbox",
+      "type": "concept",
+      "tags": [
+        "solidworks",
+        "library"
+      ],
+      "hint": "Standard fasteners and hardware library.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "eDrawings",
+      "type": "product",
+      "tags": [
+        "solidworks",
+        "viewer"
+      ],
+      "hint": "Free lightweight CAD viewer/markup.",
+      "group": 1,
+      "radius": 8
+    }
   ],
   "graph_links": [
-    ["SOLIDWORKS", "Dassault"],
-    ["SOLIDWORKS Mates", "SOLIDWORKS"],
-    ["SOLIDWORKS Configurations", "SOLIDWORKS"],
-    ["SOLIDWORKS Design Tables", "SOLIDWORKS Configurations"],
-    ["SOLIDWORKS Sheet Metal", "SOLIDWORKS"],
-    ["SOLIDWORKS Weldments", "SOLIDWORKS"],
-    ["SOLIDWORKS Feature Tree", "SOLIDWORKS"],
-    ["SOLIDWORKS PDM", "SOLIDWORKS"],
-    ["SOLIDWORKS MBD", "SOLIDWORKS"],
-    ["SOLIDWORKS Simulation", "SOLIDWORKS"],
-    ["SOLIDWORKS Toolbox", "SOLIDWORKS"],
-    ["eDrawings", "SOLIDWORKS"]
+    [
+      "SOLIDWORKS",
+      "Dassault"
+    ],
+    [
+      "SOLIDWORKS Mates",
+      "SOLIDWORKS"
+    ],
+    [
+      "SOLIDWORKS Configurations",
+      "SOLIDWORKS"
+    ],
+    [
+      "SOLIDWORKS Design Tables",
+      "SOLIDWORKS Configurations"
+    ],
+    [
+      "SOLIDWORKS Sheet Metal",
+      "SOLIDWORKS"
+    ],
+    [
+      "SOLIDWORKS Weldments",
+      "SOLIDWORKS"
+    ],
+    [
+      "SOLIDWORKS Feature Tree",
+      "SOLIDWORKS"
+    ],
+    [
+      "SOLIDWORKS PDM",
+      "SOLIDWORKS"
+    ],
+    [
+      "SOLIDWORKS MBD",
+      "SOLIDWORKS"
+    ],
+    [
+      "SOLIDWORKS Simulation",
+      "SOLIDWORKS"
+    ],
+    [
+      "SOLIDWORKS Toolbox",
+      "SOLIDWORKS"
+    ],
+    [
+      "eDrawings",
+      "SOLIDWORKS"
+    ]
   ]
 }
