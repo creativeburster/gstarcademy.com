@@ -2905,6 +2905,20 @@ body:not([data-page="knowledge"])::before {
 
 body[data-page="knowledge"] {
   overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+/* Ensure parent layouts and scroll containers don't trap or hijack the mouse wheel, letting page body scroll naturally */
+body[data-page="knowledge"] .kb-app,
+body[data-page="knowledge"] .kb-stage,
+body[data-page="knowledge"] .kb-stage-scroll {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+/* Allow actual graph svg container to overflow naturally or maintain scrollability if needed */
+body[data-page="knowledge"] .kb-canvas {
+  overflow: visible !important;
 }
 
 /* Make global site header non-sticky so it scrolls away naturally on Knowledge pages */
