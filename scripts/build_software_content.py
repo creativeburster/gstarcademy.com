@@ -900,44 +900,79 @@ def patch_graph(software_list: list[dict]) -> None:
 
 FAQ_START = "<!-- AUTO-GEN sw-faqs START -->"
 FAQ_END = "<!-- AUTO-GEN sw-faqs END -->"
+TAB_START = "<!-- AUTO-GEN sw-faq-tabs START -->"
+TAB_END = "<!-- AUTO-GEN sw-faq-tabs END -->"
 
 
 def patch_faq(software_list: list[dict]) -> None:
     faq_path = ROOT / "kb-faq.html"
     text = faq_path.read_text(encoding="utf-8")
 
-    sections = []
+    SLUG_TO_TOPIC = {
+        "creo-parametric": "creo",
+        "siemens-nx": "siemens",
+        "microstation": "bentley",
+        "autocad": "autocad",
+        "revit": "revit",
+        "fusion-360": "fusion",
+        "inventor": "inventor",
+        "civil-3d": "civil3d",
+        "solidworks": "solidworks",
+        "catia": "catia",
+        "gstarcad": "gstarcad",
+        "draftsight": "draftsight",
+    }
+    
+    EXISTING_TOPICS = {
+        "gstarcad", "fastview", "autocad", "revit", "civil3d", "inventor",
+        "fusion", "draftsight", "creo", "siemens", "bentley", "solidworks", "catia"
+    }
+
+    # 1. Generate FAQ articles
+    articles = []
     for sw in software_list:
         if not sw.get("faqs"):
             continue
-        items = []
+        topic = SLUG_TO_TOPIC.get(sw["slug"], sw["slug"])
         for q in sw["faqs"]:
-            items.append(
-                f"""<details class="card" style="margin: 10px 0; padding: 16px 22px;">
-              <summary style="cursor:pointer; font-weight:600; font-family: var(--ink-font-display); font-size: 17px; color: var(--ink-text);">{esc(q['question'])}</summary>
-              <div style="margin-top:12px; color: var(--ink-text-soft); line-height: 1.65;">{paragraphs(q['answer'])}</div>
-            </details>"""
+            articles.append(
+                f"""                <article class="kb-faq-entry" data-kb-faq-topic="{esc(topic)}">
+                  <button type="button" class="kb-faq-q-trigger">
+                    <span class="kb-faq-qmark" aria-hidden="true">?</span>
+                    <h3>{esc(q['question'])}</h3>
+                    <span class="kb-faq-toggle-ico" aria-hidden="true">＋</span>
+                  </button>
+                  <div class="kb-faq-a-body">
+                    <p class="kb-faq-source">Source · {esc(sw['name'])} Technical Reference</p>
+                    <div class="kb-faq-answer">
+                      {q['answer']}
+                    </div>
+                  </div>
+                </article>"""
             )
-        sections.append(
-            f"""<section id="{esc(sw['slug'])}" class="section" style="margin-top: 36px;">
-          <div class="section-head">
-            <h2 class="section-title">{esc(sw['name'])} FAQs ({len(sw['faqs'])})</h2>
-            <a class="section-note" href="./kb/software/{esc(sw['slug'])}.html">Open {esc(sw['name'])} profile ›</a>
-          </div>
-          {''.join(items)}
-        </section>"""
-        )
-
-    block = FAQ_START + "\n" + "\n".join(sections) + "\n        " + FAQ_END
+            
+    faq_block = FAQ_START + "\n" + "\n".join(articles) + "\n\n                " + FAQ_END
 
     if FAQ_START in text and FAQ_END in text:
         pattern = re.compile(re.escape(FAQ_START) + r"[\s\S]*?" + re.escape(FAQ_END))
-        text = pattern.sub(lambda _m: block, text)
-    else:
-        # Insert just before the closing </main>
-        m = re.search(r"</main>", text)
-        if m:
-            text = text[:m.start()] + "      " + block + "\n    " + text[m.start():]
+        text = pattern.sub(lambda _m: faq_block, text)
+
+    # 2. Generate Tab Buttons
+    tabs = []
+    for sw in software_list:
+        topic = SLUG_TO_TOPIC.get(sw["slug"], sw["slug"])
+        if topic not in EXISTING_TOPICS:
+            # Avoid duplicate tab filters
+            if topic not in [re.search(r'data-kb-faq-filter="([^"]*)"', t).group(1) for t in tabs if re.search(r'data-kb-faq-filter="([^"]*)"', t)]:
+                tabs.append(
+                    f'                <button type="button" class="kb-faq-tab" role="tab" aria-selected="false" data-kb-faq-filter="{esc(topic)}">{esc(sw["name"])}</button>'
+                )
+    
+    tab_block = TAB_START + "\n" + "\n".join(tabs) + "\n                " + TAB_END
+
+    if TAB_START in text and TAB_END in text:
+        pattern = re.compile(re.escape(TAB_START) + r"[\s\S]*?" + re.escape(TAB_END))
+        text = pattern.sub(lambda _m: tab_block, text)
 
     # Also emit a FAQPage JSON-LD encompassing all software FAQs (one combined entity per software)
     faqpages_ld = []
