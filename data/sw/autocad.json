@@ -5,44 +5,17 @@
   "tagline": "The original commercial CAD platform — still the lingua franca of DWG-based 2D documentation across AEC, mechanical, and infrastructure work.",
   "meta_desc": "AutoCAD profile: what it is, where it's used, learning path, licensing, ecosystem, common pitfalls, plus 18 deep-dive terms and 18 FAQs reviewed by Gstarcademy editors.",
   "category_label": "DesignApplication",
-  "vendor": {
-    "slug": "autodesk",
-    "name": "Autodesk"
-  },
+  "vendor": {"slug": "autodesk", "name": "Autodesk"},
   "first_released": "December 1982",
   "current_track": "Annual release cadence — AutoCAD 2025 ships with specialized toolsets (Architecture, Mechanical, Electrical, MEP, Plant 3D, Map 3D, Raster Design)",
   "license_model": "Subscription only since 2016. Named-user single-seat, Flex tokens for occasional users. AutoCAD LT was folded into the AutoCAD subscription in 2024.",
-  "platforms": [
-    "Windows",
-    "macOS (subset)",
-    "Web (AutoCAD Web App)",
-    "iOS / Android (AutoCAD mobile)"
-  ],
-  "file_formats": [
-    "DWG (native)",
-    "DXF (interchange)",
-    "DWS (standards)",
-    "DWT (templates)",
-    "DWF/DWFx",
-    "PDF",
-    "IFC (limited)"
-  ],
-  "primary_alternatives": [
-    "BricsCAD",
-    "GstarCAD",
-    "ZWCAD",
-    "DraftSight",
-    "progeCAD"
-  ],
-  "domains": [
-    "AEC",
-    "Mechanical detailing",
-    "MEP",
-    "Civil documentation",
-    "Survey & mapping (Map 3D)"
-  ],
+  "platforms": ["Windows", "macOS (subset)", "Web (AutoCAD Web App)", "iOS / Android (AutoCAD mobile)"],
+  "file_formats": ["DWG (native)", "DXF (interchange)", "DWS (standards)", "DWT (templates)", "DWF/DWFx", "PDF", "IFC (limited)"],
+  "primary_alternatives": ["BricsCAD", "GstarCAD", "ZWCAD", "DraftSight", "progeCAD"],
+  "domains": ["AEC", "Mechanical detailing", "MEP", "Civil documentation", "Survey & mapping (Map 3D)"],
   "last_reviewed": "2026-05-24",
   "default_reviewer_id": "lc-aec-review",
+
   "profile": {
     "what_it_is": "AutoCAD is a general-purpose computer-aided drafting platform centered on the DWG drawing format. It is file-based CAD — every project is one or more DWG files containing entities (lines, polylines, blocks, text, annotations) organised by layers and plotted from layout sheets.\n\nUnlike model-based BIM tools, AutoCAD does not impose a domain ontology. A wall, a beam, a battery, and a contour line are all graphical objects on layers until you assign meaning via blocks, attributes, layer naming, or extended entity data. This flexibility is exactly why AutoCAD became the workhorse documentation tool for so many industries — and why undisciplined AutoCAD files become unmaintainable so quickly.\n\nModern AutoCAD subscriptions ship with **specialised toolsets** (Architecture, Mechanical, Electrical, MEP, Plant 3D, Map 3D, Raster Design). These add domain-specific commands and content libraries on top of the same drawing engine, so one license can target multiple verticals without switching applications.",
     "where_used": "AutoCAD remains the contract-deliverable tool in many AEC offices: sealed sheets, redlines, as-builts, and consultant exchanges still travel as DWGs. In mechanical shops it survives as the dimensioned detail and fabrication-drawing tool even when 3D modelling moves to Inventor or SOLIDWORKS. Civil teams use base AutoCAD plus Civil 3D for corridors, alignments, and grading. Survey and GIS work uses Map 3D for coordinate systems and topology.\n\nOutside the Autodesk-centric world, DWG files are still the de-facto exchange format with regulators, fabricators, surveyors, and clients who do not own modelling software.",
@@ -52,256 +25,363 @@
     "common_pitfalls": "**Plotting from model space.** Beginners plot whole drawings at 1:50 from model space, then discover that text scales break when reused. The correct discipline is layouts + viewports + annotative objects almost always.\n\n**Layer chaos.** Once a project has 800 ad-hoc layers, layer-state restores and standards enforcement become impractical. Establish a layer naming convention (NCS, BS-1192, AIA-CAD) before geometry hits the file.\n\n**Exploded blocks.** Exploding a block to 'fix' it destroys reusability and breaks XREF updates downstream. Edit in place (REFEDIT/BEDIT) instead.\n\n**Mixing units.** Inserting an imperial block into a metric drawing without checking INSUNITS produces silent 25.4× scale errors. Always confirm units and use insertion-units behaviour explicitly.\n\n**Treating DWG as the model of record when it isn't.** If your project is BIM, the BIM model is the source — do not let a CAD detail diverge silently from the model.",
     "when_to_use_vs_alternative": "Use AutoCAD when (a) the deliverable contract is DWG sheets, (b) you need a tool whose file format is universally readable, (c) the project does not justify a full BIM workflow, or (d) you need a familiar drafting environment for non-CAD-specialist contributors.\n\nChoose a model-based tool (Revit / ArchiCAD / Civil 3D / Inventor / SOLIDWORKS) when project intelligence — schedules, clash detection, parametrics, fabrication BOMs — needs to live in the model. Choose a DWG-compatible alternative (BricsCAD, GstarCAD, ZWCAD) when subscription cost or platform availability is the primary constraint, accepting that LISP and ObjectARX support varies.",
     "recommended_learning_path": [
-      {
-        "stage": "Week 1 — Foundations",
-        "focus": "Interface, command line, line/polyline/offset/trim/fillet, dimensioning, units. Save and open DWG. Print one sheet from model space just to feel it before learning the right way."
-      },
-      {
-        "stage": "Week 2 — Layers & layouts",
-        "focus": "Layer creation, color/lineweight, [layer states](./layer-states-autocad.html), layouts and [paper space viewports](./paper-space-autocad.html), [annotative objects](./annotative-objects.html). Plot a sheet with multiple scales correctly."
-      },
-      {
-        "stage": "Week 3 — Blocks & references",
-        "focus": "Static blocks, [dynamic blocks](./dynamic-blocks-autocad.html), [block attributes](./attributes-blocks.html), [XREFs](./xref-autocad.html), DWG compare. Reuse, do not duplicate."
-      },
-      {
-        "stage": "Week 4 — Drawing standards",
-        "focus": "DWS standards files, [Sheet Set Manager](./sheet-set-manager.html), [plot styles](./plot-style.html), templates. Move from one-off drawings to a coordinated set."
-      },
-      {
-        "stage": "Month 2 — Automation",
-        "focus": "Command aliases, [CUI customization](./cui-autocad.html), [AutoLISP basics](./autolisp.html), [parametric constraints](./constraints-autocad.html). Cut repeat clicks by an order of magnitude."
-      },
-      {
-        "stage": "Month 3+ — Domain depth",
-        "focus": "Pick one specialised toolset (Architecture, Mechanical, MEP, Plant 3D, Map 3D) and learn its discipline-specific commands and content libraries. This is where productivity multiplies."
-      }
+      {"stage": "Week 1 — Foundations", "focus": "Interface, command line, line/polyline/offset/trim/fillet, dimensioning, units. Save and open DWG. Print one sheet from model space just to feel it before learning the right way."},
+      {"stage": "Week 2 — Layers & layouts", "focus": "Layer creation, color/lineweight, [layer states](./layer-states-autocad.html), layouts and [paper space viewports](./paper-space-autocad.html), [annotative objects](./annotative-objects.html). Plot a sheet with multiple scales correctly."},
+      {"stage": "Week 3 — Blocks & references", "focus": "Static blocks, [dynamic blocks](./dynamic-blocks-autocad.html), [block attributes](./attributes-blocks.html), [XREFs](./xref-autocad.html), DWG compare. Reuse, do not duplicate."},
+      {"stage": "Week 4 — Drawing standards", "focus": "DWS standards files, [Sheet Set Manager](./sheet-set-manager.html), [plot styles](./plot-style.html), templates. Move from one-off drawings to a coordinated set."},
+      {"stage": "Month 2 — Automation", "focus": "Command aliases, [CUI customization](./cui-autocad.html), [AutoLISP basics](./autolisp.html), [parametric constraints](./constraints-autocad.html). Cut repeat clicks by an order of magnitude."},
+      {"stage": "Month 3+ — Domain depth", "focus": "Pick one specialised toolset (Architecture, Mechanical, MEP, Plant 3D, Map 3D) and learn its discipline-specific commands and content libraries. This is where productivity multiplies."}
     ]
   },
+
   "sources": [
-    {
-      "label": "AutoCAD product overview",
-      "url": "https://www.autodesk.com/products/autocad/overview",
-      "publisher": "Autodesk"
-    },
-    {
-      "label": "AutoCAD Help (online)",
-      "url": "https://help.autodesk.com/view/ACD/2025/ENU/",
-      "publisher": "Autodesk Knowledge Network"
-    },
-    {
-      "label": "AutoLISP Reference",
-      "url": "https://help.autodesk.com/view/OARX/2025/ENU/",
-      "publisher": "Autodesk"
-    },
-    {
-      "label": "DWG file format technical overview",
-      "url": "https://www.opendesign.com/",
-      "publisher": "Open Design Alliance"
-    }
+    {"label": "AutoCAD product overview", "url": "https://www.autodesk.com/products/autocad/overview", "publisher": "Autodesk"},
+    {"label": "AutoCAD Help (online)", "url": "https://help.autodesk.com/view/ACD/2025/ENU/", "publisher": "Autodesk Knowledge Network"},
+    {"label": "AutoLISP Reference", "url": "https://help.autodesk.com/view/OARX/2025/ENU/", "publisher": "Autodesk"},
+    {"label": "DWG file format technical overview", "url": "https://www.opendesign.com/", "publisher": "Open Design Alliance"}
   ],
+
   "terms": [
     {
-      "term": "AutoCAD workflow",
-      "definition": "A typical AutoCAD workflow involves ..."
+      "slug": "paper-space-autocad",
+      "title": "Paper Space (AutoCAD)",
+      "short_def": "The plotting environment in an AutoCAD layout, distinct from model space where geometry lives.",
+      "definition": "Paper space is the layout-based plotting environment in AutoCAD, accessed through layout tabs at the bottom of the drawing area. Geometry is drawn at real-world scale in model space; paper space is where you compose the sheet at 1:1 paper dimensions, with one or more viewports showing model-space geometry at a chosen scale.\n\nA viewport is a window on paper space into model space. Each viewport can have its own scale, locked view, layer visibility overrides, and even its own UCS rotation. This lets a single drawing produce many sheets — a plan view at 1:100, an enlarged detail at 1:20, a section at 1:50 — all referencing the same underlying model.",
+      "why_matters": "Beginners often plot from model space because it just works for a single drawing at a single scale. The cost shows up later: text and dimensions have to be drawn at different sizes for each scale, sheet borders have to be redrawn at every scale, and viewports cannot share geometry consistently. Mastering paper space is the single biggest productivity lift in AutoCAD documentation work.",
+      "how_it_works": "Click a layout tab to enter paper space. Insert a sheet border (title block) at 1:1 paper units. Use MVIEW or the Layout ribbon to create rectangular or polygonal viewports. Double-click inside a viewport to enter model space through that viewport; set its scale via the status bar or Properties palette; lock the viewport so accidental zooming does not change the plotted scale. Annotative objects automatically display at the correct paper size in each viewport scale.",
+      "common_pitfalls": [
+        "Forgetting to lock viewport scale after setting it — a stray zoom destroys plot accuracy.",
+        "Drawing the title block in model space instead of paper space.",
+        "Confusing the PSLTSCALE and MSLTSCALE system variables, which control linetype scaling in viewports.",
+        "Using non-annotative text and ending up with multiple copies of every label at different sizes."
+      ],
+      "related_term_slugs": ["annotative-objects", "plot-style", "sheet-set-manager"]
     },
     {
-      "term": "AutoCAD command line",
-      "definition": "The AutoCAD command line interface allows you to execute ..."
+      "slug": "xref-autocad",
+      "title": "External Reference (XREF)",
+      "short_def": "A linked DWG inserted by reference into a host drawing rather than copied — the basis of multi-discipline AutoCAD coordination.",
+      "definition": "An XREF is a DWG attached to a host drawing via XATTACH. The referenced drawing remains a separate file; the host stores only the path, layer states, and any clip boundaries. When the referenced DWG changes on disk, the host shows the update on its next open or XREFRELOAD.\n\nXREFs come in two flavours: attached (transitive — if A references B which references C, opening A shows C) and overlay (not transitive — useful to avoid circular references in coordination workflows).",
+      "why_matters": "XREFs are the difference between a project that scales and one that does not. A 50-sheet building set sharing one core-and-shell DWG via XREF is maintainable; the same set with the core copy-pasted into every sheet is not. They are also the foundation of multi-discipline coordination: architecture XREFs structural, structural XREFs MEP, every team works in their own native file.",
+      "common_pitfalls": [
+        "Saving XREFs with absolute paths instead of relative paths — moves the project to a new server and everything breaks.",
+        "Binding XREFs at the wrong moment — binding turns them into local geometry, defeating the purpose.",
+        "Layer prefix collisions when multiple XREFs use the same layer names.",
+        "Not using XREF clip to limit the visible portion — full referenced files slow drawing performance."
+      ],
+      "related_term_slugs": ["paper-space-autocad", "sheet-set-manager", "dwg-file-format"]
     },
     {
-      "term": "AutoCAD shortcut",
-      "definition": "Press Ctrl+AutoCAD to quickly access features..."
+      "slug": "dynamic-blocks-autocad",
+      "title": "Dynamic Blocks",
+      "short_def": "Reusable block definitions with parametric grips, lookups, and stretches built into a single block.",
+      "definition": "Dynamic Blocks add parameters (linear, polar, rotation, alignment, lookup, visibility) and actions (move, stretch, scale, rotate, array) directly into an AutoCAD block definition. The result is a single block that can morph: a door symbol whose width parameter you grip-drag to 800mm / 900mm / 1000mm; a window family with a visibility flag for single / double / sliding.\n\nUnlike Revit families, dynamic blocks are not BIM objects — they have no schedules, no host relationships, no real-world data unless you also attach attributes. They are graphic intelligence, not data intelligence.",
+      "why_matters": "A correctly built dynamic block library reduces a 200-block standard set down to 30 dynamic blocks, eliminates 'where's the 900mm version' confusion, and makes shared libraries actually maintainable.",
+      "common_pitfalls": [
+        "Building a dynamic block with so many visibility states it becomes impossible to grip-edit on screen.",
+        "Forgetting to test what happens on EXPLODE — explosion destroys parametric behaviour entirely.",
+        "Mixing visibility parameters with lookup tables in confusing ways.",
+        "Not constraining the block geometrically — dragging a grip can yield invalid shapes."
+      ],
+      "related_term_slugs": ["attributes-blocks", "constraints-autocad", "data-extraction"]
     },
     {
-      "term": "AutoCAD file format",
-      "definition": "AutoCAD uses a proprietary file format for storing designs..."
+      "slug": "sheet-set-manager",
+      "title": "Sheet Set Manager (SSM)",
+      "short_def": "AutoCAD's built-in system for managing a coordinated multi-sheet document set, including sheet lists, references, and batch publishing.",
+      "definition": "Sheet Set Manager (SSM) is an AutoCAD palette (SHEETSET command) that groups multiple layout tabs from one or many DWGs into a single addressable sheet set (.dst file). The SSM holds metadata for every sheet (number, title, discipline), exposes title-block fields that auto-fill across the set, and allows batch operations: plot/publish all sheets, archive the entire set, and produce a tabular sheet list.",
+      "why_matters": "On any project larger than a dozen sheets, the SSM replaces manual title-block updating and 'which sheet am I on again?' chaos. It also produces the sheet index page that almost every drawing set needs.",
+      "common_pitfalls": [
+        "Editing title blocks inside individual DWGs instead of letting SSM fields fill them — defeats the purpose.",
+        "Storing the .dst file on a path that other team members cannot reach.",
+        "Renaming layout tabs after registration — breaks SSM references silently."
+      ],
+      "related_term_slugs": ["paper-space-autocad", "plot-style", "xref-autocad"]
+    },
+    {
+      "slug": "layer-states-autocad",
+      "title": "Layer States",
+      "short_def": "Named saved configurations of layer visibility, color, lineweight, and other properties — recallable per drawing or per viewport.",
+      "definition": "A layer state is a snapshot of layer properties (on/off, freeze/thaw, lock, color, linetype, lineweight, plot, transparency) saved under a name. The LAYERSTATE command saves them; the Layer Properties Manager and viewport overrides let you recall them. Layer states are stored inside the DWG, can be imported between drawings, and can be applied per viewport.",
+      "why_matters": "Layer states convert 'flip-many-layers-by-hand' tasks into a single click. A typical use: an 'ARCH plan presentation' layer state hides MEP/structural layers; a 'demolition phase' state changes existing layers to red dashed. Without layer states, multi-phase or multi-discipline DWGs degrade into ad-hoc layer scrolling.",
+      "common_pitfalls": [
+        "Forgetting that XREF layers can override — local layer state may not apply to referenced geometry as expected.",
+        "Confusing layer states with layer filters, which are search-based selections rather than property snapshots.",
+        "Saving states with absolute viewport overrides, then wondering why they don't apply in model space."
+      ],
+      "related_term_slugs": ["paper-space-autocad", "xref-autocad"]
+    },
+    {
+      "slug": "annotative-objects",
+      "title": "Annotative Objects",
+      "short_def": "Text, dimensions, hatches, and blocks that automatically scale to the current annotation scale so they print at the right size in every viewport.",
+      "definition": "Annotative scaling solves the classic AutoCAD problem of how big to draw text so it prints at 2.5 mm at 1:50. An annotative object stores a list of supported scales; AutoCAD displays it at the model-space size that produces the chosen plotted height. A 2.5 mm annotative dimension automatically draws large in a 1:100 viewport and small in a 1:20 viewport — but plots identically.\n\nAnnotative behaviour is controlled by the CANNOSCALE system variable (current annotation scale), the Annotation Visibility button, and the Add scale button on the status bar.",
+      "why_matters": "Without annotative objects, the same wall callout has to be drawn three times at three different text heights for three different viewports — and a single scale change breaks them all. Annotative objects make multi-scale sheet sets practical.",
+      "common_pitfalls": [
+        "Mixing annotative and non-annotative dimension styles in one drawing — keep one or the other.",
+        "Adding too many scales to one annotative object and creating visual clutter in model space.",
+        "Forgetting that annotative hatches scale per viewport, which can produce surprising fill density."
+      ],
+      "related_term_slugs": ["paper-space-autocad", "plot-style"]
+    },
+    {
+      "slug": "autolisp",
+      "title": "AutoLISP",
+      "short_def": "AutoCAD's embedded Lisp dialect for scripting commands, geometry queries, and lightweight UI dialogs.",
+      "definition": "AutoLISP is a Lisp variant available in AutoCAD since 1986. It exposes AutoCAD's command line, entity database, and selection sets as Lisp s-expressions: (command \"line\" '(0 0) '(10 0) \"\") draws a line, (ssget \"X\" '((0 . \"CIRCLE\"))) selects every circle. Visual LISP extended AutoLISP with an IDE, debugging, and ActiveX access; both are still supported in modern AutoCAD.\n\nDCL (Dialog Control Language) provides simple dialog boxes; for richer UI, modern shops prefer .NET. AutoLISP files (.lsp) load via APPLOAD or auto-load via acaddoc.lsp / acad.lsp.",
+      "why_matters": "A 50-line LISP routine often replaces hours of mouse work — auto-numbering, batch layer cleanup, drawing audits, custom dimensioning. Many decades-old AutoCAD shops survive on a single LISP library written years ago.",
+      "common_pitfalls": [
+        "Putting LISP files outside the support search path — they silently fail to autoload.",
+        "Editing acad.lsp instead of acaddoc.lsp (different load points, different behaviour).",
+        "Forgetting that AutoLISP is per-document — global state has to be managed explicitly."
+      ],
+      "related_term_slugs": ["cui-autocad", "data-extraction"]
+    },
+    {
+      "slug": "dwg-file-format",
+      "title": "DWG File Format",
+      "short_def": "Autodesk's native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications.",
+      "definition": "DWG is a binary, versioned file format whose internal structure includes entities (lines, polylines, blocks), tables (layers, linetypes, text styles, dimension styles, UCS), and a header block holding system variables. Each AutoCAD release introduces a new DWG version (e.g., AutoCAD 2018 DWG, current through 2024+); older AutoCAD cannot open newer DWGs without conversion.\n\nThe DWG format is reverse-engineered and supported by the Open Design Alliance's libraries, which is what allows BricsCAD, GstarCAD, ZWCAD, and many CAD viewers to read and write DWGs natively.",
+      "why_matters": "Choosing the right DWG version for outgoing files matters: a 2018-format DWG sent to a consultant on AutoCAD 2010 won't open. The SAVEAS dialog lets you save down. Equally, signing off on a contract DWG without checking what is inside (purgeable junk, anonymous blocks, embedded raster) is a quality control miss.",
+      "common_pitfalls": [
+        "Sending current-format DWGs to clients on older releases without saving down.",
+        "Trusting file-size as a proxy for content complexity — embedded PDFs and rasters can balloon DWG size.",
+        "Not running PURGE and AUDIT before issuing — leaks staff workspace settings, anonymous blocks, unused styles."
+      ],
+      "related_term_slugs": ["dxf-file-format", "xref-autocad"]
+    },
+    {
+      "slug": "dxf-file-format",
+      "title": "DXF File Format",
+      "short_def": "Autodesk's text-based (or binary) drawing interchange format — the lowest-common-denominator way to move CAD geometry between applications.",
+      "definition": "DXF (Drawing eXchange Format) is a tagged data format that mirrors the DWG entity model in plain text (ASCII DXF) or in a faster binary form (Binary DXF). Every entity, table, and header variable is written as group-code/value pairs. Because the format is published and stable, DXF is widely supported as an import/export path across CAD, CAM, CNC, laser cutting, and engineering software.",
+      "why_matters": "DXF is the safest hand-off when you don't know what software the recipient will use. It is also the easiest format to script against: a few hundred lines of code can read or write DXF without a CAD kernel.",
+      "common_pitfalls": [
+        "Round-tripping DWG → DXF → DWG and losing object-specific data (e.g., dynamic block parameters).",
+        "Choosing ASCII DXF for very large drawings — file size explodes and parse time grows.",
+        "Forgetting that DXF supports the entity model but not every AutoCAD object type — proxy graphics lose intelligence."
+      ],
+      "related_term_slugs": ["dwg-file-format"]
+    },
+    {
+      "slug": "ucs-coordinate-systems",
+      "title": "User Coordinate System (UCS)",
+      "short_def": "A local coordinate system you define inside AutoCAD to align drafting tools to a non-world-aligned face or direction.",
+      "definition": "The World Coordinate System (WCS) is AutoCAD's global X/Y/Z origin. A User Coordinate System (UCS) is any other origin and orientation you define — usually to align the X-Y plane with a sloped roof, a rotated building, or a 3D face. The UCS command lets you set origin, X-axis, and Y-axis interactively; named UCS definitions persist in the drawing.\n\nIn 2D drafting, the most common use is rotating the UCS to align with a building rotation so that ortho mode and grid snap align with walls rather than world axes. In 3D, UCS is essential — almost every modelling command works in the current UCS X-Y plane.",
+      "why_matters": "Without UCS, drafting on rotated buildings or on 3D faces is unworkable. Misunderstanding UCS is also the root of 'why is my line not flat?' errors in 3D.",
+      "common_pitfalls": [
+        "Forgetting to restore WCS before plotting from a rotated UCS — title block can plot crooked.",
+        "Using UCS World mid-command and getting unexpected geometry orientation.",
+        "Mixing dynamic input (which is UCS-relative by default) with absolute world coordinates."
+      ],
+      "related_term_slugs": ["paper-space-autocad"]
+    },
+    {
+      "slug": "polyline-autocad",
+      "title": "Polyline (AutoCAD)",
+      "short_def": "A single AutoCAD entity composed of connected line and/or arc segments with optional widths — the workhorse of clean drafting.",
+      "definition": "An AutoCAD polyline is one object containing one or more vertices and the segments between them. Unlike a chain of separate LINE entities, a polyline can carry per-vertex width, can include arc segments (bulges) without breaking entity continuity, and can be filleted, offset, joined, exploded, and stroked along its length. The PLINE command draws them; PEDIT edits them.\n\nClosed polylines have area; open polylines have only length. The LIST command reports both.",
+      "why_matters": "Closed polylines are how AutoCAD knows what a room or a plot is for area calculations and hatching. Polyline width is how to draft electrical busbars, plot boundaries, or thick boundary lines without manually offset-and-fill.",
+      "common_pitfalls": [
+        "Confusing polyline width with linetype/lineweight — they look similar but plot differently.",
+        "Using PEDIT Join with a tolerance too small to capture nearly-coincident endpoints.",
+        "Editing 2D polylines with PEDIT and 3D polylines with 3DPOLY-specific commands by mistake."
+      ],
+      "related_term_slugs": ["dynamic-input"]
+    },
+    {
+      "slug": "dynamic-input",
+      "title": "Dynamic Input (AutoCAD)",
+      "short_def": "On-cursor command tooltips that show prompts and accept relative or absolute coordinates as you type.",
+      "definition": "Dynamic Input (toggled by F12 or the status-bar button, controlled by DYNMODE system variable) shows the current command prompt at the cursor rather than only on the command line, and changes coordinate-entry behaviour: by default, typed coordinates are treated as relative (distance, then tab, then angle).",
+      "why_matters": "Dynamic Input speeds drafting for users who like to look at the cursor rather than the command line. It also changes how to enter precise coordinates — knowing the convention prevents 'why didn't my line go to 100,100?' confusion.",
+      "common_pitfalls": [
+        "Forgetting to prepend # for absolute coordinates when Dynamic Input is on.",
+        "Toggling F12 by accident and not noticing input behaviour changed.",
+        "Using polar relative entry (@) habits in Dynamic Input where it isn't needed."
+      ],
+      "related_term_slugs": ["polyline-autocad"]
+    },
+    {
+      "slug": "cui-autocad",
+      "title": "Customize User Interface (CUI)",
+      "short_def": "AutoCAD's framework for editing menus, ribbon panels, toolbars, keyboard shortcuts, and command aliases.",
+      "definition": "The CUI editor (CUI command) edits the ribbon, menus, toolbars, palettes, keyboard shortcuts, mouse buttons, and double-click actions all from one tree-based UI. CUI definitions are saved as .cuix files (compiled UI) which can be partial (loaded on top of the base) or main (replace the base entirely).\n\nCommand aliases live separately in acad.pgp — a plain text file mapping short strings (L, CO, M) to commands (LINE, COPY, MOVE).",
+      "why_matters": "A shop's productivity is often determined by its CUI customisation more than by individual user skill. Three keystrokes saved per command, multiplied by thousands of commands per day, compounds into measurable shop-wide hours.",
+      "common_pitfalls": [
+        "Editing the base AutoCAD .cuix instead of building a partial CUI — upgrade overwrites your customisation.",
+        "Distributing CUIs without packaging the linked LISP or DCL files — buttons that 'do nothing' on other machines.",
+        "Forgetting to export CUI before re-imaging a workstation."
+      ],
+      "related_term_slugs": ["autolisp"]
+    },
+    {
+      "slug": "plot-style",
+      "title": "Plot Styles (CTB / STB)",
+      "short_def": "The mapping from on-screen color or named style to printer lineweight, color, screening, and dithering at plot time.",
+      "definition": "AutoCAD supports two plot-style models: color-dependent (.ctb) and named (.stb). A CTB maps each of AutoCAD's 255 indexed colors (plus extra for true-color objects) to a plotted lineweight, screening percentage, and plotted color. An STB instead lets every entity carry a named plot style independent of color.\n\nA drawing can use either model but not both; the choice is made by the template and convertible per drawing.",
+      "why_matters": "Plot styles are why an AutoCAD sheet that looks identical on screen can plot completely differently across two offices. Standardising CTBs (or moving to STBs and naming the styles by intent) is what makes prints look consistent.",
+      "common_pitfalls": [
+        "Mixing CTB-mode and STB-mode drawings in one sheet set — viewport plot-style overrides won't behave intuitively.",
+        "Editing colors instead of plot styles, then wondering why a 'fix' didn't change the output.",
+        "Sending out the DWG without the plot style — recipient plots with their own CTB."
+      ],
+      "related_term_slugs": ["paper-space-autocad", "annotative-objects"]
+    },
+    {
+      "slug": "data-extraction",
+      "title": "Data Extraction (AutoCAD)",
+      "short_def": "AutoCAD's built-in tool to extract block attributes and entity properties into a table or external file.",
+      "definition": "The DATAEXTRACTION command walks the user through selecting source drawings, source blocks or entity types, the attributes/properties to extract, sorting and grouping, and the output destination (an AutoCAD table inside the drawing, or external CSV/XLS). The extracted table can be set to update automatically when underlying data changes.",
+      "why_matters": "Data extraction is how an AutoCAD-only shop produces bills of materials, fixture schedules, door schedules, and quantity takeoffs without a separate database. It turns block attributes into actual data deliverables.",
+      "common_pitfalls": [
+        "Forgetting to include nested blocks when the schedule needs them.",
+        "Extracting from drawings with mismatched attribute tags — silently produces blank columns.",
+        "Letting the extracted table drift from the source data because it was inserted without 'link to data' enabled."
+      ],
+      "related_term_slugs": ["attributes-blocks", "dynamic-blocks-autocad"]
+    },
+    {
+      "slug": "attributes-blocks",
+      "title": "Block Attributes",
+      "short_def": "Text fields embedded in block definitions that capture per-instance data — the data layer over visual blocks.",
+      "definition": "Attributes are tagged text objects inside a block definition. When you insert the block, AutoCAD prompts for each attribute's value; you can change values later with EATTEDIT or BATTMAN. Attribute values are addressable by their tag from data extraction, LISP, and external tools.",
+      "why_matters": "Attributes turn graphic blocks into data carriers: title blocks with sheet metadata, equipment tags with part numbers, room blocks with occupancy. Without them, AutoCAD drawings carry no structured data.",
+      "common_pitfalls": [
+        "Confusing attribute tag, prompt, and default value when authoring the block.",
+        "Locking attribute position when the block scales — labels go off-target.",
+        "Not synchronising attribute changes across all instances after a definition edit (ATTSYNC)."
+      ],
+      "related_term_slugs": ["data-extraction", "dynamic-blocks-autocad"]
+    },
+    {
+      "slug": "constraints-autocad",
+      "title": "Parametric Constraints (AutoCAD)",
+      "short_def": "Geometric and dimensional rules applied to AutoCAD entities so that resizing or moving one drives the rest.",
+      "definition": "AutoCAD supports two kinds of constraints: geometric (coincident, parallel, perpendicular, tangent, concentric, equal, fix, horizontal, vertical, smooth, symmetric, collinear) and dimensional (distance, radius, angle, free expression). Constraints are applied via the Parametric ribbon. The CONSTRAINTSETTINGS dialog controls inferencing and display.\n\nUnlike Inventor or SOLIDWORKS, AutoCAD's parametrics are added on top of free-form entities rather than being foundational — most AutoCAD drawings still have no constraints at all.",
+      "why_matters": "Constraints are how to draft dimensioned mechanical details whose geometry stays correct under edits, or to build dynamic blocks whose grips can't produce invalid shapes.",
+      "common_pitfalls": [
+        "Over-constraining and getting 'redundant constraint' warnings.",
+        "Mixing constraints with absolute geometry edits — the latter break the former.",
+        "Forgetting to hide constraint bars before plotting."
+      ],
+      "related_term_slugs": ["dynamic-blocks-autocad"]
+    },
+    {
+      "slug": "mtext-autocad",
+      "title": "Multiline Text (MTEXT)",
+      "short_def": "AutoCAD's paragraph-style text object — supports inline formatting, columns, tabs, and field codes.",
+      "definition": "MTEXT (MText) is multi-line text with paragraph behaviour, inline character formatting (font, color, height, bold/italic), columns, and embedded fields (sheet number, date, drawing property). Width is set explicitly; height grows as content does. MTEXTAUTOSTACK controls automatic stacked fractions; MTEXTED controls which editor opens.",
+      "why_matters": "MTEXT replaces single-line DTEXT in almost every modern AutoCAD workflow because it carries formatting and fields. Sheet borders, notes blocks, and revision tables almost always use MTEXT.",
+      "common_pitfalls": [
+        "Mixing DTEXT and MTEXT in the same notes block — selection and editing become inconsistent.",
+        "Using MTEXT columns without setting column width to a sensible value.",
+        "Relying on inline color overrides instead of using a dedicated text style and layer."
+      ],
+      "related_term_slugs": ["annotative-objects"]
     }
   ],
+
   "faqs": [
     {
-      "question": "What is the recommended hardware for AutoCAD?",
-      "answer": "A modern GPU with at least 8GB VRAM and a multi‑core CPU is recommended."
+      "question": "Is AutoCAD LT still sold separately?",
+      "answer": "No. In 2024 Autodesk consolidated AutoCAD LT into the standard AutoCAD subscription at a single price point. New buyers receive the full AutoCAD with specialized toolsets. Existing LT subscribers were migrated. If you see LT listed by a reseller it is either a transitional SKU or a regional exception."
     },
     {
-      "question": "How to enable collaboration in AutoCAD?",
-      "answer": "Enable the Cloud Collaboration feature via the Teams menu."
+      "question": "What is the latest DWG file version AutoCAD writes?",
+      "answer": "AutoCAD 2018+ writes the 'AutoCAD 2018' DWG format, which is current through AutoCAD 2024 and 2025. Newer releases have not (so far) introduced a new DWG version — meaning files travel freely between recent releases. Always SAVEAS to the recipient's release if you know they are older."
     },
     {
-      "question": "How do I export a model from AutoCAD?",
-      "answer": "Use the Export command under File > Export and choose the desired format."
+      "question": "Can I install both AutoCAD and AutoCAD specialized toolsets on the same machine?",
+      "answer": "Yes — and since 2024 they ship together under one subscription. You install AutoCAD plus the specific specialized toolset(s) you need from the Autodesk Desktop App or Account portal. They share the same DWG engine, so cross-toolset workflows work natively."
     },
     {
-      "question": "Can I customize the interface of AutoCAD?",
-      "answer": "Yes, go to Settings > UI Customization to adjust panels and themes."
+      "question": "Why does my plot look different at home than at the office?",
+      "answer": "Almost always plot-style mismatch. AutoCAD plot styles (.ctb or .stb) live separately from DWG and are searched in the configured Printer Support File Path. Either embed your styles in the drawing's plot-style folder, or include them in your project package alongside the DWG."
+    },
+    {
+      "question": "How do I move a customised AutoCAD installation to a new computer?",
+      "answer": "Use Migrate Custom Settings (or the Reset Settings to Default option for a clean start) and export your profile (Options > Profiles > Export). Also copy your acad.pgp (command aliases), partial CUIs, LISP files, custom blocks, templates, plot styles, and printer .pc3 files. Re-import the profile and link the file locations on the new workstation."
+    },
+    {
+      "question": "What is the difference between PURGE and AUDIT?",
+      "answer": "PURGE removes unused named objects (layers, blocks, linetypes, text styles, dimension styles) from the drawing. AUDIT scans the drawing for internal errors and offers to fix them. RECOVER opens a damaged drawing while running an audit. Run all three on inbound DWGs before treating them as the model of record."
+    },
+    {
+      "question": "Why are my XREFs not updating on file open?",
+      "answer": "Either the XREF path is broken (file moved or server unreachable), the reference is loaded with 'don't reload' demand-loading set, or the XREF was bound. Check the External References palette: a yellow icon means the file is missing; a green icon means it loaded; a chained icon means it is bound and no longer linked. Re-attach via XATTACH using a relative path."
+    },
+    {
+      "question": "Can AutoCAD open BIM (RVT) files?",
+      "answer": "Not natively. AutoCAD can import IFC (limited) and link DWGs exported from Revit, but it does not open RVT directly. The conventional workflow is: model in Revit, export DWG of sheets for delivery, link as an XREF if AutoCAD-side detailing is required."
+    },
+    {
+      "question": "What's the practical difference between Save As DWG and eTransmit?",
+      "answer": "Save As writes only the current DWG. eTransmit packages the DWG plus all dependent files (XREFs, fonts, plot styles, raster images, embedded materials) into a zip with optional report file. eTransmit is what to use when sending a drawing externally, because Save As leaves dependencies behind."
+    },
+    {
+      "question": "How do I plot to a PDF that recipients can search and copy text from?",
+      "answer": "Use the built-in 'AutoCAD PDF (General Documentation)' plotter and ensure 'Capture as text' is enabled in PDF options. Text drawn with TrueType fonts becomes searchable; text drawn with SHX fonts is converted to geometry and is not searchable. Use TrueType throughout if searchable PDFs matter."
+    },
+    {
+      "question": "Why does dimension text appear at the wrong size in different viewports?",
+      "answer": "Your dimensions are not annotative. Switch the dimension style to Annotative (DIMSTYLE > Modify > Fit > Annotative), add the required scales, and AutoCAD will display dimensions at the correct paper height per viewport scale automatically."
+    },
+    {
+      "question": "Is AutoCAD available on macOS?",
+      "answer": "Yes — AutoCAD for Mac is a separate build with most of the Windows feature set but missing some advanced functionality (sheet sets, action recorder, dynamic block authoring, some specialised toolsets). DWGs interchange freely. For full feature parity, run AutoCAD for Windows in a Mac virtualisation environment."
+    },
+    {
+      "question": "How do I prevent users from editing certain layers?",
+      "answer": "Lock the layer in the Layer Properties Manager. Locked entities are visible and snap-targetable but cannot be modified. For stronger protection, freeze the layer (entities are not visible and not regenerated). Drawing standards (DWS files) can flag layers that should be locked but cannot enforce locking automatically."
+    },
+    {
+      "question": "What is the AutoCAD command line cheat for canceling a stuck command?",
+      "answer": "Press ESC. If a command keeps re-entering itself, you likely have a recursive LISP routine or a sticky CUI button — close and reopen AutoCAD, then check APPLOAD startup contents and CUI button macros."
+    },
+    {
+      "question": "Why does AutoCAD freeze on file open?",
+      "answer": "Most common causes: huge XREF tree being resolved over a slow network, missing fonts being substituted slowly, embedded raster images being decoded, or proxy graphics being loaded from an unloaded application. Use Audit + Purge on the file, ensure fonts are local, and consider Demand Load XREFs (XLOADCTL) for large references."
+    },
+    {
+      "question": "Can multiple users edit the same DWG at the same time?",
+      "answer": "Not natively. AutoCAD has a file lock — second user opens read-only. The conventional approach is to split the drawing into XREFs by discipline so each team works on their own file. For true co-authoring you need a coordination platform such as Autodesk Construction Cloud, or move to a model-based BIM workflow."
+    },
+    {
+      "question": "How do I script a repetitive task across many drawings?",
+      "answer": "Use ScriptPro 2.0 (free Autodesk Labs tool) or AutoCAD's built-in SCRIPT command. Author a .scr file containing the commands you want to run, then point ScriptPro at a folder of DWGs. For more complex logic — branching, querying — write LISP or .NET instead."
+    },
+    {
+      "question": "What is the difference between BIND and INSERT for XREFs?",
+      "answer": "Both convert an XREF into local geometry, but BIND keeps named objects (layers, blocks) prefixed by the original file (XREFNAME$0$LAYERNAME) while INSERT merges them into the host's name table by stripping the prefix. BIND is safer (no name collisions); INSERT can produce cleaner result if names already align. Both break the live link."
     }
   ],
+
   "graph_nodes": [
-    {
-      "id": "AutoCAD",
-      "type": "product",
-      "tags": [
-        "autodesk",
-        "drafting",
-        "dwg"
-      ],
-      "hint": "Autodesk's flagship DWG-based CAD platform — file-based 2D drafting and detail 3D.",
-      "group": 1,
-      "radius": 14
-    },
-    {
-      "id": "AutoCAD Paper Space",
-      "type": "concept",
-      "tags": [
-        "autocad",
-        "layout",
-        "plot"
-      ],
-      "hint": "Layout-based plotting environment with viewports.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "AutoCAD XREF Tree",
-      "type": "skill",
-      "tags": [
-        "autocad",
-        "collaboration"
-      ],
-      "hint": "Multi-discipline external-reference workflow.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "AutoCAD Dynamic Block",
-      "type": "concept",
-      "tags": [
-        "autocad",
-        "blocks"
-      ],
-      "hint": "Parametric reusable blocks with grips and lookups.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "AutoCAD Sheet Set",
-      "type": "skill",
-      "tags": [
-        "autocad",
-        "documentation"
-      ],
-      "hint": "Coordinated multi-sheet document management.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "AutoCAD Annotative Scale",
-      "type": "concept",
-      "tags": [
-        "autocad",
-        "plotting"
-      ],
-      "hint": "Auto-scaling annotations across viewports.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "AutoCAD AutoLISP",
-      "type": "sdk",
-      "tags": [
-        "autocad",
-        "automation"
-      ],
-      "hint": "Embedded Lisp dialect for AutoCAD scripting.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "AutoCAD Plot Styles",
-      "type": "concept",
-      "tags": [
-        "autocad",
-        "plotting"
-      ],
-      "hint": "CTB / STB plot-style configuration.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "AutoCAD Data Extraction",
-      "type": "skill",
-      "tags": [
-        "autocad",
-        "schedules"
-      ],
-      "hint": "Extract block attributes to tables/CSV.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "AutoCAD Constraints",
-      "type": "concept",
-      "tags": [
-        "autocad",
-        "parametric"
-      ],
-      "hint": "Geometric and dimensional constraints.",
-      "group": 2,
-      "radius": 9
-    }
+    {"id": "AutoCAD", "type": "product", "tags": ["autodesk", "drafting", "dwg"], "hint": "Autodesk's flagship DWG-based CAD platform — file-based 2D drafting and detail 3D.", "group": 1, "radius": 14},
+    {"id": "AutoCAD Paper Space", "type": "concept", "tags": ["autocad", "layout", "plot"], "hint": "Layout-based plotting environment with viewports.", "group": 2, "radius": 9},
+    {"id": "AutoCAD XREF Tree", "type": "skill", "tags": ["autocad", "collaboration"], "hint": "Multi-discipline external-reference workflow.", "group": 2, "radius": 9},
+    {"id": "AutoCAD Dynamic Block", "type": "concept", "tags": ["autocad", "blocks"], "hint": "Parametric reusable blocks with grips and lookups.", "group": 2, "radius": 9},
+    {"id": "AutoCAD Sheet Set", "type": "skill", "tags": ["autocad", "documentation"], "hint": "Coordinated multi-sheet document management.", "group": 2, "radius": 9},
+    {"id": "AutoCAD Annotative Scale", "type": "concept", "tags": ["autocad", "plotting"], "hint": "Auto-scaling annotations across viewports.", "group": 2, "radius": 9},
+    {"id": "AutoCAD AutoLISP", "type": "sdk", "tags": ["autocad", "automation"], "hint": "Embedded Lisp dialect for AutoCAD scripting.", "group": 2, "radius": 9},
+    {"id": "AutoCAD Plot Styles", "type": "concept", "tags": ["autocad", "plotting"], "hint": "CTB / STB plot-style configuration.", "group": 2, "radius": 9},
+    {"id": "AutoCAD Data Extraction", "type": "skill", "tags": ["autocad", "schedules"], "hint": "Extract block attributes to tables/CSV.", "group": 2, "radius": 9},
+    {"id": "AutoCAD Constraints", "type": "concept", "tags": ["autocad", "parametric"], "hint": "Geometric and dimensional constraints.", "group": 2, "radius": 9}
   ],
   "graph_links": [
-    [
-      "AutoCAD Paper Space",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD XREF Tree",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD Dynamic Block",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD Sheet Set",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD Annotative Scale",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD AutoLISP",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD Plot Styles",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD Data Extraction",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD Constraints",
-      "AutoCAD"
-    ],
-    [
-      "AutoCAD",
-      "Autodesk"
-    ],
-    [
-      "AutoCAD Sheet Set",
-      "AutoCAD Paper Space"
-    ],
-    [
-      "AutoCAD Annotative Scale",
-      "AutoCAD Paper Space"
-    ],
-    [
-      "AutoCAD Data Extraction",
-      "AutoCAD Dynamic Block"
-    ]
+    ["AutoCAD Paper Space", "AutoCAD"],
+    ["AutoCAD XREF Tree", "AutoCAD"],
+    ["AutoCAD Dynamic Block", "AutoCAD"],
+    ["AutoCAD Sheet Set", "AutoCAD"],
+    ["AutoCAD Annotative Scale", "AutoCAD"],
+    ["AutoCAD AutoLISP", "AutoCAD"],
+    ["AutoCAD Plot Styles", "AutoCAD"],
+    ["AutoCAD Data Extraction", "AutoCAD"],
+    ["AutoCAD Constraints", "AutoCAD"],
+    ["AutoCAD", "Autodesk"],
+    ["AutoCAD Sheet Set", "AutoCAD Paper Space"],
+    ["AutoCAD Annotative Scale", "AutoCAD Paper Space"],
+    ["AutoCAD Data Extraction", "AutoCAD Dynamic Block"]
   ]
 }

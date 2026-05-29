@@ -5,44 +5,17 @@
   "tagline": "Autodesk's Windows-native parametric MCAD — strong on large mechanical assemblies, sheet metal, frame generator, and integration with Autodesk Vault and Revit.",
   "meta_desc": "Inventor profile: parametric MCAD workflow, assemblies, frame generator, iLogic, Vault, plus 15 deep-dive terms and 15 FAQs reviewed by Gstarcademy editors.",
   "category_label": "DesignApplication",
-  "vendor": {
-    "slug": "autodesk",
-    "name": "Autodesk"
-  },
+  "vendor": {"slug": "autodesk", "name": "Autodesk"},
   "first_released": "1999",
   "current_track": "Annual release — Inventor 2025; included in Product Design & Manufacturing Collection",
   "license_model": "Subscription via Product Design & Manufacturing Collection (typical) or single-product. Education free.",
-  "platforms": [
-    "Windows (64-bit only)"
-  ],
-  "file_formats": [
-    "IPT (part)",
-    "IAM (assembly)",
-    "IDW / DWG (drawing)",
-    "IPN (presentation)",
-    "STEP",
-    "IGES",
-    "Parasolid",
-    "JT",
-    "STL / 3MF"
-  ],
-  "primary_alternatives": [
-    "SOLIDWORKS",
-    "Creo Parametric",
-    "Solid Edge",
-    "Fusion 360",
-    "NX"
-  ],
-  "domains": [
-    "Machinery",
-    "Industrial equipment",
-    "Steel structures",
-    "Tooling & fixtures",
-    "Plant equipment",
-    "Sheet metal fabrication"
-  ],
+  "platforms": ["Windows (64-bit only)"],
+  "file_formats": ["IPT (part)", "IAM (assembly)", "IDW / DWG (drawing)", "IPN (presentation)", "STEP", "IGES", "Parasolid", "JT", "STL / 3MF"],
+  "primary_alternatives": ["SOLIDWORKS", "Creo Parametric", "Solid Edge", "Fusion 360", "NX"],
+  "domains": ["Machinery", "Industrial equipment", "Steel structures", "Tooling & fixtures", "Plant equipment", "Sheet metal fabrication"],
   "last_reviewed": "2026-05-24",
   "default_reviewer_id": "lc-mech-review",
+
   "profile": {
     "what_it_is": "Inventor is Autodesk's traditional Windows desktop MCAD application — parametric, feature-based, with separate parts (.ipt), assemblies (.iam), drawings (.idw / .dwg), and presentations (.ipn). It is the Autodesk product for serious mechanical engineering teams: machine builders, OEMs, plant designers, and any organisation that wants a deep desktop MCAD with strong assembly performance, Vault PDM integration, and clean Revit linkage.\n\nWhere Fusion 360 is cloud-first and consolidates many disciplines, Inventor is file-based and depth-first in its core MCAD competencies — frame generator, weldments, sheet metal, content centre, iLogic automation.",
     "where_used": "Inventor is widely used in industrial machinery, factory automation, packaging machines, heavy equipment, and steel-structure design. Strong adoption in companies that have standardised on the Autodesk stack (Inventor + AutoCAD Mechanical + Vault + Revit for plant context). Less common in consumer-product design (SOLIDWORKS territory) and aerospace (NX/CATIA territory).",
@@ -52,261 +25,82 @@
     "common_pitfalls": "**Project file mismanagement.** Inventor's .ipj defines library/workspace paths. Working outside the project produces broken references.\n\n**Adaptive parts.** Adaptive geometry is powerful but slow to recompute in large assemblies.\n\n**Content centre offline.** Without a synced content centre library, standard parts produce missing-reference errors.\n\n**Sheet metal style on per-part basis.** Without standardised styles in the template, every part has different bend allowance.",
     "when_to_use_vs_alternative": "Use Inventor when (a) the team is on Autodesk infrastructure (Vault, Revit, AutoCAD), (b) the work is large-assembly mechanical design, or (c) you need Inventor-specific strengths (frame generator, content centre integration).\n\nChoose SOLIDWORKS when the team prefers its UX and ecosystem. Choose Fusion 360 for cross-platform, cloud-data, integrated CAM. Choose Creo / NX for very large aerospace / automotive assemblies.",
     "recommended_learning_path": [
-      {
-        "stage": "Week 1 — Foundations",
-        "focus": "[Project file (.ipj)](./project-file-inventor.html), sketching, [feature-based modelling](./features-inventor.html), basic part modelling."
-      },
-      {
-        "stage": "Week 2 — Drawings",
-        "focus": "Drawing template, [drawing views](./drawing-views-inventor.html), dimensions, BOMs."
-      },
-      {
-        "stage": "Week 3 — Assemblies",
-        "focus": "[Assembly constraints / joints](./constraints-joints-inventor.html), [sub-assemblies](./subassemblies-inventor.html), BOM, presentation."
-      },
-      {
-        "stage": "Week 4 — Sheet metal & frames",
-        "focus": "[Sheet metal](./sheet-metal-inventor.html) styles + bends, [frame generator](./frame-generator-inventor.html), [content centre](./content-centre-inventor.html)."
-      },
-      {
-        "stage": "Month 2 — Automation",
-        "focus": "[iLogic](./ilogic-inventor.html), [iParts / iAssemblies](./iparts-inventor.html), parameters, Vault basics."
-      },
-      {
-        "stage": "Month 3+ — Production & exchange",
-        "focus": "Drawing automation, Revit interop, [DWG mode](./dwg-mode-inventor.html), Inventor CAM, large-assembly performance."
-      }
+      {"stage": "Week 1 — Foundations", "focus": "[Project file (.ipj)](./project-file-inventor.html), sketching, [feature-based modelling](./features-inventor.html), basic part modelling."},
+      {"stage": "Week 2 — Drawings", "focus": "Drawing template, [drawing views](./drawing-views-inventor.html), dimensions, BOMs."},
+      {"stage": "Week 3 — Assemblies", "focus": "[Assembly constraints / joints](./constraints-joints-inventor.html), [sub-assemblies](./subassemblies-inventor.html), BOM, presentation."},
+      {"stage": "Week 4 — Sheet metal & frames", "focus": "[Sheet metal](./sheet-metal-inventor.html) styles + bends, [frame generator](./frame-generator-inventor.html), [content centre](./content-centre-inventor.html)."},
+      {"stage": "Month 2 — Automation", "focus": "[iLogic](./ilogic-inventor.html), [iParts / iAssemblies](./iparts-inventor.html), parameters, Vault basics."},
+      {"stage": "Month 3+ — Production & exchange", "focus": "Drawing automation, Revit interop, [DWG mode](./dwg-mode-inventor.html), Inventor CAM, large-assembly performance."}
     ]
   },
+
   "sources": [
-    {
-      "label": "Inventor product page",
-      "url": "https://www.autodesk.com/products/inventor/overview",
-      "publisher": "Autodesk"
-    },
-    {
-      "label": "Inventor Help",
-      "url": "https://help.autodesk.com/view/INVNTOR/2025/ENU/",
-      "publisher": "Autodesk"
-    }
+    {"label": "Inventor product page", "url": "https://www.autodesk.com/products/inventor/overview", "publisher": "Autodesk"},
+    {"label": "Inventor Help", "url": "https://help.autodesk.com/view/INVNTOR/2025/ENU/", "publisher": "Autodesk"}
   ],
+
   "terms": [
-    {
-      "term": "Inventor command line",
-      "definition": "The Inventor command line interface allows you to execute ..."
-    },
-    {
-      "term": "Inventor file format",
-      "definition": "Inventor uses a proprietary file format for storing designs..."
-    },
-    {
-      "term": "Inventor shortcut",
-      "definition": "Press Ctrl+Inventor to quickly access features..."
-    },
-    {
-      "term": "Inventor workflow",
-      "definition": "A typical Inventor workflow involves ..."
-    }
+    {"slug": "project-file-inventor", "title": "Project File (.ipj, Inventor)", "short_def": "Inventor's project definition — sets workspace, content centre paths, library locations, units, and templates.", "definition": "The .ipj is the master project descriptor. It defines Workspace (where new files go), Workgroup Search Paths (where Inventor looks for referenced files), Libraries (read-only folders), Content Center Libraries, and project units. Inventor must have an active .ipj to open files; activating a different project changes where references resolve.", "why_matters": "Without a properly configured .ipj, Inventor reports missing references for every file the project references. Multi-user projects need a shared .ipj on a network or in Vault.", "common_pitfalls": ["Working in 'Default' project for production files — references break when moved.", "Inconsistent project files across the team — same file opens differently for different users.", "Forgetting Vault Workgroup checkin invalidates local .ipj definitions."], "related_term_slugs": ["features-inventor"]},
+    {"slug": "features-inventor", "title": "Features (Inventor)", "short_def": "The fundamental building blocks of an Inventor part — Extrude, Revolve, Sweep, Loft, Hole, Fillet, Shell, Coil, Rib, Thread.", "definition": "Inventor parts are built as an ordered list of features in the Model Browser. Each feature has its own sketch (or shared sketch), dimensions, and parameters. Features apply to one or more solid bodies (Inventor supports multi-body parts).", "why_matters": "Feature ordering and naming determine maintainability. Patterned, mirrored, and array features should sit in logical groups; renaming features by intent (Boss-Mounting-Hole instead of Hole1) helps when refactoring.", "common_pitfalls": ["Building all features off Sketch1 — single broken sketch cascades.", "Mixing user-coordinate-system features unwisely — work planes drift.", "Suppressing features as a workaround instead of fixing references."], "related_term_slugs": ["project-file-inventor"]},
+    {"slug": "constraints-joints-inventor", "title": "Constraints & Joints (Inventor)", "short_def": "Inventor's assembly relationships — Classic Constraints (mate, flush, angle, tangent, insert) and Joints (rigid, rotational, slider, cylindrical, planar, ball).", "definition": "Inventor traditionally used Constraints (one DOF removed per constraint, stack multiple to position). Joints (added in Inventor 2014) define a complete DOF relationship in one click — similar to Fusion 360 joints. Both can coexist in the same assembly.", "why_matters": "Joint strategy determines assembly rebuild speed and motion correctness. Mixing constraints and joints randomly produces over-constrained assemblies.", "common_pitfalls": ["Constraining to construction geometry that doesn't exist downstream.", "Using contact-set constraints liberally — slow recompute.", "Defining symmetric motion with separate constraints instead of a single joint."], "related_term_slugs": ["subassemblies-inventor"]},
+    {"slug": "subassemblies-inventor", "title": "Sub-assemblies (Inventor)", "short_def": "Nested assemblies inside an assembly — used for logical grouping, mechanism representation, and BOM structure.", "definition": "A sub-assembly is an .iam referenced inside a parent .iam. Sub-assemblies can be flexible (degrees of freedom remain) or rigid (locked relative position). The parent BOM treats the sub-assembly as either a structured entry or fully exploded depending on BOM settings.", "why_matters": "Sub-assemblies match real-world manufacturing structure (a gearbox is one BOM line item built from many parts). Without sub-assembly discipline, the BOM doesn't match the build instructions.", "common_pitfalls": ["Flexing every sub-assembly — slow recompute even when DOF aren't needed.", "Burying critical mechanisms in deeply nested sub-assemblies — drawing views show them confusingly.", "Inconsistent BOM structure between drawings and sub-assemblies."], "related_term_slugs": ["constraints-joints-inventor"]},
+    {"slug": "frame-generator-inventor", "title": "Frame Generator (Inventor)", "short_def": "The bundled tool for structural-frame design from skeleton geometry plus standard structural shapes (AISC, ANSI, ISO).", "definition": "Frame Generator places structural members (channels, tubes, angles, beams) along a skeleton sketch or skeleton solid edges. Members are trim/extend/notched at intersections, fasteners and gussets placed. BOM auto-aggregates cut lengths.", "why_matters": "Steel-frame design (conveyors, machine bases, equipment skids) is a recurring engineering task. Frame Generator automates the placement and BOM aggregation.", "common_pitfalls": ["Using construction skeleton sketch entities inconsistently — frame placement breaks on sketch edits.", "Mixing custom and standard profiles — BOM column data is inconsistent.", "Not trimming members — visual joints look right but BOM lengths are wrong."], "related_term_slugs": ["features-inventor"]},
+    {"slug": "sheet-metal-inventor", "title": "Sheet Metal (Inventor)", "short_def": "Inventor's sheet-metal feature set — flange, edge flange, contour flange, bend, unfold, flat pattern, bend table.", "definition": "Sheet metal mode applies a Sheet Metal Style (material, thickness, bend radius, K-factor or bend allowance table). Tools include Face, Flange, Edge Flange, Contour Flange, Bend, Hem, Unfold, Refold, Flat Pattern. Drawings include both folded and flat-pattern views.", "why_matters": "Production sheet metal needs accurate flat patterns with correct bend allowances. The sheet-metal style is the engine ensuring correctness.", "common_pitfalls": ["Wrong K-factor — flat pattern is correct geometry for the wrong physics.", "Modelling as solid then converting — non-uniform thickness errors.", "Not standardising sheet-metal styles across files — every part has different bend allowance."], "related_term_slugs": ["features-inventor"]},
+    {"slug": "ilogic-inventor", "title": "iLogic (Inventor)", "short_def": "Inventor's rule engine — VB.NET-based rules attached to parts, assemblies, or drawings that automate parameter changes, suppress features, drive iParts, and integrate with external data.", "definition": "iLogic rules are stored inside an Inventor file. Rules trigger on parameter changes, file open, or manual run. Rule actions include changing parameters, suppressing/activating features, replacing components, setting iProperties, reading Excel files, writing log files. The rule language is VB.NET-style with Inventor-specific APIs.", "why_matters": "iLogic enables one part file to behave as a configurable product line — change a parameter and the entire part reconfigures. For machine OEMs producing configured-to-order designs, iLogic is the engine.", "common_pitfalls": ["Rules with infinite-loop side effects on parameter change.", "Hardcoding paths to Excel files — breaks for other users.", "Not testing iLogic rules across all expected parameter combinations — silent failures."], "related_term_slugs": ["iparts-inventor"]},
+    {"slug": "iparts-inventor", "title": "iParts / iAssemblies (Inventor)", "short_def": "Family-table-driven configurations — one part file representing a family of variants via an embedded factory table.", "definition": "An iPart is an .ipt with an embedded factory table. Each row defines parameter values, feature suppression, and iProperties for one member of the family. iAssemblies do the same at the assembly level. When inserted into an assembly, the user picks the member from a dialog.", "why_matters": "iParts replace hundreds of nearly-identical files with one parent file containing a table. Fasteners, brackets, pulleys, gears commonly ship as iParts.", "common_pitfalls": ["iPart members with feature combinations that can't be modelled — open-as-member produces errors.", "Forgetting to publish iPart members to content centre — limits reuse.", "Long iPart tables (1000+ members) — slow Inventor on insert."], "related_term_slugs": ["ilogic-inventor", "content-centre-inventor"]},
+    {"slug": "content-centre-inventor", "title": "Content Center (Inventor)", "short_def": "Inventor's library of standard parts (fasteners, bearings, structural shapes, plumbing fittings) backed by SQL Server or Vault.", "definition": "Content Center is a database (SQL Server Express by default, or Vault for shared use) of parametric parts. Inserting from Content Center places a configured family member into the assembly. Content Center supports Read-Only libraries (Inventor's defaults), editable libraries (for custom content), and Vault-shared libraries.", "why_matters": "Hardware standardisation across a team requires shared Content Center. Without it, every engineer models or finds their own fasteners — inconsistent BOMs and lost time.", "common_pitfalls": ["Local-only Content Center on each user's machine — files reference inconsistent member geometry.", "Skipping Content Center sync after a project move — references unresolved.", "Editing Read-Only libraries directly — Autodesk update overwrites changes."], "related_term_slugs": ["iparts-inventor"]},
+    {"slug": "drawing-views-inventor", "title": "Drawing Views (Inventor)", "short_def": "Inventor's 2D drawing-view types — base, projected, section, detail, broken, cropped, isometric, perspective.", "definition": "From an .iam or .ipt, drawing views are placed onto an .idw or .dwg drawing. Each view has its own scale, label, line-weight overrides. Section views cut through the model; detail views magnify a region; broken views compress long parts. Views update automatically on model change.", "why_matters": "The drawing is still the manufacturing deliverable for most industries. Drawing-view discipline determines whether the shop builds the part correctly.", "common_pitfalls": ["Manually editing dimensions instead of using model dimensions — labels drift on model edit.", "Not setting drawing units to match company standard.", "Section views with inappropriate cut planes — internal geometry communicates poorly."], "related_term_slugs": ["features-inventor"]},
+    {"slug": "presentations-inventor", "title": "Presentations (.ipn, Inventor)", "short_def": "Animated exploded-view files derived from an assembly — used for assembly instructions and animations.", "definition": "An IPN file references an IAM and adds tweaks (offsets, rotations) to components, creating an exploded view. Snapshots define key positions over time; an exploded-view animation interpolates between snapshots. Output: animations (AVI, MP4), exploded-view drawings, and lightweight web-viewable presentations.", "why_matters": "Assembly instructions need exploded views; service manuals need them animated. Presentations produce both from one file linked to the assembly.", "common_pitfalls": ["Static tweak values — when the assembly changes, tweaks no longer align.", "Long animations with many snapshots — file becomes unwieldy.", "Forgetting to link to current assembly version — IPN shows old geometry."], "related_term_slugs": ["subassemblies-inventor"]},
+    {"slug": "vault-inventor", "title": "Vault (with Inventor)", "short_def": "Autodesk's PDM system — file vaulting, revision control, lifecycle management, and ECO workflow for Inventor + AutoCAD + Revit data.", "definition": "Vault is a SQL Server-backed vault that wraps the file system. Files are checked out to a local workspace, edited, then checked in. Vault tracks references, revisions, lifecycle state (Work in Progress → For Review → Released), and Engineering Change Orders. Vault Workgroup, Vault Professional, and Vault Office tiers add web client, replication, ERP integration.", "why_matters": "Beyond a single user, Vault is the difference between coherent product data and chaos. References, history, and access control all live in Vault.", "common_pitfalls": ["Editing files outside the Vault workspace — local diverges from vaulted.", "Renaming files in Windows Explorer — references break.", "Skipping check-in comments — change history is opaque."], "related_term_slugs": ["project-file-inventor"]},
+    {"slug": "dwg-mode-inventor", "title": "DWG TrueConnect (Inventor)", "short_def": "Inventor's ability to read/write native AutoCAD DWG files in addition to its native IPT/IAM/IDW formats.", "definition": "Inventor can save 2D drawings as DWG (instead of IDW), and read AutoCAD DWG into views (DWG TrueConnect). This enables tighter interop with AutoCAD users — the same DWG opens in both. Some limitations remain: Inventor-specific drawing features may not display correctly in plain AutoCAD.", "why_matters": "Multi-disciplinary teams (Inventor for 3D, AutoCAD for 2D) benefit from a single DWG format for drawings. Reduces conversion errors.", "common_pitfalls": ["Saving as DWG loses Inventor-specific annotations on round-trip.", "Mixing DWG and IDW drawing templates inconsistently.", "Linked AutoCAD DWGs in Inventor with broken paths after migration."], "related_term_slugs": ["drawing-views-inventor"]},
+    {"slug": "tolerance-analysis-inventor", "title": "Tolerance Analysis (Inventor)", "short_def": "Inventor's stack-up analysis tool — combines feature tolerances to predict the variation in critical assembly dimensions.", "definition": "Tolerance Analysis (part of PDMC) lets engineers model a tolerance stack-up directly on the assembly: select contributing dimensions, apply tolerances and statistical distributions, calculate the predicted variation of a measurement of interest using worst-case or Monte Carlo analysis.", "why_matters": "Tight-tolerance assemblies need stack-up analysis to predict whether the design will actually fit. Without it, tolerances are set conservatively (expensive) or aggressively (unreliable).", "common_pitfalls": ["Stack-ups that ignore form/orientation tolerances — predict size variation but miss flatness.", "Hardcoding nominal values instead of linking to Inventor parameters.", "Reporting one-sigma when six-sigma is required for the application."], "related_term_slugs": ["constraints-joints-inventor"]},
+    {"slug": "model-states-inventor", "title": "Model States (Inventor)", "short_def": "Configurations within a single Inventor part or assembly — alternate suppression, dimensions, and feature states under one file.", "definition": "Model States (since Inventor 2022) let one .ipt or .iam represent multiple configurations: different suppressed features, different dimension values, different children. Each Model State is a named state; activating it changes the model. Drawings can show different views in different model states.", "why_matters": "Model States are Inventor's answer to SOLIDWORKS Configurations. One file for a family of variants reduces file count and reference complexity.", "common_pitfalls": ["Excess Model States — file becomes unwieldy.", "Mixing iParts and Model States in the same project — conceptual confusion.", "Drawings that mix Model States in the same sheet — annotation conflicts."], "related_term_slugs": ["iparts-inventor"]}
   ],
+
   "faqs": [
-    {
-      "question": "What is the recommended hardware for Inventor?",
-      "answer": "A modern GPU with at least 8GB VRAM and a multi‑core CPU is recommended."
-    },
-    {
-      "question": "How to enable collaboration in Inventor?",
-      "answer": "Enable the Cloud Collaboration feature via the Teams menu."
-    },
-    {
-      "question": "How do I export a model from Inventor?",
-      "answer": "Use the Export command under File > Export and choose the desired format."
-    },
-    {
-      "question": "Can I customize the interface of Inventor?",
-      "answer": "Yes, go to Settings > UI Customization to adjust panels and themes."
-    }
+    {"question": "What's the difference between Inventor and Fusion 360?", "answer": "Inventor is Windows-only desktop, file-based, deep MCAD with Vault integration. Fusion 360 is cross-platform (Win/Mac), cloud-data, broader scope (CAM, electronics, generative design), simpler assemblies. Inventor for established mechanical engineering teams; Fusion 360 for makers, small teams, integrated CAM workflows."},
+    {"question": "Can Inventor open SOLIDWORKS files?", "answer": "Indirectly. Inventor doesn't natively read .sldprt/.sldasm; export from SOLIDWORKS to STEP or Parasolid, then open in Inventor. Features import as static geometry without parametric history."},
+    {"question": "What's in the Product Design & Manufacturing Collection?", "answer": "Inventor, AutoCAD, AutoCAD Mechanical, Inventor Nastran (FEA), Inventor Tolerance Analysis, Factory Design Utilities, Inventor CAM, Vault Basic, ReCap Pro, and Fusion 360 (selected modules). Most production Inventor users are on PDMC rather than standalone Inventor."},
+    {"question": "Why are my Inventor assemblies so slow?", "answer": "Common causes: too many adaptive parts (recompute on every change), unresolved references (Inventor searches for missing files repeatedly), too many flexible sub-assemblies, complex contact sets, and visual styles using high-quality silhouettes. Use Express Mode (lightweight) for review-only work."},
+    {"question": "What is the difference between Constraints and Joints?", "answer": "Constraints remove one DOF per constraint — stack multiple (mate + flush + angle) to fully position. Joints define a full DOF relationship in one definition (revolute, slider, etc.). Joints are easier for typical mechanism modelling; constraints offer finer control."},
+    {"question": "How do I migrate from AutoCAD to Inventor?", "answer": "Use DWG underlays as references during transition. Convert AutoCAD blocks to Inventor parts using Inventor's DWG conversion utility for simple shapes. Most complex AutoCAD 2D drafting doesn't translate well — re-modelling in Inventor is usually faster than converting."},
+    {"question": "Can Inventor work with Revit?", "answer": "Yes — Inventor parts/assemblies can be imported into Revit as families (via .rfa or .adsk format) for fit checking inside the building model. Revit links work both ways: Inventor can use Revit linked models for context."},
+    {"question": "What's the workflow for sheet metal in Inventor?", "answer": "Start with Sheet Metal template, set the Sheet Metal Style (material, thickness, bend radius, K-factor). Use Face, Flange, Edge Flange, Contour Flange tools. Generate the flat pattern via Create Flat Pattern. Drawings show both folded view and flat pattern with bend table."},
+    {"question": "How do I run iLogic rules from outside Inventor?", "answer": "iLogic rules can be triggered from Inventor's Task Scheduler, from VB.NET applications via the API, from external buttons added via iLogic Browser, or from Vault lifecycle transitions. For automated configure-to-order systems, this is the typical pattern."},
+    {"question": "What is the difference between iPart and Model State?", "answer": "iPart uses an embedded factory table with rows = members. Model States are named alternate states without a table — useful for fewer configurations. Both serve similar purposes; Model States are newer and simpler for low-volume configurations; iParts scale better to 100+ members."},
+    {"question": "Can Inventor publish to Vault?", "answer": "Yes — Vault is the natural PDM for Inventor. The Inventor Vault add-in handles check-in, check-out, reference updates, and lifecycle transitions directly from inside Inventor. Vault Office is needed for non-CAD users to participate in the workflow."},
+    {"question": "Why are content center parts missing?", "answer": "Content Center requires SQL Server (Express bundled with Inventor, or full SQL for shared use). If the database is offline or the libraries are unsubscribed in Project Settings, parts can't insert. Re-subscribe libraries via Manage > Content Center Editor."},
+    {"question": "How do I share an Inventor project externally?", "answer": "Use Pack and Go (File > Save Copy As > Pack and Go) to gather the assembly and all references into a zip. The recipient extracts and points their Inventor at the .ipj inside the package. For one-time review, export the assembly as STEP or 3D PDF."},
+    {"question": "Does Inventor run on macOS?", "answer": "No native macOS version. Run via Parallels, VMware Fusion, or Boot Camp (Intel Macs). Apple Silicon Macs have limited virtualisation options. The closest cross-platform Autodesk option is Fusion 360."},
+    {"question": "Where do I learn Inventor systematically?", "answer": "Autodesk Inventor Learning Path on learn.autodesk.com is the official starting point. ASCENT books (e.g., Autodesk Inventor 2024: Fundamentals) and CADLearning provide structured curricula. For iLogic specifically, the Inventor blog and Autodesk Community posts by Curtis Waguespack are highly regarded."}
   ],
+
   "graph_nodes": [
-    {
-      "id": "Inventor",
-      "type": "product",
-      "tags": [
-        "autodesk",
-        "mcad"
-      ],
-      "hint": "Autodesk's desktop MCAD platform.",
-      "group": 1,
-      "radius": 13
-    },
-    {
-      "id": "Inventor Project (.ipj)",
-      "type": "concept",
-      "tags": [
-        "inventor"
-      ],
-      "hint": "Workspace/library configuration file.",
-      "group": 2,
-      "radius": 8
-    },
-    {
-      "id": "Inventor Features",
-      "type": "concept",
-      "tags": [
-        "inventor",
-        "parametric"
-      ],
-      "hint": "Ordered feature history of a part.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "Inventor Joints",
-      "type": "concept",
-      "tags": [
-        "inventor",
-        "assembly"
-      ],
-      "hint": "Single-step assembly DOF relationships.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "Frame Generator",
-      "type": "skill",
-      "tags": [
-        "inventor",
-        "structural"
-      ],
-      "hint": "Structural frame design tool.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "Inventor Sheet Metal",
-      "type": "skill",
-      "tags": [
-        "inventor",
-        "fabrication"
-      ],
-      "hint": "Style-driven sheet metal modelling.",
-      "group": 2,
-      "radius": 9
-    },
-    {
-      "id": "iLogic",
-      "type": "sdk",
-      "tags": [
-        "inventor",
-        "automation"
-      ],
-      "hint": "VB.NET rule engine inside Inventor.",
-      "group": 2,
-      "radius": 10
-    },
-    {
-      "id": "iParts / iAssemblies",
-      "type": "concept",
-      "tags": [
-        "inventor",
-        "variants"
-      ],
-      "hint": "Factory-table-driven family variants.",
-      "group": 2,
-      "radius": 8
-    },
-    {
-      "id": "Content Center",
-      "type": "product",
-      "tags": [
-        "inventor",
-        "library"
-      ],
-      "hint": "Standard parts database.",
-      "group": 1,
-      "radius": 9
-    },
-    {
-      "id": "Vault",
-      "type": "product",
-      "tags": [
-        "autodesk",
-        "pdm"
-      ],
-      "hint": "Autodesk's PDM for Inventor/AutoCAD/Revit.",
-      "group": 1,
-      "radius": 10
-    },
-    {
-      "id": "Inventor Presentations",
-      "type": "skill",
-      "tags": [
-        "inventor",
-        "documentation"
-      ],
-      "hint": "Animated exploded-view files.",
-      "group": 2,
-      "radius": 7
-    },
-    {
-      "id": "Inventor Model States",
-      "type": "concept",
-      "tags": [
-        "inventor",
-        "variants"
-      ],
-      "hint": "Named alternate configurations.",
-      "group": 2,
-      "radius": 7
-    }
+    {"id": "Inventor", "type": "product", "tags": ["autodesk", "mcad"], "hint": "Autodesk's desktop MCAD platform.", "group": 1, "radius": 13},
+    {"id": "Inventor Project (.ipj)", "type": "concept", "tags": ["inventor"], "hint": "Workspace/library configuration file.", "group": 2, "radius": 8},
+    {"id": "Inventor Features", "type": "concept", "tags": ["inventor", "parametric"], "hint": "Ordered feature history of a part.", "group": 2, "radius": 9},
+    {"id": "Inventor Joints", "type": "concept", "tags": ["inventor", "assembly"], "hint": "Single-step assembly DOF relationships.", "group": 2, "radius": 9},
+    {"id": "Frame Generator", "type": "skill", "tags": ["inventor", "structural"], "hint": "Structural frame design tool.", "group": 2, "radius": 9},
+    {"id": "Inventor Sheet Metal", "type": "skill", "tags": ["inventor", "fabrication"], "hint": "Style-driven sheet metal modelling.", "group": 2, "radius": 9},
+    {"id": "iLogic", "type": "sdk", "tags": ["inventor", "automation"], "hint": "VB.NET rule engine inside Inventor.", "group": 2, "radius": 10},
+    {"id": "iParts / iAssemblies", "type": "concept", "tags": ["inventor", "variants"], "hint": "Factory-table-driven family variants.", "group": 2, "radius": 8},
+    {"id": "Content Center", "type": "product", "tags": ["inventor", "library"], "hint": "Standard parts database.", "group": 1, "radius": 9},
+    {"id": "Vault", "type": "product", "tags": ["autodesk", "pdm"], "hint": "Autodesk's PDM for Inventor/AutoCAD/Revit.", "group": 1, "radius": 10},
+    {"id": "Inventor Presentations", "type": "skill", "tags": ["inventor", "documentation"], "hint": "Animated exploded-view files.", "group": 2, "radius": 7},
+    {"id": "Inventor Model States", "type": "concept", "tags": ["inventor", "variants"], "hint": "Named alternate configurations.", "group": 2, "radius": 7}
   ],
   "graph_links": [
-    [
-      "Inventor",
-      "Autodesk"
-    ],
-    [
-      "Inventor Project (.ipj)",
-      "Inventor"
-    ],
-    [
-      "Inventor Features",
-      "Inventor"
-    ],
-    [
-      "Inventor Joints",
-      "Inventor"
-    ],
-    [
-      "Frame Generator",
-      "Inventor"
-    ],
-    [
-      "Inventor Sheet Metal",
-      "Inventor"
-    ],
-    [
-      "iLogic",
-      "Inventor"
-    ],
-    [
-      "iParts / iAssemblies",
-      "Inventor"
-    ],
-    [
-      "Content Center",
-      "Inventor"
-    ],
-    [
-      "Vault",
-      "Inventor"
-    ],
-    [
-      "Inventor Presentations",
-      "Inventor"
-    ],
-    [
-      "Inventor Model States",
-      "Inventor"
-    ]
+    ["Inventor", "Autodesk"],
+    ["Inventor Project (.ipj)", "Inventor"],
+    ["Inventor Features", "Inventor"],
+    ["Inventor Joints", "Inventor"],
+    ["Frame Generator", "Inventor"],
+    ["Inventor Sheet Metal", "Inventor"],
+    ["iLogic", "Inventor"],
+    ["iParts / iAssemblies", "Inventor"],
+    ["Content Center", "Inventor"],
+    ["Vault", "Inventor"],
+    ["Inventor Presentations", "Inventor"],
+    ["Inventor Model States", "Inventor"]
   ]
 }

@@ -250,6 +250,232 @@ def breadcrumb_jsonld(items: list[tuple[str, str]]) -> dict:
     }
 
 
+def get_relevant_faqs(term: dict, software: dict) -> list[dict]:
+    """Select up to 3 relevant FAQs for the concept, filling with general ones if needed."""
+    faqs = software.get("faqs", [])
+    if not faqs:
+        return []
+        
+    title_lower = term["title"].lower()
+    slug_words = term["slug"].replace("-", " ").lower().split()
+    
+    matches = []
+    for q in faqs:
+        q_text = (q["question"] + " " + q["answer"]).lower()
+        if title_lower in q_text:
+            matches.append(q)
+            continue
+        word_match = False
+        for word in slug_words:
+            if len(word) > 3 and word in q_text:
+                word_match = True
+                break
+        if word_match:
+            matches.append(q)
+            
+    unique_matches = []
+    seen = set()
+    for q in matches:
+        if q["question"] not in seen:
+            seen.add(q["question"])
+            unique_matches.append(q)
+            
+    for q in faqs:
+        if len(unique_matches) >= 3:
+            break
+        if q["question"] not in seen:
+            seen.add(q["question"])
+            unique_matches.append(q)
+            
+    return unique_matches[:3]
+
+
+def render_faq_accordion(relevant_faqs: list[dict], sw_name: str) -> str:
+    """Render interactive details/summary blocks for relevant FAQs."""
+    if not relevant_faqs:
+        return ""
+        
+    items = []
+    for q in relevant_faqs:
+        items.append(f"""
+        <details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
+          <summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
+            <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> {esc(q['question'])}
+          </summary>
+          <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+            {paragraphs(q['answer'])}
+          </div>
+        </details>
+        """)
+        
+    return f"""
+    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+      <h2 style="font-size: 1.5rem; color: var(--ink-text); margin-bottom: 12px;">Relevant {sw_name} FAQs</h2>
+      <p class="meta" style="margin-bottom: 18px;">Direct answers from our technical editorial desk concerning related workflows.</p>
+      {"".join(items)}
+    </section>
+    """
+
+
+def render_spotlight_card(software: dict) -> str:
+    """Render an ecosystem spotlight card linking software and vendor."""
+    sw_name = esc(software["name"])
+    sw_slug = software["slug"]
+    vendor_name = esc(software["vendor"]["name"])
+    vendor_slug = software["vendor"]["slug"]
+    tagline = esc(software.get("tagline", ""))
+    summary = esc(software.get("summary", ""))
+    
+    return f"""
+    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+      <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 20px;">🛡️</span>
+          <h3 style="margin: 0; font-size: 1.25rem; color: var(--ink-text); font-weight: 700;">{sw_name} Ecosystem Context</h3>
+        </div>
+        <p style="margin: 0; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+          This concept is a core structural element of the <strong>{sw_name}</strong> drafting and engineering environment developed by <strong>{vendor_name}</strong>. {tagline} {summary}
+        </p>
+        <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
+          <a href="../software/{sw_slug}.html" style="background: var(--ink-text); color: var(--ink-bg); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: opacity 0.2s ease;">
+            Explore {sw_name} Profile ›
+          </a>
+          <a href="../vendors/{vendor_slug}.html" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: background 0.2s ease;">
+            About {vendor_name} ›
+          </a>
+        </div>
+      </div>
+    </section>
+    """
+
+
+def render_knowledge_tree(term: dict, software: dict, related_terms: list[str], all_terms_index: dict[str, str]) -> str:
+    """Render a structured Tree Navigation mapping global, local, and sibling nodes."""
+    sw_name = esc(software["name"])
+    sw_slug = software["slug"]
+    vendor_name = esc(software["vendor"]["name"])
+    vendor_slug = software["vendor"]["slug"]
+    title = esc(term["title"])
+    
+    if related_terms:
+        items = []
+        for s in related_terms:
+            label = all_terms_index.get(s) or s.replace("-", " ").title()
+            items.append(f'<a href="./{s}.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">{esc(label)}</a>')
+        leaves = " · ".join(items)
+    else:
+        leaves = f'<span style="color: var(--ink-text-muted); font-style: italic;">Detailed sibling terms defined on the <a href="../software/{sw_slug}.html" style="color: var(--ink-text);">{sw_name} software page</a>.</span>'
+        
+    return f"""
+    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+      <div class="kb-tree-navigator" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+        <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 1.25rem; color: var(--ink-text); display: flex; align-items: center; gap: 8px; font-weight: 700;">
+          <span>🌳</span> CAD Knowledge Tree Navigation
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 16px; border-left: 2px dashed var(--ink-line); padding-left: 20px; margin-left: 10px;">
+          
+          <div class="kb-tree-level" style="position: relative;">
+            <div style="position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-text); border: 2px solid var(--ink-bg);"></div>
+            <strong style="color: var(--ink-text); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Trunk (主干 — Global Foundations)</strong>
+            <div style="font-size: 14.5px; color: var(--ink-text-soft);">
+              <a href="../../knowledge-base.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">Wiki Home</a> · 
+              <a href="../../kb-terms.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">Glossary Index</a> · 
+              <a href="../../kb-graph.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">Interactive Graph</a>
+            </div>
+          </div>
+          
+          <div class="kb-tree-level" style="position: relative;">
+            <div style="position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-text); border: 2px solid var(--ink-bg);"></div>
+            <strong style="color: var(--ink-text); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Branch (枝干 — Software &amp; Vendor)</strong>
+            <div style="font-size: 14.5px; color: var(--ink-text-soft);">
+              <a href="../software/{sw_slug}.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">{sw_name} Profile</a> · 
+              <a href="../vendors/{vendor_slug}.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">{vendor_name} Ecosystem</a>
+            </div>
+          </div>
+          
+          <div class="kb-tree-level" style="position: relative;">
+            <div style="position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-focus); border: 2px solid var(--ink-bg);"></div>
+            <strong style="color: var(--ink-text); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Leaf (树叶 — Current Node &amp; Sibling Terms)</strong>
+            <div style="font-size: 14.5px; color: var(--ink-text-soft);">
+              <span style="background: var(--ink-surface-2); color: var(--ink-text); padding: 2px 8px; border-radius: 4px; font-weight: 600; border: 1px solid var(--ink-line); font-size: 13.5px; display: inline-block; margin-bottom: 6px;">
+                🍃 Active: {title}
+              </span>
+              <div style="margin-top: 4px;">
+                {leaves}
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    """
+
+
+def autolink_string(text: str, candidates: list[tuple[str, str]], linked: set[str]) -> str:
+    """Recursively search and autolink the first occurrence of terms, avoiding nested tags."""
+    if not text:
+        return ""
+    for name, url in candidates:
+        if name in linked:
+            continue
+        escaped_name = re.escape(name)
+        pattern = r'\b' + escaped_name + r'\b'
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            start, end = match.span()
+            matched_str = text[start:end]
+            link_html = f'<a href="{url}">{matched_str}</a>'
+            linked.add(name)
+            
+            before = autolink_string(text[:start], candidates, linked)
+            after = autolink_string(text[end:], candidates, linked)
+            
+            return before + link_html + after
+    return text
+
+
+def apply_autolinks(html_content: str, software_list: list[dict], all_terms_index: dict[str, str], current_slug: str) -> str:
+    """Parse HTML content, separating tags and plain text, and apply link triggers securely.
+    Only processes the <body> portion of the HTML to avoid corrupting <head> elements like title, meta, or script JSON-LD.
+    """
+    if "</head>" in html_content:
+        head, body = html_content.split("</head>", 1)
+    else:
+        head = ""
+        body = html_content
+
+    candidates = []
+    for sw in software_list:
+        candidates.append((sw["name"], f"../software/{sw['slug']}.html"))
+    for slug, title in all_terms_index.items():
+        if slug != current_slug and len(title) >= 3:
+            candidates.append((title, f"./{slug}.html"))
+            
+    candidates.sort(key=lambda x: len(x[0]), reverse=True)
+    parts = re.split(r'(<[^>]+>)', body)
+    
+    linked = set()
+    in_anchor = False
+    
+    for idx in range(len(parts)):
+        part = parts[idx]
+        if part.startswith('<'):
+            tag_lower = part.lower()
+            if '<a ' in tag_lower or '<a>' in tag_lower:
+                in_anchor = True
+            elif '</a>' in tag_lower:
+                in_anchor = False
+        else:
+            if not in_anchor:
+                parts[idx] = autolink_string(part, candidates, linked)
+                
+    body_linked = "".join(parts)
+    if head:
+        return head + "</head>" + body_linked
+    return body_linked
+
+
 def render_concept(term: dict, software: dict, editorial: dict, all_terms_index: dict[str, str]) -> str:
     """Render a single concept term HTML page."""
     title = term["title"]
@@ -376,6 +602,10 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
           <span><a href="../../about.html#editorial-process">Editorial process</a></span>
         </div>"""
 
+    faq_accordion_html = render_faq_accordion(get_relevant_faqs(term, software), sw_name)
+    spotlight_card_html = render_spotlight_card(software)
+    knowledge_tree_html = render_knowledge_tree(term, software, related_terms, all_terms_index)
+
     return f"""<!doctype html>
 <html lang="en">
   <head>
@@ -414,17 +644,11 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
 
         {''.join(body_parts)}
 
-        {related_links_html}
+        {spotlight_card_html}
 
-        <section class="kb-concept-section" style="margin-top: 36px;">
-          <h2>See in context</h2>
-          <ul class="ink-source-list">
-            <li><a href="../software/{sw_slug}.html">{sw_name} — full software profile</a></li>
-            <li><a href="../../kb-graph.html#{slug}">Open this node in the knowledge graph</a></li>
-            <li><a href="../../kb-faq.html#{sw_slug}">Browse {sw_name} FAQs</a></li>
-            <li><a href="../../tutorials.html">Find tutorials on {sw_name}</a></li>
-          </ul>
-        </section>
+        {faq_accordion_html}
+
+        {knowledge_tree_html}
 
         {sources_html}
 
@@ -1131,6 +1355,7 @@ def main() -> int:
     for sw in software_list:
         for t in sw.get("terms", []):
             page = render_concept(t, sw, editorial, all_terms_index)
+            page = apply_autolinks(page, software_list, all_terms_index, t["slug"])
             out = CONCEPTS_DIR / f"{t['slug']}.html"
             if write_if_changed(out, page):
                 written_terms += 1

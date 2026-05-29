@@ -81,38 +81,241 @@
   ],
   "terms": [
     {
-      "term": "FreeCAD shortcut",
-      "definition": "Press Ctrl+FreeCAD to quickly access features..."
+      "slug": "topological-naming",
+      "title": "Topological Naming Problem",
+      "short_def": "A geometric limitation where renaming solid faces on edits breaks downstream feature references.",
+      "definition": "FreeCAD's historical reference issue where changing a feature shifts internal geometry ID indexes (e.g., 'Face4' becomes 'Face5'). Dependent features like fillets or pockets attached to 'Face4' lose their anchors and break.",
+      "why_matters": "Understanding this problem is crucial for building robust models; designing sketches with offset planes rather than attaching directly to faces avoids broken trees.",
+      "common_pitfalls": [
+        "Filleting model edges too early in the Part Navigator tree.",
+        "Attaching sketches directly to faces of other features instead of utilizing local datum planes."
+      ],
+      "related_term_slugs": []
     },
     {
-      "term": "FreeCAD command line",
-      "definition": "The FreeCAD command line interface allows you to execute ..."
+      "slug": "sketcher-workbench-fc",
+      "title": "Sketcher Workbench (FreeCAD)",
+      "short_def": "The core 2D solver workbench where parametric sketch constraints are defined.",
+      "definition": "A 2D constraint-solver workspace where geometric constraints (coincident, horizontal, equal) and dimensional values drive profile geometry.",
+      "why_matters": "It is the foundation of almost all parametric shapes. Master fully-constraining sketches before padding them.",
+      "common_pitfalls": [
+        "Leaving sketches under-constrained, leading to unpredictable shape shifts.",
+        "Creating duplicate redundant constraints that error out the solver."
+      ],
+      "related_term_slugs": []
     },
     {
-      "term": "FreeCAD workflow",
-      "definition": "A typical FreeCAD workflow involves ..."
+      "slug": "part-design-workbench",
+      "title": "Part Design Workbench (FreeCAD)",
+      "short_def": "The feature-based parametric solid modeling workbench.",
+      "definition": "A workspace utilizing a progressive feature-tree workflow (Body -> Sketch -> Pad/Pocket -> Fillet) to build single solid components.",
+      "why_matters": "It provides a workflow most familiar to SOLIDWORKS or Inventor users, perfect for mechanical parts.",
+      "common_pitfalls": [
+        "Mixing Part and Part Design workbenches incorrectly within a single body.",
+        "Failing to group sketches inside active bodies."
+      ],
+      "related_term_slugs": []
     },
     {
-      "term": "FreeCAD file format",
-      "definition": "FreeCAD uses a proprietary file format for storing designs..."
+      "slug": "open-cascade-kernel",
+      "title": "OpenCASCADE Technology (OCCT)",
+      "short_def": "The underlying C++ geometric modeling kernel driving FreeCAD.",
+      "definition": "The open-source 3D CAD modeling engine providing geometric representation, boolean operations, and STEP translation algorithms.",
+      "why_matters": "Drives FreeCAD's capability to read/write high-fidelity industrial STEP files and compute B-Rep mathematical solids.",
+      "common_pitfalls": [
+        "Expecting consumer-grade mesh operations (STL) to behave natively like OCCT solid B-Rep geometry."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "techdraw-workbench",
+      "title": "TechDraw Workbench (FreeCAD)",
+      "short_def": "Generates standard 2D engineering drawings from 3D models.",
+      "definition": "The toolset for creating orthographic, cross-section, and annotated layout sheets from 3D parts and assemblies.",
+      "why_matters": "Enables designers to produce professional PDF/SVG drawings for fabrication shops and standard approvals.",
+      "common_pitfalls": [
+        "Applying dimensions to layout geometry instead of attaching them to the model's actual 3D vertices.",
+        "Not configuring templates."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "assembly-workbenches-fc",
+      "title": "Assembly Workbenches (FreeCAD)",
+      "short_def": "Community-developed workbenches for joining parts into assemblies.",
+      "definition": "Add-on workbenches (A2plus, Assembly4, Ondsel Integrated Assembly) that define geometric constraints (mates) between parts.",
+      "why_matters": "Crucial for building multi-part machinery and verifying that components fit and move together without clashing.",
+      "common_pitfalls": [
+        "Mixing different assembly workbenches within the same project file, corrupting file structure.",
+        "Constraining to non-durable geometries."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "py-console-fc",
+      "title": "Python Console (FreeCAD)",
+      "short_def": "The built-in console enabling command line control of FreeCAD.",
+      "definition": "A real-time Python execution box where every mouse click and parameter change prints its underlying API script equivalent.",
+      "why_matters": "Allows designers to record macros, write scripts for batch processing, and understand the internal data model.",
+      "common_pitfalls": [
+        "Executing untrusted macros downloaded from external sites.",
+        "Not importing core FreeCAD modules inside scripts."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "spreadsheet-workbench",
+      "title": "Spreadsheet Workbench (FreeCAD)",
+      "short_def": "Embeds parametric calculation sheets inside the project file.",
+      "definition": "A standard grid interface where cell values can be mapped to sketch dimensions and feature parameters using cell aliases.",
+      "why_matters": "Enables complete configuration rulesets and standard parts catalogs driven entirely from a master variables sheet.",
+      "common_pitfalls": [
+        "Forgetting to define unique alias names for cells before referencing them in sketches.",
+        "Using cyclical formulas."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "draft-workbench",
+      "title": "Draft Workbench (FreeCAD)",
+      "short_def": "Provides 2D drawing tools and basic vector modifications.",
+      "definition": "A workspace for direct 2D drawing (lines, arcs, polygons) and basic CAD modifications (arrays, mirrors, text).",
+      "why_matters": "Serves as the link to legacy 2D CAD files, allowing users to clean up imported DXF files before modeling.",
+      "common_pitfalls": [
+        "Confusing Draft entities with Sketcher profiles needed for Part Design features."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "fem-workbench",
+      "title": "FEM Workbench (FreeCAD)",
+      "short_def": "Finite Element Method analysis workbench.",
+      "definition": "Enables mesh generation, material assignment, load definitions, and solver executions (CalculiX) for stress analysis.",
+      "why_matters": "Allows mechanical designers to perform basic validation of structural components directly within FreeCAD.",
+      "common_pitfalls": [
+        "Using coarse mesh sizes on complex curves, leading to invalid stress results.",
+        "Confusing solver settings."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "path-workbench",
+      "title": "Path Workbench (FreeCAD)",
+      "short_def": "The integrated CAM workbench for CNC code generation.",
+      "definition": "Generates toolpaths (2.5D and 3D milling, pocketing, profile cuts) and outputs G-code via customizable post-processors.",
+      "why_matters": "Enables complete design-to-make workflows on standard CNC routers and milling machines without proprietary software.",
+      "common_pitfalls": [
+        "Selecting the incorrect post-processor for the specific CNC controller, risking machine crashes.",
+        "Applying safe height values too low."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "macro-recording",
+      "title": "Macro Recording (FreeCAD)",
+      "short_def": "Records manual UI actions and compiles them into a Python script.",
+      "definition": "The system tool that captures geometric creations and UI clicks, turning them into reusable Python automation code.",
+      "why_matters": "A highly accessible entry point for non-programmers to learn Python scripting and automate repetitive tasks.",
+      "common_pitfalls": [
+        "Assuming macro recordings are optimized—they often require editing variables to build flexible scripts."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "addon-manager",
+      "title": "Addon Manager (FreeCAD)",
+      "short_def": "The built-in packages downloader for community workbenches and macros.",
+      "definition": "The global window that fetches and updates community-developed add-on workbenches and custom macro libraries from GitHub.",
+      "why_matters": "Extends FreeCAD's functionality into specialized realms (architecture, woodworking, fasteners) in one click.",
+      "common_pitfalls": [
+        "Installing too many experimental addons, occasionally causing startup conflicts.",
+        "Not checking for updates."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "bim-workbench",
+      "title": "BIM Workbench (FreeCAD)",
+      "short_def": "The unified architectural and building information modeling toolset.",
+      "definition": "Enables BIM modeling directly in FreeCAD, supporting architectural walls, slabs, windows, and native IFC outputs.",
+      "why_matters": "Enables open-standard BIM design without subscription barriers, fully compatible with IFC specifications.",
+      "common_pitfalls": [
+        "Not setting up spatial buildings and stories hierarchy, resulting in messy exports."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "mesh-design-workbench",
+      "title": "Mesh Design Workbench",
+      "short_def": "Provides mesh import, cleanup, and triangulation tools.",
+      "definition": "A workspace for analyzing, repairing, and preparing non-solid facet meshes (STL, OBJ) for 3D printing or solid conversion.",
+      "why_matters": "Critical for reverse engineering, allowing makers to inspect and clean scanned mesh files prior to modeling.",
+      "common_pitfalls": [
+        "Attempting to pad or boolean mesh files directly using Part Design tools.",
+        "Leaving mesh holes unclosed."
+      ]
     }
   ],
   "faqs": [
     {
-      "question": "What is the recommended hardware for FreeCAD?",
-      "answer": "A modern GPU with at least 8GB VRAM and a multi‑core CPU is recommended."
+      "question": "Is FreeCAD really free for commercial use?",
+      "answer": "Yes, FreeCAD is licensed under the open-source LGPLv2+ license. It is 100% free to download, use, copy, and distribute, including for high-end professional commercial projects without any limits."
     },
     {
-      "question": "Can I customize the interface of FreeCAD?",
-      "answer": "Yes, go to Settings > UI Customization to adjust panels and themes."
+      "question": "What is the Topological Naming Problem in FreeCAD?",
+      "answer": "It is a geometric limitation where changing early sketch features alters internal face and edge IDs. Downstream features attached to those IDs lose their references. Designing with datum planes instead of directly on faces avoids this."
     },
     {
-      "question": "How to enable collaboration in FreeCAD?",
-      "answer": "Enable the Cloud Collaboration feature via the Teams menu."
+      "question": "How do I assemble multiple parts in FreeCAD?",
+      "answer": "FreeCAD does not have a single default assembly workspace. You can install popular community workbenches like A2plus, Assembly4, or Ondsel Integrated Assembly via the built-in Addon Manager."
     },
     {
-      "question": "How do I export a model from FreeCAD?",
-      "answer": "Use the Export command under File > Export and choose the desired format."
+      "question": "Can FreeCAD open SOLIDWORKS files?",
+      "answer": "FreeCAD cannot read proprietary SOLIDWORKS native files directly. The standard workflow is to export SOLIDWORKS designs as neutral STEP files, which FreeCAD reads with excellent fidelity."
+    },
+    {
+      "question": "What is a Workbench in FreeCAD?",
+      "answer": "A workbench is a themed collection of tools for specific tasks. For example, you use Sketcher for 2D profiles, Part Design for mechanical solids, and TechDraw to generate 2D engineering sheets."
+    },
+    {
+      "question": "Is FreeCAD compiled for Apple Silicon M1/M2/M3 Macs?",
+      "answer": "Yes, FreeCAD offers native ARM64 AppImage and package releases for Apple Silicon, running exceptionally fast on macOS workstations."
+    },
+    {
+      "question": "How do I create a parameter sheet in FreeCAD?",
+      "answer": "You can open the Spreadsheet workbench, create variables, define unique cell aliases, and then link those variables to sketch dimensions using the formula editor."
+    },
+    {
+      "question": "Does FreeCAD support CAM and CNC programming?",
+      "answer": "Yes, FreeCAD includes the robust Path workbench, which allows you to define CNC milling toolpaths, pocket cuts, and output post-processed G-code for your machine."
+    },
+    {
+      "question": "Why does my sketch say 'redundant constraints'?",
+      "answer": "This happens when you apply geometric rules that mathematically repeat rules already active. Use the Sketcher solver panel to identify and delete the redundant index rules."
+    },
+    {
+      "question": "Can FreeCAD do architectural BIM?",
+      "answer": "Yes, the BIM workbench (and the underlying Arch tools) allows you to build architectural elements and export files into certified IFC standard schemas."
+    },
+    {
+      "question": "How do I write a macro in FreeCAD?",
+      "answer": "You can start Macro Recording, perform your UI design tasks, stop recording, and save the python code. You can then review and run it from the Macro menu."
+    },
+    {
+      "question": "What is OpenCASCADE?",
+      "answer": "OpenCASCADE is the high-performance C++ geometric modeling library that serves as the underlying kernel of FreeCAD, handling solid geometry and boolean operations."
+    },
+    {
+      "question": "Does FreeCAD support finite element analysis (FEA)?",
+      "answer": "Yes, the FEM workbench provides native mesh generation, load and boundary definition, and analysis solving using CalculiX directly inside FreeCAD."
+    },
+    {
+      "question": "How do I update FreeCAD addons?",
+      "answer": "Open the Addon Manager from the Tools menu, check the updates tab, and click update to get the latest releases of your community workbenches from GitHub."
+    },
+    {
+      "question": "Will my FreeCAD files work in standard CAD systems?",
+      "answer": "Yes, while the native .FCStd format is proprietary to FreeCAD, you can export your models as STEP, IGES, or STL, which are universally compatible with all commercial CAD tools."
     }
   ],
   "graph_nodes": [
