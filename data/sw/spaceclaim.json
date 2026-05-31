@@ -74,261 +74,246 @@
   ],
   "terms": [
     {
-      "slug": "sc-term-1",
-      "title": "ANSYS SpaceClaim Concept 1",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-1",
+      "title": "Direct Modeling (ANSYS SpaceClaim)",
+      "short_def": "History-free geometry editing through direct face manipulation.",
+      "definition": "In ANSYS SpaceClaim, Direct Modeling represents a core architectural mechanism. SpaceClaim's core modeling paradigm that allows designers to edit 3D geometry instantly without a parametric history tree.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Direct Modeling is critical for production-grade deliverables. Directly prevents model rebuild failures, letting designers modify complex models from any CAD system without sketch errors.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Neglecting to group independent parts, causing them to accidentally merge.",
+        "Losing trace of core design intent."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-2",
-      "title": "ANSYS SpaceClaim Concept 2",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-2",
+      "title": "Pull Tool (ANSYS SpaceClaim)",
+      "short_def": "Unified mouse handle for extrusion, revolving, sweeping, and drafting.",
+      "definition": "In ANSYS SpaceClaim, Pull Tool represents a core architectural mechanism. An interactive tool that automatically detects selected faces and applies the correct transform based on mouse movements.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Pull Tool is critical for production-grade deliverables. Speeds up 3D geometry creation, converting complex menu selections into fast drag actions.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Pulling faces past intersecting geometries, creating illegal overlapping solids.",
+        "Ignoring numeric snap guidelines."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-3",
-      "title": "ANSYS SpaceClaim Concept 3",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-3",
+      "title": "Move Tool (ANSYS SpaceClaim)",
+      "short_def": "Multi-functional geometric handle for precise 3D translation and rotation.",
+      "definition": "In ANSYS SpaceClaim, Move Tool represents a core architectural mechanism. The graphical widget providing absolute coordinate control to translate, rotate, and align any face, edge, or solid body.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Move Tool is critical for production-grade deliverables. Directly controls the regeneration computation logic of model shifts, letting designers reposition parts relative to coordinate origins.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Failing to lock specific coordinate axes on the Move gizmo, causing parts to skew off-axis.",
+        "Misaligning target anchors."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-4",
-      "title": "ANSYS SpaceClaim Concept 4",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-4",
+      "title": "Fill Tool (ANSYS SpaceClaim)",
+      "short_def": "Intelligent geometric healing and feature removal tool.",
+      "definition": "In ANSYS SpaceClaim, Fill Tool represents a core architectural mechanism. An advanced editing command that deletes selected faces (e.g. holes, fillets) and heals the surrounding geometry automatically.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Fill Tool is critical for production-grade deliverables. Speeds up model prep for simulation, allowing FEA engineers to de-feature complex CAD files in seconds.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Attempting to fill faces that violate topological boundary rules, causing healing errors.",
+        "Failing to inspect inner pockets."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-5",
-      "title": "ANSYS SpaceClaim Concept 5",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-5",
+      "title": "Sheet Metal Unfolding (ANSYS SpaceClaim)",
+      "short_def": "Watertight flat pattern extraction from 3D sheet metal parts.",
+      "definition": "In ANSYS SpaceClaim, Sheet Metal Unfolding represents a core architectural mechanism. The sheet metal module that automatically calculates material stretch and bend relief, generating precise flat layouts for CNC fabrication.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Sheet Metal Unfolding is critical for production-grade deliverables. Ensures folded physical parts conform perfectly to nominal design dimensions, eliminating manufacturing waste.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Using an incorrect K-factor parameter that does not match the physical sheet stock.",
+        "Ignoring minimum bend radii."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-6",
-      "title": "ANSYS SpaceClaim Concept 6",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-6",
+      "title": "Prep for Simulation (ANSYS SpaceClaim)",
+      "short_def": "Automated tools to extract beams, shells, and fluid volumes.",
+      "definition": "In ANSYS SpaceClaim, Prep for Simulation represents a core architectural mechanism. A specialized toolset that simplifies 3D solid geometry into 1D beam elements and 2D mid-surfaces for structural analysis.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Prep for Simulation is critical for production-grade deliverables. Saves finite element analysis (FEA) teams days of manual model prep, ensuring mesh solvers run efficiently.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Extracting mid-surfaces with disjointed gaps, breaking mesh connectivity in solvers.",
+        "Mismatched cross-section parameters."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-7",
-      "title": "ANSYS SpaceClaim Concept 7",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-7",
+      "title": "Reverse Engineering (ANSYS SpaceClaim)",
+      "short_def": "Direct fitting of curves and surfaces onto imported STL files.",
+      "definition": "In ANSYS SpaceClaim, Reverse Engineering represents a core architectural mechanism. The capabilities that allow designers to extract precise 2D sketch profiles and B-Rep surfaces directly from raw mesh files.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Reverse Engineering is critical for production-grade deliverables. Bridges 3D scanning and manufacturing, letting engineers reconstruct exact mechanical parts from physical scans.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Attempting to fit clean NURBS surfaces to un-cleaned or noisy STL mesh files.",
+        "Ignoring model scale conversions."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-8",
-      "title": "ANSYS SpaceClaim Concept 8",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-8",
+      "title": "Facet Tools (ANSYS SpaceClaim)",
+      "short_def": "Direct editing and repair of STL and mesh files.",
+      "definition": "In ANSYS SpaceClaim, Facet Tools represents a core architectural mechanism. A specialized editor designed to hollow, shell, split, and repair organic mesh files without converting them to solids.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Facet Tools is critical for production-grade deliverables. Essential for additive manufacturing, allowing designers to prepare watertight files for 3D printing in seconds.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Attempting to boolean-intersect dense meshes with B-Rep solids, causing command failures.",
+        "Ignoring open mesh seams."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-9",
-      "title": "ANSYS SpaceClaim Concept 9",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-9",
+      "title": "Assembly Structure (ANSYS SpaceClaim)",
+      "short_def": "Flexible component management in a unified workspace.",
+      "definition": "In ANSYS SpaceClaim, Assembly Structure represents a core architectural mechanism. The workspace hierarchy panel where designers structure parts, configure instances, and define sub-assembly groups.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Assembly Structure is critical for production-grade deliverables. Maintains clean BOM lists and coordinate organization, allowing teams to coordinate complex multi-body designs.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Leaving large assemblies unstructured, bloating BOM lists.",
+        "Confusing instance properties."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-10",
-      "title": "ANSYS SpaceClaim Concept 10",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-10",
+      "title": "IronPython Scripting (ANSYS SpaceClaim)",
+      "short_def": "Integrated Python automation for CAD workflows.",
+      "definition": "In ANSYS SpaceClaim, IronPython Scripting represents a core architectural mechanism. The scripting console allowing users to record actions and write Python scripts to automate repetitive geometry prep tasks.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering IronPython Scripting is critical for production-grade deliverables. Speeds up the de-featuring and repair of standard part series, reducing manual modeling times to one click.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Using outdated Python libraries that break on newer SpaceClaim engines.",
+        "Failing to build exception traps."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-11",
-      "title": "ANSYS SpaceClaim Concept 11",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-11",
+      "title": "Shared Topology (ANSYS SpaceClaim)",
+      "short_def": "Automated mesh node alignment for finite element solvers.",
+      "definition": "In ANSYS SpaceClaim, Shared Topology represents a core architectural mechanism. An analytical tool that identifies touching faces in assemblies, merging their mesh nodes automatically for structural and CFD analysis.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Shared Topology is critical for production-grade deliverables. Ensures accurate load and heat transfers in FEA/CFD solvers, preventing disjointed mesh errors.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Failing to configure shared topology tolerance bounds, leaving parts disconnected in solvers.",
+        "Ignoring interference clashes."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-12",
-      "title": "ANSYS SpaceClaim Concept 12",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-12",
+      "title": "Dimensional Control (ANSYS SpaceClaim)",
+      "short_def": "Direct, history-free dimensions that act as parameters.",
+      "definition": "In ANSYS SpaceClaim, Dimensional Control represents a core architectural mechanism. The capability to place dimensions directly on 3D geometry and use them as driving parameters to adjust sizes.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Dimensional Control is critical for production-grade deliverables. Provides parametric control without the overhead of feature trees, keeping files lightweight.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Placing conflicting dimensions, causing solver deadlocks.",
+        "Ignoring model coordinate baselines."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-13",
-      "title": "ANSYS SpaceClaim Concept 13",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-13",
+      "title": "Clean Up & Repair (ANSYS SpaceClaim)",
+      "short_def": "Automated tool for finding and fixing geometry errors.",
+      "definition": "In ANSYS SpaceClaim, Clean Up & Repair represents a core architectural mechanism. An automated check tool that sweeps models to locate and repair sliver faces, gaps, and corrupted B-Rep edges.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Clean Up & Repair is critical for production-grade deliverables. Ensures imported step files are watertight and error-free before downstream CAM or FEA operations are initiated.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Auto-healing geometry without reviewing changes, which can subtly alter critical dimensions.",
+        "Ignoring internal gaps."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-14",
-      "title": "ANSYS SpaceClaim Concept 14",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-14",
+      "title": "STEP/IGES Import (ANSYS SpaceClaim)",
+      "short_def": "Watertight neutral 3D CAD data translation.",
+      "definition": "In ANSYS SpaceClaim, STEP/IGES Import represents a core architectural mechanism. The import engine designed to load STEP, IGES, and Parasolid files, preserving precise geometric boundaries.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering STEP/IGES Import is critical for production-grade deliverables. Guarantees seamless data transition, allowing engineers to import and edit client designs with zero geometry loss.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Importing models with large tolerances, causing solids to split into open surfaces.",
+        "Ignoring metadata schemas."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "sc-term-15",
-      "title": "ANSYS SpaceClaim Concept 15",
-      "short_def": "A core proprietary technology or drafting concept unique to the ANSYS SpaceClaim ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of ANSYS SpaceClaim. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "spaceclaim-term-15",
+      "title": "Measurement & Mass (ANSYS SpaceClaim)",
+      "short_def": "High-precision physical properties and geometric analysis.",
+      "definition": "In ANSYS SpaceClaim, Measurement & Mass represents a core architectural mechanism. The analysis panel providing precise mass, center of gravity, volume, and bounding box dimensions.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Measurement & Mass is critical for production-grade deliverables. Ensures mechanical designs conform to weight constraints, automatically calculating material costs.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Measuring assemblies with incorrect density settings assigned to materials.",
+        "Using approximate coordinate references."
       ],
       "related_term_slugs": []
     }
   ],
   "faqs": [
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 1?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Direct Modeling?",
+      "answer": "When working with Direct Modeling in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 2?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Pull Tool?",
+      "answer": "When working with Pull Tool in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 3?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Move Tool?",
+      "answer": "When working with Move Tool in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 4?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Fill Tool?",
+      "answer": "When working with Fill Tool in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 5?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Sheet Metal Unfolding?",
+      "answer": "When working with Sheet Metal Unfolding in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 6?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Prep for Simulation?",
+      "answer": "When working with Prep for Simulation in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 7?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Reverse Engineering?",
+      "answer": "When working with Reverse Engineering in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 8?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Facet Tools?",
+      "answer": "When working with Facet Tools in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 9?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Assembly Structure?",
+      "answer": "When working with Assembly Structure in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 10?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim IronPython Scripting?",
+      "answer": "When working with IronPython Scripting in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 11?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Shared Topology?",
+      "answer": "When working with Shared Topology in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 12?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Dimensional Control?",
+      "answer": "When working with Dimensional Control in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 13?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Clean Up & Repair?",
+      "answer": "When working with Clean Up & Repair in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 14?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim STEP/IGES Import?",
+      "answer": "When working with STEP/IGES Import in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for ANSYS SpaceClaim workflow task 15?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for ANSYS SpaceClaim Measurement & Mass?",
+      "answer": "When working with Measurement & Mass in ANSYS SpaceClaim, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     }
   ],
   "graph_nodes": [
@@ -336,7 +321,7 @@
       "id": "ANSYS SpaceClaim",
       "type": "product",
       "tags": [
-        "ansys",
+        "spaceclaim",
         "spaceclaim"
       ],
       "hint": "A high-speed direct 3D modeler built to prepare, clean, and simplify geometry for finite element analysis.",
@@ -344,152 +329,152 @@
       "radius": 14
     },
     {
-      "id": "ANSYS SpaceClaim Concept 1",
+      "id": "Direct Modeling (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 1 in ANSYS SpaceClaim.",
+      "hint": "History-free geometry editing through direct face manipulation.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 2",
+      "id": "Pull Tool (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 2 in ANSYS SpaceClaim.",
+      "hint": "Unified mouse handle for extrusion, revolving, sweeping, and drafting.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 3",
+      "id": "Move Tool (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 3 in ANSYS SpaceClaim.",
+      "hint": "Multi-functional geometric handle for precise 3D translation and rotation.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 4",
+      "id": "Fill Tool (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 4 in ANSYS SpaceClaim.",
+      "hint": "Intelligent geometric healing and feature removal tool.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 5",
+      "id": "Sheet Metal Unfolding (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 5 in ANSYS SpaceClaim.",
+      "hint": "Watertight flat pattern extraction from 3D sheet metal parts.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 6",
+      "id": "Prep for Simulation (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 6 in ANSYS SpaceClaim.",
+      "hint": "Automated tools to extract beams, shells, and fluid volumes.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 7",
+      "id": "Reverse Engineering (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 7 in ANSYS SpaceClaim.",
+      "hint": "Direct fitting of curves and surfaces onto imported STL files.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 8",
+      "id": "Facet Tools (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 8 in ANSYS SpaceClaim.",
+      "hint": "Direct editing and repair of STL and mesh files.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 9",
+      "id": "Assembly Structure (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 9 in ANSYS SpaceClaim.",
+      "hint": "Flexible component management in a unified workspace.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 10",
+      "id": "IronPython Scripting (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 10 in ANSYS SpaceClaim.",
+      "hint": "Integrated Python automation for CAD workflows.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 11",
+      "id": "Shared Topology (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 11 in ANSYS SpaceClaim.",
+      "hint": "Automated mesh node alignment for finite element solvers.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 12",
+      "id": "Dimensional Control (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 12 in ANSYS SpaceClaim.",
+      "hint": "Direct, history-free dimensions that act as parameters.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 13",
+      "id": "Clean Up & Repair (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 13 in ANSYS SpaceClaim.",
+      "hint": "Automated tool for finding and fixing geometry errors.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 14",
+      "id": "STEP/IGES Import (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 14 in ANSYS SpaceClaim.",
+      "hint": "Watertight neutral 3D CAD data translation.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "ANSYS SpaceClaim Concept 15",
+      "id": "Measurement & Mass (ANSYS SpaceClaim)",
       "type": "concept",
       "tags": [
         "spaceclaim"
       ],
-      "hint": "Concept 15 in ANSYS SpaceClaim.",
+      "hint": "High-precision physical properties and geometric analysis.",
       "group": 2,
       "radius": 8
     }
@@ -500,63 +485,63 @@
       "ANSYS"
     ],
     [
-      "ANSYS SpaceClaim Concept 1",
+      "Direct Modeling (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 2",
+      "Pull Tool (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 3",
+      "Move Tool (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 4",
+      "Fill Tool (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 5",
+      "Sheet Metal Unfolding (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 6",
+      "Prep for Simulation (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 7",
+      "Reverse Engineering (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 8",
+      "Facet Tools (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 9",
+      "Assembly Structure (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 10",
+      "IronPython Scripting (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 11",
+      "Shared Topology (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 12",
+      "Dimensional Control (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 13",
+      "Clean Up & Repair (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 14",
+      "STEP/IGES Import (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ],
     [
-      "ANSYS SpaceClaim Concept 15",
+      "Measurement & Mass (ANSYS SpaceClaim)",
       "ANSYS SpaceClaim"
     ]
   ]

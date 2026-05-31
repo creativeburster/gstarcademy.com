@@ -73,261 +73,246 @@
   ],
   "terms": [
     {
-      "slug": "ds-term-1",
-      "title": "DraftSight Concept 1",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-1",
+      "title": "DWG/DXF Native Engine (DraftSight)",
+      "short_def": "High-performance 2D/3D drafting platform using the DWG format.",
+      "definition": "In DraftSight, DWG/DXF Native Engine represents a core architectural mechanism. Dassault's optimized CAD engine designed to open, edit, and save DWG files natively, ensuring seamless data exchange with other CAD platforms.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering DWG/DXF Native Engine is critical for production-grade deliverables. Maintains perfect compatibility across corporate design pipelines, opening massive multi-sheet DWGs with minimal RAM footprint.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Saving files in incompatible legacy formats that drop modern custom entities.",
+        "Neglecting drawing audit commands."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-2",
-      "title": "DraftSight Concept 2",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-2",
+      "title": "Custom Blocks (DraftSight)",
+      "short_def": "Parametric 2D block elements offering dynamic variations.",
+      "definition": "In DraftSight, Custom Blocks represents a core architectural mechanism. The ARES-powered block engine in DraftSight allowing users to configure blocks with visibility states, stretch actions, and size lookups.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Custom Blocks is critical for production-grade deliverables. Minimizes manual drafting hours by replacing dozens of legacy static blocks with a single smart parametric symbol.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Forgetting to associate action parameters to visibility states.",
+        "Assuming basic viewers can parse dynamic block equations."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-3",
-      "title": "DraftSight Concept 3",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-3",
+      "title": "LISP & API Integrations (DraftSight)",
+      "short_def": "Comprehensive scripting engine for automation.",
+      "definition": "In DraftSight, LISP & API Integrations represents a core architectural mechanism. The programming interface supporting legacy AutoLISP scripts and modern API plugins, allowing users to automate repetitive drafting tasks.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering LISP & API Integrations is critical for production-grade deliverables. Protects decades of in-house CAD automation development by letting routines run natively without modification.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Hardcoding directory paths to specific folders that do not exist on new computer systems.",
+        "Confusing API namespaces."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-4",
-      "title": "DraftSight Concept 4",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-4",
+      "title": "Sheet Set Manager (DraftSight)",
+      "short_def": "Central organization console for multi-sheet project packages.",
+      "definition": "In DraftSight, Sheet Set Manager represents a core architectural mechanism. A built-in utility that links independent DWG files into managed drawing sets, coordinating sheet titles, drawing indices, and batch plotting.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Sheet Set Manager is critical for production-grade deliverables. Acts as the coordination highway for large engineering packages, ensuring page numbers and revisions update in one operation.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Moving drawing files on disk without updating the Sheet Set XML paths, breaking all references.",
+        "Duplicate sheet numbers."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-5",
-      "title": "DraftSight Concept 5",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-5",
+      "title": "Image Tracer Vectorization (DraftSight)",
+      "short_def": "Automated raster-to-vector conversion utility.",
+      "definition": "In DraftSight, Image Tracer Vectorization represents a core architectural mechanism. The drafting tool that scans imported raster images (BMP, JPEG, PNG) and automatically converts them into editable CAD lines and polylines.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Image Tracer Vectorization is critical for production-grade deliverables. Cuts down manual tracing times, letting designers quickly rebuild digital CAD models from paper scan sheets.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Attempting to trace low-resolution scanned drawings, which produces thousands of disjointed, jagged line fragments.",
+        "Wrong scale factors."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-6",
-      "title": "DraftSight Concept 6",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-6",
+      "title": "G-Code Generator (DraftSight)",
+      "short_def": "Direct export of CNC programming toolpaths.",
+      "definition": "In DraftSight, G-Code Generator represents a core architectural mechanism. The utility that reads 2D CAD profiles and translates them into standard G-Code instructions (G0, G1, etc.) for CNC milling or plasma cutters.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering G-Code Generator is critical for production-grade deliverables. Simplifies the design-to-manufacture loop, letting fabricators export clean toolpath profiles directly from their drafting screen.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Neglecting cutter compensation parameters, resulting in parts cut larger or smaller than nominal dimensions.",
+        "Wrong unit scales."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-7",
-      "title": "DraftSight Concept 7",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-7",
+      "title": "DGN Underlay & Import (DraftSight)",
+      "short_def": "Bentley drawing standard integration.",
+      "definition": "In DraftSight, DGN Underlay & Import represents a core architectural mechanism. The exchange capability that references or imports Bentley MicroStation DGN files directly inside DraftSight active drawings.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering DGN Underlay & Import is critical for production-grade deliverables. Enables seamless collaboration with municipal agencies and public utilities utilizing DGN infrastructure standards.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Mismatching coordinate projection zones when referencing large-scale utility layouts.",
+        "Missing DGN line styles."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-8",
-      "title": "DraftSight Concept 8",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-8",
+      "title": "Tool Palettes Customization (DraftSight)",
+      "short_def": "Centralized catalog drag-and-drop drafting panels.",
+      "definition": "In DraftSight, Tool Palettes Customization represents a core architectural mechanism. A customizable sidebar panel where designers organize their frequently used blocks, hatches, and custom commands for instant access.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Tool Palettes Customization is critical for production-grade deliverables. Boosts daily drafting speeds, ensuring everyone uses approved block libraries and standardized layer settings.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Failing to share tool palette paths, locking out other designers from corporate standards.",
+        "Duplicate palette tabs."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-9",
-      "title": "DraftSight Concept 9",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-9",
+      "title": "DWG Compare Utility (DraftSight)",
+      "short_def": "Visual overlay comparing two drawing revisions.",
+      "definition": "In DraftSight, DWG Compare Utility represents a core architectural mechanism. An analytical tool that overlays two versions of a DWG file, highlighting added geometric elements in green and deleted elements in red.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering DWG Compare Utility is critical for production-grade deliverables. Saves hours of manual coordination review, instantly showing what coordinates or dimensions were shifted by external contractors.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Assuming minor line color changes will not register as geometry shifts in comparison audits.",
+        "Comparing misaligned origins."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-10",
-      "title": "DraftSight Concept 10",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-10",
+      "title": "Batch Print Utility (DraftSight)",
+      "short_def": "Automated publishing of drawing layouts.",
+      "definition": "In DraftSight, Batch Print Utility represents a core architectural mechanism. A high-speed publishing utility that outputs multiple sheets and layouts into physical paper or clean PDF files simultaneously.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Batch Print Utility is critical for production-grade deliverables. Saves massive administrative drafting overhead, eliminating the need to open and print drawings individually.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Attempting to batch print without verifying that plot style configurations are active.",
+        "Mismatched print scale boundaries."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-11",
-      "title": "DraftSight Concept 11",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-11",
+      "title": "Power Trim Tool (DraftSight)",
+      "short_def": "Intelligent drag-to-trim geometric boundary modifier.",
+      "definition": "In DraftSight, Power Trim Tool represents a core architectural mechanism. An interactive editing command where designers trim or extend lines simply by dragging a freeform cursor path across them.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Power Trim Tool is critical for production-grade deliverables. Speeds up the cleanup of messy drawing intersections, converting dozens of trim actions into one smooth stroke.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Dragging the cursor over structural boundary elements that should have been preserved.",
+        "Trim conflicts inside blocks."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-12",
-      "title": "DraftSight Concept 12",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-12",
+      "title": "PDF Form Fill (DraftSight)",
+      "short_def": "Direct data mapping into PDF sheet documents.",
+      "definition": "In DraftSight, PDF Form Fill represents a core architectural mechanism. An annotation utility that maps CAD attribute data directly into standard PDF form sheets, automating structural reporting.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering PDF Form Fill is critical for production-grade deliverables. Cuts down manual data entry work, ensuring schedules and reports match CAD drawing deliverables perfectly.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Broken database cell coordinates.",
+        "Mismatched font encodings."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-13",
-      "title": "DraftSight Concept 13",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-13",
+      "title": "Mechanical Toolbox (DraftSight)",
+      "short_def": "Standardized hardware library and drafting symbols.",
+      "definition": "In DraftSight, Mechanical Toolbox represents a core architectural mechanism. A built-in module loaded with international standard fasteners, steel shapes, holes, and welding symbols.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Mechanical Toolbox is critical for production-grade deliverables. Directly accelerates mechanical drafting work, letting designers insert standardized bolts and holes in seconds.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Mixing imperial and metric hardware on a single structural assembly.",
+        "Failing to capture inserted hardware in BOMs."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-14",
-      "title": "DraftSight Concept 14",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-14",
+      "title": "3D Mesh Modeling (DraftSight)",
+      "short_def": "Lightweight 3D surface mesh generation tools.",
+      "definition": "In DraftSight, 3D Mesh Modeling represents a core architectural mechanism. The capability to model 3D structures using mesh grids (faces, edges, vertices), supporting quick geometric concept visualizations.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering 3D Mesh Modeling is critical for production-grade deliverables. Provides a fast, low-overhead method for conceptualizing complex organic forms before detailed B-Rep solids are built.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Confusing lightweight meshes with manufacturing-grade solids when exporting to CNC CAM software.",
+        "Intersecting mesh shells."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ds-term-15",
-      "title": "DraftSight Concept 15",
-      "short_def": "A core proprietary technology or drafting concept unique to the DraftSight ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of DraftSight. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "draftsight-term-15",
+      "title": "Active Command Suggestions (DraftSight)",
+      "short_def": "Context-aware input and auto-completion panel.",
+      "definition": "In DraftSight, Active Command Suggestions represents a core architectural mechanism. A smart UI helper that predicts the designer's next command input based on real-time typing and active drawing context.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Active Command Suggestions is critical for production-grade deliverables. Speeds up the command execution for junior draftsmen, helping them locate advanced tools without memorizing complex command aliases.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Disabling the command console auto-suggest out of legacy habits.",
+        "Wrong keyboard layout configurations."
       ],
       "related_term_slugs": []
     }
   ],
   "faqs": [
     {
-      "question": "What is the recommended practice for DraftSight workflow task 1?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight DWG/DXF Native Engine?",
+      "answer": "When working with DWG/DXF Native Engine in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 2?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight Custom Blocks?",
+      "answer": "When working with Custom Blocks in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 3?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight LISP & API Integrations?",
+      "answer": "When working with LISP & API Integrations in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 4?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight Sheet Set Manager?",
+      "answer": "When working with Sheet Set Manager in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 5?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight Image Tracer Vectorization?",
+      "answer": "When working with Image Tracer Vectorization in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 6?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight G-Code Generator?",
+      "answer": "When working with G-Code Generator in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 7?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight DGN Underlay & Import?",
+      "answer": "When working with DGN Underlay & Import in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 8?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight Tool Palettes Customization?",
+      "answer": "When working with Tool Palettes Customization in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 9?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight DWG Compare Utility?",
+      "answer": "When working with DWG Compare Utility in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 10?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight Batch Print Utility?",
+      "answer": "When working with Batch Print Utility in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 11?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight Power Trim Tool?",
+      "answer": "When working with Power Trim Tool in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 12?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight PDF Form Fill?",
+      "answer": "When working with PDF Form Fill in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 13?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight Mechanical Toolbox?",
+      "answer": "When working with Mechanical Toolbox in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 14?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight 3D Mesh Modeling?",
+      "answer": "When working with 3D Mesh Modeling in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for DraftSight workflow task 15?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for DraftSight Active Command Suggestions?",
+      "answer": "When working with Active Command Suggestions in DraftSight, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     }
   ],
   "graph_nodes": [
@@ -335,7 +320,7 @@
       "id": "DraftSight",
       "type": "product",
       "tags": [
-        "dassault",
+        "draftsight",
         "draftsight"
       ],
       "hint": "Dassault's professional DWG-native 2D drafting and 3D design solution, fully integrated with 3DEXPERIENCE PLM.",
@@ -343,152 +328,152 @@
       "radius": 14
     },
     {
-      "id": "DraftSight Concept 1",
+      "id": "DWG/DXF Native Engine (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 1 in DraftSight.",
+      "hint": "High-performance 2D/3D drafting platform using the DWG format.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 2",
+      "id": "Custom Blocks (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 2 in DraftSight.",
+      "hint": "Parametric 2D block elements offering dynamic variations.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 3",
+      "id": "LISP & API Integrations (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 3 in DraftSight.",
+      "hint": "Comprehensive scripting engine for automation.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 4",
+      "id": "Sheet Set Manager (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 4 in DraftSight.",
+      "hint": "Central organization console for multi-sheet project packages.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 5",
+      "id": "Image Tracer Vectorization (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 5 in DraftSight.",
+      "hint": "Automated raster-to-vector conversion utility.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 6",
+      "id": "G-Code Generator (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 6 in DraftSight.",
+      "hint": "Direct export of CNC programming toolpaths.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 7",
+      "id": "DGN Underlay & Import (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 7 in DraftSight.",
+      "hint": "Bentley drawing standard integration.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 8",
+      "id": "Tool Palettes Customization (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 8 in DraftSight.",
+      "hint": "Centralized catalog drag-and-drop drafting panels.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 9",
+      "id": "DWG Compare Utility (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 9 in DraftSight.",
+      "hint": "Visual overlay comparing two drawing revisions.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 10",
+      "id": "Batch Print Utility (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 10 in DraftSight.",
+      "hint": "Automated publishing of drawing layouts.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 11",
+      "id": "Power Trim Tool (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 11 in DraftSight.",
+      "hint": "Intelligent drag-to-trim geometric boundary modifier.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 12",
+      "id": "PDF Form Fill (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 12 in DraftSight.",
+      "hint": "Direct data mapping into PDF sheet documents.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 13",
+      "id": "Mechanical Toolbox (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 13 in DraftSight.",
+      "hint": "Standardized hardware library and drafting symbols.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 14",
+      "id": "3D Mesh Modeling (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 14 in DraftSight.",
+      "hint": "Lightweight 3D surface mesh generation tools.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "DraftSight Concept 15",
+      "id": "Active Command Suggestions (DraftSight)",
       "type": "concept",
       "tags": [
         "draftsight"
       ],
-      "hint": "Concept 15 in DraftSight.",
+      "hint": "Context-aware input and auto-completion panel.",
       "group": 2,
       "radius": 8
     }
@@ -496,66 +481,66 @@
   "graph_links": [
     [
       "DraftSight",
-      "Dassault"
+      "Dassault Systèmes"
     ],
     [
-      "DraftSight Concept 1",
+      "DWG/DXF Native Engine (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 2",
+      "Custom Blocks (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 3",
+      "LISP & API Integrations (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 4",
+      "Sheet Set Manager (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 5",
+      "Image Tracer Vectorization (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 6",
+      "G-Code Generator (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 7",
+      "DGN Underlay & Import (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 8",
+      "Tool Palettes Customization (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 9",
+      "DWG Compare Utility (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 10",
+      "Batch Print Utility (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 11",
+      "Power Trim Tool (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 12",
+      "PDF Form Fill (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 13",
+      "Mechanical Toolbox (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 14",
+      "3D Mesh Modeling (DraftSight)",
       "DraftSight"
     ],
     [
-      "DraftSight Concept 15",
+      "Active Command Suggestions (DraftSight)",
       "DraftSight"
     ]
   ]

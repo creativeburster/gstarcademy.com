@@ -74,261 +74,246 @@
   ],
   "terms": [
     {
-      "slug": "ic-term-1",
-      "title": "IronCAD Concept 1",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-1",
+      "title": "Dual-Kernel Engine (IronCAD)",
+      "short_def": "Unified MCAD modeling utilizing both ACIS and Parasolid kernels.",
+      "definition": "In IronCAD, Dual-Kernel Engine represents a core architectural mechanism. IronCAD's unique architecture that runs both industry-standard modeling kernels concurrently, letting designers switch solvers per feature.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Dual-Kernel Engine is critical for production-grade deliverables. Directly prevents geometry rebuild failures; if a complex fillet fails on the ACIS solver, the system re-computes it cleanly on Parasolid.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Creating complex features without verifying kernel compatibility, resulting in slow file save times.",
+        "Kernel-level licensing issues."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-2",
-      "title": "IronCAD Concept 2",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-2",
+      "title": "Unified Assembly Environment (IronCAD)",
+      "short_def": "Single-file workspace design hosting parts and assemblies without separate file structures.",
+      "definition": "In IronCAD, Unified Assembly Environment represents a core architectural mechanism. The core paradigm where parts, sub-assemblies, and multi-body structures are modeled, structured, and saved within a single, open file.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Unified Assembly Environment is critical for production-grade deliverables. Establishes the parametric coordinate baseline for top-down machine design, completely eliminating broken external file links.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Treating assemblies as flat multi-body files, resulting in unstructured BOM exports.",
+        "Confusing instance properties."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-3",
-      "title": "IronCAD Concept 3",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-3",
+      "title": "Catalog Drag-and-Drop (IronCAD)",
+      "short_def": "Fast modeling by dropping predefined shapes from sidebars onto active models.",
+      "definition": "In IronCAD, Catalog Drag-and-Drop represents a core architectural mechanism. An interactive modeling catalog where designers drag standard solids, holes, and custom details, dropping them onto 3D surfaces.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Catalog Drag-and-Drop is critical for production-grade deliverables. Speeds up modeling cycles by up to 50%, completely bypassing the need to draw 2D sketches for standard geometric features.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Dropping shapes onto active faces without aligning their anchor reference points.",
+        "Mismatched catalog scales."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-4",
-      "title": "IronCAD Concept 4",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-4",
+      "title": "TriBall Geometric Manipulator (IronCAD)",
+      "short_def": "Unified 3D transform tool for positioning, rotating, and patterning geometry.",
+      "definition": "In IronCAD, TriBall Geometric Manipulator represents a core architectural mechanism. IronCAD's signature graphical tool that provides precise handles to move, rotate, mirror, and array any 3D face, part, or assembly.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering TriBall Geometric Manipulator is critical for production-grade deliverables. Directly controls the regeneration computation logic of geometric transforms, converting complex numeric coordinate inputs into fast mouse moves.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Forgetting to lock specific degrees of freedom on the TriBall, causing parts to skew off-axis.",
+        "Misaligning target origins."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-5",
-      "title": "IronCAD Concept 5",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-5",
+      "title": "SmartAssembly Positioning (IronCAD)",
+      "short_def": "Rule-based assembly connection points that automatically snap parts together.",
+      "definition": "In IronCAD, SmartAssembly Positioning represents a core architectural mechanism. Intelligent attachment points defined on components, letting them snap, rotate, and align automatically when dropped from catalogs.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering SmartAssembly Positioning is critical for production-grade deliverables. Reduces assembly labor for standard machinery, letting junior engineers build modular structures in seconds.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Configuring attachment points with conflicting coordinate systems.",
+        "Assuming all catalog components snap without setup."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-6",
-      "title": "IronCAD Concept 6",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-6",
+      "title": "Creative vs. Structured Design (IronCAD)",
+      "short_def": "Dual-method design allowing history-free modeling alongside traditional parametric trees.",
+      "definition": "In IronCAD, Creative vs. Structured Design represents a core architectural mechanism. The capability to mix structured, history-bound modeling (parent-child dependencies) and creative, history-free direct face modeling in one file.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Creative vs. Structured Design is critical for production-grade deliverables. Provides unparalleled modeling freedom, allowing engineers to iterate concepts quickly without feature tree rebuild errors.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Over-constraining parts inside the structured tree while trying to apply direct modeling edits.",
+        "Losing history trees."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-7",
-      "title": "IronCAD Concept 7",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-7",
+      "title": "2D Detail Drafting Sheet (IronCAD)",
+      "short_def": "Associative 2D drawings generated directly from unified 3D files.",
+      "definition": "In IronCAD, 2D Detail Drafting Sheet represents a core architectural mechanism. The associative layout sheet environment where 3D assemblies are projected into standardized 2D plans, maintaining live database links.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering 2D Detail Drafting Sheet is critical for production-grade deliverables. Simplifies drawing management, ensuring BOMs and sheet dimensions update dynamically whenever the 3D model shifts.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Manually drawing line details over projected views, breaking the 3D model associativity.",
+        "Mismatched scale parameters."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-8",
-      "title": "IronCAD Concept 8",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-8",
+      "title": "IronCAD C++ API (IronCAD)",
+      "short_def": "Deep software extension framework for enterprise CAD plugins.",
+      "definition": "In IronCAD, IronCAD C++ API represents a core architectural mechanism. The native-level SDK allowing developers to build custom commands, direct PLM connections, and deep automation plugins.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering IronCAD C++ API is critical for production-grade deliverables. Protects corporate investments by letting teams build robust, custom configurators that automate the drafting of complex assemblies.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Compiling API DLLs without matching the specific IronCAD version release.",
+        "Hardcoding local file paths inside plugin code."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-9",
-      "title": "IronCAD Concept 9",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-9",
+      "title": "KeyShot Rendering (IronCAD)",
+      "short_def": "Real-time photo-realistic rendering integration.",
+      "definition": "In IronCAD, KeyShot Rendering represents a core architectural mechanism. The integrated render engine bridge that exports IronCAD geometry into KeyShot, providing high-fidelity material, lighting, and camera setups.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering KeyShot Rendering is critical for production-grade deliverables. Allows sales teams to output professional, production-grade product visualizations directly from the design file.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Applying high-resolution textures without mapping coordinate scales, causing pixelated renderings.",
+        "Ignoring material assets."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-10",
-      "title": "IronCAD Concept 10",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-10",
+      "title": "Direct Face Modeling (IronCAD)",
+      "short_def": "History-free 3D solid face editing.",
+      "definition": "In IronCAD, Direct Face Modeling represents a core architectural mechanism. The capability to select 3D faces (cylinder diameters, pocket depths) and drag them directly without editing underlying sketches.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Direct Face Modeling is critical for production-grade deliverables. Enables rapid edits to imported step models from clients, cutting remodeling times down from hours to seconds.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Creating self-intersecting loops, producing illegal non-manifold solids.",
+        "Destroying vital parametric relationships."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-11",
-      "title": "IronCAD Concept 11",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-11",
+      "title": "Standard Parts Catalog (IronCAD)",
+      "short_def": "Library of international standard machinery hardware.",
+      "definition": "In IronCAD, Standard Parts Catalog represents a core architectural mechanism. A built-in database populated with standard bolts, nuts, washers, and steel shapes conforming to ISO, ANSI, and DIN standards.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Standard Parts Catalog is critical for production-grade deliverables. Directly accelerates machine drafting, letting designers drag and drop standard fasteners into assemblies.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Mixing imperial and metric hardware on a single machine frame.",
+        "Duplicate catalog configurations."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-12",
-      "title": "IronCAD Concept 12",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-12",
+      "title": "IronCAD Mechanical Tools (IronCAD)",
+      "short_def": "Specialized utilities for mechanical machinery design.",
+      "definition": "In IronCAD, IronCAD Mechanical Tools represents a core architectural mechanism. A suite of tools designed to automate the creation of gears, shafts, bearings, pipelines, and structural steel frames.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering IronCAD Mechanical Tools is critical for production-grade deliverables. Speeds up the engineering of complex power transmissions and piping systems, ensuring standard components conform to formulas.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Neglecting to input correct operational values in gear calculators.",
+        "Mismatched pipeline specs."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-13",
-      "title": "IronCAD Concept 13",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-13",
+      "title": "B-Rep Booleans (IronCAD)",
+      "short_def": "Solid-state geometric operations combining or intersecting volumes.",
+      "definition": "In IronCAD, B-Rep Booleans represents a core architectural mechanism. Core modeling commands (Union, Subtract, Intersect) used to combine multiple catalog shapes into single solid bodies.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering B-Rep Booleans is critical for production-grade deliverables. Essential for mold core and cavity design, where complex shapes are subtracted from solid blocks to define tooling cavities.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Subtracting parts that do not touch, creating errors in downstream fillets.",
+        "Forgetting to preserve tool bodies."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-14",
-      "title": "IronCAD Concept 14",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-14",
+      "title": "STEP/IGES Interoperability (IronCAD)",
+      "short_def": "Neutral 3D format translator for CAD data exchange.",
+      "definition": "In IronCAD, STEP/IGES Interoperability represents a core architectural mechanism. The translation pipeline that imports and exports STEP, IGES, and Parasolid formats, preserving precise B-Rep geometry.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering STEP/IGES Interoperability is critical for production-grade deliverables. Ensures perfect compatibility when sharing designs with external CAM shops or finite element analysis (FEA) engineers.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Exporting files with gaps, causing imported solids to split into open surfaces.",
+        "Ignoring metadata parameters."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ic-term-15",
-      "title": "IronCAD Concept 15",
-      "short_def": "A core proprietary technology or drafting concept unique to the IronCAD ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of IronCAD. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "ironcad-term-15",
+      "title": "SmartAssembly Configurator (IronCAD)",
+      "short_def": "Rule-based product customization engine.",
+      "definition": "In IronCAD, SmartAssembly Configurator represents a core architectural mechanism. An integrated configurator that swaps catalog components, drives dimensions, and validates assemblies based on user-defined rules.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering SmartAssembly Configurator is critical for production-grade deliverables. Saves massive sales engineering time, letting teams generate customized product layouts instantly in front of clients.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Creating conflicting logical statements inside configurator rule sheets.",
+        "Broken file links to variant assets."
       ],
       "related_term_slugs": []
     }
   ],
   "faqs": [
     {
-      "question": "What is the recommended practice for IronCAD workflow task 1?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD Dual-Kernel Engine?",
+      "answer": "When working with Dual-Kernel Engine in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 2?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD Unified Assembly Environment?",
+      "answer": "When working with Unified Assembly Environment in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 3?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD Catalog Drag-and-Drop?",
+      "answer": "When working with Catalog Drag-and-Drop in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 4?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD TriBall Geometric Manipulator?",
+      "answer": "When working with TriBall Geometric Manipulator in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 5?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD SmartAssembly Positioning?",
+      "answer": "When working with SmartAssembly Positioning in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 6?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD Creative vs. Structured Design?",
+      "answer": "When working with Creative vs. Structured Design in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 7?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD 2D Detail Drafting Sheet?",
+      "answer": "When working with 2D Detail Drafting Sheet in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 8?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD IronCAD C++ API?",
+      "answer": "When working with IronCAD C++ API in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 9?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD KeyShot Rendering?",
+      "answer": "When working with KeyShot Rendering in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 10?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD Direct Face Modeling?",
+      "answer": "When working with Direct Face Modeling in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 11?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD Standard Parts Catalog?",
+      "answer": "When working with Standard Parts Catalog in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 12?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD IronCAD Mechanical Tools?",
+      "answer": "When working with IronCAD Mechanical Tools in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 13?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD B-Rep Booleans?",
+      "answer": "When working with B-Rep Booleans in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 14?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD STEP/IGES Interoperability?",
+      "answer": "When working with STEP/IGES Interoperability in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for IronCAD workflow task 15?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for IronCAD SmartAssembly Configurator?",
+      "answer": "When working with SmartAssembly Configurator in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     }
   ],
   "graph_nodes": [
@@ -344,152 +329,152 @@
       "radius": 14
     },
     {
-      "id": "IronCAD Concept 1",
+      "id": "Dual-Kernel Engine (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 1 in IronCAD.",
+      "hint": "Unified MCAD modeling utilizing both ACIS and Parasolid kernels.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 2",
+      "id": "Unified Assembly Environment (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 2 in IronCAD.",
+      "hint": "Single-file workspace design hosting parts and assemblies without separate file structures.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 3",
+      "id": "Catalog Drag-and-Drop (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 3 in IronCAD.",
+      "hint": "Fast modeling by dropping predefined shapes from sidebars onto active models.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 4",
+      "id": "TriBall Geometric Manipulator (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 4 in IronCAD.",
+      "hint": "Unified 3D transform tool for positioning, rotating, and patterning geometry.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 5",
+      "id": "SmartAssembly Positioning (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 5 in IronCAD.",
+      "hint": "Rule-based assembly connection points that automatically snap parts together.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 6",
+      "id": "Creative vs. Structured Design (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 6 in IronCAD.",
+      "hint": "Dual-method design allowing history-free modeling alongside traditional parametric trees.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 7",
+      "id": "2D Detail Drafting Sheet (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 7 in IronCAD.",
+      "hint": "Associative 2D drawings generated directly from unified 3D files.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 8",
+      "id": "IronCAD C++ API (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 8 in IronCAD.",
+      "hint": "Deep software extension framework for enterprise CAD plugins.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 9",
+      "id": "KeyShot Rendering (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 9 in IronCAD.",
+      "hint": "Real-time photo-realistic rendering integration.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 10",
+      "id": "Direct Face Modeling (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 10 in IronCAD.",
+      "hint": "History-free 3D solid face editing.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 11",
+      "id": "Standard Parts Catalog (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 11 in IronCAD.",
+      "hint": "Library of international standard machinery hardware.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 12",
+      "id": "IronCAD Mechanical Tools (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 12 in IronCAD.",
+      "hint": "Specialized utilities for mechanical machinery design.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 13",
+      "id": "B-Rep Booleans (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 13 in IronCAD.",
+      "hint": "Solid-state geometric operations combining or intersecting volumes.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 14",
+      "id": "STEP/IGES Interoperability (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 14 in IronCAD.",
+      "hint": "Neutral 3D format translator for CAD data exchange.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "IronCAD Concept 15",
+      "id": "SmartAssembly Configurator (IronCAD)",
       "type": "concept",
       "tags": [
         "ironcad"
       ],
-      "hint": "Concept 15 in IronCAD.",
+      "hint": "Rule-based product customization engine.",
       "group": 2,
       "radius": 8
     }
@@ -500,63 +485,63 @@
       "IronCAD LLC"
     ],
     [
-      "IronCAD Concept 1",
+      "Dual-Kernel Engine (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 2",
+      "Unified Assembly Environment (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 3",
+      "Catalog Drag-and-Drop (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 4",
+      "TriBall Geometric Manipulator (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 5",
+      "SmartAssembly Positioning (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 6",
+      "Creative vs. Structured Design (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 7",
+      "2D Detail Drafting Sheet (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 8",
+      "IronCAD C++ API (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 9",
+      "KeyShot Rendering (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 10",
+      "Direct Face Modeling (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 11",
+      "Standard Parts Catalog (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 12",
+      "IronCAD Mechanical Tools (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 13",
+      "B-Rep Booleans (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 14",
+      "STEP/IGES Interoperability (IronCAD)",
       "IronCAD"
     ],
     [
-      "IronCAD Concept 15",
+      "SmartAssembly Configurator (IronCAD)",
       "IronCAD"
     ]
   ]

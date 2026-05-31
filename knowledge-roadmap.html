@@ -34,6 +34,8 @@
         "description": "How to learn CAD on your own—tracks, tools, and practice loops."
       }
     </script>
+      <link rel="manifest" href="./manifest.json" />
+    <script src="./search.js" defer></script>
   </head>
   <body data-page="knowledge">
     <header class="topbar">
@@ -133,75 +135,86 @@
         </nav>
         <div class="kb-stage-scroll">
           <div class="kb-main kb-main--portal">
-            <div id="kb-self-study" class="kb-section kb-anchor-target kb-cax-primer">
+            <div id="kb-self-study" class="kb-section kb-anchor-target">
               <div class="kb-section-head">
-                <h3>Learning CAD on your own — roadmap</h3>
-                <span class="section-note">Practice-first · aligned with common how-to guidance</span>
+                <h3>Interactive Learning Pathways &amp; Career Skill Trees</h3>
+                <span class="section-note">Interactive progression map · synced with localStorage</span>
               </div>
+              
               <p class="meta" style="margin-top: 0; max-width: 52rem">
-                The section below condenses a typical <strong>self-learner path</strong>—pick a domain, use affordable or free tools, mix videos with real projects, and escalate difficulty. It is a <strong>fresh summary</strong> informed by widely shared teaching patterns (including
-                <a href="https://www.wikihow.com/Learn-CAD-Design" rel="noopener noreferrer">wikiHow’s “Learn CAD Design”</a>, updated 2024), not a copy of that page. For video deep-dives, use our <a href="./tutorials.html">tutorial library</a>.
+                Select your target career path below. Light up nodes as you learn to track your progress. Each skill node links directly to atomic conceptual wiki articles and curated video lessons.
               </p>
 
-              <h4 class="kb-cax-h">What to know before you install anything</h4>
-              <ul class="meta" style="max-width: 52rem; line-height: 1.6; padding-left: 1.2rem">
-                <li><strong>No one masters “all of CAD.”</strong> Narrow your aim (see the three tracks below).</li>
-                <li><strong>Professional seats cost money;</strong> many vendors offer trials, and several capable programs are <strong>free for personal learning</strong> (license terms still matter for commercial work).</li>
-                <li><strong>Basics are learnable solo:</strong> 2D sketch discipline, simple 3D, and document setup repay effort before fancy features.</li>
-                <li><strong>Blend sources:</strong> software-specific YouTube, vendor docs, formal courses if you can, and feedback from communities or mentors.</li>
-              </ul>
+              <div class="roadmap-container">
+                <!-- Track Selectors -->
+                <div class="roadmap-track-selector" role="tablist" aria-label="CAD Career Pathways">
+                  <button type="button" class="roadmap-track-tab active" role="tab" aria-selected="true" aria-controls="track-panel" id="tab-bim" data-track="bim">
+                    <span class="roadmap-track-tab-title">🏢 BIM Coordinator</span>
+                    <span class="roadmap-track-tab-desc">Architectural &amp; structural data integration, coordination, and standards compliance.</span>
+                  </button>
+                  <button type="button" class="roadmap-track-tab" role="tab" aria-selected="false" aria-controls="track-panel" id="tab-mcad" data-track="mcad">
+                    <span class="roadmap-track-tab-title">⚙️ Mechanical Design Engineer</span>
+                    <span class="roadmap-track-tab-desc">Parametric assemblies, product tolerances, solid modeling, and B-Rep kernel design.</span>
+                  </button>
+                  <button type="button" class="roadmap-track-tab" role="tab" aria-selected="false" aria-controls="track-panel" id="tab-civil" data-track="civil">
+                    <span class="roadmap-track-tab-title">🏗️ Civil Infrastructure Engineer</span>
+                    <span class="roadmap-track-tab-desc">Municipal alignments, corridor modeling, surface grading, and GIS-integration.</span>
+                  </button>
+                  <button type="button" class="roadmap-track-tab" role="tab" aria-selected="false" aria-controls="track-panel" id="tab-draft" data-track="draft">
+                    <span class="roadmap-track-tab-title">📐 2D Drafting &amp; Standard Specialist</span>
+                    <span class="roadmap-track-tab-desc">Layer standards, external reference systems (Xrefs), plotting scales, and command aliases.</span>
+                  </button>
+                </div>
 
-              <h4 class="kb-cax-h">Three tracks (choose one to prioritize)</h4>
-              <dl class="kb-cax-dl">
-                <dt>Design &amp; organic / surface modeling</dt>
-                <dd>
-                  Aesthetic and sculptural forms—stylized products, characters, enclosures. Tools skew toward DCC and high-end surface CAD; workflow emphasizes form, rendering, and iteration more than a machine drawing release.
-                </dd>
-                <dt>Architecture &amp; interiors</dt>
-                <dd>
-                  Buildings, spaces, and construction documentation—plans, elevations, sometimes BIM. Scale, standards, and coordination matter as much as geometry.
-                </dd>
-                <dt>Engineering &amp; manufacturing</dt>
-                <dd>
-                  Parts with fits, tolerances, motion, and fabrication intent—often the steepest curve because drawings and models must be <strong>unambiguous for production</strong>.
-                </dd>
-              </dl>
+                <!-- Active Track Dashboard Viewport -->
+                <div class="roadmap-viewport" id="track-panel" role="tabpanel">
+                  <div class="roadmap-header-hud">
+                    <div class="roadmap-header-info">
+                      <h4 class="roadmap-header-title" id="track-title">BIM Coordinator (BIM 协调员)</h4>
+                      <div class="roadmap-header-meta">
+                        <span id="track-salary">💼 Est. Salary: $65,000 - $95,000</span>
+                        <span id="track-software">🛠️ Stack: Revit, IFC, Navisworks</span>
+                      </div>
+                    </div>
+                    <div class="progress-hud">
+                      <div class="progress-hud-label">
+                        <span>Career Mastery</span>
+                        <span id="progress-percent">0%</span>
+                      </div>
+                      <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                      </div>
+                    </div>
+                  </div>
 
-              <h4 class="kb-cax-h">Starter software (learning-oriented)</h4>
-              <p class="meta">
-                Common <strong>zero/low-cost</strong> entry points people use to learn fundamentals include <strong>FreeCAD</strong>, <strong>LibreCAD</strong>, <strong>Tinkercad</strong>, <strong>SketchUp</strong> (free tier where available), and <strong>Blender</strong> (strong for mesh/art; not a traditional mechanical CAD replacement). Job-targeted stacks often revolve around different vendors—cross-check job posts in your region before over-investing.
-              </p>
-              <p class="meta">
-                <strong>Commercial</strong> ecosystems (examples: AutoCAD, Revit, Inventor, Fusion, SolidWorks, Creo, CATIA, NX, Archicad, MicroStation) differ by industry and contract model. <strong>Pricing and license rules change often</strong>—verify on the vendor site rather than trusting informal lists.
-              </p>
-              <p class="meta">
-                <strong>Cloud-native CAD</strong> (e.g. browser-first platforms) trades always-on connectivity and team access against offline work and sometimes long-term subscription cost; <strong>desktop</strong> installs emphasize local performance and file custody. Match the pattern to how your team actually works.
-              </p>
+                  <!-- Skill Tree Layout Visualization -->
+                  <div class="skill-tree-layout" id="skill-tree-stage">
+                    <!-- SVG Path Connectors rendered dynamically by JS -->
+                    <svg class="roadmap-connector-svg" id="roadmap-connectors"></svg>
+                    
+                    <div class="skill-tree-level" id="level-1"></div>
+                    <div class="skill-tree-level" id="level-2"></div>
+                    <div class="skill-tree-level" id="level-3"></div>
+                  </div>
 
-              <h4 class="kb-cax-h">Core modeling moves (vocabulary to practice early)</h4>
-              <ul class="meta" style="max-width: 52rem; line-height: 1.6; padding-left: 1.2rem">
-                <li><strong>Axes &amp; planes:</strong> 2D work lives in <strong>X–Y</strong>; full 3D adds <strong>Z</strong>. Many MCAD apps anchor sketches on named reference planes.</li>
-                <li><strong>Units &amp; scale:</strong> Set document units up front—mixing inches and mm is a classic source of silent error.</li>
-                <li><strong>Sketch → solid:</strong> A constrained 2D sketch often becomes a 3D body via <strong>extrude</strong> (add material) or similar operations.</li>
-                <li><strong>Cuts:</strong> The inverse idea—remove material (through-holes, pockets, clearances).</li>
-                <li><strong>Fillets &amp; chamfers:</strong> Round or bevel edges for strength, safety, or assembly—learn radius vs. distance language early.</li>
-              </ul>
+                  <!-- Detail Skill Inspector Drawer Panel -->
+                  <div class="skill-inspector" id="skill-inspector-panel">
+                    <div class="skill-inspector-head">
+                      <h5 class="skill-inspector-title" id="inspect-title">Click a skill node to inspect</h5>
+                      <span class="skill-inspector-badge" id="inspect-difficulty" style="display:none;">Beginner</span>
+                    </div>
+                    <p class="skill-inspector-desc" id="inspect-desc">Select any competency node above to view core technical definitions, industry importance, and quick links to master it.</p>
+                    <div class="skill-inspector-why" id="inspect-why" style="display:none;"></div>
+                    <div class="skill-inspector-actions">
+                      <a href="#" class="btn-inspector btn-inspector-primary" id="btn-inspect-wiki" style="display:none;">📚 Read Wiki Article</a>
+                      <a href="#" class="btn-inspector btn-inspector-secondary" id="btn-inspect-tutorials" style="display:none;">📺 Practice Lessons</a>
+                      <button type="button" class="btn-inspector-reset" id="btn-reset-track">Reset Track Progress</button>
+                    </div>
+                  </div>
 
-              <h4 class="kb-cax-h">A simple practice loop that works</h4>
-              <ol class="meta" style="max-width: 52rem; line-height: 1.65; padding-left: 1.2rem">
-                <li>Install one program and complete its built-in intro or template project.</li>
-                <li>Pick <strong>tiny real objects</strong> (desk items) and model them from caliper or photo reference.</li>
-                <li>Add a <strong>stretch project</strong> slightly above your level and a soft deadline; daily short sessions beat rare marathons.</li>
-                <li>When stuck, use <strong>vendor forums</strong>, careful web search, or small communities—explain software version, goal, and what you tried.</li>
-                <li>Optional capstone: export <strong>STL</strong> (or your printer’s required format) for additive prototyping if that motivates you.</li>
-                <li>Teach back—answer one beginner question or write short notes; explaining reveals gaps.</li>
-              </ol>
+                </div>
+              </div>
 
-              <h4 class="kb-cax-h">Source</h4>
-              <p class="meta">
-                For the original step-by-step article (with community Q&amp;A and software examples), see
-                <a href="https://www.wikihow.com/Learn-CAD-Design" rel="noopener noreferrer">wikiHow — “How to Learn CAD Design”</a> by Travis Boylls (wikiHow staff; updated Sep 2024). This hub’s summary is <strong>independent prose</strong>; treat any third-party <strong>pricing</strong> or <strong>version</strong> details on wikiHow as hints only—confirm on vendor sites.
-              </p>
             </div>
           </div>
         </div>

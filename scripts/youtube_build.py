@@ -176,6 +176,8 @@ def merge_editorial(videos: list[dict[str, Any]], editorial: dict[str, Any]) -> 
         v["software"] = str(ed.get("software") or "").strip() or "—"
         v["task"] = str(ed.get("task") or "").strip() or "—"
         v["difficulty"] = str(ed.get("difficulty") or "").strip() or "—"
+        v["price"] = "free"
+        v["platform"] = "YouTube"
         tags = ed.get("tags")
         if isinstance(tags, list) and tags:
             v["tags"] = [str(t) for t in tags if str(t).strip()]
@@ -195,67 +197,53 @@ def render_youtube_html(
     lines: list[str] = []
     lines.append('            <div class="panel">')
     lines.append('              <div class="section-head" style="margin-bottom: 0">')
-    lines.append('                <h2 class="panel-title" style="margin: 0">YouTube discovery</h2>')
+    lines.append('                <h2 class="panel-title" style="margin: 0">CAD Learning Tutorials</h2>')
     lines.append('                <div class="chips" style="margin-top: 0">')
-    if is_hand_curated:
-        lines.append('                  <span class="chip pill-ok">Editorial picks</span>')
-    elif is_demo:
-        lines.append('                  <span class="chip pill-ok">Demo data</span>')
-    else:
-        lines.append('                  <span class="chip pill-ok">Data API metadata</span>')
+    lines.append('                  <span class="chip pill-ok">Unified Library</span>')
     lines.append('                  <span class="chip">Link-out only</span>')
     lines.append("                </div>")
     lines.append("              </div>")
-    if is_hand_curated:
-        lines.append(
-            '              <p class="meta" style="margin-top: 10px">'
-            "<strong>Curated library:</strong> titles, channels, and durations are maintained in "
-            "<code>data/tutorials_youtube.json</code> with editorial fields in "
-            "<code>data/youtube_editorial.json</code>. "
-            "Run <code>python scripts/youtube_build.py --html-only</code> after edits. "
-            "Optional: <code>--fetch</code> with <code>YOUTUBE_API_KEY</code> for live API sync. "
-            "We never host video files."
-            "</p>"
-        )
-    elif is_demo:
-        lines.append(
-            '              <p class="meta" style="margin-top: 10px">'
-            "<strong>Demo:</strong> sample entries use public YouTube thumbnails and links for layout preview. "
-            "After you enable an API key, run "
-            "<code>python scripts/youtube_build.py --fetch</code> to replace this block with live API results. "
-            "We never host video files."
-            "</p>"
-        )
-    else:
-        lines.append(
-            '              <p class="meta" style="margin-top: 10px">'
-            "Titles, channels, thumbnails, and durations come from "
-            "<strong>YouTube Data API v3</strong>. Videos remain on YouTube; we do not host them. "
-            "Copyright belongs to the uploader."
-            "</p>"
-        )
+    lines.append(
+        '              <p class="meta" style="margin-top: 10px">'
+        "Discover the best CAD, BIM, and MCAD classes curated from official vendor academies, "
+        "Coursera, Udemy, and YouTube. Paid or certified programs are marked with 💳. We never host video files."
+        "</p>"
+    )
     lines.append("            </div>")
 
     if not videos:
         lines.append(
             '            <p class="meta">'
-            "Curated YouTube picks appear here after a content sync via YouTube Data API v3. "
-            "Each card will link to the original watch page; we do not host video."
+            "Curated CAD picks appear here. Check back soon!"
             "</p>"
-        )
-        lines.append(
-            "            <!-- Dev sync: YOUTUBE_API_KEY=... python scripts/youtube_build.py --fetch -->"
         )
     else:
         for v in videos:
             title = html.escape(v.get("title") or "")
-            channel = html.escape(v.get("channel_title") or "")
-            pub = html.escape((v.get("published_at") or "")[:10])
-            dur = html.escape(v.get("duration_label") or "")
-            thumb = html.escape(v.get("thumbnail_url") or "", quote=True)
+            platform = html.escape(v.get("platform", "YouTube"))
+            price = html.escape(v.get("price", "free"))
+            
+            # Badges
+            price_badge = ""
+            if price == "paid":
+                price_badge = ' <span class="badge badge-paid">💳 Premium</span>'
+            else:
+                price_badge = ' <span class="badge badge-free">🎁 Free</span>'
+                
+            # Meta string
+            if platform == "YouTube":
+                channel = html.escape(v.get("channel_title") or "")
+                pub = html.escape((v.get("published_at") or "")[:10])
+                dur = html.escape(v.get("duration_label") or "")
+                meta_str = f"Source: YouTube · Channel: {channel} · Published: {pub} · Duration: {dur}"
+            else:
+                meta_str = html.escape(v.get("meta_info") or "")
+                
             note = html.escape(v.get("editorial_note") or "")
-            vid = html.escape(v.get("video_id") or "")
-            watch = f"https://www.youtube.com/watch?v={vid}"
+            watch = html.escape(v.get("url") or "")
+            if not watch and v.get("video_id") and platform == "YouTube":
+                watch = f"https://www.youtube.com/watch?v={v['video_id']}"
+                
             tags = v.get("tags") or []
             tag_html = "".join(
                 f'<span class="tag">{html.escape(str(t))}</span>' for t in tags[:8]
@@ -264,30 +252,28 @@ def render_youtube_html(
             task = html.escape(str(v.get("task") or "—"))
             diff = html.escape(str(v.get("difficulty") or "—"))
 
-            lines.append('            <article class="tutorial-item tutorial-item--youtube">')
+            item_class = "tutorial-item tutorial-item--youtube" if platform == "YouTube" else "tutorial-item"
+            lines.append(f'            <article class="{item_class}" data-software="{soft.lower()}" data-task="{task.lower()}" data-level="{diff.lower()}" data-price="{price.lower()}">')
+            
             if v.get("thumbnail_url"):
+                thumb = html.escape(v["thumbnail_url"], quote=True)
                 thumb_style = f' style="background-image: url(&quot;{thumb}&quot;)"'
                 lines.append(
                     f'              <div class="thumb thumb--cover"{thumb_style} role="img" aria-label="YouTube thumbnail"></div>'
                 )
             else:
-                lines.append('              <div class="thumb">YouTube</div>')
+                lines.append(f'              <div class="thumb">{platform}</div>')
+                
             lines.append('              <div class="item-body">')
-            lines.append(f"                <h3>{title}</h3>")
-            lines.append(
-                "                <p class=\"meta\">"
-                f"Source: YouTube · Channel: {channel} · Published: {pub} · Duration: {dur}"
-                "</p>"
-            )
-            lines.append(
-                "                <p class=\"meta\">"
-                f"Editorial: {note} · Software: {soft} · Task: {task} · Level: {diff}"
-                "</p>"
-            )
+            lines.append(f"                <h3>{title}{price_badge}</h3>")
+            lines.append(f'                <p class="meta">{meta_str}</p>')
+            lines.append(f'                <p class="meta">Editorial: {note} · Software: {soft} · Task: {task} · Level: {diff}</p>')
             lines.append(f'                <div class="item-tags">{tag_html}</div>')
             lines.append('                <div class="actions">')
+            
+            action_label = f"Open {platform}" if platform != "YouTube" else "Watch on YouTube"
             lines.append(
-                f'                  <a class="btn btn-primary" href="{html.escape(watch, quote=True)}" rel="noopener noreferrer" target="_blank">Watch on YouTube</a>'
+                f'                  <a class="btn btn-primary" href="{watch}" rel="noopener noreferrer" target="_blank">{action_label}</a>'
             )
             lines.append(
                 '                  <a class="btn" href="./tutorial-detail.html">Compare other sources</a>'
@@ -330,15 +316,29 @@ def run_fetch(api_key: str) -> None:
 def load_and_merge_videos() -> tuple[list[dict[str, Any]], dict[str, Any]]:
     doc = load_json(DATA_PATH)
     if not isinstance(doc, dict):
-        return [], {}
+        doc = {"videos": []}
     vids = doc.get("videos")
     if not isinstance(vids, list):
         vids = []
-    meta = doc["meta"] if isinstance(doc.get("meta"), dict) else {}
+    meta = doc.get("meta") or {}
     editorial = load_json(EDITORIAL_PATH)
     if not isinstance(editorial, dict):
         editorial = {}
     merge_editorial(vids, editorial)
+    
+    # Load premium/paid tutorials
+    premium_path = REPO / "data" / "tutorials_premium.json"
+    premium_vids = load_json(premium_path)
+    if isinstance(premium_vids, list):
+        for p in premium_vids:
+            p["difficulty"] = p.get("level") or "beginner"
+            p["video_id"] = p.get("id")
+            p["published_at"] = ""
+            p["thumbnail_url"] = ""
+            p["meta_info"] = p.get("meta_info") or f"Source: {p.get('platform')} · Curated Course"
+            p["editorial_note"] = p.get("editorial_note") or "Professional curated resource."
+        vids.extend(premium_vids)
+        
     return vids, meta
 
 

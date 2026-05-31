@@ -75,261 +75,246 @@
   ],
   "terms": [
     {
-      "slug": "ad-term-1",
-      "title": "Alibre Design Concept 1",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-1",
+      "title": "Parametric Dimension Driver (Alibre Design)",
+      "short_def": "Driving sketch and feature parameters using logical mathematical variables.",
+      "definition": "In Alibre Design, Parametric Dimension Driver represents a core architectural mechanism. Allows designers to define numeric constraints (e.g., length, diameter) as editable variables rather than static values, enabling rapid design adjustments and automatic feature updates.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Parametric Dimension Driver is critical for production-grade deliverables. Directly controls the regeneration computation logic of complex parts, allowing structural changes in downstream models to propagate cleanly without breaking feature references.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Manually overriding values in drawing sheets instead of changing the driving parameters in the equations editor.",
+        "Using static values for geometry that changes frequently during product revisions."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-2",
-      "title": "Alibre Design Concept 2",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-2",
+      "title": "Geometric Constraints (Alibre Design)",
+      "short_def": "Rules governing the relative positioning and behavior of sketch elements.",
+      "definition": "In Alibre Design, Geometric Constraints represents a core architectural mechanism. Rules like coincidence, concentricity, parallelism, and tangent alignment applied in 2D sketches to lock the geometric relationships of profiles before 3D features are built.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Geometric Constraints is critical for production-grade deliverables. Establishes the parametric coordinate baseline for sketches, ensuring that downstream features recompute predictably when core variables are modified.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Over-constraining sketches, causing solver deadlocks.",
+        "Neglecting tangency constraints at fillet junctions, leading to G0 continuity sharp edges."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-3",
-      "title": "Alibre Design Concept 3",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-3",
+      "title": "Feature History Tree (Alibre Design)",
+      "short_def": "The chronological stack of active modeling operations in parametric design.",
+      "definition": "In Alibre Design, Feature History Tree represents a core architectural mechanism. A linear list of operations (extrusion, cut, loft, pattern) that the CAD solver recomputes sequentially. The parent-child relationships between features are managed here.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Feature History Tree is critical for production-grade deliverables. Directly influences assembly regeneration efficiency; optimized trees reduce coordinate computation and memory-constrained drafting pipelines overhead.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Suppressing vital parent features, which breaks all downstream children.",
+        "Blindly inserting features high in the history stack, causing reference loss."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-4",
-      "title": "Alibre Design Concept 4",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-4",
+      "title": "Assembly Mates (Alibre Design)",
+      "short_def": "3D constraints linking coordinate systems and surfaces of components.",
+      "definition": "In Alibre Design, Assembly Mates represents a core architectural mechanism. Assembly alignment relationships such as mate, align, orient, and coordinate offsets that define degrees of freedom for components in a multi-part machine.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Assembly Mates is critical for production-grade deliverables. Directly impacts BOM export accuracy and kinematic simulations, ensuring that parts sit flush and fit together without physical clash.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Applying conflicting mates, causing the solver to error.",
+        "Using redundant mates that slow down the loading of heavy assemblies."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-5",
-      "title": "Alibre Design Concept 5",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-5",
+      "title": "B-Rep Solid Engine (Alibre Design)",
+      "short_def": "Boundary Representation mathematical representation of solid geometry.",
+      "definition": "In Alibre Design, B-Rep Solid Engine represents a core architectural mechanism. The underlying geometric kernel that describes 3D solids by their boundary boundaries (vertices, edges, faces) rather than mesh approximations, ensuring exact manufacturing dimensions.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering B-Rep Solid Engine is critical for production-grade deliverables. Ensures perfect compatibility when exporting designs as STEP or IGES formats for downstream CNC or injection mold fabrication.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Creating self-intersecting loops in sketches, producing illegal non-manifold solids.",
+        "Mixing B-Rep solids and mesh geometries blindly without translation."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-6",
-      "title": "Alibre Design Concept 6",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-6",
+      "title": "Sheet Metal Flanges (Alibre Design)",
+      "short_def": "Bent sheet panels created relative to baseline flat sheets.",
+      "definition": "In Alibre Design, Sheet Metal Flanges represents a core architectural mechanism. A secondary parametric sheet panel added along an existing edge, with automatic calculations for material stretch, bend relief, and clearance.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Sheet Metal Flanges is critical for production-grade deliverables. Directly affects CNC laser cut flat patterns, ensuring sheet parts fold into correct physical boundaries without structural interference.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Using an incorrect bend radius that is physically impossible to form on the shop brake.",
+        "Neglecting K-factor values when unfolding thin sheet metal parts."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-7",
-      "title": "Alibre Design Concept 7",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-7",
+      "title": "2D Drafting Sheets (Alibre Design)",
+      "short_def": "Production-ready orthogonal and auxiliary drawing representations.",
+      "definition": "In Alibre Design, 2D Drafting Sheets represents a core architectural mechanism. The associative layout sheet environment where 3D parts are projected as front, side, and section views, automatically updating as the 3D model changes.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering 2D Drafting Sheets is critical for production-grade deliverables. Acts as the contract deliverable for manufacturing, translating raw virtual solids into standardized, toleranced shop floor instructions.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Manually drawing line details over projected views, breaking the 3D model associativity.",
+        "Plotting sheets without configuring standard line scale metrics."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-8",
-      "title": "Alibre Design Concept 8",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-8",
+      "title": "Alibre Script (Alibre Design)",
+      "short_def": "Python-based scripting API for automation and custom tools.",
+      "definition": "In Alibre Design, Alibre Script represents a core architectural mechanism. An integrated programming environment allowing designers to write Python scripts to automate drawing creation, drive variables, and build custom part catalogs.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Alibre Script is critical for production-grade deliverables. Speeds up the modeling of highly repetitive or family-based part series, reducing modeling hours to seconds.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Using global variables that persist across sessions.",
+        "Skipping exception handling in scripts, causing CAD crashes."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-9",
-      "title": "Alibre Design Concept 9",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-9",
+      "title": "Equations Editor (Alibre Design)",
+      "short_def": "A central spreadsheet-like control panel for managing variables.",
+      "definition": "In Alibre Design, Equations Editor represents a core architectural mechanism. The interface where global parameters, equations, and mathematical logic are defined and linked to sketch dimensions and feature values.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Equations Editor is critical for production-grade deliverables. Enables the modular scaling of parts (e.g. changing one width changes the height proportionally via formulas), facilitating product line standardization.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Creating circular references in equations, causing solver errors.",
+        "Naming parameters arbitrarily without naming standards (e.g. Var1, Var2)."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-10",
-      "title": "Alibre Design Concept 10",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-10",
+      "title": "Configurations Manager (Alibre Design)",
+      "short_def": "System for maintaining multiple physical variants in a single file.",
+      "definition": "In Alibre Design, Configurations Manager represents a core architectural mechanism. A built-in utility allowing designers to create variants of a part or assembly in one file by suppressing features, swapping parts, or changing dimensions.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Configurations Manager is critical for production-grade deliverables. Reduces data management bloat by letting one file represent an entire family of components (e.g., standard bolt series).\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Adding new features without choosing whether they apply to all configurations or only the active one.",
+        "Overcomplicating configuration trees, causing file corruption."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-11",
-      "title": "Alibre Design Concept 11",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-11",
+      "title": "Catalog Features (Alibre Design)",
+      "short_def": "Library of reusable feature blocks and templates.",
+      "definition": "In Alibre Design, Catalog Features represents a core architectural mechanism. A database of standard geometric patterns (e.g., O-ring grooves, keyways) that can be dragged from a library and dropped onto new model faces.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Catalog Features is critical for production-grade deliverables. Saves design time by preventing the manual sketching of standardized details, ensuring company-wide feature consistency.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Using catalog features with mismatched units (e.g. metric catalog on imperial part).",
+        "Broken file references to the master catalog path."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-12",
-      "title": "Alibre Design Concept 12",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-12",
+      "title": "3D PDF Publishing (Alibre Design)",
+      "short_def": "Standardized interactive PDF documents hosting 3D geometry.",
+      "definition": "In Alibre Design, 3D PDF Publishing represents a core architectural mechanism. An output format that compiles 3D CAD solids into interactive PDFs, allowing stakeholders without CAD to rotate, section, and measure models.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering 3D PDF Publishing is critical for production-grade deliverables. Improves client communication and review cycles by providing high-fidelity visual representations without exposing raw, proprietary CAD files.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Publishing extremely large assemblies without geometry decimation, locking up recipients' PDF viewers.",
+        "Omitting key dimensions in the PDF view."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-13",
-      "title": "Alibre Design Concept 13",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-13",
+      "title": "Thread Creator (Alibre Design)",
+      "short_def": "Parametric modeling of cosmetic or real helical threads.",
+      "definition": "In Alibre Design, Thread Creator represents a core architectural mechanism. A feature that generates standard thread definitions on cylindrical faces, displaying them cosmetically in drawings or cutting active physical spirals in 3D.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Thread Creator is critical for production-grade deliverables. Directly determines whether assemblies screw together properly and guides automated fastener selection.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Modeling physical helical cuts for standard fasteners, which drastically bloats file size.",
+        "Mismatched pitch values between male and female parts."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-14",
-      "title": "Alibre Design Concept 14",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-14",
+      "title": "STEP/IGES Translation (Alibre Design)",
+      "short_def": "Standardized neutral formats for cross-platform CAD exchange.",
+      "definition": "In Alibre Design, STEP/IGES Translation represents a core architectural mechanism. The file translation utility that packages B-Rep geometry into standardized STEP or IGES formats for import into external CAM or simulation engines.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering STEP/IGES Translation is critical for production-grade deliverables. Ensures perfect CAD-to-CAM transition, allowing downstream CNC operations to read precise topological boundaries without geometric data loss.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Exporting assemblies with tiny gaps, resulting in imported solid surfaces being split into open shells.",
+        "Choosing old STEP versions that ignore metadata."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ad-term-15",
-      "title": "Alibre Design Concept 15",
-      "short_def": "A core proprietary technology or drafting concept unique to the Alibre Design ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Alibre Design. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "alibre-design-term-15",
+      "title": "Design Booleans (Alibre Design)",
+      "short_def": "Solid-state geometric operations combining or intersecting volumes.",
+      "definition": "In Alibre Design, Design Booleans represents a core architectural mechanism. Tools such as Union, Subtract, and Intersect applied to multiple independent bodies inside a single workspace to form complex final structures.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Design Booleans is critical for production-grade deliverables. Essential for mold core and cavity design, where product geometry is subtracted from solid blocks to define manufacturing tooling.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Applying booleans to disjoint bodies that do not touch, creating errors in downstream fillets.",
+        "Forgetting to preserve tool bodies when subtracting geometry."
       ],
       "related_term_slugs": []
     }
   ],
   "faqs": [
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 1?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Parametric Dimension Driver?",
+      "answer": "When working with Parametric Dimension Driver in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 2?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Geometric Constraints?",
+      "answer": "When working with Geometric Constraints in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 3?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Feature History Tree?",
+      "answer": "When working with Feature History Tree in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 4?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Assembly Mates?",
+      "answer": "When working with Assembly Mates in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 5?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design B-Rep Solid Engine?",
+      "answer": "When working with B-Rep Solid Engine in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 6?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Sheet Metal Flanges?",
+      "answer": "When working with Sheet Metal Flanges in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 7?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design 2D Drafting Sheets?",
+      "answer": "When working with 2D Drafting Sheets in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 8?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Alibre Script?",
+      "answer": "When working with Alibre Script in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 9?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Equations Editor?",
+      "answer": "When working with Equations Editor in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 10?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Configurations Manager?",
+      "answer": "When working with Configurations Manager in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 11?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Catalog Features?",
+      "answer": "When working with Catalog Features in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 12?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design 3D PDF Publishing?",
+      "answer": "When working with 3D PDF Publishing in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 13?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Thread Creator?",
+      "answer": "When working with Thread Creator in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 14?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design STEP/IGES Translation?",
+      "answer": "When working with STEP/IGES Translation in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Alibre Design workflow task 15?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Alibre Design Design Booleans?",
+      "answer": "When working with Design Booleans in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     }
   ],
   "graph_nodes": [
@@ -337,7 +322,7 @@
       "id": "Alibre Design",
       "type": "product",
       "tags": [
-        "alibre",
+        "alibredesign",
         "alibre-design"
       ],
       "hint": "A high-precision, budget-friendly parametric 3D solid modeler for mechanical parts and assemblies.",
@@ -345,152 +330,152 @@
       "radius": 14
     },
     {
-      "id": "Alibre Design Concept 1",
+      "id": "Parametric Dimension Driver (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 1 in Alibre Design.",
+      "hint": "Driving sketch and feature parameters using logical mathematical variables.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 2",
+      "id": "Geometric Constraints (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 2 in Alibre Design.",
+      "hint": "Rules governing the relative positioning and behavior of sketch elements.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 3",
+      "id": "Feature History Tree (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 3 in Alibre Design.",
+      "hint": "The chronological stack of active modeling operations in parametric design.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 4",
+      "id": "Assembly Mates (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 4 in Alibre Design.",
+      "hint": "3D constraints linking coordinate systems and surfaces of components.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 5",
+      "id": "B-Rep Solid Engine (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 5 in Alibre Design.",
+      "hint": "Boundary Representation mathematical representation of solid geometry.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 6",
+      "id": "Sheet Metal Flanges (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 6 in Alibre Design.",
+      "hint": "Bent sheet panels created relative to baseline flat sheets.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 7",
+      "id": "2D Drafting Sheets (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 7 in Alibre Design.",
+      "hint": "Production-ready orthogonal and auxiliary drawing representations.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 8",
+      "id": "Alibre Script (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 8 in Alibre Design.",
+      "hint": "Python-based scripting API for automation and custom tools.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 9",
+      "id": "Equations Editor (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 9 in Alibre Design.",
+      "hint": "A central spreadsheet-like control panel for managing variables.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 10",
+      "id": "Configurations Manager (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 10 in Alibre Design.",
+      "hint": "System for maintaining multiple physical variants in a single file.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 11",
+      "id": "Catalog Features (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 11 in Alibre Design.",
+      "hint": "Library of reusable feature blocks and templates.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 12",
+      "id": "3D PDF Publishing (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 12 in Alibre Design.",
+      "hint": "Standardized interactive PDF documents hosting 3D geometry.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 13",
+      "id": "Thread Creator (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 13 in Alibre Design.",
+      "hint": "Parametric modeling of cosmetic or real helical threads.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 14",
+      "id": "STEP/IGES Translation (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 14 in Alibre Design.",
+      "hint": "Standardized neutral formats for cross-platform CAD exchange.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Alibre Design Concept 15",
+      "id": "Design Booleans (Alibre Design)",
       "type": "concept",
       "tags": [
         "alibre-design"
       ],
-      "hint": "Concept 15 in Alibre Design.",
+      "hint": "Solid-state geometric operations combining or intersecting volumes.",
       "group": 2,
       "radius": 8
     }
@@ -501,63 +486,63 @@
       "Alibre"
     ],
     [
-      "Alibre Design Concept 1",
+      "Parametric Dimension Driver (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 2",
+      "Geometric Constraints (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 3",
+      "Feature History Tree (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 4",
+      "Assembly Mates (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 5",
+      "B-Rep Solid Engine (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 6",
+      "Sheet Metal Flanges (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 7",
+      "2D Drafting Sheets (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 8",
+      "Alibre Script (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 9",
+      "Equations Editor (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 10",
+      "Configurations Manager (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 11",
+      "Catalog Features (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 12",
+      "3D PDF Publishing (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 13",
+      "Thread Creator (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 14",
+      "STEP/IGES Translation (Alibre Design)",
       "Alibre Design"
     ],
     [
-      "Alibre Design Concept 15",
+      "Design Booleans (Alibre Design)",
       "Alibre Design"
     ]
   ]

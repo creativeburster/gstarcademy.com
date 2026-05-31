@@ -73,261 +73,246 @@
   ],
   "terms": [
     {
-      "slug": "av-term-1",
-      "title": "AVEVA Everything3D Concept 1",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-1",
+      "title": "Spec-Driven Piping Design (AVEVA Everything3D)",
+      "short_def": "Automated piping layout governed by standardized engineering specifications.",
+      "definition": "In AVEVA Everything3D, Spec-Driven Piping Design represents a core architectural mechanism. A core CAD toolset where pipes and fittings are selected and routed according to pre-defined material specs, pressure ratings, and nominal diameters.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Spec-Driven Piping Design is critical for production-grade deliverables. Directly enforces design code compliance, preventing the placement of incompatible pipe fittings inside chemical or power plant lines.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Manually forcing a non-spec fitting into a pipeline, violating engineering codes.",
+        "Using wrong nominal size parameters."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-2",
-      "title": "AVEVA Everything3D Concept 2",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-2",
+      "title": "Laser Data & Point Clouds (AVEVA Everything3D)",
+      "short_def": "Direct integration of 3D laser scans into plant layouts.",
+      "definition": "In AVEVA Everything3D, Laser Data & Point Clouds represents a core architectural mechanism. The capability to load massive, high-precision point cloud scans directly inside active E3D modeling workspaces.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Laser Data & Point Clouds is critical for production-grade deliverables. Allows engineers to design new piping runs around existing physical equipment, completely avoiding field measurement errors.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Modeling new pipelines directly through physical scan points due to missed visual clash audits.",
+        "Overloading system memory."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-3",
-      "title": "AVEVA Everything3D Concept 3",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-3",
+      "title": "Bubble View (AVEVA Everything3D)",
+      "short_def": "Interactive panoramic bubble views linked to 3D designs.",
+      "definition": "In AVEVA Everything3D, Bubble View represents a core architectural mechanism. An interactive coordination view that allows designers to jump into panoramic photographic scans, overlaying active 3D models onto reality.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Bubble View is critical for production-grade deliverables. Enhances spatial coordination, letting designers inspect physical plant clearances without traveling to remote sites.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Mismultiplying spatial coordinate alignments between point clouds and CAD models.",
+        "Confusing target scanner coordinate systems."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-4",
-      "title": "AVEVA Everything3D Concept 4",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-4",
+      "title": "Clash Detection & Clearance (AVEVA Everything3D)",
+      "short_def": "Automated plant-wide interference check engine.",
+      "definition": "In AVEVA Everything3D, Clash Detection & Clearance represents a core architectural mechanism. The built-in analysis utility that sweeps 3D structures to identify structural interferences between pipes, steel, ducts, and equipment.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Clash Detection & Clearance is critical for production-grade deliverables. Prevents multi-million dollar field fabrication errors by catching piping clashes before modules are shipped to site.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Setting search zones too wide, generating millions of false positive clearance warnings.",
+        "Failing to check insulation thickness."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-5",
-      "title": "AVEVA Everything3D Concept 5",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-5",
+      "title": "Draft Workbench (AVEVA Everything3D)",
+      "short_def": "Automated 2D orthographic drawing extraction from 3D models.",
+      "definition": "In AVEVA Everything3D, Draft Workbench represents a core architectural mechanism. The drafting module that projects active 3D plant models into detailed 2D plans, sections, and elevations, maintaining full model associativity.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Draft Workbench is critical for production-grade deliverables. Provides the physical construction drawings for site installation, ensuring zero discrepancies between 3D design and printed sheets.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Exploding projected 2D drawings into raw lines to apply fast manual fixes, breaking the 3D model link.",
+        "Mismatched scale values."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-6",
-      "title": "AVEVA Everything3D Concept 6",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-6",
+      "title": "AVEVA PML Scripting (AVEVA Everything3D)",
+      "short_def": "Proprietary programming language for E3D customization.",
+      "definition": "In AVEVA Everything3D, AVEVA PML Scripting represents a core architectural mechanism. The Programmable Macro Language (PML) allowing plant administrators to build custom menus, automate structural modeling, and integrate ERP systems.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering AVEVA PML Scripting is critical for production-grade deliverables. Allows enterprises to package their engineering rules into automated plant design scripts, cutting modeling times in half.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Using deprecated PML syntax that breaks on newer E3D software versions.",
+        "Poor error trapping in PML forms."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-7",
-      "title": "AVEVA Everything3D Concept 7",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-7",
+      "title": "Catalog & Spec Editor (AVEVA Everything3D)",
+      "short_def": "Database engine defining piping and structural components.",
+      "definition": "In AVEVA Everything3D, Catalog & Spec Editor represents a core architectural mechanism. The master editor where physical components (valves, steel shapes, bolts) are defined by dimensional parameters and catalog codes.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Catalog & Spec Editor is critical for production-grade deliverables. Acts as the single source of truth for plant modeling, ensuring every designer selects standard parts.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Entering incorrect component dimensions, causing all downstream plant designs to contain geometric errors.",
+        "Duplicate catalog codes."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-8",
-      "title": "AVEVA Everything3D Concept 8",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-8",
+      "title": "Structural Steelwork (AVEVA Everything3D)",
+      "short_def": "Parametric modeling of steel frames and joints.",
+      "definition": "In AVEVA Everything3D, Structural Steelwork represents a core architectural mechanism. The modeling toolset for placing structural beams, columns, plates, and joints, maintaining physical reference alignments to piping grids.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Structural Steelwork is critical for production-grade deliverables. Ensures piping supports are securely integrated into structural steel structures, preventing pipe routing failures.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Placing heavy piping loads on unreinforced steel members.",
+        "Ignoring connection plate tolerances."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-9",
-      "title": "AVEVA Everything3D Concept 9",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-9",
+      "title": "Marine Design Module (AVEVA Everything3D)",
+      "short_def": "Specialized hull and marine outfitting modeling tools.",
+      "definition": "In AVEVA Everything3D, Marine Design Module represents a core architectural mechanism. An integrated module designed for ship hull modeling, compartments, plating, and complex marine system outfitting.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Marine Design Module is critical for production-grade deliverables. Streamlines ship design by linking naval architecture parameters with detailed mechanical outfitting systems in one database.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Modeling ship structures without adjusting for marine coordinate baselines.",
+        "Mismatched plate thickness definitions."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-10",
-      "title": "AVEVA Everything3D Concept 10",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-10",
+      "title": "Cable Design & Routing (AVEVA Everything3D)",
+      "short_def": "Automated electrical cable tray and conduit routing.",
+      "definition": "In AVEVA Everything3D, Cable Design & Routing represents a core architectural mechanism. The toolset that calculates optimal 3D routing for electrical cables through trays and conduits based on fill-rate rules and voltage separation codes.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Cable Design & Routing is critical for production-grade deliverables. Ensures electrical systems comply with safety codes, preventing high-voltage and signal cables from being nested together.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Exceeding maximum cable tray fill-rates, leading to electrical heat-dissipation failures.",
+        "Poor bend radius planning."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-11",
-      "title": "AVEVA Everything3D Concept 11",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-11",
+      "title": "HVAC Ducting Systems (AVEVA Everything3D)",
+      "short_def": "Intelligent modeling of ventilation and duct systems.",
+      "definition": "In AVEVA Everything3D, HVAC Ducting Systems represents a core architectural mechanism. The parametric module for routing rectangular, round, and flat ducts, automatically placing elbows, transitions, and damper assets.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering HVAC Ducting Systems is critical for production-grade deliverables. Ensures ventilation pathways align with architectural ceilings and structural steel before mechanical components are shipped.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Placing large air-conditioning duct fittings directly through steel structure beams.",
+        "Mismatched duct flange specs."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-12",
-      "title": "AVEVA Everything3D Concept 12",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-12",
+      "title": "Structural Joints & Plates (AVEVA Everything3D)",
+      "short_def": "Automated steel connection detailing.",
+      "definition": "In AVEVA Everything3D, Structural Joints & Plates represents a core architectural mechanism. The toolset that generates gusset plates, bolted connections, and weld preps at the intersection of structural steel members.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Structural Joints & Plates is critical for production-grade deliverables. Guarantees structural load paths are correctly handled, generating precise drawings for fabricator shops.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Neglecting bolt spacing clearances, preventing field technicians from using standard wrenches on-site.",
+        "Mismatched weld preps."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-13",
-      "title": "AVEVA Everything3D Concept 13",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-13",
+      "title": "Multi-User Database Coordination (AVEVA Everything3D)",
+      "short_def": "Real-time database sharing for distributed design teams.",
+      "definition": "In AVEVA Everything3D, Multi-User Database Coordination represents a core architectural mechanism. The underlying database engine that synchronizes drawing edits from hundreds of piping, structural, and electrical engineers in one global model.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Multi-User Database Coordination is critical for production-grade deliverables. Prevents data silo errors, ensuring civil designers see piping changes instantly, maintaining model coordination.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Working offline on disconnected local models, causing severe database conflicts on sync.",
+        "Failing to check in model locks."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-14",
-      "title": "AVEVA Everything3D Concept 14",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-14",
+      "title": "Intelligent Isometric Generation (AVEVA Everything3D)",
+      "short_def": "Automated 3D piping isometric extraction.",
+      "definition": "In AVEVA Everything3D, Intelligent Isometric Generation represents a core architectural mechanism. The Isodraft module that sweeps 3D pipe models and automatically generates fully detailed fabrication isometrics with BOM lists.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Intelligent Isometric Generation is critical for production-grade deliverables. Acts as the core fabrication document for piping shops, turning 3D models into accurate cut-sheets and weld lists.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Failing to set correct pipeline boundaries (naming conventions), resulting in fragmented isometric outputs.",
+        "Corrupting backing sheet templates."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "av-term-15",
-      "title": "AVEVA Everything3D Concept 15",
-      "short_def": "A core proprietary technology or drafting concept unique to the AVEVA Everything3D ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of AVEVA Everything3D. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "aveva-e3d-term-15",
+      "title": "Equipment Modeling (AVEVA Everything3D)",
+      "short_def": "Parametric construction of plant primitives.",
+      "definition": "In AVEVA Everything3D, Equipment Modeling represents a core architectural mechanism. The toolset for building complex plant assets (pumps, vessels, exchangers) using basic 3D solids (primitives) and defining piping nozzle locations.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Equipment Modeling is critical for production-grade deliverables. Establishes precise nozzle locations and coordinate inputs, ensuring routed pipes connect cleanly to plant equipment.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Placing nozzles with incorrect coordinate rotation angles, preventing spec-driven pipes from connecting.",
+        "Using approximate diameters."
       ],
       "related_term_slugs": []
     }
   ],
   "faqs": [
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 1?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Spec-Driven Piping Design?",
+      "answer": "When working with Spec-Driven Piping Design in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 2?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Laser Data & Point Clouds?",
+      "answer": "When working with Laser Data & Point Clouds in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 3?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Bubble View?",
+      "answer": "When working with Bubble View in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 4?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Clash Detection & Clearance?",
+      "answer": "When working with Clash Detection & Clearance in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 5?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Draft Workbench?",
+      "answer": "When working with Draft Workbench in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 6?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D AVEVA PML Scripting?",
+      "answer": "When working with AVEVA PML Scripting in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 7?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Catalog & Spec Editor?",
+      "answer": "When working with Catalog & Spec Editor in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 8?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Structural Steelwork?",
+      "answer": "When working with Structural Steelwork in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 9?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Marine Design Module?",
+      "answer": "When working with Marine Design Module in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 10?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Cable Design & Routing?",
+      "answer": "When working with Cable Design & Routing in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 11?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D HVAC Ducting Systems?",
+      "answer": "When working with HVAC Ducting Systems in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 12?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Structural Joints & Plates?",
+      "answer": "When working with Structural Joints & Plates in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 13?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Multi-User Database Coordination?",
+      "answer": "When working with Multi-User Database Coordination in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 14?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Intelligent Isometric Generation?",
+      "answer": "When working with Intelligent Isometric Generation in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for AVEVA Everything3D workflow task 15?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for AVEVA Everything3D Equipment Modeling?",
+      "answer": "When working with Equipment Modeling in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     }
   ],
   "graph_nodes": [
@@ -335,7 +320,7 @@
       "id": "AVEVA Everything3D",
       "type": "product",
       "tags": [
-        "aveva",
+        "avevae3d",
         "aveva-e3d"
       ],
       "hint": "AVEVA's high-end process plant and marine 3D design platform, optimized for huge coordinated piping projects.",
@@ -343,152 +328,152 @@
       "radius": 14
     },
     {
-      "id": "AVEVA Everything3D Concept 1",
+      "id": "Spec-Driven Piping Design (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 1 in AVEVA Everything3D.",
+      "hint": "Automated piping layout governed by standardized engineering specifications.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 2",
+      "id": "Laser Data & Point Clouds (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 2 in AVEVA Everything3D.",
+      "hint": "Direct integration of 3D laser scans into plant layouts.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 3",
+      "id": "Bubble View (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 3 in AVEVA Everything3D.",
+      "hint": "Interactive panoramic bubble views linked to 3D designs.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 4",
+      "id": "Clash Detection & Clearance (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 4 in AVEVA Everything3D.",
+      "hint": "Automated plant-wide interference check engine.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 5",
+      "id": "Draft Workbench (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 5 in AVEVA Everything3D.",
+      "hint": "Automated 2D orthographic drawing extraction from 3D models.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 6",
+      "id": "AVEVA PML Scripting (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 6 in AVEVA Everything3D.",
+      "hint": "Proprietary programming language for E3D customization.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 7",
+      "id": "Catalog & Spec Editor (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 7 in AVEVA Everything3D.",
+      "hint": "Database engine defining piping and structural components.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 8",
+      "id": "Structural Steelwork (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 8 in AVEVA Everything3D.",
+      "hint": "Parametric modeling of steel frames and joints.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 9",
+      "id": "Marine Design Module (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 9 in AVEVA Everything3D.",
+      "hint": "Specialized hull and marine outfitting modeling tools.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 10",
+      "id": "Cable Design & Routing (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 10 in AVEVA Everything3D.",
+      "hint": "Automated electrical cable tray and conduit routing.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 11",
+      "id": "HVAC Ducting Systems (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 11 in AVEVA Everything3D.",
+      "hint": "Intelligent modeling of ventilation and duct systems.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 12",
+      "id": "Structural Joints & Plates (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 12 in AVEVA Everything3D.",
+      "hint": "Automated steel connection detailing.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 13",
+      "id": "Multi-User Database Coordination (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 13 in AVEVA Everything3D.",
+      "hint": "Real-time database sharing for distributed design teams.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 14",
+      "id": "Intelligent Isometric Generation (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 14 in AVEVA Everything3D.",
+      "hint": "Automated 3D piping isometric extraction.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "AVEVA Everything3D Concept 15",
+      "id": "Equipment Modeling (AVEVA Everything3D)",
       "type": "concept",
       "tags": [
         "aveva-e3d"
       ],
-      "hint": "Concept 15 in AVEVA Everything3D.",
+      "hint": "Parametric construction of plant primitives.",
       "group": 2,
       "radius": 8
     }
@@ -499,63 +484,63 @@
       "AVEVA"
     ],
     [
-      "AVEVA Everything3D Concept 1",
+      "Spec-Driven Piping Design (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 2",
+      "Laser Data & Point Clouds (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 3",
+      "Bubble View (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 4",
+      "Clash Detection & Clearance (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 5",
+      "Draft Workbench (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 6",
+      "AVEVA PML Scripting (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 7",
+      "Catalog & Spec Editor (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 8",
+      "Structural Steelwork (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 9",
+      "Marine Design Module (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 10",
+      "Cable Design & Routing (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 11",
+      "HVAC Ducting Systems (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 12",
+      "Structural Joints & Plates (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 13",
+      "Multi-User Database Coordination (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 14",
+      "Intelligent Isometric Generation (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ],
     [
-      "AVEVA Everything3D Concept 15",
+      "Equipment Modeling (AVEVA Everything3D)",
       "AVEVA Everything3D"
     ]
   ]

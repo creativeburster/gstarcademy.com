@@ -74,261 +74,246 @@
   ],
   "terms": [
     {
-      "slug": "ms-term-1",
-      "title": "MicroStation Concept 1",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-1",
+      "title": "DGN Design File Format (MicroStation)",
+      "short_def": "High-precision native file format for civil and infrastructure engineering.",
+      "definition": "In MicroStation, DGN Design File Format represents a core architectural mechanism. Bentley's native file standard, designed to support massive geographic coordinate datasets, multi-level coordinate references, and extreme spatial precision.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering DGN Design File Format is critical for production-grade deliverables. Underpins the file coordination of global transportation projects, supporting absolute coordinate accuracy over hundreds of miles.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Opening and saving DGN files in legacy DWG formats that strip out multi-level coordinate structures.",
+        "Corrupting level tables."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-2",
-      "title": "MicroStation Concept 2",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-2",
+      "title": "Cells & Shared Cells (MicroStation)",
+      "short_def": "Reusable drawing symbols and parametric components.",
+      "definition": "In MicroStation, Cells & Shared Cells represents a core architectural mechanism. MicroStation's equivalent of CAD blocks. Cell libraries host static or parametric components, while Shared Cells optimize file memory by referencing one definition.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Cells & Shared Cells is critical for production-grade deliverables. Minimizes file size when drawing massive infrastructure plans containing thousands of standardized signposts or rail fittings.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Modifying cell library paths, causing placed cells to lose their source definitions.",
+        "Broken nested cells."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-3",
-      "title": "MicroStation Concept 3",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-3",
+      "title": "Levels & Level Manager (MicroStation)",
+      "short_def": "Comprehensive drawing organization and standard systems.",
+      "definition": "In MicroStation, Levels & Level Manager represents a core architectural mechanism. MicroStation's equivalent of layers, providing names, colors, line weights, styles, and custom display filters for CAD elements.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Levels & Level Manager is critical for production-grade deliverables. Ensures strict compliance with corporate and government drawing standards, ensuring different disciplines print with correct weights.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Drawing elements on active levels without configuring ByLevel properties, overriding company standards.",
+        "Duplicate level names."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-4",
-      "title": "MicroStation Concept 4",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-4",
+      "title": "Reference Files (MicroStation)",
+      "short_def": "Live, cross-discipline reference overlays for coordinate-perfect design.",
+      "definition": "In MicroStation, Reference Files represents a core architectural mechanism. The capability to reference separate DGN, raster, or terrain files, overlaying them onto the active design workspace without bloating file size.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Reference Files is critical for production-grade deliverables. Acts as the coordination highway for massive highway and bridge projects, ensuring structural, civil, and environmental teams align.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Moving referenced DGN files on the server, breaking all relative reference paths.",
+        "Mismatched coordinate scales."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-5",
-      "title": "MicroStation Concept 5",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-5",
+      "title": "Item Types (MicroStation)",
+      "short_def": "Dynamic metadata schemas attached to drawing elements.",
+      "definition": "In MicroStation, Item Types represents a core architectural mechanism. User-defined attribute fields (e.g. asset IDs, material ratings) attached to geometric solids and shapes, supporting database integration.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Item Types is critical for production-grade deliverables. Allows MicroStation drawings to carry rich GIS and BIM metadata, automatically feeding external asset management and cost databases.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Attaching Item Types with duplicate GUID identifiers.",
+        "Mismatched data types."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-6",
-      "title": "MicroStation Concept 6",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-6",
+      "title": "Parametric Modeling & Constraints (MicroStation)",
+      "short_def": "Dimension-driven infrastructure design.",
+      "definition": "In MicroStation, Parametric Modeling & Constraints represents a core architectural mechanism. The parametric toolset allowing civil designers to define 3D structural forms (e.g., bridge abutments) driven by geometric and numeric variables.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Parametric Modeling & Constraints is critical for production-grade deliverables. Ensures design modifications recompute predictably, automatically adjusting concrete volumes as structural spans shift.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Over-constraining complex 3D profiles, causing the geometric solver to fail.",
+        "Ignoring parent-child dependencies."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-7",
-      "title": "MicroStation Concept 7",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-7",
+      "title": "AccuDraw & AccuSnap (MicroStation)",
+      "short_def": "Dynamic coordinate input and precise snap helper.",
+      "definition": "In MicroStation, AccuDraw & AccuSnap represents a core architectural mechanism. The graphical compass interface that provides rapid polar or rectangular coordinate entry, snapping cursor movements to active axes.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering AccuDraw & AccuSnap is critical for production-grade deliverables. Speeds up the drafting of complex geometries, converting complex numeric coordinate inputs into fast keyboard shortcuts.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Disabling the AccuDraw compass out of legacy drafting habits.",
+        "Configuring misaligned rotation angles."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-8",
-      "title": "MicroStation Concept 8",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-8",
+      "title": "ProjectWise Collaboration (MicroStation)",
+      "short_def": "Enterprise document management system integration.",
+      "definition": "In MicroStation, ProjectWise Collaboration represents a core architectural mechanism. The direct integration with ProjectWise servers, managing check-out/check-in, version histories, and access rights for infrastructure teams.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering ProjectWise Collaboration is critical for production-grade deliverables. Prevents coordinate data overwrite conflicts, ensuring thousands of engineers work on coordinated, live master models safely.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Editing checked-out files offline without synchronizing local file caches.",
+        "Skipping workflow status updates."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-9",
-      "title": "MicroStation Concept 9",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-9",
+      "title": "Mesh Modeling Tools (MicroStation)",
+      "short_def": "Lightweight 3D surface modeling for complex terrains.",
+      "definition": "In MicroStation, Mesh Modeling Tools represents a core architectural mechanism. The toolset designed to generate, stitch, and edit 3D mesh surfaces, supporting the visualization of complex topological terrains.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Mesh Modeling Tools is critical for production-grade deliverables. Provides a high-performance method for modeling large earth volumes and organic site features without bloating file memory.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Exporting thin meshes to downstream CNC CAM software that requires solid B-Rep volumes.",
+        "Intersecting mesh faces."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-10",
-      "title": "MicroStation Concept 10",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-10",
+      "title": "Print Organizer (MicroStation)",
+      "short_def": "Enterprise batch plotting and PDF publishing pipeline.",
+      "definition": "In MicroStation, Print Organizer represents a core architectural mechanism. The utility that gathers drawing sheets from multiple DGN files, organizing them into print sets for automated publishing.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Print Organizer is critical for production-grade deliverables. Ensures professional-grade multi-page deliverables, generating thousands of indexed PDF drawings in one batch operation.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Publishing drawings without active print style configurations, printing wrong line weights.",
+        "Mismatched sheet boundaries."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-11",
-      "title": "MicroStation Concept 11",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-11",
+      "title": "Bentley View Compatibility (MicroStation)",
+      "short_def": "Seamless file sharing and review tool.",
+      "definition": "In MicroStation, Bentley View Compatibility represents a core architectural mechanism. The capability to export and review DGN designs in lightweight viewer formats, allowing external clients to measure and inspect designs.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Bentley View Compatibility is critical for production-grade deliverables. Streamlines project review cycles, allowing stakeholders to check clearances without licenses of CAD software.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Exposing highly proprietary 3D coordinates to un-secure client viewers.",
+        "Mismatched version exports."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-12",
-      "title": "MicroStation Concept 12",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-12",
+      "title": "Geographic Coordinate Systems (MicroStation)",
+      "short_def": "Geospatial projection mapping and map alignment.",
+      "definition": "In MicroStation, Geographic Coordinate Systems represents a core architectural mechanism. The database tool that applies real-world geospatial coordinate systems (e.g. UTM, state plane projections) directly to DGN workspaces.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Geographic Coordinate Systems is critical for production-grade deliverables. Guarantees that large-scale infrastructure designs (highways, pipelines) align perfectly with geographic satellite maps.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Drawing geometry far away from the coordinate origin without establishing coordinate systems, causing round-off errors.",
+        "Wrong projection zones."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-13",
-      "title": "MicroStation Concept 13",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-13",
+      "title": "MDL C++ API (MicroStation)",
+      "short_def": "Native-level C++ SDK for deep application customization.",
+      "definition": "In MicroStation, MDL C++ API represents a core architectural mechanism. The MicroStation Development Library (MDL) allowing programmers to build custom commands, database interfaces, and GIS tools.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering MDL C++ API is critical for production-grade deliverables. Protects enterprise automation systems, allowing companies to automate complex roadway design calculations.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Compiling MDL applications without matching the specific MicroStation SDK release version.",
+        "Hardcoding support paths."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-14",
-      "title": "MicroStation Concept 14",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-14",
+      "title": "Point Cloud Visualisation (MicroStation)",
+      "short_def": "High-performance loading and styling of laser scan data.",
+      "definition": "In MicroStation, Point Cloud Visualisation represents a core architectural mechanism. The rendering engine capability to display billions of lidar scan points directly in active design viewports.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Point Cloud Visualisation is critical for production-grade deliverables. Enables designers to fit new structures directly to real-world dimensions, eliminating field coordination errors.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Failing to align point cloud scanner origins with DGN design origins.",
+        "Ignoring scanner tolerances."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "ms-term-15",
-      "title": "MicroStation Concept 15",
-      "short_def": "A core proprietary technology or drafting concept unique to the MicroStation ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of MicroStation. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "microstation-term-15",
+      "title": "VBA Automation (MicroStation)",
+      "short_def": "Accessible programming engine for CAD task automation.",
+      "definition": "In MicroStation, VBA Automation represents a core architectural mechanism. The integrated VBA IDE and object model allowing designers to write custom macros to automate drawing audits and Excel reports.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering VBA Automation is critical for production-grade deliverables. Saves massive drafting hours by automating repetitive sheet setup, numbering, and drawing clean-up operations.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Using 32-bit VBA libraries on 64-bit MicroStation installations, causing script crashes.",
+        "Broken library references."
       ],
       "related_term_slugs": []
     }
   ],
   "faqs": [
     {
-      "question": "What is the recommended practice for MicroStation workflow task 1?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation DGN Design File Format?",
+      "answer": "When working with DGN Design File Format in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 2?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Cells & Shared Cells?",
+      "answer": "When working with Cells & Shared Cells in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 3?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Levels & Level Manager?",
+      "answer": "When working with Levels & Level Manager in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 4?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Reference Files?",
+      "answer": "When working with Reference Files in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 5?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Item Types?",
+      "answer": "When working with Item Types in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 6?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Parametric Modeling & Constraints?",
+      "answer": "When working with Parametric Modeling & Constraints in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 7?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation AccuDraw & AccuSnap?",
+      "answer": "When working with AccuDraw & AccuSnap in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 8?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation ProjectWise Collaboration?",
+      "answer": "When working with ProjectWise Collaboration in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 9?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Mesh Modeling Tools?",
+      "answer": "When working with Mesh Modeling Tools in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 10?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Print Organizer?",
+      "answer": "When working with Print Organizer in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 11?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Bentley View Compatibility?",
+      "answer": "When working with Bentley View Compatibility in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 12?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Geographic Coordinate Systems?",
+      "answer": "When working with Geographic Coordinate Systems in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 13?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation MDL C++ API?",
+      "answer": "When working with MDL C++ API in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 14?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation Point Cloud Visualisation?",
+      "answer": "When working with Point Cloud Visualisation in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for MicroStation workflow task 15?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for MicroStation VBA Automation?",
+      "answer": "When working with VBA Automation in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     }
   ],
   "graph_nodes": [
@@ -336,7 +321,7 @@
       "id": "MicroStation",
       "type": "product",
       "tags": [
-        "bentley",
+        "microstation",
         "microstation"
       ],
       "hint": "Bentley's foundational high-performance CAD and BIM platform for large-scale global infrastructure projects.",
@@ -344,152 +329,152 @@
       "radius": 14
     },
     {
-      "id": "MicroStation Concept 1",
+      "id": "DGN Design File Format (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 1 in MicroStation.",
+      "hint": "High-precision native file format for civil and infrastructure engineering.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 2",
+      "id": "Cells & Shared Cells (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 2 in MicroStation.",
+      "hint": "Reusable drawing symbols and parametric components.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 3",
+      "id": "Levels & Level Manager (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 3 in MicroStation.",
+      "hint": "Comprehensive drawing organization and standard systems.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 4",
+      "id": "Reference Files (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 4 in MicroStation.",
+      "hint": "Live, cross-discipline reference overlays for coordinate-perfect design.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 5",
+      "id": "Item Types (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 5 in MicroStation.",
+      "hint": "Dynamic metadata schemas attached to drawing elements.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 6",
+      "id": "Parametric Modeling & Constraints (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 6 in MicroStation.",
+      "hint": "Dimension-driven infrastructure design.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 7",
+      "id": "AccuDraw & AccuSnap (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 7 in MicroStation.",
+      "hint": "Dynamic coordinate input and precise snap helper.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 8",
+      "id": "ProjectWise Collaboration (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 8 in MicroStation.",
+      "hint": "Enterprise document management system integration.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 9",
+      "id": "Mesh Modeling Tools (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 9 in MicroStation.",
+      "hint": "Lightweight 3D surface modeling for complex terrains.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 10",
+      "id": "Print Organizer (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 10 in MicroStation.",
+      "hint": "Enterprise batch plotting and PDF publishing pipeline.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 11",
+      "id": "Bentley View Compatibility (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 11 in MicroStation.",
+      "hint": "Seamless file sharing and review tool.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 12",
+      "id": "Geographic Coordinate Systems (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 12 in MicroStation.",
+      "hint": "Geospatial projection mapping and map alignment.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 13",
+      "id": "MDL C++ API (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 13 in MicroStation.",
+      "hint": "Native-level C++ SDK for deep application customization.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 14",
+      "id": "Point Cloud Visualisation (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 14 in MicroStation.",
+      "hint": "High-performance loading and styling of laser scan data.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "MicroStation Concept 15",
+      "id": "VBA Automation (MicroStation)",
       "type": "concept",
       "tags": [
         "microstation"
       ],
-      "hint": "Concept 15 in MicroStation.",
+      "hint": "Accessible programming engine for CAD task automation.",
       "group": 2,
       "radius": 8
     }
@@ -497,66 +482,66 @@
   "graph_links": [
     [
       "MicroStation",
-      "Bentley"
+      "Bentley Systems"
     ],
     [
-      "MicroStation Concept 1",
+      "DGN Design File Format (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 2",
+      "Cells & Shared Cells (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 3",
+      "Levels & Level Manager (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 4",
+      "Reference Files (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 5",
+      "Item Types (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 6",
+      "Parametric Modeling & Constraints (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 7",
+      "AccuDraw & AccuSnap (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 8",
+      "ProjectWise Collaboration (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 9",
+      "Mesh Modeling Tools (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 10",
+      "Print Organizer (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 11",
+      "Bentley View Compatibility (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 12",
+      "Geographic Coordinate Systems (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 13",
+      "MDL C++ API (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 14",
+      "Point Cloud Visualisation (MicroStation)",
       "MicroStation"
     ],
     [
-      "MicroStation Concept 15",
+      "VBA Automation (MicroStation)",
       "MicroStation"
     ]
   ]

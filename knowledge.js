@@ -630,297 +630,297 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     { id: "Vectorworks (Nemetschek)", type: "vendor", group: 1, radius: 12, tags: ["vectorworks"], hint: "Nemetschek group company; vendor of Vectorworks." },
     { id: "Hexagon", type: "vendor", group: 1, radius: 12, tags: ["hexagon", "bricscad"], hint: "Global leader in digital reality solutions; parent of Bricsys and BricsCAD." },
   /* AUTO-GEN sw-nodes START */
-  { id: "Alibre Design", type: "product", group: 1, radius: 14, tags: ["alibre", "alibre-design"], hint: "A high-precision, budget-friendly parametric 3D solid modeler for mechanical parts and assemblies." },
-  { id: "Alibre Design Concept 1", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 1 in Alibre Design." },
-  { id: "Alibre Design Concept 2", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 2 in Alibre Design." },
-  { id: "Alibre Design Concept 3", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 3 in Alibre Design." },
-  { id: "Alibre Design Concept 4", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 4 in Alibre Design." },
-  { id: "Alibre Design Concept 5", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 5 in Alibre Design." },
-  { id: "Alibre Design Concept 6", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 6 in Alibre Design." },
-  { id: "Alibre Design Concept 7", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 7 in Alibre Design." },
-  { id: "Alibre Design Concept 8", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 8 in Alibre Design." },
-  { id: "Alibre Design Concept 9", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 9 in Alibre Design." },
-  { id: "Alibre Design Concept 10", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 10 in Alibre Design." },
-  { id: "Alibre Design Concept 11", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 11 in Alibre Design." },
-  { id: "Alibre Design Concept 12", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 12 in Alibre Design." },
-  { id: "Alibre Design Concept 13", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 13 in Alibre Design." },
-  { id: "Alibre Design Concept 14", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 14 in Alibre Design." },
-  { id: "Alibre Design Concept 15", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Concept 15 in Alibre Design." },
-  { id: "Allplan", type: "product", group: 1, radius: 14, tags: ["allplan", "allplan"], hint: "Nemetschek's high-performance BIM platform focused on structural engineering and precast concrete." },
-  { id: "Allplan Concept 1", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 1 in Allplan." },
-  { id: "Allplan Concept 2", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 2 in Allplan." },
-  { id: "Allplan Concept 3", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 3 in Allplan." },
-  { id: "Allplan Concept 4", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 4 in Allplan." },
-  { id: "Allplan Concept 5", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 5 in Allplan." },
-  { id: "Allplan Concept 6", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 6 in Allplan." },
-  { id: "Allplan Concept 7", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 7 in Allplan." },
-  { id: "Allplan Concept 8", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 8 in Allplan." },
-  { id: "Allplan Concept 9", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 9 in Allplan." },
-  { id: "Allplan Concept 10", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 10 in Allplan." },
-  { id: "Allplan Concept 11", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 11 in Allplan." },
-  { id: "Allplan Concept 12", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 12 in Allplan." },
-  { id: "Allplan Concept 13", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 13 in Allplan." },
-  { id: "Allplan Concept 14", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 14 in Allplan." },
-  { id: "Allplan Concept 15", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Concept 15 in Allplan." },
-  { id: "ARES Commander", type: "product", group: 1, radius: 14, tags: ["graebert", "ares-commander"], hint: "Graebert's core DWG-native CAD engine, the foundation powering DraftSight, CorelCAD, and extensive cloud workflows." },
-  { id: "ARES Commander Concept 1", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 1 in ARES Commander." },
-  { id: "ARES Commander Concept 2", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 2 in ARES Commander." },
-  { id: "ARES Commander Concept 3", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 3 in ARES Commander." },
-  { id: "ARES Commander Concept 4", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 4 in ARES Commander." },
-  { id: "ARES Commander Concept 5", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 5 in ARES Commander." },
-  { id: "ARES Commander Concept 6", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 6 in ARES Commander." },
-  { id: "ARES Commander Concept 7", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 7 in ARES Commander." },
-  { id: "ARES Commander Concept 8", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 8 in ARES Commander." },
-  { id: "ARES Commander Concept 9", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 9 in ARES Commander." },
-  { id: "ARES Commander Concept 10", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 10 in ARES Commander." },
-  { id: "ARES Commander Concept 11", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 11 in ARES Commander." },
-  { id: "ARES Commander Concept 12", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 12 in ARES Commander." },
-  { id: "ARES Commander Concept 13", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 13 in ARES Commander." },
-  { id: "ARES Commander Concept 14", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 14 in ARES Commander." },
-  { id: "ARES Commander Concept 15", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Concept 15 in ARES Commander." },
-  { id: "AutoCAD XREF Tree", type: "skill", group: 2, radius: 9, tags: ["autocad", "collaboration"], hint: "Multi-discipline external-reference workflow." },
-  { id: "AutoCAD Dynamic Block", type: "concept", group: 2, radius: 9, tags: ["autocad", "blocks"], hint: "Parametric reusable blocks with grips and lookups." },
-  { id: "AutoCAD Sheet Set", type: "skill", group: 2, radius: 9, tags: ["autocad", "documentation"], hint: "Coordinated multi-sheet document management." },
-  { id: "AutoCAD Plot Styles", type: "concept", group: 2, radius: 9, tags: ["autocad", "plotting"], hint: "CTB / STB plot-style configuration." },
-  { id: "AutoCAD Data Extraction", type: "skill", group: 2, radius: 9, tags: ["autocad", "schedules"], hint: "Extract block attributes to tables/CSV." },
-  { id: "AutoCAD Constraints", type: "concept", group: 2, radius: 9, tags: ["autocad", "parametric"], hint: "Geometric and dimensional constraints." },
-  { id: "AVEVA Everything3D", type: "product", group: 1, radius: 14, tags: ["aveva", "aveva-e3d"], hint: "AVEVA's high-end process plant and marine 3D design platform, optimized for huge coordinated piping projects." },
-  { id: "AVEVA Everything3D Concept 1", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 1 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 2", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 2 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 3", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 3 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 4", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 4 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 5", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 5 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 6", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 6 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 7", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 7 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 8", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 8 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 9", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 9 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 10", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 10 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 11", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 11 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 12", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 12 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 13", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 13 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 14", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 14 in AVEVA Everything3D." },
-  { id: "AVEVA Everything3D Concept 15", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Concept 15 in AVEVA Everything3D." },
-  { id: "CATIA Workbenches", type: "concept", group: 2, radius: 10, tags: ["catia"], hint: "Modular workbench-based UI." },
-  { id: "CATIA Sketcher", type: "concept", group: 2, radius: 8, tags: ["catia"], hint: "2D sketch environment." },
-  { id: "GSD", type: "skill", group: 2, radius: 11, tags: ["catia", "surfacing"], hint: "Generative Shape Design surfacing." },
-  { id: "Multi-Section Surface", type: "concept", group: 2, radius: 8, tags: ["catia", "surfacing"], hint: "Class-A lofted surface." },
-  { id: "CATIA Product Structure", type: "concept", group: 2, radius: 9, tags: ["catia", "assembly"], hint: "Hierarchical assembly tree." },
-  { id: "Contextual Design", type: "skill", group: 2, radius: 9, tags: ["catia", "assembly"], hint: "Top-down assembly with cross-part refs." },
-  { id: "Publications", type: "concept", group: 2, radius: 9, tags: ["catia", "assembly"], hint: "Named exposed references for stability." },
-  { id: "DMU Navigator", type: "product", group: 1, radius: 9, tags: ["catia", "review"], hint: "Lightweight assembly visualization." },
-  { id: "CATIA Drafting", type: "skill", group: 2, radius: 8, tags: ["catia", "documentation"], hint: "2D drawings from 3D model." },
-  { id: "Knowledgeware", type: "sdk", group: 2, radius: 9, tags: ["catia", "automation"], hint: "Parameters, rules, optimiser." },
-  { id: "CAA RADE", type: "sdk", group: 2, radius: 8, tags: ["catia", "customization"], hint: "C++ deep customisation framework." },
-  { id: "Civil 3D Alignment", type: "concept", group: 2, radius: 10, tags: ["civil3d", "geometry"], hint: "Horizontal centreline with stationing." },
-  { id: "Civil 3D Profile", type: "concept", group: 2, radius: 9, tags: ["civil3d", "geometry"], hint: "Vertical alignment along an alignment." },
-  { id: "Civil 3D Corridor", type: "concept", group: 2, radius: 11, tags: ["civil3d", "roads"], hint: "3D parametric road model." },
-  { id: "Civil 3D Assembly", type: "concept", group: 2, radius: 9, tags: ["civil3d", "roads"], hint: "Cross-section template for corridors." },
-  { id: "Civil 3D Subassembly", type: "concept", group: 2, radius: 8, tags: ["civil3d", "roads"], hint: "Parametric cross-section component." },
-  { id: "Civil 3D Surface", type: "concept", group: 2, radius: 10, tags: ["civil3d", "terrain"], hint: "TIN or grid terrain model." },
-  { id: "Civil 3D Grading", type: "skill", group: 2, radius: 9, tags: ["civil3d", "site"], hint: "Site grading with feature lines + criteria." },
-  { id: "Civil 3D Pipe Network", type: "concept", group: 2, radius: 9, tags: ["civil3d", "stormwater"], hint: "Gravity sewer/storm network." },
-  { id: "Civil 3D Pressure Network", type: "concept", group: 2, radius: 8, tags: ["civil3d", "water"], hint: "Pressurised water mains." },
-  { id: "Civil 3D LandXML", type: "format", group: 2, radius: 8, tags: ["civil3d", "interop"], hint: "Vendor-neutral civil data exchange." },
-  { id: "Creo Features", type: "concept", group: 2, radius: 9, tags: ["creo", "parametric"], hint: "Ordered feature history of a Creo part." },
-  { id: "Creo Skeleton", type: "skill", group: 2, radius: 10, tags: ["creo", "top-down"], hint: "Master reference part for top-down design." },
-  { id: "Creo Top-Down Design", type: "skill", group: 2, radius: 10, tags: ["creo", "assembly"], hint: "Assembly-level design driving parts." },
-  { id: "Creo Layouts", type: "concept", group: 2, radius: 7, tags: ["creo", "specs"], hint: "2D spec-capture file driving downstream models." },
-  { id: "Creo Sheet Metal", type: "skill", group: 2, radius: 8, tags: ["creo", "fabrication"], hint: "Wall/bend/unbend modelling." },
-  { id: "Creo Style", type: "skill", group: 2, radius: 9, tags: ["creo", "surfacing"], hint: "Class-A and freeform surfacing." },
-  { id: "Creo MBD", type: "skill", group: 2, radius: 8, tags: ["creo", "drawings"], hint: "Model-Based Definition on 3D model." },
-  { id: "Pro/TOOLKIT", type: "sdk", group: 2, radius: 8, tags: ["creo", "api"], hint: "C API for Creo customisation." },
-  { id: "DraftSight Concept 1", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 1 in DraftSight." },
-  { id: "DraftSight Concept 2", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 2 in DraftSight." },
-  { id: "DraftSight Concept 3", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 3 in DraftSight." },
-  { id: "DraftSight Concept 4", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 4 in DraftSight." },
-  { id: "DraftSight Concept 5", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 5 in DraftSight." },
-  { id: "DraftSight Concept 6", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 6 in DraftSight." },
-  { id: "DraftSight Concept 7", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 7 in DraftSight." },
-  { id: "DraftSight Concept 8", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 8 in DraftSight." },
-  { id: "DraftSight Concept 9", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 9 in DraftSight." },
-  { id: "DraftSight Concept 10", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 10 in DraftSight." },
-  { id: "DraftSight Concept 11", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 11 in DraftSight." },
-  { id: "DraftSight Concept 12", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 12 in DraftSight." },
-  { id: "DraftSight Concept 13", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 13 in DraftSight." },
-  { id: "DraftSight Concept 14", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 14 in DraftSight." },
-  { id: "DraftSight Concept 15", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Concept 15 in DraftSight." },
-  { id: "FreeCAD", type: "product", group: 1, radius: 14, tags: ["community", "foss", "mcad", "open-source"], hint: "The premier open-source parametric 3D modeler." },
-  { id: "Topological Naming", type: "concept", group: 2, radius: 10, tags: ["freecad", "modeling"], hint: "Geometric reference limitation on face renaming." },
-  { id: "FreeCAD Python", type: "sdk", group: 2, radius: 9, tags: ["freecad", "api"], hint: "Python scripting and macro automation console." },
-  { id: "CalculiX FEM", type: "product", group: 1, radius: 9, tags: ["freecad", "simulation"], hint: "Open-source solver for FEM workbench." },
-  { id: "Fusion 360", type: "product", group: 1, radius: 14, tags: ["autodesk", "cloud", "mcad", "cam"], hint: "Cloud-native unified CAD/CAM/CAE." },
-  { id: "Fusion Components", type: "concept", group: 2, radius: 9, tags: ["fusion", "assembly"], hint: "Assembly containers with joints." },
-  { id: "Fusion Sheet Metal", type: "skill", group: 2, radius: 8, tags: ["fusion", "fabrication"], hint: "Rule-driven flange-based modelling." },
-  { id: "Fusion T-Spline", type: "concept", group: 2, radius: 8, tags: ["fusion", "surfacing"], hint: "Form workspace freeform modelling." },
-  { id: "Fusion Tool Library", type: "concept", group: 2, radius: 8, tags: ["fusion", "cam"], hint: "Cataloged CNC tooling with feeds/speeds." },
-  { id: "Fusion Post Processor", type: "concept", group: 2, radius: 8, tags: ["fusion", "cam"], hint: "Toolpath-to-G-code translator script." },
-  { id: "Fusion Drawings", type: "skill", group: 2, radius: 8, tags: ["fusion", "documentation"], hint: "2D drawing environment." },
-  { id: "Fusion Data Panel", type: "concept", group: 2, radius: 8, tags: ["fusion", "cloud"], hint: "Cloud project/folder/file UI." },
-  { id: "GstarCAD Layers", type: "concept", group: 2, radius: 8, tags: ["gstarcad", "drafting"], hint: "Drawing partition system." },
-  { id: "GstarCAD Object Snaps", type: "concept", group: 2, radius: 7, tags: ["gstarcad", "drafting"], hint: "Precision input snap system." },
-  { id: "GstarCAD Model/Paper Space", type: "concept", group: 2, radius: 9, tags: ["gstarcad", "drafting"], hint: "Geometry and sheet composition." },
-  { id: "GstarCAD Annotative", type: "concept", group: 2, radius: 8, tags: ["gstarcad", "drafting"], hint: "Scale-aware annotation system." },
-  { id: "GstarCAD Dynamic Blocks", type: "concept", group: 2, radius: 9, tags: ["gstarcad", "blocks"], hint: "Parametric block definitions." },
-  { id: "GstarCAD Attributes", type: "concept", group: 2, radius: 8, tags: ["gstarcad", "data"], hint: "Block-attached variable data." },
-  { id: "GstarCAD Xrefs", type: "concept", group: 2, radius: 9, tags: ["gstarcad", "collaboration"], hint: "External DWG references." },
-  { id: "GstarCAD Solid Editing", type: "skill", group: 2, radius: 9, tags: ["gstarcad", "3d"], hint: "3D solid Boolean and edit operations." },
-  { id: "GstarCAD UCS", type: "concept", group: 2, radius: 8, tags: ["gstarcad", "3d"], hint: "User Coordinate System for 3D work." },
-  { id: "GstarCAD MEP", type: "product", group: 1, radius: 11, tags: ["gstarcad", "mep", "vertical"], hint: "Mechanical/electrical/plumbing systems vertical." },
-  { id: "GstarCAD Electrical", type: "product", group: 1, radius: 10, tags: ["gstarcad", "electrical", "vertical"], hint: "Electrical schematics + panel layouts." },
-  { id: "GstarCAD Mapping", type: "product", group: 1, radius: 10, tags: ["gstarcad", "survey", "vertical"], hint: "Survey and mapping vertical." },
-  { id: "GstarBIM", type: "product", group: 1, radius: 12, tags: ["gstarsoft", "bim", "flagship"], hint: "Gstarsoft's native BIM platform." },
-  { id: "GstarCAD AutoLISP", type: "sdk", group: 2, radius: 9, tags: ["gstarcad", "api"], hint: "Full AutoLISP / Visual LISP support." },
-  { id: "GstarCAD VBA", type: "sdk", group: 2, radius: 8, tags: ["gstarcad", "api"], hint: "Visual Basic for Applications inside GstarCAD." },
-  { id: "GRX", type: "sdk", group: 2, radius: 9, tags: ["gstarcad", "api"], hint: "C++ runtime extension API (ObjectARX equivalent)." },
-  { id: "GstarCAD AI Tools", type: "skill", group: 2, radius: 10, tags: ["gstarcad", "ai"], hint: "AI-assisted drawing review and commands." },
-  { id: "Inventor Project (.ipj)", type: "concept", group: 2, radius: 8, tags: ["inventor"], hint: "Workspace/library configuration file." },
-  { id: "Inventor Features", type: "concept", group: 2, radius: 9, tags: ["inventor", "parametric"], hint: "Ordered feature history of a part." },
-  { id: "Inventor Joints", type: "concept", group: 2, radius: 9, tags: ["inventor", "assembly"], hint: "Single-step assembly DOF relationships." },
-  { id: "Frame Generator", type: "skill", group: 2, radius: 9, tags: ["inventor", "structural"], hint: "Structural frame design tool." },
-  { id: "iParts / iAssemblies", type: "concept", group: 2, radius: 8, tags: ["inventor", "variants"], hint: "Factory-table-driven family variants." },
-  { id: "Content Center", type: "product", group: 1, radius: 9, tags: ["inventor", "library"], hint: "Standard parts database." },
-  { id: "Vault", type: "product", group: 1, radius: 10, tags: ["autodesk", "pdm"], hint: "Autodesk's PDM for Inventor/AutoCAD/Revit." },
-  { id: "Inventor Presentations", type: "skill", group: 2, radius: 7, tags: ["inventor", "documentation"], hint: "Animated exploded-view files." },
-  { id: "IronCAD", type: "product", group: 1, radius: 14, tags: ["ironcad", "ironcad"], hint: "A unique dual-engine (Parasolid + ACIS) MCAD that excels at drag-and-drop catalog modeling and absolute design freedom." },
-  { id: "IronCAD Concept 1", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 1 in IronCAD." },
-  { id: "IronCAD Concept 2", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 2 in IronCAD." },
-  { id: "IronCAD Concept 3", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 3 in IronCAD." },
-  { id: "IronCAD Concept 4", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 4 in IronCAD." },
-  { id: "IronCAD Concept 5", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 5 in IronCAD." },
-  { id: "IronCAD Concept 6", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 6 in IronCAD." },
-  { id: "IronCAD Concept 7", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 7 in IronCAD." },
-  { id: "IronCAD Concept 8", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 8 in IronCAD." },
-  { id: "IronCAD Concept 9", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 9 in IronCAD." },
-  { id: "IronCAD Concept 10", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 10 in IronCAD." },
-  { id: "IronCAD Concept 11", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 11 in IronCAD." },
-  { id: "IronCAD Concept 12", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 12 in IronCAD." },
-  { id: "IronCAD Concept 13", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 13 in IronCAD." },
-  { id: "IronCAD Concept 14", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 14 in IronCAD." },
-  { id: "IronCAD Concept 15", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Concept 15 in IronCAD." },
-  { id: "MicroStation Concept 1", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 1 in MicroStation." },
-  { id: "MicroStation Concept 2", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 2 in MicroStation." },
-  { id: "MicroStation Concept 3", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 3 in MicroStation." },
-  { id: "MicroStation Concept 4", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 4 in MicroStation." },
-  { id: "MicroStation Concept 5", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 5 in MicroStation." },
-  { id: "MicroStation Concept 6", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 6 in MicroStation." },
-  { id: "MicroStation Concept 7", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 7 in MicroStation." },
-  { id: "MicroStation Concept 8", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 8 in MicroStation." },
-  { id: "MicroStation Concept 9", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 9 in MicroStation." },
-  { id: "MicroStation Concept 10", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 10 in MicroStation." },
-  { id: "MicroStation Concept 11", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 11 in MicroStation." },
-  { id: "MicroStation Concept 12", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 12 in MicroStation." },
-  { id: "MicroStation Concept 13", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 13 in MicroStation." },
-  { id: "MicroStation Concept 14", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 14 in MicroStation." },
-  { id: "MicroStation Concept 15", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Concept 15 in MicroStation." },
-  { id: "Revit Worksets", type: "concept", group: 2, radius: 9, tags: ["revit", "collaboration"], hint: "Worksharing ownership partitions." },
-  { id: "Revit Linked Models", type: "skill", group: 2, radius: 9, tags: ["revit", "coordination"], hint: "Multi-discipline RVT linking." },
-  { id: "Revit Shared Coordinates", type: "concept", group: 2, radius: 8, tags: ["revit", "coordination"], hint: "Tie internal origin to real-world site." },
-  { id: "Revit View Template", type: "concept", group: 2, radius: 8, tags: ["revit", "documentation"], hint: "Saved view-graphic configurations." },
-  { id: "Dynamo", type: "sdk", group: 2, radius: 9, tags: ["revit", "automation"], hint: "Visual programming bundled with Revit." },
-  { id: "Revit IFC Export", type: "format", group: 2, radius: 8, tags: ["revit", "ifc", "interop"], hint: "Open-standard model exchange." },
-  { id: "Revit Shared Parameters", type: "concept", group: 2, radius: 8, tags: ["revit", "data"], hint: "External GUID-keyed parameter store." },
-  { id: "Rhinoceros", type: "product", group: 1, radius: 14, tags: ["mcneel", "rhinoceros"], hint: "The ultimate 3D NURBS-based geometric modeler, famed for complex freeform curves and Grasshopper algorithmic automation." },
-  { id: "Rhinoceros Concept 1", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 1 in Rhinoceros." },
-  { id: "Rhinoceros Concept 2", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 2 in Rhinoceros." },
-  { id: "Rhinoceros Concept 3", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 3 in Rhinoceros." },
-  { id: "Rhinoceros Concept 4", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 4 in Rhinoceros." },
-  { id: "Rhinoceros Concept 5", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 5 in Rhinoceros." },
-  { id: "Rhinoceros Concept 6", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 6 in Rhinoceros." },
-  { id: "Rhinoceros Concept 7", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 7 in Rhinoceros." },
-  { id: "Rhinoceros Concept 8", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 8 in Rhinoceros." },
-  { id: "Rhinoceros Concept 9", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 9 in Rhinoceros." },
-  { id: "Rhinoceros Concept 10", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 10 in Rhinoceros." },
-  { id: "Rhinoceros Concept 11", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 11 in Rhinoceros." },
-  { id: "Rhinoceros Concept 12", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 12 in Rhinoceros." },
-  { id: "Rhinoceros Concept 13", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 13 in Rhinoceros." },
-  { id: "Rhinoceros Concept 14", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 14 in Rhinoceros." },
-  { id: "Rhinoceros Concept 15", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Concept 15 in Rhinoceros." },
-  { id: "Siemens NX", type: "product", group: 1, radius: 14, tags: ["siemens", "mcad", "cam", "high-end"], hint: "Siemens' high-end CAD/CAM/CAE platform." },
-  { id: "Synchronous Technology", type: "concept", group: 2, radius: 11, tags: ["nx", "hybrid"], hint: "Direct + parametric hybrid editing." },
-  { id: "NX Features", type: "concept", group: 2, radius: 9, tags: ["nx", "parametric"], hint: "Ordered parametric feature history." },
-  { id: "Master Model", type: "concept", group: 2, radius: 9, tags: ["nx", "documents"], hint: "Source 3D part referenced by drawings/assemblies/CAM." },
-  { id: "WAVE", type: "skill", group: 2, radius: 10, tags: ["nx", "top-down"], hint: "Inter-part linking for top-down design." },
-  { id: "NX Assembly Constraints", type: "concept", group: 2, radius: 8, tags: ["nx", "assembly"], hint: "Geometric positioning of components." },
-  { id: "NX PMI", type: "skill", group: 2, radius: 8, tags: ["nx", "drawings"], hint: "Product Manufacturing Information on 3D." },
-  { id: "NX Sheet Metal", type: "skill", group: 2, radius: 8, tags: ["nx", "fabrication"], hint: "Tab/flange-based sheet metal." },
-  { id: "NX Surfacing", type: "skill", group: 2, radius: 9, tags: ["nx", "surfacing"], hint: "Free-form and class-A surfacing." },
-  { id: "NX Open", type: "sdk", group: 2, radius: 9, tags: ["nx", "api"], hint: "Multi-language API (Python/.NET/C++)." },
-  { id: "SketchUp", type: "product", group: 1, radius: 14, tags: ["trimble", "sketchup"], hint: "Trimble's extremely intuitive 3D conceptual design and presentation modeler, highly popular in architecture." },
-  { id: "SketchUp Concept 1", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 1 in SketchUp." },
-  { id: "SketchUp Concept 2", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 2 in SketchUp." },
-  { id: "SketchUp Concept 3", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 3 in SketchUp." },
-  { id: "SketchUp Concept 4", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 4 in SketchUp." },
-  { id: "SketchUp Concept 5", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 5 in SketchUp." },
-  { id: "SketchUp Concept 6", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 6 in SketchUp." },
-  { id: "SketchUp Concept 7", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 7 in SketchUp." },
-  { id: "SketchUp Concept 8", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 8 in SketchUp." },
-  { id: "SketchUp Concept 9", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 9 in SketchUp." },
-  { id: "SketchUp Concept 10", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 10 in SketchUp." },
-  { id: "SketchUp Concept 11", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 11 in SketchUp." },
-  { id: "SketchUp Concept 12", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 12 in SketchUp." },
-  { id: "SketchUp Concept 13", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 13 in SketchUp." },
-  { id: "SketchUp Concept 14", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 14 in SketchUp." },
-  { id: "SketchUp Concept 15", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Concept 15 in SketchUp." },
-  { id: "SOLIDWORKS Mates", type: "concept", group: 2, radius: 10, tags: ["solidworks", "assembly"], hint: "Geometric constraints between assembly components." },
-  { id: "SOLIDWORKS Design Tables", type: "concept", group: 2, radius: 8, tags: ["solidworks", "automation"], hint: "Excel-driven configuration tables." },
-  { id: "SOLIDWORKS Sheet Metal", type: "skill", group: 2, radius: 9, tags: ["solidworks", "fabrication"], hint: "Flange-driven fabricated sheet metal." },
-  { id: "SOLIDWORKS Weldments", type: "skill", group: 2, radius: 9, tags: ["solidworks", "fabrication"], hint: "Multi-body structural welded frames." },
-  { id: "SOLIDWORKS Feature Tree", type: "concept", group: 2, radius: 10, tags: ["solidworks", "parametric"], hint: "Ordered feature history of a part." },
-  { id: "SOLIDWORKS MBD", type: "skill", group: 2, radius: 8, tags: ["solidworks", "drawings", "gdt"], hint: "Model-based definition replacing 2D drawings." },
-  { id: "SOLIDWORKS Simulation", type: "product", group: 1, radius: 9, tags: ["solidworks", "fea"], hint: "Integrated FEA for SOLIDWORKS models." },
-  { id: "SOLIDWORKS Toolbox", type: "concept", group: 2, radius: 8, tags: ["solidworks", "library"], hint: "Standard fasteners and hardware library." },
-  { id: "ANSYS SpaceClaim", type: "product", group: 1, radius: 14, tags: ["ansys", "spaceclaim"], hint: "A high-speed direct 3D modeler built to prepare, clean, and simplify geometry for finite element analysis." },
-  { id: "ANSYS SpaceClaim Concept 1", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 1 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 2", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 2 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 3", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 3 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 4", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 4 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 5", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 5 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 6", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 6 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 7", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 7 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 8", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 8 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 9", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 9 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 10", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 10 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 11", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 11 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 12", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 12 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 13", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 13 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 14", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 14 in ANSYS SpaceClaim." },
-  { id: "ANSYS SpaceClaim Concept 15", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Concept 15 in ANSYS SpaceClaim." },
-  { id: "Tekla Structures", type: "product", group: 1, radius: 14, tags: ["trimble", "tekla-structures"], hint: "Trimble's premier structural BIM authoring tool, delivering detailed LOD 500 models for steel and concrete." },
-  { id: "Tekla Structures Concept 1", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 1 in Tekla Structures." },
-  { id: "Tekla Structures Concept 2", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 2 in Tekla Structures." },
-  { id: "Tekla Structures Concept 3", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 3 in Tekla Structures." },
-  { id: "Tekla Structures Concept 4", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 4 in Tekla Structures." },
-  { id: "Tekla Structures Concept 5", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 5 in Tekla Structures." },
-  { id: "Tekla Structures Concept 6", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 6 in Tekla Structures." },
-  { id: "Tekla Structures Concept 7", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 7 in Tekla Structures." },
-  { id: "Tekla Structures Concept 8", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 8 in Tekla Structures." },
-  { id: "Tekla Structures Concept 9", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 9 in Tekla Structures." },
-  { id: "Tekla Structures Concept 10", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 10 in Tekla Structures." },
-  { id: "Tekla Structures Concept 11", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 11 in Tekla Structures." },
-  { id: "Tekla Structures Concept 12", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 12 in Tekla Structures." },
-  { id: "Tekla Structures Concept 13", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 13 in Tekla Structures." },
-  { id: "Tekla Structures Concept 14", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 14 in Tekla Structures." },
-  { id: "Tekla Structures Concept 15", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Concept 15 in Tekla Structures." },
-  { id: "Vectorworks", type: "product", group: 1, radius: 14, tags: ["vectorworks", "vectorworks"], hint: "A versatile BIM and CAD platform tailored for architects, landscape architects, and entertainment designers." },
-  { id: "Vectorworks Concept 1", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 1 in Vectorworks." },
-  { id: "Vectorworks Concept 2", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 2 in Vectorworks." },
-  { id: "Vectorworks Concept 3", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 3 in Vectorworks." },
-  { id: "Vectorworks Concept 4", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 4 in Vectorworks." },
-  { id: "Vectorworks Concept 5", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 5 in Vectorworks." },
-  { id: "Vectorworks Concept 6", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 6 in Vectorworks." },
-  { id: "Vectorworks Concept 7", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 7 in Vectorworks." },
-  { id: "Vectorworks Concept 8", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 8 in Vectorworks." },
-  { id: "Vectorworks Concept 9", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 9 in Vectorworks." },
-  { id: "Vectorworks Concept 10", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 10 in Vectorworks." },
-  { id: "Vectorworks Concept 11", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 11 in Vectorworks." },
-  { id: "Vectorworks Concept 12", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 12 in Vectorworks." },
-  { id: "Vectorworks Concept 13", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 13 in Vectorworks." },
-  { id: "Vectorworks Concept 14", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 14 in Vectorworks." },
-  { id: "Vectorworks Concept 15", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Concept 15 in Vectorworks." },
-  { id: "ZWCAD", type: "product", group: 1, radius: 14, tags: ["zwsoft", "dwg", "drafting", "high-speed"], hint: "ZWSOFT's high-performance DWG-native 2D/3D CAD platform." },
-  { id: "ZRX SDK", type: "sdk", group: 2, radius: 9, tags: ["zwcad", "api"], hint: "ObjectARX-compatible C++ developer kit." },
-  { id: "Smart Voice", type: "skill", group: 2, radius: 8, tags: ["zwcad", "ui"], hint: "Embeds audio annotations directly inside DWG." },
-  { id: "Multi-Core Rendering", type: "concept", group: 2, radius: 9, tags: ["zwcad", "performance"], hint: "Multi-threaded CPU canvas acceleration." },
+  { id: "Alibre Design", type: "product", group: 1, radius: 14, tags: ["alibredesign", "alibre-design"], hint: "A high-precision, budget-friendly parametric 3D solid modeler for mechanical parts and assemblies.", slug: "alibre-design" },
+  { id: "Parametric Dimension Driver (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Driving sketch and feature parameters using logical mathematical variables.", slug: "alibre-design-term-1" },
+  { id: "Geometric Constraints (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Rules governing the relative positioning and behavior of sketch elements.", slug: "alibre-design-term-2" },
+  { id: "Feature History Tree (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "The chronological stack of active modeling operations in parametric design.", slug: "alibre-design-term-3" },
+  { id: "Assembly Mates (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "3D constraints linking coordinate systems and surfaces of components.", slug: "alibre-design-term-4" },
+  { id: "B-Rep Solid Engine (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Boundary Representation mathematical representation of solid geometry.", slug: "alibre-design-term-5" },
+  { id: "Sheet Metal Flanges (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Bent sheet panels created relative to baseline flat sheets.", slug: "alibre-design-term-6" },
+  { id: "2D Drafting Sheets (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Production-ready orthogonal and auxiliary drawing representations.", slug: "alibre-design-term-7" },
+  { id: "Alibre Script (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Python-based scripting API for automation and custom tools.", slug: "alibre-design-term-8" },
+  { id: "Equations Editor (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "A central spreadsheet-like control panel for managing variables.", slug: "alibre-design-term-9" },
+  { id: "Configurations Manager (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "System for maintaining multiple physical variants in a single file.", slug: "alibre-design-term-10" },
+  { id: "Catalog Features (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Library of reusable feature blocks and templates.", slug: "alibre-design-term-11" },
+  { id: "3D PDF Publishing (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Standardized interactive PDF documents hosting 3D geometry.", slug: "alibre-design-term-12" },
+  { id: "Thread Creator (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Parametric modeling of cosmetic or real helical threads.", slug: "alibre-design-term-13" },
+  { id: "STEP/IGES Translation (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Standardized neutral formats for cross-platform CAD exchange.", slug: "alibre-design-term-14" },
+  { id: "Design Booleans (Alibre Design)", type: "concept", group: 2, radius: 8, tags: ["alibre-design"], hint: "Solid-state geometric operations combining or intersecting volumes.", slug: "alibre-design-term-15" },
+  { id: "Allplan", type: "product", group: 1, radius: 14, tags: ["allplan", "allplan"], hint: "Nemetschek's high-performance BIM platform focused on structural engineering and precast concrete.", slug: "allplan" },
+  { id: "SmartParts (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Parametric, script-driven object definitions for structural BIM.", slug: "allplan-term-1" },
+  { id: "3D Reinforcement Modeling (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Dynamic, physical modeling of reinforcing bars in concrete.", slug: "allplan-term-2" },
+  { id: "Allplan Bridge (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Parametric modeler for complex civil bridge structures.", slug: "allplan-term-3" },
+  { id: "BIM Model Topology (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Story-based spatial organization of architectural projects.", slug: "allplan-term-4" },
+  { id: "Reinforcement Reports (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Automated schedules driven directly by 3D rebar models.", slug: "allplan-term-5" },
+  { id: "PythonParts (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Next-generation parametric BIM elements driven by Python.", slug: "allplan-term-6" },
+  { id: "IFC Exchange (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Standardized data exchange for open BIM collaboration.", slug: "allplan-term-7" },
+  { id: "Quantity Takeoff (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Automated calculation of concrete, formwork, and finish areas.", slug: "allplan-term-8" },
+  { id: "Terrain Modeling (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Site contour and surface generation from coordinate data.", slug: "allplan-term-9" },
+  { id: "Multi-Layer Walls (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Complex wall definitions hosting structural, thermal, and finish layers.", slug: "allplan-term-10" },
+  { id: "Element Plan Generator (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Automated drafting generator for precast concrete components.", slug: "allplan-term-11" },
+  { id: "Clash Detection (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Spatial conflict checker for overlapping structural elements.", slug: "allplan-term-12" },
+  { id: "Reference Planes (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Custom baseline sheets controlling geometry heights.", slug: "allplan-term-13" },
+  { id: "CineRender Engine (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "High-end photo-realistic rendering engine integrated inside Allplan.", slug: "allplan-term-14" },
+  { id: "Nemetschek Allplan Connect (Allplan)", type: "concept", group: 2, radius: 8, tags: ["allplan"], hint: "Cloud-based collaboration and asset portal.", slug: "allplan-term-15" },
+  { id: "ARES Commander", type: "product", group: 1, radius: 14, tags: ["arescommander", "ares-commander"], hint: "Graebert's core DWG-native CAD engine, the foundation powering DraftSight, CorelCAD, and extensive cloud workflows.", slug: "ares-commander" },
+  { id: "Trinity Concept (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Unified DWG editing across Desktop, Cloud, and Mobile.", slug: "ares-commander-term-1" },
+  { id: "DWG Native Engine (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "High-performance drafting engine utilizing the DWG standard.", slug: "ares-commander-term-2" },
+  { id: "ARES Kudo (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Cloud-based DWG editing and sharing platform.", slug: "ares-commander-term-3" },
+  { id: "ARES Touch (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Mobile CAD application for tablets and smartphones.", slug: "ares-commander-term-4" },
+  { id: "Custom Blocks (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Parametric drawing blocks offering dynamic geometry variations.", slug: "ares-commander-term-5" },
+  { id: "AutoLISP Migration (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Familiar scripting interpreter for CAD task automation.", slug: "ares-commander-term-6" },
+  { id: "C++ & .NET APIs (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Professional programming interfaces for enterprise CAD plugins.", slug: "ares-commander-term-7" },
+  { id: "Sheet Set Manager (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Enterprise organization system for multi-drawing sheets.", slug: "ares-commander-term-8" },
+  { id: "DGN Import & Underlay (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Bentley CAD file compatibility and exchange tools.", slug: "ares-commander-term-9" },
+  { id: "GIS & Coordinate Integration (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Geospatial map integration inside DWG environments.", slug: "ares-commander-term-10" },
+  { id: "PDF Import & Vectorization (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Vector path extraction from PDF drawings.", slug: "ares-commander-term-11" },
+  { id: "Version History Cloud Sync (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Cloud-driven file tracking and recovery.", slug: "ares-commander-term-12" },
+  { id: "Smart Voice Notes (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Audio voice annotations embedded inside drawings.", slug: "ares-commander-term-13" },
+  { id: "Batch Plotting Utility (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "Automated publishing of drawing layouts.", slug: "ares-commander-term-14" },
+  { id: "3D Solid Modeling (ARES Commander)", type: "concept", group: 2, radius: 8, tags: ["ares-commander"], hint: "ACIS-based 3D design and editing tools.", slug: "ares-commander-term-15" },
+  { id: "AutoCAD XREF Tree", type: "skill", group: 2, radius: 9, tags: ["autocad", "collaboration"], hint: "Multi-discipline external-reference workflow.", slug: "" },
+  { id: "AutoCAD Dynamic Block", type: "concept", group: 2, radius: 9, tags: ["autocad", "blocks"], hint: "Parametric reusable blocks with grips and lookups.", slug: "" },
+  { id: "AutoCAD Sheet Set", type: "skill", group: 2, radius: 9, tags: ["autocad", "documentation"], hint: "Coordinated multi-sheet document management.", slug: "" },
+  { id: "AutoCAD Plot Styles", type: "concept", group: 2, radius: 9, tags: ["autocad", "plotting"], hint: "CTB / STB plot-style configuration.", slug: "" },
+  { id: "AutoCAD Data Extraction", type: "skill", group: 2, radius: 9, tags: ["autocad", "schedules"], hint: "Extract block attributes to tables/CSV.", slug: "" },
+  { id: "AutoCAD Constraints", type: "concept", group: 2, radius: 9, tags: ["autocad", "parametric"], hint: "Geometric and dimensional constraints.", slug: "" },
+  { id: "AVEVA Everything3D", type: "product", group: 1, radius: 14, tags: ["avevae3d", "aveva-e3d"], hint: "AVEVA's high-end process plant and marine 3D design platform, optimized for huge coordinated piping projects.", slug: "aveva-e3d" },
+  { id: "Spec-Driven Piping Design (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Automated piping layout governed by standardized engineering specifications.", slug: "aveva-e3d-term-1" },
+  { id: "Laser Data & Point Clouds (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Direct integration of 3D laser scans into plant layouts.", slug: "aveva-e3d-term-2" },
+  { id: "Bubble View (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Interactive panoramic bubble views linked to 3D designs.", slug: "aveva-e3d-term-3" },
+  { id: "Clash Detection & Clearance (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Automated plant-wide interference check engine.", slug: "aveva-e3d-term-4" },
+  { id: "Draft Workbench (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Automated 2D orthographic drawing extraction from 3D models.", slug: "aveva-e3d-term-5" },
+  { id: "AVEVA PML Scripting (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Proprietary programming language for E3D customization.", slug: "aveva-e3d-term-6" },
+  { id: "Catalog & Spec Editor (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Database engine defining piping and structural components.", slug: "aveva-e3d-term-7" },
+  { id: "Structural Steelwork (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Parametric modeling of steel frames and joints.", slug: "aveva-e3d-term-8" },
+  { id: "Marine Design Module (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Specialized hull and marine outfitting modeling tools.", slug: "aveva-e3d-term-9" },
+  { id: "Cable Design & Routing (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Automated electrical cable tray and conduit routing.", slug: "aveva-e3d-term-10" },
+  { id: "HVAC Ducting Systems (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Intelligent modeling of ventilation and duct systems.", slug: "aveva-e3d-term-11" },
+  { id: "Structural Joints & Plates (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Automated steel connection detailing.", slug: "aveva-e3d-term-12" },
+  { id: "Multi-User Database Coordination (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Real-time database sharing for distributed design teams.", slug: "aveva-e3d-term-13" },
+  { id: "Intelligent Isometric Generation (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Automated 3D piping isometric extraction.", slug: "aveva-e3d-term-14" },
+  { id: "Equipment Modeling (AVEVA Everything3D)", type: "concept", group: 2, radius: 8, tags: ["aveva-e3d"], hint: "Parametric construction of plant primitives.", slug: "aveva-e3d-term-15" },
+  { id: "CATIA Workbenches", type: "concept", group: 2, radius: 10, tags: ["catia"], hint: "Modular workbench-based UI.", slug: "" },
+  { id: "CATIA Sketcher", type: "concept", group: 2, radius: 8, tags: ["catia"], hint: "2D sketch environment.", slug: "" },
+  { id: "GSD", type: "skill", group: 2, radius: 11, tags: ["catia", "surfacing"], hint: "Generative Shape Design surfacing.", slug: "" },
+  { id: "Multi-Section Surface", type: "concept", group: 2, radius: 8, tags: ["catia", "surfacing"], hint: "Class-A lofted surface.", slug: "" },
+  { id: "CATIA Product Structure", type: "concept", group: 2, radius: 9, tags: ["catia", "assembly"], hint: "Hierarchical assembly tree.", slug: "" },
+  { id: "Contextual Design", type: "skill", group: 2, radius: 9, tags: ["catia", "assembly"], hint: "Top-down assembly with cross-part refs.", slug: "" },
+  { id: "Publications", type: "concept", group: 2, radius: 9, tags: ["catia", "assembly"], hint: "Named exposed references for stability.", slug: "" },
+  { id: "DMU Navigator", type: "product", group: 1, radius: 9, tags: ["catia", "review"], hint: "Lightweight assembly visualization.", slug: "" },
+  { id: "CATIA Drafting", type: "skill", group: 2, radius: 8, tags: ["catia", "documentation"], hint: "2D drawings from 3D model.", slug: "" },
+  { id: "Knowledgeware", type: "sdk", group: 2, radius: 9, tags: ["catia", "automation"], hint: "Parameters, rules, optimiser.", slug: "" },
+  { id: "CAA RADE", type: "sdk", group: 2, radius: 8, tags: ["catia", "customization"], hint: "C++ deep customisation framework.", slug: "" },
+  { id: "Civil 3D Alignment", type: "concept", group: 2, radius: 10, tags: ["civil3d", "geometry"], hint: "Horizontal centreline with stationing.", slug: "" },
+  { id: "Civil 3D Profile", type: "concept", group: 2, radius: 9, tags: ["civil3d", "geometry"], hint: "Vertical alignment along an alignment.", slug: "" },
+  { id: "Civil 3D Corridor", type: "concept", group: 2, radius: 11, tags: ["civil3d", "roads"], hint: "3D parametric road model.", slug: "" },
+  { id: "Civil 3D Assembly", type: "concept", group: 2, radius: 9, tags: ["civil3d", "roads"], hint: "Cross-section template for corridors.", slug: "" },
+  { id: "Civil 3D Subassembly", type: "concept", group: 2, radius: 8, tags: ["civil3d", "roads"], hint: "Parametric cross-section component.", slug: "" },
+  { id: "Civil 3D Surface", type: "concept", group: 2, radius: 10, tags: ["civil3d", "terrain"], hint: "TIN or grid terrain model.", slug: "" },
+  { id: "Civil 3D Grading", type: "skill", group: 2, radius: 9, tags: ["civil3d", "site"], hint: "Site grading with feature lines + criteria.", slug: "" },
+  { id: "Civil 3D Pipe Network", type: "concept", group: 2, radius: 9, tags: ["civil3d", "stormwater"], hint: "Gravity sewer/storm network.", slug: "" },
+  { id: "Civil 3D Pressure Network", type: "concept", group: 2, radius: 8, tags: ["civil3d", "water"], hint: "Pressurised water mains.", slug: "" },
+  { id: "Civil 3D LandXML", type: "format", group: 2, radius: 8, tags: ["civil3d", "interop"], hint: "Vendor-neutral civil data exchange.", slug: "" },
+  { id: "Creo Features", type: "concept", group: 2, radius: 9, tags: ["creo", "parametric"], hint: "Ordered feature history of a Creo part.", slug: "" },
+  { id: "Creo Skeleton", type: "skill", group: 2, radius: 10, tags: ["creo", "top-down"], hint: "Master reference part for top-down design.", slug: "" },
+  { id: "Creo Top-Down Design", type: "skill", group: 2, radius: 10, tags: ["creo", "assembly"], hint: "Assembly-level design driving parts.", slug: "" },
+  { id: "Creo Layouts", type: "concept", group: 2, radius: 7, tags: ["creo", "specs"], hint: "2D spec-capture file driving downstream models.", slug: "" },
+  { id: "Creo Sheet Metal", type: "skill", group: 2, radius: 8, tags: ["creo", "fabrication"], hint: "Wall/bend/unbend modelling.", slug: "" },
+  { id: "Creo Style", type: "skill", group: 2, radius: 9, tags: ["creo", "surfacing"], hint: "Class-A and freeform surfacing.", slug: "" },
+  { id: "Creo MBD", type: "skill", group: 2, radius: 8, tags: ["creo", "drawings"], hint: "Model-Based Definition on 3D model.", slug: "" },
+  { id: "Pro/TOOLKIT", type: "sdk", group: 2, radius: 8, tags: ["creo", "api"], hint: "C API for Creo customisation.", slug: "" },
+  { id: "DWG/DXF Native Engine (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "High-performance 2D/3D drafting platform using the DWG format.", slug: "draftsight-term-1" },
+  { id: "Custom Blocks (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Parametric 2D block elements offering dynamic variations.", slug: "draftsight-term-2" },
+  { id: "LISP & API Integrations (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Comprehensive scripting engine for automation.", slug: "draftsight-term-3" },
+  { id: "Sheet Set Manager (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Central organization console for multi-sheet project packages.", slug: "draftsight-term-4" },
+  { id: "Image Tracer Vectorization (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Automated raster-to-vector conversion utility.", slug: "draftsight-term-5" },
+  { id: "G-Code Generator (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Direct export of CNC programming toolpaths.", slug: "draftsight-term-6" },
+  { id: "DGN Underlay & Import (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Bentley drawing standard integration.", slug: "draftsight-term-7" },
+  { id: "Tool Palettes Customization (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Centralized catalog drag-and-drop drafting panels.", slug: "draftsight-term-8" },
+  { id: "DWG Compare Utility (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Visual overlay comparing two drawing revisions.", slug: "draftsight-term-9" },
+  { id: "Batch Print Utility (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Automated publishing of drawing layouts.", slug: "draftsight-term-10" },
+  { id: "Power Trim Tool (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Intelligent drag-to-trim geometric boundary modifier.", slug: "draftsight-term-11" },
+  { id: "PDF Form Fill (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Direct data mapping into PDF sheet documents.", slug: "draftsight-term-12" },
+  { id: "Mechanical Toolbox (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Standardized hardware library and drafting symbols.", slug: "draftsight-term-13" },
+  { id: "3D Mesh Modeling (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Lightweight 3D surface mesh generation tools.", slug: "draftsight-term-14" },
+  { id: "Active Command Suggestions (DraftSight)", type: "concept", group: 2, radius: 8, tags: ["draftsight"], hint: "Context-aware input and auto-completion panel.", slug: "draftsight-term-15" },
+  { id: "FreeCAD", type: "product", group: 1, radius: 14, tags: ["community", "foss", "mcad", "open-source"], hint: "The premier open-source parametric 3D modeler.", slug: "freecad" },
+  { id: "Topological Naming", type: "concept", group: 2, radius: 10, tags: ["freecad", "modeling"], hint: "Geometric reference limitation on face renaming.", slug: "" },
+  { id: "FreeCAD Python", type: "sdk", group: 2, radius: 9, tags: ["freecad", "api"], hint: "Python scripting and macro automation console.", slug: "" },
+  { id: "CalculiX FEM", type: "product", group: 1, radius: 9, tags: ["freecad", "simulation"], hint: "Open-source solver for FEM workbench.", slug: "" },
+  { id: "Fusion 360", type: "product", group: 1, radius: 14, tags: ["autodesk", "cloud", "mcad", "cam"], hint: "Cloud-native unified CAD/CAM/CAE.", slug: "fusion-360" },
+  { id: "Fusion Components", type: "concept", group: 2, radius: 9, tags: ["fusion", "assembly"], hint: "Assembly containers with joints.", slug: "" },
+  { id: "Fusion Sheet Metal", type: "skill", group: 2, radius: 8, tags: ["fusion", "fabrication"], hint: "Rule-driven flange-based modelling.", slug: "" },
+  { id: "Fusion T-Spline", type: "concept", group: 2, radius: 8, tags: ["fusion", "surfacing"], hint: "Form workspace freeform modelling.", slug: "" },
+  { id: "Fusion Tool Library", type: "concept", group: 2, radius: 8, tags: ["fusion", "cam"], hint: "Cataloged CNC tooling with feeds/speeds.", slug: "" },
+  { id: "Fusion Post Processor", type: "concept", group: 2, radius: 8, tags: ["fusion", "cam"], hint: "Toolpath-to-G-code translator script.", slug: "" },
+  { id: "Fusion Drawings", type: "skill", group: 2, radius: 8, tags: ["fusion", "documentation"], hint: "2D drawing environment.", slug: "" },
+  { id: "Fusion Data Panel", type: "concept", group: 2, radius: 8, tags: ["fusion", "cloud"], hint: "Cloud project/folder/file UI.", slug: "" },
+  { id: "GstarCAD Layers", type: "concept", group: 2, radius: 8, tags: ["gstarcad", "drafting"], hint: "Drawing partition system.", slug: "" },
+  { id: "GstarCAD Object Snaps", type: "concept", group: 2, radius: 7, tags: ["gstarcad", "drafting"], hint: "Precision input snap system.", slug: "" },
+  { id: "GstarCAD Model/Paper Space", type: "concept", group: 2, radius: 9, tags: ["gstarcad", "drafting"], hint: "Geometry and sheet composition.", slug: "" },
+  { id: "GstarCAD Annotative", type: "concept", group: 2, radius: 8, tags: ["gstarcad", "drafting"], hint: "Scale-aware annotation system.", slug: "" },
+  { id: "GstarCAD Dynamic Blocks", type: "concept", group: 2, radius: 9, tags: ["gstarcad", "blocks"], hint: "Parametric block definitions.", slug: "" },
+  { id: "GstarCAD Attributes", type: "concept", group: 2, radius: 8, tags: ["gstarcad", "data"], hint: "Block-attached variable data.", slug: "" },
+  { id: "GstarCAD Xrefs", type: "concept", group: 2, radius: 9, tags: ["gstarcad", "collaboration"], hint: "External DWG references.", slug: "" },
+  { id: "GstarCAD Solid Editing", type: "skill", group: 2, radius: 9, tags: ["gstarcad", "3d"], hint: "3D solid Boolean and edit operations.", slug: "" },
+  { id: "GstarCAD UCS", type: "concept", group: 2, radius: 8, tags: ["gstarcad", "3d"], hint: "User Coordinate System for 3D work.", slug: "" },
+  { id: "GstarCAD MEP", type: "product", group: 1, radius: 11, tags: ["gstarcad", "mep", "vertical"], hint: "Mechanical/electrical/plumbing systems vertical.", slug: "gstarcad-mep" },
+  { id: "GstarCAD Electrical", type: "product", group: 1, radius: 10, tags: ["gstarcad", "electrical", "vertical"], hint: "Electrical schematics + panel layouts.", slug: "gstarcad-electrical" },
+  { id: "GstarCAD Mapping", type: "product", group: 1, radius: 10, tags: ["gstarcad", "survey", "vertical"], hint: "Survey and mapping vertical.", slug: "gstarcad-mapping" },
+  { id: "GstarBIM", type: "product", group: 1, radius: 12, tags: ["gstarsoft", "bim", "flagship"], hint: "Gstarsoft's native BIM platform.", slug: "" },
+  { id: "GstarCAD AutoLISP", type: "sdk", group: 2, radius: 9, tags: ["gstarcad", "api"], hint: "Full AutoLISP / Visual LISP support.", slug: "" },
+  { id: "GstarCAD VBA", type: "sdk", group: 2, radius: 8, tags: ["gstarcad", "api"], hint: "Visual Basic for Applications inside GstarCAD.", slug: "" },
+  { id: "GRX", type: "sdk", group: 2, radius: 9, tags: ["gstarcad", "api"], hint: "C++ runtime extension API (ObjectARX equivalent).", slug: "" },
+  { id: "GstarCAD AI Tools", type: "skill", group: 2, radius: 10, tags: ["gstarcad", "ai"], hint: "AI-assisted drawing review and commands.", slug: "" },
+  { id: "Inventor Project (.ipj)", type: "concept", group: 2, radius: 8, tags: ["inventor"], hint: "Workspace/library configuration file.", slug: "" },
+  { id: "Inventor Features", type: "concept", group: 2, radius: 9, tags: ["inventor", "parametric"], hint: "Ordered feature history of a part.", slug: "" },
+  { id: "Inventor Joints", type: "concept", group: 2, radius: 9, tags: ["inventor", "assembly"], hint: "Single-step assembly DOF relationships.", slug: "" },
+  { id: "Frame Generator", type: "skill", group: 2, radius: 9, tags: ["inventor", "structural"], hint: "Structural frame design tool.", slug: "" },
+  { id: "iParts / iAssemblies", type: "concept", group: 2, radius: 8, tags: ["inventor", "variants"], hint: "Factory-table-driven family variants.", slug: "" },
+  { id: "Content Center", type: "product", group: 1, radius: 9, tags: ["inventor", "library"], hint: "Standard parts database.", slug: "" },
+  { id: "Vault", type: "product", group: 1, radius: 10, tags: ["autodesk", "pdm"], hint: "Autodesk's PDM for Inventor/AutoCAD/Revit.", slug: "" },
+  { id: "Inventor Presentations", type: "skill", group: 2, radius: 7, tags: ["inventor", "documentation"], hint: "Animated exploded-view files.", slug: "" },
+  { id: "IronCAD", type: "product", group: 1, radius: 14, tags: ["ironcad", "ironcad"], hint: "A unique dual-engine (Parasolid + ACIS) MCAD that excels at drag-and-drop catalog modeling and absolute design freedom.", slug: "ironcad" },
+  { id: "Dual-Kernel Engine (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Unified MCAD modeling utilizing both ACIS and Parasolid kernels.", slug: "ironcad-term-1" },
+  { id: "Unified Assembly Environment (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Single-file workspace design hosting parts and assemblies without separate file structures.", slug: "ironcad-term-2" },
+  { id: "Catalog Drag-and-Drop (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Fast modeling by dropping predefined shapes from sidebars onto active models.", slug: "ironcad-term-3" },
+  { id: "TriBall Geometric Manipulator (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Unified 3D transform tool for positioning, rotating, and patterning geometry.", slug: "ironcad-term-4" },
+  { id: "SmartAssembly Positioning (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Rule-based assembly connection points that automatically snap parts together.", slug: "ironcad-term-5" },
+  { id: "Creative vs. Structured Design (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Dual-method design allowing history-free modeling alongside traditional parametric trees.", slug: "ironcad-term-6" },
+  { id: "2D Detail Drafting Sheet (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Associative 2D drawings generated directly from unified 3D files.", slug: "ironcad-term-7" },
+  { id: "IronCAD C++ API (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Deep software extension framework for enterprise CAD plugins.", slug: "ironcad-term-8" },
+  { id: "KeyShot Rendering (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Real-time photo-realistic rendering integration.", slug: "ironcad-term-9" },
+  { id: "Direct Face Modeling (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "History-free 3D solid face editing.", slug: "ironcad-term-10" },
+  { id: "Standard Parts Catalog (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Library of international standard machinery hardware.", slug: "ironcad-term-11" },
+  { id: "IronCAD Mechanical Tools (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Specialized utilities for mechanical machinery design.", slug: "ironcad-term-12" },
+  { id: "B-Rep Booleans (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Solid-state geometric operations combining or intersecting volumes.", slug: "ironcad-term-13" },
+  { id: "STEP/IGES Interoperability (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Neutral 3D format translator for CAD data exchange.", slug: "ironcad-term-14" },
+  { id: "SmartAssembly Configurator (IronCAD)", type: "concept", group: 2, radius: 8, tags: ["ironcad"], hint: "Rule-based product customization engine.", slug: "ironcad-term-15" },
+  { id: "DGN Design File Format (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "High-precision native file format for civil and infrastructure engineering.", slug: "microstation-term-1" },
+  { id: "Cells & Shared Cells (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Reusable drawing symbols and parametric components.", slug: "microstation-term-2" },
+  { id: "Levels & Level Manager (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Comprehensive drawing organization and standard systems.", slug: "microstation-term-3" },
+  { id: "Reference Files (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Live, cross-discipline reference overlays for coordinate-perfect design.", slug: "microstation-term-4" },
+  { id: "Item Types (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Dynamic metadata schemas attached to drawing elements.", slug: "microstation-term-5" },
+  { id: "Parametric Modeling & Constraints (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Dimension-driven infrastructure design.", slug: "microstation-term-6" },
+  { id: "AccuDraw & AccuSnap (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Dynamic coordinate input and precise snap helper.", slug: "microstation-term-7" },
+  { id: "ProjectWise Collaboration (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Enterprise document management system integration.", slug: "microstation-term-8" },
+  { id: "Mesh Modeling Tools (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Lightweight 3D surface modeling for complex terrains.", slug: "microstation-term-9" },
+  { id: "Print Organizer (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Enterprise batch plotting and PDF publishing pipeline.", slug: "microstation-term-10" },
+  { id: "Bentley View Compatibility (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Seamless file sharing and review tool.", slug: "microstation-term-11" },
+  { id: "Geographic Coordinate Systems (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Geospatial projection mapping and map alignment.", slug: "microstation-term-12" },
+  { id: "MDL C++ API (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Native-level C++ SDK for deep application customization.", slug: "microstation-term-13" },
+  { id: "Point Cloud Visualisation (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "High-performance loading and styling of laser scan data.", slug: "microstation-term-14" },
+  { id: "VBA Automation (MicroStation)", type: "concept", group: 2, radius: 8, tags: ["microstation"], hint: "Accessible programming engine for CAD task automation.", slug: "microstation-term-15" },
+  { id: "Revit Worksets", type: "concept", group: 2, radius: 9, tags: ["revit", "collaboration"], hint: "Worksharing ownership partitions.", slug: "" },
+  { id: "Revit Linked Models", type: "skill", group: 2, radius: 9, tags: ["revit", "coordination"], hint: "Multi-discipline RVT linking.", slug: "" },
+  { id: "Revit Shared Coordinates", type: "concept", group: 2, radius: 8, tags: ["revit", "coordination"], hint: "Tie internal origin to real-world site.", slug: "" },
+  { id: "Revit View Template", type: "concept", group: 2, radius: 8, tags: ["revit", "documentation"], hint: "Saved view-graphic configurations.", slug: "" },
+  { id: "Dynamo", type: "sdk", group: 2, radius: 9, tags: ["revit", "automation"], hint: "Visual programming bundled with Revit.", slug: "" },
+  { id: "Revit IFC Export", type: "format", group: 2, radius: 8, tags: ["revit", "ifc", "interop"], hint: "Open-standard model exchange.", slug: "" },
+  { id: "Revit Shared Parameters", type: "concept", group: 2, radius: 8, tags: ["revit", "data"], hint: "External GUID-keyed parameter store.", slug: "" },
+  { id: "Rhinoceros", type: "product", group: 1, radius: 14, tags: ["rhinoceros", "rhinoceros"], hint: "The ultimate 3D NURBS-based geometric modeler, famed for complex freeform curves and Grasshopper algorithmic automation.", slug: "rhinoceros" },
+  { id: "NURBS Geometry (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Mathematical representation of highly precise smooth curves and freeform surfaces.", slug: "rhinoceros-term-1" },
+  { id: "Grasshopper (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Integrated algorithmic and visual programming modeling environment.", slug: "rhinoceros-term-2" },
+  { id: "SubD Modeling (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Subdivision surface modeling for organic and freeform structures.", slug: "rhinoceros-term-3" },
+  { id: "Mesh vs. NURBS (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Understanding different geometric representations and data types.", slug: "rhinoceros-term-4" },
+  { id: "Gumball Manipulator (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Interactive graphical gizmo for fast translation, scaling, and rotation.", slug: "rhinoceros-term-5" },
+  { id: "Command Line & Aliases (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Keyboard-driven efficiency system for instant command execution.", slug: "rhinoceros-term-6" },
+  { id: "Layer States (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Saved layer visibility and property configurations.", slug: "rhinoceros-term-7" },
+  { id: "Make2D (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Automated generation of flat 2D drawings from 3D models.", slug: "rhinoceros-term-8" },
+  { id: "Named Views & Viewports (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Saved camera alignments and viewport configuration schemes.", slug: "rhinoceros-term-9" },
+  { id: "QuadMesh Retopology (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Automated reconstruction of messy geometry into clean quad meshes.", slug: "rhinoceros-term-10" },
+  { id: "RhinoCommon API (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Comprehensive .NET SDK for custom tool and plugin development.", slug: "rhinoceros-term-11" },
+  { id: "Worksession (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Multi-file coordination workspace for large-scale design teams.", slug: "rhinoceros-term-12" },
+  { id: "Point Clouds & Reverse Engineering (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Laser scan integration and direct curve fitting.", slug: "rhinoceros-term-13" },
+  { id: "Rendering & Display Modes (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Real-time viewport shading styles and visual settings.", slug: "rhinoceros-term-14" },
+  { id: "File Interoperability (Rhinoceros)", type: "concept", group: 2, radius: 8, tags: ["rhinoceros"], hint: "Broad support for neutral and native CAD exchange formats.", slug: "rhinoceros-term-15" },
+  { id: "Siemens NX", type: "product", group: 1, radius: 14, tags: ["siemens", "mcad", "cam", "high-end"], hint: "Siemens' high-end CAD/CAM/CAE platform.", slug: "siemens-nx" },
+  { id: "Synchronous Technology", type: "concept", group: 2, radius: 11, tags: ["nx", "hybrid"], hint: "Direct + parametric hybrid editing.", slug: "" },
+  { id: "NX Features", type: "concept", group: 2, radius: 9, tags: ["nx", "parametric"], hint: "Ordered parametric feature history.", slug: "" },
+  { id: "Master Model", type: "concept", group: 2, radius: 9, tags: ["nx", "documents"], hint: "Source 3D part referenced by drawings/assemblies/CAM.", slug: "" },
+  { id: "WAVE", type: "skill", group: 2, radius: 10, tags: ["nx", "top-down"], hint: "Inter-part linking for top-down design.", slug: "" },
+  { id: "NX Assembly Constraints", type: "concept", group: 2, radius: 8, tags: ["nx", "assembly"], hint: "Geometric positioning of components.", slug: "" },
+  { id: "NX PMI", type: "skill", group: 2, radius: 8, tags: ["nx", "drawings"], hint: "Product Manufacturing Information on 3D.", slug: "" },
+  { id: "NX Sheet Metal", type: "skill", group: 2, radius: 8, tags: ["nx", "fabrication"], hint: "Tab/flange-based sheet metal.", slug: "" },
+  { id: "NX Surfacing", type: "skill", group: 2, radius: 9, tags: ["nx", "surfacing"], hint: "Free-form and class-A surfacing.", slug: "" },
+  { id: "NX Open", type: "sdk", group: 2, radius: 9, tags: ["nx", "api"], hint: "Multi-language API (Python/.NET/C++).", slug: "" },
+  { id: "SketchUp", type: "product", group: 1, radius: 14, tags: ["sketchup", "sketchup"], hint: "Trimble's extremely intuitive 3D conceptual design and presentation modeler, highly popular in architecture.", slug: "sketchup" },
+  { id: "Push/Pull Tool (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Interactive mouse-driven extrusion and pocketing of planar faces.", slug: "sketchup-term-1" },
+  { id: "Components vs. Groups (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Managing distinct geometric assemblies and parametric links.", slug: "sketchup-term-2" },
+  { id: "3D Warehouse (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Cloud-integrated portal hosting millions of pre-built CAD assets.", slug: "sketchup-term-3" },
+  { id: "LayOut (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Associative 2D presentation and construction documentation toolset.", slug: "sketchup-term-4" },
+  { id: "Ruby API & Extensions (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Programming engine driving custom scripts and plugins.", slug: "sketchup-term-5" },
+  { id: "Tags & Outliner (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Hierarchical spatial organization and visibility control system.", slug: "sketchup-term-6" },
+  { id: "Section Planes & Fills (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Dynamic architectural clipping and cut overlays.", slug: "sketchup-term-7" },
+  { id: "Styles & Visual Presentation (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Viewport rendering styles and artistic hand-drawn sketches.", slug: "sketchup-term-8" },
+  { id: "Dynamic Components (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Parametric component families hosting customized formula attributes.", slug: "sketchup-term-9" },
+  { id: "Shadows & Geo-location (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Precise solar study projections and map mapping.", slug: "sketchup-term-10" },
+  { id: "Tape Measure Tool (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Interactive coordinate measurement and global model scaling.", slug: "sketchup-term-11" },
+  { id: "Sandbox Tools (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Terrain modeling and earthwork generation tools.", slug: "sketchup-term-12" },
+  { id: "Intersect with Model (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Boolean-like edge generation at intersecting faces.", slug: "sketchup-term-13" },
+  { id: "Solid Tools (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "ACIS-like boolean operations for clean solids.", slug: "sketchup-term-14" },
+  { id: "Extension Manager (SketchUp)", type: "concept", group: 2, radius: 8, tags: ["sketchup"], hint: "Central dashboard for managing and updating CAD add-ons.", slug: "sketchup-term-15" },
+  { id: "SOLIDWORKS Mates", type: "concept", group: 2, radius: 10, tags: ["solidworks", "assembly"], hint: "Geometric constraints between assembly components.", slug: "" },
+  { id: "SOLIDWORKS Design Tables", type: "concept", group: 2, radius: 8, tags: ["solidworks", "automation"], hint: "Excel-driven configuration tables.", slug: "" },
+  { id: "SOLIDWORKS Sheet Metal", type: "skill", group: 2, radius: 9, tags: ["solidworks", "fabrication"], hint: "Flange-driven fabricated sheet metal.", slug: "" },
+  { id: "SOLIDWORKS Weldments", type: "skill", group: 2, radius: 9, tags: ["solidworks", "fabrication"], hint: "Multi-body structural welded frames.", slug: "" },
+  { id: "SOLIDWORKS Feature Tree", type: "concept", group: 2, radius: 10, tags: ["solidworks", "parametric"], hint: "Ordered feature history of a part.", slug: "" },
+  { id: "SOLIDWORKS MBD", type: "skill", group: 2, radius: 8, tags: ["solidworks", "drawings", "gdt"], hint: "Model-based definition replacing 2D drawings.", slug: "" },
+  { id: "SOLIDWORKS Simulation", type: "product", group: 1, radius: 9, tags: ["solidworks", "fea"], hint: "Integrated FEA for SOLIDWORKS models.", slug: "simulation-solidworks" },
+  { id: "SOLIDWORKS Toolbox", type: "concept", group: 2, radius: 8, tags: ["solidworks", "library"], hint: "Standard fasteners and hardware library.", slug: "toolbox-solidworks" },
+  { id: "ANSYS SpaceClaim", type: "product", group: 1, radius: 14, tags: ["spaceclaim", "spaceclaim"], hint: "A high-speed direct 3D modeler built to prepare, clean, and simplify geometry for finite element analysis.", slug: "spaceclaim" },
+  { id: "Direct Modeling (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "History-free geometry editing through direct face manipulation.", slug: "spaceclaim-term-1" },
+  { id: "Pull Tool (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Unified mouse handle for extrusion, revolving, sweeping, and drafting.", slug: "spaceclaim-term-2" },
+  { id: "Move Tool (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Multi-functional geometric handle for precise 3D translation and rotation.", slug: "spaceclaim-term-3" },
+  { id: "Fill Tool (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Intelligent geometric healing and feature removal tool.", slug: "spaceclaim-term-4" },
+  { id: "Sheet Metal Unfolding (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Watertight flat pattern extraction from 3D sheet metal parts.", slug: "spaceclaim-term-5" },
+  { id: "Prep for Simulation (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Automated tools to extract beams, shells, and fluid volumes.", slug: "spaceclaim-term-6" },
+  { id: "Reverse Engineering (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Direct fitting of curves and surfaces onto imported STL files.", slug: "spaceclaim-term-7" },
+  { id: "Facet Tools (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Direct editing and repair of STL and mesh files.", slug: "spaceclaim-term-8" },
+  { id: "Assembly Structure (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Flexible component management in a unified workspace.", slug: "spaceclaim-term-9" },
+  { id: "IronPython Scripting (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Integrated Python automation for CAD workflows.", slug: "spaceclaim-term-10" },
+  { id: "Shared Topology (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Automated mesh node alignment for finite element solvers.", slug: "spaceclaim-term-11" },
+  { id: "Dimensional Control (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Direct, history-free dimensions that act as parameters.", slug: "spaceclaim-term-12" },
+  { id: "Clean Up & Repair (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Automated tool for finding and fixing geometry errors.", slug: "spaceclaim-term-13" },
+  { id: "STEP/IGES Import (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "Watertight neutral 3D CAD data translation.", slug: "spaceclaim-term-14" },
+  { id: "Measurement & Mass (ANSYS SpaceClaim)", type: "concept", group: 2, radius: 8, tags: ["spaceclaim"], hint: "High-precision physical properties and geometric analysis.", slug: "spaceclaim-term-15" },
+  { id: "Tekla Structures", type: "product", group: 1, radius: 14, tags: ["teklastructures", "tekla-structures"], hint: "Trimble's premier structural BIM authoring tool, delivering detailed LOD 500 models for steel and concrete.", slug: "tekla-structures" },
+  { id: "Steel Detailing (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "High-precision 3D structural steel modeling and connection design.", slug: "tekla-structures-term-1" },
+  { id: "Cast-in-Place Concrete (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Advanced 3D modeling of cast-in-place concrete structures.", slug: "tekla-structures-term-2" },
+  { id: "Rebar Detailing (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Interactive, physical 3D modeling of reinforcing steel.", slug: "tekla-structures-term-3" },
+  { id: "Tekla Model Sharing (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Cloud-based collaboration for distributed structural teams.", slug: "tekla-structures-term-4" },
+  { id: "Custom Components (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Parametric, reusable structural detail templates.", slug: "tekla-structures-term-5" },
+  { id: "Drawing List (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Central organization dashboard for structural sheet packages.", slug: "tekla-structures-term-6" },
+  { id: "Assembly Drawings (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Watertight shop drawings for structural steel fabricators.", slug: "tekla-structures-term-7" },
+  { id: "Clash Check (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Automated plant-wide structural interference checking.", slug: "tekla-structures-term-8" },
+  { id: "Organizer (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Dynamic quantity takeoff and material tracking engine.", slug: "tekla-structures-term-9" },
+  { id: "Open API (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Comprehensive C# and .NET SDK for custom tool development.", slug: "tekla-structures-term-10" },
+  { id: "IFC Import/Export (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Open BIM coordination and exchange tools.", slug: "tekla-structures-term-11" },
+  { id: "Weld Marks & Specs (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Standardized 3D welding definition and notation tools.", slug: "tekla-structures-term-12" },
+  { id: "Phase Manager (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Construction sequencing and project phasing system.", slug: "tekla-structures-term-13" },
+  { id: "User-Defined Attributes (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Custom metadata fields attached to structural elements.", slug: "tekla-structures-term-14" },
+  { id: "NC/DSTV Export (Tekla Structures)", type: "concept", group: 2, radius: 8, tags: ["tekla-structures"], hint: "Direct CNC file generation for steel cutting machines.", slug: "tekla-structures-term-15" },
+  { id: "Vectorworks", type: "product", group: 1, radius: 14, tags: ["vectorworks", "vectorworks"], hint: "A versatile BIM and CAD platform tailored for architects, landscape architects, and entertainment designers.", slug: "vectorworks" },
+  { id: "Marionette (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Visual scripting and algorithmic modeling interface.", slug: "vectorworks-term-1" },
+  { id: "Design vs. Sheet Layers (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Modular environment separation for geometry creation and drafting.", slug: "vectorworks-term-2" },
+  { id: "Resource Manager (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Centralized catalog browser for managing CAD and BIM assets.", slug: "vectorworks-term-3" },
+  { id: "Hybrid Symbols (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "2D/3D dual-state CAD blocks and dynamic components.", slug: "vectorworks-term-4" },
+  { id: "Landmark Site Model (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Advanced GIS and digital terrain modeling toolset.", slug: "vectorworks-term-5" },
+  { id: "Spotlight Lighting (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Specialized lighting and entertainment event design suite.", slug: "vectorworks-term-6" },
+  { id: "Classes vs. Layers (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Dual-attribute organization separating object types and spatial locations.", slug: "vectorworks-term-7" },
+  { id: "Data Tag Tool (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Dynamic, model-linked annotation and schedule system.", slug: "vectorworks-term-8" },
+  { id: "Wall Join Tool (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Automated clean-up of wall component intersections.", slug: "vectorworks-term-9" },
+  { id: "Plant Database (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Comprehensive botanical database linked to GIS modeling tools.", slug: "vectorworks-term-10" },
+  { id: "ConnectCAD (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Signal flow and cable routing design vertical.", slug: "vectorworks-term-11" },
+  { id: "Braceworks (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Structural rigging and load analysis engine.", slug: "vectorworks-term-12" },
+  { id: "Sheet Border & Title Block (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Associative title block and drawing boundary manager.", slug: "vectorworks-term-13" },
+  { id: "IFC & BIM Collaboration (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Open BIM coordinate and data exchange tools.", slug: "vectorworks-term-14" },
+  { id: "Marionette Nodes (Vectorworks)", type: "concept", group: 2, radius: 8, tags: ["vectorworks"], hint: "Modular programming blocks for visual scripting.", slug: "vectorworks-term-15" },
+  { id: "ZWCAD", type: "product", group: 1, radius: 14, tags: ["zwsoft", "dwg", "drafting", "high-speed"], hint: "ZWSOFT's high-performance DWG-native 2D/3D CAD platform.", slug: "zwcad" },
+  { id: "ZRX SDK", type: "sdk", group: 2, radius: 9, tags: ["zwcad", "api"], hint: "ObjectARX-compatible C++ developer kit.", slug: "" },
+  { id: "Smart Voice", type: "skill", group: 2, radius: 8, tags: ["zwcad", "ui"], hint: "Embeds audio annotations directly inside DWG.", slug: "" },
+  { id: "Multi-Core Rendering", type: "concept", group: 2, radius: 9, tags: ["zwcad", "performance"], hint: "Multi-threaded CPU canvas acceleration.", slug: "" },
     /* AUTO-GEN sw-nodes END */
 
   ];
@@ -1191,53 +1191,53 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     ["Civil 3D", "Grading Optimization"],
     ["Navisworks", "NWD/NWF"],  /* AUTO-GEN sw-links START */
   ["Alibre Design", "Alibre"],
-  ["Alibre Design Concept 1", "Alibre Design"],
-  ["Alibre Design Concept 2", "Alibre Design"],
-  ["Alibre Design Concept 3", "Alibre Design"],
-  ["Alibre Design Concept 4", "Alibre Design"],
-  ["Alibre Design Concept 5", "Alibre Design"],
-  ["Alibre Design Concept 6", "Alibre Design"],
-  ["Alibre Design Concept 7", "Alibre Design"],
-  ["Alibre Design Concept 8", "Alibre Design"],
-  ["Alibre Design Concept 9", "Alibre Design"],
-  ["Alibre Design Concept 10", "Alibre Design"],
-  ["Alibre Design Concept 11", "Alibre Design"],
-  ["Alibre Design Concept 12", "Alibre Design"],
-  ["Alibre Design Concept 13", "Alibre Design"],
-  ["Alibre Design Concept 14", "Alibre Design"],
-  ["Alibre Design Concept 15", "Alibre Design"],
+  ["Parametric Dimension Driver (Alibre Design)", "Alibre Design"],
+  ["Geometric Constraints (Alibre Design)", "Alibre Design"],
+  ["Feature History Tree (Alibre Design)", "Alibre Design"],
+  ["Assembly Mates (Alibre Design)", "Alibre Design"],
+  ["B-Rep Solid Engine (Alibre Design)", "Alibre Design"],
+  ["Sheet Metal Flanges (Alibre Design)", "Alibre Design"],
+  ["2D Drafting Sheets (Alibre Design)", "Alibre Design"],
+  ["Alibre Script (Alibre Design)", "Alibre Design"],
+  ["Equations Editor (Alibre Design)", "Alibre Design"],
+  ["Configurations Manager (Alibre Design)", "Alibre Design"],
+  ["Catalog Features (Alibre Design)", "Alibre Design"],
+  ["3D PDF Publishing (Alibre Design)", "Alibre Design"],
+  ["Thread Creator (Alibre Design)", "Alibre Design"],
+  ["STEP/IGES Translation (Alibre Design)", "Alibre Design"],
+  ["Design Booleans (Alibre Design)", "Alibre Design"],
   ["Allplan", "Allplan (Nemetschek)"],
-  ["Allplan Concept 1", "Allplan"],
-  ["Allplan Concept 2", "Allplan"],
-  ["Allplan Concept 3", "Allplan"],
-  ["Allplan Concept 4", "Allplan"],
-  ["Allplan Concept 5", "Allplan"],
-  ["Allplan Concept 6", "Allplan"],
-  ["Allplan Concept 7", "Allplan"],
-  ["Allplan Concept 8", "Allplan"],
-  ["Allplan Concept 9", "Allplan"],
-  ["Allplan Concept 10", "Allplan"],
-  ["Allplan Concept 11", "Allplan"],
-  ["Allplan Concept 12", "Allplan"],
-  ["Allplan Concept 13", "Allplan"],
-  ["Allplan Concept 14", "Allplan"],
-  ["Allplan Concept 15", "Allplan"],
+  ["SmartParts (Allplan)", "Allplan"],
+  ["3D Reinforcement Modeling (Allplan)", "Allplan"],
+  ["Allplan Bridge (Allplan)", "Allplan"],
+  ["BIM Model Topology (Allplan)", "Allplan"],
+  ["Reinforcement Reports (Allplan)", "Allplan"],
+  ["PythonParts (Allplan)", "Allplan"],
+  ["IFC Exchange (Allplan)", "Allplan"],
+  ["Quantity Takeoff (Allplan)", "Allplan"],
+  ["Terrain Modeling (Allplan)", "Allplan"],
+  ["Multi-Layer Walls (Allplan)", "Allplan"],
+  ["Element Plan Generator (Allplan)", "Allplan"],
+  ["Clash Detection (Allplan)", "Allplan"],
+  ["Reference Planes (Allplan)", "Allplan"],
+  ["CineRender Engine (Allplan)", "Allplan"],
+  ["Nemetschek Allplan Connect (Allplan)", "Allplan"],
   ["ARES Commander", "Graebert"],
-  ["ARES Commander Concept 1", "ARES Commander"],
-  ["ARES Commander Concept 2", "ARES Commander"],
-  ["ARES Commander Concept 3", "ARES Commander"],
-  ["ARES Commander Concept 4", "ARES Commander"],
-  ["ARES Commander Concept 5", "ARES Commander"],
-  ["ARES Commander Concept 6", "ARES Commander"],
-  ["ARES Commander Concept 7", "ARES Commander"],
-  ["ARES Commander Concept 8", "ARES Commander"],
-  ["ARES Commander Concept 9", "ARES Commander"],
-  ["ARES Commander Concept 10", "ARES Commander"],
-  ["ARES Commander Concept 11", "ARES Commander"],
-  ["ARES Commander Concept 12", "ARES Commander"],
-  ["ARES Commander Concept 13", "ARES Commander"],
-  ["ARES Commander Concept 14", "ARES Commander"],
-  ["ARES Commander Concept 15", "ARES Commander"],
+  ["Trinity Concept (ARES Commander)", "ARES Commander"],
+  ["DWG Native Engine (ARES Commander)", "ARES Commander"],
+  ["ARES Kudo (ARES Commander)", "ARES Commander"],
+  ["ARES Touch (ARES Commander)", "ARES Commander"],
+  ["Custom Blocks (ARES Commander)", "ARES Commander"],
+  ["AutoLISP Migration (ARES Commander)", "ARES Commander"],
+  ["C++ & .NET APIs (ARES Commander)", "ARES Commander"],
+  ["Sheet Set Manager (ARES Commander)", "ARES Commander"],
+  ["DGN Import & Underlay (ARES Commander)", "ARES Commander"],
+  ["GIS & Coordinate Integration (ARES Commander)", "ARES Commander"],
+  ["PDF Import & Vectorization (ARES Commander)", "ARES Commander"],
+  ["Version History Cloud Sync (ARES Commander)", "ARES Commander"],
+  ["Smart Voice Notes (ARES Commander)", "ARES Commander"],
+  ["Batch Plotting Utility (ARES Commander)", "ARES Commander"],
+  ["3D Solid Modeling (ARES Commander)", "ARES Commander"],
   ["AutoCAD Paper Space", "AutoCAD"],
   ["AutoCAD XREF Tree", "AutoCAD"],
   ["AutoCAD Dynamic Block", "AutoCAD"],
@@ -1252,21 +1252,21 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   ["AutoCAD Annotative Scale", "AutoCAD Paper Space"],
   ["AutoCAD Data Extraction", "AutoCAD Dynamic Block"],
   ["AVEVA Everything3D", "AVEVA"],
-  ["AVEVA Everything3D Concept 1", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 2", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 3", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 4", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 5", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 6", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 7", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 8", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 9", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 10", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 11", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 12", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 13", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 14", "AVEVA Everything3D"],
-  ["AVEVA Everything3D Concept 15", "AVEVA Everything3D"],
+  ["Spec-Driven Piping Design (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Laser Data & Point Clouds (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Bubble View (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Clash Detection & Clearance (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Draft Workbench (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["AVEVA PML Scripting (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Catalog & Spec Editor (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Structural Steelwork (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Marine Design Module (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Cable Design & Routing (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["HVAC Ducting Systems (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Structural Joints & Plates (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Multi-User Database Coordination (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Intelligent Isometric Generation (AVEVA Everything3D)", "AVEVA Everything3D"],
+  ["Equipment Modeling (AVEVA Everything3D)", "AVEVA Everything3D"],
   ["CATIA", "Dassault"],
   ["CATIA Workbenches", "CATIA"],
   ["CATIA Sketcher", "CATIA Workbenches"],
@@ -1304,22 +1304,22 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   ["Creo MBD", "Creo Parametric"],
   ["Windchill", "Creo Parametric"],
   ["Pro/TOOLKIT", "Creo Parametric"],
-  ["DraftSight", "Dassault"],
-  ["DraftSight Concept 1", "DraftSight"],
-  ["DraftSight Concept 2", "DraftSight"],
-  ["DraftSight Concept 3", "DraftSight"],
-  ["DraftSight Concept 4", "DraftSight"],
-  ["DraftSight Concept 5", "DraftSight"],
-  ["DraftSight Concept 6", "DraftSight"],
-  ["DraftSight Concept 7", "DraftSight"],
-  ["DraftSight Concept 8", "DraftSight"],
-  ["DraftSight Concept 9", "DraftSight"],
-  ["DraftSight Concept 10", "DraftSight"],
-  ["DraftSight Concept 11", "DraftSight"],
-  ["DraftSight Concept 12", "DraftSight"],
-  ["DraftSight Concept 13", "DraftSight"],
-  ["DraftSight Concept 14", "DraftSight"],
-  ["DraftSight Concept 15", "DraftSight"],
+  ["DraftSight", "Dassault Systèmes"],
+  ["DWG/DXF Native Engine (DraftSight)", "DraftSight"],
+  ["Custom Blocks (DraftSight)", "DraftSight"],
+  ["LISP & API Integrations (DraftSight)", "DraftSight"],
+  ["Sheet Set Manager (DraftSight)", "DraftSight"],
+  ["Image Tracer Vectorization (DraftSight)", "DraftSight"],
+  ["G-Code Generator (DraftSight)", "DraftSight"],
+  ["DGN Underlay & Import (DraftSight)", "DraftSight"],
+  ["Tool Palettes Customization (DraftSight)", "DraftSight"],
+  ["DWG Compare Utility (DraftSight)", "DraftSight"],
+  ["Batch Print Utility (DraftSight)", "DraftSight"],
+  ["Power Trim Tool (DraftSight)", "DraftSight"],
+  ["PDF Form Fill (DraftSight)", "DraftSight"],
+  ["Mechanical Toolbox (DraftSight)", "DraftSight"],
+  ["3D Mesh Modeling (DraftSight)", "DraftSight"],
+  ["Active Command Suggestions (DraftSight)", "DraftSight"],
   ["FreeCAD", "FreeCAD Community (FOSS)"],
   ["Topological Naming", "FreeCAD"],
   ["FreeCAD Python", "FreeCAD"],
@@ -1370,37 +1370,37 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   ["Inventor Presentations", "Inventor"],
   ["Inventor Model States", "Inventor"],
   ["IronCAD", "IronCAD LLC"],
-  ["IronCAD Concept 1", "IronCAD"],
-  ["IronCAD Concept 2", "IronCAD"],
-  ["IronCAD Concept 3", "IronCAD"],
-  ["IronCAD Concept 4", "IronCAD"],
-  ["IronCAD Concept 5", "IronCAD"],
-  ["IronCAD Concept 6", "IronCAD"],
-  ["IronCAD Concept 7", "IronCAD"],
-  ["IronCAD Concept 8", "IronCAD"],
-  ["IronCAD Concept 9", "IronCAD"],
-  ["IronCAD Concept 10", "IronCAD"],
-  ["IronCAD Concept 11", "IronCAD"],
-  ["IronCAD Concept 12", "IronCAD"],
-  ["IronCAD Concept 13", "IronCAD"],
-  ["IronCAD Concept 14", "IronCAD"],
-  ["IronCAD Concept 15", "IronCAD"],
-  ["MicroStation", "Bentley"],
-  ["MicroStation Concept 1", "MicroStation"],
-  ["MicroStation Concept 2", "MicroStation"],
-  ["MicroStation Concept 3", "MicroStation"],
-  ["MicroStation Concept 4", "MicroStation"],
-  ["MicroStation Concept 5", "MicroStation"],
-  ["MicroStation Concept 6", "MicroStation"],
-  ["MicroStation Concept 7", "MicroStation"],
-  ["MicroStation Concept 8", "MicroStation"],
-  ["MicroStation Concept 9", "MicroStation"],
-  ["MicroStation Concept 10", "MicroStation"],
-  ["MicroStation Concept 11", "MicroStation"],
-  ["MicroStation Concept 12", "MicroStation"],
-  ["MicroStation Concept 13", "MicroStation"],
-  ["MicroStation Concept 14", "MicroStation"],
-  ["MicroStation Concept 15", "MicroStation"],
+  ["Dual-Kernel Engine (IronCAD)", "IronCAD"],
+  ["Unified Assembly Environment (IronCAD)", "IronCAD"],
+  ["Catalog Drag-and-Drop (IronCAD)", "IronCAD"],
+  ["TriBall Geometric Manipulator (IronCAD)", "IronCAD"],
+  ["SmartAssembly Positioning (IronCAD)", "IronCAD"],
+  ["Creative vs. Structured Design (IronCAD)", "IronCAD"],
+  ["2D Detail Drafting Sheet (IronCAD)", "IronCAD"],
+  ["IronCAD C++ API (IronCAD)", "IronCAD"],
+  ["KeyShot Rendering (IronCAD)", "IronCAD"],
+  ["Direct Face Modeling (IronCAD)", "IronCAD"],
+  ["Standard Parts Catalog (IronCAD)", "IronCAD"],
+  ["IronCAD Mechanical Tools (IronCAD)", "IronCAD"],
+  ["B-Rep Booleans (IronCAD)", "IronCAD"],
+  ["STEP/IGES Interoperability (IronCAD)", "IronCAD"],
+  ["SmartAssembly Configurator (IronCAD)", "IronCAD"],
+  ["MicroStation", "Bentley Systems"],
+  ["DGN Design File Format (MicroStation)", "MicroStation"],
+  ["Cells & Shared Cells (MicroStation)", "MicroStation"],
+  ["Levels & Level Manager (MicroStation)", "MicroStation"],
+  ["Reference Files (MicroStation)", "MicroStation"],
+  ["Item Types (MicroStation)", "MicroStation"],
+  ["Parametric Modeling & Constraints (MicroStation)", "MicroStation"],
+  ["AccuDraw & AccuSnap (MicroStation)", "MicroStation"],
+  ["ProjectWise Collaboration (MicroStation)", "MicroStation"],
+  ["Mesh Modeling Tools (MicroStation)", "MicroStation"],
+  ["Print Organizer (MicroStation)", "MicroStation"],
+  ["Bentley View Compatibility (MicroStation)", "MicroStation"],
+  ["Geographic Coordinate Systems (MicroStation)", "MicroStation"],
+  ["MDL C++ API (MicroStation)", "MicroStation"],
+  ["Point Cloud Visualisation (MicroStation)", "MicroStation"],
+  ["VBA Automation (MicroStation)", "MicroStation"],
   ["Revit", "Autodesk"],
   ["Revit Families", "Revit"],
   ["Revit Worksets", "Revit"],
@@ -1417,21 +1417,21 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   ["Revit IFC Export", "Navisworks"],
   ["Revit Shared Parameters", "Revit Families"],
   ["Rhinoceros", "McNeel & Associates"],
-  ["Rhinoceros Concept 1", "Rhinoceros"],
-  ["Rhinoceros Concept 2", "Rhinoceros"],
-  ["Rhinoceros Concept 3", "Rhinoceros"],
-  ["Rhinoceros Concept 4", "Rhinoceros"],
-  ["Rhinoceros Concept 5", "Rhinoceros"],
-  ["Rhinoceros Concept 6", "Rhinoceros"],
-  ["Rhinoceros Concept 7", "Rhinoceros"],
-  ["Rhinoceros Concept 8", "Rhinoceros"],
-  ["Rhinoceros Concept 9", "Rhinoceros"],
-  ["Rhinoceros Concept 10", "Rhinoceros"],
-  ["Rhinoceros Concept 11", "Rhinoceros"],
-  ["Rhinoceros Concept 12", "Rhinoceros"],
-  ["Rhinoceros Concept 13", "Rhinoceros"],
-  ["Rhinoceros Concept 14", "Rhinoceros"],
-  ["Rhinoceros Concept 15", "Rhinoceros"],
+  ["NURBS Geometry (Rhinoceros)", "Rhinoceros"],
+  ["Grasshopper (Rhinoceros)", "Rhinoceros"],
+  ["SubD Modeling (Rhinoceros)", "Rhinoceros"],
+  ["Mesh vs. NURBS (Rhinoceros)", "Rhinoceros"],
+  ["Gumball Manipulator (Rhinoceros)", "Rhinoceros"],
+  ["Command Line & Aliases (Rhinoceros)", "Rhinoceros"],
+  ["Layer States (Rhinoceros)", "Rhinoceros"],
+  ["Make2D (Rhinoceros)", "Rhinoceros"],
+  ["Named Views & Viewports (Rhinoceros)", "Rhinoceros"],
+  ["QuadMesh Retopology (Rhinoceros)", "Rhinoceros"],
+  ["RhinoCommon API (Rhinoceros)", "Rhinoceros"],
+  ["Worksession (Rhinoceros)", "Rhinoceros"],
+  ["Point Clouds & Reverse Engineering (Rhinoceros)", "Rhinoceros"],
+  ["Rendering & Display Modes (Rhinoceros)", "Rhinoceros"],
+  ["File Interoperability (Rhinoceros)", "Rhinoceros"],
   ["Siemens NX", "Siemens"],
   ["Synchronous Technology", "Siemens NX"],
   ["NX Features", "Siemens NX"],
@@ -1445,21 +1445,21 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   ["Teamcenter", "Siemens NX"],
   ["NX Open", "Siemens NX"],
   ["SketchUp", "Trimble"],
-  ["SketchUp Concept 1", "SketchUp"],
-  ["SketchUp Concept 2", "SketchUp"],
-  ["SketchUp Concept 3", "SketchUp"],
-  ["SketchUp Concept 4", "SketchUp"],
-  ["SketchUp Concept 5", "SketchUp"],
-  ["SketchUp Concept 6", "SketchUp"],
-  ["SketchUp Concept 7", "SketchUp"],
-  ["SketchUp Concept 8", "SketchUp"],
-  ["SketchUp Concept 9", "SketchUp"],
-  ["SketchUp Concept 10", "SketchUp"],
-  ["SketchUp Concept 11", "SketchUp"],
-  ["SketchUp Concept 12", "SketchUp"],
-  ["SketchUp Concept 13", "SketchUp"],
-  ["SketchUp Concept 14", "SketchUp"],
-  ["SketchUp Concept 15", "SketchUp"],
+  ["Push/Pull Tool (SketchUp)", "SketchUp"],
+  ["Components vs. Groups (SketchUp)", "SketchUp"],
+  ["3D Warehouse (SketchUp)", "SketchUp"],
+  ["LayOut (SketchUp)", "SketchUp"],
+  ["Ruby API & Extensions (SketchUp)", "SketchUp"],
+  ["Tags & Outliner (SketchUp)", "SketchUp"],
+  ["Section Planes & Fills (SketchUp)", "SketchUp"],
+  ["Styles & Visual Presentation (SketchUp)", "SketchUp"],
+  ["Dynamic Components (SketchUp)", "SketchUp"],
+  ["Shadows & Geo-location (SketchUp)", "SketchUp"],
+  ["Tape Measure Tool (SketchUp)", "SketchUp"],
+  ["Sandbox Tools (SketchUp)", "SketchUp"],
+  ["Intersect with Model (SketchUp)", "SketchUp"],
+  ["Solid Tools (SketchUp)", "SketchUp"],
+  ["Extension Manager (SketchUp)", "SketchUp"],
   ["SOLIDWORKS", "Dassault"],
   ["SOLIDWORKS Mates", "SOLIDWORKS"],
   ["SOLIDWORKS Configurations", "SOLIDWORKS"],
@@ -1473,53 +1473,53 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   ["SOLIDWORKS Toolbox", "SOLIDWORKS"],
   ["eDrawings", "SOLIDWORKS"],
   ["ANSYS SpaceClaim", "ANSYS"],
-  ["ANSYS SpaceClaim Concept 1", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 2", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 3", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 4", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 5", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 6", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 7", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 8", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 9", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 10", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 11", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 12", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 13", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 14", "ANSYS SpaceClaim"],
-  ["ANSYS SpaceClaim Concept 15", "ANSYS SpaceClaim"],
+  ["Direct Modeling (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Pull Tool (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Move Tool (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Fill Tool (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Sheet Metal Unfolding (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Prep for Simulation (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Reverse Engineering (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Facet Tools (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Assembly Structure (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["IronPython Scripting (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Shared Topology (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Dimensional Control (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Clean Up & Repair (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["STEP/IGES Import (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
+  ["Measurement & Mass (ANSYS SpaceClaim)", "ANSYS SpaceClaim"],
   ["Tekla Structures", "Trimble"],
-  ["Tekla Structures Concept 1", "Tekla Structures"],
-  ["Tekla Structures Concept 2", "Tekla Structures"],
-  ["Tekla Structures Concept 3", "Tekla Structures"],
-  ["Tekla Structures Concept 4", "Tekla Structures"],
-  ["Tekla Structures Concept 5", "Tekla Structures"],
-  ["Tekla Structures Concept 6", "Tekla Structures"],
-  ["Tekla Structures Concept 7", "Tekla Structures"],
-  ["Tekla Structures Concept 8", "Tekla Structures"],
-  ["Tekla Structures Concept 9", "Tekla Structures"],
-  ["Tekla Structures Concept 10", "Tekla Structures"],
-  ["Tekla Structures Concept 11", "Tekla Structures"],
-  ["Tekla Structures Concept 12", "Tekla Structures"],
-  ["Tekla Structures Concept 13", "Tekla Structures"],
-  ["Tekla Structures Concept 14", "Tekla Structures"],
-  ["Tekla Structures Concept 15", "Tekla Structures"],
+  ["Steel Detailing (Tekla Structures)", "Tekla Structures"],
+  ["Cast-in-Place Concrete (Tekla Structures)", "Tekla Structures"],
+  ["Rebar Detailing (Tekla Structures)", "Tekla Structures"],
+  ["Tekla Model Sharing (Tekla Structures)", "Tekla Structures"],
+  ["Custom Components (Tekla Structures)", "Tekla Structures"],
+  ["Drawing List (Tekla Structures)", "Tekla Structures"],
+  ["Assembly Drawings (Tekla Structures)", "Tekla Structures"],
+  ["Clash Check (Tekla Structures)", "Tekla Structures"],
+  ["Organizer (Tekla Structures)", "Tekla Structures"],
+  ["Open API (Tekla Structures)", "Tekla Structures"],
+  ["IFC Import/Export (Tekla Structures)", "Tekla Structures"],
+  ["Weld Marks & Specs (Tekla Structures)", "Tekla Structures"],
+  ["Phase Manager (Tekla Structures)", "Tekla Structures"],
+  ["User-Defined Attributes (Tekla Structures)", "Tekla Structures"],
+  ["NC/DSTV Export (Tekla Structures)", "Tekla Structures"],
   ["Vectorworks", "Vectorworks (Nemetschek)"],
-  ["Vectorworks Concept 1", "Vectorworks"],
-  ["Vectorworks Concept 2", "Vectorworks"],
-  ["Vectorworks Concept 3", "Vectorworks"],
-  ["Vectorworks Concept 4", "Vectorworks"],
-  ["Vectorworks Concept 5", "Vectorworks"],
-  ["Vectorworks Concept 6", "Vectorworks"],
-  ["Vectorworks Concept 7", "Vectorworks"],
-  ["Vectorworks Concept 8", "Vectorworks"],
-  ["Vectorworks Concept 9", "Vectorworks"],
-  ["Vectorworks Concept 10", "Vectorworks"],
-  ["Vectorworks Concept 11", "Vectorworks"],
-  ["Vectorworks Concept 12", "Vectorworks"],
-  ["Vectorworks Concept 13", "Vectorworks"],
-  ["Vectorworks Concept 14", "Vectorworks"],
-  ["Vectorworks Concept 15", "Vectorworks"],
+  ["Marionette (Vectorworks)", "Vectorworks"],
+  ["Design vs. Sheet Layers (Vectorworks)", "Vectorworks"],
+  ["Resource Manager (Vectorworks)", "Vectorworks"],
+  ["Hybrid Symbols (Vectorworks)", "Vectorworks"],
+  ["Landmark Site Model (Vectorworks)", "Vectorworks"],
+  ["Spotlight Lighting (Vectorworks)", "Vectorworks"],
+  ["Classes vs. Layers (Vectorworks)", "Vectorworks"],
+  ["Data Tag Tool (Vectorworks)", "Vectorworks"],
+  ["Wall Join Tool (Vectorworks)", "Vectorworks"],
+  ["Plant Database (Vectorworks)", "Vectorworks"],
+  ["ConnectCAD (Vectorworks)", "Vectorworks"],
+  ["Braceworks (Vectorworks)", "Vectorworks"],
+  ["Sheet Border & Title Block (Vectorworks)", "Vectorworks"],
+  ["IFC & BIM Collaboration (Vectorworks)", "Vectorworks"],
+  ["Marionette Nodes (Vectorworks)", "Vectorworks"],
   ["ZWCAD", "ZWSOFT"],
   ["ZRX SDK", "ZWCAD"],
   ["Smart Voice", "ZWCAD"],
@@ -1598,10 +1598,10 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       const narrow = window.matchMedia("(max-width:767px)").matches;
       const vh = window.innerHeight || 800;
       if (graphImmersive) {
-        if (narrow) return Math.round(Math.min(Math.max(vh * 0.42, 300), vh * 0.54));
-        return Math.round(Math.min(Math.max(vh * 0.62, 480), vh * 0.78));
+        if (narrow) return Math.round(vh * 0.65);
+        return Math.round(vh * 0.88);
       }
-      return narrow ? 360 : 560;
+      return narrow ? 450 : 750;
     };
 
     const simNodes = nodes.map((n) => ({ ...n }));
@@ -1620,17 +1620,21 @@ if (document.body.getAttribute("data-page") === "knowledge") {
 
     const cxSeed = width / 2;
     const cySeed = height / 2;
-    const ring = Math.min(width, height) * 0.26;
+    const ring = Math.min(width, height) * 0.28;
     simNodes.forEach((n, i, arr) => {
       const ang = (i / Math.max(arr.length, 1)) * Math.PI * 2 - Math.PI / 2;
       n.x = cxSeed + ring * Math.cos(ang);
       n.y = cySeed + ring * Math.sin(ang);
       
       const deg = degreeMap[n.id] || 0;
-      // Core base size is 12. Connective nodes get larger up to +12px (max 24px)
-      const sizeBoost = Math.min(deg * 1.5, 12);
-      const baseSize = 12 + sizeBoost;
-      n.baseRadius = n.type === "vendor" ? baseSize + 3 : baseSize;
+      let baseSize = 14; // Default base size for standard nodes
+      if (n.type === "product") baseSize = 18;
+      else if (n.type === "vendor") baseSize = 20;
+      else if (n.type === "domain") baseSize = 22;
+      
+      // Connecting hubs get a significant dynamic boost up to +30px max (so key nodes can reach 52px radius / 104px diameter!)
+      const sizeBoost = Math.min(deg * 2.8, 30);
+      n.baseRadius = baseSize + sizeBoost;
     });
 
     let hoverId = "";
@@ -1671,15 +1675,15 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         d3
           .forceLink(simLinks)
           .id((d) => d.id)
-          .distance(110)
-          .strength(0.6)
+          .distance((d) => 125 + Math.max(d.source.baseRadius || 0, d.target.baseRadius || 0) * 0.8)
+          .strength(0.55)
       )
-      .force("charge", d3.forceManyBody().strength(-240))
-      .force("x", d3.forceX(width / 2).strength(0.16))
-      .force("y", d3.forceY(height / 2).strength(0.16))
+      .force("charge", d3.forceManyBody().strength((d) => -350 - (d.baseRadius * 16)))
+      .force("x", d3.forceX(width / 2).strength(0.14))
+      .force("y", d3.forceY(height / 2).strength(0.14))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide().radius((d) => d.baseRadius + 22))
-      .velocityDecay(0.18); // Stable initial decay
+      .force("collision", d3.forceCollide().radius((d) => d.baseRadius + 20))
+      .velocityDecay(0.20); // Stable initial decay
 
     // Kinetic entrance animation settling smoothly
     simulation.alpha(1.2).restart();
@@ -2306,5 +2310,191 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   } else if (graphSvgRoot) {
     const note = graphStage?.querySelector?.("[data-kb-graph-d3-fallback]");
     if (note) note.hidden = false;
+  }
+
+  // -------------------------------------------------------------
+  // Phase 5: Interactive Sub-Graph for Concept Detail Pages
+  // -------------------------------------------------------------
+  const subGraphStage = document.getElementById("kb-sub-graph-stage");
+  if (subGraphStage && typeof window.d3 !== "undefined") {
+      const d3 = window.d3;
+      const currentNodeId = subGraphStage.getAttribute("data-current-node");
+      
+      const colorMap = {
+        concept: "#7C8AFF",
+        skill:   "#A6B0FF",
+        domain:  "#8A6BC7",
+        format:  "#5DC2A7",
+        resource:"#D9B074",
+        vendor:  "#E8C68A",
+        product: "#5BB6E5",
+        sdk:     "#B198F2",
+      };
+
+      const rootNode = nodes.find(n => n.id === currentNodeId);
+      if (rootNode) {
+          // Identify connected nodes in links list
+          const connectedNodeIds = new Set();
+          connectedNodeIds.add(currentNodeId);
+          
+          links.forEach(([source, target]) => {
+              if (source === currentNodeId) connectedNodeIds.add(target);
+              if (target === currentNodeId) connectedNodeIds.add(source);
+          });
+
+          // Expand: find parent software (product type) and sibling nodes under that product
+          const parentProductNode = nodes.find(n => n.type === "product" && connectedNodeIds.has(n.id));
+          if (parentProductNode) {
+              links.forEach(([source, target]) => {
+                  if (source === parentProductNode.id) connectedNodeIds.add(target);
+                  if (target === parentProductNode.id) connectedNodeIds.add(source);
+              });
+          }
+
+          // Limit siblings to prevent overcrowding in the small 320px widget
+          const subNodes = nodes.filter(n => connectedNodeIds.has(n.id));
+          let finalNodes = subNodes.filter(n => n.id === currentNodeId || n.type === "product");
+          let otherNodes = subNodes.filter(n => n.id !== currentNodeId && n.type !== "product");
+          finalNodes = finalNodes.concat(otherNodes.slice(0, 10)); // Max 12 nodes total
+
+          const finalNodeIds = new Set(finalNodes.map(n => n.id));
+          const finalLinks = links
+              .filter(([source, target]) => finalNodeIds.has(source) && finalNodeIds.has(target))
+              .map(([source, target]) => ({ source: source, target: target }));
+
+          // Render micro sub-graph
+          const width = subGraphStage.clientWidth || 600;
+          const height = 320;
+
+          // Append SVG
+          const svg = d3.select(subGraphStage)
+              .append("svg")
+              .attr("width", "100%")
+              .attr("height", "100%")
+              .attr("viewBox", `0 0 ${width} ${height}`)
+              .attr("preserveAspectRatio", "xMidYMid meet");
+
+          const simNodes = finalNodes.map(n => ({ ...n }));
+          
+          // Seed positions
+          simNodes.forEach((n, i) => {
+              const angle = (i / simNodes.length) * Math.PI * 2;
+              n.x = width / 2 + Math.cos(angle) * 70;
+              n.y = height / 2 + Math.sin(angle) * 70;
+          });
+
+          const simulation = d3.forceSimulation(simNodes)
+              .force("link", d3.forceLink(finalLinks).id(d => d.id).distance(105).strength(0.85))
+              .force("charge", d3.forceManyBody().strength(-280))
+              .force("center", d3.forceCenter(width / 2, height / 2))
+              .force("collision", d3.forceCollide().radius(d => {
+                  if (d.id === currentNodeId) return 30;
+                  if (d.type === "product" || d.type === "vendor") return 24;
+                  return 18;
+              }))
+              .velocityDecay(0.35);
+
+          const linkSel = svg.append("g")
+              .selectAll("line")
+              .data(finalLinks)
+              .join("line")
+              .attr("stroke", "var(--accent)")
+              .attr("stroke-opacity", 0.25)
+              .attr("stroke-width", 1.5);
+
+          const nodeG = svg.append("g")
+              .selectAll("g")
+              .data(simNodes)
+              .join("g")
+              .style("cursor", "pointer")
+              .call(d3.drag()
+                  .on("start", (event, d) => {
+                      if (!event.active) simulation.alphaTarget(0.3).restart();
+                      d.fx = d.x;
+                      d.fy = d.y;
+                  })
+                  .on("drag", (event, d) => {
+                      d.fx = event.x;
+                      d.fy = event.y;
+                  })
+                  .on("end", (event, d) => {
+                      if (!event.active) simulation.alphaTarget(0);
+                      d.fx = null;
+                      d.fy = null;
+                  })
+              );
+
+          // Render circles
+          nodeG.append("circle")
+              .attr("r", d => {
+                  if (d.id === currentNodeId) return 22;
+                  if (d.type === "product" || d.type === "vendor") return 16;
+                  return 11;
+              })
+              .attr("fill", d => colorMap[d.type] || "#8b9dcf")
+              .attr("stroke", d => d.id === currentNodeId ? "var(--accent)" : "#ffffff")
+              .attr("stroke-width", d => d.id === currentNodeId ? 3.5 : 1.5);
+
+          // Text labels
+          nodeG.append("text")
+              .attr("text-anchor", "middle")
+              .attr("dy", d => {
+                  if (d.id === currentNodeId) return 34;
+                  if (d.type === "product" || d.type === "vendor") return 26;
+                  return 20;
+              })
+              .style("font-size", "11px")
+              .style("font-family", "Inter, sans-serif")
+              .style("font-weight", d => d.id === currentNodeId ? "700" : "500")
+              .style("fill", "var(--ink-text, #ffffff)")
+              .text(d => d.id.includes(" (") ? d.id.split(" (")[0] : d.id); // strip software suffix
+
+          // Tooltip on hover
+          nodeG.append("title")
+              .text(d => `${d.id}\nType: ${d.type}\nHint: ${d.hint || ""}`);
+
+          // Navigation on click (single click is standard for smooth user flow)
+          nodeG.on("click", (event, d) => {
+              event.stopPropagation();
+              if (d.id === currentNodeId) return; // ignore click on active
+              
+              // Map node ID to its slug and URL
+              let dest = "";
+              if (d.slug) {
+                  dest = `./${d.slug}.html`;
+              } else if (d.type === "product") {
+                  dest = `../software/${d.id.toLowerCase().replace(/\s+/g, "-")}.html`;
+              } else if (d.type === "vendor") {
+                  dest = `../vendors/${d.id.toLowerCase().replace(/\s+/g, "-")}.html`;
+              } else {
+                  dest = `./${d.id.toLowerCase().replace(/\s+/g, "-")}.html`;
+              }
+
+              // Simple client-side head check to ensure page exists
+              if (dest) {
+                  if (window.location.protocol === "file:") {
+                      window.location.href = dest;
+                      return;
+                  }
+                  fetch(dest, { method: "HEAD" })
+                      .then(res => {
+                          if (res.ok) window.location.href = dest;
+                          else window.location.href = `../../kb-terms.html?search=${encodeURIComponent(d.id)}`;
+                      })
+                      .catch(() => {
+                          window.location.href = dest;
+                      });
+              }
+          });
+
+          simulation.on("tick", () => {
+              linkSel
+                  .attr("x1", l => l.source.x)
+                  .attr("y1", l => l.source.y)
+                  .attr("x2", l => l.target.x)
+                  .attr("y2", l => l.target.y);
+              nodeG.attr("transform", d => `translate(${d.x},${d.y})`);
+          });
+      }
   }
 }

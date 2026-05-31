@@ -1,3 +1,17 @@
+// Register PWA Service Worker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    // Determine the root relative path for registering sw.js
+    const isSubdir = window.location.pathname.includes("/kb/concepts/") || window.location.pathname.includes("/kb/software/") || window.location.pathname.includes("/kb/vendors/");
+    const swPath = isSubdir ? "../../sw.js" : "./sw.js";
+    
+    navigator.serviceWorker
+      .register(swPath)
+      .then((reg) => console.log("[PWA] ServiceWorker registered with scope: ", reg.scope))
+      .catch((err) => console.error("[PWA] ServiceWorker registration failed: ", err));
+  });
+}
+
 const navLinks = document.querySelectorAll("[data-nav]");
 const current = document.body.getAttribute("data-page");
 
@@ -300,10 +314,507 @@ document.addEventListener("keydown", (ev) => {
           applyFilters();
         }
       }
-    }
   }
 
   // Run initial parsing on load
   parseUrlParams();
+})();
+
+// --- Phase 9: Interactive Roadmap & Career Skill Tree Logic ---
+(function initRoadmapSkillTree() {
+  const container = document.querySelector(".roadmap-container");
+  if (!container) return; // Only run on knowledge-roadmap.html
+
+  // Career Tracks Data
+  const ROADMAP_DATA = {
+    bim: {
+      title: "BIM Coordinator (BIM 协调员)",
+      salary: "Est. Salary: $65,000 - $95,000 / yr",
+      software: "Revit, Navisworks, Solibri, IFC",
+      nodes: [
+        {
+          id: "bim",
+          title: "BIM Coordination",
+          difficulty: "Beginner",
+          level: 1,
+          desc: "Building Information Modeling (BIM) operates on active, object-based relational databases coordinate design data.",
+          why: "Essential core concept. BIM replaces basic 2D lines with smart parametric entities representing walls, doors, and piping.",
+          wiki: "./kb/concepts/bim.html",
+          tutorials: "./tutorials.html?q=bim"
+        },
+        {
+          id: "revit",
+          title: "Revit",
+          difficulty: "Intermediate",
+          level: 2,
+          desc: "Autodesk's flagship BIM coordinator tool organizing structural, architectural and MEP models.",
+          why: "Revit is the primary authoring platform used by design offices for model coordination.",
+          wiki: "./kb/software/revit.html",
+          tutorials: "./tutorials.html?q=revit"
+        },
+        {
+          id: "shared-coords",
+          title: "Shared Coordinates",
+          difficulty: "Intermediate",
+          level: 2,
+          desc: "Multi-disciplinary coordinate system ensuring all project elements align perfectly in global coordinate space.",
+          why: "Prevents drawing shift errors during multi-discipline assembly merges and clash checks.",
+          wiki: "./kb/concepts/shared-coordinates-revit.html",
+          tutorials: "./tutorials.html?q=coordinates"
+        },
+        {
+          id: "clash",
+          title: "Clash Detection",
+          difficulty: "Pro",
+          level: 3,
+          desc: "Diagnostic clash detection verifying physical geometry intersections between MEP and structural frameworks.",
+          why: "Crucial project deliverable. Saves millions in site reconstruction costs by finding overlaps pre-build.",
+          wiki: "./kb/concepts/navisworks-clash-detection.html",
+          tutorials: "./tutorials.html?q=clash"
+        },
+        {
+          id: "ifc",
+          title: "IFC Export",
+          difficulty: "Pro",
+          level: 3,
+          desc: "Industry Foundation Classes (IFC) data export mapping drawing entities to open-standard definitions.",
+          why: "Critical for openBIM coordination, letting Revit, Bentley, and ArchiCAD models federate cleanly.",
+          wiki: "./kb/concepts/ifc-export-revit.html",
+          tutorials: "./tutorials.html?q=ifc"
+        }
+      ],
+      links: [
+        { from: "bim", to: "revit" },
+        { from: "bim", to: "shared-coords" },
+        { from: "revit", to: "clash" },
+        { from: "shared-coords", to: "clash" },
+        { from: "clash", to: "ifc" }
+      ]
+    },
+    mcad: {
+      title: "Mechanical Design Engineer (机械设计工程师)",
+      salary: "Est. Salary: $70,000 - $105,000 / yr",
+      software: "SOLIDWORKS, Autodesk Inventor, CATIA",
+      nodes: [
+        {
+          id: "parametrics",
+          title: "Parametric Constraints",
+          difficulty: "Beginner",
+          level: 1,
+          desc: "Mathematical dimension and relationship rules governing sketch behavior (tangency, concentricity).",
+          why: "Foundation of mechanical solid modeling. Lets designers change dimensions and automatically update parts.",
+          wiki: "./kb/concepts/parametric-constraints.html",
+          tutorials: "./tutorials.html?q=constraints"
+        },
+        {
+          id: "solidworks",
+          title: "SOLIDWORKS",
+          difficulty: "Intermediate",
+          level: 2,
+          desc: "Industry standard solid modeler utilizing parametric feature trees and assembly constraints.",
+          why: "The most widely deployed mid-range MCAD software for industrial product design.",
+          wiki: "./kb/software/solidworks.html",
+          tutorials: "./tutorials.html?q=solidworks"
+        },
+        {
+          id: "brep",
+          title: "B-Rep Modeling",
+          difficulty: "Intermediate",
+          level: 2,
+          desc: "Boundary Representation kernels maintaining model topology via mathematical faces, edges, and vertices.",
+          why: "Understanding B-Rep prevents solver failures and zero-thickness geometry regeneration errors.",
+          wiki: "./kb/concepts/intelligent-objects.html",
+          tutorials: "./tutorials.html?q=modeling"
+        },
+        {
+          id: "assembly",
+          title: "MCAD Assembly",
+          difficulty: "Pro",
+          level: 3,
+          desc: "Assembling discrete parts together using kinematic mate conditions (coincident, concentric, parallel).",
+          why: "Enables designers to verify fits, tolerances, clearances, and run mechanical animations.",
+          wiki: "./kb/concepts/skeleton-creo.html",
+          tutorials: "./tutorials.html?q=assembly"
+        },
+        {
+          id: "mbd",
+          title: "Model-Based Definition",
+          difficulty: "Pro",
+          level: 3,
+          desc: "Injecting manufacturing dimensions and product specifications (GD&T) directly into 3D solid profiles.",
+          why: "Eliminates the need for tedious 2D drawing sheets by using rich digital metadata.",
+          wiki: "./kb/concepts/model-based-definition-solidworks.html",
+          tutorials: "./tutorials.html?q=mbd"
+        }
+      ],
+      links: [
+        { from: "parametrics", to: "solidworks" },
+        { from: "parametrics", to: "brep" },
+        { from: "solidworks", to: "assembly" },
+        { from: "brep", to: "assembly" },
+        { from: "assembly", to: "mbd" }
+      ]
+    },
+    civil: {
+      title: "Civil Infrastructure Engineer (市政/土木工程师)",
+      salary: "Est. Salary: $68,000 - $100,000 / yr",
+      software: "Civil 3D, Infraworks, LandXML",
+      nodes: [
+        {
+          id: "surfaces",
+          title: "Surfaces & Grading",
+          difficulty: "Beginner",
+          level: 1,
+          desc: "Creating digital terrain models (DTM) using triangles (TIN) representing topography.",
+          why: "Foundation of all civil sites. Surfaces calculate precise cut-and-fill volumes.",
+          wiki: "./kb/concepts/surfaces-civil-3d.html",
+          tutorials: "./tutorials.html?q=surfaces"
+        },
+        {
+          id: "civil3d",
+          title: "Civil 3D",
+          difficulty: "Intermediate",
+          level: 2,
+          desc: "Autodesk's land development platform built on top of the AutoCAD drafting engine.",
+          why: "The primary tool for civil drawings, grading, and road network designs.",
+          wiki: "./kb/software/civil-3d.html",
+          tutorials: "./tutorials.html?q=civil"
+        },
+        {
+          id: "alignments",
+          title: "Alignments & Profiles",
+          difficulty: "Intermediate",
+          level: 2,
+          desc: "Horizontal road centerlines (alignments) paired with vertical elevation grids (profiles).",
+          why: "Defines the 3D pathway coordinates for highways, pipelines, and rail tracks.",
+          wiki: "./kb/concepts/profiles-civil-3d.html",
+          tutorials: "./tutorials.html?q=profile"
+        },
+        {
+          id: "corridors",
+          title: "Corridor Modeling",
+          difficulty: "Pro",
+          level: 3,
+          desc: "Sweeping road cross-sections (assemblies) along a 3D alignment and profile path.",
+          why: "Creates rich 3D road models with dynamic shoulders, daylight grading, and cut limits.",
+          wiki: "./kb/concepts/subassembly-civil-3d.html",
+          tutorials: "./tutorials.html?q=corridor"
+        },
+        {
+          id: "landxml",
+          title: "LandXML Exchange",
+          difficulty: "Pro",
+          level: 3,
+          desc: "Open standard file format transferring surfaces, alignments, and parcels to survey equipment.",
+          why: "Essential for site deployment. Connects designer offices directly to GPS grading hardware.",
+          wiki: "./kb/concepts/pressure-networks-civil-3d.html",
+          tutorials: "./tutorials.html?q=xml"
+        }
+      ],
+      links: [
+        { from: "surfaces", to: "civil3d" },
+        { from: "surfaces", to: "alignments" },
+        { from: "civil3d", to: "corridors" },
+        { from: "alignments", to: "corridors" },
+        { from: "corridors", to: "landxml" }
+      ]
+    },
+    draft: {
+      title: "2D Drafting & Standard Specialist (CAD 制图专家)",
+      salary: "Est. Salary: $50,000 - $75,000 / yr",
+      software: "AutoCAD, GstarCAD, ZWCAD",
+      nodes: [
+        {
+          id: "layer",
+          title: "Layer Strategy",
+          difficulty: "Beginner",
+          level: 1,
+          desc: "Organizing DWG assets by layers with strict color, linetype, and viewport visibility properties.",
+          why: "Basic hygiene of all drawing files. Structured layering keeps drawings readable.",
+          wiki: "./kb/concepts/layer.html",
+          tutorials: "./tutorials.html?q=layer"
+        },
+        {
+          id: "xref",
+          title: "Xrefs & Blocks",
+          difficulty: "Intermediate",
+          level: 2,
+          desc: "Linking external DWG files (Xrefs) and grouping recurring items as block references.",
+          why: "Crucial for team drafting. Keeps parent files lightweight by referencing background plates.",
+          wiki: "./kb/concepts/xref.html",
+          tutorials: "./tutorials.html?q=xref"
+        },
+        {
+          id: "alias",
+          title: "Command Aliases",
+          difficulty: "Intermediate",
+          level: 2,
+          desc: "Keyboard shortcuts mapping fast inputs (L for LINE, CO for COPY) into the CAD console.",
+          why: "Draftsman speed enhancer. Minimizes reliance on mouse clicks, boosting efficiency.",
+          wiki: "./kb/concepts/command-alias.html",
+          tutorials: "./tutorials.html?q=alias"
+        },
+        {
+          id: "plot",
+          title: "Plot & Layout Setup",
+          difficulty: "Pro",
+          level: 3,
+          desc: "Configuring paperspace layouts, viewports, annotation scaling, and CTB plot styles.",
+          why: "Guarantees drawings print accurately to scale without overlapping lines.",
+          wiki: "./kb/concepts/plot-style.html",
+          tutorials: "./tutorials.html?q=plot"
+        },
+        {
+          id: "merge",
+          title: "Drawing Merge & Compare",
+          difficulty: "Pro",
+          level: 3,
+          desc: "Auditing revision changes and merging changes from external coordinates cleanly.",
+          why: "Crucial for coordination. Ensures concurrent edits merge without database corruption.",
+          wiki: "./kb/concepts/drawing-merge.html",
+          tutorials: "./tutorials.html?q=compare"
+        }
+      ],
+      links: [
+        { from: "layer", to: "xref" },
+        { from: "layer", to: "alias" },
+        { from: "xref", to: "plot" },
+        { from: "alias", to: "plot" },
+        { from: "plot", to: "merge" }
+      ]
+    }
+  };
+
+  // State Management
+  let activeTrack = "bim";
+  let masteredProgress = JSON.parse(localStorage.getItem("gstarcademy_roadmap_progress")) || {
+    bim: [],
+    mcad: [],
+    civil: [],
+    draft: []
+  };
+
+  // Ensure default structures are safe
+  ["bim", "mcad", "civil", "draft"].forEach(t => {
+    if (!masteredProgress[t]) masteredProgress[t] = [];
+  });
+
+  // UI Element Selectors
+  const trackTabs = document.querySelectorAll(".roadmap-track-tab");
+  const trackTitle = document.getElementById("track-title");
+  const trackSalary = document.getElementById("track-salary");
+  const trackSoftware = document.getElementById("track-software");
+  const progressPercent = document.getElementById("progress-percent");
+  const progressFill = document.getElementById("progress-fill");
+  
+  const levels = {
+    1: document.getElementById("level-1"),
+    2: document.getElementById("level-2"),
+    3: document.getElementById("level-3")
+  };
+
+  const inspectTitle = document.getElementById("inspect-title");
+  const inspectDifficulty = document.getElementById("inspect-difficulty");
+  const inspectDesc = document.getElementById("inspect-desc");
+  const inspectWhy = document.getElementById("inspect-why");
+  const btnWiki = document.getElementById("btn-inspect-wiki");
+  const btnTuts = document.getElementById("btn-inspect-tutorials");
+  const btnReset = document.getElementById("btn-reset-track");
+
+  // Render nodes for active track
+  function renderTree() {
+    // Clear stages
+    levels[1].innerHTML = "";
+    levels[2].innerHTML = "";
+    levels[3].innerHTML = "";
+    
+    const track = ROADMAP_DATA[activeTrack];
+    
+    // Set Header details
+    trackTitle.textContent = track.title;
+    trackSalary.innerHTML = `💼 <strong>Est. Salary:</strong> ${track.salary}`;
+    trackSoftware.innerHTML = `🛠️ <strong>Stack:</strong> ${track.software}`;
+    
+    // Render Nodes
+    track.nodes.forEach(node => {
+      const isMastered = masteredProgress[activeTrack].includes(node.id);
+      
+      const card = document.createElement("div");
+      card.className = "skill-node" + (isMastered ? " mastered" : "");
+      card.setAttribute("data-node-id", node.id);
+      
+      card.innerHTML = `
+        <div class="skill-node-checkbox"></div>
+        <div class="skill-node-info">
+          <span class="skill-node-title">${node.title}</span>
+          <span class="skill-node-difficulty">${isMastered ? "✓ Mastered" : node.difficulty}</span>
+        </div>
+      `;
+      
+      // Node Click handler - show details in inspector
+      card.addEventListener("click", (e) => {
+        // If click is on checkbox, toggle mastery
+        if (e.target.closest(".skill-node-checkbox")) {
+          e.stopPropagation();
+          toggleMastery(node.id, card);
+          return;
+        }
+        
+        selectNode(node, card);
+      });
+      
+      levels[node.level].appendChild(card);
+    });
+
+    updateProgressHUD();
+    
+    // Clear inspector
+    resetInspectorPanel();
+
+    // Draw lines after layout renders
+    setTimeout(drawConnectorLines, 100);
+  }
+
+  function selectNode(node, cardEl) {
+    document.querySelectorAll(".skill-node").forEach(n => n.classList.remove("selected"));
+    cardEl.classList.add("selected");
+
+    inspectTitle.textContent = node.title;
+    inspectDifficulty.textContent = node.difficulty;
+    inspectDifficulty.style.display = "inline-block";
+    
+    // Set difficulty badge colors
+    if (node.difficulty === "Beginner") {
+      inspectDifficulty.style.background = "rgba(16, 185, 129, 0.1)";
+      inspectDifficulty.style.color = "#10b981";
+    } else if (node.difficulty === "Intermediate") {
+      inspectDifficulty.style.background = "rgba(59, 130, 246, 0.1)";
+      inspectDifficulty.style.color = "#3b82f6";
+    } else {
+      inspectDifficulty.style.background = "rgba(99, 102, 241, 0.1)";
+      inspectDifficulty.style.color = "#6366f1";
+    }
+
+    inspectDesc.textContent = node.desc;
+    inspectWhy.innerHTML = `<strong>Why it matters:</strong> ${node.why}`;
+    inspectWhy.style.display = "block";
+
+    btnWiki.href = node.wiki;
+    btnWiki.style.display = "inline-flex";
+
+    btnTuts.href = node.tutorials;
+    btnTuts.style.display = "inline-flex";
+  }
+
+  function toggleMastery(nodeId, cardEl) {
+    const masteredList = masteredProgress[activeTrack];
+    const index = masteredList.indexOf(nodeId);
+    
+    if (index >= 0) {
+      // Remove mastery
+      masteredList.splice(index, 1);
+      cardEl.classList.remove("mastered");
+      cardEl.querySelector(".skill-node-difficulty").textContent = ROADMAP_DATA[activeTrack].nodes.find(n => n.id === nodeId).difficulty;
+    } else {
+      // Add mastery
+      masteredList.push(nodeId);
+      cardEl.classList.add("mastered");
+      cardEl.querySelector(".skill-node-difficulty").textContent = "✓ Mastered";
+      
+      // Simple particle shockwave or visual shake on checking
+      cardEl.style.transform = "scale(0.96)";
+      setTimeout(() => { cardEl.style.transform = ""; }, 100);
+    }
+    
+    // Update local storage
+    localStorage.setItem("gstarcademy_roadmap_progress", JSON.stringify(masteredProgress));
+    
+    updateProgressHUD();
+    drawConnectorLines();
+  }
+
+  function updateProgressHUD() {
+    const track = ROADMAP_DATA[activeTrack];
+    const total = track.nodes.length;
+    const completed = masteredProgress[activeTrack].length;
+    const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+    
+    progressPercent.textContent = `${pct}%`;
+    progressFill.style.width = `${pct}%`;
+  }
+
+  function resetInspectorPanel() {
+    inspectTitle.textContent = "Click a skill node to inspect";
+    inspectDifficulty.style.display = "none";
+    inspectDesc.textContent = "Select any competency node above to view core technical definitions, industry importance, and quick links to master it.";
+    inspectWhy.style.display = "none";
+    btnWiki.style.display = "none";
+    btnTuts.style.display = "none";
+  }
+
+  // Draw linking curves in SVG
+  function drawConnectorLines() {
+    const svg = document.getElementById("roadmap-connectors");
+    if (!svg) return;
+    svg.innerHTML = ""; // Clear
+    
+    const containerRect = svg.getBoundingClientRect();
+    const track = ROADMAP_DATA[activeTrack];
+    
+    track.links.forEach(link => {
+      const fromNode = document.querySelector(`[data-node-id="${link.from}"]`);
+      const toNode = document.querySelector(`[data-node-id="${link.to}"]`);
+      if (!fromNode || !toNode) return;
+      
+      const fromRect = fromNode.getBoundingClientRect();
+      const toRect = toNode.getBoundingClientRect();
+      
+      // SVG local coordinates
+      const x1 = (fromRect.left + fromRect.right) / 2 - containerRect.left;
+      const y1 = fromRect.bottom - containerRect.top;
+      
+      const x2 = (toRect.left + toRect.right) / 2 - containerRect.left;
+      const y2 = toRect.top - containerRect.top;
+      
+      const isFromMastered = masteredProgress[activeTrack].includes(link.from);
+      const isToMastered = masteredProgress[activeTrack].includes(link.to);
+      const isActive = isFromMastered && isToMastered;
+      
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      const midY = (y1 + y2) / 2;
+      const d = `M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`;
+      
+      path.setAttribute("d", d);
+      path.setAttribute("class", "roadmap-connector-path" + (isActive ? " active" : ""));
+      svg.appendChild(path);
+    });
+  }
+
+  // Hook tab switch listeners
+  trackTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      trackTabs.forEach(t => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+      activeTrack = tab.getAttribute("data-track");
+      renderTree();
+    });
+  });
+
+  // Hook reset progress
+  btnReset.addEventListener("click", () => {
+    if (confirm(`Reset all progress for the ${ROADMAP_DATA[activeTrack].title} pathway?`)) {
+      masteredProgress[activeTrack] = [];
+      localStorage.setItem("gstarcademy_roadmap_progress", JSON.stringify(masteredProgress));
+      renderTree();
+    }
+  });
+
+  // Initial render
+  renderTree();
+  window.addEventListener("resize", drawConnectorLines);
 })();
 

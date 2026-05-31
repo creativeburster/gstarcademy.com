@@ -77,261 +77,246 @@
   ],
   "terms": [
     {
-      "slug": "rh-term-1",
-      "title": "Rhinoceros Concept 1",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-1",
+      "title": "NURBS Geometry (Rhinoceros)",
+      "short_def": "Mathematical representation of highly precise smooth curves and freeform surfaces.",
+      "definition": "In Rhinoceros, NURBS Geometry represents a core architectural mechanism. Non-Uniform Rational B-Splines (NURBS) are Rhino's core mathematical foundation, describing shapes with exact equations rather than faceted polygon approximations.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering NURBS Geometry is critical for production-grade deliverables. Directly determines drawing precision; NURBS geometry is essential for automotive class-A surfacing and CNC machining where exact contours are mandatory.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Converting NURBS surfaces to low-density polygon meshes prematurely, resulting in visible flat facets in the final manufactured product.",
+        "Using curves with high knots counts."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-2",
-      "title": "Rhinoceros Concept 2",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-2",
+      "title": "Grasshopper (Rhinoceros)",
+      "short_def": "Integrated algorithmic and visual programming modeling environment.",
+      "definition": "In Rhinoceros, Grasshopper represents a core architectural mechanism. A graphical node editor that allows designers to build parametric modeling logic by linking components, driving complex generative forms.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Grasshopper is critical for production-grade deliverables. Establishes the parametric coordinate baseline for generative architecture and product lines, letting designers test thousands of variants instantly.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Nesting infinite recursion loops inside data trees, crashing the Rhino system.",
+        "Failing to document complex node wiring."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-3",
-      "title": "Rhinoceros Concept 3",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-3",
+      "title": "SubD Modeling (Rhinoceros)",
+      "short_def": "Subdivision surface modeling for organic and freeform structures.",
+      "definition": "In Rhinoceros, SubD Modeling represents a core architectural mechanism. The modeling toolset combining mesh-like push-pull speed with the exact surface smoothness of NURBS, supporting quick organic design.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering SubD Modeling is critical for production-grade deliverables. Allows designers to sculpt complex ergonomic curves (e.g., shoe soles, car interiors) quickly while preserving exact boundary accuracy.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Creating self-intersecting loops, producing illegal non-manifold solids.",
+        "Failing to check G2 continuity at boundaries."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-4",
-      "title": "Rhinoceros Concept 4",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-4",
+      "title": "Mesh vs. NURBS (Rhinoceros)",
+      "short_def": "Understanding different geometric representations and data types.",
+      "definition": "In Rhinoceros, Mesh vs. NURBS represents a core architectural mechanism. The distinction between NURBS (exact curves) and Meshes (flat triangles/quads). Rhino processes both, requiring conversions depending on the downstream target.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Mesh vs. NURBS is critical for production-grade deliverables. Crucial for 3D printing and rendering (which require meshes) versus CNC milling and injection molding (which require NURBS STEP files).\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Attempting to perform boolean operations between a NURBS solid and an open polygon mesh, causing command failures.",
+        "Mismatched units."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-5",
-      "title": "Rhinoceros Concept 5",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-5",
+      "title": "Gumball Manipulator (Rhinoceros)",
+      "short_def": "Interactive graphical gizmo for fast translation, scaling, and rotation.",
+      "definition": "In Rhinoceros, Gumball Manipulator represents a core architectural mechanism. A multi-functional HUD widget placed on selected elements, providing direct mouse handles for coordinate shifts and rotations.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Gumball Manipulator is critical for production-grade deliverables. Speeds up conceptual modeling and design layout, eliminating the need to type numeric coordinate inputs for basic transformations.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Accidentally shifting Gumball anchor points off-center, leading to off-axis rotations.",
+        "Disabling snap constraints."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-6",
-      "title": "Rhinoceros Concept 6",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-6",
+      "title": "Command Line & Aliases (Rhinoceros)",
+      "short_def": "Keyboard-driven efficiency system for instant command execution.",
+      "definition": "In Rhinoceros, Command Line & Aliases represents a core architectural mechanism. The central command bar and custom keyboard shortcuts (aliases) that allow power users to launch complex nesting tools in one stroke.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Command Line & Aliases is critical for production-grade deliverables. Directly impacts daily drafting speed, converting frequent menu navigation into rapid keyboard muscle memory.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Configuring conflicting aliases, causing CAD commands to misfire.",
+        "Hardcoding custom keys without backing up profiles."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-7",
-      "title": "Rhinoceros Concept 7",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-7",
+      "title": "Layer States (Rhinoceros)",
+      "short_def": "Saved layer visibility and property configurations.",
+      "definition": "In Rhinoceros, Layer States represents a core architectural mechanism. The Layer State Manager allowing designers to save and restore named configurations of layer colors, visibility, and lock states.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Layer States is critical for production-grade deliverables. Essential for managing massive architectural and product design files, allowing designers to toggle between rendering and drafting modes.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Creating layers ad hoc without naming standards, leading to unmanageable files.",
+        "Broken reference paths."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-8",
-      "title": "Rhinoceros Concept 8",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-8",
+      "title": "Make2D (Rhinoceros)",
+      "short_def": "Automated generation of flat 2D drawings from 3D models.",
+      "definition": "In Rhinoceros, Make2D represents a core architectural mechanism. The drawing projection utility that sweeps 3D models and exports clean, flat 2D vector layouts matching specified viewport angles.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Make2D is critical for production-grade deliverables. Cuts down manual drafting hours, letting designers quickly extract high-precision 2D elevation and section sheets directly from 3D assets.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Running Make2D on extremely dense mesh models with overlapping faces, generating messy, redundant vector lines.",
+        "Mismatched scales."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-9",
-      "title": "Rhinoceros Concept 9",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-9",
+      "title": "Named Views & Viewports (Rhinoceros)",
+      "short_def": "Saved camera alignments and viewport configuration schemes.",
+      "definition": "In Rhinoceros, Named Views & Viewports represents a core architectural mechanism. A utility allowing designers to save specific camera perspectives, focal lengths, and viewport layouts for drafting and rendering consistency.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Named Views & Viewports is critical for production-grade deliverables. Ensures presentation drawings and structural details are generated from identical camera coordinates across design revisions.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Deleting named views that are linked to downstream rendering pipelines.",
+        "Confusing target camera origins."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-10",
-      "title": "Rhinoceros Concept 10",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-10",
+      "title": "QuadMesh Retopology (Rhinoceros)",
+      "short_def": "Automated reconstruction of messy geometry into clean quad meshes.",
+      "definition": "In Rhinoceros, QuadMesh Retopology represents a core architectural mechanism. The advanced utility that scans complex NURBS solids or raw point clouds, reconstructing them into highly optimized four-sided polygon meshes.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering QuadMesh Retopology is critical for production-grade deliverables. Provides the essential clean geometry needed for organic subdivision modeling, finite element analysis (FEA), and high-resolution rendering.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Setting quad counts too low, stripping out vital organic geometry details.",
+        "Ignoring edge loops."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-11",
-      "title": "Rhinoceros Concept 11",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-11",
+      "title": "RhinoCommon API (Rhinoceros)",
+      "short_def": "Comprehensive .NET SDK for custom tool and plugin development.",
+      "definition": "In Rhinoceros, RhinoCommon API represents a core architectural mechanism. The powerful C# and .NET API framework that exposes Rhino's complete geometric engine, supporting the creation of enterprise-grade plugins.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering RhinoCommon API is critical for production-grade deliverables. Enables large teams to build custom engineering tools, automated estimators, and direct connections to ERP systems.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Writing loops that block the main Rhino UI thread during complex geometric updates.",
+        "Mismatched SDK versions."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-12",
-      "title": "Rhinoceros Concept 12",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-12",
+      "title": "Worksession (Rhinoceros)",
+      "short_def": "Multi-file coordination workspace for large-scale design teams.",
+      "definition": "In Rhinoceros, Worksession represents a core architectural mechanism. A reference utility allowing designers to link separate 3DM files as read-only backgrounds, coordinating massive projects without bloating RAM.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Worksession is critical for production-grade deliverables. Ensures team-wide coordination on master plans (e.g. mega-yacht design), letting multiple designers edit separate sections concurrently.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Modifying parent worksession paths, breaking all relative reference links.",
+        "Overwriting read-only reference data."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-13",
-      "title": "Rhinoceros Concept 13",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-13",
+      "title": "Point Clouds & Reverse Engineering (Rhinoceros)",
+      "short_def": "Laser scan integration and direct curve fitting.",
+      "definition": "In Rhinoceros, Point Clouds & Reverse Engineering represents a core architectural mechanism. The capability to import massive point cloud datasets, using automated fitting curves to reconstruct precise 3D NURBS surfaces.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Point Clouds & Reverse Engineering is critical for production-grade deliverables. Bridges physical prototypes and digital CAD, allowing designers to capture clay models or real parts with micrometer precision.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Attempting to generate NURBS surfaces directly from dirty point clouds without filtering out noise.",
+        "Mismatched scale units."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-14",
-      "title": "Rhinoceros Concept 14",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-14",
+      "title": "Rendering & Display Modes (Rhinoceros)",
+      "short_def": "Real-time viewport shading styles and visual settings.",
+      "definition": "In Rhinoceros, Rendering & Display Modes represents a core architectural mechanism. Rhino's customized display engine providing Wireframe, Shaded, Rendered, Ghosted, X-Ray, Technical, and Artistic viewport layouts.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering Rendering & Display Modes is critical for production-grade deliverables. Improves daily modeling speed by letting designers toggle visual modes (e.g., Technical mode for visible hidden lines) based on tasks.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Modeling dense geometric details in Rendered mode, lagging GPU display frames.",
+        "Broken texture maps."
       ],
       "related_term_slugs": []
     },
     {
-      "slug": "rh-term-15",
-      "title": "Rhinoceros Concept 15",
-      "short_def": "A core proprietary technology or drafting concept unique to the Rhinoceros ecosystem.",
-      "definition": "This concept represents one of the primary building blocks of Rhinoceros. It governs how geometric objects are organized, constraints are solved, or parameters are driven inside the system database.\n\nFollowing best practices, designers should configure these settings early in the modeling pipeline to avoid downstream regeneration failures.",
-      "why_matters": "Mastering this concept allows CAD draftsmen to optimize their design velocity, shrink drawing file sizes, and collaborate flawlessly across multi-disciplinary engineering supply chains.",
+      "slug": "rhinoceros-term-15",
+      "title": "File Interoperability (Rhinoceros)",
+      "short_def": "Broad support for neutral and native CAD exchange formats.",
+      "definition": "In Rhinoceros, File Interoperability represents a core architectural mechanism. The robust import/export pipelines supporting 3DM, STEP, IGES, DXF, DWG, STL, OBJ, and IFC formats.\n\nBy establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.",
+      "why_matters": "Mastering File Interoperability is critical for production-grade deliverables. Ensures frictionless collaboration with structural engineers (DWG), fabricators (STEP), 3D printers (STL), and animators (OBJ).\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.",
       "common_pitfalls": [
-        "Over-complicating parameters, leading to slow drawing regenerations.",
-        "Using manual coordinate overrides which break parametric relationships.",
-        "Forgetting to verify layer allocations, resulting in invisible objects."
+        "Exporting NURBS surfaces as STL with incorrect tolerance settings, producing faceted or coarse physical prints.",
+        "Ignoring metadata."
       ],
       "related_term_slugs": []
     }
   ],
   "faqs": [
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 1?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros NURBS Geometry?",
+      "answer": "When working with NURBS Geometry in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 2?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Grasshopper?",
+      "answer": "When working with Grasshopper in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 3?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros SubD Modeling?",
+      "answer": "When working with SubD Modeling in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 4?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Mesh vs. NURBS?",
+      "answer": "When working with Mesh vs. NURBS in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 5?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Gumball Manipulator?",
+      "answer": "When working with Gumball Manipulator in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 6?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Command Line & Aliases?",
+      "answer": "When working with Command Line & Aliases in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 7?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Layer States?",
+      "answer": "When working with Layer States in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 8?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Make2D?",
+      "answer": "When working with Make2D in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 9?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Named Views & Viewports?",
+      "answer": "When working with Named Views & Viewports in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 10?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros QuadMesh Retopology?",
+      "answer": "When working with QuadMesh Retopology in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 11?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros RhinoCommon API?",
+      "answer": "When working with RhinoCommon API in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 12?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Worksession?",
+      "answer": "When working with Worksession in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 13?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Point Clouds & Reverse Engineering?",
+      "answer": "When working with Point Clouds & Reverse Engineering in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 14?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros Rendering & Display Modes?",
+      "answer": "When working with Rendering & Display Modes in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     },
     {
-      "question": "What is the recommended practice for Rhinoceros workflow task 15?",
-      "answer": "Always start from a verified company drawing template (.dwt or product-equivalent). Configure your snaps, units, and active layer system prior to drawing geometry. Utilize blocks and external references (Xrefs) to organize complex areas, and routinely perform file audit/purge operations to maintain optimal performance."
+      "question": "What is the recommended practice for Rhinoceros File Interoperability?",
+      "answer": "When working with File Interoperability in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance."
     }
   ],
   "graph_nodes": [
@@ -339,7 +324,7 @@
       "id": "Rhinoceros",
       "type": "product",
       "tags": [
-        "mcneel",
+        "rhinoceros",
         "rhinoceros"
       ],
       "hint": "The ultimate 3D NURBS-based geometric modeler, famed for complex freeform curves and Grasshopper algorithmic automation.",
@@ -347,152 +332,152 @@
       "radius": 14
     },
     {
-      "id": "Rhinoceros Concept 1",
+      "id": "NURBS Geometry (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 1 in Rhinoceros.",
+      "hint": "Mathematical representation of highly precise smooth curves and freeform surfaces.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 2",
+      "id": "Grasshopper (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 2 in Rhinoceros.",
+      "hint": "Integrated algorithmic and visual programming modeling environment.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 3",
+      "id": "SubD Modeling (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 3 in Rhinoceros.",
+      "hint": "Subdivision surface modeling for organic and freeform structures.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 4",
+      "id": "Mesh vs. NURBS (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 4 in Rhinoceros.",
+      "hint": "Understanding different geometric representations and data types.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 5",
+      "id": "Gumball Manipulator (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 5 in Rhinoceros.",
+      "hint": "Interactive graphical gizmo for fast translation, scaling, and rotation.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 6",
+      "id": "Command Line & Aliases (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 6 in Rhinoceros.",
+      "hint": "Keyboard-driven efficiency system for instant command execution.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 7",
+      "id": "Layer States (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 7 in Rhinoceros.",
+      "hint": "Saved layer visibility and property configurations.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 8",
+      "id": "Make2D (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 8 in Rhinoceros.",
+      "hint": "Automated generation of flat 2D drawings from 3D models.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 9",
+      "id": "Named Views & Viewports (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 9 in Rhinoceros.",
+      "hint": "Saved camera alignments and viewport configuration schemes.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 10",
+      "id": "QuadMesh Retopology (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 10 in Rhinoceros.",
+      "hint": "Automated reconstruction of messy geometry into clean quad meshes.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 11",
+      "id": "RhinoCommon API (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 11 in Rhinoceros.",
+      "hint": "Comprehensive .NET SDK for custom tool and plugin development.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 12",
+      "id": "Worksession (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 12 in Rhinoceros.",
+      "hint": "Multi-file coordination workspace for large-scale design teams.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 13",
+      "id": "Point Clouds & Reverse Engineering (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 13 in Rhinoceros.",
+      "hint": "Laser scan integration and direct curve fitting.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 14",
+      "id": "Rendering & Display Modes (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 14 in Rhinoceros.",
+      "hint": "Real-time viewport shading styles and visual settings.",
       "group": 2,
       "radius": 8
     },
     {
-      "id": "Rhinoceros Concept 15",
+      "id": "File Interoperability (Rhinoceros)",
       "type": "concept",
       "tags": [
         "rhinoceros"
       ],
-      "hint": "Concept 15 in Rhinoceros.",
+      "hint": "Broad support for neutral and native CAD exchange formats.",
       "group": 2,
       "radius": 8
     }
@@ -503,63 +488,63 @@
       "McNeel & Associates"
     ],
     [
-      "Rhinoceros Concept 1",
+      "NURBS Geometry (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 2",
+      "Grasshopper (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 3",
+      "SubD Modeling (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 4",
+      "Mesh vs. NURBS (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 5",
+      "Gumball Manipulator (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 6",
+      "Command Line & Aliases (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 7",
+      "Layer States (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 8",
+      "Make2D (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 9",
+      "Named Views & Viewports (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 10",
+      "QuadMesh Retopology (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 11",
+      "RhinoCommon API (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 12",
+      "Worksession (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 13",
+      "Point Clouds & Reverse Engineering (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 14",
+      "Rendering & Display Modes (Rhinoceros)",
       "Rhinoceros"
     ],
     [
-      "Rhinoceros Concept 15",
+      "File Interoperability (Rhinoceros)",
       "Rhinoceros"
     ]
   ]
