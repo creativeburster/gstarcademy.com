@@ -412,32 +412,10 @@ def render_knowledge_tree(term: dict, software: dict, related_terms: list[str], 
     """
 
 
-def autolink_string(text: str, candidates: list[tuple[str, str]], linked: set[str]) -> str:
-    """Recursively search and autolink the first occurrence of terms, avoiding nested tags."""
-    if not text:
-        return ""
-    for name, url in candidates:
-        if name in linked:
-            continue
-        escaped_name = re.escape(name)
-        pattern = r'\b' + escaped_name + r'\b'
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            start, end = match.span()
-            matched_str = text[start:end]
-            link_html = f'<a href="{url}">{matched_str}</a>'
-            linked.add(name)
-            
-            before = autolink_string(text[:start], candidates, linked)
-            after = autolink_string(text[end:], candidates, linked)
-            
-            return before + link_html + after
-    return text
-
-
 def apply_autolinks(html_content: str, software_list: list[dict], all_terms_index: dict[str, str], current_slug: str) -> str:
     """Parse HTML content, separating tags and plain text, and apply link triggers securely.
     Only processes the <body> portion of the HTML to avoid corrupting <head> elements like title, meta, or script JSON-LD.
+    Uses a highly optimized single-pass regex replacement to ensure O(N) performance.
     """
     if "</head>" in html_content:
         head, body = html_content.split("</head>", 1)
@@ -453,11 +431,28 @@ def apply_autolinks(html_content: str, software_list: list[dict], all_terms_inde
             candidates.append((title, f"./{slug}.html"))
             
     candidates.sort(key=lambda x: len(x[0]), reverse=True)
-    parts = re.split(r'(<[^>]+>)', body)
+    if not candidates:
+        return html_content
+        
+    # Compile a single optimized regex for all terms
+    # Sort by length descending to match longer terms first and avoid partial overlap matches
+    escaped_terms = [re.escape(name) for name, _ in candidates]
+    pattern = re.compile(r'\b(' + '|'.join(escaped_terms) + r')\b', re.IGNORECASE)
+    name_to_url = {name.lower(): url for name, url in candidates}
     
+    parts = re.split(r'(<[^>]+>)', body)
     linked = set()
     in_anchor = False
     
+    def replace_match(match):
+        matched_str = match.group(0)
+        key = matched_str.lower()
+        url = name_to_url.get(key)
+        if url and key not in linked:
+            linked.add(key)
+            return f'<a href="{url}">{matched_str}</a>'
+        return matched_str
+
     for idx in range(len(parts)):
         part = parts[idx]
         if part.startswith('<'):
@@ -467,8 +462,8 @@ def apply_autolinks(html_content: str, software_list: list[dict], all_terms_inde
             elif '</a>' in tag_lower:
                 in_anchor = False
         else:
-            if not in_anchor:
-                parts[idx] = autolink_string(part, candidates, linked)
+            if not in_anchor and part.strip():
+                parts[idx] = pattern.sub(replace_match, part)
                 
     body_linked = "".join(parts)
     if head:
