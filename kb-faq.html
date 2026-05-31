@@ -8850,22 +8850,23 @@
           });
           paginationContainer.appendChild(prevBtn);
 
-          // Page Number Buttons
+          // Elegant Dropdown Page Selector instead of horizontal overflow of buttons
+          var pageSelect = document.createElement("select");
+          pageSelect.className = "kb-faq-page-select";
           for (var p = 1; p <= totalPages; p++) {
-            (function (pageIndex) {
-              var pageBtn = document.createElement("button");
-              pageBtn.className = "kb-faq-page-num";
-              if (pageIndex === currentPage) {
-                pageBtn.classList.add("active");
-              }
-              pageBtn.textContent = pageIndex;
-              pageBtn.addEventListener("click", function () {
-                currentPage = pageIndex;
-                updatePageDisplay();
-              });
-              paginationContainer.appendChild(pageBtn);
-            })(p);
+            var opt = document.createElement("option");
+            opt.value = p;
+            opt.textContent = "Page " + p + " of " + totalPages;
+            if (p === currentPage) {
+              opt.selected = true;
+            }
+            pageSelect.appendChild(opt);
           }
+          pageSelect.addEventListener("change", function (e) {
+            currentPage = parseInt(e.target.value);
+            updatePageDisplay();
+          });
+          paginationContainer.appendChild(pageSelect);
 
           // Next Button
           var nextBtn = document.createElement("button");
