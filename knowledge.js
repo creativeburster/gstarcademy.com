@@ -1688,18 +1688,15 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     const graphImmersive = document.body.classList.contains("page-kb-graph");
     const computeGraphHeight = () => {
       const narrow = window.matchMedia("(max-width:767px)").matches;
-      const vh = window.innerHeight || 850;
+      const vh = window.innerHeight || 800;
       if (graphImmersive) {
-        if (narrow) return Math.round(vh * 0.70);
-        return Math.max(Math.round(vh * 0.94), 840); // Increased height for larger, more immersive visualization
+        if (narrow) return Math.round(vh * 0.65);
+        return Math.round(vh * 0.88);
       }
-      return narrow ? 480 : 800;
+      return narrow ? 450 : 750;
     };
 
     const simNodes = nodes.map((n) => ({ ...n }));
-    simNodes.forEach((n, i) => {
-      n.group = i % 3; // 0 = C, 1 = A, 2 = D
-    });
     const simLinks = links.map(([source, target]) => ({ source, target }));
 
     // Compute link degrees dynamically (frequently appearing / connected nodes are larger)
@@ -1713,101 +1710,13 @@ if (document.body.getAttribute("data-page") === "knowledge") {
     let width = Math.max(graphStage?.clientWidth || 920, 320);
     let height = computeGraphHeight();
 
-    // Mathematically arrange nodes to form the letters "C", "A", "D" when zoomed out
-    const getLetterX = (d, i) => {
-      const total = simNodes.length;
-      const group = i % 3; // 0 = C, 1 = A, 2 = D
-      const groupIndex = Math.floor(i / 3);
-      const groupTotal = Math.ceil(total / 3);
-      
-      const W = width;
-      const H = height;
-      const R = Math.min(W, H) * 0.22; // Size of the letters
-      
-      // Centers
-      const XC = W * 0.28;
-      const XA = W * 0.50;
-      const XD = W * 0.72;
-
-      if (group === 0) {
-        // C
-        const theta = Math.PI * 0.25 + (Math.PI * 1.5 * groupIndex) / groupTotal;
-        return XC + R * 0.9 * Math.cos(theta);
-      } else if (group === 1) {
-        // A
-        const m = groupTotal;
-        const j = groupIndex;
-        if (j < m * 0.45) {
-          const t = j / (m * 0.45);
-          return (XA - R * 0.55) * (1 - t) + XA * t;
-        } else if (j < m * 0.90) {
-          const t = (j - m * 0.45) / (m * 0.45);
-          return XA * (1 - t) + (XA + R * 0.55) * t;
-        } else {
-          const t = (j - m * 0.90) / (m * 0.10);
-          return (XA - R * 0.28) * (1 - t) + (XA + R * 0.28) * t;
-        }
-      } else {
-        // D
-        const k = groupTotal;
-        const j = groupIndex;
-        if (j < k * 0.45) {
-          return XD - R * 0.4;
-        } else {
-          const t = (j - k * 0.45) / (k * 0.55);
-          const theta = -Math.PI / 2 + Math.PI * t;
-          return XD - R * 0.4 + R * 0.75 * Math.cos(theta);
-        }
-      }
-    };
-
-    const getLetterY = (d, i) => {
-      const total = simNodes.length;
-      const group = i % 3; // 0 = C, 1 = A, 2 = D
-      const groupIndex = Math.floor(i / 3);
-      const groupTotal = Math.ceil(total / 3);
-      
-      const W = width;
-      const H = height;
-      const R = Math.min(W, H) * 0.22; // Size of the letters
-      const Y0 = H * 0.48; // Shift up slightly to balance baseline
-
-      if (group === 0) {
-        // C
-        const theta = Math.PI * 0.25 + (Math.PI * 1.5 * groupIndex) / groupTotal;
-        return Y0 + R * 1.15 * Math.sin(theta);
-      } else if (group === 1) {
-        // A
-        const m = groupTotal;
-        const j = groupIndex;
-        if (j < m * 0.45) {
-          const t = j / (m * 0.45);
-          return (Y0 + R * 1.15) * (1 - t) + (Y0 - R * 1.15) * t;
-        } else if (j < m * 0.90) {
-          const t = (j - m * 0.45) / (m * 0.45);
-          return (Y0 - R * 1.15) * (1 - t) + (Y0 + R * 1.15) * t;
-        } else {
-          return Y0 + R * 0.15;
-        }
-      } else {
-        // D
-        const k = groupTotal;
-        const j = groupIndex;
-        if (j < k * 0.45) {
-          const t = j / (k * 0.45);
-          return (Y0 - R * 1.15) * (1 - t) + (Y0 + R * 1.15) * t;
-        } else {
-          const t = (j - k * 0.45) / (k * 0.55);
-          const theta = -Math.PI / 2 + Math.PI * t;
-          return Y0 + R * 1.15 * Math.sin(theta);
-        }
-      }
-    };
-
+    const cxSeed = width / 2;
+    const cySeed = height / 2;
+    const ring = Math.min(width, height) * 0.28;
     simNodes.forEach((n, i, arr) => {
-      // Seed positions inside CAD letters
-      n.x = getLetterX(n, i);
-      n.y = getLetterY(n, i);
+      const ang = (i / Math.max(arr.length, 1)) * Math.PI * 2 - Math.PI / 2;
+      n.x = cxSeed + ring * Math.cos(ang);
+      n.y = cySeed + ring * Math.sin(ang);
       
       const deg = degreeMap[n.id] || 0;
       let baseSize = 14; // Default base size for standard nodes
@@ -1858,42 +1767,25 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         d3
           .forceLink(simLinks)
           .id((d) => d.id)
-          .distance((d) => 135 + Math.max(d.source.baseRadius || 0, d.target.baseRadius || 0) * 0.9)
-          .strength((link) => {
-            const sGroup = (typeof link.source === 'object') ? link.source.group : null;
-            const tGroup = (typeof link.target === 'object') ? link.target.group : null;
-            if (sGroup !== null && tGroup !== null && sGroup !== tGroup) {
-              return 0.0; // Completely block tension between different letters
-            }
-            return 0.035; // Gentle cohesive tension inside same letters
-          })
+          .distance((d) => 125 + Math.max(d.source.baseRadius || 0, d.target.baseRadius || 0) * 0.8)
+          .strength(0.55)
       )
-      .force("charge", d3.forceManyBody().strength((d) => -65 - (d.baseRadius * 1.5)))
-      .force("x", d3.forceX((d, i) => getLetterX(d, i)).strength(0.58))
-      .force("y", d3.forceY((d, i) => getLetterY(d, i)).strength(0.58))
+      .force("charge", d3.forceManyBody().strength((d) => -350 - (d.baseRadius * 16)))
+      .force("x", d3.forceX(width / 2).strength(0.14))
+      .force("y", d3.forceY(height / 2).strength(0.14))
       .force("center", d3.forceCenter(width / 2, height / 2))
       .force("collision", d3.forceCollide().radius((d) => d.baseRadius + 20))
-      .velocityDecay(0.24); // Stable initial decay
+      .velocityDecay(0.20); // Stable initial decay
 
     // Kinetic entrance animation settling smoothly
     simulation.alpha(1.2).restart();
     setTimeout(() => {
-      simulation.velocityDecay(0.42);
+      simulation.velocityDecay(0.38);
     }, 2000);
-
-    // Strictly freeze the simulation 3 seconds after loading to make nodes still for optimal user click
-    setTimeout(() => {
-      simulation.stop();
-      simNodes.forEach((n) => {
-        n.fx = n.x;
-        n.fy = n.y;
-      });
-      simulation.tick();
-    }, 3000);
 
     const linkSel = gZoom
       .append("g")
-      .attr("class", "kb-graph-links-group")
+      .attr("stroke-linecap", "round")
       .selectAll("line")
       .data(simLinks)
       .join("line")
@@ -1924,12 +1816,8 @@ if (document.body.getAttribute("data-page") === "knowledge") {
           })
           .on("end", (event, d) => {
             if (!event.active) simulation.alphaTarget(0);
-            d.fx = d.x;
-            d.fy = d.y;
-            // Stop immediately after dragging
-            setTimeout(() => {
-              simulation.stop();
-            }, 120);
+            d.fx = null;
+            d.fy = null;
           })
       );
 
