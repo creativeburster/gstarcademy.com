@@ -1150,101 +1150,176 @@
                     if (state.domain === 'aec') {
                       if (state.goal === 'drafting') {
                         if (state.budget === 'premium') {
-                          title = "2D Drafting Professional";
-                          desc = "For industry-standard 2D architectural plans, drafting construction documents, and working with complex DWG systems, AutoCAD and BricsCAD are the elite professionals choice.";
+                          title = "Professional 2D AEC Drafter";
+                          desc = "For industry-standard 2D architectural layouts, drafting construction documents, and working with complex DWG sheet sets, AutoCAD and BricsCAD are the premier enterprise choices.";
                           recs = [
-                            { name: "AutoCAD", icon: "📐", reason: "The undisputed global master of 2D engineering and architectural blueprint detailing.", link: "./kb/software/autocad.html", search: "autodesk" },
-                            { name: "BricsCAD", icon: "⚡", reason: "A modern, highly efficient alternative that fully executes dwg command stacks.", link: "./kb/software/bricscad.html", search: "bricsys" }
+                            { name: "AutoCAD", icon: "📐", reason: "The global gold standard of 2D engineering and architectural blueprint detailing.", link: "./kb/software/autocad.html", search: "autocad" },
+                            { name: "BricsCAD", icon: "⚡", reason: "A modern, highly efficient dwg alternative with full command compatibility.", link: "./kb/software/bricscad.html", search: "bricscad" }
                           ];
                         } else {
-                          title = "Smart & Economical 2D Designer";
-                          desc = "If you want high-performance DWG drawing and construction drafts without premium seat licenses, GstarCAD Architecture and ZWCAD offer extremely optimized CAD engines.";
+                          title = "Smart & Economical 2D AEC Designer";
+                          desc = "High-performance DWG drawing and layout creation without premium seat licensing fees. Optimized Chinese CAD alternatives offer excellent local support.";
                           recs = [
-                            { name: "GstarCAD Architecture", icon: "🏛️", reason: "Supercharged architectural drafting vertical on dwg with custom parametric layouts.", link: "./kb/software/gstarcad-architecture.html", search: "gstarsoft" },
-                            { name: "ZWCAD", icon: "💫", reason: "DWG-native, rapid multi-core rendering, C++ ZRX API compatible alternative.", link: "./kb/software/zwcad.html", search: "zwsoft" }
+                            { name: "GstarCAD Architecture", icon: "🏛️", reason: "Supercharged architectural drafting vertical on dwg with custom parametric layouts.", link: "./kb/software/gstarcad-architecture.html", search: "gstarcad" },
+                            { name: "ZWCAD", icon: "💫", reason: "DWG-native space with rapid multi-core rendering and LISP engine compatibility.", link: "./kb/software/zwcad.html", search: "zwcad" }
                           ];
                         }
                       } else if (state.goal === 'modeling') {
-                        title = "3D AEC Modeler & Visualizer";
-                        desc = "For high-fidelity 3D conceptual modeling, Rhinoceros is unmatched. For structural BIM detailing, Tekla Structures is the global gold standard, while Revit serves as the master building database coordinator.";
-                        recs = [
-                          { name: "Revit", icon: "🏙️", reason: "Mainstream building database for architects to model fully coordinated 3D buildings.", link: "./kb/software/revit.html", search: "autodesk" },
-                          { name: "Rhinoceros", icon: "🦦", reason: "Advanced NURBS modeler with generative Grasshopper programming interface.", link: "./kb/software/rhinoceros.html", search: "rhinoceros" },
-                          { name: "Tekla Structures", icon: "🏗️", reason: "Industry-standard structural steel and concrete detailing BIM platform.", link: "./kb/software/tekla-structures.html", search: "trimble" }
-                        ];
-                      } else {
-                        title = "BIM Systems Coordinator";
-                        desc = "Managing large models with structural parameters, schedules, and multidisciplinary coordination is crucial. Revit and Archicad are the perfect authoring coordinates.";
-                        recs = [
-                          { name: "Revit", icon: "🏙️", reason: "The global architectural coordinator, standard for multi-disciplinary AEC syncing.", link: "./kb/software/revit.html", search: "autodesk" },
-                          { name: "Archicad", icon: "🏢", reason: "Architect-first BIM workspace, extremely smooth drafting and documentation outputs.", link: "./kb/software/archicad.html", search: "graphisoft" }
-                        ];
+                        if (state.budget === 'premium') {
+                          title = "Professional 3D AEC Modeler & Visualizer";
+                          desc = "For high-fidelity 3D conceptual modeling, organic forms, and structural BIM detailing, the Revit + Rhinoceros + Tekla stack is the global benchmark.";
+                          recs = [
+                            { name: "Revit", icon: "🏙️", reason: "Central building database for modeling fully coordinated 3D buildings and parameters.", link: "./kb/software/revit.html", search: "revit" },
+                            { name: "Rhinoceros", icon: "🦦", reason: "Advanced NURBS modeler with generative Grasshopper programming engine.", link: "./kb/software/rhinoceros.html", search: "rhino" },
+                            { name: "Tekla Structures", icon: "🏗️", reason: "Industry-standard structural steel and concrete detailing BIM platform.", link: "./kb/software/tekla-structures.html", search: "tekla" }
+                          ];
+                        } else {
+                          title = "Cost-Effective 3D AEC Modeler";
+                          desc = "Create beautiful 3D concepts or model parametric building elements using budget-friendly and open-source BIM tools.";
+                          recs = [
+                            { name: "SketchUp", icon: "📐", reason: "Intuitive, rapid 3D conceptual modeling tool, perfect for schematic site layouts and presentations.", link: "./kb/software/sketchup.html", search: "sketchup" },
+                            { name: "FreeCAD", icon: "🔓", reason: "Fully open-source, featuring a dedicated BIM workbench for parametric architectural layouts.", link: "./kb/software/freecad.html", search: "freecad" }
+                          ];
+                        }
+                      } else { // coordination
+                        if (state.budget === 'premium') {
+                          title = "BIM Systems Coordinator";
+                          desc = "Managing large models with structural parameters, schedules, and multidisciplinary coordination requires Revit or Archicad as the master model authoring base.";
+                          recs = [
+                            { name: "Revit", icon: "🏙️", reason: "The global architectural coordinator, standard for multi-disciplinary AEC syncing.", link: "./kb/software/revit.html", search: "revit" },
+                            { name: "Archicad", icon: "🏢", reason: "Architect-first BIM workspace, extremely smooth drafting and documentation outputs.", link: "./kb/software/archicad.html", search: "archicad" }
+                          ];
+                        } else {
+                          title = "Smart BIM Coordinator";
+                          desc = "Manage clash detection and coordinate architectural models using cost-effective tools. GstarBIM and specialized viewers offer lightweight validation.";
+                          recs = [
+                            { name: "GstarBIM", icon: "🏗️", reason: "Lightweight, localized BIM platform supporting multi-disciplinary model aggregation and clash checks.", link: "./kb/software/gstarbim.html", search: "gstarcad" },
+                            { name: "DWG FastView", icon: "📱", reason: "Mobile and web cross-platform file viewer to coordinate designs with field engineers.", link: "./kb/software/dwg-fastview.html", search: "gstarcad" }
+                          ];
+                        }
                       }
                     } else if (state.domain === 'mcad') {
                       if (state.goal === 'drafting') {
                         if (state.budget === 'premium') {
                           title = "Mechanical 2D Drafter";
-                          desc = "For robust 2D drafting of machinery assemblies, automated parts tagging, and full ANSI/ISO standard symbols drafting, AutoCAD Mechanical is standard.";
+                          desc = "For robust 2D drafting of machinery assemblies, automated parts tagging, and full ANSI/ISO standard symbols drafting, AutoCAD and BricsCAD Pro are the premium standards.";
                           recs = [
-                            { name: "AutoCAD", icon: "📐", reason: "Reliable industry detailing core program utilizing standardized layout palettes.", link: "./kb/software/autocad.html", search: "autodesk" },
-                            { name: "BricsCAD", icon: "⚡", reason: "DWG mechanical detailing with robust sheet metal assembly structures.", link: "./kb/software/bricscad.html", search: "bricsys" }
+                            { name: "AutoCAD", icon: "📐", reason: "Reliable industry detailing core program utilizing standardized mechanical symbol sets.", link: "./kb/software/autocad.html", search: "autocad" },
+                            { name: "BricsCAD", icon: "⚡", reason: "DWG mechanical detailing with robust sheet metal assembly structures.", link: "./kb/software/bricscad.html", search: "bricscad" }
                           ];
                         } else {
                           title = "Efficient Mechanical Details Designer";
-                          desc = "Get high-performance mechanical detailing with massive standard part libraries without premium pricing. GstarCAD Mechanical is highly optimized.";
+                          desc = "Get high-performance mechanical detailing with massive standard part libraries without premium pricing. GstarCAD Mechanical and ZWCAD are highly optimized.";
                           recs = [
-                            { name: "GstarCAD Mechanical", icon: "🔧", reason: "Provides full automatic bubble labeling, part lists, and mechanical standards.", link: "./kb/software/gstarcad-mechanical.html", search: "gstarsoft" },
-                            { name: "GstarCAD", icon: "🎨", reason: "Lightning-fast drawing space optimized for massive engineering drafts.", link: "./kb/software/gstarcad.html", search: "gstarsoft" }
+                            { name: "GstarCAD Mechanical", icon: "🔧", reason: "Provides full automatic bubble labeling, part lists, and mechanical standards.", link: "./kb/software/gstarcad-mechanical.html", search: "gstarcad" },
+                            { name: "ZWCAD", icon: "💫", reason: "DWG-native space with rapid multi-core rendering, compatible with advanced mechanical drafts.", link: "./kb/software/zwcad.html", search: "zwcad" }
                           ];
                         }
-                      } else {
+                      } else if (state.goal === 'modeling') {
                         if (state.budget === 'premium') {
                           title = "Professional 3D Mechanical Engineer";
-                          desc = "Parametric modeling of complex mechanical assemblies, motion simulations, and manufacturing drawings requires SOLIDWORKS or Autodesk Inventor.";
+                          desc = "Parametric modeling of complex mechanical assemblies, motion simulations, and manufacturing drawings requires SOLIDWORKS, Inventor, or Creo Parametric.";
                           recs = [
-                            { name: "SOLIDWORKS", icon: "🗳️", reason: "The world's most widely studied parametric assemblies modeler.", link: "./kb/software/solidworks.html", search: "dassault-systemes" },
-                            { name: "Inventor", icon: "🛠️", reason: "Autodesk's high-performance parametric solid modeler for engineers.", link: "./kb/software/inventor.html", search: "autodesk" }
+                            { name: "SOLIDWORKS", icon: "🗳️", reason: "The world's most widely studied parametric assemblies modeler.", link: "./kb/software/solidworks.html", search: "solidworks" },
+                            { name: "Inventor", icon: "🛠️", reason: "Autodesk's high-performance parametric solid modeler for mechanical engineers.", link: "./kb/software/inventor.html", search: "inventor" },
+                            { name: "Creo Parametric", icon: "⚙️", reason: "PTC's powerful, highly scalable CAD software for advanced product design.", link: "./kb/software/creo-parametric.html", search: "creo" }
                           ];
                         } else {
                           title = "Modern & Cost-Effective 3D Modeler";
-                          desc = "For affordable or open-source mechanical modeling, Fusion 360 integrates complete CAD/CAM in the cloud. FreeCAD is fully free and open-source, while Alibre Design offers premium desktop parametrics.";
+                          desc = "For affordable or open-source mechanical modeling, Fusion 360 integrates complete CAD/CAM in the cloud. FreeCAD is fully free, while Alibre Design offers buy-once desktop parametrics.";
                           recs = [
-                            { name: "Fusion 360", icon: "⚙️", reason: "Cloud-connected, budget-friendly suite connecting CAD, generative design, and CAM.", link: "./kb/software/fusion-360.html", search: "autodesk" },
+                            { name: "Fusion 360", icon: "⚙️", reason: "Cloud-connected, budget-friendly suite connecting CAD, generative design, and CAM.", link: "./kb/software/fusion-360.html", search: "fusion" },
                             { name: "FreeCAD", icon: "🔓", reason: "100% free open-source parametric CAD modeler for students and hobbyists.", link: "./kb/software/freecad.html", search: "freecad" },
                             { name: "Alibre Design", icon: "🔧", reason: "A buy-once-own-forever desktop parametric 3D CAD engine for mechanical designers.", link: "./kb/software/alibre-design.html", search: "alibre" }
                           ];
                         }
+                      } else { // coordination
+                        if (state.budget === 'premium') {
+                          title = "Product Lifecycle Coordinator";
+                          desc = "To manage enterprise product assembly lines, revision controls, and PDM/PLM systems, CATIA and Siemens NX are the elite choices.";
+                          recs = [
+                            { name: "CATIA", icon: "🐱", reason: "The global standard for aerospace and automotive systems, managing massive product data structures.", link: "./kb/software/catia.html", search: "catia" },
+                            { name: "Siemens NX", icon: "🔷", reason: "Advanced high-end CAD/CAM/CAE system, highly optimized for large-scale engineering coordination.", link: "./kb/software/siemens-nx.html", search: "nx" }
+                          ];
+                        } else {
+                          title = "Agile PDM Coordinator";
+                          desc = "For cost-effective product assembly tracking and collaborative design management, Onshape and cloud PDM interfaces offer flexible solutions.";
+                          recs = [
+                            { name: "Onshape", icon: "☁️", reason: "Modern cloud-native parametric CAD with built-in release management and live collaboration.", link: "./kb/software/onshape.html", search: "onshape" },
+                            { name: "FreeCAD", icon: "🔓", reason: "FOSS modeler that can be integrated with Git/Pdm workflows for team coordinate sharing.", link: "./kb/software/freecad.html", search: "freecad" }
+                          ];
+                        }
                       }
-                    } else {
-                      title = "CAD Creative & Hobbyist Modeler";
-                      desc = "For 3D printing, lightweight personal layouts, or starting from zero budget, open-source FreeCAD offers robust 3D. DWG FastView provides easy viewing.";
-                      recs = [
-                        { name: "FreeCAD", icon: "🔓", reason: "A fully free parametric modeler excellent for creating 3D print models.", link: "./kb/software/freecad.html", search: "freecad" },
-                        { name: "DWG FastView", icon: "📱", reason: "Easily open and inspect any blueprint files shared with you on any device.", link: "./kb/software/dwg-fastview.html", search: "gstarsoft" }
-                      ];
+                    } else { // hobbyist
+                      if (state.goal === 'drafting') {
+                        if (state.budget === 'premium') {
+                          title = "Premium Hobbyist Drafter";
+                          desc = "Draft personal projects, house plans, or woodwork layouts using professional-grade tools like DraftSight or Ares Commander.";
+                          recs = [
+                            { name: "DraftSight", icon: "📐", reason: "Professional-grade 2D CAD with a familiar interface, highly cost-effective for dedicated hobbyists.", link: "./kb/software/draftsight.html", search: "draftsight" },
+                            { name: "Ares Commander", icon: "⚔️", reason: "Powerful DWG editing with comprehensive features across desktop, mobile, and cloud.", link: "./kb/software/ares-commander.html", search: "ares" }
+                          ];
+                        } else {
+                          title = "FOSS Hobbyist Drafter";
+                          desc = "Completely free 2D drafting for personal layouts. Open-source solutions like LibreCAD or QCAD Community Edition are ideal.";
+                          recs = [
+                            { name: "FreeCAD", icon: "🔓", reason: "Use FreeCAD's Draft workbench for fully free, open-source 2D layouts and shape tracing.", link: "./kb/software/freecad.html", search: "freecad" },
+                            { name: "DWG FastView", icon: "📱", reason: "View, measure, and share any CAD drawings easily without paying for licenses.", link: "./kb/software/dwg-fastview.html", search: "gstarcad" }
+                          ];
+                        }
+                      } else if (state.goal === 'modeling') {
+                        if (state.budget === 'premium') {
+                          title = "Advanced Creative Maker";
+                          desc = "Create high-end 3D prints, visual renders, or custom mechanisms using Shapr3D or specialized parametric tools.";
+                          recs = [
+                            { name: "Fusion 360", icon: "⚙️", reason: "Autodesk's personal use license offers excellent cloud-based modeling capabilities.", link: "./kb/software/fusion-360.html", search: "fusion" },
+                            { name: "Alibre Design", icon: "🔧", reason: "Buy once, own forever desktop 3D modeling tailored for serious makers and 3D printing enthusiasts.", link: "./kb/software/alibre-design.html", search: "alibre" }
+                          ];
+                        } else {
+                          title = "FOSS 3D Print Maker";
+                          desc = "Design models for 3D printing or personal visual projects using 100% free open-source software.";
+                          recs = [
+                            { name: "FreeCAD", icon: "🔓", reason: "The primary FOSS parametric modeler, perfect for exporting water-tight STL/STEP files for slicing.", link: "./kb/software/freecad.html", search: "freecad" },
+                            { name: "SketchUp", icon: "📐", reason: "Free web-based version makes creating simple conceptual models quick and intuitive.", link: "./kb/software/sketchup.html", search: "sketchup" }
+                          ];
+                        }
+                      } else { // coordination
+                        if (state.budget === 'premium') {
+                          title = "Maker Project Coordinator";
+                          desc = "Coordinate complex community designs or manage 3D printing services using GrabCAD and online viewer pipelines.";
+                          recs = [
+                            { name: "Fusion 360", icon: "⚙️", reason: "Includes team collaboration spaces to share models and coordinate designs online.", link: "./kb/software/fusion-360.html", search: "fusion" },
+                            { name: "SketchUp", icon: "📐", reason: "3D Warehouse allows makers to share and coordinate models globally.", link: "./kb/software/sketchup.html", search: "sketchup" }
+                          ];
+                        } else {
+                          title = "Open Collaboration Maker";
+                          desc = "Share, version-track, and coordinate your maker projects using free open platforms and community databases.";
+                          recs = [
+                            { name: "FreeCAD", icon: "🔓", reason: "Export to standard formats (STEP, STL) to collaborate easily with anyone using any software.", link: "./kb/software/freecad.html", search: "freecad" },
+                            { name: "DWG FastView", icon: "📱", reason: "Share mobile view links to coordinate model files with team members on site.", link: "./kb/software/dwg-fastview.html", search: "gstarcad" }
+                          ];
+                        }
+                      }
                     }
 
                     let recsHtml = "";
                     recs.forEach(rec => {
                       recsHtml += `
                         <div class="kb-matchmaker-rec-item">
-                          <span class="kb-matchmaker-rec-icon">${rec.icon}</span>
-                          <div>
+                          <span class="kb-matchmaker-rec-icon" aria-hidden="true">${rec.icon}</span>
+                          <div style="flex-grow: 1;">
                             <div class="kb-matchmaker-rec-name">${rec.name}</div>
                             <p class="kb-matchmaker-rec-reason">${rec.reason}</p>
+                            <div class="kb-matchmaker-rec-links">
+                              <a href="${rec.link}" class="kb-matchmaker-rec-link-a study-link">📖 Study Wiki Guide</a>
+                              <a href="./tutorials.html?q=${rec.search}" class="kb-matchmaker-rec-link-a practice-link">📺 Practice Lessons</a>
+                            </div>
                           </div>
                         </div>
                       `;
                     });
 
                     let actionHtml = `<button type="button" class="kb-matchmaker-action-btn kb-matchmaker-action-btn-secondary" id="mm-btn-reset">Start Over 🔄</button>`;
-                    if (recs[0]) {
-                      actionHtml = `
-                        <a href="${recs[0].link}" class="kb-matchmaker-action-btn kb-matchmaker-action-btn-secondary">View ${recs[0].name} Guide &rarr;</a>
-                        <a href="./tutorials.html?q=${recs[0].search}" class="kb-matchmaker-action-btn kb-matchmaker-action-btn-primary">Find ${recs[0].name} Tutorials 📺</a>
-                        ${actionHtml}
-                      `;
-                    }
 
                     resultsContainer.innerHTML = `
                       <div class="kb-matchmaker-results-card">
@@ -1273,6 +1348,7 @@
                       state.goal = null;
                       state.budget = null;
                       currentStep = 1;
+
 
                       options.forEach(opt => opt.classList.remove('active'));
 

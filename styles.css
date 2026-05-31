@@ -6668,6 +6668,44 @@ body[data-page="knowledge"] .kb-matchmaker-rec-item {
   margin: 0;
 }
 
+.kb-matchmaker-rec-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 16px;
+  font-size: 0.78rem;
+  position: relative;
+  z-index: 10;
+}
+
+.kb-matchmaker-rec-link-a {
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kb-matchmaker-rec-link-a.study-link {
+  color: #2563eb;
+}
+
+.kb-matchmaker-rec-link-a.study-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+  transform: translateY(-0.5px);
+}
+
+.kb-matchmaker-rec-link-a.practice-link {
+  color: #4f46e5;
+}
+
+.kb-matchmaker-rec-link-a.practice-link:hover {
+  color: #3730a3;
+  text-decoration: underline;
+  transform: translateY(-0.5px);
+}
+
 .kb-matchmaker-actions {
   display: flex;
   flex-wrap: wrap;

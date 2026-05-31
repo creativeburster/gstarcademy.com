@@ -37,5 +37,17 @@ def test_endpoints():
     except Exception as e:
         print("✘ Alibre Design concept page verification failed:", e)
 
+    # 4. Test software matchmaker page
+    print("\nTesting Software Matchmaker Page...")
+    try:
+        r = requests.get(f"{base_url}/kb-software.html")
+        assert r.status_code == 200, f"Software page failed with status {r.status_code}"
+        assert "kb-matchmaker-container" in r.text, "Missing matchmaker container in software page"
+        assert "mm-step-1" in r.text, "Missing step 1 in matchmaker panel"
+        assert "renderResults" in r.text, "Missing interactive matching script"
+        print("✔ Software Matchmaker page loaded successfully and contains wizard components.")
+    except Exception as e:
+        print("✘ Software Matchmaker page verification failed:", e)
+
 if __name__ == "__main__":
     test_endpoints()
