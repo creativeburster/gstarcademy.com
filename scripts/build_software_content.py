@@ -37,7 +37,7 @@ CONCEPTS_DIR = ROOT / "kb" / "concepts"
 SOFTWARE_DIR = ROOT / "kb" / "software"
 VENDORS_DIR = ROOT / "kb" / "vendors"
 SITE_URL = "https://learncad.io"
-CSS_VER = "v9_concept_visibility"
+CSS_VER = "v11_cad_graph_stability"
 
 CONCEPTS_DIR.mkdir(parents=True, exist_ok=True)
 SOFTWARE_DIR.mkdir(parents=True, exist_ok=True)
