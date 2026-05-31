@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "slug": "solid-edge",
+  "name": "Solid Edge",
+  "tagline": "Siemens' mainstream parametric MCAD utilizing Synchronous Technology to blend history-free and history-based modeling.",
+  "meta_desc": "Solid Edge profile: Siemens' mainstream parametric MCAD utilizing Synchronous Technology to blend history-free and history-based modeling. plus terms and FAQs reviewed by editors.",
+  "category_label": "DesignApplication",
+  "vendor": {
+    "slug": "siemens",
+    "name": "Siemens"
+  },
+  "first_released": "1996",
+  "current_track": "Solid Edge (annual release track)",
+  "license_model": "Paid commercial subscription or perpetual license with optional Teamcenter integration.",
+  "platforms": [
+    "Windows (64-bit)"
+  ],
+  "file_formats": [
+    "PAR (part)",
+    "ASM (assembly)",
+    "DFT (draft)",
+    "PSM (sheet metal)",
+    "STEP"
+  ],
+  "primary_alternatives": [
+    "SOLIDWORKS",
+    "Autodesk Inventor",
+    "Alibre Design"
+  ],
+  "domains": [
+    "Parametric 3D MCAD",
+    "Synchronous Modeling",
+    "Sheet Metal Design",
+    "BOM & Drawing Release"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "Solid Edge is a leading industry-standard software package developed by Siemens. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Parametric 3D MCAD and Synchronous Modeling. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription or perpetual license with optional Teamcenter integration.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use Solid Edge when your clients or projects require full compatibility with the Siemens ecosystem and your teams are trained in its workflow. Choose alternatives like SOLIDWORKS, Autodesk Inventor when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Solid Edge Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Siemens"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "solidedge-synchronous-tech",
+      "title": "Synchronous Technology (Solid Edge)",
+      "short_def": "Hybrid modeling combining history-tree parametric and history-free direct editing.",
+      "definition": "In Solid Edge, Synchronous Technology represents a premier hybrid modeling engine. It enables designers to create dimension-driven geometry that can be edited by dragging faces directly, without recalculating preceding parent-child sketch steps.\n\nBy leveraging synchronous face relations, engineers can modify imported STEP files as if they were native parametric models.",
+      "why_matters": "Eliminates the risk of history tree rebuild crashes during late design modifications, significantly accelerating design revisions. Without it, editing complex historical models requires tedious tree audits and sketch updates.",
+      "common_pitfalls": [
+        "Over-constraining face relationships",
+        "Misunderstanding steering wheel direction projections during dragging."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "solidedge-steering-wheel",
+      "title": "Synchronous Steering Wheel (Solid Edge)",
+      "short_def": "3D geometric manipulator for rapid direct editing.",
+      "definition": "In Solid Edge, the Steering Wheel represents the primary direct manipulation UI. It positions axes, rotation rings, and origin points directly on selected geometry, enabling immediate pushing, pulling, or rotating.\n\nBy snapping the steering wheel axis to active keypoints, designers can execute precise coordinate translations without sketch constraints.",
+      "why_matters": "Provides a clean, intuitive, and extremely fast way to position faces or features in 3D space without opening dialog boxes. Without it, designers must navigate coordinate fields and relative displacement fields manually.",
+      "common_pitfalls": [
+        "Snapping to wrong geometric axes",
+        "Forgetting to lock the plane of modification before dragging."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is the difference between Synchronous and Ordered mode in Solid Edge?",
+      "answer": "Synchronous mode allows history-free direct modeling driven by dynamic face relationships and dimensions, resulting in fast edits. Ordered mode represents traditional history-based parametric modeling, where features rebuild sequentially from sketches."
+    },
+    {
+      "question": "How do I import legacy AutoCAD DWG files into Solid Edge drafts?",
+      "answer": "Open the DWG file using the Solid Edge import translator, map AutoCAD layers to standard draft styles, configure unit scaling (mm vs. inches), and save as a native DFT file for downstream annotation."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "Solid Edge",
+      "type": "product",
+      "tags": [
+        "solid-edge",
+        "solid-edge"
+      ],
+      "hint": "Siemens' mainstream parametric MCAD utilizing Synchronous Technology to blend history-free and history-based modeling.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Synchronous Technology (Solid Edge)",
+      "type": "concept",
+      "tags": [
+        "solid-edge"
+      ],
+      "hint": "Hybrid modeling combining history-tree parametric and history-free direct editing.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Synchronous Steering Wheel (Solid Edge)",
+      "type": "concept",
+      "tags": [
+        "solid-edge"
+      ],
+      "hint": "3D geometric manipulator for rapid direct editing.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "Solid Edge",
+      "Siemens"
+    ],
+    [
+      "Synchronous Technology (Solid Edge)",
+      "Solid Edge"
+    ],
+    [
+      "Synchronous Steering Wheel (Solid Edge)",
+      "Solid Edge"
+    ]
+  ]
+}

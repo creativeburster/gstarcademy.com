@@ -97,7 +97,7 @@ const CADSearch = {
         this.trie.insert(node.id, node);
         // Index by tags
         if (node.tags && Array.isArray(node.tags)) {
-          node.tags.forEach(tag => this.trie.trieNodeInsert(tag, node));
+          node.tags.forEach(tag => this.trie.insert(tag, node));
         }
       });
 

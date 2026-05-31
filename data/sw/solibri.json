@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "slug": "solibri",
+  "name": "Solibri Office",
+  "tagline": "The industry-standard quality assurance software for BIM, offering advanced model checking and code compliance auditing.",
+  "meta_desc": "Solibri Office profile: The industry-standard quality assurance software for BIM, offering advanced model checking and code compliance auditing. plus terms and FAQs reviewed by editors.",
+  "category_label": "Viewer",
+  "vendor": {
+    "slug": "nemetschek",
+    "name": "Nemetschek"
+  },
+  "first_released": "1999",
+  "current_track": "Solibri Office, Site, Anywhere (regular minor update releases)",
+  "license_model": "Paid commercial subscription or perpetual floating network license.",
+  "platforms": [
+    "Windows (64-bit)",
+    "macOS (64-bit)"
+  ],
+  "file_formats": [
+    "SMC (native)",
+    "IFC",
+    "BCF",
+    "PDF (reports)"
+  ],
+  "primary_alternatives": [
+    "Navisworks Manage",
+    "BIMcollab Zoom",
+    "Verifi3D"
+  ],
+  "domains": [
+    "BIM Quality Control",
+    "Model Auditing",
+    "Code Compliance",
+    "IFC Coordination"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "Solibri Office is a leading industry-standard software package developed by Nemetschek. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in BIM Quality Control and Model Auditing. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription or perpetual floating network license.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use Solibri Office when your clients or projects require full compatibility with the Nemetschek ecosystem and your teams are trained in its workflow. Choose alternatives like Navisworks Manage, BIMcollab Zoom when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Solibri Office Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Nemetschek"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "solibri-rule-manager",
+      "title": "Solibri Rule Manager (Solibri)",
+      "short_def": "Boolean-based logical constraint checker for building databases.",
+      "definition": "In Solibri, the Rule Manager represents the central brain. It evaluates federated models against complex logical checks (e.g. checking if escape doors are within 30m of all corridor points).\n\nBy structuring corporate model delivery rulesets early, BIM coordinators can automate 90% of model quality validation.",
+      "why_matters": "Guarantees that building designs comply with safety codes and construction standards prior to permit applications, protecting public safety. Without it, manual model auditing will fail to catch missing data or safety clearances.",
+      "common_pitfalls": [
+        "Over-complicating rulesets, generating endless false warnings",
+        "Applying conflicting standards across unified models."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "solibri-bcf-coordination",
+      "title": "BCF Issue Management (Solibri)",
+      "short_def": "Standard open-format coordination sync protocol.",
+      "definition": "In Solibri, BCF Coordination represents the collaborative issue gateway. BIM Collaboration Format (BCF) stores coordinate camera views and comments, syncing issues directly to Revit or Archicad panels.\n\nBy checking and exporting BCF zip archives, coordinators avoid coordinate offsets and link issues directly to geometry IDs.",
+      "why_matters": "Streamlines team communication by focusing solely on coordinate conflict resolution without sharing massive model databases. Without it, teams must coordinate using messy screenshots and spreadsheets, losing tracking histories.",
+      "common_pitfalls": [
+        "Modifying model element GUIDs, breaking BCF camera targets",
+        "Skipping assignees, leaving issues unresolved."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I import models into Solibri for quality audits?",
+      "answer": "Open Solibri Office, import the primary architectural IFC file, add structural and MEP IFC files to the same workspace, federate them under a single coordinate origin, and select your standard checking ruleset."
+    },
+    {
+      "question": "What is the difference between Solibri Office and Solibri Anywhere?",
+      "answer": "Solibri Office is the full professional authoring platform for configuring rules, running checks, and managing BCF issues. Solibri Anywhere is a completely free viewer tier that allows clients to open SMC files and review checking results."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "Solibri Office",
+      "type": "product",
+      "tags": [
+        "solibri",
+        "solibri"
+      ],
+      "hint": "The industry-standard quality assurance software for BIM, offering advanced model checking and code compliance auditing.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Solibri Rule Manager (Solibri)",
+      "type": "concept",
+      "tags": [
+        "solibri"
+      ],
+      "hint": "Boolean-based logical constraint checker for building databases.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "BCF Issue Management (Solibri)",
+      "type": "concept",
+      "tags": [
+        "solibri"
+      ],
+      "hint": "Standard open-format coordination sync protocol.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "Solibri Office",
+      "Nemetschek"
+    ],
+    [
+      "Solibri Rule Manager (Solibri)",
+      "Solibri Office"
+    ],
+    [
+      "BCF Issue Management (Solibri)",
+      "Solibri Office"
+    ]
+  ]
+}

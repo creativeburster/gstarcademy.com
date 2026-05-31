@@ -314,6 +314,7 @@ document.addEventListener("keydown", (ev) => {
           applyFilters();
         }
       }
+    }
   }
 
   // Run initial parsing on load

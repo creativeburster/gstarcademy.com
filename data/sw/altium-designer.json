@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "slug": "altium-designer",
+  "name": "Altium Designer",
+  "tagline": "The premier unified electronic CAD (ECAD) environment for printed circuit board (PCB) design and engineering.",
+  "meta_desc": "Altium Designer profile: The premier unified electronic CAD (ECAD) environment for printed circuit board (PCB) design and engineering. plus terms and FAQs reviewed by editors.",
+  "category_label": "DesignApplication",
+  "vendor": {
+    "slug": "altium-ltd",
+    "name": "Altium"
+  },
+  "first_released": "1985 (Protel)",
+  "current_track": "Altium Designer (regular minor update releases)",
+  "license_model": "Paid commercial subscription with cloud Altium 365 workspace access.",
+  "platforms": [
+    "Windows (64-bit)"
+  ],
+  "file_formats": [
+    "PcbDoc (PCB)",
+    "SchDoc (schematic)",
+    "PrjPcb (project)",
+    "Gerber (manufacturing)",
+    "STEP (3D)"
+  ],
+  "primary_alternatives": [
+    "Cadence Allegro",
+    "KiCad",
+    "Mentor Expedition"
+  ],
+  "domains": [
+    "Electronic CAD (ECAD)",
+    "Printed Circuit Board Design",
+    "Schematic Capture",
+    "MCAD-ECAD Co-design"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "Altium Designer is a leading industry-standard software package developed by Altium. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Electronic CAD (ECAD) and Printed Circuit Board Design. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription with cloud Altium 365 workspace access.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use Altium Designer when your clients or projects require full compatibility with the Altium ecosystem and your teams are trained in its workflow. Choose alternatives like Cadence Allegro, KiCad when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Altium Designer Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Altium"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "altium-schematic-capture",
+      "title": "Unified Schematic Capture (Altium)",
+      "short_def": "Logical component drawing and netlist configuration workspace.",
+      "definition": "In Altium, Schematic Capture represents the logical wiring canvas. It registers components, electrical pins, and connection nets, generating the logical framework for physical routing.\n\nBy establishing strict net name standards early, electrical engineers can automate pin-mapping and prevent PCB layout routing mistakes.",
+      "why_matters": "Creates the electrical map that drives physical board layout, ensuring zero schematic-to-layout discrepancies. Without it, physical PCB routing cannot connect coordinates, resulting in broken board circuits.",
+      "common_pitfalls": [
+        "Creating dangling wires that miss pin hotspots",
+        "Duplicate component designators."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "altium-3d-pcb",
+      "title": "Interactive 3D PCB Engine (Altium)",
+      "short_def": "Integrated real-time STEP visualization of component clearance.",
+      "definition": "In Altium, the 3D PCB Engine represents the physical enclosure checker. It maps 3D STEP models onto board tracks, verifying structural clearance within mechanical frames.\n\nBy exporting matched MCAD files directly, electronics designers ensure circuit boards fit perfectly into product housings.",
+      "why_matters": "Guarantees absolute physical fit between custom circuit boards and mechanical product enclosures, preventing assembly collisions. Without it, designers must build physical prototypes to check enclosure clearances, ballooning budgets.",
+      "common_pitfalls": [
+        "Using wrong step model heights",
+        "Forgetting to define copper trace thickness limits."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I export fabrication files (Gerbers) from Altium?",
+      "answer": "Open your PCB layout, go to `File → Fabrication Outputs → Gerber Files`, select standard layers, set units and precision, and run the export. Repeat for NC Drill Files to bundle the manufacturing package."
+    },
+    {
+      "question": "How does the Altium-MCAD bridge work?",
+      "answer": "Altium Designer uses the CoDesigner plugin to push physical board layers and STEP components directly to mechanical CAD tools like SOLIDWORKS or Inventor, syncing changes in real-time."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "Altium Designer",
+      "type": "product",
+      "tags": [
+        "altium-designer",
+        "altium-designer"
+      ],
+      "hint": "The premier unified electronic CAD (ECAD) environment for printed circuit board (PCB) design and engineering.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Unified Schematic Capture (Altium)",
+      "type": "concept",
+      "tags": [
+        "altium-designer"
+      ],
+      "hint": "Logical component drawing and netlist configuration workspace.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Interactive 3D PCB Engine (Altium)",
+      "type": "concept",
+      "tags": [
+        "altium-designer"
+      ],
+      "hint": "Integrated real-time STEP visualization of component clearance.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "Altium Designer",
+      "Altium"
+    ],
+    [
+      "Unified Schematic Capture (Altium)",
+      "Altium Designer"
+    ],
+    [
+      "Interactive 3D PCB Engine (Altium)",
+      "Altium Designer"
+    ]
+  ]
+}

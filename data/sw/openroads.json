@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "slug": "openroads",
+  "name": "OpenRoads Designer",
+  "tagline": "Bentley's premium BIM civil infrastructure design environment for road, rail, corridor, drainage, and utility networks.",
+  "meta_desc": "OpenRoads Designer profile: Bentley's premium BIM civil infrastructure design environment for road, rail, corridor, drainage, and utility networks. plus terms and FAQs reviewed by editors.",
+  "category_label": "DesignApplication",
+  "vendor": {
+    "slug": "bentley",
+    "name": "Bentley"
+  },
+  "first_released": "2017 (replacing InRoads/GEOPAK)",
+  "current_track": "OpenRoads CONNECT Edition (regular minor update releases)",
+  "license_model": "Perpetual or subscription via Bentley SELECT or Virtuoso agreements.",
+  "platforms": [
+    "Windows (64-bit)"
+  ],
+  "file_formats": [
+    "DGN (native)",
+    "DWG",
+    "LandXML",
+    "i.dgn"
+  ],
+  "primary_alternatives": [
+    "Civil 3D",
+    "OpenRoads ConceptStation",
+    "Novapoint"
+  ],
+  "domains": [
+    "Civil Infrastructure",
+    "Highway Engineering",
+    "Corridor Modeling",
+    "Terrain & Drainage"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "OpenRoads Designer is a leading industry-standard software package developed by Bentley. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Civil Infrastructure and Highway Engineering. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Perpetual or subscription via Bentley SELECT or Virtuoso agreements.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use OpenRoads Designer when your clients or projects require full compatibility with the Bentley ecosystem and your teams are trained in its workflow. Choose alternatives like Civil 3D, OpenRoads ConceptStation when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "OpenRoads Designer Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Bentley"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "openroads-corridor",
+      "title": "Parametric Corridor Modeler (OpenRoads)",
+      "short_def": "3D dynamic roadway extrusion based on alignments and templates.",
+      "definition": "In OpenRoads, the Corridor Modeler represents the primary 3D structural engine. It extrudes roadway templates along horizontal alignments and vertical profiles, dynamically recalculating cuts, fills, and transition slopes.\n\nBy configuring corridor template drops and parametric constraints, highway designers can automate road widening at intersections.",
+      "why_matters": "Enables coordinate-perfect modeling of complex highway networks with real-time earthwork mass volume calculations. Without it, civil engineers must draw tedious 2D cross-sections and calculate volumes manually.",
+      "common_pitfalls": [
+        "Overlapping corridor templates causing mesh self-intersection",
+        "Broken alignment links after file references are renamed."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "openroads-terrain",
+      "title": "Dynamic Terrain Models (OpenRoads)",
+      "short_def": "High-performance surface modeler for survey data.",
+      "definition": "In OpenRoads, the Terrain Model represents the baseline geographic surface. It compiles point clouds, survey points, and breaklines into triangulated irregular networks (TIN) driving site grading.\n\nBy registering raw coordinate data early, designers can overlay design models onto exact real-world topography.",
+      "why_matters": "Guarantees that new roadway profiles fit existing geographic features with absolute precision, preventing field grading errors. Without it, structural designs will misalign with actual site conditions, leading to construction budget overruns.",
+      "common_pitfalls": [
+        "Drawing alignments outside active coordinate boundaries",
+        "Failing to simplify large point clouds, bloating file sizes."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I fix corridor rebuild lags in OpenRoads?",
+      "answer": "Increase the template drop interval (e.g. from 1m to 5m during active drafting), simplify complex civil cells, disable automatic corridor updates during modeling, and store heavy point clouds in separate referenced files."
+    },
+    {
+      "question": "Can OpenRoads files be exported to Civil 3D?",
+      "answer": "Yes. Export OpenRoads designs using LandXML for alignments, profiles, and terrain meshes. For drawing layouts, export to DWG format, ensuring coordinate systems match the target layout."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "OpenRoads Designer",
+      "type": "product",
+      "tags": [
+        "openroads",
+        "openroads"
+      ],
+      "hint": "Bentley's premium BIM civil infrastructure design environment for road, rail, corridor, drainage, and utility networks.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Parametric Corridor Modeler (OpenRoads)",
+      "type": "concept",
+      "tags": [
+        "openroads"
+      ],
+      "hint": "3D dynamic roadway extrusion based on alignments and templates.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Dynamic Terrain Models (OpenRoads)",
+      "type": "concept",
+      "tags": [
+        "openroads"
+      ],
+      "hint": "High-performance surface modeler for survey data.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "OpenRoads Designer",
+      "Bentley"
+    ],
+    [
+      "Parametric Corridor Modeler (OpenRoads)",
+      "OpenRoads Designer"
+    ],
+    [
+      "Dynamic Terrain Models (OpenRoads)",
+      "OpenRoads Designer"
+    ]
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "slug": "ansys-fluent",
+  "name": "ANSYS Fluent",
+  "tagline": "Industry-leading fluid dynamics simulation software known for its advanced physics modeling capabilities and accuracy.",
+  "meta_desc": "ANSYS Fluent profile: Industry-leading fluid dynamics simulation software known for its advanced physics modeling capabilities and accuracy. plus terms and FAQs reviewed by editors.",
+  "category_label": "AnalysisApplication",
+  "vendor": {
+    "slug": "ansys",
+    "name": "ANSYS"
+  },
+  "first_released": "1983",
+  "current_track": "Fluent Enterprise (annual release track)",
+  "license_model": "Paid commercial subscription or perpetual engineering license.",
+  "platforms": [
+    "Windows (64-bit)",
+    "Linux (64-bit)"
+  ],
+  "file_formats": [
+    "CAS (case)",
+    "DAT (data)",
+    "MSH (mesh)",
+    "CGNS"
+  ],
+  "primary_alternatives": [
+    "OpenFOAM",
+    "Star-CCM+",
+    "COMSOL Multiphysics"
+  ],
+  "domains": [
+    "Computational Fluid Dynamics (CFD)",
+    "Aerodynamics",
+    "Heat Transfer",
+    "Turbomachinery"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "ANSYS Fluent is a leading industry-standard software package developed by ANSYS. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Computational Fluid Dynamics (CFD) and Aerodynamics. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription or perpetual engineering license.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use ANSYS Fluent when your clients or projects require full compatibility with the ANSYS ecosystem and your teams are trained in its workflow. Choose alternatives like OpenFOAM, Star-CCM+ when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "ANSYS Fluent Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "ANSYS"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "fluent-cfd-mesh",
+      "title": "Unstructured CFD Meshing (Fluent)",
+      "short_def": "High-fidelity mesh generation for complex fluid volumes.",
+      "definition": "In ANSYS Fluent, Unstructured Meshing represents a core physical domain discretisation method. Fluent's advanced mesh generation creates polyhedral, tetrahedral, or hexcore grids to map fluid domains.\n\nBy establishing precise cell sizes and inflation boundary layers early, engineers can dramatically reduce turbulence calculation errors and optimize solver convergence rates during multi-phase simulations.",
+      "why_matters": "Crucial for capturing boundary layer aerodynamics and heat transfer gradient fluxes. Without it, calculation results will suffer from numerical diffusion, false convergence, or instability.",
+      "common_pitfalls": [
+        "Using high aspect ratio cells in boundary layers",
+        "Neglecting cell quality metrics like skewness and orthogonal quality."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "fluent-turbulence-model",
+      "title": "SST k-omega Turbulence Model (Fluent)",
+      "short_def": "Standard industry two-equation shear stress transport model.",
+      "definition": "In ANSYS Fluent, the SST k-omega Model represents a foundational turbulence calculation method. It combines robust near-wall accuracy with boundary-layer sensitivity for complex separated flows.\n\nBy configuring proper initial wall spacing (y+ < 1) for the SST model, simulation engineers can reliably predict lift, drag, and boundary layer separation in external aerodynamics.",
+      "why_matters": "Provides a reliable baseline for industrial fluid separation, wing drag, and pipe throat simulations. Without it, standard standard k-epsilon solvers will over-predict turbulent viscosity and fail to capture vortex shedding.",
+      "common_pitfalls": [
+        "Applying standard wall functions where low-Re resolving is needed",
+        "Mismatched inlet turbulence intensity bounds."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I resolve floating point exception errors in Fluent solvers?",
+      "answer": "Check mesh quality metrics (skewness < 0.9, aspect ratio < 100), reduce under-relaxation factors (URF) for pressure and momentum, verify boundary condition physical bounds, and start with first-order discretisation schemes before switching to high-fidelity second-order."
+    },
+    {
+      "question": "What is the recommended practice for capturing CFD boundary layers in Fluent?",
+      "answer": "Generate inflation layers at the solid boundaries. Calculate the first cell height using the desired y+ target (typically y+ < 1 for resolving, or y+ = 30-100 for wall functions) based on the target Reynolds number."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "ANSYS Fluent",
+      "type": "product",
+      "tags": [
+        "ansys-fluent",
+        "ansys-fluent"
+      ],
+      "hint": "Industry-leading fluid dynamics simulation software known for its advanced physics modeling capabilities and accuracy.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Unstructured CFD Meshing (Fluent)",
+      "type": "concept",
+      "tags": [
+        "ansys-fluent"
+      ],
+      "hint": "High-fidelity mesh generation for complex fluid volumes.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "SST k-omega Turbulence Model (Fluent)",
+      "type": "concept",
+      "tags": [
+        "ansys-fluent"
+      ],
+      "hint": "Standard industry two-equation shear stress transport model.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "ANSYS Fluent",
+      "ANSYS"
+    ],
+    [
+      "Unstructured CFD Meshing (Fluent)",
+      "ANSYS Fluent"
+    ],
+    [
+      "SST k-omega Turbulence Model (Fluent)",
+      "ANSYS Fluent"
+    ]
+  ]
+}

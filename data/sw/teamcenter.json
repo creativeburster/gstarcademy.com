@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "slug": "teamcenter",
+  "name": "Siemens Teamcenter",
+  "tagline": "The world's most widely adopted product lifecycle management (PLM) system, connecting teams and CAD data across the enterprise.",
+  "meta_desc": "Siemens Teamcenter profile: The world's most widely adopted product lifecycle management (PLM) system, connecting teams and CAD data across the enterprise. plus terms and FAQs reviewed by editors.",
+  "category_label": "Viewer",
+  "vendor": {
+    "slug": "siemens",
+    "name": "Siemens"
+  },
+  "first_released": "2001 (SDRC/EDS)",
+  "current_track": "Teamcenter (annual release track with active cloud SaaS options)",
+  "license_model": "Enterprise-gated user licensing with database server configurations.",
+  "platforms": [
+    "Windows (desktop/server)",
+    "Linux (server)",
+    "Web Browser (Active Workspace)"
+  ],
+  "file_formats": [
+    "JT (visualization)",
+    "PLMXML",
+    "STEP",
+    "Native CAD links"
+  ],
+  "primary_alternatives": [
+    "Windchill (PTC)",
+    "ENOVIA (Dassault)",
+    "Autodesk Vault"
+  ],
+  "domains": [
+    "Product Lifecycle Management (PLM)",
+    "CAD Version Control",
+    "BOM Management",
+    "Enterprise Workflow"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "Siemens Teamcenter is a leading industry-standard software package developed by Siemens. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Product Lifecycle Management (PLM) and CAD Version Control. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Enterprise-gated user licensing with database server configurations.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use Siemens Teamcenter when your clients or projects require full compatibility with the Siemens ecosystem and your teams are trained in its workflow. Choose alternatives like Windchill (PTC), ENOVIA (Dassault) when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Siemens Teamcenter Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Siemens"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "teamcenter-active-workspace",
+      "title": "Active Workspace Interface (Teamcenter)",
+      "short_def": "Modern web UI for enterprise-wide CAD and metadata search.",
+      "definition": "In Teamcenter, Active Workspace represents the primary web portal. It provides non-CAD users, managers, and shop floor teams with immediate access to 3D JT models and bills of materials.\n\nBy typing simple queries, users can find parts and view assembly trees without local CAD software seats.",
+      "why_matters": "Enables cross-department access to master product structures, reducing coordination delays and print overhead. Without it, non-drafting staff must request drawings from engineering departments, slowing down procurement.",
+      "common_pitfalls": [
+        "Over-restricting permissions, locking out valid procurement staff",
+        "Skipping web cache refreshes after database schema migrations."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "teamcenter-jt-format",
+      "title": "JT Open Data Format (Teamcenter)",
+      "short_def": "ISO standard lightweight 3D CAD visualization format.",
+      "definition": "In Teamcenter, the JT format represents the unified visualization pipeline. This lightweight standard packages complex CAD parts into compact 3D files containing exact B-Rep geometry and PMI metadata.\n\nBy configuring automated CAD-to-JT conversion on model check-in, companies can run massive digital mockup reviews.",
+      "why_matters": "Enables rapid coordination and clearance checking on huge assemblies (like whole ships or cars) containing millions of parts. Without it, loading raw native CAD files will crash standard review computers due to memory constraints.",
+      "common_pitfalls": [
+        "Stripping out critical PMI metadata during conversion",
+        "Mismatched tessellation tolerances."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is the primary workflow for checking a CAD model into Teamcenter?",
+      "answer": "Launch your CAD application (e.g. NX or SOLIDWORKS) via the Teamcenter Integration manager, open your local model, click `Save to Teamcenter`, input metadata (attributes, item numbers), assign the workflow state, and submit to check in."
+    },
+    {
+      "question": "How does Teamcenter manage different CAD file BOMs?",
+      "answer": "Teamcenter maintains a single, unified Bill of Materials (Engineering BOM) that links CAD files from multiple authors (SOLIDWORKS mechanicals, Altium electronics) under a central product hierarchy."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "Siemens Teamcenter",
+      "type": "product",
+      "tags": [
+        "teamcenter",
+        "teamcenter"
+      ],
+      "hint": "The world's most widely adopted product lifecycle management (PLM) system, connecting teams and CAD data across the enterprise.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Active Workspace Interface (Teamcenter)",
+      "type": "concept",
+      "tags": [
+        "teamcenter"
+      ],
+      "hint": "Modern web UI for enterprise-wide CAD and metadata search.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "JT Open Data Format (Teamcenter)",
+      "type": "concept",
+      "tags": [
+        "teamcenter"
+      ],
+      "hint": "ISO standard lightweight 3D CAD visualization format.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "Siemens Teamcenter",
+      "Siemens"
+    ],
+    [
+      "Active Workspace Interface (Teamcenter)",
+      "Siemens Teamcenter"
+    ],
+    [
+      "JT Open Data Format (Teamcenter)",
+      "Siemens Teamcenter"
+    ]
+  ]
+}

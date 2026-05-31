@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "slug": "ansys-mechanical",
+  "name": "ANSYS Mechanical",
+  "tagline": "The premier structural mechanics simulation software utilizing finite element analysis (FEA) for linear, non-linear, and dynamic studies.",
+  "meta_desc": "ANSYS Mechanical profile: The premier structural mechanics simulation software utilizing finite element analysis (FEA) for linear, non-linear, and dynamic studies. plus terms and FAQs reviewed by editors.",
+  "category_label": "AnalysisApplication",
+  "vendor": {
+    "slug": "ansys",
+    "name": "ANSYS"
+  },
+  "first_released": "1970",
+  "current_track": "Mechanical Enterprise (annual release track)",
+  "license_model": "Paid commercial subscription or perpetual structural license.",
+  "platforms": [
+    "Windows (64-bit)",
+    "Linux (64-bit)"
+  ],
+  "file_formats": [
+    "WBPJ (project)",
+    "DB (database)",
+    "RST (results)",
+    "INP (APDL input)"
+  ],
+  "primary_alternatives": [
+    "Abaqus FEA",
+    "MSC Nastran",
+    "Simcenter 3D"
+  ],
+  "domains": [
+    "Finite Element Analysis (FEA)",
+    "Structural Mechanics",
+    "Thermal-Stress",
+    "Vibration & Dynamics"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "ANSYS Mechanical is a leading industry-standard software package developed by ANSYS. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Finite Element Analysis (FEA) and Structural Mechanics. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription or perpetual structural license.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use ANSYS Mechanical when your clients or projects require full compatibility with the ANSYS ecosystem and your teams are trained in its workflow. Choose alternatives like Abaqus FEA, MSC Nastran when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "ANSYS Mechanical Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "ANSYS"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "mechanical-fea-mesh",
+      "title": "Hexahedral Structural Meshing (Mechanical)",
+      "short_def": "Structured brick element meshing for high-accuracy stress fields.",
+      "definition": "In ANSYS Mechanical, Hexahedral Meshing represents a primary finite element discretisation strategy. Structured 3D brick elements provide superior stress resolution with fewer degrees of freedom compared to tetrahedrals.\n\nBy partition-blocking complex parts early, analysts can force structured hex sweeps to capture high-stress gradients in critical structural joints.",
+      "why_matters": "Essential for high-cycle fatigue and fracture mechanics where precise surface stress tensors are required. Without it, tetrahedral meshes will exhibit shear locking and artificial stiffness.",
+      "common_pitfalls": [
+        "Sweeping overly complex topologies without partitioning",
+        "Ignoring element aspect ratio limits."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "mechanical-nonlinear-contact",
+      "title": "Frictional Nonlinear Contacts (Mechanical)",
+      "short_def": "Iterative contact boundary conditions with friction.",
+      "definition": "In ANSYS Mechanical, Frictional Contact represents a complex nonlinear constraint solver. It models separation, sliding, and friction force transfers between structural faces.\n\nBy configuring proper contact stabilization and pinball regions, analysts can ensure smooth Newton-Raphson convergence during assembly load increments.",
+      "why_matters": "Critical for realistic bolt pretension, press-fit assemblies, and moving joint simulations. Without it, linear bonded assumptions will artificially stiffen the structure and hide peak local stresses.",
+      "common_pitfalls": [
+        "Over-constraining contacts leading to penetration or convergence failure",
+        "Setting excessive contact stiffness scaling."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I fix unconverged nonlinear structural simulations in ANSYS?",
+      "answer": "Review the solver output for force convergence criteria, enable automatic time stepping, identify separating regions with contact diagnostics, increase contact pinball radius, and apply small stabilization damping factors if rigid-body motion occurs."
+    },
+    {
+      "question": "What is the difference between bonded and no-separation contacts?",
+      "answer": "Bonded contacts prevent all sliding and separation (faces act as glued). No-separation contacts allow sliding along the face tangent but prevent separation along the normal, representing a frictionless guide slider."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "ANSYS Mechanical",
+      "type": "product",
+      "tags": [
+        "ansys-mechanical",
+        "ansys-mechanical"
+      ],
+      "hint": "The premier structural mechanics simulation software utilizing finite element analysis (FEA) for linear, non-linear, and dynamic studies.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Hexahedral Structural Meshing (Mechanical)",
+      "type": "concept",
+      "tags": [
+        "ansys-mechanical"
+      ],
+      "hint": "Structured brick element meshing for high-accuracy stress fields.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Frictional Nonlinear Contacts (Mechanical)",
+      "type": "concept",
+      "tags": [
+        "ansys-mechanical"
+      ],
+      "hint": "Iterative contact boundary conditions with friction.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "ANSYS Mechanical",
+      "ANSYS"
+    ],
+    [
+      "Hexahedral Structural Meshing (Mechanical)",
+      "ANSYS Mechanical"
+    ],
+    [
+      "Frictional Nonlinear Contacts (Mechanical)",
+      "ANSYS Mechanical"
+    ]
+  ]
+}

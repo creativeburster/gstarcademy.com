@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "slug": "openfoam",
+  "name": "OpenFOAM",
+  "tagline": "The premier free and open-source Computational Fluid Dynamics (CFD) toolbox used in science and engineering globally.",
+  "meta_desc": "OpenFOAM profile: The premier free and open-source Computational Fluid Dynamics (CFD) toolbox used in science and engineering globally. plus terms and FAQs reviewed by editors.",
+  "category_label": "AnalysisApplication",
+  "vendor": {
+    "slug": "openfoam-foundation",
+    "name": "OpenFOAM Foundation"
+  },
+  "first_released": "2004",
+  "current_track": "OpenFOAM Foundation releases (annual) & ESI-OpenCFD releases (semi-annual)",
+  "license_model": "100% Free and Open Source under GNU General Public License (GPL).",
+  "platforms": [
+    "Linux (64-bit native)",
+    "Windows (via WSL or Docker)",
+    "macOS"
+  ],
+  "file_formats": [
+    "BlockMeshDict",
+    "ControlDict",
+    "FVSchemes",
+    "FVSolution",
+    "VTK (export)"
+  ],
+  "primary_alternatives": [
+    "ANSYS Fluent",
+    "Star-CCM+",
+    "SimScale"
+  ],
+  "domains": [
+    "Computational Fluid Dynamics (CFD)",
+    "Open-Source Simulation",
+    "Multi-Phase Flow",
+    "Aerospace Research"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "OpenFOAM is a leading industry-standard software package developed by OpenFOAM Foundation. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Computational Fluid Dynamics (CFD) and Open-Source Simulation. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as 100% Free and Open Source under GNU General Public License (GPL).. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use OpenFOAM when your clients or projects require full compatibility with the OpenFOAM Foundation ecosystem and your teams are trained in its workflow. Choose alternatives like ANSYS Fluent, Star-CCM+ when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "OpenFOAM Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "OpenFOAM Foundation"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "openfoam-blockmesh",
+      "title": "blockMesh Mesh Generator (OpenFOAM)",
+      "short_def": "Text-based dictionary tool for structured hexahedral meshing.",
+      "definition": "In OpenFOAM, blockMesh represents a foundational mesh generation utility. It defines block vertex coordinates, grading distributions, and boundary patch designations using clear text dictionaries.\n\nBy scripting precise block-mesh coordinate definitions, researchers can generate highly aligned structured grids for fluid dynamic validation studies.",
+      "why_matters": "Guarantees 100% control over cell structure, grading, and alignment along flow vectors, crucial for laminar-to-turbulent transition analysis. Without it, automated tet meshing will introduce artificial turbulence dissipation.",
+      "common_pitfalls": [
+        "Over-grading edge transitions causing large cell expansion ratios",
+        "Misordering block vertex indices causing inverted element errors."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "openfoam-controldict",
+      "title": "controlDict Configuration Dictionary (OpenFOAM)",
+      "short_def": "Core runtime directory parameter control file.",
+      "definition": "In OpenFOAM, controlDict represents the central simulation dashboard. This text dictionary specifies starting times, step sizes, write frequencies, solver tolerances, and dynamically loaded function objects (like force calculations).\n\nBy configuring proper Courant number limits (Co < 1) in controlDict, users can automate dynamic time-stepping to preserve calculation stability.",
+      "why_matters": "Acts as the central cockpit for solver execution, logging, and data output formats. Without it, the OpenFOAM execution shell cannot load numerical schemes or save solver results.",
+      "common_pitfalls": [
+        "Setting step sizes that violate the CFL condition",
+        "Forgetting to purge old time step outputs, filling up hard drives."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I fix bounding 'epsilon' or 'k' solver crashes in OpenFOAM?",
+      "answer": "Check for poor mesh quality at boundaries, verify inlet initial values match expected turbulence parameters, switch to more robust upwind convection schemes in `fvSchemes`, and reduce relaxation factors in `fvSolution`."
+    },
+    {
+      "question": "How do I view OpenFOAM results in a graphical user interface?",
+      "answer": "Use ParaView (an open-source visualizer). Type `paraFoam` in the terminal inside your case directory to launch it, or create a dummy file named `case.foam` and open it directly in a standard ParaView installation."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "OpenFOAM",
+      "type": "product",
+      "tags": [
+        "openfoam",
+        "openfoam"
+      ],
+      "hint": "The premier free and open-source Computational Fluid Dynamics (CFD) toolbox used in science and engineering globally.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "blockMesh Mesh Generator (OpenFOAM)",
+      "type": "concept",
+      "tags": [
+        "openfoam"
+      ],
+      "hint": "Text-based dictionary tool for structured hexahedral meshing.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "controlDict Configuration Dictionary (OpenFOAM)",
+      "type": "concept",
+      "tags": [
+        "openfoam"
+      ],
+      "hint": "Core runtime directory parameter control file.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "OpenFOAM",
+      "OpenFOAM Foundation"
+    ],
+    [
+      "blockMesh Mesh Generator (OpenFOAM)",
+      "OpenFOAM"
+    ],
+    [
+      "controlDict Configuration Dictionary (OpenFOAM)",
+      "OpenFOAM"
+    ]
+  ]
+}

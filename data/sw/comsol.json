@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "slug": "comsol",
+  "name": "COMSOL Multiphysics",
+  "tagline": "A powerful cross-disciplinary FEA platform specializing in coupled multiphysics simulations and custom application building.",
+  "meta_desc": "COMSOL Multiphysics profile: A powerful cross-disciplinary FEA platform specializing in coupled multiphysics simulations and custom application building. plus terms and FAQs reviewed by editors.",
+  "category_label": "AnalysisApplication",
+  "vendor": {
+    "slug": "comsol-inc",
+    "name": "COMSOL"
+  },
+  "first_released": "1998",
+  "current_track": "COMSOL Multiphysics (annual release track)",
+  "license_model": "Paid commercial subscription, academic, or floating network license.",
+  "platforms": [
+    "Windows (64-bit)",
+    "macOS (64-bit)",
+    "Linux (64-bit)"
+  ],
+  "file_formats": [
+    "MPH (project)",
+    "MPHBIN (binary mesh)",
+    "MPHTXT (text mesh)"
+  ],
+  "primary_alternatives": [
+    "ANSYS Fluent",
+    "ANSYS Mechanical",
+    "MATLAB"
+  ],
+  "domains": [
+    "Multiphysics FEA",
+    "Electromagnetics",
+    "Microfluidics",
+    "Acoustics",
+    "Chemical Reaction"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "COMSOL Multiphysics is a leading industry-standard software package developed by COMSOL. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Multiphysics FEA and Electromagnetics. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription, academic, or floating network license.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use COMSOL Multiphysics when your clients or projects require full compatibility with the COMSOL ecosystem and your teams are trained in its workflow. Choose alternatives like ANSYS Fluent, ANSYS Mechanical when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "COMSOL Multiphysics Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "COMSOL"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "comsol-multiphysics-coupling",
+      "title": "Fully Coupled Multiphysics Solvers (COMSOL)",
+      "short_def": "Simultaneous solver matrices for interactive physical fields.",
+      "definition": "In COMSOL, Multiphysics Coupling represents a foundational mathematical mechanism. It solves combined matrices (e.g., thermal expansion driving electrical resistance changes) simultaneously rather than sequentially.\n\nBy configuring direct fully coupled solver steps early, engineers can capture true feedback loops in complex micro-electromechanical systems (MEMS).",
+      "why_matters": "Guarantees mathematically rigorous simulation of real-world phenomena where multiple physical fields influence each other. Without it, segregated loose coupling will introduce lag errors and miss thermal-runaway triggers.",
+      "common_pitfalls": [
+        "Over-coupling unnecessary physics",
+        "Neglecting to scale variables properly, leading to singular matrix errors."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "comsol-app-builder",
+      "title": "COMSOL Application Builder (COMSOL)",
+      "short_def": "GUI builder that converts models into simple standalone apps.",
+      "definition": "In COMSOL, the Application Builder represents an enterprise accessibility tool. It wraps complex simulation files inside simplified web interfaces or local desktop executables with custom input buttons.\n\nBy publishing simplified models as COMSOL Apps, simulation experts allow sales and test engineers to run clear parametric scans without seeing FEA mesh equations.",
+      "why_matters": "Democratizes finite element analysis across the manufacturing supply chain, protecting intellectual property and reducing simulation backlogs. Without it, expert analysts will spend excessive time running trivial parameter adjustments for customers.",
+      "common_pitfalls": [
+        "Hardcoding strict input bounds that lock valid design scans",
+        "Forgetting to bundle required solver dependencies."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I resolve singular matrix solver errors in COMSOL?",
+      "answer": "Check that all boundaries have sufficient boundary conditions (prevent rigid body motion), verify that material properties are defined for all domains, scale coupled variables so their magnitudes are close, and use a direct solver (MUMPS) instead of iterative solvers."
+    },
+    {
+      "question": "What is the difference between Fully Coupled and Segregated solvers?",
+      "answer": "Fully Coupled solvers assemble all physical equations into a single giant matrix and solve it simultaneously, which is accurate but memory-intensive. Segregated solvers solve each physics sequentially, updating shared variables iteratively, saving substantial memory."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "COMSOL Multiphysics",
+      "type": "product",
+      "tags": [
+        "comsol",
+        "comsol"
+      ],
+      "hint": "A powerful cross-disciplinary FEA platform specializing in coupled multiphysics simulations and custom application building.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Fully Coupled Multiphysics Solvers (COMSOL)",
+      "type": "concept",
+      "tags": [
+        "comsol"
+      ],
+      "hint": "Simultaneous solver matrices for interactive physical fields.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "COMSOL Application Builder (COMSOL)",
+      "type": "concept",
+      "tags": [
+        "comsol"
+      ],
+      "hint": "GUI builder that converts models into simple standalone apps.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "COMSOL Multiphysics",
+      "COMSOL"
+    ],
+    [
+      "Fully Coupled Multiphysics Solvers (COMSOL)",
+      "COMSOL Multiphysics"
+    ],
+    [
+      "COMSOL Application Builder (COMSOL)",
+      "COMSOL Multiphysics"
+    ]
+  ]
+}

@@ -134,7 +134,7 @@
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
           
-    <p>In global multi-office projects, <strong>Reference Planes (Allplan)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>Allplan</strong> drawings to IFC for coordination in Navisworks or Solibri, or converting mechanical STEP files into BIM detail <a href="./families-revit.html">families</a>):</p>
+    <p>In global multi-office projects, <strong>Reference Planes (Allplan)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>Allplan</strong> drawings to IFC for coordination in <a href="../software/navisworks.html">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail <a href="./families-revit.html">families</a>):</p>
     <ul>
       <li><strong>Class Preservation:</strong> Ensure that <strong>Reference Planes (Allplan)</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped components default to generic containers, losing their smart structural parameters.</li>
       <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>

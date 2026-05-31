@@ -95,14 +95,6 @@ def main():
             "tagline": "Lightweight, ultra-fast 3D home floor planning, scene building, and conceptual rendering tool.",
             "tag": "3D Design / Home",
             "icon": "🏡"
-        },
-        {
-            "slug": "onshape",
-            "name": "Onshape",
-            "vendor": {"name": "PTC"},
-            "tagline": "The premier cloud-native parametric 3D CAD platform with built-in version control and team sharing.",
-            "tag": "Cloud MCAD / PLM",
-            "icon": "☁️"
         }
     ]
 
@@ -132,7 +124,22 @@ def main():
         "rhinoceros": "🦦",
         "aveva-e3d": "🏭",
         "spaceclaim": "🛸",
-        "gstarcad": "🎨"
+        "gstarcad": "🎨",
+        "ansys-fluent": "🌪️",
+        "ansys-mechanical": "🧬",
+        "abaqus": "💥",
+        "comsol": "🧪",
+        "openfoam": "🌊",
+        "solid-edge": "📐",
+        "openroads": "🛣️",
+        "staad-pro": "🌉",
+        "navisworks": "🔍",
+        "blender": "🟠",
+        "solibri": "✅",
+        "altium-designer": "🔌",
+        "teamcenter": "🔄",
+        "onshape": "☁️",
+        "3dsmax": "🌟"
     }
 
     # Map tags to slugs for compiled software
@@ -161,7 +168,22 @@ def main():
         "rhinoceros": "NURBS Modeling",
         "aveva-e3d": "Industrial Plant BIM",
         "spaceclaim": "Direct 3D Modeling",
-        "gstarcad": "DWG-Native CAD"
+        "gstarcad": "DWG-Native CAD",
+        "ansys-fluent": "CAE / CFD Simulation",
+        "ansys-mechanical": "CAE / FEA Simulation",
+        "abaqus": "CAE / Advanced FEA",
+        "comsol": "CAE / Multiphysics",
+        "openfoam": "Open-Source CFD",
+        "solid-edge": "Parametric 3D MCAD",
+        "openroads": "Civil Infrastructure",
+        "staad-pro": "Structural Engineering",
+        "navisworks": "BIM / Coordination",
+        "blender": "3D Viz / Open BIM",
+        "solibri": "BIM / QA & Audit",
+        "altium-designer": "Electronics ECAD",
+        "teamcenter": "Lifecycle PLM",
+        "onshape": "Cloud MCAD / PLM",
+        "3dsmax": "3D Viz / Animation"
     }
 
     # Compile the final card list

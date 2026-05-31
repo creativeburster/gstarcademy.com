@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "slug": "blender",
+  "name": "Blender",
+  "tagline": "The premier free and open-source 3D creation suite, increasingly used in CAD visualization and Open BIM via BlenderBIM.",
+  "meta_desc": "Blender profile: The premier free and open-source 3D creation suite, increasingly used in CAD visualization and Open BIM via BlenderBIM. plus terms and FAQs reviewed by editors.",
+  "category_label": "conceptual_design",
+  "vendor": {
+    "slug": "community",
+    "name": "Community (FOSS)"
+  },
+  "first_released": "1994",
+  "current_track": "Blender LTS releases (regular minor stability updates)",
+  "license_model": "100% Free and Open Source under GNU General Public License (GPL).",
+  "platforms": [
+    "Windows (64-bit)",
+    "macOS (Apple/Intel)",
+    "Linux (64-bit)"
+  ],
+  "file_formats": [
+    "BLEND (native)",
+    "OBJ",
+    "FBX",
+    "STL",
+    "glTF",
+    "IFC (via BlenderBIM)"
+  ],
+  "primary_alternatives": [
+    "3ds Max",
+    "Maya",
+    "Sketchup",
+    "Rhinoceros"
+  ],
+  "domains": [
+    "3D Visualisation",
+    "Open BIM",
+    "Concept Massing",
+    "Polygonal Mesh Modeling"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "Blender is a leading industry-standard software package developed by Community (FOSS). It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in 3D Visualisation and Open BIM. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as 100% Free and Open Source under GNU General Public License (GPL).. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use Blender when your clients or projects require full compatibility with the Community (FOSS) ecosystem and your teams are trained in its workflow. Choose alternatives like 3ds Max, Maya when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Blender Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Community (FOSS)"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "blender-blenderbim",
+      "title": "BlenderBIM Add-on (Blender)",
+      "short_def": "Open-source plugin converting Blender into an IFC-native BIM authoring tool.",
+      "definition": "In Blender, the BlenderBIM Add-on represents a radical Open BIM authoring method. It reads and writes IFC files directly, bypassing proprietary database layers, mapping Blender mesh vertices directly to BIM class entities.\n\nBy manipulating IFC geometry natively inside Blender, designers can build and edit rich building models using professional-grade subdivision mesh modeling.",
+      "why_matters": "Provides a completely open-source, non-proprietary route to professional building information modeling, ensuring absolute data ownership. Without it, teams are locked into expensive proprietary vendor ecosystems that charge hefty recurring seat fees.",
+      "common_pitfalls": [
+        "Over-modeling polygonal meshes, bloating IFC file memory",
+        "Neglecting standard IFC structural classifications."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "blender-cycles",
+      "title": "Cycles Render Engine (Blender)",
+      "short_def": "Physically-based path-tracing render engine for photo-realistic CAD viz.",
+      "definition": "In Blender, Cycles represents the high-end photorealistic rendering pipeline. It simulates light paths, global illumination, and material physics (BSDF) directly from active camera views.\n\nBy assigning accurate material values and HDR environment maps early, designers can generate stunning architectural presentations.",
+      "why_matters": "Enables creation of completely realistic marketing materials and design presentations that win corporate bids. Without it, designers must rely on simple flat viewports that fail to communicate material quality to clients.",
+      "common_pitfalls": [
+        "Setting excessive render sample rates, slowing down processing",
+        "Ignoring scale factors, causing light intensity anomalies."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can Blender edit architectural CAD DWG files directly?",
+      "answer": "Not natively. Install the free DXF/DWG importer addon, or convert your CAD drawings to clean DXF/SVG formats before importing them into Blender for mesh extrusion."
+    },
+    {
+      "question": "How does BlenderBIM preserve database integrity in IFC files?",
+      "answer": "BlenderBIM works as a direct editor. When you modify a wall or structural node, it edits the underlying IFC step database directly, ensuring standard classes and GUID identifiers remain fully compliant."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "Blender",
+      "type": "product",
+      "tags": [
+        "blender",
+        "blender"
+      ],
+      "hint": "The premier free and open-source 3D creation suite, increasingly used in CAD visualization and Open BIM via BlenderBIM.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "BlenderBIM Add-on (Blender)",
+      "type": "concept",
+      "tags": [
+        "blender"
+      ],
+      "hint": "Open-source plugin converting Blender into an IFC-native BIM authoring tool.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Cycles Render Engine (Blender)",
+      "type": "concept",
+      "tags": [
+        "blender"
+      ],
+      "hint": "Physically-based path-tracing render engine for photo-realistic CAD viz.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "Blender",
+      "Community (FOSS)"
+    ],
+    [
+      "BlenderBIM Add-on (Blender)",
+      "Blender"
+    ],
+    [
+      "Cycles Render Engine (Blender)",
+      "Blender"
+    ]
+  ]
+}

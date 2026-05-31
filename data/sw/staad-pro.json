@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "slug": "staad-pro",
+  "name": "STAAD.Pro",
+  "tagline": "Bentley's foundational structural analysis and design platform for steel, concrete, timber, and aluminum structures.",
+  "meta_desc": "STAAD.Pro profile: Bentley's foundational structural analysis and design platform for steel, concrete, timber, and aluminum structures. plus terms and FAQs reviewed by editors.",
+  "category_label": "AnalysisApplication",
+  "vendor": {
+    "slug": "bentley",
+    "name": "Bentley"
+  },
+  "first_released": "1984",
+  "current_track": "STAAD.Pro CONNECT Edition (regular minor update releases)",
+  "license_model": "Perpetual or subscription via Bentley SELECT or Virtuoso agreements.",
+  "platforms": [
+    "Windows (64-bit)"
+  ],
+  "file_formats": [
+    "STD (native)",
+    "DGN",
+    "DXF",
+    "ANL (analysis)"
+  ],
+  "primary_alternatives": [
+    "Robot Structural Analysis",
+    "SAP2000",
+    "ETABS"
+  ],
+  "domains": [
+    "Structural Engineering",
+    "Steel Frame Design",
+    "Finite Element Structural Analysis",
+    "Concrete Detailing"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "STAAD.Pro is a leading industry-standard software package developed by Bentley. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Structural Engineering and Steel Frame Design. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Perpetual or subscription via Bentley SELECT or Virtuoso agreements.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use STAAD.Pro when your clients or projects require full compatibility with the Bentley ecosystem and your teams are trained in its workflow. Choose alternatives like Robot Structural Analysis, SAP2000 when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "STAAD.Pro Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Bentley"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "staad-analytical-model",
+      "title": "STAAD Analytical Frame Model (STAAD.Pro)",
+      "short_def": "Node-and-beam center-line finite element structural representation.",
+      "definition": "In STAAD.Pro, the Analytical Model represents the core load-bearing skeleton. It represents structural columns and beams as 1D finite elements connected at nodes, loaded by self-weight, wind, and seismic forces.\n\nBy defining clean nodal coordinates and structural releases early, engineers ensure proper load path calculations down to structural footings.",
+      "why_matters": "Underpins all commercial structural structural calculations, code checks, and structural member sizing. Without it, the calculation solver cannot build structural stiffness equations, leading to structural failures.",
+      "common_pitfalls": [
+        "Creating orphan nodes not connected to structural frames",
+        "Skipping member local coordinate checks, causing wrong orientation forces."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "staad-code-checking",
+      "title": "Automated Steel Code Checker (STAAD.Pro)",
+      "short_def": "Built-in optimization engine for structural steel profiles.",
+      "definition": "In STAAD.Pro, the Code Checker represents the compliance validation engine. It compares computed beam stresses against international design standards (e.g. AISC 360, Eurocode 3) to flag buckling or yield issues.\n\nBy executing automated steel sizing commands, structural teams can optimize frame weights while guaranteeing public safety.",
+      "why_matters": "Ensures structural frames strictly comply with regional building safety codes, protecting engineers from liability. Without it, engineers must review stress outputs against code tables manually, extending design timelines.",
+      "common_pitfalls": [
+        "Applying incorrect code year versions to analysis files",
+        "Ignoring unbraced length parameters, leading to false safety reports."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I fix unstable structure errors in STAAD solvers?",
+      "answer": "Check for orphan nodes that disconnect elements, verify that member releases do not create local hinges in all directions, ensure support constraints are fully defined, and run a static analysis to locate excessive displacements."
+    },
+    {
+      "question": "Can I import Revit structures directly into STAAD.Pro?",
+      "answer": "Yes. Use the Bentley ISM (Integrated Structural Modeling) bridge to export Revit analytical wireframes, map material profiles, and import them directly into STAAD for calculations."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "STAAD.Pro",
+      "type": "product",
+      "tags": [
+        "staad-pro",
+        "staad-pro"
+      ],
+      "hint": "Bentley's foundational structural analysis and design platform for steel, concrete, timber, and aluminum structures.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "STAAD Analytical Frame Model (STAAD.Pro)",
+      "type": "concept",
+      "tags": [
+        "staad-pro"
+      ],
+      "hint": "Node-and-beam center-line finite element structural representation.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Automated Steel Code Checker (STAAD.Pro)",
+      "type": "concept",
+      "tags": [
+        "staad-pro"
+      ],
+      "hint": "Built-in optimization engine for structural steel profiles.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "STAAD.Pro",
+      "Bentley"
+    ],
+    [
+      "STAAD Analytical Frame Model (STAAD.Pro)",
+      "STAAD.Pro"
+    ],
+    [
+      "Automated Steel Code Checker (STAAD.Pro)",
+      "STAAD.Pro"
+    ]
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "slug": "3dsmax",
+  "name": "3ds Max",
+  "tagline": "Autodesk's premium 3D modeling, animation, and rendering software, widely used for architectural visualization.",
+  "meta_desc": "3ds Max profile: Autodesk's premium 3D modeling, animation, and rendering software, widely used for architectural visualization. plus terms and FAQs reviewed by editors.",
+  "category_label": "DesignApplication",
+  "vendor": {
+    "slug": "autodesk",
+    "name": "Autodesk"
+  },
+  "first_released": "1996",
+  "current_track": "3ds Max (annual release track)",
+  "license_model": "Paid commercial subscription packaged individually or in Autodesk Media & Entertainment / AEC Collection.",
+  "platforms": [
+    "Windows (64-bit)"
+  ],
+  "file_formats": [
+    "MAX (native)",
+    "FBX",
+    "OBJ",
+    "DWG",
+    "DXF",
+    "3DS"
+  ],
+  "primary_alternatives": [
+    "Blender",
+    "Maya",
+    "Cinema 4D",
+    "SketchUp"
+  ],
+  "domains": [
+    "Architectural visualization",
+    "3D modeling & rendering",
+    "Game development asset creation",
+    "VFX and design presentation"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "3ds Max is a leading industry-standard software package developed by Autodesk. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Architectural visualization and 3D modeling & rendering. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription packaged individually or in Autodesk Media & Entertainment / AEC Collection.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use 3ds Max when your clients or projects require full compatibility with the Autodesk ecosystem and your teams are trained in its workflow. Choose alternatives like Blender or Maya when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "3ds Max Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Autodesk"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "3dsmax-polygonal-modeling",
+      "title": "Subdivision Polygonal Modeling (3ds Max)",
+      "short_def": "High-fidelity polygon mesh creation for complex forms.",
+      "definition": "In 3ds Max, Polygonal Modeling represents the primary geometry creation method. Users manipulate vertices, edges, and polygons to create organic or complex industrial shapes.\n\nBy leveraging modifiers like Turbosmooth, modelers can create extremely high-resolution models for architectural render presentations.",
+      "why_matters": "Enables creation of complex geometric assets and realistic furniture/site features for high-end rendering. Without it, standard B-Rep CAD geometry will look rigid and fail to capture organic forms.",
+      "common_pitfalls": [
+        "Creating non-manifold meshes with open edges",
+        "High polygon counts that degrade viewport performance."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "3dsmax-arnold-renderer",
+      "title": "Arnold Path-Tracing Renderer (3ds Max)",
+      "short_def": "Physically-based path-tracing engine for realistic outputs.",
+      "definition": "In 3ds Max, the Arnold Renderer represents the native high-end rendering engine. It simulates global illumination, light physics, and physical materials to output photorealistic scenes.\n\nBy configuring Arnold physical materials and photometric lights, architectural visualizers capture realistic daylighting and material textures.",
+      "why_matters": "Delivers production-grade presentations that help secure client approvals and project bids. Without it, basic scanline renders look flat and fail to communicate material quality.",
+      "common_pitfalls": [
+        "Applying excessive sampling values that balloon render times",
+        "Improper material texture scaling."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I import AutoCAD DWG files into 3ds Max for modeling?",
+      "answer": "Go to `File → Import → Link Revit/CAD`, select the DWG file, choose the appropriate preset (e.g. Combine by Layer), configure rescale options, and link the drawing to preserve active updates."
+    },
+    {
+      "question": "What is the best way to reduce polygon count for heavy 3ds Max models?",
+      "answer": "Apply the ProOptimizer modifier to selected meshes, click Calculate, and reduce the vertex percentage to compress mesh complexity without losing structural shape."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "3ds Max",
+      "type": "product",
+      "tags": [
+        "3dsmax",
+        "3dsmax"
+      ],
+      "hint": "Autodesk's premium 3D modeling, animation, and rendering software, widely used for architectural visualization.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Subdivision Polygonal Modeling (3ds Max)",
+      "type": "concept",
+      "tags": [
+        "3dsmax"
+      ],
+      "hint": "High-fidelity polygon mesh creation for complex forms.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Arnold Path-Tracing Renderer (3ds Max)",
+      "type": "concept",
+      "tags": [
+        "3dsmax"
+      ],
+      "hint": "Physically-based path-tracing engine for realistic outputs.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "3ds Max",
+      "Autodesk"
+    ],
+    [
+      "Subdivision Polygonal Modeling (3ds Max)",
+      "3ds Max"
+    ],
+    [
+      "Arnold Path-Tracing Renderer (3ds Max)",
+      "3ds Max"
+    ]
+  ]
+}

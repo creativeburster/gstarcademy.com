@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "slug": "onshape",
+  "name": "Onshape",
+  "tagline": "The premier cloud-native parametric 3D CAD platform with built-in version control and team sharing.",
+  "meta_desc": "Onshape profile: The premier cloud-native parametric 3D CAD platform with built-in version control and team sharing. plus terms and FAQs reviewed by editors.",
+  "category_label": "mcad",
+  "vendor": {
+    "slug": "ptc",
+    "name": "PTC"
+  },
+  "first_released": "2015",
+  "current_track": "Onshape SaaS (automatic updates in browser every 3 weeks)",
+  "license_model": "Paid commercial subscription or free public education/hobbyist tier.",
+  "platforms": [
+    "Web Browser (Cross-platform)",
+    "iOS",
+    "Android"
+  ],
+  "file_formats": [
+    "Native Cloud Part Studio",
+    "STEP (export)",
+    "STL",
+    "IGES",
+    "DXF/DWG"
+  ],
+  "primary_alternatives": [
+    "Fusion 360",
+    "SOLIDWORKS",
+    "Inventor"
+  ],
+  "domains": [
+    "Cloud MCAD",
+    "Parametric 3D Modeling",
+    "Real-Time Collaboration",
+    "SaaS PDM"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "Onshape is a leading industry-standard software package developed by PTC. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Cloud MCAD and Parametric 3D Modeling. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription or free public education/hobbyist tier.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use Onshape when your clients or projects require full compatibility with the PTC ecosystem and your teams are trained in its workflow. Choose alternatives like Fusion 360, SOLIDWORKS when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Onshape Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "PTC"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "onshape-part-studio",
+      "title": "Unified Part Studios (Onshape)",
+      "short_def": "Multi-part parametric design space driven by shared sketch features.",
+      "definition": "In Onshape, the Part Studio represents the primary modeling workspace. Unlike traditional CAD which separates part files, Onshape allows modeling of multiple related parts in one parametric feature tree.\n\nBy sketching and extruding multiple interlocking components in one Part Studio, designers ensure absolute coordinate alignment.",
+      "why_matters": "Simplifies top-down design by allowing parts to reference each other's geometry naturally without complex external file links. Without it, modeling mating parts requires tedious assembly constraints and link updates.",
+      "common_pitfalls": [
+        "Over-populating a single tree, slowing down regeneration",
+        "Ignoring parent-child features, causing downstream breaks."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "onshape-version-control",
+      "title": "Cloud Document Versioning (Onshape)",
+      "short_def": "Git-style branching and merging for 3D CAD models.",
+      "definition": "In Onshape, Version Control represents the central PDM engine. It maintains a complete edit history of every action, allowing teams to create design branches and merge them without file conflict risks.\n\nBy creating clear versions, engineering leads can review design branches and merge them cleanly into the master timeline.",
+      "why_matters": "Eliminates file management overhead and the risk of overwriting team members' work, saving massive coordination time. Without it, teams must copy files and rename them (e.g. '_v2_final'), leading to broken assemblies.",
+      "common_pitfalls": [
+        "Merging branches with conflicting geometric updates",
+        "Forgetting to merge branch revisions back to master lines."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I share an Onshape model with a client?",
+      "answer": "Click the `Share` button in the top right, input the client's email, configure permissions (view-only, export allowed, or edit), and send. The client can open the 3D model directly in their browser without installing plugins."
+    },
+    {
+      "question": "Does Onshape work offline?",
+      "answer": "No. Onshape is a fully cloud-native CAD platform; all geometry calculations happen on remote servers, so an active internet connection is required to open and edit models."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "Onshape",
+      "type": "product",
+      "tags": [
+        "onshape",
+        "onshape"
+      ],
+      "hint": "The premier cloud-native parametric 3D CAD platform with built-in version control and team sharing.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Unified Part Studios (Onshape)",
+      "type": "concept",
+      "tags": [
+        "onshape"
+      ],
+      "hint": "Multi-part parametric design space driven by shared sketch features.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Cloud Document Versioning (Onshape)",
+      "type": "concept",
+      "tags": [
+        "onshape"
+      ],
+      "hint": "Git-style branching and merging for 3D CAD models.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "Onshape",
+      "PTC"
+    ],
+    [
+      "Unified Part Studios (Onshape)",
+      "Onshape"
+    ],
+    [
+      "Cloud Document Versioning (Onshape)",
+      "Onshape"
+    ]
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "slug": "navisworks",
+  "name": "Navisworks",
+  "tagline": "Autodesk's premium project review software enabling design coordination, clash detection, and 4D construction simulation.",
+  "meta_desc": "Navisworks profile: Autodesk's premium project review software enabling design coordination, clash detection, and 4D construction simulation. plus terms and FAQs reviewed by editors.",
+  "category_label": "Viewer",
+  "vendor": {
+    "slug": "autodesk",
+    "name": "Autodesk"
+  },
+  "first_released": "1997 (LightWork Design); Autodesk acquired in 2007",
+  "current_track": "Navisworks Manage, Simulate, Freedom (annual release track)",
+  "license_model": "Paid commercial subscription packaged individually or in Autodesk AEC Collection.",
+  "platforms": [
+    "Windows (64-bit)"
+  ],
+  "file_formats": [
+    "NWD (published)",
+    "NWF (project file)",
+    "NWC (cache file)"
+  ],
+  "primary_alternatives": [
+    "Solibri Office",
+    "BIMcollab Zoom",
+    "Revizto"
+  ],
+  "domains": [
+    "BIM Coordination",
+    "Clash Detection",
+    "Construction Sequencing",
+    "Model Federation"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "Navisworks is a leading industry-standard software package developed by Autodesk. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in BIM Coordination and Clash Detection. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Paid commercial subscription packaged individually or in Autodesk AEC Collection.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use Navisworks when your clients or projects require full compatibility with the Autodesk ecosystem and your teams are trained in its workflow. Choose alternatives like Solibri Office, BIMcollab Zoom when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Navisworks Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Autodesk"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "navisworks-clash-detective",
+      "title": "Clash Detective Matrix (Navisworks)",
+      "short_def": "Automated geometric overlap detection across federated multi-discipline models.",
+      "definition": "In Navisworks Manage, Clash Detective represents the core spatial coordination utility. It compares structural meshes from multiple formats (e.g., Revit structure vs. AVEVA piping) to flag physical intersections.\n\nBy grouping repeating structural conflicts (like pipes hitting structural steel) into coordination issues early, BIM managers streamline site execution.",
+      "why_matters": "Resolves multi-discipline spatial conflicts in the office before construction starts, preventing expensive field re-routing. Without it, physical drawing overlays will miss structural interferences, leading to project delay claims.",
+      "common_pitfalls": [
+        "Setting clash tolerances too tight, creating thousands of false alarms",
+        "Neglecting to clear old resolved clashes from coordination lists."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "navisworks-timeliner",
+      "title": "TimeLiner 4D Simulator (Navisworks)",
+      "short_def": "Linking 3D models to construction schedules for visual sequencing.",
+      "definition": "In Navisworks, TimeLiner represents the construction planning engine. It links MS Project or Primavera schedules directly to 3D model elements, generating interactive simulations of the build process.\n\nBy executing visual 4D coordinate checks, logistics teams can plan crane positions and material deliveries safely.",
+      "why_matters": "Improves supply chain site logistics and stakeholder alignment through intuitive visual sequencing. Without it, planners must rely on complex Gantt charts that fail to highlight physical site layout conflicts.",
+      "common_pitfalls": [
+        "Linking tasks to broad, un-segmented model structures",
+        "Out-of-sync schedule imports."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is the difference between NWD, NWF, and NWC file formats?",
+      "answer": "NWC (Cache) is a lightweight file automatically generated when CAD/BIM files are opened in Navisworks. NWF (Project) is a live workspace file that references original files without copying them. NWD (Document) is a published standalone file containing all model geometry and metadata, perfect for sharing with clients."
+    },
+    {
+      "question": "How do I import search sets for automated clash detection?",
+      "answer": "Define search queries in the Selection Tree based on properties (e.g. Element Category = Structural Framing), save them as Search Sets, open Clash Detective, select these saved sets as your comparison inputs, and run the test."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "Navisworks",
+      "type": "product",
+      "tags": [
+        "navisworks",
+        "navisworks"
+      ],
+      "hint": "Autodesk's premium project review software enabling design coordination, clash detection, and 4D construction simulation.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Clash Detective Matrix (Navisworks)",
+      "type": "concept",
+      "tags": [
+        "navisworks"
+      ],
+      "hint": "Automated geometric overlap detection across federated multi-discipline models.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "TimeLiner 4D Simulator (Navisworks)",
+      "type": "concept",
+      "tags": [
+        "navisworks"
+      ],
+      "hint": "Linking 3D models to construction schedules for visual sequencing.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "Navisworks",
+      "Autodesk"
+    ],
+    [
+      "Clash Detective Matrix (Navisworks)",
+      "Navisworks"
+    ],
+    [
+      "TimeLiner 4D Simulator (Navisworks)",
+      "Navisworks"
+    ]
+  ]
+}

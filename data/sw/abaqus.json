@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "slug": "abaqus",
+  "name": "Abaqus FEA",
+  "tagline": "SIMULIA's flagship suite for high-end finite element analysis, renowned for its advanced non-linear solver and explicit dynamics.",
+  "meta_desc": "Abaqus FEA profile: SIMULIA's flagship suite for high-end finite element analysis, renowned for its advanced non-linear solver and explicit dynamics. plus terms and FAQs reviewed by editors.",
+  "category_label": "AnalysisApplication",
+  "vendor": {
+    "slug": "dassault",
+    "name": "Dassault"
+  },
+  "first_released": "1978",
+  "current_track": "Abaqus/Standard & Abaqus/Explicit (annual release track)",
+  "license_model": "Commercial seat and token licensing managed by SIMULIA VARs.",
+  "platforms": [
+    "Windows (64-bit)",
+    "Linux (64-bit)"
+  ],
+  "file_formats": [
+    "CAE (model)",
+    "ODB (output database)",
+    "INP (input file)",
+    "DAT (log)"
+  ],
+  "primary_alternatives": [
+    "ANSYS Mechanical",
+    "LS-DYNA",
+    "MSC Nastran"
+  ],
+  "domains": [
+    "Nonlinear Finite Element Analysis",
+    "Explicit Crash Simulation",
+    "Biomechanics",
+    "Geomechanics"
+  ],
+  "last_reviewed": "2026-05-28",
+  "default_reviewer_id": "lc-mech-review",
+  "profile": {
+    "what_it_is": "Abaqus FEA is a leading industry-standard software package developed by Dassault. It specializes in highly demanding workflows inside its primary market segment, providing designers with powerful tools to coordinate files, execute commands, and output precise deliverables.",
+    "where_used": "Used globally by leading engineering and design firms in Nonlinear Finite Element Analysis and Explicit Crash Simulation. It is the default baseline tool for teams that require high reliability and seamless supply chain integration.",
+    "learning_curve": "The learning curve is moderate, taking approximately 2-4 weeks to become fluent with standard commands, and up to 3 months for advanced customized workflows or database management integrations.",
+    "licensing_reality": "Licensed as Commercial seat and token licensing managed by SIMULIA VARs.. Pricing and configurations scale with organization size and feature needs.",
+    "ecosystem": "Tight integration with related tools. Includes robust developer APIs, community plug-in libraries, and standard import/export formats that ensure full interoperability across design stages.",
+    "common_pitfalls": "**Reference tracking failures on parameter modifications.** Careless geometry changes without constraint checks can corrupt drawings.\n\n**Over-customization overhead.** Loading too many unverified third-party addons can cause stability issues on startup.\n\n**Mismatched export profiles.** Choosing incorrect template values when exporting to universal formats leads to property losses.",
+    "when_to_use_vs_alternative": "Use Abaqus FEA when your clients or projects require full compatibility with the Dassault ecosystem and your teams are trained in its workflow. Choose alternatives like ANSYS Mechanical, LS-DYNA when budget constraints are primary or complexity is overkill.",
+    "recommended_learning_path": [
+      {
+        "stage": "Week 1 — Interface",
+        "focus": "Master workspace navigation, menus, basic drafting commands, and template configuration."
+      },
+      {
+        "stage": "Week 2 — Modeling",
+        "focus": "Familiarize with core parameters, geometric constraints, and standard modeling operations."
+      },
+      {
+        "stage": "Week 3 — Outputs",
+        "focus": "Create paper layouts, dimensions, view projections, and export formats."
+      },
+      {
+        "stage": "Week 4 — Customization",
+        "focus": "Configure custom macros, keyboard shortcuts, and explore intermediate API scripts."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Abaqus FEA Product Guide",
+      "url": "https://learncad.io",
+      "publisher": "Dassault"
+    }
+  ],
+  "terms": [
+    {
+      "slug": "abaqus-explicit-dynamics",
+      "title": "Abaqus Explicit Dynamics (Abaqus)",
+      "short_def": "Time-integration solver for highly transient non-linear events.",
+      "definition": "In Abaqus, Explicit Dynamics represents a high-end transient structural solver. It integrates equation systems without assembling global stiffness matrices, making it perfect for crash, impact, or metal forming analysis.\n\nBy calculating stable time increments based on the material dilatational wave speed, Abaqus Explicit solves large-deformation events reliably.",
+      "why_matters": "Enables simulation of extreme short-duration high-energy impacts, shell bucklings, and drop tests. Without it, implicit solvers will fail to converge due to severe contact and geometric non-linearities.",
+      "common_pitfalls": [
+        "Exceeding critical time increments",
+        "Excessive artificial mass scaling that alters inertial physics."
+      ],
+      "related_term_slugs": []
+    },
+    {
+      "slug": "abaqus-umat",
+      "title": "User Material Subroutine UMAT (Abaqus)",
+      "short_def": "Custom FORTRAN/C++ material constitutive law hook.",
+      "definition": "In Abaqus, the User Material Subroutine represents a deep-level customization API. It allows research engineers to define complex material behavior (such as tissue viscoelasticity or composite damage models) at integration points.\n\nBy compiling custom FORTRAN solvers, companies can run advanced material simulations tailored to proprietary composite layups.",
+      "why_matters": "Allows modeling of complex material equations not available in standard libraries, crucial for aerospace composites and biomechanics. Without it, standard elastic-plastic material assumptions will fail under multi-axial cyclic fatigue.",
+      "common_pitfalls": [
+        "Failing to define tangent stiffness matrices",
+        "Compiler mismatches with Abaqus version."
+      ],
+      "related_term_slugs": []
+    }
+  ],
+  "faqs": [
+    {
+      "question": "When should I use Abaqus/Explicit instead of Abaqus/Standard?",
+      "answer": "Use Abaqus/Standard for static, low-speed, or moderate non-linear implicit studies. Use Abaqus/Explicit for high-speed dynamic studies (crash, drop test), severe geometric non-linearities, and highly complex discontinuous contact changes."
+    },
+    {
+      "question": "How do I fix severe element distortion errors in Abaqus?",
+      "answer": "Improve initial mesh mesh layout, adjust boundary contacts, configure ALE adaptive meshing to rezone distorted elements, apply distortion control parameters, or use linear reduced-integration elements with hourglass controls."
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "Abaqus FEA",
+      "type": "product",
+      "tags": [
+        "abaqus",
+        "abaqus"
+      ],
+      "hint": "SIMULIA's flagship suite for high-end finite element analysis, renowned for its advanced non-linear solver and explicit dynamics.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Abaqus Explicit Dynamics (Abaqus)",
+      "type": "concept",
+      "tags": [
+        "abaqus"
+      ],
+      "hint": "Time-integration solver for highly transient non-linear events.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "User Material Subroutine UMAT (Abaqus)",
+      "type": "concept",
+      "tags": [
+        "abaqus"
+      ],
+      "hint": "Custom FORTRAN/C++ material constitutive law hook.",
+      "group": 2,
+      "radius": 8
+    }
+  ],
+  "graph_links": [
+    [
+      "Abaqus FEA",
+      "Dassault"
+    ],
+    [
+      "Abaqus Explicit Dynamics (Abaqus)",
+      "Abaqus FEA"
+    ],
+    [
+      "User Material Subroutine UMAT (Abaqus)",
+      "Abaqus FEA"
+    ]
+  ]
+}

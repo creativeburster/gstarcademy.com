@@ -132,7 +132,7 @@
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
           
-    <p>In global multi-office projects, <strong>Direct Edit (NX)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>Siemens NX</strong> drawings to IFC for coordination in Navisworks or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+    <p>In global multi-office projects, <strong>Direct Edit (NX)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>Siemens NX</strong> drawings to IFC for coordination in <a href="../software/navisworks.html">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
     <ul>
       <li><strong>Class Preservation:</strong> Ensure that <strong>Direct Edit (NX)</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped components default to generic containers, losing their smart structural parameters.</li>
       <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
@@ -176,7 +176,7 @@
       
         <details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
           <summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
-            <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is <a href="./synchronous-technology-nx.html">Synchronous Technology</a> and why does NX have it?
+            <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is <a href="./solidedge-synchronous-tech.html">Synchronous Technology</a> and why does NX have it?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
             <p>ST is direct-face editing on a body without disturbing parametric history. NX has it because it solves two pain points: editing imported geometry without history, and editing native parts when parametric edits would be tedious. Mixing ST with parametric is uniquely NX&#x27;s capability.</p>
