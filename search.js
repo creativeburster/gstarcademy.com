@@ -127,13 +127,25 @@ const CADSearch = {
         return "../../" + originalUrl.replace("./", "");
       }
       if (originalUrl.startsWith("./kb/concepts/")) {
-        return originalUrl.replace("./kb/concepts/", "./");
+        if (pathname.includes("/kb/concepts/")) {
+          return originalUrl.replace("./kb/concepts/", "./");
+        } else {
+          return originalUrl.replace("./kb/concepts/", "../concepts/");
+        }
       }
       if (originalUrl.startsWith("./kb/software/")) {
-        return originalUrl.replace("./kb/software/", "../software/");
+        if (pathname.includes("/kb/software/")) {
+          return originalUrl.replace("./kb/software/", "./");
+        } else {
+          return originalUrl.replace("./kb/software/", "../software/");
+        }
       }
       if (originalUrl.startsWith("./kb/vendors/")) {
-        return originalUrl.replace("./kb/vendors/", "../vendors/");
+        if (pathname.includes("/kb/vendors/")) {
+          return originalUrl.replace("./kb/vendors/", "./");
+        } else {
+          return originalUrl.replace("./kb/vendors/", "../vendors/");
+        }
       }
       if (originalUrl.startsWith("./")) {
         return "../../" + originalUrl.replace("./", "");

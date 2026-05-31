@@ -2127,8 +2127,14 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         if (customUrl) {
           detailsBtn.href = customUrl;
         } else {
-          const slug = d.id.toLowerCase().replace(/\s+/g, "-");
-          detailsBtn.href = `./kb/concepts/${slug}.html`;
+          const slug = d.slug || d.id.toLowerCase().replace(/\s+/g, "-");
+          if (d.type === "product") {
+            detailsBtn.href = `./kb/software/${slug}.html`;
+          } else if (d.type === "vendor") {
+            detailsBtn.href = `./kb/vendors/${slug}.html`;
+          } else {
+            detailsBtn.href = `./kb/concepts/${slug}.html`;
+          }
         }
       }
 
@@ -2272,7 +2278,17 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       .on("click", (event, d) => {
         event.stopPropagation();
         const customUrl = nodeUrlMap[d.id];
-        const dest = customUrl || `./kb/concepts/${d.id.toLowerCase().replace(/\s+/g, "-")}.html`;
+        let dest = customUrl;
+        if (!dest) {
+          const slug = d.slug || d.id.toLowerCase().replace(/\s+/g, "-");
+          if (d.type === "product") {
+            dest = `./kb/software/${slug}.html`;
+          } else if (d.type === "vendor") {
+            dest = `./kb/vendors/${slug}.html`;
+          } else {
+            dest = `./kb/concepts/${slug}.html`;
+          }
+        }
         
         // Protocol check: file:// protocol blocks HEAD fetches, so navigate directly
         if (window.location.protocol === "file:") {
@@ -2552,14 +2568,32 @@ if (document.body.getAttribute("data-page") === "knowledge") {
               
               // Map node ID to its slug and URL
               let dest = "";
-              if (d.slug) {
-                  dest = `./${d.slug}.html`;
-              } else if (d.type === "product") {
-                  dest = `../software/${d.id.toLowerCase().replace(/\s+/g, "-")}.html`;
+              const slug = d.slug || d.id.toLowerCase().replace(/\s+/g, "-");
+              
+              const pathname = window.location.pathname;
+              const isSoftware = pathname.includes("/kb/software/");
+              const isVendors = pathname.includes("/kb/vendors/");
+              const isConcepts = pathname.includes("/kb/concepts/");
+              
+              if (d.type === "product") {
+                  if (isSoftware) {
+                      dest = `./${slug}.html`;
+                  } else {
+                      dest = `../software/${slug}.html`;
+                  }
               } else if (d.type === "vendor") {
-                  dest = `../vendors/${d.id.toLowerCase().replace(/\s+/g, "-")}.html`;
+                  if (isVendors) {
+                      dest = `./${slug}.html`;
+                  } else {
+                      dest = `../vendors/${slug}.html`;
+                  }
               } else {
-                  dest = `./${d.id.toLowerCase().replace(/\s+/g, "-")}.html`;
+                  // Default to concept
+                  if (isConcepts) {
+                      dest = `./${slug}.html`;
+                  } else {
+                      dest = `../concepts/${slug}.html`;
+                  }
               }
 
               // Simple client-side head check to ensure page exists
