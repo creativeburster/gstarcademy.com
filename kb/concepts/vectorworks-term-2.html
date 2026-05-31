@@ -220,45 +220,97 @@
         
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
-      <div class="kb-tree-navigator" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
-        <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 1.25rem; color: var(--ink-text); display: flex; align-items: center; gap: 8px; font-weight: 700;">
-          <span>🌳</span> CAD Knowledge Tree Navigation
-        </h3>
-        <div style="display: flex; flex-direction: column; gap: 16px; border-left: 2px dashed var(--ink-line); padding-left: 20px; margin-left: 10px;">
+    <section class="kb-concept-section" style="margin-top: 48px; border-top: 1px solid var(--ink-line); padding-top: 40px;">
+      <div class="kb-semantic-crossroads" style="background: linear-gradient(135deg, var(--ink-surface-1) 0%, rgba(240, 234, 225, 0.2) 100%); border: 1px solid var(--ink-line); border-radius: 20px; padding: 32px; box-shadow: 0 12px 30px -10px rgba(90, 74, 58, 0.05);">
+        
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border-bottom: 1px solid var(--ink-line); padding-bottom: 16px;">
+          <h3 style="margin: 0; font-size: 1.35rem; color: var(--ink-text); display: flex; align-items: center; gap: 10px; font-weight: 800;">
+            <span style="font-size: 24px;">🌳</span> Semantic Crossroads &amp; Navigation Pathways
+          </h3>
+          <span style="font-size: 12px; color: var(--ink-text-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(90, 74, 58, 0.06); padding: 4px 10px; border-radius: 6px;">Trunk-Branch-Leaf Model</span>
+        </div>
+
+        <p style="font-size: 14.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0 0 28px 0; max-width: 780px;">
+          Explore cross-referenced learning lanes. Connect this specific method back to macro CAD coordinate foundations, parent software environments, and sibling parameters in our shared taxonomy map.
+        </p>
+
+        <div class="grid grid-3" style="gap: 20px; align-items: stretch;">
           
-          <div class="kb-tree-level" style="position: relative;">
-            <div style="position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-text); border: 2px solid var(--ink-bg);"></div>
-            <strong style="color: var(--ink-text); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Trunk (主干 — Global Foundations)</strong>
-            <div style="font-size: 14.5px; color: var(--ink-text-soft);">
-              <a href="../../knowledge-base.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">Wiki Home</a> · 
-              <a href="../../kb-terms.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">Glossary Index</a> · 
-              <a href="../../kb-graph.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">Interactive Graph</a>
+          <!-- Card 1: Trunk -->
+          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="background: rgba(99, 102, 241, 0.1); color: #6366f1; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Trunk</span>
+                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Global Foundations</h4>
+              </div>
+              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+                Core glossary, interactive graph, and domain-wide concept index.
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+              <a href="../../knowledge-base.html" class="kb-crossroad-card-btn">Wiki Overview Portal ›</a>
+              <a href="../../kb-terms.html" class="kb-crossroad-card-btn">General Glossary Index ›</a>
+              <a href="../../kb-graph.html" class="kb-crossroad-card-btn">Interactive Concept Graph ›</a>
             </div>
           </div>
-          
-          <div class="kb-tree-level" style="position: relative;">
-            <div style="position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-text); border: 2px solid var(--ink-bg);"></div>
-            <strong style="color: var(--ink-text); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Branch (枝干 — Software &amp; Vendor)</strong>
-            <div style="font-size: 14.5px; color: var(--ink-text-soft);">
-              <a href="../software/vectorworks.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">Vectorworks Profile</a> · 
-              <a href="../vendors/vectorworks.html" style="color: var(--ink-text); text-decoration: underline; font-weight: 500;">Vectorworks (Nemetschek) Ecosystem</a>
+
+          <!-- Card 2: Branch -->
+          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Branch</span>
+                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Ecosystem Integration</h4>
+              </div>
+              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+                Parent design environments and platforms implementing this method natively.
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+              <a href="../software/vectorworks.html" class="kb-crossroad-card-btn" style="background: var(--ink-text); color: var(--ink-bg); border-color: var(--ink-text); font-weight:700;">Vectorworks Full Profile ›</a>
+              <a href="../vendors/vectorworks.html" class="kb-crossroad-card-btn">Vectorworks (Nemetschek) Organization ›</a>
             </div>
           </div>
-          
-          <div class="kb-tree-level" style="position: relative;">
-            <div style="position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink-focus); border: 2px solid var(--ink-bg);"></div>
-            <strong style="color: var(--ink-text); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Leaf (树叶 — Current Node &amp; Sibling Terms)</strong>
-            <div style="font-size: 14.5px; color: var(--ink-text-soft);">
-              <span style="background: var(--ink-surface-2); color: var(--ink-text); padding: 2px 8px; border-radius: 4px; font-weight: 600; border: 1px solid var(--ink-line); font-size: 13.5px; display: inline-block; margin-bottom: 6px;">
+
+          <!-- Card 3: Leaf -->
+          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); grid-column: span 1;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Leaf</span>
+                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Active Context &amp; Neighbors</h4>
+              </div>
+              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+                Current active term and close sibling concepts:
+              </p>
+            </div>
+            <div style="margin-bottom: 12px;">
+              <span style="background: var(--ink-surface-2); color: var(--ink-text); padding: 4px 10px; border-radius: 8px; font-weight: 700; border: 1px solid var(--ink-line); font-size: 12.5px; display: inline-block; margin-bottom: 10px;">
                 🍃 Active: Design vs. Sheet Layers (Vectorworks)
               </span>
-              <div style="margin-top: 4px;">
-                <span style="color: var(--ink-text-muted); font-style: italic;">Detailed sibling terms defined on the <a href="../software/vectorworks.html" style="color: var(--ink-text);">Vectorworks software page</a>.</span>
-              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; max-height: 110px; overflow-y: auto; padding-right: 4px;">
+              <span style="color: var(--ink-text-soft); font-style: italic;">Detailed sibling terms defined on the <a href="../software/vectorworks.html" style="color: var(--ink-text); font-weight:600;">Vectorworks software page</a>.</span>
             </div>
           </div>
-          
+
+        </div>
+
+        <!-- Discover More — cross-pillar navigation -->
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--ink-line);">
+          <h4 style="margin: 0 0 14px 0; font-size: 13px; color: var(--ink-text-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">Discover More</h4>
+          <div class="grid grid-4" style="gap: 12px;">
+            <a href="../../tutorials.html" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+              <span style="font-size: 18px;">🎓</span> Tutorial Library
+            </a>
+            <a href="../../kb-faq.html" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+              <span style="font-size: 18px;">❓</span> Technical FAQ
+            </a>
+            <a href="../../knowledge-domains.html" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+              <span style="font-size: 18px;">🏗️</span> Domain Map
+            </a>
+            <a href="../../kb-software.html" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+              <span style="font-size: 18px;">🧰</span> Software Landscape
+            </a>
+          </div>
         </div>
       </div>
     </section>
