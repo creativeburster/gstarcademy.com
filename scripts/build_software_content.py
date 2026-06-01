@@ -337,10 +337,10 @@ def render_spotlight_card(software: dict) -> str:
           This concept is a core structural element of the <strong>{sw_name}</strong> drafting and engineering environment developed by <strong>{vendor_name}</strong>. {tagline} {summary}
         </p>
         <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
-          <a href="../software/{sw_slug}.html" style="background: var(--ink-text); color: var(--ink-bg); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: opacity 0.2s ease;">
+          <a href="../software/{sw_slug}.html" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: border-color 0.2s ease;">
             Explore {sw_name} Profile ›
           </a>
-          <a href="../vendors/{vendor_slug}.html" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: background 0.2s ease;">
+          <a href="../vendors/{vendor_slug}.html" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: border-color 0.2s ease;">
             About {vendor_name} ›
           </a>
         </div>
@@ -1009,17 +1009,6 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
         matched_tuts = find_matching_tutorials(term, software, all_tutorials)
         recommended_tutorials_html = render_recommended_tutorials(matched_tuts)
 
-    sub_graph_html = f"""
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
-      <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">🕸️ Interactive Context Map</h2>
-      <p style="font-size: 14.5px; color: var(--ink-text-soft); margin-bottom: 20px;">This micro-graph visualizes the active term in relation to its parent software and related concepts. Drag nodes to reposition them, or double-click to navigate directly to their respective profiles.</p>
-      <div class="kb-sub-graph-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); position: relative; overflow: hidden; height: 340px; display: flex; align-items: center; justify-content: center;">
-        <div id="kb-sub-graph-stage" data-current-node="{esc(term['title'])}" style="width: 100%; height: 320px; position: relative;">
-          <!-- SVG canvas will be dynamically injected here by D3 in knowledge.js -->
-        </div>
-      </div>
-    </section>
-    """
 
     return f"""<!doctype html>
 <html lang="en">
@@ -1064,8 +1053,6 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
         {spotlight_card_html}
 
         {faq_accordion_html}
-
-        {sub_graph_html}
 
         {recommended_tutorials_html}
 
