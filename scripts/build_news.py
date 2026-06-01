@@ -61,6 +61,13 @@ def render_news_cards(news_items: list[dict]) -> str:
         summary = html.escape(item.get("summary") or "")
         url = html.escape(item.get("url") or "", quote=True)
         thumb_label = html.escape(item.get("thumb_label") or "News")
+        thumb_url = item.get("thumbnail_url") or ""
+        
+        if thumb_url:
+            thumb_escaped = html.escape(thumb_url, quote=True)
+            thumb_div = f'<div class="thumb thumb--cover" style="background-image: url(&quot;{thumb_escaped}&quot;)" role="img" aria-label="News thumbnail">{thumb_label}</div>'
+        else:
+            thumb_div = f'<div class="thumb" aria-hidden="true">{thumb_label}</div>'
         
         tags = item.get("tags") or []
         tag_html = "".join(
@@ -71,7 +78,7 @@ def render_news_cards(news_items: list[dict]) -> str:
         meta_tags = ", ".join(tags)
         
         lines.append('            <article class="tutorial-item news-curated-item">')
-        lines.append(f'              <div class="thumb" aria-hidden="true">{thumb_label}</div>')
+        lines.append(f'              {thumb_div}')
         lines.append('              <div class="item-body">')
         lines.append(f'                <h3>{title}</h3>')
         lines.append('                <p class="meta">')
