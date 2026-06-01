@@ -1101,6 +1101,29 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
     return f"""<!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {{
+        const initGtag = () => {{
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        }};
+        if ('requestIdleCallback' in window) {{
+          requestIdleCallback(initGtag);
+        }} else {{
+          setTimeout(initGtag, 1);
+        }}
+      }});
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{esc(title)} · {sw_name} · CAD Knowledge Base · Gstarcademy</title>
@@ -1320,6 +1343,29 @@ def render_software_profile(sw: dict, editorial: dict, all_terms_index: dict[str
     return f"""<!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {{
+        const initGtag = () => {{
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        }};
+        if ('requestIdleCallback' in window) {{
+          requestIdleCallback(initGtag);
+        }} else {{
+          setTimeout(initGtag, 1);
+        }}
+      }});
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{esc(name)} — software profile, learning path, ecosystem · Gstarcademy</title>
@@ -1476,6 +1522,29 @@ def render_vendor(vendor: dict, software_under_vendor: list[dict], editorial: di
     return f"""<!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {{
+        const initGtag = () => {{
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        }};
+        if ('requestIdleCallback' in window) {{
+          requestIdleCallback(initGtag);
+        }} else {{
+          setTimeout(initGtag, 1);
+        }}
+      }});
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{esc(name)} — CAD vendor profile · Gstarcademy</title>
