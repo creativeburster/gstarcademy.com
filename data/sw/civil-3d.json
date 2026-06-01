@@ -5,17 +5,40 @@
   "tagline": "Autodesk's civil-infrastructure design platform — alignments, profiles, corridors, surfaces, parcels, pipe networks, and pressure networks built on a DWG core.",
   "meta_desc": "Civil 3D profile: alignments and profiles, corridors, surfaces, pipe and pressure networks, plus 16 deep-dive terms and 16 FAQs reviewed by Gstarcademy editors.",
   "category_label": "DesignApplication",
-  "vendor": {"slug": "autodesk", "name": "Autodesk"},
+  "vendor": {
+    "slug": "autodesk",
+    "name": "Autodesk"
+  },
   "first_released": "2006 (as Autodesk Civil 3D 2006); roots in Land Desktop and Autodesk Survey",
   "current_track": "Annual release — Civil 3D 2025; included in the AEC Collection",
   "license_model": "Subscription via Autodesk AEC Collection (typical) or single-product subscription (rare).",
-  "platforms": ["Windows (64-bit only)"],
-  "file_formats": ["DWG (native)", "LandXML (alignment/surface exchange)", "IFC 4.3 (limited)", "SDF / SHP (GIS)", "Bentley OpenRoads / OpenSite via LandXML"],
-  "primary_alternatives": ["Bentley OpenRoads / OpenSite", "Trimble Quantm / TBC", "Civil Site Design (for BricsCAD)", "12d Model"],
-  "domains": ["Roads & highways", "Site grading", "Subdivisions & parcels", "Storm & sewer", "Water distribution", "Rail / transit", "Land development"],
+  "platforms": [
+    "Windows (64-bit only)"
+  ],
+  "file_formats": [
+    "DWG (native)",
+    "LandXML (alignment/surface exchange)",
+    "IFC 4.3 (limited)",
+    "SDF / SHP (GIS)",
+    "Bentley OpenRoads / OpenSite via LandXML"
+  ],
+  "primary_alternatives": [
+    "Bentley OpenRoads / OpenSite",
+    "Trimble Quantm / TBC",
+    "Civil Site Design (for BricsCAD)",
+    "12d Model"
+  ],
+  "domains": [
+    "Roads & highways",
+    "Site grading",
+    "Subdivisions & parcels",
+    "Storm & sewer",
+    "Water distribution",
+    "Rail / transit",
+    "Land development"
+  ],
   "last_reviewed": "2026-05-24",
   "default_reviewer_id": "lc-aec-review",
-
   "profile": {
     "what_it_is": "Civil 3D is Autodesk's specialised civil-engineering platform built on the AutoCAD DWG core. It adds civil-aware objects — surfaces (DEMs / TIN), alignments (horizontal centrelines), profiles (vertical centrelines), corridors (parametric road geometry derived from alignments + profiles + assemblies), parcels (subdivision lots), pipe and pressure networks (sewer / storm / water mains), and grading.\n\nCivil 3D objects are intelligent: edit an alignment and every dependent profile, corridor, sheet, and quantity-takeoff updates. The platform produces both 2D plan-and-profile sheets and 3D models suitable for machine-control export.",
     "where_used": "Civil 3D is the dominant civil tool in North America for roads, highways, subdivisions, and site-development design. State DOTs in the US, MTO in Ontario, and most large civil consultancies use Civil 3D as their primary design platform. Pipe and pressure networks are widely used for storm/sewer/water mains; rail and transit use Civil 3D less commonly than Bentley OpenRail.",
@@ -25,21 +48,49 @@
     "common_pitfalls": "**Working without data shortcuts.** A drawing-by-drawing approach instead of central reference data leads to coordination nightmares.\n\n**Custom styles per drawing.** Every drawing starts from a template; without enforcement, styles fragment across projects.\n\n**Corridor over-targeting.** Targets that reference long-range geometry recompute slowly and break on minor edits.\n\n**Surface explosion.** Importing a 50M-point lidar dataset as a TIN without simplifying — drawings become unusable.\n\n**Pipe network labelling without a clear style.** Manual label edits get overwritten on next regenerate.",
     "when_to_use_vs_alternative": "Use Civil 3D for North American road and site-development work, where the DWG-based deliverable is contract-mandated and clients accept Civil 3D outputs.\n\nChoose Bentley OpenRoads / OpenSite for projects with Bentley-mandated standards (many international transport agencies, some US DOTs). Choose 12d Model for Australia/NZ road work where it dominates. Choose Trimble TBC + Quantm for survey-and-design-as-built workflows tightly coupled to Trimble field hardware.",
     "recommended_learning_path": [
-      {"stage": "Week 1 — DWG + civil object basics", "focus": "Civil 3D workspace, [points & point groups](./point-groups-civil-3d.html), [surfaces](./surfaces-civil-3d.html) from points, contours, slope analysis."},
-      {"stage": "Week 2 — Alignments & profiles", "focus": "[Alignments](./alignments-civil-3d.html), [profiles](./profiles-civil-3d.html) (existing ground + design), profile view styles, profile labels."},
-      {"stage": "Week 3 — Corridors", "focus": "[Corridors](./corridors-civil-3d.html), [assemblies](./assemblies-civil-3d.html), [subassembly catalog](./subassembly-civil-3d.html), regions, baselines, corridor surfaces."},
-      {"stage": "Week 4 — Grading & parcels", "focus": "[Grading](./grading-civil-3d.html), feature lines, slopes, daylighting, [parcels](./parcels-civil-3d.html), legal description."},
-      {"stage": "Month 2 — Networks", "focus": "[Pipe networks](./pipe-networks-civil-3d.html), [pressure networks](./pressure-networks-civil-3d.html), parts list, hydraulic calculations, sheet production."},
-      {"stage": "Month 3+ — Production & exchange", "focus": "[Data shortcuts](./data-shortcuts-civil-3d.html), reference templates, plan & profile sheets, machine-control export (XML), Subassembly Composer."}
+      {
+        "stage": "Week 1 — DWG + civil object basics",
+        "focus": "Civil 3D workspace, [points & point groups](./point-groups-civil-3d.html), [surfaces](./surfaces-civil-3d.html) from points, contours, slope analysis."
+      },
+      {
+        "stage": "Week 2 — Alignments & profiles",
+        "focus": "[Alignments](./alignments-civil-3d.html), [profiles](./profiles-civil-3d.html) (existing ground + design), profile view styles, profile labels."
+      },
+      {
+        "stage": "Week 3 — Corridors",
+        "focus": "[Corridors](./corridors-civil-3d.html), [assemblies](./assemblies-civil-3d.html), [subassembly catalog](./subassembly-civil-3d.html), regions, baselines, corridor surfaces."
+      },
+      {
+        "stage": "Week 4 — Grading & parcels",
+        "focus": "[Grading](./grading-civil-3d.html), feature lines, slopes, daylighting, [parcels](./parcels-civil-3d.html), legal description."
+      },
+      {
+        "stage": "Month 2 — Networks",
+        "focus": "[Pipe networks](./pipe-networks-civil-3d.html), [pressure networks](./pressure-networks-civil-3d.html), parts list, hydraulic calculations, sheet production."
+      },
+      {
+        "stage": "Month 3+ — Production & exchange",
+        "focus": "[Data shortcuts](./data-shortcuts-civil-3d.html), reference templates, plan & profile sheets, machine-control export (XML), Subassembly Composer."
+      }
     ]
   },
-
   "sources": [
-    {"label": "Civil 3D product page", "url": "https://www.autodesk.com/products/civil-3d/overview", "publisher": "Autodesk"},
-    {"label": "Civil 3D Help", "url": "https://help.autodesk.com/view/CIV3D/2025/ENU/", "publisher": "Autodesk Knowledge Network"},
-    {"label": "AASHTO Green Book (road geometric design)", "url": "https://www.transportation.org/", "publisher": "AASHTO"}
+    {
+      "label": "Civil 3D product page",
+      "url": "https://www.autodesk.com/products/civil-3d/overview",
+      "publisher": "Autodesk"
+    },
+    {
+      "label": "Civil 3D Help",
+      "url": "https://help.autodesk.com/view/CIV3D/2025/ENU/",
+      "publisher": "Autodesk Knowledge Network"
+    },
+    {
+      "label": "AASHTO Green Book (road geometric design)",
+      "url": "https://www.transportation.org/",
+      "publisher": "AASHTO"
+    }
   ],
-
   "terms": [
     {
       "slug": "alignments-civil-3d",
@@ -52,7 +103,23 @@
         "Defining alignments by polyline and converting — loses the constraint-based intelligence.",
         "Skipping design criteria — design violates code silently."
       ],
-      "related_term_slugs": ["profiles-civil-3d", "corridors-civil-3d"]
+      "related_term_slugs": [
+        "profiles-civil-3d",
+        "corridors-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Alignments (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Editing a tangent length without checking the connected free-curve recalculation — produces unexpected radii.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Editing a tangent length without checking the connected free-curve recalculation — produces unexpected radii.' As the editorial review notes: 'The alignment is the design's spine. Every downstream object — profile, corridor, sheet, pipe network — references it. Changing an alignment cascades correctly only if those references are intact.'"
+        }
+      ]
     },
     {
       "slug": "profiles-civil-3d",
@@ -65,7 +132,23 @@
         "Forgetting to break the profile at structure crossings — design grade doesn't match structure thickness.",
         "Vertical curves that meet minimum sight distance but violate site lines through approaches."
       ],
-      "related_term_slugs": ["alignments-civil-3d", "corridors-civil-3d"]
+      "related_term_slugs": [
+        "alignments-civil-3d",
+        "corridors-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Profiles (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Sampling an existing ground profile after the surface has been updated — labels stale.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Sampling an existing ground profile after the surface has been updated — labels stale.' As the editorial review notes: 'The vertical profile is the road's grade design. It controls drainage, structures (bridges, culverts), and constructability.'"
+        }
+      ]
     },
     {
       "slug": "corridors-civil-3d",
@@ -78,7 +161,24 @@
         "Targets referencing alignments that change frequently — corridor regenerates slowly.",
         "Frequency too high (one cross-section per metre on a 10 km corridor) — drawing becomes unusable."
       ],
-      "related_term_slugs": ["alignments-civil-3d", "assemblies-civil-3d", "subassembly-civil-3d"]
+      "related_term_slugs": [
+        "alignments-civil-3d",
+        "assemblies-civil-3d",
+        "subassembly-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Corridors (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Single very-long regions instead of breaking at intersections / shoulder transitions.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Single very-long regions instead of breaking at intersections / shoulder transitions.' As the editorial review notes: 'The corridor is the deliverable for road design — sheets, quantities, and machine-control models all derive from it. A well-built corridor regenerates cleanly on design changes; a poorly-built one requires hours of repair after every edit.'"
+        }
+      ]
     },
     {
       "slug": "assemblies-civil-3d",
@@ -91,7 +191,23 @@
         "Subassembly parameters set to hard values when they should be alignment-driven.",
         "Symmetric assemblies that should be asymmetric (e.g., kerbed one side, ditched the other)."
       ],
-      "related_term_slugs": ["corridors-civil-3d", "subassembly-civil-3d"]
+      "related_term_slugs": [
+        "corridors-civil-3d",
+        "subassembly-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Assemblies (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Mixing custom subassemblies with stock — output styles inconsistent.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Mixing custom subassemblies with stock — output styles inconsistent.' As the editorial review notes: 'The assembly defines the road's cross-section. Standardised assemblies for each road class (Local, Collector, Arterial) produce consistent corridor output across a project.'"
+        }
+      ]
     },
     {
       "slug": "subassembly-civil-3d",
@@ -104,7 +220,23 @@
         "Forgetting to assign codes consistently — code-set styles fail to colour the right surfaces.",
         "Recursive parametric loops in custom subassemblies — corridor generation hangs."
       ],
-      "related_term_slugs": ["assemblies-civil-3d", "corridors-civil-3d"]
+      "related_term_slugs": [
+        "assemblies-civil-3d",
+        "corridors-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Subassemblies (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Authoring subassemblies that don't expose useful parameters — corridor needs surgery for each variation.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Authoring subassemblies that don't expose useful parameters — corridor needs surgery for each variation.' As the editorial review notes: 'Subassemblies are the rules that produce road geometry. Custom subassemblies encode local design standards (DOT-specific kerb types, drainage profiles).'"
+        }
+      ]
     },
     {
       "slug": "surfaces-civil-3d",
@@ -117,7 +249,23 @@
         "Importing a lidar dataset with millions of points — surface becomes unusable; should be simplified or gridded.",
         "Mixing units in surface data — surface elevation is feet but contour interval set to metres."
       ],
-      "related_term_slugs": ["grading-civil-3d", "point-groups-civil-3d"]
+      "related_term_slugs": [
+        "grading-civil-3d",
+        "point-groups-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Surfaces (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Building a surface without breaklines on edge-of-pavement — incorrect triangulation across the road.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Building a surface without breaklines on edge-of-pavement — incorrect triangulation across the road.' As the editorial review notes: 'Surfaces represent existing ground and design surfaces. Quantity calculations, profile sampling, corridor daylighting, and grading all depend on surface integrity.'"
+        }
+      ]
     },
     {
       "slug": "point-groups-civil-3d",
@@ -130,7 +278,22 @@
         "Hardcoding point ranges instead of using descriptions — adding new points doesn't auto-include.",
         "Forgetting to update the source point group after a re-survey — surface still uses old data."
       ],
-      "related_term_slugs": ["surfaces-civil-3d"]
+      "related_term_slugs": [
+        "surfaces-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Point Groups (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Overlapping point groups with conflicting display styles — points flicker between symbols.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Overlapping point groups with conflicting display styles — points flicker between symbols.' As the editorial review notes: 'Without point groups, managing thousands of survey points is impossible. Point groups also drive which points are included in which surface.'"
+        }
+      ]
     },
     {
       "slug": "grading-civil-3d",
@@ -143,7 +306,22 @@
         "Mixing grading objects with manually edited feature lines — design surface has gaps.",
         "Forgetting to add the grading output to the design surface — labels and contours don't update."
       ],
-      "related_term_slugs": ["surfaces-civil-3d"]
+      "related_term_slugs": [
+        "surfaces-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Grading (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Grading objects without setting target surface — daylighting silently fails.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Grading objects without setting target surface — daylighting silently fails.' As the editorial review notes: 'Site grading produces the design surface — graded pads, parking lots, ditches, embankments. Without grading discipline, sites don't drain correctly and don't tie cleanly to existing topography.'"
+        }
+      ]
     },
     {
       "slug": "parcels-civil-3d",
@@ -156,7 +334,20 @@
         "Parcels in different sites that should share boundaries — gaps between lots.",
         "Forgetting to refresh labels after edit — labels show stale bearings."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Parcels (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Parcel boundary segments that should be curves modelled as polyline chord — area is off.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Parcel boundary segments that should be curves modelled as polyline chord — area is off.' As the editorial review notes: 'For subdivision and land development, parcels are the deliverable. The plat sheet shows them by number with bearings, distances, and area.'"
+        }
+      ]
     },
     {
       "slug": "pipe-networks-civil-3d",
@@ -169,7 +360,22 @@
         "Pipes that connect to structures at the wrong invert — water flows uphill in the analysis.",
         "Manual label overrides — get overwritten on next regenerate."
       ],
-      "related_term_slugs": ["pressure-networks-civil-3d"]
+      "related_term_slugs": [
+        "pressure-networks-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Pipe Networks (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Switching parts lists mid-project — pipe sizes don't match the new parts.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Switching parts lists mid-project — pipe sizes don't match the new parts.' As the editorial review notes: 'Sewer / storm design is part of every site-development project. Civil 3D pipe networks integrate the routing, the labelling, and the hydraulic analysis in one model.'"
+        }
+      ]
     },
     {
       "slug": "pressure-networks-civil-3d",
@@ -182,7 +388,22 @@
         "Wrong parts list — pipe diameters and fitting types don't match local AWWA / WQ standards.",
         "Forgetting hydrant lateral lines — design omits required connections."
       ],
-      "related_term_slugs": ["pipe-networks-civil-3d"]
+      "related_term_slugs": [
+        "pipe-networks-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Pressure Networks (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Routing without checking joint angles — pipes can't physically connect.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Routing without checking joint angles — pipes can't physically connect.' As the editorial review notes: 'Water distribution design needs separate handling from gravity flow. Pressure networks support the routing geometry, joint angles, fittings, and the depth constraints typical of water main work.'"
+        }
+      ]
     },
     {
       "slug": "data-shortcuts-civil-3d",
@@ -195,7 +416,23 @@
         "Publishing the same object from two drawings — ambiguous source.",
         "Renaming the source drawing without going through Data Shortcut Manager — references break silently."
       ],
-      "related_term_slugs": ["alignments-civil-3d", "surfaces-civil-3d"]
+      "related_term_slugs": [
+        "alignments-civil-3d",
+        "surfaces-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Data Shortcuts (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Working drawings outside the project's shortcuts folder — references can't resolve.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Working drawings outside the project's shortcuts folder — references can't resolve.' As the editorial review notes: 'Civil 3D projects routinely involve 50+ drawings (plan, profile, cross-section, detail sheets). Data Shortcuts eliminate the need to duplicate geometry across them.'"
+        }
+      ]
     },
     {
       "slug": "labels-civil-3d",
@@ -208,7 +445,23 @@
         "Mixing US Survey Feet and International Feet on labels — micro-discrepancies accumulate.",
         "Building labels with hardcoded text instead of expressions — labels lose accuracy when geometry changes."
       ],
-      "related_term_slugs": ["alignments-civil-3d", "surfaces-civil-3d"]
+      "related_term_slugs": [
+        "alignments-civil-3d",
+        "surfaces-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Labels & Label Styles (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Overriding label position by drag — gets reset on regenerate unless saved to the style.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Overriding label position by drag — gets reset on regenerate unless saved to the style.' As the editorial review notes: 'Sheet production lives or dies by label style discipline. Without curated label styles, every drawing's labels look ad hoc.'"
+        }
+      ]
     },
     {
       "slug": "machine-control-export-civil-3d",
@@ -221,7 +474,23 @@
         "Mismatched datum between design and field GPS — entire model is offset.",
         "Forgetting to include breaklines — graders find smooth interpolation between sparse points."
       ],
-      "related_term_slugs": ["corridors-civil-3d", "surfaces-civil-3d"]
+      "related_term_slugs": [
+        "corridors-civil-3d",
+        "surfaces-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Machine Control Export (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Exporting a corridor before its surface has been built — exported model is incomplete.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Exporting a corridor before its surface has been built — exported model is incomplete.' As the editorial review notes: 'Machine control replaces stake-and-grade-checker workflows in modern earthworks. The accuracy of the export determines grade accuracy in the field.'"
+        }
+      ]
     },
     {
       "slug": "landxml-civil-3d",
@@ -234,7 +503,23 @@
         "Surfaces with too many TINs in one export — files become multi-GB.",
         "Pipe networks with custom parts not mapped to LandXML conventions — receiver imports as generic geometry."
       ],
-      "related_term_slugs": ["machine-control-export-civil-3d", "surfaces-civil-3d"]
+      "related_term_slugs": [
+        "machine-control-export-civil-3d",
+        "surfaces-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with LandXML (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Exporting LandXML version 1.2 to a recipient who expects 2.0 — schema mismatch.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Exporting LandXML version 1.2 to a recipient who expects 2.0 — schema mismatch.' As the editorial review notes: 'LandXML is how a Civil 3D model reaches Bentley, 12d, or Trimble TBC users. Quality depends on what objects are exported and the version of LandXML in use.'"
+        }
+      ]
     },
     {
       "slug": "intersection-design-civil-3d",
@@ -247,56 +532,278 @@
         "Wrong design vehicle template — return radii are too tight for the actual traffic.",
         "Multiple intersection corridors using inconsistent assemblies — pavement steps at the corner."
       ],
-      "related_term_slugs": ["corridors-civil-3d", "alignments-civil-3d"]
+      "related_term_slugs": [
+        "corridors-civil-3d",
+        "alignments-civil-3d"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Intersection Design (Civil 3D), which of the following represents a common technical pitfall?",
+          "options": [
+            "Intersection assembled before alignments are stable — minor alignment edits require intersection rebuild.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Intersection assembled before alignments are stable — minor alignment edits require intersection rebuild.' As the editorial review notes: 'Intersections are where road geometry is most complex and most consequential for safety. Civil 3D's intersection object encapsulates the tangent-curve-tangent return logic so editing one corner cascades to the connected geometry.'"
+        }
+      ]
     }
   ],
-
   "faqs": [
-    {"question": "Is Civil 3D included with AutoCAD?", "answer": "No — Civil 3D is a specialty vertical that includes AutoCAD as a base layer. Subscribing to Civil 3D gives you AutoCAD too. Subscribing to AutoCAD alone does not include Civil 3D objects."},
-    {"question": "Can Civil 3D objects be opened in plain AutoCAD?", "answer": "Partially. Civil 3D objects appear as proxy objects in AutoCAD without Civil 3D — they display but are not editable. Use Object Enabler (free download) to give plain AutoCAD viewers richer display. For full editability, the receiver needs Civil 3D."},
-    {"question": "What is the difference between an alignment and a polyline?", "answer": "A polyline is dumb 2D geometry. An alignment is a Civil 3D object with stationing, design criteria, label-aware geometry (tangent / curve / spiral), and dependent objects (profiles, corridors, sheets). Always convert polylines to alignments for any civil design intent."},
-    {"question": "How do I share a Civil 3D drawing with someone who has Civil 3D but doesn't have my templates?", "answer": "Either eTransmit (Application Menu > Publish > eTransmit) which packages the DWG with referenced support files, or use Reference Templates so the recipient can attach the same template. For object styles to display correctly, the recipient must have the same styles available."},
-    {"question": "Why is my corridor not generating?", "answer": "Common causes: missing assembly, baseline alignment or profile reference broken, target surface no longer exists, region station range outside alignment extents, or one subassembly in the assembly is producing an error. Open the corridor properties and check the Events tab for the specific error message."},
-    {"question": "How do I export an alignment to LandXML?", "answer": "Toolspace > Survey or Toolspace > Prospector right-click on the alignment > Export to LandXML. Or use the File > Export > LandXML menu to export multiple objects at once. Choose the LandXML version that matches the receiver's tool."},
-    {"question": "What is the difference between a feature line and a 3D polyline?", "answer": "A feature line is a Civil 3D object with stationable PIs, elevation interpolation, grading projection capability, and editable per-station elevations. A 3D polyline is dumb AutoCAD geometry with vertex elevations. Feature lines are far more powerful for civil design."},
-    {"question": "Can I convert a surface from one drawing to another without LandXML?", "answer": "Yes — Data Shortcuts (the recommended approach). Publish the surface as a data shortcut from the source drawing; reference it in the target drawing. For one-time copies without coordination, surface export to TIN file and import is an alternative."},
-    {"question": "How do I find pipe network rule violations?", "answer": "Open the pipe network properties > Rules tab. Rules include minimum cover, minimum slope, drop at structure, maximum velocity. Civil 3D flags violations in the drawing (red highlighting) and in the network Toolspace panel."},
-    {"question": "Why are my profile labels stale?", "answer": "Either the underlying alignment / surface changed without label refresh, or you've manually overridden label position and the regeneration reset it. Use Modify > Update Labels or right-click profile > Labels > Edit Label Group."},
-    {"question": "How do I add a custom subassembly?", "answer": "Use Subassembly Composer (free with Civil 3D) to build the subassembly visually, package as .pkt, then load via Tool Palettes > Add Subassembly. Custom subassemblies can also be coded in .NET (more complex but more powerful)."},
-    {"question": "What is the workflow for sheet production?", "answer": "Create a sheet set in AutoCAD Sheet Set Manager, link to data shortcuts. Build plan/profile/section template DWG files with viewports tied to alignments and stations. Civil 3D's Plan Production tools generate sheet runs automatically along alignments — one sheet per alignment chunk."},
-    {"question": "Why is my surface so large?", "answer": "Usually too many surface data points. Use surface boundaries (hide / data clip) to remove unnecessary area; simplify (Surface Properties > Simplify) to reduce TIN density; remove unused breaklines. For lidar data, consider a grid surface or convert outside Civil 3D first."},
-    {"question": "Can Civil 3D do BIM coordination with Revit?", "answer": "Yes — Civil 3D exports its design surfaces and alignments to Revit via the Civil 3D > Revit interoperability tools or via DWG / LandXML. Revit links them as references. For Roads-on-Bridges projects, the InfraWorks bridge module is the integration point between alignment design and structural design."},
-    {"question": "Is Civil 3D available on macOS?", "answer": "No. Civil 3D is Windows-only. Mac users typically use Parallels or Boot Camp (Intel Macs). Apple Silicon Mac users have very limited options for running Civil 3D natively."},
-    {"question": "Where do I learn Civil 3D systematically?", "answer": "Autodesk's Civil 3D Learning Path on learn.autodesk.com is the structured starting point. Tony Cabrera (Cabrera Engineering Consultants) and Mark Kiker (BeyondCAD blog) are practical authorities. For corridors specifically, the official Subassembly Composer documentation and the AECC corridor-design tutorial DWG are the canonical examples."}
+    {
+      "question": "Is Civil 3D included with AutoCAD?",
+      "answer": "No — Civil 3D is a specialty vertical that includes AutoCAD as a base layer. Subscribing to Civil 3D gives you AutoCAD too. Subscribing to AutoCAD alone does not include Civil 3D objects."
+    },
+    {
+      "question": "Can Civil 3D objects be opened in plain AutoCAD?",
+      "answer": "Partially. Civil 3D objects appear as proxy objects in AutoCAD without Civil 3D — they display but are not editable. Use Object Enabler (free download) to give plain AutoCAD viewers richer display. For full editability, the receiver needs Civil 3D."
+    },
+    {
+      "question": "What is the difference between an alignment and a polyline?",
+      "answer": "A polyline is dumb 2D geometry. An alignment is a Civil 3D object with stationing, design criteria, label-aware geometry (tangent / curve / spiral), and dependent objects (profiles, corridors, sheets). Always convert polylines to alignments for any civil design intent."
+    },
+    {
+      "question": "How do I share a Civil 3D drawing with someone who has Civil 3D but doesn't have my templates?",
+      "answer": "Either eTransmit (Application Menu > Publish > eTransmit) which packages the DWG with referenced support files, or use Reference Templates so the recipient can attach the same template. For object styles to display correctly, the recipient must have the same styles available."
+    },
+    {
+      "question": "Why is my corridor not generating?",
+      "answer": "Common causes: missing assembly, baseline alignment or profile reference broken, target surface no longer exists, region station range outside alignment extents, or one subassembly in the assembly is producing an error. Open the corridor properties and check the Events tab for the specific error message."
+    },
+    {
+      "question": "How do I export an alignment to LandXML?",
+      "answer": "Toolspace > Survey or Toolspace > Prospector right-click on the alignment > Export to LandXML. Or use the File > Export > LandXML menu to export multiple objects at once. Choose the LandXML version that matches the receiver's tool."
+    },
+    {
+      "question": "What is the difference between a feature line and a 3D polyline?",
+      "answer": "A feature line is a Civil 3D object with stationable PIs, elevation interpolation, grading projection capability, and editable per-station elevations. A 3D polyline is dumb AutoCAD geometry with vertex elevations. Feature lines are far more powerful for civil design."
+    },
+    {
+      "question": "Can I convert a surface from one drawing to another without LandXML?",
+      "answer": "Yes — Data Shortcuts (the recommended approach). Publish the surface as a data shortcut from the source drawing; reference it in the target drawing. For one-time copies without coordination, surface export to TIN file and import is an alternative."
+    },
+    {
+      "question": "How do I find pipe network rule violations?",
+      "answer": "Open the pipe network properties > Rules tab. Rules include minimum cover, minimum slope, drop at structure, maximum velocity. Civil 3D flags violations in the drawing (red highlighting) and in the network Toolspace panel."
+    },
+    {
+      "question": "Why are my profile labels stale?",
+      "answer": "Either the underlying alignment / surface changed without label refresh, or you've manually overridden label position and the regeneration reset it. Use Modify > Update Labels or right-click profile > Labels > Edit Label Group."
+    },
+    {
+      "question": "How do I add a custom subassembly?",
+      "answer": "Use Subassembly Composer (free with Civil 3D) to build the subassembly visually, package as .pkt, then load via Tool Palettes > Add Subassembly. Custom subassemblies can also be coded in .NET (more complex but more powerful)."
+    },
+    {
+      "question": "What is the workflow for sheet production?",
+      "answer": "Create a sheet set in AutoCAD Sheet Set Manager, link to data shortcuts. Build plan/profile/section template DWG files with viewports tied to alignments and stations. Civil 3D's Plan Production tools generate sheet runs automatically along alignments — one sheet per alignment chunk."
+    },
+    {
+      "question": "Why is my surface so large?",
+      "answer": "Usually too many surface data points. Use surface boundaries (hide / data clip) to remove unnecessary area; simplify (Surface Properties > Simplify) to reduce TIN density; remove unused breaklines. For lidar data, consider a grid surface or convert outside Civil 3D first."
+    },
+    {
+      "question": "Can Civil 3D do BIM coordination with Revit?",
+      "answer": "Yes — Civil 3D exports its design surfaces and alignments to Revit via the Civil 3D > Revit interoperability tools or via DWG / LandXML. Revit links them as references. For Roads-on-Bridges projects, the InfraWorks bridge module is the integration point between alignment design and structural design."
+    },
+    {
+      "question": "Is Civil 3D available on macOS?",
+      "answer": "No. Civil 3D is Windows-only. Mac users typically use Parallels or Boot Camp (Intel Macs). Apple Silicon Mac users have very limited options for running Civil 3D natively."
+    },
+    {
+      "question": "Where do I learn Civil 3D systematically?",
+      "answer": "Autodesk's Civil 3D Learning Path on learn.autodesk.com is the structured starting point. Tony Cabrera (Cabrera Engineering Consultants) and Mark Kiker (BeyondCAD blog) are practical authorities. For corridors specifically, the official Subassembly Composer documentation and the AECC corridor-design tutorial DWG are the canonical examples."
+    }
   ],
-
   "graph_nodes": [
-    {"id": "Civil 3D", "type": "product", "tags": ["autodesk", "civil", "aec"], "hint": "Autodesk's civil infrastructure platform.", "group": 1, "radius": 14},
-    {"id": "Civil 3D Alignment", "type": "concept", "tags": ["civil3d", "geometry"], "hint": "Horizontal centreline with stationing.", "group": 2, "radius": 10},
-    {"id": "Civil 3D Profile", "type": "concept", "tags": ["civil3d", "geometry"], "hint": "Vertical alignment along an alignment.", "group": 2, "radius": 9},
-    {"id": "Civil 3D Corridor", "type": "concept", "tags": ["civil3d", "roads"], "hint": "3D parametric road model.", "group": 2, "radius": 11},
-    {"id": "Civil 3D Assembly", "type": "concept", "tags": ["civil3d", "roads"], "hint": "Cross-section template for corridors.", "group": 2, "radius": 9},
-    {"id": "Civil 3D Subassembly", "type": "concept", "tags": ["civil3d", "roads"], "hint": "Parametric cross-section component.", "group": 2, "radius": 8},
-    {"id": "Civil 3D Surface", "type": "concept", "tags": ["civil3d", "terrain"], "hint": "TIN or grid terrain model.", "group": 2, "radius": 10},
-    {"id": "Civil 3D Grading", "type": "skill", "tags": ["civil3d", "site"], "hint": "Site grading with feature lines + criteria.", "group": 2, "radius": 9},
-    {"id": "Civil 3D Pipe Network", "type": "concept", "tags": ["civil3d", "stormwater"], "hint": "Gravity sewer/storm network.", "group": 2, "radius": 9},
-    {"id": "Civil 3D Pressure Network", "type": "concept", "tags": ["civil3d", "water"], "hint": "Pressurised water mains.", "group": 2, "radius": 8},
-    {"id": "Civil 3D Data Shortcuts", "type": "concept", "tags": ["civil3d", "collaboration"], "hint": "Cross-drawing object references.", "group": 2, "radius": 9},
-    {"id": "Civil 3D LandXML", "type": "format", "tags": ["civil3d", "interop"], "hint": "Vendor-neutral civil data exchange.", "group": 2, "radius": 8}
+    {
+      "id": "Civil 3D",
+      "type": "product",
+      "tags": [
+        "autodesk",
+        "civil",
+        "aec"
+      ],
+      "hint": "Autodesk's civil infrastructure platform.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Civil 3D Alignment",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "geometry"
+      ],
+      "hint": "Horizontal centreline with stationing.",
+      "group": 2,
+      "radius": 10
+    },
+    {
+      "id": "Civil 3D Profile",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "geometry"
+      ],
+      "hint": "Vertical alignment along an alignment.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Civil 3D Corridor",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "roads"
+      ],
+      "hint": "3D parametric road model.",
+      "group": 2,
+      "radius": 11
+    },
+    {
+      "id": "Civil 3D Assembly",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "roads"
+      ],
+      "hint": "Cross-section template for corridors.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Civil 3D Subassembly",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "roads"
+      ],
+      "hint": "Parametric cross-section component.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Civil 3D Surface",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "terrain"
+      ],
+      "hint": "TIN or grid terrain model.",
+      "group": 2,
+      "radius": 10
+    },
+    {
+      "id": "Civil 3D Grading",
+      "type": "skill",
+      "tags": [
+        "civil3d",
+        "site"
+      ],
+      "hint": "Site grading with feature lines + criteria.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Civil 3D Pipe Network",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "stormwater"
+      ],
+      "hint": "Gravity sewer/storm network.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Civil 3D Pressure Network",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "water"
+      ],
+      "hint": "Pressurised water mains.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Civil 3D Data Shortcuts",
+      "type": "concept",
+      "tags": [
+        "civil3d",
+        "collaboration"
+      ],
+      "hint": "Cross-drawing object references.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Civil 3D LandXML",
+      "type": "format",
+      "tags": [
+        "civil3d",
+        "interop"
+      ],
+      "hint": "Vendor-neutral civil data exchange.",
+      "group": 2,
+      "radius": 8
+    }
   ],
   "graph_links": [
-    ["Civil 3D", "Autodesk"],
-    ["Civil 3D Alignment", "Civil 3D"],
-    ["Civil 3D Profile", "Civil 3D Alignment"],
-    ["Civil 3D Corridor", "Civil 3D Alignment"],
-    ["Civil 3D Corridor", "Civil 3D Profile"],
-    ["Civil 3D Corridor", "Civil 3D Assembly"],
-    ["Civil 3D Assembly", "Civil 3D Subassembly"],
-    ["Civil 3D Surface", "Civil 3D"],
-    ["Civil 3D Grading", "Civil 3D Surface"],
-    ["Civil 3D Pipe Network", "Civil 3D"],
-    ["Civil 3D Pressure Network", "Civil 3D"],
-    ["Civil 3D Data Shortcuts", "Civil 3D"],
-    ["Civil 3D LandXML", "Civil 3D"]
+    [
+      "Civil 3D",
+      "Autodesk"
+    ],
+    [
+      "Civil 3D Alignment",
+      "Civil 3D"
+    ],
+    [
+      "Civil 3D Profile",
+      "Civil 3D Alignment"
+    ],
+    [
+      "Civil 3D Corridor",
+      "Civil 3D Alignment"
+    ],
+    [
+      "Civil 3D Corridor",
+      "Civil 3D Profile"
+    ],
+    [
+      "Civil 3D Corridor",
+      "Civil 3D Assembly"
+    ],
+    [
+      "Civil 3D Assembly",
+      "Civil 3D Subassembly"
+    ],
+    [
+      "Civil 3D Surface",
+      "Civil 3D"
+    ],
+    [
+      "Civil 3D Grading",
+      "Civil 3D Surface"
+    ],
+    [
+      "Civil 3D Pipe Network",
+      "Civil 3D"
+    ],
+    [
+      "Civil 3D Pressure Network",
+      "Civil 3D"
+    ],
+    [
+      "Civil 3D Data Shortcuts",
+      "Civil 3D"
+    ],
+    [
+      "Civil 3D LandXML",
+      "Civil 3D"
+    ]
   ]
 }

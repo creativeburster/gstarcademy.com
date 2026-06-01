@@ -317,8 +317,57 @@ document.addEventListener("keydown", (ev) => {
     }
   }
 
+  // 5. Sorting logic
+  const sortSelect = document.getElementById("tutorial-sort-select");
+  const listContainer = document.querySelector(".list");
+
+  function sortTutorials() {
+    if (!sortSelect || !listContainer) return;
+    const sortBy = sortSelect.value;
+    const items = Array.from(listContainer.querySelectorAll(".tutorial-item"));
+    
+    items.sort((a, b) => {
+      if (sortBy === "duration-asc") {
+        const durA = parseInt(a.getAttribute("data-duration") || "0", 10);
+        const durB = parseInt(b.getAttribute("data-duration") || "0", 10);
+        return durA - durB;
+      } else if (sortBy === "duration-desc") {
+        const durA = parseInt(a.getAttribute("data-duration") || "0", 10);
+        const durB = parseInt(b.getAttribute("data-duration") || "0", 10);
+        return durB - durA;
+      } else if (sortBy === "difficulty-asc") {
+        const levels = { "beginner": 1, "beginner–intermediate": 1.5, "intermediate": 2, "pro": 3, "—": 2 };
+        const lvlA = levels[a.getAttribute("data-level")] || 2;
+        const lvlB = levels[b.getAttribute("data-level")] || 2;
+        return lvlA - lvlB;
+      } else if (sortBy === "difficulty-desc") {
+        const levels = { "beginner": 1, "beginner–intermediate": 1.5, "intermediate": 2, "pro": 3, "—": 2 };
+        const lvlA = levels[a.getAttribute("data-level")] || 2;
+        const lvlB = levels[b.getAttribute("data-level")] || 2;
+        return lvlB - lvlA;
+      } else if (sortBy === "newest") {
+        const dateA = a.getAttribute("data-published") || "";
+        const dateB = b.getAttribute("data-published") || "";
+        return dateB.localeCompare(dateA);
+      } else { // featured / highest rated
+        const ratA = parseFloat(a.getAttribute("data-rating") || "0");
+        const ratB = parseFloat(b.getAttribute("data-rating") || "0");
+        return ratB - ratA;
+      }
+    });
+
+    items.forEach(item => {
+      listContainer.appendChild(item);
+    });
+  }
+
+  if (sortSelect) {
+    sortSelect.addEventListener("change", sortTutorials);
+  }
+
   // Run initial parsing on load
   parseUrlParams();
+  sortTutorials();
 })();
 
 // --- Phase 9: Interactive Roadmap & Career Skill Tree Logic ---
@@ -638,7 +687,22 @@ document.addEventListener("keydown", (ev) => {
     
     // Render Nodes
     track.nodes.forEach(node => {
-      const isMastered = masteredProgress[activeTrack].includes(node.id);
+      const nodeSlug = node.wiki ? node.wiki.split("/").pop().replace(".html", "") : "";
+      let isMastered = masteredProgress[activeTrack].includes(node.id);
+      
+      // Sync from quiz mastery
+      let masteredConcepts = [];
+      try {
+        masteredConcepts = JSON.parse(localStorage.getItem("gstarcademy_concept_mastery")) || [];
+      } catch (e) {}
+      
+      if (nodeSlug && masteredConcepts.includes(nodeSlug)) {
+        isMastered = true;
+        if (!masteredProgress[activeTrack].includes(node.id)) {
+          masteredProgress[activeTrack].push(node.id);
+          localStorage.setItem("gstarcademy_roadmap_progress", JSON.stringify(masteredProgress));
+        }
+      }
       
       const card = document.createElement("div");
       card.className = "skill-node" + (isMastered ? " mastered" : "");
@@ -710,17 +774,39 @@ document.addEventListener("keydown", (ev) => {
   function toggleMastery(nodeId, cardEl) {
     const masteredList = masteredProgress[activeTrack];
     const index = masteredList.indexOf(nodeId);
+    const nodeObj = ROADMAP_DATA[activeTrack].nodes.find(n => n.id === nodeId);
+    const nodeSlug = nodeObj && nodeObj.wiki ? nodeObj.wiki.split("/").pop().replace(".html", "") : "";
+    
+    let masteredConcepts = [];
+    try {
+      masteredConcepts = JSON.parse(localStorage.getItem("gstarcademy_concept_mastery")) || [];
+    } catch (e) {}
     
     if (index >= 0) {
       // Remove mastery
       masteredList.splice(index, 1);
       cardEl.classList.remove("mastered");
-      cardEl.querySelector(".skill-node-difficulty").textContent = ROADMAP_DATA[activeTrack].nodes.find(n => n.id === nodeId).difficulty;
+      cardEl.querySelector(".skill-node-difficulty").textContent = nodeObj.difficulty;
+      
+      // Sync out to quiz mastery
+      if (nodeSlug) {
+        const qIndex = masteredConcepts.indexOf(nodeSlug);
+        if (qIndex >= 0) {
+          masteredConcepts.splice(qIndex, 1);
+          localStorage.setItem("gstarcademy_concept_mastery", JSON.stringify(masteredConcepts));
+        }
+      }
     } else {
       // Add mastery
       masteredList.push(nodeId);
       cardEl.classList.add("mastered");
       cardEl.querySelector(".skill-node-difficulty").textContent = "✓ Mastered";
+      
+      // Sync out to quiz mastery
+      if (nodeSlug && !masteredConcepts.includes(nodeSlug)) {
+        masteredConcepts.push(nodeSlug);
+        localStorage.setItem("gstarcademy_concept_mastery", JSON.stringify(masteredConcepts));
+      }
       
       // Simple particle shockwave or visual shake on checking
       cardEl.style.transform = "scale(0.96)";
@@ -808,8 +894,31 @@ document.addEventListener("keydown", (ev) => {
   // Hook reset progress
   btnReset.addEventListener("click", () => {
     if (confirm(`Reset all progress for the ${ROADMAP_DATA[activeTrack].title} pathway?`)) {
+      // Clear roadmap nodes completed state
       masteredProgress[activeTrack] = [];
       localStorage.setItem("gstarcademy_roadmap_progress", JSON.stringify(masteredProgress));
+      
+      // Clear associated concept masteries for this track
+      let masteredConcepts = [];
+      try {
+        masteredConcepts = JSON.parse(localStorage.getItem("gstarcademy_concept_mastery")) || [];
+      } catch (e) {}
+      
+      const trackNodes = ROADMAP_DATA[activeTrack].nodes;
+      trackNodes.forEach(node => {
+        if (node.wiki) {
+          const slug = node.wiki.split("/").pop().replace(".html", "");
+          const idx = masteredConcepts.indexOf(slug);
+          if (idx >= 0) {
+            masteredConcepts.splice(idx, 1);
+          }
+        }
+      });
+      
+      try {
+        localStorage.setItem("gstarcademy_concept_mastery", JSON.stringify(masteredConcepts));
+      } catch (e) {}
+      
       renderTree();
     }
   });
@@ -818,4 +927,125 @@ document.addEventListener("keydown", (ev) => {
   renderTree();
   window.addEventListener("resize", drawConnectorLines);
 })();
+
+// --- Self-Test Quiz Interaction Logic ---
+(function initConceptQuiz() {
+  const quizContainers = document.querySelectorAll("[data-quiz-container]");
+  if (!quizContainers.length) return;
+
+  // Load mastered concepts from localStorage
+  let masteredConcepts = [];
+  try {
+    masteredConcepts = JSON.parse(localStorage.getItem("gstarcademy_concept_mastery")) || [];
+  } catch (e) {
+    masteredConcepts = [];
+  }
+
+  quizContainers.forEach(container => {
+    const termSlug = container.getAttribute("data-term-slug");
+    const correctIdx = parseInt(container.getAttribute("data-correct-idx"), 10);
+    const optionBtns = container.querySelectorAll(".kb-quiz-option-btn");
+    const explanationBox = container.querySelector("[data-explanation-box]");
+    const feedbackTitle = container.querySelector("[data-feedback-title]");
+
+    // If already mastered previously, show it as correct immediately
+    if (masteredConcepts.includes(termSlug)) {
+      optionBtns.forEach((btn, idx) => {
+        btn.classList.add("disabled");
+        if (idx === correctIdx) {
+          btn.classList.add("correct");
+        }
+      });
+      if (explanationBox) {
+        explanationBox.style.display = "block";
+        if (feedbackTitle) {
+          feedbackTitle.textContent = "✓ Mastered (Previously Completed)";
+          feedbackTitle.style.color = "#10b981";
+        }
+      }
+    }
+
+    // Add click listeners to option buttons
+    optionBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const selectedIdx = parseInt(btn.getAttribute("data-option-idx"), 10);
+        const isCorrect = selectedIdx === correctIdx;
+
+        // Visual feedback on selected option
+        optionBtns.forEach((b, idx) => {
+          b.classList.add("disabled");
+          if (idx === correctIdx) {
+            b.classList.add("correct");
+          } else if (idx === selectedIdx && !isCorrect) {
+            b.classList.add("incorrect");
+          }
+        });
+
+        // Show explanation
+        if (explanationBox) {
+          explanationBox.style.display = "block";
+          if (feedbackTitle) {
+            if (isCorrect) {
+              feedbackTitle.textContent = "✓ Correct!";
+              feedbackTitle.style.color = "#10b981";
+            } else {
+              feedbackTitle.textContent = "✕ Incorrect. Try studying the concept again!";
+              feedbackTitle.style.color = "#ef4444";
+            }
+          }
+        }
+
+        // If correct, save to localStorage
+        if (isCorrect && !masteredConcepts.includes(termSlug)) {
+          masteredConcepts.push(termSlug);
+          try {
+            localStorage.setItem("gstarcademy_concept_mastery", JSON.stringify(masteredConcepts));
+          } catch (e) {}
+
+          // Highlight the parent card
+          container.style.borderColor = "#10b981";
+          container.style.boxShadow = "0 8px 24px -4px rgba(16, 185, 129, 0.12)";
+        }
+      });
+    });
+  });
+})();
+
+// --- Article Helpfulness Feedback Widget ---
+(function initArticleFeedback() {
+  const container = document.querySelector("[data-feedback-container]");
+  if (!container) return;
+
+  const termSlug = container.getAttribute("data-term-slug");
+  const promptEl = container.querySelector("[data-feedback-prompt]");
+  const thankyouEl = container.querySelector("[data-feedback-thankyou]");
+  const buttons = container.querySelectorAll(".feedback-btn");
+
+  let votedArticles = [];
+  try {
+    votedArticles = JSON.parse(localStorage.getItem("gstarcademy_feedback_votes")) || [];
+  } catch (e) {}
+
+  if (votedArticles.includes(termSlug)) {
+    promptEl.style.display = "none";
+    thankyouEl.style.display = "block";
+    thankyouEl.textContent = "✓ You have already voted on this article. Thank you!";
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Save vote state locally
+      votedArticles.push(termSlug);
+      try {
+        localStorage.setItem("gstarcademy_feedback_votes", JSON.stringify(votedArticles));
+      } catch (e) {}
+
+      // Visual feedback
+      promptEl.style.display = "none";
+      thankyouEl.style.display = "block";
+    });
+  });
+})();
+
+
 

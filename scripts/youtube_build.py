@@ -66,6 +66,15 @@ def iso_duration_label(iso: str) -> str:
     return " ".join(parts)
 
 
+def iso_duration_seconds(iso: str) -> int:
+    """PT1H2M3S -> 3723 ; PT15M33S -> 933."""
+    m = re.match(r"^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$", iso or "")
+    if not m:
+        return 0
+    h, mn, s = (int(x) if x else 0 for x in m.groups())
+    return h * 3600 + mn * 60 + s
+
+
 def api_request(endpoint: str, params: dict[str, str], api_key: str) -> dict[str, Any]:
     q = dict(params)
     q["key"] = api_key
@@ -178,6 +187,7 @@ def merge_editorial(videos: list[dict[str, Any]], editorial: dict[str, Any]) -> 
         v["difficulty"] = str(ed.get("difficulty") or "").strip() or "—"
         v["price"] = "free"
         v["platform"] = "YouTube"
+        v["rating"] = float(ed.get("rating") or 4.6)
         tags = ed.get("tags")
         if isinstance(tags, list) and tags:
             v["tags"] = [str(t) for t in tags if str(t).strip()]
@@ -233,12 +243,19 @@ def render_youtube_html(
             # Meta string
             if platform == "YouTube":
                 channel = html.escape(v.get("channel_title") or "")
-                pub = html.escape((v.get("published_at") or "")[:10])
+                pub_raw = v.get("published_at") or ""
+                pub = html.escape(pub_raw[:10])
                 dur = html.escape(v.get("duration_label") or "")
                 meta_str = f"Source: YouTube · Channel: {channel} · Published: {pub} · Duration: {dur}"
+                dur_secs = iso_duration_seconds(v.get("duration_iso", ""))
+                published = pub if len(pub) == 10 else "2026-01-01"
             else:
                 meta_str = html.escape(v.get("meta_info") or "")
+                dur_secs = int(v.get("duration_minutes") or 60) * 60
+                pub_raw = v.get("published_at") or "2026-05-01"
+                published = pub_raw[:10]
                 
+            rating = float(v.get("rating") or 4.6)
             note = html.escape(v.get("editorial_note") or "")
             watch = html.escape(v.get("url") or "")
             if not watch and v.get("video_id") and platform == "YouTube":
@@ -253,7 +270,7 @@ def render_youtube_html(
             diff = html.escape(str(v.get("difficulty") or "—"))
 
             item_class = "tutorial-item tutorial-item--youtube" if platform == "YouTube" else "tutorial-item"
-            lines.append(f'            <article class="{item_class}" data-software="{soft.lower()}" data-task="{task.lower()}" data-level="{diff.lower()}" data-price="{price.lower()}">')
+            lines.append(f'            <article class="{item_class}" data-software="{soft.lower()}" data-task="{task.lower()}" data-level="{diff.lower()}" data-price="{price.lower()}" data-duration="{dur_secs}" data-rating="{rating}" data-published="{published}">')
             
             if v.get("thumbnail_url"):
                 thumb = html.escape(v["thumbnail_url"], quote=True)

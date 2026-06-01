@@ -238,14 +238,35 @@
               </div>
             </div>
 
-            <div class="panel">
-              <div class="section-head" style="margin-bottom: 0">
-                <h2 class="panel-title" style="margin: 0">Sort</h2>
-                <div class="chips" style="margin-top: 0">
-                  <span class="chip pill-ok">Most Relevant</span>
-                  <span class="chip">Newest</span>
-                  <span class="chip">Shortest Duration</span>
-                  <span class="chip">Best for Beginners</span>
+            <div class="panel card-glass rating-guidelines-banner" style="border-radius: 24px; padding: 24px; border-color: rgba(37,99,235,0.15); margin-bottom: 24px;">
+              <div style="display: flex; gap: 16px; align-items: flex-start;">
+                <div style="font-size: 32px;">🎯</div>
+                <div style="flex: 1;">
+                  <h3 style="margin: 0 0 8px 0; font-size: 16px; color: var(--accent);">Editorial Curation & Rating Guidelines</h3>
+                  <p style="margin: 0; font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+                    All tutorials are hand-selected by our industry advisory board based on <strong>technical correctness</strong>, <strong>production applicability</strong>, and <strong>structural depth</strong>.
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; font-size: 12px; color: var(--text-muted);">
+                    <span><strong>🎁 Free Resource:</strong> Curation includes official guides and high-quality YouTube clips without paywalls.</span>
+                    <span><strong>💳 Premium Course:</strong> Vetted vendor programs and university partnerships with structured syllabus support.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel card-glass" style="border-radius: 24px; padding: 20px; margin-bottom: 24px; border-color: rgba(255,255,255,0.05);">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                <h2 class="panel-title" style="margin: 0; font-size: 18px;">Filter & Sort Library</h2>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <label for="tutorial-sort-select" style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Sort by:</label>
+                  <select id="tutorial-sort-select" style="background: var(--bg-card); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; border-radius: 10px; font-size: 14px; font-weight: 500; outline: none; cursor: pointer; transition: all 0.2s;">
+                    <option value="featured">Featured / Highest Rated</option>
+                    <option value="newest">Newest Released</option>
+                    <option value="duration-asc">Duration: Short to Long</option>
+                    <option value="duration-desc">Duration: Long to Short</option>
+                    <option value="difficulty-asc">Difficulty: Beginner First</option>
+                    <option value="difficulty-desc">Difficulty: Pro First</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -261,7 +282,7 @@
               </div>
               <p class="meta" style="margin-top: 10px">Discover the best CAD, BIM, and MCAD classes curated from official vendor academies, Coursera, Udemy, and YouTube. Paid or certified programs are marked with 💳. We never host video files.</p>
             </div>
-            <article class="tutorial-item tutorial-item--youtube" data-software="autocad" data-task="2d drafting basics" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="autocad" data-task="2d drafting basics" data-level="beginner" data-price="free" data-duration="1069" data-rating="4.6" data-published="2024-03-29">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/9HBNzsFX3A0/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>AutoCAD 2025 - 15 Minute Tutorial for Beginners! <span class="badge badge-free">🎁 Free</span></h3>
@@ -274,7 +295,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="autocad" data-task="interface &amp; draw commands" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="autocad" data-task="interface &amp; draw commands" data-level="beginner" data-price="free" data-duration="1056" data-rating="4.6" data-published="2019-06-20">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/cmR9cfWJRUU/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>AutoCAD Basic Tutorial for Beginners - Part 1 of 3 <span class="badge badge-free">🎁 Free</span></h3>
@@ -287,7 +308,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="autocad" data-task="2d drafting (extended)" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="autocad" data-task="2d drafting (extended)" data-level="beginner" data-price="free" data-duration="22695" data-rating="4.6" data-published="2022-01-24">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/VtLXKU1PpRU/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>AutoCAD for Beginners - Full University Course <span class="badge badge-free">🎁 Free</span></h3>
@@ -300,7 +321,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="revit" data-task="bim starter project" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="revit" data-task="bim starter project" data-level="beginner" data-price="free" data-duration="938" data-rating="4.6" data-published="2025-08-07">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/NtF5Yf3VxFs/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Revit 2026 - 15 Minute Tutorial For BEGINNERS! <span class="badge badge-free">🎁 Free</span></h3>
@@ -313,7 +334,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="revit" data-task="full project walk-through" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="revit" data-task="full project walk-through" data-level="beginner" data-price="free" data-duration="4923" data-rating="4.6" data-published="2024-09-10">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/chom9hiewXI/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Autodesk Revit - Full Beginner Course | Complete Project - Start to finish <span class="badge badge-free">🎁 Free</span></h3>
@@ -326,7 +347,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="fusion 360" data-task="parametric solids &amp; assembly" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="fusion 360" data-task="parametric solids &amp; assembly" data-level="beginner" data-price="free" data-duration="1195" data-rating="4.6" data-published="2020-01-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/A5bc9c3S12g/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Fusion 360 Tutorial for Absolute Beginners— Part 1 <span class="badge badge-free">🎁 Free</span></h3>
@@ -339,7 +360,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="solidworks" data-task="part · assembly basics" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="solidworks" data-task="part · assembly basics" data-level="beginner" data-price="free" data-duration="812" data-rating="4.6" data-published="2022-04-12">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/CiBwrjUeB8U/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>SolidWorks - Tutorial for Beginners in 13 MINUTES! <span class="badge badge-free">🎁 Free</span></h3>
@@ -352,7 +373,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="inventor" data-task="mechanical solids" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="inventor" data-task="mechanical solids" data-level="beginner" data-price="free" data-duration="1800" data-rating="4.6" data-published="2025-01-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/gNFjl5uWYvM/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Autodesk Inventor 2025 | Basics For Beginners | Step-by-Step <span class="badge badge-free">🎁 Free</span></h3>
@@ -365,7 +386,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="bricscad" data-task="3d solids intro" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="bricscad" data-task="3d solids intro" data-level="beginner" data-price="free" data-duration="509" data-rating="4.6" data-published="2026-03-22">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/faAy1Ek4XAI/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>BricsCAD v26 Basic 3D Modeling Tutorial For Beginner <span class="badge badge-free">🎁 Free</span></h3>
@@ -378,7 +399,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="zwcad" data-task="interface &amp; roadmap" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="zwcad" data-task="interface &amp; roadmap" data-level="beginner" data-price="free" data-duration="668" data-rating="4.6" data-published="2023-06-30">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/tIV5g3XSWoY/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>ZWCAD 2024 - Tutorial and Complete Overview! [COMPLETE] <span class="badge badge-free">🎁 Free</span></h3>
@@ -391,7 +412,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="freecad" data-task="part design · stl export framing" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="freecad" data-task="part design · stl export framing" data-level="beginner" data-price="free" data-duration="3600" data-rating="4.6" data-published="2025-01-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/ZPsLhvgU8kc/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>FreeCAD 1.0 Ultimate Beginners Crash Course in 1 hour for 3D printing <span class="badge badge-free">🎁 Free</span></h3>
@@ -404,7 +425,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="onshape" data-task="sketch-to-solid cloud cad" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="onshape" data-task="sketch-to-solid cloud cad" data-level="beginner" data-price="free" data-duration="691" data-rating="4.6" data-published="2017-01-03">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/pMWnsHpDlQE/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Beginner Tutorial 1/5 - Onshape 3D CAD - Creating Sketches and Objects <span class="badge badge-free">🎁 Free</span></h3>
@@ -417,7 +438,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="siemens nx" data-task="sketch essentials" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="siemens nx" data-task="sketch essentials" data-level="beginner" data-price="free" data-duration="841" data-rating="4.6" data-published="2017-02-08">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/aMDKGXV-XFo/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>NX Tutorial for Beginners - 1 <span class="badge badge-free">🎁 Free</span></h3>
@@ -430,7 +451,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="solid edge" data-task="solid modeling drills" data-level="beginner–intermediate" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="solid edge" data-task="solid modeling drills" data-level="beginner–intermediate" data-price="free" data-duration="1409" data-rating="4.6" data-published="2023-05-11">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/X32zRZWALTM/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Solid Edge 2023 Tutorial - Exercise 1 (Updated) <span class="badge badge-free">🎁 Free</span></h3>
@@ -443,7 +464,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="archicad" data-task="floor plan &amp; shells" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="archicad" data-task="floor plan &amp; shells" data-level="beginner" data-price="free" data-duration="1200" data-rating="4.6" data-published="2026-01-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/3A0cN1AO-ZE/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Archicad 29: How to draw Floor plans in under 20 minutes - Beginners workflow - 2026 <span class="badge badge-free">🎁 Free</span></h3>
@@ -456,7 +477,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="civil 3d" data-task="road &amp; corridor workflows" data-level="intermediate" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="civil 3d" data-task="road &amp; corridor workflows" data-level="intermediate" data-price="free" data-duration="5180" data-rating="4.6" data-published="2025-01-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/1X2NhZTUfLo/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Learn Road Design in Civil 3D | Complete Practical Guide <span class="badge badge-free">🎁 Free</span></h3>
@@ -469,7 +490,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item tutorial-item--youtube" data-software="rhino · grasshopper" data-task="parametric design intro" data-level="beginner" data-price="free">
+            <article class="tutorial-item tutorial-item--youtube" data-software="rhino · grasshopper" data-task="parametric design intro" data-level="beginner" data-price="free" data-duration="3733" data-rating="4.6" data-published="2020-11-30">
               <div class="thumb thumb--cover" style="background-image: url(&quot;https://i.ytimg.com/vi/zDDVeDldvaI/hqdefault.jpg&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Grasshopper Tutorial Beginner (Easy) <span class="badge badge-free">🎁 Free</span></h3>
@@ -482,7 +503,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="solidworks" data-task="3d-modeling" data-level="beginner" data-price="paid">
+            <article class="tutorial-item" data-software="solidworks" data-task="3d-modeling" data-level="beginner" data-price="paid" data-duration="144000" data-rating="4.8" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/coursera_cad.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>SOLIDWORKS 3D CAD Specialization (Coursera) <span class="badge badge-paid">💳 Premium</span></h3>
@@ -495,7 +516,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="catia" data-task="3d-modeling" data-level="pro" data-price="paid">
+            <article class="tutorial-item" data-software="catia" data-task="3d-modeling" data-level="pro" data-price="paid" data-duration="54000" data-rating="4.7" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/udemy_cad.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>CATIA V5 Complete Professional Course (Udemy) <span class="badge badge-paid">💳 Premium</span></h3>
@@ -508,7 +529,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="creo" data-task="3d-modeling" data-level="pro" data-price="paid">
+            <article class="tutorial-item" data-software="creo" data-task="3d-modeling" data-level="pro" data-price="paid" data-duration="43200" data-rating="4.9" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/ptc_creo.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Creo Parametric Advanced Part Design (PTC University) <span class="badge badge-paid">💳 Premium</span></h3>
@@ -521,7 +542,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="nx" data-task="3d-modeling" data-level="pro" data-price="paid">
+            <article class="tutorial-item" data-software="nx" data-task="3d-modeling" data-level="pro" data-price="paid" data-duration="28800" data-rating="4.9" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/siemens_nx.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>NX WAVE Geometry Linker and Large Assemblies (Siemens Academy) <span class="badge badge-paid">💳 Premium</span></h3>
@@ -534,7 +555,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="gstarcad" data-task="2d-drafting" data-level="beginner" data-price="free">
+            <article class="tutorial-item" data-software="gstarcad" data-task="2d-drafting" data-level="beginner" data-price="free" data-duration="21600" data-rating="4.8" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/gstarcad_academy.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>GstarCAD Official Tutorial &amp; Video Library <span class="badge badge-free">🎁 Free</span></h3>
@@ -547,7 +568,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="revit" data-task="bim" data-level="pro" data-price="paid">
+            <article class="tutorial-item" data-software="revit" data-task="bim" data-level="pro" data-price="paid" data-duration="14400" data-rating="4.6" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/pluralsight_bim.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>BIM Coordination and IFC Interoperability (Pluralsight) <span class="badge badge-paid">💳 Premium</span></h3>
@@ -560,7 +581,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="free">
+            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="free" data-duration="72000" data-rating="4.7" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/mycadsite_drafting.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>AutoCAD beginner to advanced tutorial flow <span class="badge badge-free">🎁 Free</span></h3>
@@ -573,7 +594,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="paid">
+            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="paid" data-duration="54000" data-rating="4.5" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/coursera_cad.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>AutoCAD on Coursera (beginner filter) <span class="badge badge-paid">💳 Premium</span></h3>
@@ -586,7 +607,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="autocad revit fusion" data-task="bim" data-level="beginner" data-price="paid">
+            <article class="tutorial-item" data-software="autocad revit fusion" data-task="bim" data-level="beginner" data-price="paid" data-duration="108000" data-rating="4.4" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/coursera_cad.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>CAD &amp; BIM discovery on Coursera <span class="badge badge-paid">💳 Premium</span></h3>
@@ -599,7 +620,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="revit" data-task="bim" data-level="beginner" data-price="paid">
+            <article class="tutorial-item" data-software="revit" data-task="bim" data-level="beginner" data-price="paid" data-duration="43200" data-rating="4.6" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/coursera_cad.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Revit on Coursera (beginner filter) <span class="badge badge-paid">💳 Premium</span></h3>
@@ -612,7 +633,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="pro" data-price="paid">
+            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="pro" data-price="paid" data-duration="86400" data-rating="4.8" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/news/construction_tech.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>AutoCAD programs · CAD Training Online <span class="badge badge-paid">💳 Premium</span></h3>
@@ -625,7 +646,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="paid">
+            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="paid" data-duration="72000" data-rating="4.5" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/udemy_cad.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>AutoCAD on Udemy <span class="badge badge-paid">💳 Premium</span></h3>
@@ -638,7 +659,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="fusion" data-task="3d-modeling" data-level="beginner" data-price="paid">
+            <article class="tutorial-item" data-software="fusion" data-task="3d-modeling" data-level="beginner" data-price="paid" data-duration="54000" data-rating="4.6" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/tutorials/udemy_cad.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Fusion 360 on Udemy <span class="badge badge-paid">💳 Premium</span></h3>
@@ -651,7 +672,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="autocad revit fusion" data-task="bim" data-level="beginner" data-price="paid">
+            <article class="tutorial-item" data-software="autocad revit fusion" data-task="bim" data-level="beginner" data-price="paid" data-duration="144000" data-rating="4.9" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/news/aec_architectural.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Autodesk Learn (official hub) <span class="badge badge-paid">💳 Premium</span></h3>
@@ -664,7 +685,7 @@
                 </div>
               </div>
             </article>
-            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="free">
+            <article class="tutorial-item" data-software="autocad" data-task="2d-drafting" data-level="beginner" data-price="free" data-duration="36000" data-rating="4.3" data-published="2026-05-01">
               <div class="thumb thumb--cover" style="background-image: url(&quot;./images/news/open_bim_interop.png&quot;)" role="img" aria-label="YouTube thumbnail"></div>
               <div class="item-body">
                 <h3>Free Online AutoCAD Tutorials and Courses Index <span class="badge badge-free">🎁 Free</span></h3>

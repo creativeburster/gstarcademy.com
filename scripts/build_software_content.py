@@ -37,7 +37,7 @@ CONCEPTS_DIR = ROOT / "kb" / "concepts"
 SOFTWARE_DIR = ROOT / "kb" / "software"
 VENDORS_DIR = ROOT / "kb" / "vendors"
 SITE_URL = "https://learncad.io"
-CSS_VER = "v11_cad_graph_stability"
+CSS_VER = "v12_roadmap_sorting_credibility"
 
 CONCEPTS_DIR.mkdir(parents=True, exist_ok=True)
 SOFTWARE_DIR.mkdir(parents=True, exist_ok=True)
@@ -870,6 +870,44 @@ def enrich_concept_body(term: dict, software: dict) -> list[str]:
     return extra_sections
 
 
+def render_quiz(quiz_data: list[dict], term_slug: str) -> str:
+    if not quiz_data:
+        return ""
+    
+    parts = []
+    parts.append(f'<section class="kb-concept-section kb-quiz-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">')
+    parts.append(f'  <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">⚡ Concept Self-Test</h2>')
+    parts.append(f'  <p style="font-size: 14.5px; color: var(--ink-text-soft); margin-bottom: 20px;">Test your understanding of this concept to lock in your memory. Completing this quiz will automatically sync to your career learning progress.</p>')
+    
+    for q_idx, q in enumerate(quiz_data):
+        question_text = esc(q["question"])
+        correct_idx = q["answer_idx"]
+        explanation = esc(q["explanation"])
+        
+        parts.append(f'  <div class="kb-quiz-card" data-quiz-container data-term-slug="{term_slug}" data-correct-idx="{correct_idx}" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); position: relative; overflow: hidden; margin-bottom: 16px;">')
+        parts.append(f'    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: #818cf8; letter-spacing: 0.05em; margin-bottom: 12px;">Question {q_idx + 1}</div>')
+        parts.append(f'    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--ink-text); margin: 0 0 16px 0; line-height: 1.4;">{question_text}</h3>')
+        
+        parts.append(f'    <div class="kb-quiz-options" style="display: grid; gap: 10px; margin-bottom: 16px;">')
+        for opt_idx, opt in enumerate(q["options"]):
+            opt_text = esc(opt)
+            parts.append(f'      <button class="kb-quiz-option-btn" data-option-idx="{opt_idx}" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">')
+            parts.append(f'        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">{chr(65 + opt_idx)}</span>')
+            parts.append(f'        <span>{opt_text}</span>')
+            parts.append(f'      </button>')
+        parts.append(f'    </div>')
+        
+        parts.append(f'    <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">')
+        parts.append(f'      <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>')
+        parts.append(f'      <div data-feedback-text>{explanation}</div>')
+        parts.append(f'    </div>')
+        
+        parts.append(f'  </div>')
+        
+    parts.append(f'</section>')
+    return "\n".join(parts)
+
+
 def render_concept(term: dict, software: dict, editorial: dict, all_terms_index: dict[str, str], all_tutorials: list[dict] = None) -> str:
     """Render a single concept term HTML page."""
     title = term["title"]
@@ -993,9 +1031,41 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
     sw_slug = software["slug"]
     chip = f'<span class="chip pill-warn">Atomic Knowledge · {sw_name}</span>'
 
+    reviewer_id = term.get("reviewer_id", software.get("default_reviewer_id", "lc-editorial"))
+    team_desks = {t["id"]: t for t in editorial["editorial_team"]}
+    rev_orig = team_desks.get(reviewer_id) or team_desks.get("lc-editorial")
+    credentials_list = rev_orig.get("credentials") or []
+    credentials_html = "".join(f"<li>{esc(c)}</li>" for c in credentials_list)
+
     byline = f"""<div class="ink-byline" role="contentinfo">
           <span><strong>By</strong> {esc(editorial['editorial_team'][0]['name'])}</span>
-          <span><strong>Reviewed by</strong> {esc(reviewer['name']) if reviewer else 'Gstarcademy Editorial Team'}</span>
+          <span class="verified-reviewer-container">
+            <strong>Reviewed by</strong> 
+            <span class="reviewer-badge-trigger">
+              {esc(rev_orig['name'])} 
+              <span class="verified-badge-icon">✓</span>
+            </span>
+            <div class="reviewer-popover-card">
+              <div class="reviewer-popover-header">
+                <span class="reviewer-popover-name">{esc(rev_orig['name'])}</span>
+                <span class="reviewer-popover-role">{esc(rev_orig['role'])}</span>
+              </div>
+              <div class="reviewer-popover-body">
+                <p class="reviewer-popover-bio">{esc(rev_orig['bio'])}</p>
+                <div class="reviewer-popover-meta">
+                  <div class="reviewer-popover-meta-item">
+                    <strong>Experience:</strong> {esc(rev_orig.get('experience_years', '10+'))} years
+                  </div>
+                  <div class="reviewer-popover-meta-item">
+                    <strong>Credentials:</strong>
+                    <ul class="reviewer-popover-credentials">
+                      {credentials_html}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
           <span><strong>Last reviewed</strong> <time datetime="{last_reviewed}">{last_reviewed}</time></span>
           <span><a href="../../about.html#editorial-process">Editorial process</a></span>
         </div>"""
@@ -1003,12 +1073,30 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
     faq_accordion_html = render_faq_accordion(get_relevant_faqs(term, software), sw_name)
     spotlight_card_html = render_spotlight_card(software)
     knowledge_tree_html = render_knowledge_tree(term, software, related_terms, all_terms_index)
+    quiz_html = render_quiz(term.get("quiz"), slug)
 
     recommended_tutorials_html = ""
     if all_tutorials:
         matched_tuts = find_matching_tutorials(term, software, all_tutorials)
         recommended_tutorials_html = render_recommended_tutorials(matched_tuts)
 
+    feedback_html = f"""
+        <section class="kb-feedback-section" data-feedback-container data-term-slug="{slug}" style="margin-top: 32px; padding: 20px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--line); text-align: center;">
+          <div data-feedback-prompt style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+            <span style="font-size: 14px; font-weight: 600; color: var(--text);">Was this conceptual reference clear and helpful?</span>
+            <div style="display: flex; gap: 12px; justify-content: center;">
+              <button class="btn feedback-btn" data-feedback-type="yes" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+                👍 Yes
+              </button>
+              <button class="btn feedback-btn" data-feedback-type="no" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+                👎 Needs Improvement
+              </button>
+            </div>
+          </div>
+          <div data-feedback-thankyou style="display: none; font-size: 13px; font-weight: 500; color: #10b981;">
+            ✓ Thank you for your feedback! Your input helps shape the CAD curriculum.
+          </div>
+        </section>"""
 
     return f"""<!doctype html>
 <html lang="en">
@@ -1054,11 +1142,15 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
 
         {faq_accordion_html}
 
+        {quiz_html}
+
         {recommended_tutorials_html}
 
         {knowledge_tree_html}
 
         {sources_html}
+
+        {feedback_html}
 
         <p class="meta" style="margin-top: 36px; font-size: 12px;">{esc(editorial['license_note'])}</p>
       </article>

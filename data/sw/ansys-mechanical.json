@@ -80,7 +80,20 @@
         "Sweeping overly complex topologies without partitioning",
         "Ignoring element aspect ratio limits."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Hexahedral Structural Meshing (Mechanical), which of the following represents a common technical pitfall?",
+          "options": [
+            "Sweeping overly complex topologies without partitioning.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Sweeping overly complex topologies without partitioning.' As the editorial review notes: 'Essential for high-cycle fatigue and fracture mechanics where precise surface stress tensors are required. Without it, tetrahedral meshes will exhibit shear locking and artificial stiffness.'"
+        }
+      ]
     },
     {
       "slug": "mechanical-nonlinear-contact",
@@ -92,7 +105,20 @@
         "Over-constraining contacts leading to penetration or convergence failure",
         "Setting excessive contact stiffness scaling."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Frictional Nonlinear Contacts (Mechanical), which of the following represents a common technical pitfall?",
+          "options": [
+            "Over-constraining contacts leading to penetration or convergence failure.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Over-constraining contacts leading to penetration or convergence failure.' As the editorial review notes: 'Critical for realistic bolt pretension, press-fit assemblies, and moving joint simulations. Without it, linear bonded assumptions will artificially stiffen the structure and hide peak local stresses.'"
+        }
+      ]
     }
   ],
   "faqs": [

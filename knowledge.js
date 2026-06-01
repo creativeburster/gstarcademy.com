@@ -2114,11 +2114,168 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       "DELMIA Simulation": "./kb/concepts/delmia-digital-mfg.html"
     };
 
+    const getPreReqs = (id) => {
+      const s = new Set();
+      if (!id) return s;
+      links.forEach(([a, b]) => {
+        if (a === id) s.add(b);
+      });
+      return s;
+    };
+
+    const getNextSteps = (id) => {
+      const s = new Set();
+      if (!id) return s;
+      links.forEach(([a, b]) => {
+        if (b === id) s.add(a);
+      });
+      return s;
+    };
+
+    function fillGraphDetails(d) {
+      const preReqsEl = document.getElementById("kbInfoPreReqs");
+      const preReqsBlock = document.getElementById("kbInfoPreReqsBlock");
+      const nextStepsEl = document.getElementById("kbInfoNextSteps");
+      const nextStepsBlock = document.getElementById("kbInfoNextStepsBlock");
+      const tutsEl = document.getElementById("kbInfoTutorials");
+      const tutsBlock = document.getElementById("kbInfoTutorialsBlock");
+      
+      const infoTitle = document.getElementById("kbInfoTitle");
+      const infoDesc = document.getElementById("kbInfoDesc");
+
+      if (infoTitle) infoTitle.textContent = d.id;
+      if (infoDesc) infoDesc.textContent = d.hint || "";
+
+      // 1. Pre-requisites
+      if (preReqsEl && preReqsBlock) {
+        preReqsEl.innerHTML = "";
+        const preReqs = getPreReqs(d.id);
+        if (preReqs.size > 0) {
+          preReqsBlock.style.display = "block";
+          preReqs.forEach(name => {
+            const a = document.createElement("a");
+            a.href = `?${GRAPH_NODE_Q}=${encodeURIComponent(name)}`;
+            a.className = "kb-tag";
+            a.textContent = name;
+            a.addEventListener("click", (e) => {
+              e.preventDefault();
+              const nd = simNodes.find((x) => x.id === name);
+              if (nd) selectGraphNode(nd, { replaceURL: false, zoom: true });
+            });
+            preReqsEl.appendChild(a);
+          });
+        } else {
+          preReqsBlock.style.display = "none";
+        }
+      }
+
+      // 2. Next Steps
+      if (nextStepsEl && nextStepsBlock) {
+        nextStepsEl.innerHTML = "";
+        const nextSteps = getNextSteps(d.id);
+        if (nextSteps.size > 0) {
+          nextStepsBlock.style.display = "block";
+          nextSteps.forEach(name => {
+            const a = document.createElement("a");
+            a.href = `?${GRAPH_NODE_Q}=${encodeURIComponent(name)}`;
+            a.className = "kb-tag";
+            a.textContent = name;
+            a.addEventListener("click", (e) => {
+              e.preventDefault();
+              const nd = simNodes.find((x) => x.id === name);
+              if (nd) selectGraphNode(nd, { replaceURL: false, zoom: true });
+            });
+            nextStepsEl.appendChild(a);
+          });
+        } else {
+          nextStepsBlock.style.display = "none";
+        }
+      }
+
+      // 3. Top Curated Tutorials
+      if (tutsEl && tutsBlock) {
+        tutsEl.innerHTML = "";
+        
+        const topTutorialsMap = {
+          "BIM": [
+            { title: "BIM Coordination & IFC Interoperability", url: "https://www.pluralsight.com/courses/revit-bim-coordination", platform: "Pluralsight 💳" },
+            { title: "Revit 2026 - 15 Minute Tutorial for Beginners", url: "https://www.youtube.com/watch?v=NtF5Yf3VxFs", platform: "YouTube 🎁" }
+          ],
+          "AutoCAD": [
+            { title: "AutoCAD 2025 - 15 Minute Tutorial for Beginners", url: "https://www.youtube.com/watch?v=9HBNzsFX3A0", platform: "YouTube 🎁" },
+            { title: "myCADsite Free AutoCAD Flow", url: "https://www.mycadsite.com/", platform: "myCADsite 🎁" }
+          ],
+          "Revit": [
+            { title: "Autodesk Revit - Full Beginner Course", url: "https://www.youtube.com/watch?v=chom9hiewXI", platform: "YouTube 🎁" },
+            { title: "BIM Coordination & IFC Interoperability", url: "https://www.pluralsight.com/courses/revit-bim-coordination", platform: "Pluralsight 💳" }
+          ],
+          "SOLIDWORKS": [
+            { title: "SOLIDWORKS 3D CAD Specialization", url: "https://www.coursera.org/specializations/solidworks-3d-cad", platform: "Coursera 💳" },
+            { title: "SolidWorks Tutorial in 13 Minutes", url: "https://www.youtube.com/watch?v=CiBwrjUeB8U", platform: "YouTube 🎁" }
+          ],
+          "Fusion 360": [
+            { title: "Fusion 360 Tutorial for Absolute Beginners", url: "https://www.youtube.com/watch?v=A5bc9c3S12g", platform: "YouTube 🎁" },
+            { title: "Fusion 360 on Udemy", url: "https://www.udemy.com/topic/fusion-360/", platform: "Udemy 💳" }
+          ],
+          "Creo Parametric": [
+            { title: "Creo Parametric Advanced Part Design", url: "https://www.ptc.com/en/support/university", platform: "PTC Learn 💳" }
+          ],
+          "GstarCAD": [
+            { title: "GstarCAD Official Tutorial & Video Library", url: "https://www.gstarcad.net/support/", platform: "Gstarsoft 🎁" }
+          ],
+          "Civil 3D": [
+            { title: "Learn Road Design in Civil 3D", url: "https://www.youtube.com/watch?v=1X2NhZTUfLo", platform: "YouTube 🎁" }
+          ]
+        };
+
+        const matchingTuts = topTutorialsMap[d.id] || [];
+        
+        if (matchingTuts.length > 0) {
+          tutsBlock.style.display = "block";
+          matchingTuts.forEach(tut => {
+            const div = document.createElement("div");
+            div.style.background = "rgba(255,255,255,0.03)";
+            div.style.border = "1px solid var(--line-soft)";
+            div.style.padding = "10px 12px";
+            div.style.borderRadius = "8px";
+            div.style.display = "flex";
+            div.style.justifyContent = "space-between";
+            div.style.alignItems = "center";
+            div.style.gap = "8px";
+            
+            div.innerHTML = `
+              <div style="display:flex; flex-direction:column; gap:2px;">
+                <span style="font-size:12px; font-weight:600; color:var(--text);">${tut.title}</span>
+                <span style="font-size:11px; color:var(--muted);">${tut.platform}</span>
+              </div>
+              <a href="${tut.url}" target="_blank" rel="noopener noreferrer" class="btn" style="font-size:10px; padding:4px 8px; border-radius:6px; flex-shrink:0;">Open →</a>
+            `;
+            tutsEl.appendChild(div);
+          });
+        } else {
+          tutsBlock.style.display = "block";
+          const div = document.createElement("div");
+          div.style.background = "rgba(255,255,255,0.02)";
+          div.style.border = "1px solid var(--line-soft)";
+          div.style.padding = "10px 12px";
+          div.style.borderRadius = "8px";
+          div.style.textAlign = "center";
+          
+          div.innerHTML = `
+            <p style="font-size:12px; margin:0 0 6px 0; color:var(--muted);">No specific custom tutorials mapped yet.</p>
+            <a href="./tutorials.html?q=${encodeURIComponent(d.id)}" class="btn" style="font-size:11px; padding:6px 12px; width:100%; box-sizing:border-box;">Search all tutorials for "${d.id}" →</a>
+          `;
+          tutsEl.appendChild(div);
+        }
+      }
+    }
+
     function selectGraphNode(d, opts) {
       const o = opts || {};
       const doZoom = o.zoom !== false;
       const replaceURL = !!o.replaceURL;
       const silentURL = !!o.silentURL;
+      selectedId = d.id;
       const actions = document.getElementById("kbInfoActions");
       const detailsBtn = document.getElementById("kbViewDetailsBtn");
       if (actions && detailsBtn) {
@@ -2138,6 +2295,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
         }
       }
 
+      fillGraphDetails(d);
       fillGraphRelatedLinks([...neighborIds(d.id)].slice(0, 8));
       fillGraphPathLinkList(beginnerPath);
       document.title = (() => {
@@ -2164,6 +2322,14 @@ if (document.body.getAttribute("data-page") === "knowledge") {
           : "Select a node, tag, or card to inspect connected concepts.";
       const actions = document.getElementById("kbInfoActions");
       if (actions) actions.style.display = "none";
+      
+      const preReqsBlock = document.getElementById("kbInfoPreReqsBlock");
+      const nextStepsBlock = document.getElementById("kbInfoNextStepsBlock");
+      const tutsBlock = document.getElementById("kbInfoTutorialsBlock");
+      if (preReqsBlock) preReqsBlock.style.display = "none";
+      if (nextStepsBlock) nextStepsBlock.style.display = "none";
+      if (tutsBlock) tutsBlock.style.display = "none";
+
       fillGraphRelatedLinks([]);
       updateGraphPresentation();
       if (pushHistory) writeGraphNodeURL("", !!replaceHist);

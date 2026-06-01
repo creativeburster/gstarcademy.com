@@ -80,7 +80,20 @@
         "Using high aspect ratio cells in boundary layers",
         "Neglecting cell quality metrics like skewness and orthogonal quality."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Unstructured CFD Meshing (Fluent), which of the following represents a common technical pitfall?",
+          "options": [
+            "Using high aspect ratio cells in boundary layers.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Using high aspect ratio cells in boundary layers.' As the editorial review notes: 'Crucial for capturing boundary layer aerodynamics and heat transfer gradient fluxes. Without it, calculation results will suffer from numerical diffusion, false convergence, or instability.'"
+        }
+      ]
     },
     {
       "slug": "fluent-turbulence-model",
@@ -92,7 +105,20 @@
         "Applying standard wall functions where low-Re resolving is needed",
         "Mismatched inlet turbulence intensity bounds."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with SST k-omega Turbulence Model (Fluent), which of the following represents a common technical pitfall?",
+          "options": [
+            "Applying standard wall functions where low-Re resolving is needed.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Applying standard wall functions where low-Re resolving is needed.' As the editorial review notes: 'Provides a reliable baseline for industrial fluid separation, wing drag, and pipe throat simulations. Without it, standard standard k-epsilon solvers will over-predict turbulent viscosity and fail to capture vortex shedding.'"
+        }
+      ]
     }
   ],
   "faqs": [

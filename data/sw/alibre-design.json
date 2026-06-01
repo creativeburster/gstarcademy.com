@@ -84,7 +84,20 @@
         "Manually overriding values in drawing sheets instead of changing the driving parameters in the equations editor.",
         "Using static values for geometry that changes frequently during product revisions."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Parametric Dimension Driver (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Manually overriding values in drawing sheets instead of changing the driving parameters in the equations editor.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Manually overriding values in drawing sheets instead of changing the driving parameters in the equations editor.' As the editorial review notes: 'Mastering Parametric Dimension Driver is critical for production-grade deliverables. Directly controls the regeneration computation logic of complex parts, allowing structural changes in downstream models to propagate cleanly without breaking feature references.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-2",
@@ -96,7 +109,20 @@
         "Over-constraining sketches, causing solver deadlocks.",
         "Neglecting tangency constraints at fillet junctions, leading to G0 continuity sharp edges."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Geometric Constraints (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Over-constraining sketches, causing solver deadlocks.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Over-constraining sketches, causing solver deadlocks.' As the editorial review notes: 'Mastering Geometric Constraints is critical for production-grade deliverables. Establishes the parametric coordinate baseline for sketches, ensuring that downstream features recompute predictably when core variables are modified.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-3",
@@ -108,7 +134,20 @@
         "Suppressing vital parent features, which breaks all downstream children.",
         "Blindly inserting features high in the history stack, causing reference loss."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Feature History Tree (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Suppressing vital parent features, which breaks all downstream children.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Suppressing vital parent features, which breaks all downstream children.' As the editorial review notes: 'Mastering Feature History Tree is critical for production-grade deliverables. Directly influences assembly regeneration efficiency; optimized trees reduce coordinate computation and memory-constrained drafting pipelines overhead.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-4",
@@ -120,7 +159,20 @@
         "Applying conflicting mates, causing the solver to error.",
         "Using redundant mates that slow down the loading of heavy assemblies."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Assembly Mates (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Applying conflicting mates, causing the solver to error.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Applying conflicting mates, causing the solver to error.' As the editorial review notes: 'Mastering Assembly Mates is critical for production-grade deliverables. Directly impacts BOM export accuracy and kinematic simulations, ensuring that parts sit flush and fit together without physical clash.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-5",
@@ -132,7 +184,20 @@
         "Creating self-intersecting loops in sketches, producing illegal non-manifold solids.",
         "Mixing B-Rep solids and mesh geometries blindly without translation."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with B-Rep Solid Engine (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Creating self-intersecting loops in sketches, producing illegal non-manifold solids.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Creating self-intersecting loops in sketches, producing illegal non-manifold solids.' As the editorial review notes: 'Mastering B-Rep Solid Engine is critical for production-grade deliverables. Ensures perfect compatibility when exporting designs as STEP or IGES formats for downstream CNC or injection mold fabrication.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-6",
@@ -144,7 +209,20 @@
         "Using an incorrect bend radius that is physically impossible to form on the shop brake.",
         "Neglecting K-factor values when unfolding thin sheet metal parts."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Sheet Metal Flanges (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Using an incorrect bend radius that is physically impossible to form on the shop brake.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Using an incorrect bend radius that is physically impossible to form on the shop brake.' As the editorial review notes: 'Mastering Sheet Metal Flanges is critical for production-grade deliverables. Directly affects CNC laser cut flat patterns, ensuring sheet parts fold into correct physical boundaries without structural interference.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-7",
@@ -156,7 +234,20 @@
         "Manually drawing line details over projected views, breaking the 3D model associativity.",
         "Plotting sheets without configuring standard line scale metrics."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with 2D Drafting Sheets (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Manually drawing line details over projected views, breaking the 3D model associativity.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Manually drawing line details over projected views, breaking the 3D model associativity.' As the editorial review notes: 'Mastering 2D Drafting Sheets is critical for production-grade deliverables. Acts as the contract deliverable for manufacturing, translating raw virtual solids into standardized, toleranced shop floor instructions.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-8",
@@ -168,7 +259,20 @@
         "Using global variables that persist across sessions.",
         "Skipping exception handling in scripts, causing CAD crashes."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Alibre Script (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Using global variables that persist across sessions.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Using global variables that persist across sessions.' As the editorial review notes: 'Mastering Alibre Script is critical for production-grade deliverables. Speeds up the modeling of highly repetitive or family-based part series, reducing modeling hours to seconds.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-9",
@@ -180,7 +284,20 @@
         "Creating circular references in equations, causing solver errors.",
         "Naming parameters arbitrarily without naming standards (e.g. Var1, Var2)."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Equations Editor (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Creating circular references in equations, causing solver errors.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Creating circular references in equations, causing solver errors.' As the editorial review notes: 'Mastering Equations Editor is critical for production-grade deliverables. Enables the modular scaling of parts (e.g. changing one width changes the height proportionally via formulas), facilitating product line standardization.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-10",
@@ -192,7 +309,20 @@
         "Adding new features without choosing whether they apply to all configurations or only the active one.",
         "Overcomplicating configuration trees, causing file corruption."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Configurations Manager (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Adding new features without choosing whether they apply to all configurations or only the active one.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Adding new features without choosing whether they apply to all configurations or only the active one.' As the editorial review notes: 'Mastering Configurations Manager is critical for production-grade deliverables. Reduces data management bloat by letting one file represent an entire family of components (e.g., standard bolt series).\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-11",
@@ -204,7 +334,20 @@
         "Using catalog features with mismatched units (e.g. metric catalog on imperial part).",
         "Broken file references to the master catalog path."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Catalog Features (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Using catalog features with mismatched units (e.g. metric catalog on imperial part).",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Using catalog features with mismatched units (e.g. metric catalog on imperial part).' As the editorial review notes: 'Mastering Catalog Features is critical for production-grade deliverables. Saves design time by preventing the manual sketching of standardized details, ensuring company-wide feature consistency.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-12",
@@ -216,7 +359,20 @@
         "Publishing extremely large assemblies without geometry decimation, locking up recipients' PDF viewers.",
         "Omitting key dimensions in the PDF view."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with 3D PDF Publishing (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Publishing extremely large assemblies without geometry decimation, locking up recipients' PDF viewers.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Publishing extremely large assemblies without geometry decimation, locking up recipients' PDF viewers.' As the editorial review notes: 'Mastering 3D PDF Publishing is critical for production-grade deliverables. Improves client communication and review cycles by providing high-fidelity visual representations without exposing raw, proprietary CAD files.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-13",
@@ -228,7 +384,20 @@
         "Modeling physical helical cuts for standard fasteners, which drastically bloats file size.",
         "Mismatched pitch values between male and female parts."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Thread Creator (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Modeling physical helical cuts for standard fasteners, which drastically bloats file size.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Modeling physical helical cuts for standard fasteners, which drastically bloats file size.' As the editorial review notes: 'Mastering Thread Creator is critical for production-grade deliverables. Directly determines whether assemblies screw together properly and guides automated fastener selection.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-14",
@@ -240,7 +409,20 @@
         "Exporting assemblies with tiny gaps, resulting in imported solid surfaces being split into open shells.",
         "Choosing old STEP versions that ignore metadata."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with STEP/IGES Translation (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Exporting assemblies with tiny gaps, resulting in imported solid surfaces being split into open shells.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Exporting assemblies with tiny gaps, resulting in imported solid surfaces being split into open shells.' As the editorial review notes: 'Mastering STEP/IGES Translation is critical for production-grade deliverables. Ensures perfect CAD-to-CAM transition, allowing downstream CNC operations to read precise topological boundaries without geometric data loss.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     },
     {
       "slug": "alibre-design-term-15",
@@ -252,7 +434,20 @@
         "Applying booleans to disjoint bodies that do not touch, creating errors in downstream fillets.",
         "Forgetting to preserve tool bodies when subtracting geometry."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Design Booleans (Alibre Design), which of the following represents a common technical pitfall?",
+          "options": [
+            "Applying booleans to disjoint bodies that do not touch, creating errors in downstream fillets.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Applying booleans to disjoint bodies that do not touch, creating errors in downstream fillets.' As the editorial review notes: 'Mastering Design Booleans is critical for production-grade deliverables. Essential for mold core and cavity design, where product geometry is subtracted from solid blocks to define manufacturing tooling.\n\nWithout it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.'"
+        }
+      ]
     }
   ],
   "faqs": [

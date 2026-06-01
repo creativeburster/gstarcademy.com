@@ -82,7 +82,20 @@
         "Over-grading edge transitions causing large cell expansion ratios",
         "Misordering block vertex indices causing inverted element errors."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with blockMesh Mesh Generator (OpenFOAM), which of the following represents a common technical pitfall?",
+          "options": [
+            "Over-grading edge transitions causing large cell expansion ratios.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Over-grading edge transitions causing large cell expansion ratios.' As the editorial review notes: 'Guarantees 100% control over cell structure, grading, and alignment along flow vectors, crucial for laminar-to-turbulent transition analysis. Without it, automated tet meshing will introduce artificial turbulence dissipation.'"
+        }
+      ]
     },
     {
       "slug": "openfoam-controldict",
@@ -94,7 +107,20 @@
         "Setting step sizes that violate the CFL condition",
         "Forgetting to purge old time step outputs, filling up hard drives."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with controlDict Configuration Dictionary (OpenFOAM), which of the following represents a common technical pitfall?",
+          "options": [
+            "Setting step sizes that violate the CFL condition.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Setting step sizes that violate the CFL condition.' As the editorial review notes: 'Acts as the central cockpit for solver execution, logging, and data output formats. Without it, the OpenFOAM execution shell cannot load numerical schemes or save solver results.'"
+        }
+      ]
     }
   ],
   "faqs": [

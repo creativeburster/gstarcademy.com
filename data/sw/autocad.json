@@ -5,17 +5,44 @@
   "tagline": "The original commercial CAD platform — still the lingua franca of DWG-based 2D documentation across AEC, mechanical, and infrastructure work.",
   "meta_desc": "AutoCAD profile: what it is, where it's used, learning path, licensing, ecosystem, common pitfalls, plus 18 deep-dive terms and 18 FAQs reviewed by Gstarcademy editors.",
   "category_label": "DesignApplication",
-  "vendor": {"slug": "autodesk", "name": "Autodesk"},
+  "vendor": {
+    "slug": "autodesk",
+    "name": "Autodesk"
+  },
   "first_released": "December 1982",
   "current_track": "Annual release cadence — AutoCAD 2025 ships with specialized toolsets (Architecture, Mechanical, Electrical, MEP, Plant 3D, Map 3D, Raster Design)",
   "license_model": "Subscription only since 2016. Named-user single-seat, Flex tokens for occasional users. AutoCAD LT was folded into the AutoCAD subscription in 2024.",
-  "platforms": ["Windows", "macOS (subset)", "Web (AutoCAD Web App)", "iOS / Android (AutoCAD mobile)"],
-  "file_formats": ["DWG (native)", "DXF (interchange)", "DWS (standards)", "DWT (templates)", "DWF/DWFx", "PDF", "IFC (limited)"],
-  "primary_alternatives": ["BricsCAD", "GstarCAD", "ZWCAD", "DraftSight", "progeCAD"],
-  "domains": ["AEC", "Mechanical detailing", "MEP", "Civil documentation", "Survey & mapping (Map 3D)"],
+  "platforms": [
+    "Windows",
+    "macOS (subset)",
+    "Web (AutoCAD Web App)",
+    "iOS / Android (AutoCAD mobile)"
+  ],
+  "file_formats": [
+    "DWG (native)",
+    "DXF (interchange)",
+    "DWS (standards)",
+    "DWT (templates)",
+    "DWF/DWFx",
+    "PDF",
+    "IFC (limited)"
+  ],
+  "primary_alternatives": [
+    "BricsCAD",
+    "GstarCAD",
+    "ZWCAD",
+    "DraftSight",
+    "progeCAD"
+  ],
+  "domains": [
+    "AEC",
+    "Mechanical detailing",
+    "MEP",
+    "Civil documentation",
+    "Survey & mapping (Map 3D)"
+  ],
   "last_reviewed": "2026-05-24",
   "default_reviewer_id": "lc-aec-review",
-
   "profile": {
     "what_it_is": "AutoCAD is a general-purpose computer-aided drafting platform centered on the DWG drawing format. It is file-based CAD — every project is one or more DWG files containing entities (lines, polylines, blocks, text, annotations) organised by layers and plotted from layout sheets.\n\nUnlike model-based BIM tools, AutoCAD does not impose a domain ontology. A wall, a beam, a battery, and a contour line are all graphical objects on layers until you assign meaning via blocks, attributes, layer naming, or extended entity data. This flexibility is exactly why AutoCAD became the workhorse documentation tool for so many industries — and why undisciplined AutoCAD files become unmaintainable so quickly.\n\nModern AutoCAD subscriptions ship with **specialised toolsets** (Architecture, Mechanical, Electrical, MEP, Plant 3D, Map 3D, Raster Design). These add domain-specific commands and content libraries on top of the same drawing engine, so one license can target multiple verticals without switching applications.",
     "where_used": "AutoCAD remains the contract-deliverable tool in many AEC offices: sealed sheets, redlines, as-builts, and consultant exchanges still travel as DWGs. In mechanical shops it survives as the dimensioned detail and fabrication-drawing tool even when 3D modelling moves to Inventor or SOLIDWORKS. Civil teams use base AutoCAD plus Civil 3D for corridors, alignments, and grading. Survey and GIS work uses Map 3D for coordinate systems and topology.\n\nOutside the Autodesk-centric world, DWG files are still the de-facto exchange format with regulators, fabricators, surveyors, and clients who do not own modelling software.",
@@ -25,22 +52,54 @@
     "common_pitfalls": "**Plotting from model space.** Beginners plot whole drawings at 1:50 from model space, then discover that text scales break when reused. The correct discipline is layouts + viewports + annotative objects almost always.\n\n**Layer chaos.** Once a project has 800 ad-hoc layers, layer-state restores and standards enforcement become impractical. Establish a layer naming convention (NCS, BS-1192, AIA-CAD) before geometry hits the file.\n\n**Exploded blocks.** Exploding a block to 'fix' it destroys reusability and breaks XREF updates downstream. Edit in place (REFEDIT/BEDIT) instead.\n\n**Mixing units.** Inserting an imperial block into a metric drawing without checking INSUNITS produces silent 25.4× scale errors. Always confirm units and use insertion-units behaviour explicitly.\n\n**Treating DWG as the model of record when it isn't.** If your project is BIM, the BIM model is the source — do not let a CAD detail diverge silently from the model.",
     "when_to_use_vs_alternative": "Use AutoCAD when (a) the deliverable contract is DWG sheets, (b) you need a tool whose file format is universally readable, (c) the project does not justify a full BIM workflow, or (d) you need a familiar drafting environment for non-CAD-specialist contributors.\n\nChoose a model-based tool (Revit / ArchiCAD / Civil 3D / Inventor / SOLIDWORKS) when project intelligence — schedules, clash detection, parametrics, fabrication BOMs — needs to live in the model. Choose a DWG-compatible alternative (BricsCAD, GstarCAD, ZWCAD) when subscription cost or platform availability is the primary constraint, accepting that LISP and ObjectARX support varies.",
     "recommended_learning_path": [
-      {"stage": "Week 1 — Foundations", "focus": "Interface, command line, line/polyline/offset/trim/fillet, dimensioning, units. Save and open DWG. Print one sheet from model space just to feel it before learning the right way."},
-      {"stage": "Week 2 — Layers & layouts", "focus": "Layer creation, color/lineweight, [layer states](./layer-states-autocad.html), layouts and [paper space viewports](./paper-space-autocad.html), [annotative objects](./annotative-objects.html). Plot a sheet with multiple scales correctly."},
-      {"stage": "Week 3 — Blocks & references", "focus": "Static blocks, [dynamic blocks](./dynamic-blocks-autocad.html), [block attributes](./attributes-blocks.html), [XREFs](./xref-autocad.html), DWG compare. Reuse, do not duplicate."},
-      {"stage": "Week 4 — Drawing standards", "focus": "DWS standards files, [Sheet Set Manager](./sheet-set-manager.html), [plot styles](./plot-style.html), templates. Move from one-off drawings to a coordinated set."},
-      {"stage": "Month 2 — Automation", "focus": "Command aliases, [CUI customization](./cui-autocad.html), [AutoLISP basics](./autolisp.html), [parametric constraints](./constraints-autocad.html). Cut repeat clicks by an order of magnitude."},
-      {"stage": "Month 3+ — Domain depth", "focus": "Pick one specialised toolset (Architecture, Mechanical, MEP, Plant 3D, Map 3D) and learn its discipline-specific commands and content libraries. This is where productivity multiplies."}
+      {
+        "stage": "Week 1 — Foundations",
+        "focus": "Interface, command line, line/polyline/offset/trim/fillet, dimensioning, units. Save and open DWG. Print one sheet from model space just to feel it before learning the right way."
+      },
+      {
+        "stage": "Week 2 — Layers & layouts",
+        "focus": "Layer creation, color/lineweight, [layer states](./layer-states-autocad.html), layouts and [paper space viewports](./paper-space-autocad.html), [annotative objects](./annotative-objects.html). Plot a sheet with multiple scales correctly."
+      },
+      {
+        "stage": "Week 3 — Blocks & references",
+        "focus": "Static blocks, [dynamic blocks](./dynamic-blocks-autocad.html), [block attributes](./attributes-blocks.html), [XREFs](./xref-autocad.html), DWG compare. Reuse, do not duplicate."
+      },
+      {
+        "stage": "Week 4 — Drawing standards",
+        "focus": "DWS standards files, [Sheet Set Manager](./sheet-set-manager.html), [plot styles](./plot-style.html), templates. Move from one-off drawings to a coordinated set."
+      },
+      {
+        "stage": "Month 2 — Automation",
+        "focus": "Command aliases, [CUI customization](./cui-autocad.html), [AutoLISP basics](./autolisp.html), [parametric constraints](./constraints-autocad.html). Cut repeat clicks by an order of magnitude."
+      },
+      {
+        "stage": "Month 3+ — Domain depth",
+        "focus": "Pick one specialised toolset (Architecture, Mechanical, MEP, Plant 3D, Map 3D) and learn its discipline-specific commands and content libraries. This is where productivity multiplies."
+      }
     ]
   },
-
   "sources": [
-    {"label": "AutoCAD product overview", "url": "https://www.autodesk.com/products/autocad/overview", "publisher": "Autodesk"},
-    {"label": "AutoCAD Help (online)", "url": "https://help.autodesk.com/view/ACD/2025/ENU/", "publisher": "Autodesk Knowledge Network"},
-    {"label": "AutoLISP Reference", "url": "https://help.autodesk.com/view/OARX/2025/ENU/", "publisher": "Autodesk"},
-    {"label": "DWG file format technical overview", "url": "https://www.opendesign.com/", "publisher": "Open Design Alliance"}
+    {
+      "label": "AutoCAD product overview",
+      "url": "https://www.autodesk.com/products/autocad/overview",
+      "publisher": "Autodesk"
+    },
+    {
+      "label": "AutoCAD Help (online)",
+      "url": "https://help.autodesk.com/view/ACD/2025/ENU/",
+      "publisher": "Autodesk Knowledge Network"
+    },
+    {
+      "label": "AutoLISP Reference",
+      "url": "https://help.autodesk.com/view/OARX/2025/ENU/",
+      "publisher": "Autodesk"
+    },
+    {
+      "label": "DWG file format technical overview",
+      "url": "https://www.opendesign.com/",
+      "publisher": "Open Design Alliance"
+    }
   ],
-
   "terms": [
     {
       "slug": "paper-space-autocad",
@@ -55,7 +114,24 @@
         "Confusing the PSLTSCALE and MSLTSCALE system variables, which control linetype scaling in viewports.",
         "Using non-annotative text and ending up with multiple copies of every label at different sizes."
       ],
-      "related_term_slugs": ["annotative-objects", "plot-style", "sheet-set-manager"]
+      "related_term_slugs": [
+        "annotative-objects",
+        "plot-style",
+        "sheet-set-manager"
+      ],
+      "quiz": [
+        {
+          "question": "What is the best-practice setup for plotting annotations and sheet titles in AutoCAD layouts?",
+          "options": [
+            "Draw the sheet title block in model space at 1:1, scale it up by 100x, and place annotations inside model space.",
+            "Draft the sheet border and title block at 1:1 in paper space, using locked viewports to scale and display model-space geometry.",
+            "Avoid layouts entirely and plot directly from model space using manual annotation scale overrides.",
+            "Configure a different CTB file for every drawing viewport and scale coordinates by hand."
+          ],
+          "answer_idx": 1,
+          "explanation": "Best practice is to draw layout sheets and title blocks at 1:1 in Paper Space, placing viewports to scale and view the underlying 1:1 Model Space geometry, then locking the viewport scale."
+        }
+      ]
     },
     {
       "slug": "xref-autocad",
@@ -69,7 +145,24 @@
         "Layer prefix collisions when multiple XREFs use the same layer names.",
         "Not using XREF clip to limit the visible portion — full referenced files slow drawing performance."
       ],
-      "related_term_slugs": ["paper-space-autocad", "sheet-set-manager", "dwg-file-format"]
+      "related_term_slugs": [
+        "paper-space-autocad",
+        "sheet-set-manager",
+        "dwg-file-format"
+      ],
+      "quiz": [
+        {
+          "question": "Why are XREFs preferred over copying and pasting shared geometry in host CAD drawings?",
+          "options": [
+            "XREFs automatically merge block attributes and assign random colors to avoid drawing overlapping.",
+            "XREFs keep host files lightweight and ensure that modifications in the referenced file propagate automatically on reload.",
+            "XREFs explode dynamic blocks upon insertion to optimize GPU rendering performance.",
+            "XREFs convert drawing coordinates to GIS latitude and longitude coordinates automatically."
+          ],
+          "answer_idx": 1,
+          "explanation": "XREFs maintain external links to DWGs rather than copying their entities locally. This keeps host drawing databases compact and ensures all concurrent modifications reload automatically."
+        }
+      ]
     },
     {
       "slug": "dynamic-blocks-autocad",
@@ -83,7 +176,24 @@
         "Mixing visibility parameters with lookup tables in confusing ways.",
         "Not constraining the block geometrically — dragging a grip can yield invalid shapes."
       ],
-      "related_term_slugs": ["attributes-blocks", "constraints-autocad", "data-extraction"]
+      "related_term_slugs": [
+        "attributes-blocks",
+        "constraints-autocad",
+        "data-extraction"
+      ],
+      "quiz": [
+        {
+          "question": "Which of the following is true regarding Dynamic Blocks in AutoCAD?",
+          "options": [
+            "Dynamic Blocks contain parametric grips, lookup tables, and visibility actions, but do not carry native BIM database schedules.",
+            "Dynamic Blocks automatically inherit 3D BIM structural constraints and sync coordination scales.",
+            "Dynamic Blocks remain fully parametric even after executing the EXPLODE command.",
+            "Dynamic Blocks cannot be customized or edited once saved in the active DWG database."
+          ],
+          "answer_idx": 0,
+          "explanation": "Dynamic Blocks offer excellent graphical intelligence (grips, stretches, lookup states) but are not full BIM database objects; also, exploding them completely destroys their parametric behavior."
+        }
+      ]
     },
     {
       "slug": "sheet-set-manager",
@@ -96,7 +206,24 @@
         "Storing the .dst file on a path that other team members cannot reach.",
         "Renaming layout tabs after registration — breaks SSM references silently."
       ],
-      "related_term_slugs": ["paper-space-autocad", "plot-style", "xref-autocad"]
+      "related_term_slugs": [
+        "paper-space-autocad",
+        "plot-style",
+        "xref-autocad"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Sheet Set Manager (SSM), which of the following represents a common technical pitfall?",
+          "options": [
+            "Editing title blocks inside individual DWGs instead of letting SSM fields fill them — defeats the purpose.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Editing title blocks inside individual DWGs instead of letting SSM fields fill them — defeats the purpose.' As the editorial review notes: 'On any project larger than a dozen sheets, the SSM replaces manual title-block updating and 'which sheet am I on again?' chaos. It also produces the sheet index page that almost every drawing set needs.'"
+        }
+      ]
     },
     {
       "slug": "layer-states-autocad",
@@ -109,7 +236,23 @@
         "Confusing layer states with layer filters, which are search-based selections rather than property snapshots.",
         "Saving states with absolute viewport overrides, then wondering why they don't apply in model space."
       ],
-      "related_term_slugs": ["paper-space-autocad", "xref-autocad"]
+      "related_term_slugs": [
+        "paper-space-autocad",
+        "xref-autocad"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Layer States, which of the following represents a common technical pitfall?",
+          "options": [
+            "Forgetting that XREF layers can override — local layer state may not apply to referenced geometry as expected.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Forgetting that XREF layers can override — local layer state may not apply to referenced geometry as expected.' As the editorial review notes: 'Layer states convert 'flip-many-layers-by-hand' tasks into a single click. A typical use: an 'ARCH plan presentation' layer state hides MEP/structural layers; a 'demolition phase' state changes existing layers to red dashed. Without layer states, multi-phase or multi-discipline DWGs degrade into ad-hoc layer scrolling.'"
+        }
+      ]
     },
     {
       "slug": "annotative-objects",
@@ -122,7 +265,23 @@
         "Adding too many scales to one annotative object and creating visual clutter in model space.",
         "Forgetting that annotative hatches scale per viewport, which can produce surprising fill density."
       ],
-      "related_term_slugs": ["paper-space-autocad", "plot-style"]
+      "related_term_slugs": [
+        "paper-space-autocad",
+        "plot-style"
+      ],
+      "quiz": [
+        {
+          "question": "What is the primary function of Annotative scaling in AutoCAD?",
+          "options": [
+            "It automatically changes the lineweight of objects based on printing paper size.",
+            "It scales annotations (text, dimensions, hatches) to display at identical plotted sizes across viewports of different scales.",
+            "It converts text fonts to vectors to make PDFs searchable.",
+            "It locks the coordinate systems of XREFs to align with model space."
+          ],
+          "answer_idx": 1,
+          "explanation": "Annotative scaling lets text, dimensions, and blocks resize themselves relative to the viewport scale. This ensures a 2.5mm text note plots at exactly 2.5mm whether viewed at 1:100 or 1:20."
+        }
+      ]
     },
     {
       "slug": "autolisp",
@@ -135,7 +294,23 @@
         "Editing acad.lsp instead of acaddoc.lsp (different load points, different behaviour).",
         "Forgetting that AutoLISP is per-document — global state has to be managed explicitly."
       ],
-      "related_term_slugs": ["cui-autocad", "data-extraction"]
+      "related_term_slugs": [
+        "cui-autocad",
+        "data-extraction"
+      ],
+      "quiz": [
+        {
+          "question": "What happens when you load and execute an AutoLISP script in a multi-document CAD environment?",
+          "options": [
+            "The LISP script acts globally across all active workgroups and projects.",
+            "AutoLISP is document-specific; its variables and functions load into the active drawing's namespace and must be reloaded for other drawings.",
+            "The script compiled binary code directly into the CPU core caches.",
+            "The script requires a continuous cloud connection to execute ObjectARX interfaces."
+          ],
+          "answer_idx": 1,
+          "explanation": "AutoLISP operates within the context of a single document's memory namespace. To run automation across multiple drawings, scripts are typically auto-loaded via 'acaddoc.lsp' or batch utilities like ScriptPro."
+        }
+      ]
     },
     {
       "slug": "dwg-file-format",
@@ -148,7 +323,23 @@
         "Trusting file-size as a proxy for content complexity — embedded PDFs and rasters can balloon DWG size.",
         "Not running PURGE and AUDIT before issuing — leaks staff workspace settings, anonymous blocks, unused styles."
       ],
-      "related_term_slugs": ["dxf-file-format", "xref-autocad"]
+      "related_term_slugs": [
+        "dxf-file-format",
+        "xref-autocad"
+      ],
+      "quiz": [
+        {
+          "question": "When working with DWG File Format, which of the following represents a common technical pitfall?",
+          "options": [
+            "Sending current-format DWGs to clients on older releases without saving down.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Sending current-format DWGs to clients on older releases without saving down.' As the editorial review notes: 'Choosing the right DWG version for outgoing files matters: a 2018-format DWG sent to a consultant on AutoCAD 2010 won't open. The SAVEAS dialog lets you save down. Equally, signing off on a contract DWG without checking what is inside (purgeable junk, anonymous blocks, embedded raster) is a quality control miss.'"
+        }
+      ]
     },
     {
       "slug": "dxf-file-format",
@@ -161,7 +352,22 @@
         "Choosing ASCII DXF for very large drawings — file size explodes and parse time grows.",
         "Forgetting that DXF supports the entity model but not every AutoCAD object type — proxy graphics lose intelligence."
       ],
-      "related_term_slugs": ["dwg-file-format"]
+      "related_term_slugs": [
+        "dwg-file-format"
+      ],
+      "quiz": [
+        {
+          "question": "When working with DXF File Format, which of the following represents a common technical pitfall?",
+          "options": [
+            "Round-tripping DWG → DXF → DWG and losing object-specific data (e.g., dynamic block parameters).",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Round-tripping DWG → DXF → DWG and losing object-specific data (e.g., dynamic block parameters).' As the editorial review notes: 'DXF is the safest hand-off when you don't know what software the recipient will use. It is also the easiest format to script against: a few hundred lines of code can read or write DXF without a CAD kernel.'"
+        }
+      ]
     },
     {
       "slug": "ucs-coordinate-systems",
@@ -174,7 +380,22 @@
         "Using UCS World mid-command and getting unexpected geometry orientation.",
         "Mixing dynamic input (which is UCS-relative by default) with absolute world coordinates."
       ],
-      "related_term_slugs": ["paper-space-autocad"]
+      "related_term_slugs": [
+        "paper-space-autocad"
+      ],
+      "quiz": [
+        {
+          "question": "When working with User Coordinate System (UCS), which of the following represents a common technical pitfall?",
+          "options": [
+            "Forgetting to restore WCS before plotting from a rotated UCS — title block can plot crooked.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Forgetting to restore WCS before plotting from a rotated UCS — title block can plot crooked.' As the editorial review notes: 'Without UCS, drafting on rotated buildings or on 3D faces is unworkable. Misunderstanding UCS is also the root of 'why is my line not flat?' errors in 3D.'"
+        }
+      ]
     },
     {
       "slug": "polyline-autocad",
@@ -187,7 +408,22 @@
         "Using PEDIT Join with a tolerance too small to capture nearly-coincident endpoints.",
         "Editing 2D polylines with PEDIT and 3D polylines with 3DPOLY-specific commands by mistake."
       ],
-      "related_term_slugs": ["dynamic-input"]
+      "related_term_slugs": [
+        "dynamic-input"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Polyline (AutoCAD), which of the following represents a common technical pitfall?",
+          "options": [
+            "Confusing polyline width with linetype/lineweight — they look similar but plot differently.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Confusing polyline width with linetype/lineweight — they look similar but plot differently.' As the editorial review notes: 'Closed polylines are how AutoCAD knows what a room or a plot is for area calculations and hatching. Polyline width is how to draft electrical busbars, plot boundaries, or thick boundary lines without manually offset-and-fill.'"
+        }
+      ]
     },
     {
       "slug": "dynamic-input",
@@ -200,7 +436,22 @@
         "Toggling F12 by accident and not noticing input behaviour changed.",
         "Using polar relative entry (@) habits in Dynamic Input where it isn't needed."
       ],
-      "related_term_slugs": ["polyline-autocad"]
+      "related_term_slugs": [
+        "polyline-autocad"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Dynamic Input (AutoCAD), which of the following represents a common technical pitfall?",
+          "options": [
+            "Forgetting to prepend # for absolute coordinates when Dynamic Input is on.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Forgetting to prepend # for absolute coordinates when Dynamic Input is on.' As the editorial review notes: 'Dynamic Input speeds drafting for users who like to look at the cursor rather than the command line. It also changes how to enter precise coordinates — knowing the convention prevents 'why didn't my line go to 100,100?' confusion.'"
+        }
+      ]
     },
     {
       "slug": "cui-autocad",
@@ -213,7 +464,22 @@
         "Distributing CUIs without packaging the linked LISP or DCL files — buttons that 'do nothing' on other machines.",
         "Forgetting to export CUI before re-imaging a workstation."
       ],
-      "related_term_slugs": ["autolisp"]
+      "related_term_slugs": [
+        "autolisp"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Customize User Interface (CUI), which of the following represents a common technical pitfall?",
+          "options": [
+            "Editing the base AutoCAD .cuix instead of building a partial CUI — upgrade overwrites your customisation.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Editing the base AutoCAD .cuix instead of building a partial CUI — upgrade overwrites your customisation.' As the editorial review notes: 'A shop's productivity is often determined by its CUI customisation more than by individual user skill. Three keystrokes saved per command, multiplied by thousands of commands per day, compounds into measurable shop-wide hours.'"
+        }
+      ]
     },
     {
       "slug": "plot-style",
@@ -226,7 +492,23 @@
         "Editing colors instead of plot styles, then wondering why a 'fix' didn't change the output.",
         "Sending out the DWG without the plot style — recipient plots with their own CTB."
       ],
-      "related_term_slugs": ["paper-space-autocad", "annotative-objects"]
+      "related_term_slugs": [
+        "paper-space-autocad",
+        "annotative-objects"
+      ],
+      "quiz": [
+        {
+          "question": "What is the key difference between color-dependent (.ctb) and named (.stb) plot styles?",
+          "options": [
+            "CTB files map plotting settings directly to entity index colors, while STB files assign style definitions independent of color.",
+            "CTB works for raster layouts, whereas STB works exclusively for vector plotting.",
+            "CTB styles can only plot in black and white, while STB allows full true color.",
+            "CTB is used for 3D modeling projections, and STB is limited to 2D drafting sheets."
+          ],
+          "answer_idx": 0,
+          "explanation": "CTB (Color-Dependent) maps the 255 AutoCAD color index codes directly to lineweights and plotted colors. STB (Style-Dependent) decouples plotting representation from entity color, allowing more flexible styling."
+        }
+      ]
     },
     {
       "slug": "data-extraction",
@@ -239,7 +521,23 @@
         "Extracting from drawings with mismatched attribute tags — silently produces blank columns.",
         "Letting the extracted table drift from the source data because it was inserted without 'link to data' enabled."
       ],
-      "related_term_slugs": ["attributes-blocks", "dynamic-blocks-autocad"]
+      "related_term_slugs": [
+        "attributes-blocks",
+        "dynamic-blocks-autocad"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Data Extraction (AutoCAD), which of the following represents a common technical pitfall?",
+          "options": [
+            "Forgetting to include nested blocks when the schedule needs them.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Forgetting to include nested blocks when the schedule needs them.' As the editorial review notes: 'Data extraction is how an AutoCAD-only shop produces bills of materials, fixture schedules, door schedules, and quantity takeoffs without a separate database. It turns block attributes into actual data deliverables.'"
+        }
+      ]
     },
     {
       "slug": "attributes-blocks",
@@ -252,7 +550,23 @@
         "Locking attribute position when the block scales — labels go off-target.",
         "Not synchronising attribute changes across all instances after a definition edit (ATTSYNC)."
       ],
-      "related_term_slugs": ["data-extraction", "dynamic-blocks-autocad"]
+      "related_term_slugs": [
+        "data-extraction",
+        "dynamic-blocks-autocad"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Block Attributes, which of the following represents a common technical pitfall?",
+          "options": [
+            "Confusing attribute tag, prompt, and default value when authoring the block.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Confusing attribute tag, prompt, and default value when authoring the block.' As the editorial review notes: 'Attributes turn graphic blocks into data carriers: title blocks with sheet metadata, equipment tags with part numbers, room blocks with occupancy. Without them, AutoCAD drawings carry no structured data.'"
+        }
+      ]
     },
     {
       "slug": "constraints-autocad",
@@ -265,7 +579,22 @@
         "Mixing constraints with absolute geometry edits — the latter break the former.",
         "Forgetting to hide constraint bars before plotting."
       ],
-      "related_term_slugs": ["dynamic-blocks-autocad"]
+      "related_term_slugs": [
+        "dynamic-blocks-autocad"
+      ],
+      "quiz": [
+        {
+          "question": "How do CAD parametric constraints differ from standard drawing geometry?",
+          "options": [
+            "Constraints enforce geometric or dimensional rules that govern object behavior, maintaining design relationships under edits.",
+            "Constraints convert 2D lines into high-performance 3D STL meshes automatically.",
+            "Constraints bypass AutoCAD's coordinates and save files in raw cloud formats.",
+            "Constraints lock the entire DWG database, preventing any further user edits."
+          ],
+          "answer_idx": 0,
+          "explanation": "Parametric constraints apply mathematical rules (parallelism, concentricity, exact distance formulas) to elements so that altering one part updates related elements automatically."
+        }
+      ]
     },
     {
       "slug": "mtext-autocad",
@@ -278,10 +607,24 @@
         "Using MTEXT columns without setting column width to a sensible value.",
         "Relying on inline color overrides instead of using a dedicated text style and layer."
       ],
-      "related_term_slugs": ["annotative-objects"]
+      "related_term_slugs": [
+        "annotative-objects"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Multiline Text (MTEXT), which of the following represents a common technical pitfall?",
+          "options": [
+            "Mixing DTEXT and MTEXT in the same notes block — selection and editing become inconsistent.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Mixing DTEXT and MTEXT in the same notes block — selection and editing become inconsistent.' As the editorial review notes: 'MTEXT replaces single-line DTEXT in almost every modern AutoCAD workflow because it carries formatting and fields. Sheet borders, notes blocks, and revision tables almost always use MTEXT.'"
+        }
+      ]
     }
   ],
-
   "faqs": [
     {
       "question": "Is AutoCAD LT still sold separately?",
@@ -356,32 +699,172 @@
       "answer": "Both convert an XREF into local geometry, but BIND keeps named objects (layers, blocks) prefixed by the original file (XREFNAME$0$LAYERNAME) while INSERT merges them into the host's name table by stripping the prefix. BIND is safer (no name collisions); INSERT can produce cleaner result if names already align. Both break the live link."
     }
   ],
-
   "graph_nodes": [
-    {"id": "AutoCAD", "type": "product", "tags": ["autodesk", "drafting", "dwg"], "hint": "Autodesk's flagship DWG-based CAD platform — file-based 2D drafting and detail 3D.", "group": 1, "radius": 14},
-    {"id": "AutoCAD Paper Space", "type": "concept", "tags": ["autocad", "layout", "plot"], "hint": "Layout-based plotting environment with viewports.", "group": 2, "radius": 9},
-    {"id": "AutoCAD XREF Tree", "type": "skill", "tags": ["autocad", "collaboration"], "hint": "Multi-discipline external-reference workflow.", "group": 2, "radius": 9},
-    {"id": "AutoCAD Dynamic Block", "type": "concept", "tags": ["autocad", "blocks"], "hint": "Parametric reusable blocks with grips and lookups.", "group": 2, "radius": 9},
-    {"id": "AutoCAD Sheet Set", "type": "skill", "tags": ["autocad", "documentation"], "hint": "Coordinated multi-sheet document management.", "group": 2, "radius": 9},
-    {"id": "AutoCAD Annotative Scale", "type": "concept", "tags": ["autocad", "plotting"], "hint": "Auto-scaling annotations across viewports.", "group": 2, "radius": 9},
-    {"id": "AutoCAD AutoLISP", "type": "sdk", "tags": ["autocad", "automation"], "hint": "Embedded Lisp dialect for AutoCAD scripting.", "group": 2, "radius": 9},
-    {"id": "AutoCAD Plot Styles", "type": "concept", "tags": ["autocad", "plotting"], "hint": "CTB / STB plot-style configuration.", "group": 2, "radius": 9},
-    {"id": "AutoCAD Data Extraction", "type": "skill", "tags": ["autocad", "schedules"], "hint": "Extract block attributes to tables/CSV.", "group": 2, "radius": 9},
-    {"id": "AutoCAD Constraints", "type": "concept", "tags": ["autocad", "parametric"], "hint": "Geometric and dimensional constraints.", "group": 2, "radius": 9}
+    {
+      "id": "AutoCAD",
+      "type": "product",
+      "tags": [
+        "autodesk",
+        "drafting",
+        "dwg"
+      ],
+      "hint": "Autodesk's flagship DWG-based CAD platform — file-based 2D drafting and detail 3D.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "AutoCAD Paper Space",
+      "type": "concept",
+      "tags": [
+        "autocad",
+        "layout",
+        "plot"
+      ],
+      "hint": "Layout-based plotting environment with viewports.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "AutoCAD XREF Tree",
+      "type": "skill",
+      "tags": [
+        "autocad",
+        "collaboration"
+      ],
+      "hint": "Multi-discipline external-reference workflow.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "AutoCAD Dynamic Block",
+      "type": "concept",
+      "tags": [
+        "autocad",
+        "blocks"
+      ],
+      "hint": "Parametric reusable blocks with grips and lookups.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "AutoCAD Sheet Set",
+      "type": "skill",
+      "tags": [
+        "autocad",
+        "documentation"
+      ],
+      "hint": "Coordinated multi-sheet document management.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "AutoCAD Annotative Scale",
+      "type": "concept",
+      "tags": [
+        "autocad",
+        "plotting"
+      ],
+      "hint": "Auto-scaling annotations across viewports.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "AutoCAD AutoLISP",
+      "type": "sdk",
+      "tags": [
+        "autocad",
+        "automation"
+      ],
+      "hint": "Embedded Lisp dialect for AutoCAD scripting.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "AutoCAD Plot Styles",
+      "type": "concept",
+      "tags": [
+        "autocad",
+        "plotting"
+      ],
+      "hint": "CTB / STB plot-style configuration.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "AutoCAD Data Extraction",
+      "type": "skill",
+      "tags": [
+        "autocad",
+        "schedules"
+      ],
+      "hint": "Extract block attributes to tables/CSV.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "AutoCAD Constraints",
+      "type": "concept",
+      "tags": [
+        "autocad",
+        "parametric"
+      ],
+      "hint": "Geometric and dimensional constraints.",
+      "group": 2,
+      "radius": 9
+    }
   ],
   "graph_links": [
-    ["AutoCAD Paper Space", "AutoCAD"],
-    ["AutoCAD XREF Tree", "AutoCAD"],
-    ["AutoCAD Dynamic Block", "AutoCAD"],
-    ["AutoCAD Sheet Set", "AutoCAD"],
-    ["AutoCAD Annotative Scale", "AutoCAD"],
-    ["AutoCAD AutoLISP", "AutoCAD"],
-    ["AutoCAD Plot Styles", "AutoCAD"],
-    ["AutoCAD Data Extraction", "AutoCAD"],
-    ["AutoCAD Constraints", "AutoCAD"],
-    ["AutoCAD", "Autodesk"],
-    ["AutoCAD Sheet Set", "AutoCAD Paper Space"],
-    ["AutoCAD Annotative Scale", "AutoCAD Paper Space"],
-    ["AutoCAD Data Extraction", "AutoCAD Dynamic Block"]
+    [
+      "AutoCAD Paper Space",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD XREF Tree",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD Dynamic Block",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD Sheet Set",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD Annotative Scale",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD AutoLISP",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD Plot Styles",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD Data Extraction",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD Constraints",
+      "AutoCAD"
+    ],
+    [
+      "AutoCAD",
+      "Autodesk"
+    ],
+    [
+      "AutoCAD Sheet Set",
+      "AutoCAD Paper Space"
+    ],
+    [
+      "AutoCAD Annotative Scale",
+      "AutoCAD Paper Space"
+    ],
+    [
+      "AutoCAD Data Extraction",
+      "AutoCAD Dynamic Block"
+    ]
   ]
 }

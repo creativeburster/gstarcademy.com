@@ -5,17 +5,47 @@
   "tagline": "Autodesk's cloud-native unified design-and-make platform — parametric/direct hybrid modelling, CAM, sheet metal, simulation, electronics, and generative design in one subscription.",
   "meta_desc": "Fusion 360 profile: cloud-CAD workflow, parametric vs. direct, CAM toolpaths, generative design, licensing, plus 16 deep-dive terms and 16 FAQs reviewed by Gstarcademy editors.",
   "category_label": "DesignApplication",
-  "vendor": {"slug": "autodesk", "name": "Autodesk"},
+  "vendor": {
+    "slug": "autodesk",
+    "name": "Autodesk"
+  },
   "first_released": "2013",
   "current_track": "Continuous cloud release — bi-weekly to monthly updates rather than annual versions",
   "license_model": "Subscription (single-user). Personal-use tier free for hobbyists with reduced features. Education free. Extensions (Manufacturing, Simulation, Generative Design, Nesting & Fabrication) sold separately.",
-  "platforms": ["Windows", "macOS", "Web (limited)"],
-  "file_formats": ["F3D / F3Z (native + archive)", "STEP", "IGES", "Parasolid", "STL / 3MF / OBJ", "DWG / DXF (export)", "SAT / SMT", "Inventor IPT/IAM (read)"],
-  "primary_alternatives": ["SOLIDWORKS", "Inventor", "Onshape", "Solid Edge", "FreeCAD", "Plasticity"],
-  "domains": ["Consumer products", "Industrial design", "Light machinery", "CNC machining", "3D printing", "Education", "Maker / prototyping"],
+  "platforms": [
+    "Windows",
+    "macOS",
+    "Web (limited)"
+  ],
+  "file_formats": [
+    "F3D / F3Z (native + archive)",
+    "STEP",
+    "IGES",
+    "Parasolid",
+    "STL / 3MF / OBJ",
+    "DWG / DXF (export)",
+    "SAT / SMT",
+    "Inventor IPT/IAM (read)"
+  ],
+  "primary_alternatives": [
+    "SOLIDWORKS",
+    "Inventor",
+    "Onshape",
+    "Solid Edge",
+    "FreeCAD",
+    "Plasticity"
+  ],
+  "domains": [
+    "Consumer products",
+    "Industrial design",
+    "Light machinery",
+    "CNC machining",
+    "3D printing",
+    "Education",
+    "Maker / prototyping"
+  ],
   "last_reviewed": "2026-05-24",
   "default_reviewer_id": "lc-mech-review",
-
   "profile": {
     "what_it_is": "Fusion 360 is Autodesk's cloud-native CAD/CAM/CAE platform. It is parametric like SOLIDWORKS but supports direct (history-free) editing on the same body when needed, plus integrated CAM, sheet metal, simulation, generative design, electronics PCB design (formerly Eagle), and rendering — all licensed through one subscription.\n\nThe defining choice is the cloud-first data model. Files live in Autodesk's cloud by default (with offline cache); versions and shares are managed in Fusion's hub, not as files on disk. This is liberating (easy team review, automatic version history) and constraining (no traditional file-system workflow, no PDM-style vault).",
     "where_used": "Fusion 360 is the dominant CAD tool in maker / hobbyist / small business / hardware-startup contexts. Increasingly common in education at high school and undergraduate level. Many small CNC shops use Fusion 360 CAM as their primary toolpath generator. Larger product-design teams use Fusion 360 for concept and prototyping, then hand off to Inventor or SOLIDWORKS for production engineering. Aerospace, large-machinery, and PLM-heavy contexts rarely use Fusion 360 as the production tool.",
@@ -25,21 +55,49 @@
     "common_pitfalls": "**Timeline ignorance.** Beginners produce a 200-feature timeline with no logical grouping and then struggle to refactor.\n\n**Components vs. bodies confusion.** Modelling everything as bodies in one file means no assembly behaviour; modelling everything as separate components means cumbersome joints. Use components only where assembly relationships matter.\n\n**Cloud-only data anxiety.** Critical files only existing in Autodesk's cloud feels uncomfortable for shops used to on-prem servers. Use Save As to archive .f3d files periodically.\n\n**CAM defaults.** First CAM users accept default speeds/feeds and crash the machine. Always verify the tool library and post-processor against the actual machine.\n\n**Joint set-up.** Joints in Fusion are different from SOLIDWORKS mates — they constrain a single component-to-component relationship per joint. Stacking joints incorrectly produces unwanted DOF.",
     "when_to_use_vs_alternative": "Use Fusion 360 for consumer products, small machines, electronics-mechanical projects, integrated CAM for in-house CNC, generative-design exploration, education, and any team that values the cloud collaboration model.\n\nChoose SOLIDWORKS or Inventor when the project requires PDM / vault, very large assemblies, or fits within an existing tooled-up engineering org. Choose Onshape if the cloud model is preferred but the team needs PDM-level revision control and granular permissions. Choose Plasticity / Rhino for industrial design / surfacing work where Fusion's surfacing falls short.",
     "recommended_learning_path": [
-      {"stage": "Week 1 — Foundations", "focus": "Interface, Sketch toolbar, [parametric vs. direct](./parametric-vs-direct-fusion.html), [timeline](./timeline-fusion.html), Extrude, Revolve, Sweep, Loft, Combine. Model five practice parts."},
-      {"stage": "Week 2 — Components & joints", "focus": "Bodies vs. [components](./components-fusion.html), [joints](./joints-fusion.html), as-built joints, motion study. Build a 10-component assembly with realistic motion."},
-      {"stage": "Week 3 — Drawings & data export", "focus": "Drawings workspace, dimensions, BOM, [STEP export](./step-export-fusion.html), [DXF/DWG for laser cut](./dxf-export-fusion.html), STL/3MF for 3D print."},
-      {"stage": "Week 4 — Sheet metal & surfacing", "focus": "[Sheet metal](./sheet-metal-fusion.html) flange, bend, unfold; surface modelling, T-Spline freeform with [Form workspace](./form-tspline-fusion.html)."},
-      {"stage": "Month 2 — Manufacture (CAM)", "focus": "Manufacture workspace, setup, [tool library](./tool-library-fusion.html), 2D contour/pocket, 3D adaptive clear, post-processor configuration. Produce a working G-code program."},
-      {"stage": "Month 3+ — Simulation & generative design", "focus": "Simulation workspace (static stress, modal), [generative design](./generative-design-fusion.html) study setup, additive build."}
+      {
+        "stage": "Week 1 — Foundations",
+        "focus": "Interface, Sketch toolbar, [parametric vs. direct](./parametric-vs-direct-fusion.html), [timeline](./timeline-fusion.html), Extrude, Revolve, Sweep, Loft, Combine. Model five practice parts."
+      },
+      {
+        "stage": "Week 2 — Components & joints",
+        "focus": "Bodies vs. [components](./components-fusion.html), [joints](./joints-fusion.html), as-built joints, motion study. Build a 10-component assembly with realistic motion."
+      },
+      {
+        "stage": "Week 3 — Drawings & data export",
+        "focus": "Drawings workspace, dimensions, BOM, [STEP export](./step-export-fusion.html), [DXF/DWG for laser cut](./dxf-export-fusion.html), STL/3MF for 3D print."
+      },
+      {
+        "stage": "Week 4 — Sheet metal & surfacing",
+        "focus": "[Sheet metal](./sheet-metal-fusion.html) flange, bend, unfold; surface modelling, T-Spline freeform with [Form workspace](./form-tspline-fusion.html)."
+      },
+      {
+        "stage": "Month 2 — Manufacture (CAM)",
+        "focus": "Manufacture workspace, setup, [tool library](./tool-library-fusion.html), 2D contour/pocket, 3D adaptive clear, post-processor configuration. Produce a working G-code program."
+      },
+      {
+        "stage": "Month 3+ — Simulation & generative design",
+        "focus": "Simulation workspace (static stress, modal), [generative design](./generative-design-fusion.html) study setup, additive build."
+      }
     ]
   },
-
   "sources": [
-    {"label": "Fusion 360 product overview", "url": "https://www.autodesk.com/products/fusion-360/overview", "publisher": "Autodesk"},
-    {"label": "Fusion 360 Help", "url": "https://help.autodesk.com/view/fusion360/ENU/", "publisher": "Autodesk Knowledge Network"},
-    {"label": "Fusion 360 Personal Use licence terms", "url": "https://www.autodesk.com/products/fusion-360/personal", "publisher": "Autodesk"}
+    {
+      "label": "Fusion 360 product overview",
+      "url": "https://www.autodesk.com/products/fusion-360/overview",
+      "publisher": "Autodesk"
+    },
+    {
+      "label": "Fusion 360 Help",
+      "url": "https://help.autodesk.com/view/fusion360/ENU/",
+      "publisher": "Autodesk Knowledge Network"
+    },
+    {
+      "label": "Fusion 360 Personal Use licence terms",
+      "url": "https://www.autodesk.com/products/fusion-360/personal",
+      "publisher": "Autodesk"
+    }
   ],
-
   "terms": [
     {
       "slug": "timeline-fusion",
@@ -52,7 +110,23 @@
         "Never grouping — the timeline becomes scrollable infinitely.",
         "Toggling history off mid-design — features after the toggle don't replay on parameter change."
       ],
-      "related_term_slugs": ["parametric-vs-direct-fusion", "components-fusion"]
+      "related_term_slugs": [
+        "parametric-vs-direct-fusion",
+        "components-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Timeline (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Leaving exploratory features in the timeline long after they've been replaced.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Leaving exploratory features in the timeline long after they've been replaced.' As the editorial review notes: 'Timeline hygiene determines whether a Fusion 360 file remains editable. A 200-feature unstructured timeline takes minutes to recompute and is impossible to refactor. Group related features under named folders; delete dead exploration; rename critical features by intent.'"
+        }
+      ]
     },
     {
       "slug": "parametric-vs-direct-fusion",
@@ -65,7 +139,22 @@
         "Switching between modes without realising downstream features may not be reproducible.",
         "Treating direct modelling as a 'fix' for broken parametric features instead of redefining references."
       ],
-      "related_term_slugs": ["timeline-fusion"]
+      "related_term_slugs": [
+        "timeline-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Parametric vs. Direct Modelling (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Editing imported direct geometry expecting timeline-style undo — direct edits don't compose into a replay graph.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Editing imported direct geometry expecting timeline-style undo — direct edits don't compose into a replay graph.' As the editorial review notes: 'The right choice depends on use case. Parametric: long-running products with iteration, families of parts, configurations. Direct: imported geometry, rapid concept exploration, one-off fixtures. Mixing them on the same file requires understanding which features are parametric and which aren't.'"
+        }
+      ]
     },
     {
       "slug": "components-fusion",
@@ -78,7 +167,23 @@
         "Creating components for every small body — assembly tree becomes unmanageable.",
         "Not activating a component before adding features — features get added to the wrong component."
       ],
-      "related_term_slugs": ["joints-fusion", "timeline-fusion"]
+      "related_term_slugs": [
+        "joints-fusion",
+        "timeline-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Components (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Modelling 20 parts as bodies in one component, then needing to add motion — refactoring is painful.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Modelling 20 parts as bodies in one component, then needing to add motion — refactoring is painful.' As the editorial review notes: 'The decision 'is this geometry a component or a body?' shapes every downstream operation. Components are required for joints, motion, BOMs, multi-user collaboration; bodies are right for parts that don't need any of that.'"
+        }
+      ]
     },
     {
       "slug": "joints-fusion",
@@ -91,7 +196,22 @@
         "Using As-Built Joints liberally — components can't be repositioned later without breaking.",
         "Forgetting joint limits when motion exceeds the physical range."
       ],
-      "related_term_slugs": ["components-fusion"]
+      "related_term_slugs": [
+        "components-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Joints (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Confusing joint origin with component origin — joint snaps to unexpected point.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Confusing joint origin with component origin — joint snaps to unexpected point.' As the editorial review notes: 'Joints determine assembly motion. A mechanism without joints can't simulate. Wrong joint type produces mechanisms that move but not as intended.'"
+        }
+      ]
     },
     {
       "slug": "sheet-metal-fusion",
@@ -104,7 +224,22 @@
         "Mixing solid and sheet-metal features on one body — flat pattern computation fails.",
         "Designing a part with non-developable surfaces — Flat Pattern errors silently or produces wrong result."
       ],
-      "related_term_slugs": ["components-fusion"]
+      "related_term_slugs": [
+        "components-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Sheet Metal (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Wrong rule choice — material thickness or K-factor mismatched to actual machine.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Wrong rule choice — material thickness or K-factor mismatched to actual machine.' As the editorial review notes: 'For fabricated brackets, enclosures, and chassis, Fusion 360 sheet metal produces production-ready flat patterns without leaving the parametric environment.'"
+        }
+      ]
     },
     {
       "slug": "form-tspline-fusion",
@@ -117,7 +252,22 @@
         "Trying to use T-Spline for class-A automotive surfacing — converges slowly and lacks the curvature-control tools of Alias or Rhino.",
         "Switching between Form and Modify workspaces without intent — gets stuck in 'where am I' state."
       ],
-      "related_term_slugs": ["parametric-vs-direct-fusion"]
+      "related_term_slugs": [
+        "parametric-vs-direct-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Form Workspace (T-Spline, Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Mass over-subdividing — produces unmanageable T-Spline meshes that take minutes to convert.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Mass over-subdividing — produces unmanageable T-Spline meshes that take minutes to convert.' As the editorial review notes: 'Traditional sketches + extrudes cannot produce organic shapes. T-Spline modelling fills that gap: ergonomic grips, gaming peripherals, organic enclosures, consumer products.'"
+        }
+      ]
     },
     {
       "slug": "tool-library-fusion",
@@ -130,7 +280,22 @@
         "Tool number collisions with the machine's manual setup — wrong tool inserted on tool change.",
         "Mixing units (inch tools with metric feeds) — produces silent scale errors."
       ],
-      "related_term_slugs": ["components-fusion"]
+      "related_term_slugs": [
+        "components-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Tool Library (Fusion 360 Manufacture), which of the following represents a common technical pitfall?",
+          "options": [
+            "Using default library data instead of measured/tested feeds and speeds for your actual material.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Using default library data instead of measured/tested feeds and speeds for your actual material.' As the editorial review notes: 'Correct tool data is the difference between safe and crashed machines. Speeds and feeds in the library directly drive toolpath calculations.'"
+        }
+      ]
     },
     {
       "slug": "generative-design-fusion",
@@ -143,7 +308,22 @@
         "Treating the output as final — outputs usually need cleanup for manufacturability.",
         "Running studies without understanding cloud cost — generative compute is a paid feature."
       ],
-      "related_term_slugs": ["form-tspline-fusion"]
+      "related_term_slugs": [
+        "form-tspline-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Generative Design (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Underspecifying constraints — generative produces shapes that violate real-world manufacturing.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Underspecifying constraints — generative produces shapes that violate real-world manufacturing.' As the editorial review notes: 'Generative design is most useful for weight-optimisation in aerospace brackets, drone components, additive-manufactured parts, and exploration of structural alternatives. It is not a replacement for engineering judgement; it is a research tool.'"
+        }
+      ]
     },
     {
       "slug": "step-export-fusion",
@@ -156,7 +336,22 @@
         "Exporting an assembly as one STEP file vs. separate STEP per component — recipient gets either flat geometry or proper assembly tree.",
         "Forgetting to set the export units — recipient gets the wrong scale."
       ],
-      "related_term_slugs": ["dxf-export-fusion"]
+      "related_term_slugs": [
+        "dxf-export-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with STEP Export (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Exporting AP203 to a recipient who expected AP242 with PMI — PMI is lost.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Exporting AP203 to a recipient who expected AP242 with PMI — PMI is lost.' As the editorial review notes: 'STEP is the safest export format when sending models to a CAD system you don't control (vendor's SOLIDWORKS, Inventor, NX, or generic CAM software). It preserves geometry but discards Fusion-specific parametric history.'"
+        }
+      ]
     },
     {
       "slug": "dxf-export-fusion",
@@ -169,7 +364,23 @@
         "Forgetting to mirror parts when the laser is bed-down vs. bed-up.",
         "Units mismatch — DXF doesn't carry units explicitly."
       ],
-      "related_term_slugs": ["sheet-metal-fusion", "step-export-fusion"]
+      "related_term_slugs": [
+        "sheet-metal-fusion",
+        "step-export-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with DXF Export (Fusion 360 for laser/water-cut), which of the following represents a common technical pitfall?",
+          "options": [
+            "Exporting a sketch with construction lines included — shop tries to cut them.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Exporting a sketch with construction lines included — shop tries to cut them.' As the editorial review notes: 'Direct laser-cut workflow needs a 2D DXF, not a 3D model. Sketches in Fusion can be exported directly; flat patterns from sheet metal are the other common source.'"
+        }
+      ]
     },
     {
       "slug": "data-panel-fusion",
@@ -182,7 +393,20 @@
         "Sharing a file via cloud link but not granting project access — recipient sees nothing.",
         "Renaming files outside Fusion (via the web app) without checking that downstream references update."
       ],
-      "related_term_slugs": []
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Data Panel (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Saving everything in 'Default Project' / 'Default Folder' — finding files later is impossible.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Saving everything in 'Default Project' / 'Default Folder' — finding files later is impossible.' As the editorial review notes: 'Fusion 360 has no traditional file/folder structure on disk. The Data Panel is the only canonical way to find and organise files. Working without it (e.g., always Save As to disk) defeats the cloud collaboration model.'"
+        }
+      ]
     },
     {
       "slug": "constraints-fusion",
@@ -195,7 +419,22 @@
         "Over-constraining and getting redundant-constraint warnings.",
         "Mixing implicit auto-constraints with manual ones — produces unpredictable solver behaviour."
       ],
-      "related_term_slugs": ["timeline-fusion"]
+      "related_term_slugs": [
+        "timeline-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Sketch Constraints (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Ignoring blue (under-defined) geometry and hoping it 'just works.'.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Ignoring blue (under-defined) geometry and hoping it 'just works.'.' As the editorial review notes: 'Fully defined sketches are deterministic — every dimension change produces a predictable result. Under-defined sketches drift in shape with parameter edits.'"
+        }
+      ]
     },
     {
       "slug": "render-fusion",
@@ -208,7 +447,22 @@
         "Submitting big animations to cloud render without checking credit usage.",
         "Forgetting to re-apply materials after geometry edits — render shows default appearances."
       ],
-      "related_term_slugs": ["form-tspline-fusion"]
+      "related_term_slugs": [
+        "form-tspline-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Render Workspace (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Treating render as a substitute for final renders in KeyShot/Twinmotion — Fusion render quality is good but not class-A.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Treating render as a substitute for final renders in KeyShot/Twinmotion — Fusion render quality is good but not class-A.' As the editorial review notes: 'For early product communication, an in-Fusion render is faster than exporting to KeyShot or Twinmotion. Quality is sufficient for marketing concepts and client presentations.'"
+        }
+      ]
     },
     {
       "slug": "drawings-fusion",
@@ -221,7 +475,22 @@
         "Using inserted images for title block instead of an editable title block template.",
         "Not setting a default drawing template — every new drawing is built from scratch."
       ],
-      "related_term_slugs": ["dxf-export-fusion"]
+      "related_term_slugs": [
+        "dxf-export-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Drawings (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Editing drawings after the source design changes without checking that views regenerated.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Editing drawings after the source design changes without checking that views regenerated.' As the editorial review notes: 'Manufacturing communication still relies on 2D drawings. Fusion's drawings are competent (though less feature-rich than Inventor or SOLIDWORKS) — sufficient for most product-design contexts.'"
+        }
+      ]
     },
     {
       "slug": "setup-cam-fusion",
@@ -234,7 +503,22 @@
         "Stock size doesn't match actual stock — toolpaths cut where there is no material (waste) or skip material (incomplete part).",
         "Not modelling the fixture — toolpaths collide with vise jaws."
       ],
-      "related_term_slugs": ["tool-library-fusion"]
+      "related_term_slugs": [
+        "tool-library-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with CAM Setup (Fusion 360 Manufacture), which of the following represents a common technical pitfall?",
+          "options": [
+            "Wrong WCS orientation — toolpaths run mirrored.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Wrong WCS orientation — toolpaths run mirrored.' As the editorial review notes: 'Wrong setup = wrong G-code = crashed machine. The setup encodes the physical reality the machine will experience: where is the workpiece, where is part zero, how is it held.'"
+        }
+      ]
     },
     {
       "slug": "post-processor-fusion",
@@ -247,55 +531,275 @@
         "Editing the post without version control — fixes get lost on next post update.",
         "Skipping NC simulation before running on the machine."
       ],
-      "related_term_slugs": ["setup-cam-fusion", "tool-library-fusion"]
+      "related_term_slugs": [
+        "setup-cam-fusion",
+        "tool-library-fusion"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Post-Processor (Fusion 360), which of the following represents a common technical pitfall?",
+          "options": [
+            "Using a generic post for a specific controller — missing or wrong M-codes.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Using a generic post for a specific controller — missing or wrong M-codes.' As the editorial review notes: 'Wrong post = invalid G-code = the machine alarms, ignores commands, or crashes. Verifying the post against a known machine is non-negotiable.'"
+        }
+      ]
     }
   ],
-
   "faqs": [
-    {"question": "Is Fusion 360 truly free for personal use?", "answer": "Yes, but with restrictions. The personal-use tier is for hobbyists with under $1k/year in revenue from Fusion-created work. It limits active documents (10 editable at once), removes simulation/generative-design/electronics/extensions, simplifies CAM (no 5-axis, no multi-setup), and has restricted export options. Autodesk has progressively narrowed the free tier; verify current terms before relying on it commercially."},
-    {"question": "What's the difference between Fusion 360 and Fusion Industry?", "answer": "There is no separate 'Fusion Industry' product as of writing. 'Fusion 360' is the unified product. Extensions (Manufacturing, Simulation, Generative Design, etc.) add capability. Autodesk has also branded vertical packages (Fusion 360 with Inventor capability) at times; consult current Autodesk pricing pages."},
-    {"question": "Can Fusion 360 work offline?", "answer": "Yes — with caveats. Fusion caches files locally and supports a 'work offline' mode for up to 2 weeks. Cloud render, generative design, electronics simulation, and forced sync features require connectivity. For continuous offline work, Inventor is a better fit."},
-    {"question": "How do I move a Fusion 360 project to another team?", "answer": "Open the project, use the right-click 'Members' to invite the destination team's admin, then transfer ownership. Alternatively, export the project as F3Z archive (File > Export > F3Z) and have the destination team import. F3Z preserves all components, references, and timeline."},
-    {"question": "What CAM features require the Manufacturing Extension?", "answer": "Multi-axis (4 + 5-axis simultaneous), Steep and Shallow, Rotary milling, Probing, Toolpath modifiers, automatic part stock-aware preserve. Base Fusion 360 includes 2D, 2.5D, 3-axis adaptive clearing, parallel/contour, drilling, threading. Most hobbyist and small-shop work fits inside base CAM."},
-    {"question": "Can I open SOLIDWORKS files in Fusion 360?", "answer": "Yes — File > Open > select .sldprt or .sldasm. SOLIDWORKS files import as direct geometry (no parametric history). Many features survive, but reference-dependent features (like in-context references) and proprietary SOLIDWORKS items don't translate. STEP exchange is more reliable for production use."},
-    {"question": "What is the difference between Save and Save As in Fusion 360?", "answer": "Save uploads the current document as a new version to the cloud project (with a comment); old versions remain accessible via Version History. Save As creates a new file with a new identity in a chosen project/folder. Use Save for iteration; Save As when forking a new design."},
-    {"question": "Why are my Fusion 360 files so big?", "answer": "Causes: many components with embedded preview thumbnails; T-Spline geometry not converted to BRep; many appearance materials with textures; cached previous versions counted by the cloud quota. Use Promote (vs. embedded) for shared sub-assemblies; convert T-Splines when surfacing is done."},
-    {"question": "How do I print a Fusion 360 part on a 3D printer?", "answer": "Right-click the body/component > Save As Mesh > choose STL or 3MF. Open in your slicer (Cura, PrusaSlicer, Bambu Studio). 3MF is preferred because it preserves units and can include color/material metadata. For high-detail parts, increase the mesh refinement before export."},
-    {"question": "Can I script Fusion 360 with Python?", "answer": "Yes — Tools > Add-Ins > Scripts and Add-Ins. The API supports both Python and C++. Scripts run once; add-ins run continuously with UI integration. The API surface includes most modelling, CAM, and Data Panel functionality."},
-    {"question": "How do I import a STEP assembly with structure preserved?", "answer": "Upload the STEP via Data Panel (not via direct Open) — Fusion preserves the assembly tree. Multi-body STEP files become multi-component designs automatically. Direct Open via File menu produces flat single-component imports in older versions."},
-    {"question": "What is the difference between Fusion 360 and Inventor?", "answer": "Inventor is Windows-only desktop, file-based, strong on large mechanical assemblies and PDM integration. Fusion 360 is cross-platform, cloud-data, lighter assemblies, but adds CAM, simulation, electronics, generative design in one subscription. Inventor for serious engineering teams with existing infrastructure; Fusion 360 for makers, small teams, education, and integrated CAM workflows."},
-    {"question": "Can Fusion 360 do PCB design?", "answer": "Yes — the Electronics workspace (formerly Eagle, acquired by Autodesk in 2016) lets you design schematics and PCB layouts integrated with the mechanical design. The 3D PCB body is referenced into the mechanical assembly for fit checking. Eagle CAM jobs export Gerbers, drill files, and IPC-2581 for fab."},
-    {"question": "Why are my joints behaving strangely?", "answer": "Common causes: wrong joint origin selection (snap was to a different feature than intended), joint applied between components that are already constrained by another joint (over-constrained), or As-Built Joint used when a regular Joint was needed. Edit the joint and verify the joint origins on both sides."},
-    {"question": "How do I make a configurable Fusion 360 part?", "answer": "Use Parameters (Modify > Change Parameters) with named user parameters that drive sketch dimensions and feature settings. Equations among parameters create derived sizes. For full configurations (multiple named variants in one file), Fusion 360 added Configurations in 2022 — Design menu > Configurations."},
-    {"question": "Where do I learn Fusion 360 systematically?", "answer": "Autodesk's free Fusion 360 Learning Path on autodesk.com is the most efficient official path. Lars Christensen (LARS) on YouTube and Product Design Online cover both basics and CAM. For CAM specifically, NYC CNC and Saunders Machine Works are gold standard."}
+    {
+      "question": "Is Fusion 360 truly free for personal use?",
+      "answer": "Yes, but with restrictions. The personal-use tier is for hobbyists with under $1k/year in revenue from Fusion-created work. It limits active documents (10 editable at once), removes simulation/generative-design/electronics/extensions, simplifies CAM (no 5-axis, no multi-setup), and has restricted export options. Autodesk has progressively narrowed the free tier; verify current terms before relying on it commercially."
+    },
+    {
+      "question": "What's the difference between Fusion 360 and Fusion Industry?",
+      "answer": "There is no separate 'Fusion Industry' product as of writing. 'Fusion 360' is the unified product. Extensions (Manufacturing, Simulation, Generative Design, etc.) add capability. Autodesk has also branded vertical packages (Fusion 360 with Inventor capability) at times; consult current Autodesk pricing pages."
+    },
+    {
+      "question": "Can Fusion 360 work offline?",
+      "answer": "Yes — with caveats. Fusion caches files locally and supports a 'work offline' mode for up to 2 weeks. Cloud render, generative design, electronics simulation, and forced sync features require connectivity. For continuous offline work, Inventor is a better fit."
+    },
+    {
+      "question": "How do I move a Fusion 360 project to another team?",
+      "answer": "Open the project, use the right-click 'Members' to invite the destination team's admin, then transfer ownership. Alternatively, export the project as F3Z archive (File > Export > F3Z) and have the destination team import. F3Z preserves all components, references, and timeline."
+    },
+    {
+      "question": "What CAM features require the Manufacturing Extension?",
+      "answer": "Multi-axis (4 + 5-axis simultaneous), Steep and Shallow, Rotary milling, Probing, Toolpath modifiers, automatic part stock-aware preserve. Base Fusion 360 includes 2D, 2.5D, 3-axis adaptive clearing, parallel/contour, drilling, threading. Most hobbyist and small-shop work fits inside base CAM."
+    },
+    {
+      "question": "Can I open SOLIDWORKS files in Fusion 360?",
+      "answer": "Yes — File > Open > select .sldprt or .sldasm. SOLIDWORKS files import as direct geometry (no parametric history). Many features survive, but reference-dependent features (like in-context references) and proprietary SOLIDWORKS items don't translate. STEP exchange is more reliable for production use."
+    },
+    {
+      "question": "What is the difference between Save and Save As in Fusion 360?",
+      "answer": "Save uploads the current document as a new version to the cloud project (with a comment); old versions remain accessible via Version History. Save As creates a new file with a new identity in a chosen project/folder. Use Save for iteration; Save As when forking a new design."
+    },
+    {
+      "question": "Why are my Fusion 360 files so big?",
+      "answer": "Causes: many components with embedded preview thumbnails; T-Spline geometry not converted to BRep; many appearance materials with textures; cached previous versions counted by the cloud quota. Use Promote (vs. embedded) for shared sub-assemblies; convert T-Splines when surfacing is done."
+    },
+    {
+      "question": "How do I print a Fusion 360 part on a 3D printer?",
+      "answer": "Right-click the body/component > Save As Mesh > choose STL or 3MF. Open in your slicer (Cura, PrusaSlicer, Bambu Studio). 3MF is preferred because it preserves units and can include color/material metadata. For high-detail parts, increase the mesh refinement before export."
+    },
+    {
+      "question": "Can I script Fusion 360 with Python?",
+      "answer": "Yes — Tools > Add-Ins > Scripts and Add-Ins. The API supports both Python and C++. Scripts run once; add-ins run continuously with UI integration. The API surface includes most modelling, CAM, and Data Panel functionality."
+    },
+    {
+      "question": "How do I import a STEP assembly with structure preserved?",
+      "answer": "Upload the STEP via Data Panel (not via direct Open) — Fusion preserves the assembly tree. Multi-body STEP files become multi-component designs automatically. Direct Open via File menu produces flat single-component imports in older versions."
+    },
+    {
+      "question": "What is the difference between Fusion 360 and Inventor?",
+      "answer": "Inventor is Windows-only desktop, file-based, strong on large mechanical assemblies and PDM integration. Fusion 360 is cross-platform, cloud-data, lighter assemblies, but adds CAM, simulation, electronics, generative design in one subscription. Inventor for serious engineering teams with existing infrastructure; Fusion 360 for makers, small teams, education, and integrated CAM workflows."
+    },
+    {
+      "question": "Can Fusion 360 do PCB design?",
+      "answer": "Yes — the Electronics workspace (formerly Eagle, acquired by Autodesk in 2016) lets you design schematics and PCB layouts integrated with the mechanical design. The 3D PCB body is referenced into the mechanical assembly for fit checking. Eagle CAM jobs export Gerbers, drill files, and IPC-2581 for fab."
+    },
+    {
+      "question": "Why are my joints behaving strangely?",
+      "answer": "Common causes: wrong joint origin selection (snap was to a different feature than intended), joint applied between components that are already constrained by another joint (over-constrained), or As-Built Joint used when a regular Joint was needed. Edit the joint and verify the joint origins on both sides."
+    },
+    {
+      "question": "How do I make a configurable Fusion 360 part?",
+      "answer": "Use Parameters (Modify > Change Parameters) with named user parameters that drive sketch dimensions and feature settings. Equations among parameters create derived sizes. For full configurations (multiple named variants in one file), Fusion 360 added Configurations in 2022 — Design menu > Configurations."
+    },
+    {
+      "question": "Where do I learn Fusion 360 systematically?",
+      "answer": "Autodesk's free Fusion 360 Learning Path on autodesk.com is the most efficient official path. Lars Christensen (LARS) on YouTube and Product Design Online cover both basics and CAM. For CAM specifically, NYC CNC and Saunders Machine Works are gold standard."
+    }
   ],
-
   "graph_nodes": [
-    {"id": "Fusion 360", "type": "product", "tags": ["autodesk", "cloud", "mcad", "cam"], "hint": "Cloud-native unified CAD/CAM/CAE.", "group": 1, "radius": 14},
-    {"id": "Fusion Timeline", "type": "concept", "tags": ["fusion", "parametric"], "hint": "Bottom-of-screen feature history.", "group": 2, "radius": 9},
-    {"id": "Fusion Components", "type": "concept", "tags": ["fusion", "assembly"], "hint": "Assembly containers with joints.", "group": 2, "radius": 9},
-    {"id": "Fusion Joints", "type": "concept", "tags": ["fusion", "assembly"], "hint": "Component motion constraints.", "group": 2, "radius": 9},
-    {"id": "Fusion Sheet Metal", "type": "skill", "tags": ["fusion", "fabrication"], "hint": "Rule-driven flange-based modelling.", "group": 2, "radius": 8},
-    {"id": "Fusion T-Spline", "type": "concept", "tags": ["fusion", "surfacing"], "hint": "Form workspace freeform modelling.", "group": 2, "radius": 8},
-    {"id": "Fusion Generative Design", "type": "skill", "tags": ["fusion", "optimization"], "hint": "Cloud-compute design exploration.", "group": 2, "radius": 9},
-    {"id": "Fusion CAM Setup", "type": "concept", "tags": ["fusion", "cam"], "hint": "WCS + stock + fixture for CNC.", "group": 2, "radius": 9},
-    {"id": "Fusion Tool Library", "type": "concept", "tags": ["fusion", "cam"], "hint": "Cataloged CNC tooling with feeds/speeds.", "group": 2, "radius": 8},
-    {"id": "Fusion Post Processor", "type": "concept", "tags": ["fusion", "cam"], "hint": "Toolpath-to-G-code translator script.", "group": 2, "radius": 8},
-    {"id": "Fusion Drawings", "type": "skill", "tags": ["fusion", "documentation"], "hint": "2D drawing environment.", "group": 2, "radius": 8},
-    {"id": "Fusion Data Panel", "type": "concept", "tags": ["fusion", "cloud"], "hint": "Cloud project/folder/file UI.", "group": 2, "radius": 8}
+    {
+      "id": "Fusion 360",
+      "type": "product",
+      "tags": [
+        "autodesk",
+        "cloud",
+        "mcad",
+        "cam"
+      ],
+      "hint": "Cloud-native unified CAD/CAM/CAE.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "Fusion Timeline",
+      "type": "concept",
+      "tags": [
+        "fusion",
+        "parametric"
+      ],
+      "hint": "Bottom-of-screen feature history.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Fusion Components",
+      "type": "concept",
+      "tags": [
+        "fusion",
+        "assembly"
+      ],
+      "hint": "Assembly containers with joints.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Fusion Joints",
+      "type": "concept",
+      "tags": [
+        "fusion",
+        "assembly"
+      ],
+      "hint": "Component motion constraints.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Fusion Sheet Metal",
+      "type": "skill",
+      "tags": [
+        "fusion",
+        "fabrication"
+      ],
+      "hint": "Rule-driven flange-based modelling.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Fusion T-Spline",
+      "type": "concept",
+      "tags": [
+        "fusion",
+        "surfacing"
+      ],
+      "hint": "Form workspace freeform modelling.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Fusion Generative Design",
+      "type": "skill",
+      "tags": [
+        "fusion",
+        "optimization"
+      ],
+      "hint": "Cloud-compute design exploration.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Fusion CAM Setup",
+      "type": "concept",
+      "tags": [
+        "fusion",
+        "cam"
+      ],
+      "hint": "WCS + stock + fixture for CNC.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Fusion Tool Library",
+      "type": "concept",
+      "tags": [
+        "fusion",
+        "cam"
+      ],
+      "hint": "Cataloged CNC tooling with feeds/speeds.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Fusion Post Processor",
+      "type": "concept",
+      "tags": [
+        "fusion",
+        "cam"
+      ],
+      "hint": "Toolpath-to-G-code translator script.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Fusion Drawings",
+      "type": "skill",
+      "tags": [
+        "fusion",
+        "documentation"
+      ],
+      "hint": "2D drawing environment.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Fusion Data Panel",
+      "type": "concept",
+      "tags": [
+        "fusion",
+        "cloud"
+      ],
+      "hint": "Cloud project/folder/file UI.",
+      "group": 2,
+      "radius": 8
+    }
   ],
   "graph_links": [
-    ["Fusion 360", "Autodesk"],
-    ["Fusion Timeline", "Fusion 360"],
-    ["Fusion Components", "Fusion 360"],
-    ["Fusion Joints", "Fusion Components"],
-    ["Fusion Sheet Metal", "Fusion 360"],
-    ["Fusion T-Spline", "Fusion 360"],
-    ["Fusion Generative Design", "Fusion 360"],
-    ["Fusion CAM Setup", "Fusion 360"],
-    ["Fusion Tool Library", "Fusion CAM Setup"],
-    ["Fusion Post Processor", "Fusion CAM Setup"],
-    ["Fusion Drawings", "Fusion 360"],
-    ["Fusion Data Panel", "Fusion 360"]
+    [
+      "Fusion 360",
+      "Autodesk"
+    ],
+    [
+      "Fusion Timeline",
+      "Fusion 360"
+    ],
+    [
+      "Fusion Components",
+      "Fusion 360"
+    ],
+    [
+      "Fusion Joints",
+      "Fusion Components"
+    ],
+    [
+      "Fusion Sheet Metal",
+      "Fusion 360"
+    ],
+    [
+      "Fusion T-Spline",
+      "Fusion 360"
+    ],
+    [
+      "Fusion Generative Design",
+      "Fusion 360"
+    ],
+    [
+      "Fusion CAM Setup",
+      "Fusion 360"
+    ],
+    [
+      "Fusion Tool Library",
+      "Fusion CAM Setup"
+    ],
+    [
+      "Fusion Post Processor",
+      "Fusion CAM Setup"
+    ],
+    [
+      "Fusion Drawings",
+      "Fusion 360"
+    ],
+    [
+      "Fusion Data Panel",
+      "Fusion 360"
+    ]
   ]
 }

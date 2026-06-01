@@ -5,17 +5,45 @@
   "tagline": "Dassault Systèmes' high-end PLM-grade CAD — the production tool of aerospace, automotive, and class-A surface modelling.",
   "meta_desc": "CATIA profile: workbenches, hybrid design, surfacing, 3DEXPERIENCE platform, knowledgeware, plus 15 deep-dive terms and 15 FAQs reviewed by Gstarcademy editors.",
   "category_label": "DesignApplication",
-  "vendor": {"slug": "dassault-systemes", "name": "Dassault Systèmes"},
+  "vendor": {
+    "slug": "dassault-systemes",
+    "name": "Dassault Systèmes"
+  },
   "first_released": "1977 (as CATI, IBM/Dassault Aviation); rebranded CATIA in 1981",
   "current_track": "CATIA V5-6R (V5 legacy track) and CATIA on 3DEXPERIENCE Platform (current track)",
   "license_model": "Subscription via Dassault VARs. Pricing per token / per user / per workbench combination. Education licenses through certified universities.",
-  "platforms": ["Windows (64-bit)", "Linux (V5, limited)", "3DEXPERIENCE web/cloud apps cross-platform"],
-  "file_formats": ["CATPart (part)", "CATProduct (assembly)", "CATDrawing (drawing)", "CATProcess (machining)", "CGR (graphics representation)", "STEP AP203 / AP214 / AP242", "IGES", "JT", "STL"],
-  "primary_alternatives": ["Siemens NX", "PTC Creo Parametric", "SOLIDWORKS", "Onshape"],
-  "domains": ["Aerospace", "Automotive (OEM and tier-1)", "Industrial machinery", "Shipbuilding", "Class-A surfacing", "Architecture (Frank Gehry usage)"],
+  "platforms": [
+    "Windows (64-bit)",
+    "Linux (V5, limited)",
+    "3DEXPERIENCE web/cloud apps cross-platform"
+  ],
+  "file_formats": [
+    "CATPart (part)",
+    "CATProduct (assembly)",
+    "CATDrawing (drawing)",
+    "CATProcess (machining)",
+    "CGR (graphics representation)",
+    "STEP AP203 / AP214 / AP242",
+    "IGES",
+    "JT",
+    "STL"
+  ],
+  "primary_alternatives": [
+    "Siemens NX",
+    "PTC Creo Parametric",
+    "SOLIDWORKS",
+    "Onshape"
+  ],
+  "domains": [
+    "Aerospace",
+    "Automotive (OEM and tier-1)",
+    "Industrial machinery",
+    "Shipbuilding",
+    "Class-A surfacing",
+    "Architecture (Frank Gehry usage)"
+  ],
   "last_reviewed": "2026-05-24",
   "default_reviewer_id": "lc-mech-review",
-
   "profile": {
     "what_it_is": "CATIA (Computer-Aided Three-dimensional Interactive Application) is Dassault Systèmes' flagship high-end CAD platform — the production tool of choice in commercial aerospace (Boeing 777/787, Airbus A380), automotive OEMs (BMW, Tesla, Ford, GM), and any organisation where class-A surface modelling, very large assemblies (100k+ parts), and tight PLM integration are non-negotiable.\n\nCATIA's distinguishing characteristic is the workbench model: hundreds of specialised modes (Generative Shape Design, Part Design, Sketcher, FreeStyle, Imagine & Shape, Assembly Design, DMU Navigator, Machining, Composites Design, Generative Drafting, Knowledgeware) loaded on demand. The platform is broad and deep — and considerably more complex than mainstream MCAD.",
     "where_used": "CATIA is the dominant CAD tool in the commercial aerospace primes (Boeing, Airbus, Lockheed Martin, Embraer), most automotive OEMs and tier-1 suppliers, shipyards, large industrial machinery, defence, and class-A surfacing studios. It is essentially the standard for aircraft and car body design worldwide. It is uncommon in consumer products (SOLIDWORKS territory), small-medium machinery (Inventor / Creo territory), and education (cost barrier).",
@@ -25,82 +53,717 @@
     "common_pitfalls": "**Workbench confusion.** New users do everything in Part Design and miss the appropriate workbench for the task.\n\n**Surfacing without continuity control.** Building surfaces without checking G0/G1/G2 continuity at boundaries — class-A renderings show visible patch boundaries.\n\n**Assembly contextual link sprawl.** Heavy use of contextual links between parts creates a brittle, slow-to-recompute assembly.\n\n**Skipping publications.** Without publications (named published references), assembly-level changes break unpredictably.\n\n**Massive single CATPart files.** Modelling whole assemblies in one Part instead of structuring as Product.",
     "when_to_use_vs_alternative": "Use CATIA when (a) the organisation already runs CATIA + ENOVIA at scale, (b) the project requires class-A surfacing for automotive / aerospace, or (c) the work demands very large assemblies with PLM-tracked design history.\n\nChoose NX for similar tier work where the team prefers Siemens' direct-modelling tools and CAM integration. Choose SOLIDWORKS / Inventor / Creo for mainstream mid-market mechanical work where CATIA is overkill. Choose Plasticity or Rhino + Grasshopper for solo industrial design / surface exploration.",
     "recommended_learning_path": [
-      {"stage": "Week 1-2 — Foundations", "focus": "[Workbench navigation](./workbenches-catia.html), [Sketcher](./sketcher-catia.html), Part Design (pad/pocket/shaft/groove), Assembly Design basics."},
-      {"stage": "Month 1-2 — Surfacing", "focus": "[Generative Shape Design (GSD)](./gsd-catia.html), wireframe geometry, [multi-section surface](./multi-section-surface-catia.html), blend / bridge surfaces, continuity (G0/G1/G2/G3)."},
-      {"stage": "Month 2-3 — Assemblies", "focus": "[Product structure](./product-structure-catia.html), constraints, [contextual design](./contextual-design-catia.html), publications, [DMU Navigator](./dmu-navigator-catia.html)."},
-      {"stage": "Month 3-4 — Drafting & sheet metal", "focus": "[Generative Drafting](./drafting-catia.html), dimensions, tolerances, [sheet metal design](./sheet-metal-catia.html)."},
-      {"stage": "Month 4-6 — Knowledgeware & automation", "focus": "[Knowledge Advisor](./knowledgeware-catia.html), rules, checks, parameters, [Power Copy / User Feature](./power-copy-catia.html), VBScript macros."},
-      {"stage": "Month 6+ — Advanced surfacing & PLM", "focus": "Class-A surface modelling, ICEM Surf integration, ENOVIA workflows, CAA RADE for deep customisation."}
+      {
+        "stage": "Week 1-2 — Foundations",
+        "focus": "[Workbench navigation](./workbenches-catia.html), [Sketcher](./sketcher-catia.html), Part Design (pad/pocket/shaft/groove), Assembly Design basics."
+      },
+      {
+        "stage": "Month 1-2 — Surfacing",
+        "focus": "[Generative Shape Design (GSD)](./gsd-catia.html), wireframe geometry, [multi-section surface](./multi-section-surface-catia.html), blend / bridge surfaces, continuity (G0/G1/G2/G3)."
+      },
+      {
+        "stage": "Month 2-3 — Assemblies",
+        "focus": "[Product structure](./product-structure-catia.html), constraints, [contextual design](./contextual-design-catia.html), publications, [DMU Navigator](./dmu-navigator-catia.html)."
+      },
+      {
+        "stage": "Month 3-4 — Drafting & sheet metal",
+        "focus": "[Generative Drafting](./drafting-catia.html), dimensions, tolerances, [sheet metal design](./sheet-metal-catia.html)."
+      },
+      {
+        "stage": "Month 4-6 — Knowledgeware & automation",
+        "focus": "[Knowledge Advisor](./knowledgeware-catia.html), rules, checks, parameters, [Power Copy / User Feature](./power-copy-catia.html), VBScript macros."
+      },
+      {
+        "stage": "Month 6+ — Advanced surfacing & PLM",
+        "focus": "Class-A surface modelling, ICEM Surf integration, ENOVIA workflows, CAA RADE for deep customisation."
+      }
     ]
   },
-
   "sources": [
-    {"label": "CATIA on 3DS.com", "url": "https://www.3ds.com/products/catia", "publisher": "Dassault Systèmes"},
-    {"label": "3DEXPERIENCE Platform", "url": "https://www.3ds.com/3dexperience", "publisher": "Dassault Systèmes"}
+    {
+      "label": "CATIA on 3DS.com",
+      "url": "https://www.3ds.com/products/catia",
+      "publisher": "Dassault Systèmes"
+    },
+    {
+      "label": "3DEXPERIENCE Platform",
+      "url": "https://www.3ds.com/3dexperience",
+      "publisher": "Dassault Systèmes"
+    }
   ],
-
   "terms": [
-    {"slug": "workbenches-catia", "title": "Workbenches (CATIA)", "short_def": "CATIA's modular UI organisation — each domain (Part Design, Assembly Design, Generative Shape Design, etc.) is its own workbench with its own toolbar and shortcuts.", "definition": "A workbench is a specialised mode. Switching workbenches changes the available tools, the document type expected, and the shortcuts. CATIA loads workbenches on demand. Common workbenches: Sketcher, Part Design, Assembly Design, Generative Shape Design (GSD), FreeStyle, Imagine & Shape, Drafting, Generative Sheetmetal Design, Composites Design, DMU Navigator, Machining, Tolerancing.", "why_matters": "Knowing which workbench solves which problem is half of CATIA fluency. New users do everything in Part Design and miss faster paths via specialised workbenches.", "common_pitfalls": ["Modelling surfaces in Part Design (Sketcher + Pad) when GSD would be vastly more efficient.", "Switching between workbenches mid-feature — unsaved feature contexts get lost.", "Skipping workbench-specific shortcuts — slows productivity 5-10x."], "related_term_slugs": ["sketcher-catia", "gsd-catia"]},
-    {"slug": "sketcher-catia", "title": "Sketcher (CATIA)", "short_def": "CATIA's 2D sketch environment — used by Part Design, GSD, and sheet metal workbenches to define profiles for solid features.", "definition": "Sketcher is the 2D editing mode on a sketch plane (XY/XZ/YZ default planes, or any user-defined plane, or any planar surface). Tools: line, circle, arc, profile (polyline), spline, conic. Constraints: dimensional (length, radius, angle) and geometric (coincidence, tangency, parallelism, perpendicularity). Output: closed or open profile consumable by a parent feature.", "why_matters": "Almost every solid feature begins with a sketch. Sketch quality (fully constrained, clean construction lines, named profile elements) determines downstream feature reliability.", "common_pitfalls": ["Under-constrained sketches that shift on parameter change.", "Building one sketch with multiple profiles when separate sketches would be cleaner.", "Forgetting Construction lines vs. Profile lines — wrong line type included in feature."], "related_term_slugs": ["workbenches-catia"]},
-    {"slug": "gsd-catia", "title": "Generative Shape Design (GSD, CATIA)", "short_def": "CATIA's surfacing workbench — wireframe geometry (points, lines, planes, curves) plus surface features (multi-section, sweep, fill, blend, bridge, offset).", "definition": "GSD is where most class-A surface modelling happens. Wireframe operations (points, planes, lines, curves, splines) provide the structural geometry. Surface features (Extrude, Revolve, Sweep, Multi-Section Surface, Fill, Blend, Bridge, Offset, Trim) build the actual surface geometry. Continuity options (Point/Tangent/Curvature/G2/G3) control how surfaces meet at boundaries.", "why_matters": "Aerospace, automotive, and industrial design surfacing requires surface-level control. GSD is the workbench where that happens; Part Design alone is not sufficient.", "common_pitfalls": ["Surfacing without curvature analysis — produces visible boundary patches in renderings.", "Using Sweep when Multi-Section Surface would give better curvature.", "Forgetting to specify continuity at trim boundaries."], "related_term_slugs": ["multi-section-surface-catia", "workbenches-catia"]},
-    {"slug": "multi-section-surface-catia", "title": "Multi-Section Surface (CATIA)", "short_def": "A surface created by lofting through a series of section profiles along guide curves with continuity controls.", "definition": "Multi-Section Surface (formerly Lofted Surface) creates a surface by interpolating through multiple section curves, optionally guided by guide curves and a spine. Each section can have its own tangency and continuity constraint at the ends. The result is parametric — edit a section and the surface updates.", "why_matters": "Multi-Section is the workhorse of class-A surfacing: car body panels, aircraft fuselage skins, complex enclosures. Its continuity controls give the surface curvature smoothness that simple Sweep doesn't.", "common_pitfalls": ["Mismatched section direction — produces twisted surfaces.", "Too few sections — surface bulges or pinches between defined sections.", "Forgetting guide curves — surface interpolates differently than intended."], "related_term_slugs": ["gsd-catia"]},
-    {"slug": "product-structure-catia", "title": "Product Structure (CATIA Assembly)", "short_def": "The hierarchical tree of components, sub-assemblies, and instances in a CATIA assembly (.CATProduct).", "definition": "A Product is a CATIA assembly container. It references CATParts and other CATProducts. Each reference is an instance with a position, an instance name, and possibly publications exposed to the assembly. Multi-instance support means one CATPart referenced multiple times in the Product.", "why_matters": "Product structure determines BOM, assembly performance, and access control. A flat Product with 50k CATPart references is unmanageable; a deeply nested structure that matches the real manufacturing tree is.", "common_pitfalls": ["All parts at one level — performance and clarity suffer.", "Instances vs. references confused — editing an instance affects all instances of that CATPart.", "Mismatched display modes (visualization vs. design) — visual artefacts in large assemblies."], "related_term_slugs": ["contextual-design-catia", "dmu-navigator-catia"]},
-    {"slug": "contextual-design-catia", "title": "Contextual Design (CATIA)", "short_def": "CATIA's top-down assembly design — features in one CATPart can reference geometry from other CATParts via the assembly context.", "definition": "Contextual links create geometric dependencies between CATParts inside a Product. A part's feature can reference an edge, face, or wireframe element from another part. Edits to the source geometry propagate. Publications (named exposed references) are the recommended mechanism — they isolate the dependent part from internal source changes.", "why_matters": "Top-down design (skeleton → derived parts) is the standard pattern for tightly coordinated mechanism design. Without contextual links, every part-to-part fit is hand-modelled.", "common_pitfalls": ["Implicit contextual links without publications — fragile, breaks unpredictably.", "Circular contextual dependencies — assembly refuses to recompute.", "Heavy contextual sprawl — assembly load and compute time degrades."], "related_term_slugs": ["product-structure-catia", "power-copy-catia"]},
-    {"slug": "dmu-navigator-catia", "title": "DMU Navigator (CATIA)", "short_def": "Digital Mock-Up — lightweight visualization, sectioning, clash detection, and measurement of very large assemblies.", "definition": "DMU Navigator (and DMU Space Analysis, DMU Kinematics, DMU Fitting) consumes CATIA assemblies in lightweight visualization mode using CGR (CATIA Graphics Representation) files. Clash detection, distance measurement, sectioning, walkthrough, and exploded views run faster than in the full design mode.", "why_matters": "Aircraft and car-body assemblies with 100k+ parts cannot be reviewed in full design mode. DMU is the review and coordination layer.", "common_pitfalls": ["Reviewing in DMU when design edits are intended — DMU is read-only on the design model.", "Clash detection with too-loose tolerances — false negatives on real conflicts.", "Visualizing without checking that CGR data is current — review against stale geometry."], "related_term_slugs": ["product-structure-catia"]},
-    {"slug": "drafting-catia", "title": "Generative Drafting (CATIA)", "short_def": "CATIA's 2D drawing workbench — views, dimensions, tolerances, and annotations generated from the 3D model.", "definition": "Drafting creates a CATDrawing from a CATPart or CATProduct. Views (front, projected, section, detail, broken, isometric), generative dimensioning (extracts dimensions from the 3D model), tolerancing (GD&T per ASME Y14.5 / ISO 1101), title blocks, and BOMs are all generated and link back to the source 3D.", "why_matters": "Drawings are still the manufacturing deliverable. CATIA's Generative Drafting produces them with associativity — change the 3D model, the drawing updates.", "common_pitfalls": ["Manual dimensions that don't link back to model parameters — diverge silently.", "Title block inconsistencies across drawings — sheet sets look ad hoc.", "Not setting drawing standard (ANSI vs. ISO vs. JIS) — dimensioning style is wrong."], "related_term_slugs": ["workbenches-catia"]},
-    {"slug": "sheet-metal-catia", "title": "Sheet Metal Design (CATIA)", "short_def": "CATIA's sheet-metal workbench — walls, flanges, bends, unfold/fold, flat pattern with bend allowance per material/process.", "definition": "Generative Sheetmetal Design starts from a Sheet Metal Parameters dialog (material, thickness, bend radius, K-factor or bend allowance table). Tools include Wall, Edge Wall, Bend, Unfold/Fold, Surface from Volume. Flat patterns export as DXF for fab.", "why_matters": "Aerospace sheet metal parts have tight bend-allowance and material-property requirements. CATIA's sheet metal workbench encodes those requirements; the flat patterns are production-grade.", "common_pitfalls": ["Wrong material/bend-allowance — flat pattern is correct geometry for the wrong physics.", "Mixing solid and sheet metal features — fold/unfold fails.", "Custom relief styles not approved by the fab shop — parts can't be made."], "related_term_slugs": ["workbenches-catia"]},
-    {"slug": "knowledgeware-catia", "title": "Knowledgeware (CATIA)", "short_def": "CATIA's automation suite — Knowledge Advisor, Knowledge Expert, Engineering Optimiser, with parameters, formulas, rules, checks, and reactions.", "definition": "Knowledge Advisor adds parameters and formulas to CATIA documents — a parameter named 'WallThickness' drives sketch dimensions and feature values via a formula. Knowledge Expert applies rules (e.g., 'all holes within X mm of edge must be Y mm minimum') as constraint checks. Engineering Optimiser runs design-of-experiments and optimisation studies. Reactions trigger actions on events.", "why_matters": "Captured engineering knowledge becomes reusable: a Knowledgeware-driven part is configurable through parameters instead of manually edited.", "common_pitfalls": ["Knowledgeware rules without scope — apply to everything and slow performance.", "Hardcoded values in formulas instead of named parameters — refactoring is painful.", "Knowledgeware combined with macros redundantly — duplicate logic in two places."], "related_term_slugs": ["power-copy-catia"]},
-    {"slug": "power-copy-catia", "title": "Power Copy / User Feature (CATIA)", "short_def": "CATIA's reusable feature templates — capture a pattern of geometry and instantiate it elsewhere with input geometry substitution.", "definition": "A Power Copy is a packaged set of features (sketches, solids, surfaces) parameterised by input references. Drop the Power Copy into another part, substitute the input references with the new part's geometry, and the geometry regenerates. User Feature is similar but with a more structured input mechanism.", "why_matters": "Repeated design patterns (mounting flange, bracket family, drain feature) become Power Copies. Standardising on Power Copies enforces design consistency across projects.", "common_pitfalls": ["Power Copies with too many input references — substitution becomes confusing.", "Updating the master Power Copy without updating instances — instances drift.", "Library Power Copies on a single user's machine — others can't use them."], "related_term_slugs": ["knowledgeware-catia", "contextual-design-catia"]},
-    {"slug": "publications-catia", "title": "Publications (CATIA)", "short_def": "Named exposed references — the recommended way to expose geometry from one component for another component to reference.", "definition": "A Publication is a named alias for a feature, sketch, geometry element, or parameter. Other components in the assembly reference the Publication name rather than the raw internal feature. Renaming or replacing the underlying feature without breaking dependents requires only re-mapping the Publication, not editing every dependent reference.", "why_matters": "Publications isolate component internals from inter-component dependencies — the single most important pattern for maintainable CATIA assemblies. Without publications, every internal-feature edit risks cascading downstream.", "common_pitfalls": ["Skipping publications and using implicit contextual links — assemblies become brittle.", "Naming publications by internal feature name instead of by intent.", "Publication renamed in source — dependents see broken references on next open."], "related_term_slugs": ["contextual-design-catia", "product-structure-catia"]},
-    {"slug": "tolerancing-catia", "title": "Functional Tolerancing & Annotation (FTA, CATIA)", "short_def": "CATIA's GD&T workbench — applies geometric and dimensional tolerances directly on the 3D model per ASME Y14.5 / ISO 1101 / GPS.", "definition": "FTA lets the user apply tolerances (datum references, position, profile, perpendicularity, flatness, runout) directly on 3D faces of a CATPart. Annotation views control which tolerances display in which orientations. The toleranced model can drive both 3D PDF and Generative Drafting.", "why_matters": "Model-Based Definition (MBD) workflows in aerospace and automotive require tolerances embedded in the 3D model. FTA is the CATIA implementation of MBD.", "common_pitfalls": ["Tolerances on faces without a clear datum reference frame — unenforceable.", "Mixing MBD with traditional 2D drawing tolerances — duplicate and divergent.", "FTA-only delivery to a fabricator who can't consume 3D PDFs — communication failure."], "related_term_slugs": ["drafting-catia"]},
-    {"slug": "v5-vs-3dx-catia", "title": "CATIA V5 vs. CATIA on 3DEXPERIENCE", "short_def": "Two CATIA tracks — V5 (file-based, mature, widely deployed) and CATIA on 3DEXPERIENCE Platform (cloud-connected, current focus).", "definition": "CATIA V5/V6 stores designs as files (CATPart, CATProduct) on disk or in ENOVIA. CATIA on 3DEXPERIENCE stores designs in the 3DEXPERIENCE platform database, which provides built-in PLM, collaboration, and credentials. The interface and workbench concepts are similar but not identical; migration between tracks is non-trivial.", "why_matters": "Choosing between tracks affects infrastructure (3DEXPERIENCE requires a platform deployment), customisation (CAA RADE patterns differ), and integration (existing V5 workflows don't drop into 3DX unchanged). Many large organisations run both tracks simultaneously.", "common_pitfalls": ["Assuming V5 customisations transfer to 3DX — most need re-authoring.", "Mixing V5 and 3DX in the same project without a deliberate plan.", "Migrating without ENOVIA / 3DX administration capability in-house."], "related_term_slugs": ["product-structure-catia"]},
-    {"slug": "caa-rade-catia", "title": "CAA RADE (CATIA)", "short_def": "Component Application Architecture, Rapid Application Development Environment — CATIA's deep customisation framework using C++ and IDL.", "definition": "CAA RADE is a C++ + IDL toolkit for building custom CATIA workbenches, commands, and integrations. Customer-developed CAA components install as DLLs into CATIA. Capabilities far exceed scripting: custom UI, custom features, deep integration with CATIA's design data.", "why_matters": "Enterprises that need a fully custom CAD application (e.g., a Boeing-specific aerodynamic-surface workbench) build it on CAA RADE. Without CAA, customisation is limited to scripting and parameters.", "common_pitfalls": ["CAA development without versioning discipline — every CATIA release requires recompilation.", "Mixing CAA and VBScript automation for the same task — maintenance nightmare.", "Underestimating the C++ learning curve — projects stall."], "related_term_slugs": ["v5-vs-3dx-catia", "knowledgeware-catia"]}
+    {
+      "slug": "workbenches-catia",
+      "title": "Workbenches (CATIA)",
+      "short_def": "CATIA's modular UI organisation — each domain (Part Design, Assembly Design, Generative Shape Design, etc.) is its own workbench with its own toolbar and shortcuts.",
+      "definition": "A workbench is a specialised mode. Switching workbenches changes the available tools, the document type expected, and the shortcuts. CATIA loads workbenches on demand. Common workbenches: Sketcher, Part Design, Assembly Design, Generative Shape Design (GSD), FreeStyle, Imagine & Shape, Drafting, Generative Sheetmetal Design, Composites Design, DMU Navigator, Machining, Tolerancing.",
+      "why_matters": "Knowing which workbench solves which problem is half of CATIA fluency. New users do everything in Part Design and miss faster paths via specialised workbenches.",
+      "common_pitfalls": [
+        "Modelling surfaces in Part Design (Sketcher + Pad) when GSD would be vastly more efficient.",
+        "Switching between workbenches mid-feature — unsaved feature contexts get lost.",
+        "Skipping workbench-specific shortcuts — slows productivity 5-10x."
+      ],
+      "related_term_slugs": [
+        "sketcher-catia",
+        "gsd-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Workbenches (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Modelling surfaces in Part Design (Sketcher + Pad) when GSD would be vastly more efficient.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Modelling surfaces in Part Design (Sketcher + Pad) when GSD would be vastly more efficient.' As the editorial review notes: 'Knowing which workbench solves which problem is half of CATIA fluency. New users do everything in Part Design and miss faster paths via specialised workbenches.'"
+        }
+      ]
+    },
+    {
+      "slug": "sketcher-catia",
+      "title": "Sketcher (CATIA)",
+      "short_def": "CATIA's 2D sketch environment — used by Part Design, GSD, and sheet metal workbenches to define profiles for solid features.",
+      "definition": "Sketcher is the 2D editing mode on a sketch plane (XY/XZ/YZ default planes, or any user-defined plane, or any planar surface). Tools: line, circle, arc, profile (polyline), spline, conic. Constraints: dimensional (length, radius, angle) and geometric (coincidence, tangency, parallelism, perpendicularity). Output: closed or open profile consumable by a parent feature.",
+      "why_matters": "Almost every solid feature begins with a sketch. Sketch quality (fully constrained, clean construction lines, named profile elements) determines downstream feature reliability.",
+      "common_pitfalls": [
+        "Under-constrained sketches that shift on parameter change.",
+        "Building one sketch with multiple profiles when separate sketches would be cleaner.",
+        "Forgetting Construction lines vs. Profile lines — wrong line type included in feature."
+      ],
+      "related_term_slugs": [
+        "workbenches-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Sketcher (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Under-constrained sketches that shift on parameter change.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Under-constrained sketches that shift on parameter change.' As the editorial review notes: 'Almost every solid feature begins with a sketch. Sketch quality (fully constrained, clean construction lines, named profile elements) determines downstream feature reliability.'"
+        }
+      ]
+    },
+    {
+      "slug": "gsd-catia",
+      "title": "Generative Shape Design (GSD, CATIA)",
+      "short_def": "CATIA's surfacing workbench — wireframe geometry (points, lines, planes, curves) plus surface features (multi-section, sweep, fill, blend, bridge, offset).",
+      "definition": "GSD is where most class-A surface modelling happens. Wireframe operations (points, planes, lines, curves, splines) provide the structural geometry. Surface features (Extrude, Revolve, Sweep, Multi-Section Surface, Fill, Blend, Bridge, Offset, Trim) build the actual surface geometry. Continuity options (Point/Tangent/Curvature/G2/G3) control how surfaces meet at boundaries.",
+      "why_matters": "Aerospace, automotive, and industrial design surfacing requires surface-level control. GSD is the workbench where that happens; Part Design alone is not sufficient.",
+      "common_pitfalls": [
+        "Surfacing without curvature analysis — produces visible boundary patches in renderings.",
+        "Using Sweep when Multi-Section Surface would give better curvature.",
+        "Forgetting to specify continuity at trim boundaries."
+      ],
+      "related_term_slugs": [
+        "multi-section-surface-catia",
+        "workbenches-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Generative Shape Design (GSD, CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Surfacing without curvature analysis — produces visible boundary patches in renderings.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Surfacing without curvature analysis — produces visible boundary patches in renderings.' As the editorial review notes: 'Aerospace, automotive, and industrial design surfacing requires surface-level control. GSD is the workbench where that happens; Part Design alone is not sufficient.'"
+        }
+      ]
+    },
+    {
+      "slug": "multi-section-surface-catia",
+      "title": "Multi-Section Surface (CATIA)",
+      "short_def": "A surface created by lofting through a series of section profiles along guide curves with continuity controls.",
+      "definition": "Multi-Section Surface (formerly Lofted Surface) creates a surface by interpolating through multiple section curves, optionally guided by guide curves and a spine. Each section can have its own tangency and continuity constraint at the ends. The result is parametric — edit a section and the surface updates.",
+      "why_matters": "Multi-Section is the workhorse of class-A surfacing: car body panels, aircraft fuselage skins, complex enclosures. Its continuity controls give the surface curvature smoothness that simple Sweep doesn't.",
+      "common_pitfalls": [
+        "Mismatched section direction — produces twisted surfaces.",
+        "Too few sections — surface bulges or pinches between defined sections.",
+        "Forgetting guide curves — surface interpolates differently than intended."
+      ],
+      "related_term_slugs": [
+        "gsd-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Multi-Section Surface (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Mismatched section direction — produces twisted surfaces.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Mismatched section direction — produces twisted surfaces.' As the editorial review notes: 'Multi-Section is the workhorse of class-A surfacing: car body panels, aircraft fuselage skins, complex enclosures. Its continuity controls give the surface curvature smoothness that simple Sweep doesn't.'"
+        }
+      ]
+    },
+    {
+      "slug": "product-structure-catia",
+      "title": "Product Structure (CATIA Assembly)",
+      "short_def": "The hierarchical tree of components, sub-assemblies, and instances in a CATIA assembly (.CATProduct).",
+      "definition": "A Product is a CATIA assembly container. It references CATParts and other CATProducts. Each reference is an instance with a position, an instance name, and possibly publications exposed to the assembly. Multi-instance support means one CATPart referenced multiple times in the Product.",
+      "why_matters": "Product structure determines BOM, assembly performance, and access control. A flat Product with 50k CATPart references is unmanageable; a deeply nested structure that matches the real manufacturing tree is.",
+      "common_pitfalls": [
+        "All parts at one level — performance and clarity suffer.",
+        "Instances vs. references confused — editing an instance affects all instances of that CATPart.",
+        "Mismatched display modes (visualization vs. design) — visual artefacts in large assemblies."
+      ],
+      "related_term_slugs": [
+        "contextual-design-catia",
+        "dmu-navigator-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Product Structure (CATIA Assembly), which of the following represents a common technical pitfall?",
+          "options": [
+            "All parts at one level — performance and clarity suffer.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'All parts at one level — performance and clarity suffer.' As the editorial review notes: 'Product structure determines BOM, assembly performance, and access control. A flat Product with 50k CATPart references is unmanageable; a deeply nested structure that matches the real manufacturing tree is.'"
+        }
+      ]
+    },
+    {
+      "slug": "contextual-design-catia",
+      "title": "Contextual Design (CATIA)",
+      "short_def": "CATIA's top-down assembly design — features in one CATPart can reference geometry from other CATParts via the assembly context.",
+      "definition": "Contextual links create geometric dependencies between CATParts inside a Product. A part's feature can reference an edge, face, or wireframe element from another part. Edits to the source geometry propagate. Publications (named exposed references) are the recommended mechanism — they isolate the dependent part from internal source changes.",
+      "why_matters": "Top-down design (skeleton → derived parts) is the standard pattern for tightly coordinated mechanism design. Without contextual links, every part-to-part fit is hand-modelled.",
+      "common_pitfalls": [
+        "Implicit contextual links without publications — fragile, breaks unpredictably.",
+        "Circular contextual dependencies — assembly refuses to recompute.",
+        "Heavy contextual sprawl — assembly load and compute time degrades."
+      ],
+      "related_term_slugs": [
+        "product-structure-catia",
+        "power-copy-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Contextual Design (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Implicit contextual links without publications — fragile, breaks unpredictably.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Implicit contextual links without publications — fragile, breaks unpredictably.' As the editorial review notes: 'Top-down design (skeleton → derived parts) is the standard pattern for tightly coordinated mechanism design. Without contextual links, every part-to-part fit is hand-modelled.'"
+        }
+      ]
+    },
+    {
+      "slug": "dmu-navigator-catia",
+      "title": "DMU Navigator (CATIA)",
+      "short_def": "Digital Mock-Up — lightweight visualization, sectioning, clash detection, and measurement of very large assemblies.",
+      "definition": "DMU Navigator (and DMU Space Analysis, DMU Kinematics, DMU Fitting) consumes CATIA assemblies in lightweight visualization mode using CGR (CATIA Graphics Representation) files. Clash detection, distance measurement, sectioning, walkthrough, and exploded views run faster than in the full design mode.",
+      "why_matters": "Aircraft and car-body assemblies with 100k+ parts cannot be reviewed in full design mode. DMU is the review and coordination layer.",
+      "common_pitfalls": [
+        "Reviewing in DMU when design edits are intended — DMU is read-only on the design model.",
+        "Clash detection with too-loose tolerances — false negatives on real conflicts.",
+        "Visualizing without checking that CGR data is current — review against stale geometry."
+      ],
+      "related_term_slugs": [
+        "product-structure-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with DMU Navigator (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Reviewing in DMU when design edits are intended — DMU is read-only on the design model.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Reviewing in DMU when design edits are intended — DMU is read-only on the design model.' As the editorial review notes: 'Aircraft and car-body assemblies with 100k+ parts cannot be reviewed in full design mode. DMU is the review and coordination layer.'"
+        }
+      ]
+    },
+    {
+      "slug": "drafting-catia",
+      "title": "Generative Drafting (CATIA)",
+      "short_def": "CATIA's 2D drawing workbench — views, dimensions, tolerances, and annotations generated from the 3D model.",
+      "definition": "Drafting creates a CATDrawing from a CATPart or CATProduct. Views (front, projected, section, detail, broken, isometric), generative dimensioning (extracts dimensions from the 3D model), tolerancing (GD&T per ASME Y14.5 / ISO 1101), title blocks, and BOMs are all generated and link back to the source 3D.",
+      "why_matters": "Drawings are still the manufacturing deliverable. CATIA's Generative Drafting produces them with associativity — change the 3D model, the drawing updates.",
+      "common_pitfalls": [
+        "Manual dimensions that don't link back to model parameters — diverge silently.",
+        "Title block inconsistencies across drawings — sheet sets look ad hoc.",
+        "Not setting drawing standard (ANSI vs. ISO vs. JIS) — dimensioning style is wrong."
+      ],
+      "related_term_slugs": [
+        "workbenches-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Generative Drafting (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Manual dimensions that don't link back to model parameters — diverge silently.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Manual dimensions that don't link back to model parameters — diverge silently.' As the editorial review notes: 'Drawings are still the manufacturing deliverable. CATIA's Generative Drafting produces them with associativity — change the 3D model, the drawing updates.'"
+        }
+      ]
+    },
+    {
+      "slug": "sheet-metal-catia",
+      "title": "Sheet Metal Design (CATIA)",
+      "short_def": "CATIA's sheet-metal workbench — walls, flanges, bends, unfold/fold, flat pattern with bend allowance per material/process.",
+      "definition": "Generative Sheetmetal Design starts from a Sheet Metal Parameters dialog (material, thickness, bend radius, K-factor or bend allowance table). Tools include Wall, Edge Wall, Bend, Unfold/Fold, Surface from Volume. Flat patterns export as DXF for fab.",
+      "why_matters": "Aerospace sheet metal parts have tight bend-allowance and material-property requirements. CATIA's sheet metal workbench encodes those requirements; the flat patterns are production-grade.",
+      "common_pitfalls": [
+        "Wrong material/bend-allowance — flat pattern is correct geometry for the wrong physics.",
+        "Mixing solid and sheet metal features — fold/unfold fails.",
+        "Custom relief styles not approved by the fab shop — parts can't be made."
+      ],
+      "related_term_slugs": [
+        "workbenches-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Sheet Metal Design (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Wrong material/bend-allowance — flat pattern is correct geometry for the wrong physics.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Wrong material/bend-allowance — flat pattern is correct geometry for the wrong physics.' As the editorial review notes: 'Aerospace sheet metal parts have tight bend-allowance and material-property requirements. CATIA's sheet metal workbench encodes those requirements; the flat patterns are production-grade.'"
+        }
+      ]
+    },
+    {
+      "slug": "knowledgeware-catia",
+      "title": "Knowledgeware (CATIA)",
+      "short_def": "CATIA's automation suite — Knowledge Advisor, Knowledge Expert, Engineering Optimiser, with parameters, formulas, rules, checks, and reactions.",
+      "definition": "Knowledge Advisor adds parameters and formulas to CATIA documents — a parameter named 'WallThickness' drives sketch dimensions and feature values via a formula. Knowledge Expert applies rules (e.g., 'all holes within X mm of edge must be Y mm minimum') as constraint checks. Engineering Optimiser runs design-of-experiments and optimisation studies. Reactions trigger actions on events.",
+      "why_matters": "Captured engineering knowledge becomes reusable: a Knowledgeware-driven part is configurable through parameters instead of manually edited.",
+      "common_pitfalls": [
+        "Knowledgeware rules without scope — apply to everything and slow performance.",
+        "Hardcoded values in formulas instead of named parameters — refactoring is painful.",
+        "Knowledgeware combined with macros redundantly — duplicate logic in two places."
+      ],
+      "related_term_slugs": [
+        "power-copy-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Knowledgeware (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Knowledgeware rules without scope — apply to everything and slow performance.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Knowledgeware rules without scope — apply to everything and slow performance.' As the editorial review notes: 'Captured engineering knowledge becomes reusable: a Knowledgeware-driven part is configurable through parameters instead of manually edited.'"
+        }
+      ]
+    },
+    {
+      "slug": "power-copy-catia",
+      "title": "Power Copy / User Feature (CATIA)",
+      "short_def": "CATIA's reusable feature templates — capture a pattern of geometry and instantiate it elsewhere with input geometry substitution.",
+      "definition": "A Power Copy is a packaged set of features (sketches, solids, surfaces) parameterised by input references. Drop the Power Copy into another part, substitute the input references with the new part's geometry, and the geometry regenerates. User Feature is similar but with a more structured input mechanism.",
+      "why_matters": "Repeated design patterns (mounting flange, bracket family, drain feature) become Power Copies. Standardising on Power Copies enforces design consistency across projects.",
+      "common_pitfalls": [
+        "Power Copies with too many input references — substitution becomes confusing.",
+        "Updating the master Power Copy without updating instances — instances drift.",
+        "Library Power Copies on a single user's machine — others can't use them."
+      ],
+      "related_term_slugs": [
+        "knowledgeware-catia",
+        "contextual-design-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Power Copy / User Feature (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Power Copies with too many input references — substitution becomes confusing.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Power Copies with too many input references — substitution becomes confusing.' As the editorial review notes: 'Repeated design patterns (mounting flange, bracket family, drain feature) become Power Copies. Standardising on Power Copies enforces design consistency across projects.'"
+        }
+      ]
+    },
+    {
+      "slug": "publications-catia",
+      "title": "Publications (CATIA)",
+      "short_def": "Named exposed references — the recommended way to expose geometry from one component for another component to reference.",
+      "definition": "A Publication is a named alias for a feature, sketch, geometry element, or parameter. Other components in the assembly reference the Publication name rather than the raw internal feature. Renaming or replacing the underlying feature without breaking dependents requires only re-mapping the Publication, not editing every dependent reference.",
+      "why_matters": "Publications isolate component internals from inter-component dependencies — the single most important pattern for maintainable CATIA assemblies. Without publications, every internal-feature edit risks cascading downstream.",
+      "common_pitfalls": [
+        "Skipping publications and using implicit contextual links — assemblies become brittle.",
+        "Naming publications by internal feature name instead of by intent.",
+        "Publication renamed in source — dependents see broken references on next open."
+      ],
+      "related_term_slugs": [
+        "contextual-design-catia",
+        "product-structure-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Publications (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Skipping publications and using implicit contextual links — assemblies become brittle.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Skipping publications and using implicit contextual links — assemblies become brittle.' As the editorial review notes: 'Publications isolate component internals from inter-component dependencies — the single most important pattern for maintainable CATIA assemblies. Without publications, every internal-feature edit risks cascading downstream.'"
+        }
+      ]
+    },
+    {
+      "slug": "tolerancing-catia",
+      "title": "Functional Tolerancing & Annotation (FTA, CATIA)",
+      "short_def": "CATIA's GD&T workbench — applies geometric and dimensional tolerances directly on the 3D model per ASME Y14.5 / ISO 1101 / GPS.",
+      "definition": "FTA lets the user apply tolerances (datum references, position, profile, perpendicularity, flatness, runout) directly on 3D faces of a CATPart. Annotation views control which tolerances display in which orientations. The toleranced model can drive both 3D PDF and Generative Drafting.",
+      "why_matters": "Model-Based Definition (MBD) workflows in aerospace and automotive require tolerances embedded in the 3D model. FTA is the CATIA implementation of MBD.",
+      "common_pitfalls": [
+        "Tolerances on faces without a clear datum reference frame — unenforceable.",
+        "Mixing MBD with traditional 2D drawing tolerances — duplicate and divergent.",
+        "FTA-only delivery to a fabricator who can't consume 3D PDFs — communication failure."
+      ],
+      "related_term_slugs": [
+        "drafting-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with Functional Tolerancing & Annotation (FTA, CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "Tolerances on faces without a clear datum reference frame — unenforceable.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Tolerances on faces without a clear datum reference frame — unenforceable.' As the editorial review notes: 'Model-Based Definition (MBD) workflows in aerospace and automotive require tolerances embedded in the 3D model. FTA is the CATIA implementation of MBD.'"
+        }
+      ]
+    },
+    {
+      "slug": "v5-vs-3dx-catia",
+      "title": "CATIA V5 vs. CATIA on 3DEXPERIENCE",
+      "short_def": "Two CATIA tracks — V5 (file-based, mature, widely deployed) and CATIA on 3DEXPERIENCE Platform (cloud-connected, current focus).",
+      "definition": "CATIA V5/V6 stores designs as files (CATPart, CATProduct) on disk or in ENOVIA. CATIA on 3DEXPERIENCE stores designs in the 3DEXPERIENCE platform database, which provides built-in PLM, collaboration, and credentials. The interface and workbench concepts are similar but not identical; migration between tracks is non-trivial.",
+      "why_matters": "Choosing between tracks affects infrastructure (3DEXPERIENCE requires a platform deployment), customisation (CAA RADE patterns differ), and integration (existing V5 workflows don't drop into 3DX unchanged). Many large organisations run both tracks simultaneously.",
+      "common_pitfalls": [
+        "Assuming V5 customisations transfer to 3DX — most need re-authoring.",
+        "Mixing V5 and 3DX in the same project without a deliberate plan.",
+        "Migrating without ENOVIA / 3DX administration capability in-house."
+      ],
+      "related_term_slugs": [
+        "product-structure-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with CATIA V5 vs. CATIA on 3DEXPERIENCE, which of the following represents a common technical pitfall?",
+          "options": [
+            "Assuming V5 customisations transfer to 3DX — most need re-authoring.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Assuming V5 customisations transfer to 3DX — most need re-authoring.' As the editorial review notes: 'Choosing between tracks affects infrastructure (3DEXPERIENCE requires a platform deployment), customisation (CAA RADE patterns differ), and integration (existing V5 workflows don't drop into 3DX unchanged). Many large organisations run both tracks simultaneously.'"
+        }
+      ]
+    },
+    {
+      "slug": "caa-rade-catia",
+      "title": "CAA RADE (CATIA)",
+      "short_def": "Component Application Architecture, Rapid Application Development Environment — CATIA's deep customisation framework using C++ and IDL.",
+      "definition": "CAA RADE is a C++ + IDL toolkit for building custom CATIA workbenches, commands, and integrations. Customer-developed CAA components install as DLLs into CATIA. Capabilities far exceed scripting: custom UI, custom features, deep integration with CATIA's design data.",
+      "why_matters": "Enterprises that need a fully custom CAD application (e.g., a Boeing-specific aerodynamic-surface workbench) build it on CAA RADE. Without CAA, customisation is limited to scripting and parameters.",
+      "common_pitfalls": [
+        "CAA development without versioning discipline — every CATIA release requires recompilation.",
+        "Mixing CAA and VBScript automation for the same task — maintenance nightmare.",
+        "Underestimating the C++ learning curve — projects stall."
+      ],
+      "related_term_slugs": [
+        "v5-vs-3dx-catia",
+        "knowledgeware-catia"
+      ],
+      "quiz": [
+        {
+          "question": "When working with CAA RADE (CATIA), which of the following represents a common technical pitfall?",
+          "options": [
+            "CAA development without versioning discipline — every CATIA release requires recompilation.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'CAA development without versioning discipline — every CATIA release requires recompilation.' As the editorial review notes: 'Enterprises that need a fully custom CAD application (e.g., a Boeing-specific aerodynamic-surface workbench) build it on CAA RADE. Without CAA, customisation is limited to scripting and parameters.'"
+        }
+      ]
+    }
   ],
-
   "faqs": [
-    {"question": "What's the difference between CATIA and SOLIDWORKS, both Dassault products?", "answer": "Different markets. SOLIDWORKS is mid-market mechanical CAD (industrial machinery, consumer products). CATIA is high-end (aerospace, automotive, very large assemblies, class-A surfacing). CATIA's learning curve, price, and capability are substantially higher."},
-    {"question": "Is CATIA available for individual hobbyists?", "answer": "No. CATIA is sold through VARs to enterprises and educational institutions. Hobbyists looking for similar capability use Rhino (surfacing), Plasticity (modern direct modelling), Onshape (cloud), or older perpetual versions of SOLIDWORKS via student licenses."},
-    {"question": "What is the difference between V5 and V6?", "answer": "V5 is the file-based desktop platform (still widely used). V6 was the predecessor to 3DEXPERIENCE — server-stored on ENOVIA V6. CATIA on 3DEXPERIENCE is the current 'V6'-equivalent track. Many organisations run both V5 and 3DX in parallel."},
-    {"question": "Can CATIA open SOLIDWORKS files?", "answer": "Indirectly via STEP or Parasolid export. Direct .sldprt / .sldasm import isn't a default CATIA feature; Dassault sells the 3D Translator product line for native cross-CAD reads."},
-    {"question": "What is ENOVIA and how does it relate to CATIA?", "answer": "ENOVIA is Dassault's PLM/PDM system. It stores CATIA documents (and other Dassault product data) with revisions, access control, BOM management, change orders. Large CATIA deployments are essentially CATIA + ENOVIA + DELMIA integrated."},
-    {"question": "How do I learn CATIA without enterprise access?", "answer": "Education licenses through university partnerships are the primary route. Hobbyist resources are scarce. Some VARs offer paid training courses. Online platforms (CATIA Composer Help, CATIA tutorials on YouTube by Bharat Tutors and similar) cover basics; deep learning typically requires enterprise context."},
-    {"question": "What is the workbench I should learn first?", "answer": "Start with Sketcher and Part Design for solid modelling fundamentals. Then Assembly Design for product structure. Then Generative Shape Design if surfacing is relevant. Generative Drafting for drawings. Avoid jumping into FreeStyle or Knowledgeware until the basics are solid."},
-    {"question": "How does CATIA handle class-A surfacing?", "answer": "Generative Shape Design + FreeStyle workbenches handle most class-A surface authoring. ICEM Surf is Dassault's specialised class-A tool (separate product, deeply integrated with CATIA). Automotive OEMs typically use ICEM for body surfaces and import them into CATIA for downstream work."},
-    {"question": "What is a CATScript / CATVba macro?", "answer": "CATIA macros use VBScript-style automation. They can be recorded from UI actions or written. CATScript runs without a UI; CATVbs has VBA integration. For heavier automation, use CAA RADE (C++) or 3DEXPERIENCE Knowledge Apps."},
-    {"question": "What is DMU and when do I use it?", "answer": "Digital Mock-Up — lightweight visualization, sectioning, clash, and measurement workbenches. Use DMU for assembly review (clash detection, fit check, walkthrough) on large assemblies where design-mode performance is insufficient."},
-    {"question": "Can CATIA run on macOS or Linux?", "answer": "macOS: no. Linux: CATIA V5 has limited Linux support (Red Hat Enterprise Linux historically); current CATIA on 3DEXPERIENCE platform delivers many features as web apps cross-platform but full CATIA workbenches are Windows-primary."},
-    {"question": "How much does CATIA cost?", "answer": "Pricing is per VAR contract, not public. Production seat with multiple workbenches typically $10k-$25k+ per year. Pricing depends on the exact workbench bundle, token pool, support tier, and whether 3DEXPERIENCE Platform infrastructure is included."},
-    {"question": "What is the difference between CATIA and NX?", "answer": "Comparable tier; different vendor and design philosophy. CATIA is Dassault, ENOVIA-paired, dominant in aerospace and many automotive OEMs. NX is Siemens, Teamcenter-paired, dominant in other automotive OEMs (especially GM legacy) and many tier-1 suppliers. Both are full-stack high-end MCAD."},
-    {"question": "Do I need ENOVIA to use CATIA?", "answer": "Not technically — CATIA can run file-based without ENOVIA. But any production deployment beyond a small team uses ENOVIA (or another PDM) for revision control, references, and access. CATIA on 3DEXPERIENCE comes with PLM built-in."},
-    {"question": "Where do I learn CATIA systematically?", "answer": "Dassault's certified training courses (via VARs) are the official path. CADD Centre and Edu CATIA-certified university programs deliver structured curricula. Online: Bharat Tutors, Edu CATIA, and AutoTechCAD on YouTube cover much of the V5 surface. For 3DEXPERIENCE-specific learning, the Dassault University training portal is the authoritative source."}
+    {
+      "question": "What's the difference between CATIA and SOLIDWORKS, both Dassault products?",
+      "answer": "Different markets. SOLIDWORKS is mid-market mechanical CAD (industrial machinery, consumer products). CATIA is high-end (aerospace, automotive, very large assemblies, class-A surfacing). CATIA's learning curve, price, and capability are substantially higher."
+    },
+    {
+      "question": "Is CATIA available for individual hobbyists?",
+      "answer": "No. CATIA is sold through VARs to enterprises and educational institutions. Hobbyists looking for similar capability use Rhino (surfacing), Plasticity (modern direct modelling), Onshape (cloud), or older perpetual versions of SOLIDWORKS via student licenses."
+    },
+    {
+      "question": "What is the difference between V5 and V6?",
+      "answer": "V5 is the file-based desktop platform (still widely used). V6 was the predecessor to 3DEXPERIENCE — server-stored on ENOVIA V6. CATIA on 3DEXPERIENCE is the current 'V6'-equivalent track. Many organisations run both V5 and 3DX in parallel."
+    },
+    {
+      "question": "Can CATIA open SOLIDWORKS files?",
+      "answer": "Indirectly via STEP or Parasolid export. Direct .sldprt / .sldasm import isn't a default CATIA feature; Dassault sells the 3D Translator product line for native cross-CAD reads."
+    },
+    {
+      "question": "What is ENOVIA and how does it relate to CATIA?",
+      "answer": "ENOVIA is Dassault's PLM/PDM system. It stores CATIA documents (and other Dassault product data) with revisions, access control, BOM management, change orders. Large CATIA deployments are essentially CATIA + ENOVIA + DELMIA integrated."
+    },
+    {
+      "question": "How do I learn CATIA without enterprise access?",
+      "answer": "Education licenses through university partnerships are the primary route. Hobbyist resources are scarce. Some VARs offer paid training courses. Online platforms (CATIA Composer Help, CATIA tutorials on YouTube by Bharat Tutors and similar) cover basics; deep learning typically requires enterprise context."
+    },
+    {
+      "question": "What is the workbench I should learn first?",
+      "answer": "Start with Sketcher and Part Design for solid modelling fundamentals. Then Assembly Design for product structure. Then Generative Shape Design if surfacing is relevant. Generative Drafting for drawings. Avoid jumping into FreeStyle or Knowledgeware until the basics are solid."
+    },
+    {
+      "question": "How does CATIA handle class-A surfacing?",
+      "answer": "Generative Shape Design + FreeStyle workbenches handle most class-A surface authoring. ICEM Surf is Dassault's specialised class-A tool (separate product, deeply integrated with CATIA). Automotive OEMs typically use ICEM for body surfaces and import them into CATIA for downstream work."
+    },
+    {
+      "question": "What is a CATScript / CATVba macro?",
+      "answer": "CATIA macros use VBScript-style automation. They can be recorded from UI actions or written. CATScript runs without a UI; CATVbs has VBA integration. For heavier automation, use CAA RADE (C++) or 3DEXPERIENCE Knowledge Apps."
+    },
+    {
+      "question": "What is DMU and when do I use it?",
+      "answer": "Digital Mock-Up — lightweight visualization, sectioning, clash, and measurement workbenches. Use DMU for assembly review (clash detection, fit check, walkthrough) on large assemblies where design-mode performance is insufficient."
+    },
+    {
+      "question": "Can CATIA run on macOS or Linux?",
+      "answer": "macOS: no. Linux: CATIA V5 has limited Linux support (Red Hat Enterprise Linux historically); current CATIA on 3DEXPERIENCE platform delivers many features as web apps cross-platform but full CATIA workbenches are Windows-primary."
+    },
+    {
+      "question": "How much does CATIA cost?",
+      "answer": "Pricing is per VAR contract, not public. Production seat with multiple workbenches typically $10k-$25k+ per year. Pricing depends on the exact workbench bundle, token pool, support tier, and whether 3DEXPERIENCE Platform infrastructure is included."
+    },
+    {
+      "question": "What is the difference between CATIA and NX?",
+      "answer": "Comparable tier; different vendor and design philosophy. CATIA is Dassault, ENOVIA-paired, dominant in aerospace and many automotive OEMs. NX is Siemens, Teamcenter-paired, dominant in other automotive OEMs (especially GM legacy) and many tier-1 suppliers. Both are full-stack high-end MCAD."
+    },
+    {
+      "question": "Do I need ENOVIA to use CATIA?",
+      "answer": "Not technically — CATIA can run file-based without ENOVIA. But any production deployment beyond a small team uses ENOVIA (or another PDM) for revision control, references, and access. CATIA on 3DEXPERIENCE comes with PLM built-in."
+    },
+    {
+      "question": "Where do I learn CATIA systematically?",
+      "answer": "Dassault's certified training courses (via VARs) are the official path. CADD Centre and Edu CATIA-certified university programs deliver structured curricula. Online: Bharat Tutors, Edu CATIA, and AutoTechCAD on YouTube cover much of the V5 surface. For 3DEXPERIENCE-specific learning, the Dassault University training portal is the authoritative source."
+    }
   ],
-
   "graph_nodes": [
-    {"id": "CATIA", "type": "product", "tags": ["dassault", "mcad", "aerospace", "automotive"], "hint": "Dassault's high-end PLM-grade CAD.", "group": 1, "radius": 14},
-    {"id": "CATIA Workbenches", "type": "concept", "tags": ["catia"], "hint": "Modular workbench-based UI.", "group": 2, "radius": 10},
-    {"id": "CATIA Sketcher", "type": "concept", "tags": ["catia"], "hint": "2D sketch environment.", "group": 2, "radius": 8},
-    {"id": "GSD", "type": "skill", "tags": ["catia", "surfacing"], "hint": "Generative Shape Design surfacing.", "group": 2, "radius": 11},
-    {"id": "Multi-Section Surface", "type": "concept", "tags": ["catia", "surfacing"], "hint": "Class-A lofted surface.", "group": 2, "radius": 8},
-    {"id": "CATIA Product Structure", "type": "concept", "tags": ["catia", "assembly"], "hint": "Hierarchical assembly tree.", "group": 2, "radius": 9},
-    {"id": "Contextual Design", "type": "skill", "tags": ["catia", "assembly"], "hint": "Top-down assembly with cross-part refs.", "group": 2, "radius": 9},
-    {"id": "Publications", "type": "concept", "tags": ["catia", "assembly"], "hint": "Named exposed references for stability.", "group": 2, "radius": 9},
-    {"id": "DMU Navigator", "type": "product", "tags": ["catia", "review"], "hint": "Lightweight assembly visualization.", "group": 1, "radius": 9},
-    {"id": "CATIA Drafting", "type": "skill", "tags": ["catia", "documentation"], "hint": "2D drawings from 3D model.", "group": 2, "radius": 8},
-    {"id": "Knowledgeware", "type": "sdk", "tags": ["catia", "automation"], "hint": "Parameters, rules, optimiser.", "group": 2, "radius": 9},
-    {"id": "CAA RADE", "type": "sdk", "tags": ["catia", "customization"], "hint": "C++ deep customisation framework.", "group": 2, "radius": 8}
+    {
+      "id": "CATIA",
+      "type": "product",
+      "tags": [
+        "dassault",
+        "mcad",
+        "aerospace",
+        "automotive"
+      ],
+      "hint": "Dassault's high-end PLM-grade CAD.",
+      "group": 1,
+      "radius": 14
+    },
+    {
+      "id": "CATIA Workbenches",
+      "type": "concept",
+      "tags": [
+        "catia"
+      ],
+      "hint": "Modular workbench-based UI.",
+      "group": 2,
+      "radius": 10
+    },
+    {
+      "id": "CATIA Sketcher",
+      "type": "concept",
+      "tags": [
+        "catia"
+      ],
+      "hint": "2D sketch environment.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "GSD",
+      "type": "skill",
+      "tags": [
+        "catia",
+        "surfacing"
+      ],
+      "hint": "Generative Shape Design surfacing.",
+      "group": 2,
+      "radius": 11
+    },
+    {
+      "id": "Multi-Section Surface",
+      "type": "concept",
+      "tags": [
+        "catia",
+        "surfacing"
+      ],
+      "hint": "Class-A lofted surface.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "CATIA Product Structure",
+      "type": "concept",
+      "tags": [
+        "catia",
+        "assembly"
+      ],
+      "hint": "Hierarchical assembly tree.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Contextual Design",
+      "type": "skill",
+      "tags": [
+        "catia",
+        "assembly"
+      ],
+      "hint": "Top-down assembly with cross-part refs.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "Publications",
+      "type": "concept",
+      "tags": [
+        "catia",
+        "assembly"
+      ],
+      "hint": "Named exposed references for stability.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "DMU Navigator",
+      "type": "product",
+      "tags": [
+        "catia",
+        "review"
+      ],
+      "hint": "Lightweight assembly visualization.",
+      "group": 1,
+      "radius": 9
+    },
+    {
+      "id": "CATIA Drafting",
+      "type": "skill",
+      "tags": [
+        "catia",
+        "documentation"
+      ],
+      "hint": "2D drawings from 3D model.",
+      "group": 2,
+      "radius": 8
+    },
+    {
+      "id": "Knowledgeware",
+      "type": "sdk",
+      "tags": [
+        "catia",
+        "automation"
+      ],
+      "hint": "Parameters, rules, optimiser.",
+      "group": 2,
+      "radius": 9
+    },
+    {
+      "id": "CAA RADE",
+      "type": "sdk",
+      "tags": [
+        "catia",
+        "customization"
+      ],
+      "hint": "C++ deep customisation framework.",
+      "group": 2,
+      "radius": 8
+    }
   ],
   "graph_links": [
-    ["CATIA", "Dassault"],
-    ["CATIA Workbenches", "CATIA"],
-    ["CATIA Sketcher", "CATIA Workbenches"],
-    ["GSD", "CATIA Workbenches"],
-    ["Multi-Section Surface", "GSD"],
-    ["CATIA Product Structure", "CATIA"],
-    ["Contextual Design", "CATIA Product Structure"],
-    ["Publications", "Contextual Design"],
-    ["DMU Navigator", "CATIA Product Structure"],
-    ["CATIA Drafting", "CATIA"],
-    ["Knowledgeware", "CATIA"],
-    ["CAA RADE", "CATIA"]
+    [
+      "CATIA",
+      "Dassault"
+    ],
+    [
+      "CATIA Workbenches",
+      "CATIA"
+    ],
+    [
+      "CATIA Sketcher",
+      "CATIA Workbenches"
+    ],
+    [
+      "GSD",
+      "CATIA Workbenches"
+    ],
+    [
+      "Multi-Section Surface",
+      "GSD"
+    ],
+    [
+      "CATIA Product Structure",
+      "CATIA"
+    ],
+    [
+      "Contextual Design",
+      "CATIA Product Structure"
+    ],
+    [
+      "Publications",
+      "Contextual Design"
+    ],
+    [
+      "DMU Navigator",
+      "CATIA Product Structure"
+    ],
+    [
+      "CATIA Drafting",
+      "CATIA"
+    ],
+    [
+      "Knowledgeware",
+      "CATIA"
+    ],
+    [
+      "CAA RADE",
+      "CATIA"
+    ]
   ]
 }
