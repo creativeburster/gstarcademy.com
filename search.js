@@ -158,12 +158,20 @@ const CADSearch = {
   bindInputs() {
     // 1. Sidebar Search (Wiki pages)
     const sidebarSearch = document.getElementById("kb-sidebar-search");
-    if (sidebarSearch) this.attachDropdown(sidebarSearch);
+    if (sidebarSearch) {
+      this.attachDropdown(sidebarSearch);
+      if (document.activeElement === sidebarSearch && sidebarSearch.value.trim()) {
+        sidebarSearch.dispatchEvent(new Event("input"));
+      }
+    }
 
     // 2. Homepage Hero Search
     const heroSearchRow = document.querySelector(".hero-search-shell input");
     if (heroSearchRow) {
       this.attachDropdown(heroSearchRow);
+      if (document.activeElement === heroSearchRow && heroSearchRow.value.trim()) {
+        heroSearchRow.dispatchEvent(new Event("input"));
+      }
       // Bind home search button as well
       const heroSearchBtn = document.querySelector(".hero-search-shell button");
       if (heroSearchBtn) {
@@ -178,12 +186,18 @@ const CADSearch = {
     // Only bind autocomplete if NOT on the tutorials page (to avoid conflict with dynamic filter)
     if (tutorialSearch && document.body.getAttribute("data-page") !== "tutorials") {
       this.attachDropdown(tutorialSearch);
+      if (document.activeElement === tutorialSearch && tutorialSearch.value.trim()) {
+        tutorialSearch.dispatchEvent(new Event("input"));
+      }
     }
 
     // 4. Offline Page Search
     const offlineSearchRow = document.querySelector(".offline-search-shell input");
     if (offlineSearchRow) {
       this.attachDropdown(offlineSearchRow);
+      if (document.activeElement === offlineSearchRow && offlineSearchRow.value.trim()) {
+        offlineSearchRow.dispatchEvent(new Event("input"));
+      }
     }
   },
 
@@ -346,7 +360,38 @@ const CADSearch = {
   }
 };
 
-// Initialize on DOM load
+// Initialize search engine lazily on input interaction to boost page load speed
 document.addEventListener("DOMContentLoaded", () => {
-  CADSearch.init();
+  const searchInputs = [
+    document.getElementById("kb-sidebar-search"),
+    document.querySelector(".hero-search-shell input"),
+    document.querySelector(".search-row input"),
+    document.querySelector(".offline-search-shell input")
+  ].filter(Boolean);
+
+  if (searchInputs.length === 0) {
+    // Fallback: in case inputs are loaded dynamically, bind focus handler to body
+    document.body.addEventListener("focusin", (e) => {
+      if (e.target && (e.target.id === "kb-sidebar-search" || e.target.type === "search" || e.target.placeholder?.toLowerCase().includes("search"))) {
+        CADSearch.init();
+      }
+    }, { once: true });
+    return;
+  }
+
+  const triggerInit = () => {
+    CADSearch.init();
+    // Remove listeners once initialized
+    searchInputs.forEach(input => {
+      input.removeEventListener("focus", triggerInit);
+      input.removeEventListener("input", triggerInit);
+      input.removeEventListener("mouseenter", triggerInit);
+    });
+  };
+
+  searchInputs.forEach(input => {
+    input.addEventListener("focus", triggerInit, { once: true });
+    input.addEventListener("input", triggerInit, { once: true });
+    input.addEventListener("mouseenter", triggerInit, { once: true }); // pre-fetch on hover
+  });
 });

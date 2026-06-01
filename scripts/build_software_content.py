@@ -1157,7 +1157,7 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
     </main>
 
     {footer_html('../../')}
-    <script src="../../d3.min.js?v={CSS_VER}"></script>
+    <script src="../../d3.min.js?v={CSS_VER}" defer></script>
     <script src="../../app.js?v={CSS_VER}" defer></script>
     <script src="../../knowledge.js?v={CSS_VER}" defer></script>
   </body>
