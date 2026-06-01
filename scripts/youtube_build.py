@@ -334,7 +334,7 @@ def load_and_merge_videos() -> tuple[list[dict[str, Any]], dict[str, Any]]:
             p["difficulty"] = p.get("level") or "beginner"
             p["video_id"] = p.get("id")
             p["published_at"] = ""
-            p["thumbnail_url"] = ""
+            p["thumbnail_url"] = p.get("thumbnail_url") or ""
             p["meta_info"] = p.get("meta_info") or f"Source: {p.get('platform')} · Curated Course"
             p["editorial_note"] = p.get("editorial_note") or "Professional curated resource."
         vids.extend(premium_vids)
