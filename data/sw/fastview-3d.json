@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "slug": "fastview-3d",
+  "name": "3D FastView",
+  "tagline": "Separate 3D viewing line for heavyweight CAD/visualization workloads linked from Gstar marketing.",
+  "meta_desc": "Use when assemblies or STEP/IGES-heavy workflows need navigation beyond 2D DWG scope. Licensing and supported formats evolve—confirm on vendor pages before standardizing workflows.",
+  "category_label": "Large 3D CAD visualization",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "View states",
+    "Screenshot/video",
+    "Neutral CAD (depends on product)"
+  ],
+  "domains": [
+    "Design review",
+    "Manufacturing previews",
+    "Sales demos"
+  ],
+  "profile": {
+    "introduction": "Use when assemblies or STEP/IGES-heavy workflows need navigation beyond 2D DWG scope. Licensing and supported formats evolve—confirm on vendor pages before standardizing workflows."
+  },
+  "terms": [
+    {
+      "slug": "fastview-3d-term-1",
+      "title": "3D Format Import",
+      "short_def": "Technical best practices for 3D Format Import inside 3D FastView.",
+      "definition": "3D Format Import loads solid modeling formats like STEP, Parasolid, and IGES into the viewer.",
+      "why_matters": "Simplifies mechanical review by allowing non-CAD seats to view complex assembly files.",
+      "common_pitfalls": [
+        "Importing giant solid assemblies without turning on level-of-detail optimization",
+        "Losing sub-component associations after moving folders"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with 3D Format Import, which of the following represents a common technical pitfall?",
+          "options": [
+            "Importing giant solid assemblies without turning on level-of-detail optimization.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Importing giant solid assemblies without turning on level-of-detail optimization.' As the editorial review notes: 'Simplifies mechanical review by allowing non-CAD seats to view complex assembly files.'"
+        }
+      ]
+    },
+    {
+      "slug": "fastview-3d-term-2",
+      "title": "Geometric Measurement Suite",
+      "short_def": "Technical best practices for Geometric Measurement Suite inside 3D FastView.",
+      "definition": "Geometric Measurement Suite evaluates distances, diameters, angles, and volumes directly on solid objects.",
+      "why_matters": "Provides manufacturing teams with accurate dimension details for QA assessments.",
+      "common_pitfalls": [
+        "Measuring off mesh approximations instead of the true mathematical boundary geometry",
+        "Forgetting to calibrate unit offsets before taking final dimensions"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Geometric Measurement Suite, which of the following represents a common technical pitfall?",
+          "options": [
+            "Measuring off mesh approximations instead of the true mathematical boundary geometry.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Measuring off mesh approximations instead of the true mathematical boundary geometry.' As the editorial review notes: 'Provides manufacturing teams with accurate dimension details for QA assessments.'"
+        }
+      ]
+    },
+    {
+      "slug": "fastview-3d-term-3",
+      "title": "Exploded Assembly Views",
+      "short_def": "Technical best practices for Exploded Assembly Views inside 3D FastView.",
+      "definition": "Exploded Assembly Views separate components along linear paths, exposing hidden parts.",
+      "why_matters": "Creates clear visual instructions for manufacturing assembly lines.",
+      "common_pitfalls": [
+        "Exploding components along axes that collide with other objects",
+        "Neglecting to save exploded view states for documentation exports"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Exploded Assembly Views, which of the following represents a common technical pitfall?",
+          "options": [
+            "Exploding components along axes that collide with other objects.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Exploding components along axes that collide with other objects.' As the editorial review notes: 'Creates clear visual instructions for manufacturing assembly lines.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What formats can 3D FastView import?",
+      "answer": "It imports STEP, IGES, SAT, Parasolid (x_t), SolidWorks, Creo, Inventor, and CATIA formats."
+    },
+    {
+      "question": "How do I measure the exact clearance between assembly parts?",
+      "answer": "Select two elements, click Clearance in the Measure tab, and the tool will show the shortest linear distance and highlight intersections."
+    },
+    {
+      "question": "Can I generate exploded animation files in 3D FastView?",
+      "answer": "Yes. Select the assembly node, click Exploded View, adjust displacement coordinates along axes, and export the view sequence."
+    }
+  ]
+}

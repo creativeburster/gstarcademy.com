@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "slug": "gstarcad-365",
+  "name": "GstarCAD 365",
+  "tagline": "Subscription-style cloud bridge for sharing drawings, sheets, and comments across teams beyond a single LAN drive.",
+  "meta_desc": "Positions Gstarsoft’s ecosystem for distributed review: pair with desktop GstarCAD for authoring and use web/mobile viewers where appropriate. Confirm account, region, and retention policies on the official product pages.",
+  "category_label": "Cloud collaboration for DWG projects",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "DWG (authoring)",
+    "Cloud project links",
+    "PDF"
+  ],
+  "domains": [
+    "Multi-site teams",
+    "Field review",
+    "SMB collaboration"
+  ],
+  "profile": {
+    "introduction": "Positions Gstarsoft’s ecosystem for distributed review: pair with desktop GstarCAD for authoring and use web/mobile viewers where appropriate. Confirm account, region, and retention policies on the official product pages."
+  },
+  "terms": [
+    {
+      "slug": "gstarcad-365-term-1",
+      "title": "Drawing Share Link",
+      "short_def": "Technical best practices for Drawing Share Link inside GstarCAD 365.",
+      "definition": "Drawing Share Link generates access tokens for sharing drawing files, supporting comments and markup viewings.",
+      "why_matters": "Avoids email attachment bloat and ensures that all external partners review the same revision.",
+      "common_pitfalls": [
+        "Setting unlimited link expiration, which poses data leak risks",
+        "Forgetting to verify drawing permissions before sending links to consultants"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Drawing Share Link, which of the following represents a common technical pitfall?",
+          "options": [
+            "Setting unlimited link expiration, which poses data leak risks.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Setting unlimited link expiration, which poses data leak risks.' As the editorial review notes: 'Avoids email attachment bloat and ensures that all external partners review the same revision.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarcad-365-term-2",
+      "title": "Version Compare Tool",
+      "short_def": "Technical best practices for Version Compare Tool inside GstarCAD 365.",
+      "definition": "Version Compare Tool highlights visual differences between drawing revisions in contrasting colors.",
+      "why_matters": "Speeds up sheet audits and visualizes layout modifications made by different authors.",
+      "common_pitfalls": [
+        "Comparing files with different drawing coordinate baselines causing false mismatches",
+        "Neglecting to verify scale adjustments before running version compare"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Version Compare Tool, which of the following represents a common technical pitfall?",
+          "options": [
+            "Comparing files with different drawing coordinate baselines causing false mismatches.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Comparing files with different drawing coordinate baselines causing false mismatches.' As the editorial review notes: 'Speeds up sheet audits and visualizes layout modifications made by different authors.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarcad-365-term-3",
+      "title": "Cloud Storage Sync",
+      "short_def": "Technical best practices for Cloud Storage Sync inside GstarCAD 365.",
+      "definition": "Cloud Storage Sync updates changes to GstarCAD 365 cloud servers, handling file conflicts automatically.",
+      "why_matters": "Keeps distributed teams aligned on the latest drawing version and prevents overwrite conflicts.",
+      "common_pitfalls": [
+        "Editing files offline without checking them out first",
+        "Overwriting master revisions with old local files during force syncs"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Cloud Storage Sync, which of the following represents a common technical pitfall?",
+          "options": [
+            "Editing files offline without checking them out first.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Editing files offline without checking them out first.' As the editorial review notes: 'Keeps distributed teams aligned on the latest drawing version and prevents overwrite conflicts.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I share a drawing link with external clients?",
+      "answer": "Select the file in the project manager, click Share, set permissions (view-only or edit-enabled), set expiration date, and copy the link."
+    },
+    {
+      "question": "Can I view version history and restore old revisions?",
+      "answer": "Yes, GstarCAD 365 maintains a complete activity log. You can compare any two version revisions visually and restore older versions as the active drawing master."
+    },
+    {
+      "question": "Does GstarCAD 365 support offline editing?",
+      "answer": "Yes, drawings can be checked out for offline work. Once you reconnect, changes are merged back as a new revision."
+    }
+  ]
+}

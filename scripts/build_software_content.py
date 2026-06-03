@@ -908,6 +908,125 @@ def render_quiz(quiz_data: list[dict], term_slug: str) -> str:
     return "\n".join(parts)
 
 
+SOFTWARE_CUSTOM_QUIZZES = {
+    "autocad": {
+        "question": "Which of the following is considered an Autodesk AutoCAD drafting best-practice regarding layout annotation?",
+        "options": [
+            "Draw layouts and sheet borders at 1:1 in Paper Space, and scale model-space views using locked viewports.",
+            "Always explode reusable blocks to optimize layer styles and viewport visibility.",
+            "Configure lineweights and colors globally using absolute pixel units in model space.",
+            "Draft all sheet borders in model space at 100x scale and plot directly from model space."
+        ],
+        "correct_idx": 0,
+        "explanation": "Standard AutoCAD methodology dictates drafting layout sheets at 1:1 in Paper Space, using locked viewports to scale and frame the 1:1 Model Space geometry, avoiding plotting directly from model space."
+    },
+    "revit": {
+        "question": "What is the primary coordinate coordination methodology to align structural, MEP, and architectural links in Revit?",
+        "options": [
+            "Shared Coordinates system mapping all projects to a common geographic or local survey origin.",
+            "Exploding all linked models and merging their layers into a single drawing template.",
+            "Scaling block attributes by hand using absolute coordinates in paper space.",
+            "Converting all files to DXF format before importing them into layout viewports."
+        ],
+        "correct_idx": 0,
+        "explanation": "Shared Coordinates ensure Revit links align automatically across disciplines by sharing a synchronized project coordinate or survey point origin."
+    },
+    "solidworks": {
+        "question": "When designing parts in SOLIDWORKS, how are geometric relations primarily maintained?",
+        "options": [
+            "Via parametric sketch relations (such as horizontal, vertical, tangent, or coincident) and dimension variables.",
+            "By plotting sketches as raster coordinates and tracing them manually in assembly space.",
+            "By locking all sketch points to absolute pixel coordinates in cloud databases.",
+            "By exporting files to DWG format and drawing lines on separate layer colors."
+        ],
+        "correct_idx": 0,
+        "explanation": "SOLIDWORKS relies on parametric sketching rules (tangency, concentricity, coincidences) coupled with dimensional values to govern part behavior under modifications."
+    },
+    "fusion-360": {
+        "question": "Which of the following is a key advantage of Fusion 360's design history timeline?",
+        "options": [
+            "It captures parametric features in chronological order, letting designers roll back and modify upstream parameters.",
+            "It automatically converts all 2D curves into high-speed CNC G-code without CAD tools.",
+            "It disables user customization to guarantee cloud compatibility.",
+            "It stores all drawing entities as simple, non-parametric 2D layer objects."
+        ],
+        "correct_idx": 0,
+        "explanation": "Fusion 360's parametric timeline keeps a history of features. You can edit an early sketch or extrusion, and downstream features regenerate automatically."
+    },
+    "gstarcad": {
+        "question": "Which programming API is highly optimized in GstarCAD for porting legacy AutoCAD automations?",
+        "options": [
+            "AutoLISP / GRX (compatible with AutoCAD ARX) APIs, allowing fast execution of custom drafting scripts.",
+            "SQL Server database triggers and active cloud API syncing.",
+            "Javascript ES6 modules running in offline node layers.",
+            "Standard vector coordinate translators running inside layout sheets."
+        ],
+        "correct_idx": 0,
+        "explanation": "GstarCAD provides high compatibility with AutoLISP and GRX APIs, allowing LISP scripts and C++ commands written for AutoCAD to load and run with minimal code changes."
+    }
+}
+
+
+def generate_software_fallback_quiz(sw: dict) -> dict:
+    name = sw["name"]
+    tagline = sw.get("tagline") or (sw.get("meta_desc") or name)
+    vendor = sw.get("vendor", {}).get("name", "the vendor")
+    
+    question = f"When evaluating {name} for your design workflow, which of the following is a primary consideration?"
+    options = [
+        f"Understanding its role as a {esc(tagline.lower().rstrip('.'))}.",
+        f"Enforcing SQL database indexing across local viewport rendering sweeps.",
+        f"Over-allocating temporary system memory caches for cloud layer merges.",
+        f"Decoupling coordinate vectors entirely from the drawing layout style."
+    ]
+    correct_idx = 0
+    explanation = f"As the technical reference notes, {name} (developed by {vendor}) operates as: '{esc(tagline)}' Understanding its native feature limits and platform alignment is crucial for model health."
+    
+    return {
+        "question": question,
+        "options": options,
+        "correct_idx": correct_idx,
+        "explanation": explanation
+    }
+
+
+def render_software_quiz(sw: dict) -> str:
+    slug = sw["slug"]
+    name = sw["name"]
+    
+    quiz = SOFTWARE_CUSTOM_QUIZZES.get(slug)
+    if not quiz:
+        quiz = generate_software_fallback_quiz(sw)
+        
+    question = quiz["question"]
+    options = quiz["options"]
+    correct_idx = quiz["correct_idx"]
+    explanation = quiz["explanation"]
+    
+    parts = []
+    parts.append(f'<section class="kb-concept-section kb-quiz-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">')
+    parts.append(f'  <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">⚡ Software Guide Self-Test</h2>')
+    parts.append(f'  <p style="font-size: 14.5px; color: var(--ink-text-soft); margin-bottom: 20px;">Verify your high-level understanding of {esc(name)} to sync with your learning track progress.</p>')
+    parts.append(f'  <div class="kb-quiz-card" data-quiz-container data-term-slug="{slug}" data-correct-idx="{correct_idx}" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); position: relative; overflow: hidden; margin-bottom: 16px;">')
+    parts.append(f'    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: #818cf8; letter-spacing: 0.05em; margin-bottom: 12px;">Question 1</div>')
+    parts.append(f'    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--ink-text); margin: 0 0 16px 0; line-height: 1.4;">{esc(question)}</h3>')
+    parts.append(f'    <div class="kb-quiz-options" style="display: grid; gap: 10px; margin-bottom: 16px;">')
+    for opt_idx, opt in enumerate(options):
+        parts.append(f'      <button class="kb-quiz-option-btn" data-option-idx="{opt_idx}" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">')
+        parts.append(f'        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">{chr(65 + opt_idx)}</span>')
+        parts.append(f'        <span>{esc(opt)}</span>')
+        parts.append(f'      </button>')
+    parts.append(f'    </div>')
+    parts.append(f'    <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">')
+    parts.append(f'      <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>')
+    parts.append(f'      <div data-feedback-text>{esc(explanation)}</div>')
+    parts.append(f'    </div>')
+    parts.append(f'  </div>')
+    parts.append(f'</section>')
+    
+    return "\n".join(parts)
+
+
 def render_concept(term: dict, software: dict, editorial: dict, all_terms_index: dict[str, str], all_tutorials: list[dict] = None) -> str:
     """Render a single concept term HTML page."""
     title = term["title"]
@@ -1414,6 +1533,7 @@ def render_software_profile(sw: dict, editorial: dict, all_terms_index: dict[str
 
         {terms_html}
         {faq_html}
+        {render_software_quiz(sw)}
         {sources_html}
 
         <section class="kb-concept-section" style="margin-top: 36px;">

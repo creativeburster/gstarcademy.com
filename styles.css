@@ -7652,4 +7652,31 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   transform: translateY(-1px);
 }
 
+/* 14-Day CAD Self-Study Pathway styles */
+.kb-pathway-card {
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.22s ease !important;
+}
+.kb-pathway-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--ink-shadow-md) !important;
+  border-color: var(--ink-line-strong) !important;
+}
+.kb-pathway-item {
+  transition: opacity 0.2s ease;
+}
+.kb-pathway-item.completed label,
+.kb-pathway-item.completed label a {
+  text-decoration: line-through !important;
+  color: var(--ink-text-muted) !important;
+  opacity: 0.55 !important;
+}
+.kb-pathway-progress-bar {
+  background: var(--ink-primary) !important;
+}
+@media (prefers-color-scheme: dark) {
+  .kb-pathway-progress-bar {
+    background: var(--ink-accent) !important;
+  }
+}
+
 

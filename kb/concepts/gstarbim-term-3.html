@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model-Based Schedule · GstarBIM · CAD Knowledge Base · Gstarcademy</title>
+    <meta name="description" content="Technical best practices for Model-Based Schedule inside GstarBIM." />
+    <link rel="canonical" href="https://learncad.io/kb/concepts/gstarbim-term-3.html" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="manifest" href="../../manifest.json" />
+    <script src="../../search.js" defer></script>
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Model-Based Schedule" />
+    <meta property="og:description" content="Technical best practices for Model-Based Schedule inside GstarBIM." />
+    <meta property="og:url" content="https://learncad.io/kb/concepts/gstarbim-term-3.html" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Model-Based Schedule" />
+    <meta name="twitter:description" content="Technical best practices for Model-Based Schedule inside GstarBIM." />
+
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Model-Based Schedule","description":"Technical best practices for Model-Based Schedule inside GstarBIM.","url":"https://learncad.io/kb/concepts/gstarbim-term-3.html","datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Gstarcademy","url":"https://learncad.io"},"mainEntityOfPage":"https://learncad.io/kb/concepts/gstarbim-term-3.html","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://learncad.io/about.html"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://learncad.io/","logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"Gstarcademy Editorial Team","jobTitle":"Editorial","url":"https://learncad.io/about.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Model-Based Schedule","description":"Technical best practices for Model-Based Schedule inside GstarBIM.","url":"https://learncad.io/kb/concepts/gstarbim-term-3.html","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://learncad.io/kb-terms.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://learncad.io/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://learncad.io/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://learncad.io/kb-terms.html"},{"@type":"ListItem","position":4,"name":"Model-Based Schedule","item":"https://learncad.io/kb/concepts/gstarbim-term-3.html"}]}</script>
+  </head>
+  <body data-page="knowledge" class="page-kb-concepts">
+    <div class="header-stack">
+      <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
+        <div class="site-notice-inner container">
+          <p class="site-notice-text">
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+          </p>
+          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </aside>
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../index.html">
+            <span class="brand-badge">GC</span>
+            <span>Gstarcademy</span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
+          </nav>
+        </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-terms.html">Terms</a> /
+        <a href="../software/gstarbim.html">GstarBIM</a> /
+        <span aria-current="page">Model-Based Schedule</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">Atomic Knowledge · GstarBIM</span>
+          <h1 style="margin-top: 12px;">Model-Based Schedule</h1>
+          <p class="hero-sub">Technical best practices for Model-Based Schedule inside GstarBIM.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> Gstarcademy Editorial Team</span>
+          <span class="verified-reviewer-container">
+            <strong>Reviewed by</strong> 
+            <span class="reviewer-badge-trigger">
+              Gstarcademy Editorial Team 
+              <span class="verified-badge-icon">✓</span>
+            </span>
+            <div class="reviewer-popover-card">
+              <div class="reviewer-popover-header">
+                <span class="reviewer-popover-name">Gstarcademy Editorial Team</span>
+                <span class="reviewer-popover-role">Editorial</span>
+              </div>
+              <div class="reviewer-popover-body">
+                <p class="reviewer-popover-bio">An editorial team curating CAD-adjacent knowledge for AEC, mechanical, civil, and product-design practitioners. Articles are drafted from official vendor documentation and decades of cumulative practice, then reviewed by domain editors before publication.</p>
+                <div class="reviewer-popover-meta">
+                  <div class="reviewer-popover-meta-item">
+                    <strong>Experience:</strong> 10+ years
+                  </div>
+                  <div class="reviewer-popover-meta-item">
+                    <strong>Credentials:</strong>
+                    <ul class="reviewer-popover-credentials">
+                      <li>Certified Technical Writers</li><li>CAD Curriculum Architects</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-05-24">2026-05-24</time></span>
+          <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+        </div>
+
+        
+        <section class="kb-concept-section">
+          <h2>Definition</h2>
+          <p>Model-Based Schedule extracts quantities, lengths, and surface areas directly from smart model objects.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why it matters</h2>
+          <p>Guarantees quantity schedule accuracy since numbers update automatically when the model is modified.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Technical Deep Dive &amp; Core Mechanics</h2>
+          
+        <p>In 2D vector engines like <strong><a href="../software/gstarbim.html">GstarBIM</a></strong>, <strong>Model-Based Schedule</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad.html">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
+        <p>When executing complex editing commands or linking <a href="./xref-autocad.html">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
+        
+        </section>
+        <section class="kb-concept-section">
+          <h2>Step-by-Step Professional Implementation</h2>
+          
+    <p>Deploying <strong>Model-Based Schedule</strong> in a commercial design production pipeline requires a standardized, structured workflow to minimize model regression and file corruption:</p>
+    <ol>
+      <li><strong>Establish the Coordinate &amp; Style Template:</strong> Before generating any elements, bind the drawing or project to the enterprise-level template file (.dwt or .rte), locking units, text scales, and baseline coordinate reference frameworks.</li>
+      <li><strong>Parametric Alignment &amp; Parenting:</strong> When initializing <strong>Model-Based Schedule</strong>, reference it strictly to stable datum planes or shared project levels. Avoid referencing ephemeral lines or sketches that may undergo topological naming changes.</li>
+      <li><strong>Data Attribute Enrichment:</strong> Populate all standard semantic properties (including manufacturer, rating, K-factor, or materials) within the property panels. Ensure that all inputs align with industry schemas like COBie or standard STEP metadata classes.</li>
+      <li><strong>Audit and Diagnostic Purge:</strong> Run standard diagnostics (such as `AUDIT`, `PURGE`, or model integrity reviews) to clean up dangling database pointers, duplicate scale list elements, and orphaned block references.</li>
+    </ol>
+    
+        </section>
+        <section class="kb-concept-section">
+          <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
+          
+        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Model-Based Schedule</strong> by using this technical audit pipeline:</p>
+        <ul>
+          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
+          <li><strong><a href="./xref-clipping-zw.html">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4.html">layout</a> plots.</li>
+          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
+        </ul>
+        
+        </section>
+        <section class="kb-concept-section">
+          <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
+          
+    <p>In global multi-office projects, <strong>Model-Based Schedule</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>GstarBIM</strong> drawings to IFC for coordination in <a href="../software/navisworks.html">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+    <ul>
+      <li><strong>Class Preservation:</strong> Ensure that <strong>Model-Based Schedule</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped components default to generic containers, losing their smart structural parameters.</li>
+      <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
+      <li><strong>Visual Overlap Verification:</strong> Run spatial clash checks regularly in a federated viewer to verify that no geometric overlaps or clearance violations occur between <strong>Model-Based Schedule</strong> and structural frameworks.</li>
+    </ul>
+    
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common pitfalls</h2>
+          <ul><li>Overriding schedule tables manually instead of modifying model elements</li>
+<li>Filtering schedule criteria incorrectly, which excludes relevant building objects</li></ul>
+        </section>
+
+        
+    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+      <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 20px;">🛡️</span>
+          <h3 style="margin: 0; font-size: 1.25rem; color: var(--ink-text); font-weight: 700;">GstarBIM Ecosystem Context</h3>
+        </div>
+        <p style="margin: 0; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+          This concept is a core structural element of the <strong>GstarBIM</strong> drafting and engineering environment developed by <strong>Gstarsoft</strong>. All-in-one BIM-oriented environment aimed at architects and interior designers in Gstarsoft’s portfolio. 
+        </p>
+        <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
+          <a href="../software/gstarbim.html" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: border-color 0.2s ease;">
+            Explore GstarBIM Profile ›
+          </a>
+          <a href="../vendors/gstarsoft.html" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: border-color 0.2s ease;">
+            About Gstarsoft ›
+          </a>
+        </div>
+      </div>
+    </section>
+    
+
+        
+    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+      <h2 style="font-size: 1.5rem; color: var(--ink-text); margin-bottom: 12px;">Relevant GstarBIM FAQs</h2>
+      <p class="meta" style="margin-bottom: 18px;">Direct answers from our technical editorial desk concerning related workflows.</p>
+      
+        <details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
+          <summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
+            <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What IFC schemas are supported for export in GstarBIM?
+          </summary>
+          <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+            <p>GstarBIM supports IFC2x3 and IFC4 schemas. Choose the coordination view template recommended by your project team.</p>
+          </div>
+        </details>
+        
+        <details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
+          <summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
+            <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> How do I align BIM coordinate systems with standard DWG files?
+          </summary>
+          <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+            <p>Use the Project Base Point tool to register the origin coordinates and rotation angle relative to the survey point before starting modeling.</p>
+          </div>
+        </details>
+        
+        <details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
+          <summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
+            <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> Can I create schedules that update automatically?
+          </summary>
+          <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+            <p>Yes, BIM schedules are linked to object metadata. Modifying doors, walls, or windows updates the quantities in real time.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+        <section class="kb-concept-section kb-quiz-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+  <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">⚡ Concept Self-Test</h2>
+  <p style="font-size: 14.5px; color: var(--ink-text-soft); margin-bottom: 20px;">Test your understanding of this concept to lock in your memory. Completing this quiz will automatically sync to your career learning progress.</p>
+  <div class="kb-quiz-card" data-quiz-container data-term-slug="gstarbim-term-3" data-correct-idx="0" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); position: relative; overflow: hidden; margin-bottom: 16px;">
+    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: #818cf8; letter-spacing: 0.05em; margin-bottom: 12px;">Question 1</div>
+    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--ink-text); margin: 0 0 16px 0; line-height: 1.4;">When working with Model-Based Schedule, which of the following represents a common technical pitfall?</h3>
+    <div class="kb-quiz-options" style="display: grid; gap: 10px; margin-bottom: 16px;">
+      <button class="kb-quiz-option-btn" data-option-idx="0" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
+        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">A</span>
+        <span>Overriding schedule tables manually instead of modifying model elements.</span>
+      </button>
+      <button class="kb-quiz-option-btn" data-option-idx="1" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
+        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">B</span>
+        <span>Failing to manually re-index the SQL server database.</span>
+      </button>
+      <button class="kb-quiz-option-btn" data-option-idx="2" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
+        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">C</span>
+        <span>Over-allocating virtual memory caches in the cloud settings.</span>
+      </button>
+      <button class="kb-quiz-option-btn" data-option-idx="3" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
+        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">D</span>
+        <span>Restricting linetype scales strictly to 1:1 paper coordinates.</span>
+      </button>
+    </div>
+    <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
+      <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Overriding schedule tables manually instead of modifying model elements.&#x27; As the editorial review notes: &#x27;Guarantees quantity schedule accuracy since numbers update automatically when the model is modified.&#x27;</div>
+    </div>
+  </div>
+</section>
+
+        
+
+        
+    <section class="kb-concept-section" style="margin-top: 48px; border-top: 1px solid var(--ink-line); padding-top: 40px;">
+      <div class="kb-semantic-crossroads" style="background: linear-gradient(135deg, var(--ink-surface-1) 0%, rgba(240, 234, 225, 0.2) 100%); border: 1px solid var(--ink-line); border-radius: 20px; padding: 32px; box-shadow: 0 12px 30px -10px rgba(90, 74, 58, 0.05);">
+        
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border-bottom: 1px solid var(--ink-line); padding-bottom: 16px;">
+          <h3 style="margin: 0; font-size: 1.35rem; color: var(--ink-text); display: flex; align-items: center; gap: 10px; font-weight: 800;">
+            <span style="font-size: 24px;">🌳</span> Semantic Crossroads &amp; Navigation Pathways
+          </h3>
+          <span style="font-size: 12px; color: var(--ink-text-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(90, 74, 58, 0.06); padding: 4px 10px; border-radius: 6px;">Trunk-Branch-Leaf Model</span>
+        </div>
+
+        <p style="font-size: 14.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0 0 28px 0; max-width: 780px;">
+          Explore cross-referenced learning lanes. Connect this specific method back to macro CAD coordinate foundations, parent software environments, and sibling parameters in our shared taxonomy map.
+        </p>
+
+        <div class="grid grid-3" style="gap: 20px; align-items: stretch;">
+          
+          <!-- Card 1: Trunk -->
+          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="background: rgba(99, 102, 241, 0.1); color: #6366f1; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Trunk</span>
+                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Global Foundations</h4>
+              </div>
+              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+                Core glossary, interactive graph, and domain-wide concept index.
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+              <a href="../../knowledge-base.html" class="kb-crossroad-card-btn">Wiki Overview Portal ›</a>
+              <a href="../../kb-terms.html" class="kb-crossroad-card-btn">General Glossary Index ›</a>
+              <a href="../../kb-graph.html" class="kb-crossroad-card-btn">Interactive Concept Graph ›</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Branch -->
+          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Branch</span>
+                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Ecosystem Integration</h4>
+              </div>
+              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+                Parent design environments and platforms implementing this method natively.
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+              <a href="../software/gstarbim.html" class="kb-crossroad-card-btn" style="background: var(--ink-text); color: var(--ink-bg); border-color: var(--ink-text); font-weight:700;">GstarBIM Full Profile ›</a>
+              <a href="../vendors/gstarsoft.html" class="kb-crossroad-card-btn">Gstarsoft Organization ›</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Leaf -->
+          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); grid-column: span 1;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Leaf</span>
+                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Active Context &amp; Neighbors</h4>
+              </div>
+              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+                Current active term and close sibling concepts:
+              </p>
+            </div>
+            <div style="margin-bottom: 12px;">
+              <span style="background: var(--ink-surface-2); color: var(--ink-text); padding: 4px 10px; border-radius: 8px; font-weight: 700; border: 1px solid var(--ink-line); font-size: 12.5px; display: inline-block; margin-bottom: 10px;">
+                🍃 Active: Model-Based Schedule
+              </span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; max-height: 110px; overflow-y: auto; padding-right: 4px;">
+              <span style="color: var(--ink-text-soft); font-style: italic;">Detailed sibling terms defined on the <a href="../software/gstarbim.html" style="color: var(--ink-text); font-weight:600;">GstarBIM software page</a>.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Discover More — cross-pillar navigation -->
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--ink-line);">
+          <h4 style="margin: 0 0 14px 0; font-size: 13px; color: var(--ink-text-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">Discover More</h4>
+          <div class="grid grid-4" style="gap: 12px;">
+            <a href="../../tutorials.html" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+              <span style="font-size: 18px;">🎓</span> Tutorial Library
+            </a>
+            <a href="../../kb-faq.html" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+              <span style="font-size: 18px;">❓</span> Technical FAQ
+            </a>
+            <a href="../../knowledge-domains.html" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+              <span style="font-size: 18px;">🏗️</span> Domain Map
+            </a>
+            <a href="../../kb-software.html" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+              <span style="font-size: 18px;">🧰</span> Software Landscape
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+        
+
+        
+        <section class="kb-feedback-section" data-feedback-container data-term-slug="gstarbim-term-3" style="margin-top: 32px; padding: 20px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--line); text-align: center;">
+          <div data-feedback-prompt style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+            <span style="font-size: 14px; font-weight: 600; color: var(--text);">Was this conceptual reference clear and helpful?</span>
+            <div style="display: flex; gap: 12px; justify-content: center;">
+              <button class="btn feedback-btn" data-feedback-type="yes" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+                👍 Yes
+              </button>
+              <button class="btn feedback-btn" data-feedback-type="no" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+                👎 Needs Improvement
+              </button>
+            </div>
+          </div>
+          <div data-feedback-thankyou style="display: none; font-size: 13px; font-weight: 500; color: #10b981;">
+            ✓ Thank you for your feedback! Your input helps shape the CAD curriculum.
+          </div>
+        </section>
+
+        <p class="meta" style="margin-top: 36px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+      </article>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">Gstarcademy</p>
+          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Software Hubs</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Technical Core</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../kb/concepts/intelligent-objects.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/parametric-constraints.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/command-alias.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/drawing-merge.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/dwg-compare.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layer.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/xref.html">Xrefs &amp; Blocks</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Structured Learn</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
+          <ul class="site-footer-links">
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
+  </body>
+</html>

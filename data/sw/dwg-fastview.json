@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "slug": "dwg-fastview",
+  "name": "DWG FastView",
+  "tagline": "Browser, mobile, and desktop clients to open, annotate, and share DWG without a full CAD seat.",
+  "meta_desc": "Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps.",
+  "category_label": "Cloud & cross-platform DWG viewer / light editor",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "DWG/DXF views",
+    "Markup layers",
+    "Share links"
+  ],
+  "domains": [
+    "Collaboration",
+    "Construction supers",
+    "Education"
+  ],
+  "profile": {
+    "introduction": "Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps."
+  },
+  "terms": [
+    {
+      "slug": "dwg-fastview-term-1",
+      "title": "Mobile CAD Annotation",
+      "short_def": "Technical best practices for Mobile CAD Annotation inside DWG FastView.",
+      "definition": "Mobile CAD Annotation places drawing comments and dimensions on drawings using mobile screens.",
+      "why_matters": "Improves contractor communication by allowing inspectors to log issues directly on drawings.",
+      "common_pitfalls": [
+        "Drawing sketches without locking dimensions, causing annotation shifts",
+        "Annotating old local file revisions instead of the active cloud master"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Mobile CAD Annotation, which of the following represents a common technical pitfall?",
+          "options": [
+            "Drawing sketches without locking dimensions, causing annotation shifts.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Drawing sketches without locking dimensions, causing annotation shifts.' As the editorial review notes: 'Improves contractor communication by allowing inspectors to log issues directly on drawings.'"
+        }
+      ]
+    },
+    {
+      "slug": "dwg-fastview-term-2",
+      "title": "Cross-Platform Drawing Share",
+      "short_def": "Technical best practices for Cross-Platform Drawing Share inside DWG FastView.",
+      "definition": "Cross-Platform Drawing Share syncs markups and annotations between mobile, browser, and desktop users.",
+      "why_matters": "Eliminates markup transcribing errors and links office teams to site workers.",
+      "common_pitfalls": [
+        "Sharing drawing files without merging active markup layers first",
+        "Neglecting font catalog differences causing text reflow errors"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Cross-Platform Drawing Share, which of the following represents a common technical pitfall?",
+          "options": [
+            "Sharing drawing files without merging active markup layers first.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Sharing drawing files without merging active markup layers first.' As the editorial review notes: 'Eliminates markup transcribing errors and links office teams to site workers.'"
+        }
+      ]
+    },
+    {
+      "slug": "dwg-fastview-term-3",
+      "title": "Offline Drawing Storage",
+      "short_def": "Technical best practices for Offline Drawing Storage inside DWG FastView.",
+      "definition": "Offline Drawing Storage caches drawing files in local device memory for access without network.",
+      "why_matters": "Enables site reviews in remote areas or basement structures with weak signals.",
+      "common_pitfalls": [
+        "Forgetting to load files while online before traveling to offline sites",
+        "Making offline edits that conflict with updates made by other team members"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Offline Drawing Storage, which of the following represents a common technical pitfall?",
+          "options": [
+            "Forgetting to load files while online before traveling to offline sites.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Forgetting to load files while online before traveling to offline sites.' As the editorial review notes: 'Enables site reviews in remote areas or basement structures with weak signals.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How to use markup tools on mobile devices?",
+      "answer": "Open a drawing, select Edit mode, choose the markup toolbar, and use your finger or stylus to draw clouds, text annotations, or linear dimensions."
+    },
+    {
+      "question": "Can I view CAD drawing files when my device is offline?",
+      "answer": "Yes. Open the drawing file while online to cache it in local memory, or manually download it to the Offline tab for disconnected work."
+    },
+    {
+      "question": "How to sync annotations with the office team?",
+      "answer": "Save the annotated drawing back to the cloud space. Other team members will receive notifications and see markups instantly."
+    }
+  ]
+}

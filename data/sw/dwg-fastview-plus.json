@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "slug": "dwg-fastview-plus",
+  "name": "DWG FastView Plus",
+  "tagline": "Desktop viewer positioned as an alternative light client for plotting and reviewing DWGs on Windows.",
+  "meta_desc": "Often used when full authoring is unnecessary but fidelity and speed matter for QA. Verify download source (vendor-linked CadWonder endpoints) and version against your DWG baseline.",
+  "category_label": "Windows viewer tier (CadWonder line)",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "DWG/DXF",
+    "PDF plot"
+  ],
+  "domains": [
+    "Shop floor",
+    "Contractor review",
+    "Archiving"
+  ],
+  "profile": {
+    "introduction": "Often used when full authoring is unnecessary but fidelity and speed matter for QA. Verify download source (vendor-linked CadWonder endpoints) and version against your DWG baseline."
+  },
+  "terms": [
+    {
+      "slug": "dwg-fastview-plus-term-1",
+      "title": "Fidelity QA Viewer",
+      "short_def": "Technical best practices for Fidelity QA Viewer inside DWG FastView Plus.",
+      "definition": "Fidelity QA Viewer opens drawings with high accuracy, letting users check layers and measure dimensions.",
+      "why_matters": "Provides a safe QA review environment without risks of accidental geometry modifications.",
+      "common_pitfalls": [
+        "Failing to verify scale settings before taking layout measurements",
+        "Using outdated viewer versions that do not support recent DWG formats"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Fidelity QA Viewer, which of the following represents a common technical pitfall?",
+          "options": [
+            "Failing to verify scale settings before taking layout measurements.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Failing to verify scale settings before taking layout measurements.' As the editorial review notes: 'Provides a safe QA review environment without risks of accidental geometry modifications.'"
+        }
+      ]
+    },
+    {
+      "slug": "dwg-fastview-plus-term-2",
+      "title": "Batch Plotting Utility",
+      "short_def": "Technical best practices for Batch Plotting Utility inside DWG FastView Plus.",
+      "definition": "Batch Plotting Utility publishes batches of DWG files to PDF or print formats simultaneously.",
+      "why_matters": "Saves release coordination time and enforces consistent plot scaling across drawings.",
+      "common_pitfalls": [
+        "Applying incorrect CTB plot styles to batch lists causing thin lines",
+        "Publishing layouts with unlocked viewports, causing scale shifts"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Batch Plotting Utility, which of the following represents a common technical pitfall?",
+          "options": [
+            "Applying incorrect CTB plot styles to batch lists causing thin lines.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Applying incorrect CTB plot styles to batch lists causing thin lines.' As the editorial review notes: 'Saves release coordination time and enforces consistent plot scaling across drawings.'"
+        }
+      ]
+    },
+    {
+      "slug": "dwg-fastview-plus-term-3",
+      "title": "Markup Layer Merge",
+      "short_def": "Technical best practices for Markup Layer Merge inside DWG FastView Plus.",
+      "definition": "Markup Layer Merge aggregates markup entries from multiple reviewers into a unified sheet database.",
+      "why_matters": "Simplifies change management and provides a clean record of requested revisions.",
+      "common_pitfalls": [
+        "Merging conflicting markups without resolving discrepancy first",
+        "Orphaning annotations by changing the underlying base drawing coordinates"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Markup Layer Merge, which of the following represents a common technical pitfall?",
+          "options": [
+            "Merging conflicting markups without resolving discrepancy first.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Merging conflicting markups without resolving discrepancy first.' As the editorial review notes: 'Simplifies change management and provides a clean record of requested revisions.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What are the advantages of FastView Plus over standard FastView?",
+      "answer": "FastView Plus is a high-performance Windows desktop application designed to handle extremely large DWG assemblies and run batch plotting and audit diagnostics."
+    },
+    {
+      "question": "How do I configure batch printing with specific plot styles?",
+      "answer": "Open the Batch Plot utility, select multiple drawings, load your enterprise `.ctb` file, select target printer/PDF generator, and run."
+    },
+    {
+      "question": "Can I merge markups from different team members in FastView Plus?",
+      "answer": "Yes. FastView Plus can load multiple markup layers on top of a single base drawing, allowing you to merge annotations into a master revision list."
+    }
+  ]
+}

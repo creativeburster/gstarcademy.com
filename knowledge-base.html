@@ -188,12 +188,12 @@
               </div>
               <div class="kb-portal-stats">
                 <a class="kb-portal-stat" href="./kb-terms.html#kb-term-jump">
-                  <span class="kb-portal-stat-num">40+</span>
+                  <span class="kb-portal-stat-num">440+</span>
                   <span class="kb-portal-stat-label">Terms</span>
                   <span class="kb-portal-stat-link">View all →</span>
                 </a>
                 <a class="kb-portal-stat" href="./kb/software/index.html">
-                  <span class="kb-portal-stat-num">10</span>
+                  <span class="kb-portal-stat-num">50</span>
                   <span class="kb-portal-stat-label">Software profiles</span>
                   <span class="kb-portal-stat-link">View all →</span>
                 </a>
@@ -226,6 +226,305 @@
                     <strong style="color: #6b21a8;">Knowledge Graph</strong>
                     <span class="meta">Interactive visual map</span>
                   </a>
+                </div>
+              </div>
+
+              <!-- 14-Day Self-Study Pathway Section -->
+              <div class="kb-portal-quick-wrap kb-pathway-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+                <div class="kb-pathway-header">
+                  <h2 class="kb-portal-quick-heading">⚡ 14-Day CAD Self-Study Pathway (初学者 14 天通识自学路径)</h2>
+                  <p class="meta" style="margin-top: -8px; margin-bottom: 24px;">A structured day-by-day learning path covering core concepts from 2D drafting basics to BIM and mechanical engineering pipelines.</p>
+                  <div class="kb-pathway-progress-container" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-weight: 700; font-size: 14px;">
+                      <span>Your Study Progress</span>
+                      <span id="kb-pathway-progress-text" style="color: var(--accent);">0 / 42 completed (0%)</span>
+                    </div>
+                    <div style="width: 100%; height: 10px; background: var(--ink-line); border-radius: 5px; overflow: hidden;">
+                      <div id="kb-pathway-progress-bar" style="width: 0%; height: 100%; background: var(--accent); transition: width 0.3s ease;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kb-pathway-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                  <!-- Day 1 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 1</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Foundations & Coordinates</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-ucs-coordinate-systems" data-concept="ucs-coordinate-systems" style="cursor: pointer;">
+                        <label for="pw-ucs-coordinate-systems" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/ucs-coordinate-systems.html">UCS Coordinate Systems</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dynamic-input" data-concept="dynamic-input" style="cursor: pointer;">
+                        <label for="pw-dynamic-input" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dynamic-input.html">Dynamic Input</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-polyline-autocad" data-concept="polyline-autocad" style="cursor: pointer;">
+                        <label for="pw-polyline-autocad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/polyline-autocad.html">Polyline (AutoCAD)</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 2 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 2</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Aids & Layer Management</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-object-snaps-gstarcad" data-concept="object-snaps-gstarcad" style="cursor: pointer;">
+                        <label for="pw-object-snaps-gstarcad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/object-snaps-gstarcad.html">Object Snaps (GstarCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-layers-gstarcad" data-concept="layers-gstarcad" style="cursor: pointer;">
+                        <label for="pw-layers-gstarcad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/layers-gstarcad.html">Layers (GstarCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-mtext-autocad" data-concept="mtext-autocad" style="cursor: pointer;">
+                        <label for="pw-mtext-autocad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/mtext-autocad.html">Multiline Text (MTEXT)</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 3 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 3</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Blocks & Reusability</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-attributes-blocks" data-concept="attributes-blocks" style="cursor: pointer;">
+                        <label for="pw-attributes-blocks" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/attributes-blocks.html">Block Attributes</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dynamic-blocks-autocad" data-concept="dynamic-blocks-autocad" style="cursor: pointer;">
+                        <label for="pw-dynamic-blocks-autocad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dynamic-blocks-autocad.html">Dynamic Blocks (AutoCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dynamic-blocks-gstarcad" data-concept="dynamic-blocks-gstarcad" style="cursor: pointer;">
+                        <label for="pw-dynamic-blocks-gstarcad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dynamic-blocks-gstarcad.html">Dynamic Blocks (GstarCAD)</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 4 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 4</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Paper Space & Viewports</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-paper-space-autocad" data-concept="paper-space-autocad" style="cursor: pointer;">
+                        <label for="pw-paper-space-autocad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/paper-space-autocad.html">Paper Space (AutoCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-model-paper-space-gstarcad" data-concept="model-paper-space-gstarcad" style="cursor: pointer;">
+                        <label for="pw-model-paper-space-gstarcad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/model-paper-space-gstarcad.html">Model vs. Paper Space</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-layer-states-autocad" data-concept="layer-states-autocad" style="cursor: pointer;">
+                        <label for="pw-layer-states-autocad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/layer-states-autocad.html">Layer States (AutoCAD)</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 5 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 5</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Dimensions & Annotative Scale</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-annotative-objects" data-concept="annotative-objects" style="cursor: pointer;">
+                        <label for="pw-annotative-objects" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/annotative-objects.html">Annotative Scale (AutoCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-annotative-objects-gstarcad" data-concept="annotative-objects-gstarcad" style="cursor: pointer;">
+                        <label for="pw-annotative-objects-gstarcad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/annotative-objects-gstarcad.html">Annotative Scale (GstarCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-plot-style" data-concept="plot-style" style="cursor: pointer;">
+                        <label for="pw-plot-style" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/plot-style.html">Plot Styles (CTB/STB)</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 6 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 6</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Sheet Sets & Batch Plotting</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-sheet-set-manager" data-concept="sheet-set-manager" style="cursor: pointer;">
+                        <label for="pw-sheet-set-manager" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/sheet-set-manager.html">Sheet Set Manager</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dwg-fastview-plus-term-2" data-concept="dwg-fastview-plus-term-2" style="cursor: pointer;">
+                        <label for="pw-dwg-fastview-plus-term-2" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dwg-fastview-plus-term-2.html">Batch Plotting (FastView+)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dwg-file-format" data-concept="dwg-file-format" style="cursor: pointer;">
+                        <label for="pw-dwg-file-format" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dwg-file-format.html">DWG File Format</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 7 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 7</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">External References & XREFs</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-xref-autocad" data-concept="xref-autocad" style="cursor: pointer;">
+                        <label for="pw-xref-autocad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/xref-autocad.html">External Reference (AutoCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-xrefs-gstarcad" data-concept="xrefs-gstarcad" style="cursor: pointer;">
+                        <label for="pw-xrefs-gstarcad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/xrefs-gstarcad.html">External References (GstarCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dxf-file-format" data-concept="dxf-file-format" style="cursor: pointer;">
+                        <label for="pw-dxf-file-format" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dxf-file-format.html">DXF File Format</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 8 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 8</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Parametrics & Constraints</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-constraints-autocad" data-concept="constraints-autocad" style="cursor: pointer;">
+                        <label for="pw-constraints-autocad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/constraints-autocad.html">Parametric Constraints (AutoCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-data-extraction" data-concept="data-extraction" style="cursor: pointer;">
+                        <label for="pw-data-extraction" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/data-extraction.html">Data Extraction (AutoCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-intelligent-objects" data-concept="intelligent-objects" style="cursor: pointer;">
+                        <label for="pw-intelligent-objects" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/intelligent-objects.html">Intelligent Objects (B-Rep)</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 9 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 9</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Automation & Customization</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-autolisp" data-concept="autolisp" style="cursor: pointer;">
+                        <label for="pw-autolisp" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/autolisp.html">AutoLISP (AutoCAD)</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-autolisp-gstarcad" data-concept="autolisp-gstarcad" style="cursor: pointer;">
+                        <label for="pw-autolisp-gstarcad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/autolisp-gstarcad.html">AutoLISP / Visual LISP</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-cui-autocad" data-concept="cui-autocad" style="cursor: pointer;">
+                        <label for="pw-cui-autocad" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/cui-autocad.html">Customize User Interface</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 10 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 10</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Mechanical CAD Workflows</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarcad-mechanical-term-1" data-concept="gstarcad-mechanical-term-1" style="cursor: pointer;">
+                        <label for="pw-gstarcad-mechanical-term-1" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarcad-mechanical-term-1.html">Standard Parts Library</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarcad-mechanical-term-2" data-concept="gstarcad-mechanical-term-2" style="cursor: pointer;">
+                        <label for="pw-gstarcad-mechanical-term-2" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarcad-mechanical-term-2.html">BOM Generation</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarcad-mechanical-term-3" data-concept="gstarcad-mechanical-term-3" style="cursor: pointer;">
+                        <label for="pw-gstarcad-mechanical-term-3" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarcad-mechanical-term-3.html">Hole & Tolerance Helper</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 11 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 11</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">Architecture & BIM Foundations</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarcad-architecture-term-1" data-concept="gstarcad-architecture-term-1" style="cursor: pointer;">
+                        <label for="pw-gstarcad-architecture-term-1" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarcad-architecture-term-1.html">Architectural Object Styles</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarcad-architecture-term-3" data-concept="gstarcad-architecture-term-3" style="cursor: pointer;">
+                        <label for="pw-gstarcad-architecture-term-3" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarcad-architecture-term-3.html">Grid Alignment Setup</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarbim-term-1" data-concept="gstarbim-term-1" style="cursor: pointer;">
+                        <label for="pw-gstarbim-term-1" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarbim-term-1.html">BIM Coordinate Sync</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 12 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 12</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">OpenBIM & Interoperability</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarbim-term-2" data-concept="gstarbim-term-2" style="cursor: pointer;">
+                        <label for="pw-gstarbim-term-2" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarbim-term-2.html">IFC Classification Map</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-archicad-term-1" data-concept="archicad-term-1" style="cursor: pointer;">
+                        <label for="pw-archicad-term-1" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/archicad-term-1.html">OpenBIM & IFC Collaboration</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-archicad-term-2" data-concept="archicad-term-2" style="cursor: pointer;">
+                        <label for="pw-archicad-term-2" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/archicad-term-2.html">Smart Building Elements</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 13 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 13</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">3D formats & Clouds</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarcad-point-cloud-term-1" data-concept="gstarcad-point-cloud-term-1" style="cursor: pointer;">
+                        <label for="pw-gstarcad-point-cloud-term-1" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarcad-point-cloud-term-1.html">Point Cloud Import</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-gstarcad-365-term-3" data-concept="gstarcad-365-term-3" style="cursor: pointer;">
+                        <label for="pw-gstarcad-365-term-3" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/gstarcad-365-term-3.html">Cloud Storage Sync</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-fastview-3d-term-1" data-concept="fastview-3d-term-1" style="cursor: pointer;">
+                        <label for="pw-fastview-3d-term-1" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/fastview-3d-term-1.html">3D Format Import</a></label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Day 14 -->
+                  <div class="kb-pathway-card" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Day 14</div>
+                    <h3 style="font-size: 16px; font-weight: 700; margin: 0 0 12px 0;">QA Review & Mobile CAD</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dwg-fastview-term-1" data-concept="dwg-fastview-term-1" style="cursor: pointer;">
+                        <label for="pw-dwg-fastview-term-1" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dwg-fastview-term-1.html">Mobile CAD Annotation</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dwg-fastview-plus-term-1" data-concept="dwg-fastview-plus-term-1" style="cursor: pointer;">
+                        <label for="pw-dwg-fastview-plus-term-1" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dwg-fastview-plus-term-1.html">Fidelity QA Viewer</a></label>
+                      </li>
+                      <li class="kb-pathway-item" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" class="kb-pathway-checkbox" id="pw-dwg-fastview-plus-term-3" data-concept="dwg-fastview-plus-term-3" style="cursor: pointer;">
+                        <label for="pw-dwg-fastview-plus-term-3" style="font-size: 14px; cursor: pointer; color: var(--ink-text);"><a href="./kb/concepts/dwg-fastview-plus-term-3.html">Markup Layer Merge</a></label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div> <!-- End #kb-home (close kb-portal-landing) -->

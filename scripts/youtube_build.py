@@ -188,6 +188,7 @@ def merge_editorial(videos: list[dict[str, Any]], editorial: dict[str, Any]) -> 
         v["price"] = "free"
         v["platform"] = "YouTube"
         v["rating"] = float(ed.get("rating") or 4.6)
+        v["prerequisites"] = str(ed.get("prerequisites") or "").strip()
         tags = ed.get("tags")
         if isinstance(tags, list) and tags:
             v["tags"] = [str(t) for t in tags if str(t).strip()]
@@ -268,9 +269,11 @@ def render_youtube_html(
             soft = html.escape(str(v.get("software") or "—"))
             task = html.escape(str(v.get("task") or "—"))
             diff = html.escape(str(v.get("difficulty") or "—"))
+            prereq = html.escape(str(v.get("prerequisites") or "").strip())
+            prereq_attr = f' data-prerequisites="{prereq}"' if prereq else ''
 
             item_class = "tutorial-item tutorial-item--youtube" if platform == "YouTube" else "tutorial-item"
-            lines.append(f'            <article class="{item_class}" data-software="{soft.lower()}" data-task="{task.lower()}" data-level="{diff.lower()}" data-price="{price.lower()}" data-duration="{dur_secs}" data-rating="{rating}" data-published="{published}">')
+            lines.append(f'            <article class="{item_class}" data-software="{soft.lower()}" data-task="{task.lower()}" data-level="{diff.lower()}" data-price="{price.lower()}" data-duration="{dur_secs}" data-rating="{rating}" data-published="{published}"{prereq_attr}>')
             
             if v.get("thumbnail_url"):
                 thumb = html.escape(v["thumbnail_url"], quote=True)
@@ -284,6 +287,8 @@ def render_youtube_html(
             lines.append('              <div class="item-body">')
             lines.append(f"                <h3>{title}{price_badge}</h3>")
             lines.append(f'                <p class="meta">{meta_str}</p>')
+            if prereq:
+                lines.append(f'                <p class="meta" style="margin-top: 4px; color: var(--ink-text-soft); font-size: 13.5px;"><span style="display: inline-block; font-weight:700; text-transform:uppercase; font-size:10px; letter-spacing:0.04em; border:1px solid #d97706; color: #d97706; padding:1px 5px; border-radius:4px; margin-right:6px; background: rgba(217, 119, 6, 0.05);">Prerequisite</span>{prereq}</p>')
             lines.append(f'                <p class="meta">Editorial: {note} · Software: {soft} · Task: {task} · Level: {diff}</p>')
             lines.append(f'                <div class="item-tags">{tag_html}</div>')
             lines.append('                <div class="actions">')
@@ -354,6 +359,7 @@ def load_and_merge_videos() -> tuple[list[dict[str, Any]], dict[str, Any]]:
             p["thumbnail_url"] = p.get("thumbnail_url") or ""
             p["meta_info"] = p.get("meta_info") or f"Source: {p.get('platform')} · Curated Course"
             p["editorial_note"] = p.get("editorial_note") or "Professional curated resource."
+            p["prerequisites"] = p.get("prerequisites") or ""
         vids.extend(premium_vids)
         
     return vids, meta

@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "slug": "gstarbim",
+  "name": "GstarBIM",
+  "tagline": "All-in-one BIM-oriented environment aimed at architects and interior designers in Gstarsoft’s portfolio.",
+  "meta_desc": "Focuses on building modeling and documentation rather than plain 2D drafting; interoperability expectations should be validated against IFC/DWG exchange needs of your project. Use the GstarBIM user guide PDFs from the vendor help hub for version-specific scope.",
+  "category_label": "BIM authoring (architecture / interiors)",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "Native project formats",
+    "IFC (verify per release)",
+    "PDF"
+  ],
+  "domains": [
+    "Architecture",
+    "Interiors",
+    "Design development"
+  ],
+  "profile": {
+    "introduction": "Focuses on building modeling and documentation rather than plain 2D drafting; interoperability expectations should be validated against IFC/DWG exchange needs of your project. Use the GstarBIM user guide PDFs from the vendor help hub for version-specific scope."
+  },
+  "terms": [
+    {
+      "slug": "gstarbim-term-1",
+      "title": "BIM Coordinate Sync",
+      "short_def": "Technical best practices for BIM Coordinate Sync inside GstarBIM.",
+      "definition": "BIM Coordinate Sync aligns origin points between building models and structural surveys.",
+      "why_matters": "Eliminates spatial mismatches when merging architectural design with MEP engineering.",
+      "common_pitfalls": [
+        "Changing Project Base Point coordinates mid-project without notifying mechanical partners",
+        "Confusing standard grid origins with local building coordinate offsets"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with BIM Coordinate Sync, which of the following represents a common technical pitfall?",
+          "options": [
+            "Changing Project Base Point coordinates mid-project without notifying mechanical partners.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Changing Project Base Point coordinates mid-project without notifying mechanical partners.' As the editorial review notes: 'Eliminates spatial mismatches when merging architectural design with MEP engineering.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarbim-term-2",
+      "title": "IFC Classification Map",
+      "short_def": "Technical best practices for IFC Classification Map inside GstarBIM.",
+      "definition": "IFC Classification Map assigns CAD building components to standard buildingSMART IFC schema classes.",
+      "why_matters": "Secures data integrity and parameters transfer during cross-platform BIM handoffs.",
+      "common_pitfalls": [
+        "Leaving architectural components unmapped, which defaults them to generic proxies",
+        "Exporting IFC files with legacy parameters that conflict with building schemas"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with IFC Classification Map, which of the following represents a common technical pitfall?",
+          "options": [
+            "Leaving architectural components unmapped, which defaults them to generic proxies.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Leaving architectural components unmapped, which defaults them to generic proxies.' As the editorial review notes: 'Secures data integrity and parameters transfer during cross-platform BIM handoffs.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarbim-term-3",
+      "title": "Model-Based Schedule",
+      "short_def": "Technical best practices for Model-Based Schedule inside GstarBIM.",
+      "definition": "Model-Based Schedule extracts quantities, lengths, and surface areas directly from smart model objects.",
+      "why_matters": "Guarantees quantity schedule accuracy since numbers update automatically when the model is modified.",
+      "common_pitfalls": [
+        "Overriding schedule tables manually instead of modifying model elements",
+        "Filtering schedule criteria incorrectly, which excludes relevant building objects"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Model-Based Schedule, which of the following represents a common technical pitfall?",
+          "options": [
+            "Overriding schedule tables manually instead of modifying model elements.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Overriding schedule tables manually instead of modifying model elements.' As the editorial review notes: 'Guarantees quantity schedule accuracy since numbers update automatically when the model is modified.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I align BIM coordinate systems with standard DWG files?",
+      "answer": "Use the Project Base Point tool to register the origin coordinates and rotation angle relative to the survey point before starting modeling."
+    },
+    {
+      "question": "What IFC schemas are supported for export in GstarBIM?",
+      "answer": "GstarBIM supports IFC2x3 and IFC4 schemas. Choose the coordination view template recommended by your project team."
+    },
+    {
+      "question": "Can I create schedules that update automatically?",
+      "answer": "Yes, BIM schedules are linked to object metadata. Modifying doors, walls, or windows updates the quantities in real time."
+    }
+  ]
+}

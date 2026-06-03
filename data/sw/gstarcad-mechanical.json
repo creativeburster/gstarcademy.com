@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "slug": "gstarcad-mechanical",
+  "name": "GstarCAD Mechanical",
+  "tagline": "Mechanical design add-on with library parts, BOM hooks, and drawing automation on the GstarCAD stack.",
+  "meta_desc": "Targets machinery and factory documentation: standard parts, hole/tolerance helpers, and mechanical-specific palettes layered on top of core GstarCAD. Compare feature lists against your legacy ACM-style drawings if you migrate projects.",
+  "category_label": "Mechanical vertical (ACAD Mechanical–style tools)",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "DWG",
+    "DXF",
+    "PDF"
+  ],
+  "domains": [
+    "Machinery",
+    "Factory layouts",
+    "Tooling"
+  ],
+  "profile": {
+    "introduction": "Targets machinery and factory documentation: standard parts, hole/tolerance helpers, and mechanical-specific palettes layered on top of core GstarCAD. Compare feature lists against your legacy ACM-style drawings if you migrate projects."
+  },
+  "terms": [
+    {
+      "slug": "gstarcad-mechanical-term-1",
+      "title": "Standard Parts Library",
+      "short_def": "Technical best practices for Standard Parts Library inside GstarCAD Mechanical.",
+      "definition": "The Standard Parts Library simplifies manufacturing drafting by providing access to standardized fasteners, bearings, pins, and structural sections. It handles drawing scales and layer allocations automatically.",
+      "why_matters": "Enforces standardization across assemblies and cuts down drafting time for standard fasteners.",
+      "common_pitfalls": [
+        "Inserting parts at incorrect scale factors relative to the sheet view",
+        "Failing to purge duplicate block definitions after library catalog updates"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Standard Parts Library, which of the following represents a common technical pitfall?",
+          "options": [
+            "Inserting parts at incorrect scale factors relative to the sheet view.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Inserting parts at incorrect scale factors relative to the sheet view.' As the editorial review notes: 'Enforces standardization across assemblies and cuts down drafting time for standard fasteners.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarcad-mechanical-term-2",
+      "title": "BOM Generation",
+      "short_def": "Technical best practices for BOM Generation inside GstarCAD Mechanical.",
+      "definition": "BOM Generation extracts components and sheet data into structured tables. It matches drawing markers directly to attributes, exporting items lists to Excel or factory software.",
+      "why_matters": "Prevents inventory counting errors and reduces handoff delays between design and assembly teams.",
+      "common_pitfalls": [
+        "Overriding text inside the BOM table manually, which breaks dynamic sync with the components",
+        "Leaving part attributes blank or naming them inconsistently"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with BOM Generation, which of the following represents a common technical pitfall?",
+          "options": [
+            "Overriding text inside the BOM table manually, which breaks dynamic sync with the components.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Overriding text inside the BOM table manually, which breaks dynamic sync with the components.' As the editorial review notes: 'Prevents inventory counting errors and reduces handoff delays between design and assembly teams.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarcad-mechanical-term-3",
+      "title": "Hole and Tolerance Helper",
+      "short_def": "Technical best practices for Hole and Tolerance Helper inside GstarCAD Mechanical.",
+      "definition": "The Hole and Tolerance Helper annotates clearances and fits automatically, resolving coordinate tolerance tables based on fit limits like H7/g6.",
+      "why_matters": "Ensures proper component fitment during machining assembly and reduces manufacturing reject rates.",
+      "common_pitfalls": [
+        "Confusing local coordinate tolerance alignments with national standards",
+        "Applying custom manual dimension overrides that mask incorrect underlying geometry"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Hole and Tolerance Helper, which of the following represents a common technical pitfall?",
+          "options": [
+            "Confusing local coordinate tolerance alignments with national standards.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Confusing local coordinate tolerance alignments with national standards.' As the editorial review notes: 'Ensures proper component fitment during machining assembly and reduces manufacturing reject rates.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I update the Part List after changing geometry?",
+      "answer": "Run the `MCAD_UPDPART` command or select the BOM table and click Refresh. The system will automatically scan the drawing attributes and update the schedule."
+    },
+    {
+      "question": "Can I import standard parts from other catalogs?",
+      "answer": "Yes, standard parts can be imported via the catalog manager. You can load custom ISO, DIN, and JIS standard libraries."
+    },
+    {
+      "question": "How to customize title blocks in GstarCAD Mechanical?",
+      "answer": "Edit the template file under the configuration path. Modify the attributes within the title block block definition to bind them to your company standard properties."
+    }
+  ]
+}

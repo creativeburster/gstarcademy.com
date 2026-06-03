@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "slug": "archicad",
+  "name": "Archicad",
+  "tagline": "Architectural BIM modeling and documentation with strong publishing workflows.",
+  "meta_desc": "Archicad is common in architectural practices that want model-based documentation and coordination. OpenBIM/IFC usage depends on project standards and exchange agreements.",
+  "category_label": "BIM authoring (architectural-first)",
+  "vendor": {
+    "name": "GRAPHISOFT",
+    "slug": "graphisoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "PLN",
+    "IFC (context-dependent)",
+    "PDF"
+  ],
+  "domains": [
+    "Architecture",
+    "Interiors (practice-dependent)"
+  ],
+  "profile": {
+    "introduction": "Archicad is common in architectural practices that want model-based documentation and coordination. OpenBIM/IFC usage depends on project standards and exchange agreements."
+  },
+  "terms": [
+    {
+      "slug": "archicad-term-1",
+      "title": "OpenBIM and IFC Collaboration",
+      "short_def": "Technical best practices for OpenBIM and IFC Collaboration inside Archicad.",
+      "definition": "OpenBIM and IFC Collaboration supports coordination using buildingSMART specifications, mapping elements accurately.",
+      "why_matters": "Fosters multi-discipline collaboration without requiring standard software monocultures.",
+      "common_pitfalls": [
+        "Using incorrect IFC translator settings causing parameter loss",
+        "Forgetting to align project origins during cross-platform model setup"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with OpenBIM and IFC Collaboration, which of the following represents a common technical pitfall?",
+          "options": [
+            "Using incorrect IFC translator settings causing parameter loss.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Using incorrect IFC translator settings causing parameter loss.' As the editorial review notes: 'Fosters multi-discipline collaboration without requiring standard software monocultures.'"
+        }
+      ]
+    },
+    {
+      "slug": "archicad-term-2",
+      "title": "Smart Building Elements",
+      "short_def": "Technical best practices for Smart Building Elements inside Archicad.",
+      "definition": "Smart Building Elements model walls, columns, and slabs with parametric boundaries and semantic attributes.",
+      "why_matters": "Generates accurate 2D plans and quantities automatically since data is linked to elements.",
+      "common_pitfalls": [
+        "Exploding building elements into basic shapes to solve simple graphic overrides",
+        "Creating elements on incorrect home story levels causing model errors"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Smart Building Elements, which of the following represents a common technical pitfall?",
+          "options": [
+            "Exploding building elements into basic shapes to solve simple graphic overrides.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Exploding building elements into basic shapes to solve simple graphic overrides.' As the editorial review notes: 'Generates accurate 2D plans and quantities automatically since data is linked to elements.'"
+        }
+      ]
+    },
+    {
+      "slug": "archicad-term-3",
+      "title": "Publisher Sets",
+      "short_def": "Technical best practices for Publisher Sets inside Archicad.",
+      "definition": "Publisher Sets automate the export of plans, views, and IFC models to various formats simultaneously.",
+      "why_matters": "Standardizes document handoff and ensures that all project deliverables stay synchronized.",
+      "common_pitfalls": [
+        "Publishing drawing sheets with outdated layout references",
+        "Excluding necessary model sheets from the master publisher checklist"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Publisher Sets, which of the following represents a common technical pitfall?",
+          "options": [
+            "Publishing drawing sheets with outdated layout references.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Publishing drawing sheets with outdated layout references.' As the editorial review notes: 'Standardizes document handoff and ensures that all project deliverables stay synchronized.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I configure hotlinked modules in Archicad?",
+      "answer": "Go to File > External Content > Place Hotlinked Module, select the source file (PLN or MOD), and configure translation and layer options."
+    },
+    {
+      "question": "What is the best way to export IFC files for Revit coordination?",
+      "answer": "Use the built-in 'Export to Revit' IFC translator, which optimizes Archicad classification mappings to Revit category classes."
+    },
+    {
+      "question": "How do I automate layout numbering in Publisher Sets in Archicad?",
+      "answer": "Use Archicad's Auto-Text templates in your Master Layouts. The layout book will automatically sequence sheet numbers during publish."
+    }
+  ]
+}

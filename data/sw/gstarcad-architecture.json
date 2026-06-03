@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "slug": "gstarcad-architecture",
+  "name": "GstarCAD Architecture",
+  "tagline": "Architectural drawing environment with wall/door/window style objects and project-oriented layer conventions.",
+  "meta_desc": "Suited to building plans, elevations, and construction documentation when you want DWG-based AEC tools rather than a full BIM database. Coordinate deliverables with project partners on expected object types and export formats.",
+  "category_label": "AEC vertical (architectural objects on DWG)",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "DWG",
+    "DXF",
+    "PDF"
+  ],
+  "domains": [
+    "Architecture",
+    "Interiors",
+    "Small AEC offices"
+  ],
+  "profile": {
+    "introduction": "Suited to building plans, elevations, and construction documentation when you want DWG-based AEC tools rather than a full BIM database. Coordinate deliverables with project partners on expected object types and export formats."
+  },
+  "terms": [
+    {
+      "slug": "gstarcad-architecture-term-1",
+      "title": "Architectural Object Styles",
+      "short_def": "Technical best practices for Architectural Object Styles inside GstarCAD Architecture.",
+      "definition": "Architectural Object Styles define parametric properties for walls, doors, windows, and slabs. They represent smart objects carrying dimensions and structural layers.",
+      "why_matters": "Speeds up plan modeling and ensures elements render consistently in 3D orthographic views.",
+      "common_pitfalls": [
+        "Exploding smart architectural objects into raw 2D lines, which breaks all parametric updates",
+        "Mixing different wall styles on the same floor level causing display issues"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Architectural Object Styles, which of the following represents a common technical pitfall?",
+          "options": [
+            "Exploding smart architectural objects into raw 2D lines, which breaks all parametric updates.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Exploding smart architectural objects into raw 2D lines, which breaks all parametric updates.' As the editorial review notes: 'Speeds up plan modeling and ensures elements render consistently in 3D orthographic views.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarcad-architecture-term-2",
+      "title": "Project Elevation Generator",
+      "short_def": "Technical best practices for Project Elevation Generator inside GstarCAD Architecture.",
+      "definition": "The Project Elevation Generator projects 2D floor plans into 3D elevations and sectional cuts, keeping drawings in sync.",
+      "why_matters": "Saves hours of drafting and ensures spatial consistency across plan layouts and elevations.",
+      "common_pitfalls": [
+        "Generating elevations without configuring the correct height baseline first",
+        "Neglecting to update elevation views after changing floor plan partitions"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Project Elevation Generator, which of the following represents a common technical pitfall?",
+          "options": [
+            "Generating elevations without configuring the correct height baseline first.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Generating elevations without configuring the correct height baseline first.' As the editorial review notes: 'Saves hours of drafting and ensures spatial consistency across plan layouts and elevations.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarcad-architecture-term-3",
+      "title": "Grid Alignment Setup",
+      "short_def": "Technical best practices for Grid Alignment Setup inside GstarCAD Architecture.",
+      "definition": "Grid Alignment Setup places structural grids and reference bubbles, locking drawing origins relative to the coordinate base.",
+      "why_matters": "Maintains model coordinate control across structural, MEP, and architectural drawing sheets.",
+      "common_pitfalls": [
+        "Moving grid lines manually without locking parallel constraints",
+        "Having origin offsets between architectural grids and structural engineering coordinates"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Grid Alignment Setup, which of the following represents a common technical pitfall?",
+          "options": [
+            "Moving grid lines manually without locking parallel constraints.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Moving grid lines manually without locking parallel constraints.' As the editorial review notes: 'Maintains model coordinate control across structural, MEP, and architectural drawing sheets.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I create custom wall styles?",
+      "answer": "Open the Style Manager, select Wall Styles, click New, define wall layers (material, thickness, offset), and save the style to your templates."
+    },
+    {
+      "question": "Can I generate 3D models from 2D architectural plans?",
+      "answer": "Yes. Wall, door, and window elements in GstarCAD Architecture are intelligent 3D elements that automatically render in 3D when switching the viewpoint."
+    },
+    {
+      "question": "How do I export architectural models to IFC?",
+      "answer": "Use the `IFCEXPORT` command, map GstarCAD Architecture layers to standard IFC classes, and save the coordinates relative to the project base point."
+    }
+  ]
+}

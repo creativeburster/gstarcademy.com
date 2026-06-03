@@ -794,7 +794,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   { id: "GstarCAD MEP", type: "product", group: 1, radius: 11, tags: ["gstarcad", "mep", "vertical"], hint: "Mechanical/electrical/plumbing systems vertical.", slug: "gstarcad-mep" },
   { id: "GstarCAD Electrical", type: "product", group: 1, radius: 10, tags: ["gstarcad", "electrical", "vertical"], hint: "Electrical schematics + panel layouts.", slug: "gstarcad-electrical" },
   { id: "GstarCAD Mapping", type: "product", group: 1, radius: 10, tags: ["gstarcad", "survey", "vertical"], hint: "Survey and mapping vertical.", slug: "gstarcad-mapping" },
-  { id: "GstarBIM", type: "product", group: 1, radius: 12, tags: ["gstarsoft", "bim", "flagship"], hint: "Gstarsoft's native BIM platform.", slug: "" },
+  { id: "GstarBIM", type: "product", group: 1, radius: 12, tags: ["gstarsoft", "bim", "flagship"], hint: "Gstarsoft's native BIM platform.", slug: "gstarbim" },
   { id: "GstarCAD AutoLISP", type: "sdk", group: 2, radius: 9, tags: ["gstarcad", "api"], hint: "Full AutoLISP / Visual LISP support.", slug: "" },
   { id: "GstarCAD VBA", type: "sdk", group: 2, radius: 8, tags: ["gstarcad", "api"], hint: "Visual Basic for Applications inside GstarCAD.", slug: "" },
   { id: "GRX", type: "sdk", group: 2, radius: 9, tags: ["gstarcad", "api"], hint: "C++ runtime extension API (ObjectARX equivalent).", slug: "" },
@@ -1661,6 +1661,54 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   if (graphSvgRoot && typeof window.d3 !== "undefined") {
     const initKbD3Graph = () => {
     const d3 = window.d3;
+
+    let globalTutorials = [];
+    async function loadAllTutorials() {
+      try {
+        const [resYoutube, resEditorial, resPremium] = await Promise.all([
+          fetch("./data/tutorials_youtube.json").then((r) => r.json()),
+          fetch("./data/youtube_editorial.json").then((r) => r.json()),
+          fetch("./data/tutorials_premium.json").then((r) => r.json())
+        ]);
+        
+        const ytVideos = resYoutube.videos || [];
+        const editorialMap = resEditorial || {};
+        const premiumVideos = resPremium || [];
+        
+        const mergedYoutube = ytVideos.map((v) => {
+          const ed = editorialMap[v.video_id] || {};
+          return {
+            id: v.video_id,
+            title: v.title,
+            url: v.url || `https://www.youtube.com/watch?v=${v.video_id}`,
+            platform: "YouTube 🎁",
+            software: ed.software || "—",
+            tags: ed.tags || ["YouTube", "Video"],
+            difficulty: ed.difficulty || "—",
+            task: ed.task || "—"
+          };
+        });
+        
+        const processedPremium = premiumVideos.map((p) => {
+          return {
+            id: p.id,
+            title: p.title,
+            url: p.url,
+            platform: `${p.platform} 💳`,
+            software: p.software || "—",
+            tags: p.tags || [],
+            difficulty: p.level || "—",
+            task: p.task || "—"
+          };
+        });
+        
+        globalTutorials = [...mergedYoutube, ...processedPremium];
+      } catch (err) {
+        console.error("Failed to load tutorials for graph sidebar matching", err);
+      }
+    }
+    loadAllTutorials();
+
     const typeLabelZh = {
       concept: "Concept",
       skill: "Skill / Workflow",
@@ -2196,43 +2244,62 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       if (tutsEl && tutsBlock) {
         tutsEl.innerHTML = "";
         
-        const topTutorialsMap = {
-          "BIM": [
-            { title: "BIM Coordination & IFC Interoperability", url: "https://www.pluralsight.com/courses/revit-bim-coordination", platform: "Pluralsight 💳" },
-            { title: "Revit 2026 - 15 Minute Tutorial for Beginners", url: "https://www.youtube.com/watch?v=NtF5Yf3VxFs", platform: "YouTube 🎁" }
-          ],
-          "AutoCAD": [
-            { title: "AutoCAD 2025 - 15 Minute Tutorial for Beginners", url: "https://www.youtube.com/watch?v=9HBNzsFX3A0", platform: "YouTube 🎁" },
-            { title: "myCADsite Free AutoCAD Flow", url: "https://www.mycadsite.com/", platform: "myCADsite 🎁" }
-          ],
-          "Revit": [
-            { title: "Autodesk Revit - Full Beginner Course", url: "https://www.youtube.com/watch?v=chom9hiewXI", platform: "YouTube 🎁" },
-            { title: "BIM Coordination & IFC Interoperability", url: "https://www.pluralsight.com/courses/revit-bim-coordination", platform: "Pluralsight 💳" }
-          ],
-          "SOLIDWORKS": [
-            { title: "SOLIDWORKS 3D CAD Specialization", url: "https://www.coursera.org/specializations/solidworks-3d-cad", platform: "Coursera 💳" },
-            { title: "SolidWorks Tutorial in 13 Minutes", url: "https://www.youtube.com/watch?v=CiBwrjUeB8U", platform: "YouTube 🎁" }
-          ],
-          "Fusion 360": [
-            { title: "Fusion 360 Tutorial for Absolute Beginners", url: "https://www.youtube.com/watch?v=A5bc9c3S12g", platform: "YouTube 🎁" },
-            { title: "Fusion 360 on Udemy", url: "https://www.udemy.com/topic/fusion-360/", platform: "Udemy 💳" }
-          ],
-          "Creo Parametric": [
-            { title: "Creo Parametric Advanced Part Design", url: "https://www.ptc.com/en/support/university", platform: "PTC Learn 💳" }
-          ],
-          "GstarCAD": [
-            { title: "GstarCAD Official Tutorial & Video Library", url: "https://www.gstarcad.net/support/", platform: "Gstarsoft 🎁" }
-          ],
-          "Civil 3D": [
-            { title: "Learn Road Design in Civil 3D", url: "https://www.youtube.com/watch?v=1X2NhZTUfLo", platform: "YouTube 🎁" }
-          ]
-        };
-
-        const matchingTuts = topTutorialsMap[d.id] || [];
+        let matchingTuts = [];
+        if (globalTutorials && globalTutorials.length > 0) {
+          const lowerId = d.id.toLowerCase();
+          matchingTuts = globalTutorials.filter((tut) => {
+            const soft = (tut.software || "").toLowerCase();
+            const title = (tut.title || "").toLowerCase();
+            const tags = (tut.tags || []).map((t) => t.toLowerCase());
+            return (
+              soft.includes(lowerId) ||
+              lowerId.includes(soft) ||
+              title.includes(lowerId) ||
+              tags.includes(lowerId)
+            );
+          });
+        }
+        
+        if (matchingTuts.length === 0) {
+          const topTutorialsMap = {
+            "BIM": [
+              { title: "BIM Coordination & IFC Interoperability", url: "https://www.pluralsight.com/courses/revit-bim-coordination", platform: "Pluralsight 💳" },
+              { title: "Revit 2026 - 15 Minute Tutorial for Beginners", url: "https://www.youtube.com/watch?v=NtF5Yf3VxFs", platform: "YouTube 🎁" }
+            ],
+            "AutoCAD": [
+              { title: "AutoCAD 2025 - 15 Minute Tutorial for Beginners", url: "https://www.youtube.com/watch?v=9HBNzsFX3A0", platform: "YouTube 🎁" },
+              { title: "myCADsite Free AutoCAD Flow", url: "https://www.mycadsite.com/", platform: "myCADsite 🎁" }
+            ],
+            "Revit": [
+              { title: "Autodesk Revit - Full Beginner Course", url: "https://www.youtube.com/watch?v=chom9hiewXI", platform: "YouTube 🎁" },
+              { title: "BIM Coordination & IFC Interoperability", url: "https://www.pluralsight.com/courses/revit-bim-coordination", platform: "Pluralsight 💳" }
+            ],
+            "SOLIDWORKS": [
+              { title: "SOLIDWORKS 3D CAD Specialization", url: "https://www.coursera.org/specializations/solidworks-3d-cad", platform: "Coursera 💳" },
+              { title: "SolidWorks Tutorial in 13 Minutes", url: "https://www.youtube.com/watch?v=CiBwrjUeB8U", platform: "YouTube 🎁" }
+            ],
+            "Fusion 360": [
+              { title: "Fusion 360 Tutorial for Absolute Beginners", url: "https://www.youtube.com/watch?v=A5bc9c3S12g", platform: "YouTube 🎁" },
+              { title: "Fusion 360 on Udemy", url: "https://www.udemy.com/topic/fusion-360/", platform: "Udemy 💳" }
+            ],
+            "Creo Parametric": [
+              { title: "Creo Parametric Advanced Part Design", url: "https://www.ptc.com/en/support/university", platform: "PTC Learn 💳" }
+            ],
+            "GstarCAD": [
+              { title: "GstarCAD Official Tutorial & Video Library", url: "https://www.gstarcad.net/support/", platform: "Gstarsoft 🎁" }
+            ],
+            "Civil 3D": [
+              { title: "Learn Road Design in Civil 3D", url: "https://www.youtube.com/watch?v=1X2NhZTUfLo", platform: "YouTube 🎁" }
+            ]
+          };
+          matchingTuts = topTutorialsMap[d.id] || [];
+        }
+        
+        matchingTuts = matchingTuts.slice(0, 3);
         
         if (matchingTuts.length > 0) {
           tutsBlock.style.display = "block";
-          matchingTuts.forEach(tut => {
+          matchingTuts.forEach((tut) => {
             const div = document.createElement("div");
             div.style.background = "rgba(255,255,255,0.03)";
             div.style.border = "1px solid var(--line-soft)";
@@ -2243,10 +2310,11 @@ if (document.body.getAttribute("data-page") === "knowledge") {
             div.style.alignItems = "center";
             div.style.gap = "8px";
             
+            const plat = tut.platform || (tut.url.includes("youtube.com") ? "YouTube 🎁" : "Web 🎁");
             div.innerHTML = `
               <div style="display:flex; flex-direction:column; gap:2px;">
                 <span style="font-size:12px; font-weight:600; color:var(--text);">${tut.title}</span>
-                <span style="font-size:11px; color:var(--muted);">${tut.platform}</span>
+                <span style="font-size:11px; color:var(--muted);">${plat}</span>
               </div>
               <a href="${tut.url}" target="_blank" rel="noopener noreferrer" class="btn" style="font-size:10px; padding:4px 8px; border-radius:6px; flex-shrink:0;">Open →</a>
             `;
@@ -2443,37 +2511,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
       })
       .on("click", (event, d) => {
         event.stopPropagation();
-        const customUrl = nodeUrlMap[d.id];
-        let dest = customUrl;
-        if (!dest) {
-          const slug = d.slug || d.id.toLowerCase().replace(/\s+/g, "-");
-          if (d.type === "product") {
-            dest = `./kb/software/${slug}.html`;
-          } else if (d.type === "vendor") {
-            dest = `./kb/vendors/${slug}.html`;
-          } else {
-            dest = `./kb/concepts/${slug}.html`;
-          }
-        }
-        
-        // Protocol check: file:// protocol blocks HEAD fetches, so navigate directly
-        if (window.location.protocol === "file:") {
-          window.location.href = dest;
-          return;
-        }
-
-        // Live check to prevent 404 and fallback elegantly
-        fetch(dest, { method: "HEAD" })
-          .then((res) => {
-            if (res.ok) {
-              window.location.href = dest;
-            } else {
-              window.location.href = `./kb-terms.html?search=${encodeURIComponent(d.id)}`;
-            }
-          })
-          .catch(() => {
-            window.location.href = dest;
-          });
+        selectGraphNode(d, { replaceURL: false, zoom: true });
       })
       .on("dblclick", (event, d) => {
         event.stopPropagation();
@@ -2789,4 +2827,86 @@ if (document.body.getAttribute("data-page") === "knowledge") {
           });
       }
   }
+
+  // --- 14-Day Self-Study Pathway Checklist Logic ---
+  function initPathwayChecklist() {
+    const checkboxes = document.querySelectorAll(".kb-pathway-checkbox");
+    if (!checkboxes.length) return;
+
+    const progressText = document.getElementById("kb-pathway-progress-text");
+    const progressBar = document.getElementById("kb-pathway-progress-bar");
+
+    // Load completed states from localStorage
+    let completed = [];
+    try {
+      completed = JSON.parse(localStorage.getItem("kb_pathway_completed")) || [];
+    } catch (_) {
+      completed = [];
+    }
+
+    // Apply initial states
+    checkboxes.forEach((cb) => {
+      const slug = cb.getAttribute("data-concept");
+      const item = cb.closest(".kb-pathway-item");
+      if (completed.includes(slug)) {
+        cb.checked = true;
+        if (item) item.classList.add("completed");
+      } else {
+        cb.checked = false;
+        if (item) item.classList.remove("completed");
+      }
+    });
+
+    const updateProgress = () => {
+      const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+      const totalCount = checkboxes.length;
+      const pct = Math.round((checkedCount / totalCount) * 100);
+
+      if (progressText) {
+        progressText.textContent = `${checkedCount} / ${totalCount} completed (${pct}%)`;
+      }
+      if (progressBar) {
+        progressBar.style.width = `${pct}%`;
+      }
+    };
+
+    checkboxes.forEach((cb) => {
+      cb.addEventListener("change", () => {
+        const slug = cb.getAttribute("data-concept");
+        const item = cb.closest(".kb-pathway-item");
+        
+        // Reload list to ensure fresh state
+        try {
+          completed = JSON.parse(localStorage.getItem("kb_pathway_completed")) || [];
+        } catch (_) {
+          completed = [];
+        }
+
+        if (cb.checked) {
+          if (item) item.classList.add("completed");
+          if (!completed.includes(slug)) {
+            completed.push(slug);
+          }
+        } else {
+          if (item) item.classList.remove("completed");
+          const idx = completed.indexOf(slug);
+          if (idx >= 0) {
+            completed.splice(idx, 1);
+          }
+        }
+
+        try {
+          localStorage.setItem("kb_pathway_completed", JSON.stringify(completed));
+        } catch (_) {}
+
+        updateProgress();
+      });
+    });
+
+    // Run once on load
+    updateProgress();
+  }
+
+  // Initialize pathway checklist
+  initPathwayChecklist();
 }

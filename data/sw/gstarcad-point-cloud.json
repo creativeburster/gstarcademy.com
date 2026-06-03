@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "slug": "gstarcad-point-cloud",
+  "name": "GstarCAD Point Cloud",
+  "tagline": "Import and work with scan data for as-built documentation and modeling assistance inside GstarCAD.",
+  "meta_desc": "Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version.",
+  "category_label": "Point cloud processing on DWG",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "DWG",
+    "RCS/RCP (workflow-dependent)",
+    "PDF"
+  ],
+  "domains": [
+    "Survey as-builts",
+    "Renovation",
+    "Plant retrofits"
+  ],
+  "profile": {
+    "introduction": "Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version."
+  },
+  "terms": [
+    {
+      "slug": "gstarcad-point-cloud-term-1",
+      "title": "Point Cloud Import",
+      "short_def": "Technical best practices for Point Cloud Import inside GstarCAD Point Cloud.",
+      "definition": "Point Cloud Import loads laser scans into the DWG model environment. It handles large point data sets by using local graphics caching.",
+      "why_matters": "Establishes a reliable spatial reference framework for as-built retrofits and plant remodeling.",
+      "common_pitfalls": [
+        "Importing unregistered point clouds that lack unified coordinate offsets",
+        "Setting display density too high causing graphic viewport locks"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Point Cloud Import, which of the following represents a common technical pitfall?",
+          "options": [
+            "Importing unregistered point clouds that lack unified coordinate offsets.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Importing unregistered point clouds that lack unified coordinate offsets.' As the editorial review notes: 'Establishes a reliable spatial reference framework for as-built retrofits and plant remodeling.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarcad-point-cloud-term-2",
+      "title": "Vector Extraction",
+      "short_def": "Technical best practices for Vector Extraction inside GstarCAD Point Cloud.",
+      "definition": "Vector Extraction converts point boundaries into CAD polylines, helping modelers trace scanned geometry.",
+      "why_matters": "Automates the conversion of physical scan data into lightweight, actionable CAD drawings.",
+      "common_pitfalls": [
+        "Tracing noisy point margins without setting outline filters",
+        "Creating over-segmented lines instead of clean, unified polylines"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Vector Extraction, which of the following represents a common technical pitfall?",
+          "options": [
+            "Tracing noisy point margins without setting outline filters.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Tracing noisy point margins without setting outline filters.' As the editorial review notes: 'Automates the conversion of physical scan data into lightweight, actionable CAD drawings.'"
+        }
+      ]
+    },
+    {
+      "slug": "gstarcad-point-cloud-term-3",
+      "title": "Section Clipping",
+      "short_def": "Technical best practices for Section Clipping inside GstarCAD Point Cloud.",
+      "definition": "Section Clipping clips point cloud data along reference planes, exposing clean visual slices.",
+      "why_matters": "Simplifies tracing and reduces visual clutter by hiding extraneous scan points.",
+      "common_pitfalls": [
+        "Clipping too thick of a slice, which retains confusing foreground geometry",
+        "Using dynamic coordinate systems that shift clip planes during pan commands"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Section Clipping, which of the following represents a common technical pitfall?",
+          "options": [
+            "Clipping too thick of a slice, which retains confusing foreground geometry.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Clipping too thick of a slice, which retains confusing foreground geometry.' As the editorial review notes: 'Simplifies tracing and reduces visual clutter by hiding extraneous scan points.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What format of point clouds does GstarCAD Point Cloud support?",
+      "answer": "It supports standard formats like LAS, PTS, PTX, and RCP/RCS after conversion. Check the import options for details."
+    },
+    {
+      "question": "How do I trace outlines on a sliced point cloud?",
+      "answer": "Set a section box or clip plane to isolate a slice of data, then use standard object snaps (`OSNAP`) and polyline tools to trace boundaries."
+    },
+    {
+      "question": "How to optimize viewport navigation for massive point cloud files?",
+      "answer": "Reduce the point display density in the properties panel, or turn on hardware acceleration under options to utilize GPU caching."
+    }
+  ]
+}

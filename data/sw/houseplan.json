@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "slug": "houseplan",
+  "name": "Houseplan",
+  "tagline": "Fast residential massing and presentation with real-time rendering as positioned on the vendor site.",
+  "meta_desc": "Targets users who need quick 3D schemes rather than full mechanical CAD. Feature depth and file exchange differ from GstarCAD—treat it as a separate lane when planning tutorials and deliverables.",
+  "category_label": "Lightweight 3D house design & rendering",
+  "vendor": {
+    "name": "Gstarsoft",
+    "slug": "gstarsoft"
+  },
+  "platforms": [
+    "Windows"
+  ],
+  "file_formats": [
+    "Native project",
+    "Image exports",
+    "PDF (workflow-dependent)"
+  ],
+  "domains": [
+    "Residential design",
+    "Sales visualization",
+    "Concept studies"
+  ],
+  "profile": {
+    "introduction": "Targets users who need quick 3D schemes rather than full mechanical CAD. Feature depth and file exchange differ from GstarCAD—treat it as a separate lane when planning tutorials and deliverables."
+  },
+  "terms": [
+    {
+      "slug": "houseplan-term-1",
+      "title": "Residential Massing",
+      "short_def": "Technical best practices for Residential Massing inside Houseplan.",
+      "definition": "Residential Massing creates initial 3D volumes, floor partitions, and mass orientations.",
+      "why_matters": "Allows rapid conceptual design and early client feedback before detailed drafting starts.",
+      "common_pitfalls": [
+        "Adding detail features like doors and windows before checking mass heights",
+        "Ignoring zoning set-back boundaries during early massing setups"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Residential Massing, which of the following represents a common technical pitfall?",
+          "options": [
+            "Adding detail features like doors and windows before checking mass heights.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Adding detail features like doors and windows before checking mass heights.' As the editorial review notes: 'Allows rapid conceptual design and early client feedback before detailed drafting starts.'"
+        }
+      ]
+    },
+    {
+      "slug": "houseplan-term-2",
+      "title": "Real-Time Presentation",
+      "short_def": "Technical best practices for Real-Time Presentation inside Houseplan.",
+      "definition": "Real-Time Presentation renders materials and lighting setups on 3D elements instantly.",
+      "why_matters": "Enhances client presentations and supports quick material studies under varying sun angles.",
+      "common_pitfalls": [
+        "Applying high-resolution textures that lag during walk-through animations",
+        "Overlooking color temperature settings causing unrealistic interior light"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Real-Time Presentation, which of the following represents a common technical pitfall?",
+          "options": [
+            "Applying high-resolution textures that lag during walk-through animations.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Applying high-resolution textures that lag during walk-through animations.' As the editorial review notes: 'Enhances client presentations and supports quick material studies under varying sun angles.'"
+        }
+      ]
+    },
+    {
+      "slug": "houseplan-term-3",
+      "title": "Conceptual Rendering",
+      "short_def": "Technical best practices for Conceptual Rendering inside Houseplan.",
+      "definition": "Conceptual Rendering exports lightweight 3D pictures and viewpoints for client sharing.",
+      "why_matters": "Produces fast presentation graphics without needing heavy standalone visual render engines.",
+      "common_pitfalls": [
+        "Rendering from incorrect camera perspective angles causing spatial distortion",
+        "Neglecting to define background environments before exporting final views"
+      ],
+      "related_term_slugs": [],
+      "quiz": [
+        {
+          "question": "When working with Conceptual Rendering, which of the following represents a common technical pitfall?",
+          "options": [
+            "Rendering from incorrect camera perspective angles causing spatial distortion.",
+            "Failing to manually re-index the SQL server database.",
+            "Over-allocating virtual memory caches in the cloud settings.",
+            "Restricting linetype scales strictly to 1:1 paper coordinates."
+          ],
+          "answer_idx": 0,
+          "explanation": "Correct. A common pitfall is 'Rendering from incorrect camera perspective angles causing spatial distortion.' As the editorial review notes: 'Produces fast presentation graphics without needing heavy standalone visual render engines.'"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I export Houseplan files to GstarCAD?",
+      "answer": "Use the Export command and select DWG format. Intelligent walls and massing elements will convert to standard 2D/3D entities."
+    },
+    {
+      "question": "Can I import custom material texture files?",
+      "answer": "Yes, in the Material panel, add a new material and browse to import PNG/JPG files for diffuse and normal mappings."
+    },
+    {
+      "question": "How to create visual animations of the 3D model in Houseplan?",
+      "answer": "Set up multiple camera viewpoints along a path, and click Export Video in the presentation panel to render a walk-through."
+    }
+  ]
+}
