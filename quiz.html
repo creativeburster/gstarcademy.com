@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAD Quiz Challenge · Gstarcademy</title>
+    <meta name="description" content="Test your CAD, BIM, MCAD and Civil engineering literacy with instant feedback quiz." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="/quiz.html" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="preload" href="./styles.css?v=v14_cadlingo_full" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="./styles.css?v=v14_cadlingo_full" />
+  </head>
+  <body data-page="quiz" class="quiz-body">
+    <div class="header-stack">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="./index.html">
+            <span class="brand-badge">GC</span>
+            <span>Gstarcademy</span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="knowledge-base.html">Wiki</a>
+            <a class="nav-link" href="tutorials.html">Tutorials</a>
+            <a class="nav-link" href="news.html">News</a>
+            <a class="nav-link" href="about.html">About</a>
+            <!-- Streak Fire Badge -->
+            <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak天数">
+              🔥 <span id="global-streak-count">0</span> Days
+            </div>
+          </nav>
+        </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
+    </div>
+
+    <main class="container" style="padding-top: 40px; min-height: calc(100vh - 380px);">
+      <!-- 1. Selection Screen (when track parameter is missing) -->
+      <section id="quiz-selection-screen" class="section">
+        <div class="section-head" style="text-align: center; margin-bottom: 40px;">
+          <h1 class="hero-title" style="font-size: 32px; margin-bottom: 12px;">CAD Career Pathway Quiz Challenge</h1>
+          <p class="meta" style="max-width: 36rem; margin: 0 auto;">
+            Select a specialized career pathway, answer 5 practice-oriented questions correctly, and light up the skill nodes on your learning map!
+          </p>
+        </div>
+
+        <!-- 入学定级测试 (Placement Test) 卡片横幅 -->
+        <div class="placement-banner-card">
+          <div class="placement-banner-content">
+            <span class="placement-badge">🏆 入学定级测试 (Placement Test)</span>
+            <h3 class="placement-title">已经拥有丰富的 CAD 实战经验？</h3>
+            <p class="meta placement-desc">通过 10 道涵盖 BIM、MCAD、Civil 与 2D 制图的综合定级测验（正确率 &ge; 80%），即可直接<b>一键点亮全站 20 个技能节点</b>并获得 150 XP！</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-placement-go" onclick="window.location.href='?track=placement'">开始定级测试</button>
+        </div>
+
+        <div class="domain-grid-container" style="max-width: 1100px; margin: 0 auto;">
+          <!-- BIM Card -->
+          <div class="domain-portal-card">
+            <div class="domain-card-header">
+              <span class="domain-badge-duo">🏢 BIM</span>
+              <h3>BIM Coordinator</h3>
+              <p class="domain-card-content">
+                Covers parameters, Revit, Navisworks clash checks, shared coordinate alignments, and IFC handoffs.
+              </p>
+            </div>
+            <button class="btn btn-primary domain-btn-go" onclick="window.location.href='?track=bim'">Start Challenge</button>
+          </div>
+
+          <!-- MCAD Card -->
+          <div class="domain-portal-card">
+            <div class="domain-card-header">
+              <span class="domain-badge-duo">⚙️ MCAD</span>
+              <h3>Mechanical Engineer</h3>
+              <p class="domain-card-content">
+                Covers parametric constraints, assembly mating logic, feature tree regeneration, B-Rep modeling, and 3D MBD/PMI.
+              </p>
+            </div>
+            <button class="btn btn-primary domain-btn-go" onclick="window.location.href='?track=mcad'">Start Challenge</button>
+          </div>
+
+          <!-- Civil Card -->
+          <div class="domain-portal-card">
+            <div class="domain-card-header">
+              <span class="domain-badge-duo">🏗️ Civil</span>
+              <h3>Civil Infrastructure</h3>
+              <p class="domain-card-content">
+                Covers TIN terrain surfaces, corridor models, alignments & vertical profiles, grading, and LandXML field exports.
+              </p>
+            </div>
+            <button class="btn btn-primary domain-btn-go" onclick="window.location.href='?track=civil'">Start Challenge</button>
+          </div>
+
+          <!-- 2D Card -->
+          <div class="domain-portal-card">
+            <div class="domain-card-header">
+              <span class="domain-badge-duo">📐 2D Draft</span>
+              <h3>2D Drafting Specialist</h3>
+              <p class="domain-card-content">
+                Covers Layer strategy, external references (Xrefs), keyboard PGP command aliases, scale, and DWG revision Compare.
+              </p>
+            </div>
+            <button class="btn btn-primary domain-btn-go" onclick="window.location.href='?track=draft'">Start Challenge</button>
+          </div>
+        </div>
+
+        <!-- 进度管家 (Duo Backup Manager) 面板 -->
+        <div class="backup-manager-card" style="margin-top: 48px;">
+          <div class="backup-header">
+            <h3>💾 CADLingo 进度管家 (免注册备份)</h3>
+            <p class="meta" style="margin-top: 4px;">您的学习进度已自动保存在当前浏览器。若需更换设备或备份防丢，可在下方复制恢复码；也可粘贴恢复码进行进度还原。</p>
+          </div>
+          
+          <div class="backup-stats-row">
+            <div class="backup-stat-item">
+              <span class="stat-label">总经验值 (XP)</span>
+              <strong class="stat-value" id="backup-stat-xp">0 XP</strong>
+            </div>
+            <div class="backup-stat-item">
+              <span class="stat-label">打卡连胜 (Streak)</span>
+              <strong class="stat-value" id="backup-stat-streak">🔥 0 天</strong>
+            </div>
+            <div class="backup-stat-item">
+              <span class="stat-label">点亮节点数</span>
+              <strong class="stat-value" id="backup-stat-nodes">0 / 20</strong>
+            </div>
+          </div>
+
+          <div class="backup-actions">
+            <div class="backup-code-group">
+              <label for="backup-code-input">我的进度恢复码 (点击输入框可全选)</label>
+              <div class="backup-input-wrapper">
+                <input type="text" id="backup-code-input" readonly placeholder="数据加载中..." onclick="this.select();">
+                <button type="button" class="btn btn-primary" id="btn-copy-backup" style="min-width: 90px;">复制</button>
+              </div>
+            </div>
+            
+            <div class="backup-import-group">
+              <label for="import-code-input">导入进度恢复码</label>
+              <div class="backup-input-wrapper">
+                <input type="text" id="import-code-input" placeholder="请在此粘贴已备份的恢复码...">
+                <button type="button" class="btn" id="btn-import-backup" style="min-width: 90px;">还原</button>
+              </div>
+            </div>
+          </div>
+          <div id="backup-message" class="backup-message" style="display: none;"></div>
+        </div>
+      </section>
+
+      <!-- 1.5. Unit Lessons Screen (Placement / Units lock progression) -->
+      <section id="quiz-lessons-screen" class="section" style="display:none;">
+        <div class="section-head" style="text-align: center; margin-bottom: 32px;">
+          <h2 class="hero-title" id="lessons-unit-title" style="font-size: 28px; margin-bottom: 8px;">Unit 1: BIM Coordinator</h2>
+          <p class="meta" id="lessons-unit-subtitle" style="max-width: 32rem; margin: 0 auto;">
+            Complete each bite-sized lesson sequentially to master this career track and unlock all roadmap nodes!
+          </p>
+        </div>
+
+        <div class="lessons-list-container" id="lessons-cards-wrapper" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
+          <!-- Dynamically populated by JS -->
+        </div>
+
+        <div style="text-align: center; margin-top: 32px;">
+          <button type="button" class="btn" onclick="window.location.href='quiz.html'" style="min-width: 150px;">🔙 返回职业选择</button>
+        </div>
+      </section>
+
+      <!-- 2. Active Quiz Challenge Screen -->
+      <section id="quiz-active-screen" class="section" style="display:none;">
+        <div class="quiz-hud-bar" style="max-width: 720px; margin: 0 auto;">
+          <div class="quiz-hud-stat">
+            <span id="quiz-track-badge" class="badge badge-free" style="margin:0; font-size:10px;">BIM</span>
+            <span id="quiz-question-progress" style="font-size:13px; color:var(--muted);">1 of 5</span>
+          </div>
+          <div class="quiz-progress-outer">
+            <div class="quiz-progress-inner" id="quiz-progress-bar"></div>
+          </div>
+          <div class="quiz-hud-stat quiz-hud-hearts" id="quiz-hearts-container" title="Hearts (Remaining Mistakes)">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <div class="quiz-card-container">
+          <div id="quiz-question-area">
+            <h2 class="quiz-question-text" id="quiz-question-title">Loading question...</h2>
+            <div class="quiz-options-grid" id="quiz-options-wrapper">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Results / Settlement Screen -->
+      <section id="quiz-result-screen" class="section" style="display:none;">
+        <div class="quiz-card-container" style="max-width: 600px; text-align: center; padding: 48px;">
+          <div class="quiz-result-card" id="quiz-success-view" style="display:none;">
+            <div class="quiz-result-badge">🏆</div>
+            <h2 class="hero-title" style="font-size: 28px; margin-bottom: 8px; color:#10b981;">Pathway Completed!</h2>
+            <p class="meta" style="margin-bottom: 24px;">
+              Fantastic job! You've successfully answered all questions correctly and demonstrated core competency in this field.
+            </p>
+            
+            <div style="background:var(--bg-soft); border-radius:16px; padding:18px; margin-bottom:28px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div>
+                <span style="font-size:12px; color:var(--muted); text-transform:uppercase; font-weight:700;">XP Earned</span>
+                <strong style="display:block; font-size:24px; color:#6366f1; margin-top:4px;" id="result-xp">+70 XP</strong>
+              </div>
+              <div>
+                <span style="font-size:12px; color:var(--muted); text-transform:uppercase; font-weight:700;">Status</span>
+                <strong style="display:block; font-size:24px; color:#10b981; margin-top:4px;" id="result-status">Perfect</strong>
+              </div>
+            </div>
+            
+            <p class="meta" style="font-size:13px; margin-bottom:28px;">
+              🎯 <strong>Roadmap Synced:</strong> The corresponding competency nodes have been lit up on your career learning map.
+            </p>
+            
+            <div style="display:flex; gap:12px; justify-content:center;">
+              <a href="knowledge-roadmap.html" class="btn btn-primary">🗺️ View Learning Map</a>
+              <a href="quiz.html" class="btn">🔄 Try Other Pathways</a>
+            </div>
+          </div>
+
+          <div class="quiz-result-card" id="quiz-failure-view" style="display:none;">
+            <div class="quiz-result-badge">💔</div>
+            <h2 class="hero-title" style="font-size: 28px; margin-bottom: 8px; color:#ef4444;">Hearts Depleted!</h2>
+            <p class="meta" style="margin-bottom: 28px;">
+              You ran out of lives this time. Reviewing the atomic concepts in our Wiki will help you conquer this challenge next time!
+            </p>
+            <div style="display:flex; gap:12px; justify-content:center;">
+              <button type="button" class="btn btn-primary" onclick="window.location.reload();">🔁 Retry Challenge</button>
+              <a href="knowledge-base.html" class="btn">📚 Browse Wiki</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 4. Global Floating Feedback Bar -->
+    <div class="quiz-feedback-bar" id="quiz-feedback-banner">
+      <div class="quiz-feedback-inner">
+        <div class="quiz-feedback-content">
+          <div class="quiz-feedback-status" id="quiz-feedback-status">
+            <!-- Icon + text rendered by JS -->
+          </div>
+          <div class="quiz-explanation-text" id="quiz-explanation-body">
+            <!-- Explanation text rendered by JS -->
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="quiz-btn-continue" style="min-width: 120px;">Continue</button>
+      </div>
+    </div>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">Gstarcademy</p>
+          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-heading">Structured Learn</h4>
+          <ul class="site-footer-links">
+            <li><a href="./tutorials.html">Tutorial Library</a></li>
+            <li><a href="./knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="./knowledge-roadmap.html">Interactive Map</a></li>
+            <li><a href="./quiz.html">Quiz Challenge</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© 2026 Gstarcademy. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./app.js?v=v14_cadlingo_full" defer></script>
+    <script src="./quiz.js?v=v14_cadlingo_full" defer></script>
+  </body>
+</html>

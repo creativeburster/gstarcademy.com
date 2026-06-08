@@ -736,6 +736,12 @@ document.addEventListener("keydown", (ev) => {
     // Clear inspector
     resetInspectorPanel();
 
+    // Set quiz button link dynamically
+    const quizBtn = document.getElementById("btn-inspect-quiz");
+    if (quizBtn) {
+      quizBtn.href = `./quiz.html?track=${activeTrack}`;
+    }
+
     // Draw lines after layout renders
     setTimeout(drawConnectorLines, 100);
   }
@@ -888,6 +894,11 @@ document.addEventListener("keydown", (ev) => {
       tab.setAttribute("aria-selected", "true");
       activeTrack = tab.getAttribute("data-track");
       renderTree();
+      
+      const quizBtn = document.getElementById("btn-inspect-quiz");
+      if (quizBtn) {
+        quizBtn.href = `./quiz.html?track=${activeTrack}`;
+      }
     });
   });
 
