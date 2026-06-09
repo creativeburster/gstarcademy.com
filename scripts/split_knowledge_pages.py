@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "knowledge-base.html"
-VER = "20260427kb12"
+VER = "v15_subnav_dropdown"
 
 # 1-based inclusive line ranges from knowledge-base.html (current structure)
 R_HOME = (132, 199)

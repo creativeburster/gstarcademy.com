@@ -11,7 +11,9 @@ def update_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
         
-    original_len = len(content)
+    original_content = content
+    # 替换样式缓存版本号
+    content = re.sub(r'styles\.css\?v=[a-zA-Z0-9_\-]+', 'styles.css?v=v15_subnav_dropdown', content)
     
     # 1. 确定当前页面的 active-nav 类型
     file_name = os.path.basename(file_path)
@@ -129,7 +131,7 @@ def update_file(file_path):
         
         content = re.sub(r'<nav class="kb-subnav".*?</nav>', subnav_html, content, flags=re.DOTALL)
 
-    if len(content) != original_len:
+    if content != original_content:
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
         print(f"Updated: {rel_path}")
