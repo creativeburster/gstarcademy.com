@@ -12,6 +12,8 @@ def update_file(file_path):
         content = f.read()
         
     original_content = content
+    # 清理之前可能错误引入的 ASCII 1 乱码字符
+    content = content.replace('\x01', '')
     # 替换样式缓存版本号
     content = re.sub(r'styles\.css\?v=[a-zA-Z0-9_\-]+', 'styles.css?v=v15_subnav_dropdown', content)
     
