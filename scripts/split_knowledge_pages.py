@@ -123,6 +123,12 @@ SIDEBAR = f"""      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" ar
               <a class="kb-index-link" href="./kb-vendors.html">Vendor docs</a>
             </div>
 
+            <div class="kb-index-box" style="margin-top: 16px;">
+              <strong class="kb-index-title">Learning Tools</strong>
+              <a class="kb-index-link" href="./knowledge-roadmap.html">Interactive Roadmap</a>
+              <a class="kb-index-link" href="./quiz.html">Quiz Challenge</a>
+            </div>
+
             <div class="kb-nav-group">
               <button class="kb-nav-toggle" aria-expanded="true">Maps &amp; lanes</button>
               <div class="kb-nav-links">
@@ -211,10 +217,17 @@ def head_block(*, title: str, canonical: str, description: str, ld_url: str) -> 
         </a>
         <nav class="nav">
           <a class="nav-link" data-nav="home" href="./index.html">Home</a>
+          <a class="nav-link" data-nav="domains" href="./knowledge-domains.html">Domains</a>
+          <a class="nav-link" data-nav="roadmap" href="./knowledge-roadmap.html">Roadmap</a>
+          <a class="nav-link" data-nav="quiz" href="./quiz.html">Quiz</a>
           <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
           <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
           <a class="nav-link" data-nav="news" href="./news.html">News</a>
           <a class="nav-link" data-nav="about" href="./about.html">About</a>
+          <!-- Streak Fire Badge -->
+          <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak Days">
+            🔥 <span id="global-streak-count">0</span> Days
+          </div>
         </nav>
       </div>
     </header>
@@ -232,6 +245,9 @@ FOOTER = f"""    <footer class="footer site-footer">
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Learn</h4>
           <ul class="site-footer-links">
+            <li><a href="./knowledge-domains.html">Domains</a></li>
+            <li><a href="./knowledge-roadmap.html">Roadmap</a></li>
+            <li><a href="./quiz.html">Quiz Challenge</a></li>
             <li><a href="./tutorials.html">Tutorials</a></li>
             <li><a href="./knowledge-base.html">Knowledge base</a></li>
             <li><a href="./news.html">CAD news</a></li>

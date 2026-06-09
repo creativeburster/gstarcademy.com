@@ -11,8 +11,8 @@
       lessons: [
         {
           id: 1,
-          title: "Lesson 1: 热身测验 (Warmup)",
-          desc: "BIM 核心范式、LOD 精度等级、协作流程与标准",
+          title: "Lesson 1: Warmup",
+          desc: "BIM Paradigms, LOD Standards, & CDE Workflow",
           questions: [
             {
               nodeId: "bim",
@@ -74,8 +74,8 @@
         },
         {
           id: 2,
-          title: "Lesson 2: 核心概念 (Core Concepts)",
-          desc: "Autodesk Revit 族系统、多学科共享坐标系与三维扫描对齐",
+          title: "Lesson 2: Core Concepts",
+          desc: "Revit Family System, Shared Coordinates, & Scan-to-BIM",
           questions: [
             {
               nodeId: "revit",
@@ -123,8 +123,8 @@
         },
         {
           id: 3,
-          title: "Lesson 3: 实操避坑 (Common Pitfalls)",
-          desc: "Navisworks 碰撞检测、IFC 格式导出设置与 4D/5D 工程模拟",
+          title: "Lesson 3: Common Pitfalls",
+          desc: "Navisworks Clashes, IFC Settings, & 4D/5D Simulation",
           questions: [
             {
               nodeId: "clash",
@@ -179,8 +179,8 @@
       lessons: [
         {
           id: 1,
-          title: "Lesson 1: 热身测验 (Warmup)",
-          desc: "MCAD 几何约束意图、SOLIDWORKS 配置管理与 PDM 版本控制",
+          title: "Lesson 1: Warmup",
+          desc: "Geometric Constraints, SOLIDWORKS Configurations, & PDM",
           questions: [
             {
               nodeId: "parametrics",
@@ -242,8 +242,8 @@
         },
         {
           id: 2,
-          title: "Lesson 2: 核心概念 (Core Concepts)",
-          desc: "B-Rep 拓扑边界表达、三维装配自由度约束与 FEA 有限元分析网格收敛",
+          title: "Lesson 2: Core Concepts",
+          desc: "B-Rep Topology, Assembly Degrees of Freedom, & FEA Mesh",
           questions: [
             {
               nodeId: "brep",
@@ -291,8 +291,8 @@
         },
         {
           id: 3,
-          title: "Lesson 3: 实操避坑 (Common Pitfalls)",
-          desc: "模型定义 MBD 标准化、模具拔模检测与钣金展平 K-Factor 计算",
+          title: "Lesson 3: Common Pitfalls",
+          desc: "MBD Standards, Mold Draft Check, & Sheet Metal K-Factor",
           questions: [
             {
               nodeId: "mbd",
@@ -347,8 +347,8 @@
       lessons: [
         {
           id: 1,
-          title: "Lesson 1: 热身测验 (Warmup)",
-          desc: "TIN 地形表面模型、Civil 3D 软件架构与 COGO 点 Description Key 自动处理",
+          title: "Lesson 1: Warmup",
+          desc: "TIN Surfaces, Civil 3D Architecture, & Description Keys",
           questions: [
             {
               nodeId: "surfaces",
@@ -396,8 +396,8 @@
         },
         {
           id: 2,
-          title: "Lesson 2: 核心概念 (Core Concepts)",
-          desc: "道路平纵曲线关联设计、重力流管网规则与放坡组 (Grading Group) 动态平衡",
+          title: "Lesson 2: Core Concepts",
+          desc: "Road Profiles, Gravity Pipe Rules, & Grading Groups",
           questions: [
             {
               nodeId: "alignments",
@@ -445,8 +445,8 @@
         },
         {
           id: 3,
-          title: "Lesson 3: 实操避坑 (Common Pitfalls)",
-          desc: "道路装配部件目标映射、GPS 数字化施工 LandXML 导出与土方量核算",
+          title: "Lesson 3: Common Pitfalls",
+          desc: "Road Subassemblies, LandXML Field Export, & Earthworks",
           questions: [
             {
               nodeId: "corridors",
@@ -501,8 +501,8 @@
       lessons: [
         {
           id: 1,
-          title: "Lesson 1: 热身测验 (Warmup)",
-          desc: "2D 图层状态管理、PGP 快捷键命令别名与 AutoLISP 脚本自动定制",
+          title: "Lesson 1: Warmup",
+          desc: "Layer States, Command PGP Aliases, & AutoLISP Scripts",
           questions: [
             {
               nodeId: "layer",
@@ -550,8 +550,8 @@
         },
         {
           id: 2,
-          title: "Lesson 2: 核心概念 (Core Concepts)",
-          desc: "外部参照 Xref 协同管理、图纸视口比例打印与动态块参数设计",
+          title: "Lesson 2: Core Concepts",
+          desc: "Xref Management, Paper Space Viewports, & Dynamic Blocks",
           questions: [
             {
               nodeId: "xref",
@@ -599,8 +599,8 @@
         },
         {
           id: 3,
-          title: "Lesson 3: 实操避坑 (Common Pitfalls)",
-          desc: "DWG 图纸版本图层差异比对、多视口下注释性比例 (Annotative) 缩放与冲突消解",
+          title: "Lesson 3: Common Pitfalls",
+          desc: "DWG Compare, Annotative Scaling, & Scale Conflicts",
           questions: [
             {
               nodeId: "merge",
@@ -854,7 +854,7 @@
       unitTitleEl.textContent = `Unit: ${track.trackTitle}`;
     }
     if (unitSubtitleEl) {
-      unitSubtitleEl.textContent = "依次完成以下小课以解锁该职业路径的技能树节点并获取经验值！";
+      unitSubtitleEl.textContent = "Complete each bite-sized lesson sequentially to master this career track and unlock all roadmap nodes!";
     }
 
     renderLessonsList(trackKey);
@@ -903,16 +903,16 @@
       let buttonAttrs = "";
 
       if (status === "completed") {
-        statusTagHtml = `<span class="lesson-status-tag completed">已通关 ✅</span>`;
-        buttonText = "重新挑战";
+        statusTagHtml = `<span class="lesson-status-tag completed">Passed ✅</span>`;
+        buttonText = "Review";
         buttonClass = "btn";
       } else if (status === "active") {
-        statusTagHtml = `<span class="lesson-status-tag active">可开始 🟢</span>`;
-        buttonText = "开始挑战";
+        statusTagHtml = `<span class="lesson-status-tag active">Active 🟢</span>`;
+        buttonText = "Start";
         buttonClass = "btn btn-primary";
       } else {
-        statusTagHtml = `<span class="lesson-status-tag locked">已锁闭 🔒</span>`;
-        buttonText = "已锁闭 🔒";
+        statusTagHtml = `<span class="lesson-status-tag locked">Locked 🔒</span>`;
+        buttonText = "Locked 🔒";
         buttonClass = "btn";
         buttonAttrs = "disabled";
       }
@@ -1074,7 +1074,7 @@
 
     // 2. 更新面板数值
     statXpEl.textContent = `${totalXp} XP`;
-    statStreakEl.textContent = `🔥 ${streak} 天`;
+    statStreakEl.textContent = `🔥 ${streak} Days`;
     statNodesEl.textContent = `${nodeCount} / 20`;
 
     // 3. 生成 Base64 进度恢复码
@@ -1111,12 +1111,12 @@
           if (codeInput.value && codeInput.value !== "生成失败") {
             // 复制到剪贴板
             navigator.clipboard.writeText(codeInput.value).then(() => {
-              showBackupMessage("📋 进度恢复码已成功复制到剪贴板！请妥善保存。", "success");
+              showBackupMessage("📋 Progress recovery code copied to clipboard!", "success");
             }).catch(() => {
               // 兼容方案
               codeInput.select();
               document.execCommand("copy");
-              showBackupMessage("📋 进度恢复码已选择并复制！", "success");
+              showBackupMessage("📋 Progress recovery code selected and copied!", "success");
             });
           }
         });
@@ -1127,7 +1127,7 @@
         btnImport.addEventListener("click", () => {
           const rawCode = importInput.value.trim();
           if (!rawCode) {
-            showBackupMessage("❌ 请先输入有效的进度恢复码。", "error");
+            showBackupMessage("❌ Please enter a valid recovery code.", "error");
             return;
           }
 
@@ -1138,7 +1138,7 @@
 
             // 基础校验
             if (!parsed || parsed.version !== 1 || !parsed.data) {
-              showBackupMessage("❌ 无效的恢复码，版本不匹配或格式有误。", "error");
+              showBackupMessage("❌ Invalid recovery code format or version mismatch.", "error");
               return;
             }
 
@@ -1164,7 +1164,7 @@
               localStorage.setItem("gstarcademy_lessons_progress", data.lessonsProgress);
             }
 
-            showBackupMessage("🎉 进度恢复成功！页面即将刷新加载最新数据...", "success");
+            showBackupMessage("🎉 Progress restored successfully! Reloading...", "success");
             
             // 延迟刷新
             setTimeout(() => {
@@ -1172,7 +1172,7 @@
             }, 1500);
 
           } catch (err) {
-            showBackupMessage("❌ 还原失败，恢复码无效或已损坏，请确保复制完整。", "error");
+            showBackupMessage("❌ Restore failed. Recovery code is invalid or corrupted.", "error");
             console.error("Import error:", err);
           }
         });
@@ -1398,17 +1398,17 @@
       const fBtn = failureView.querySelector('button');
       
       if (fTitle) {
-        fTitle.textContent = "定级未通过";
+        fTitle.textContent = "Placement Test Failed";
         fTitle.style.color = "#ef4444";
       }
       if (fMeta) {
-        fMeta.textContent = "您在定级测试中生命值耗尽，或者正确率未达到 80%。别灰心！从基础单项测验开始，能帮您快速查漏补缺。";
+        fMeta.textContent = "You ran out of lives or scored below 80%. Don't give up! Try starting with the core lessons to build up your skills.";
       }
       if (fBtn) {
-        fBtn.textContent = "🔁 重新定级测试";
+        fBtn.textContent = "🔁 Retry Placement Test";
       }
       if (failureSecondaryBtn) {
-        failureSecondaryBtn.textContent = "📚 浏览 Wiki";
+        failureSecondaryBtn.textContent = "📚 Browse Wiki";
         failureSecondaryBtn.href = "knowledge-base.html";
       }
     } else {
@@ -1417,17 +1417,17 @@
       const fMeta = failureView.querySelector('.meta');
       const fBtn = failureView.querySelector('button');
       if (fTitle) {
-        fTitle.textContent = "挑战失败";
+        fTitle.textContent = "Lesson Failed";
         fTitle.style.color = "#ef4444";
       }
       if (fMeta) {
-        fMeta.textContent = "您在本次挑战中生命值已耗尽。没关系，多在 Wiki 中学习原子概念，下次一定能成功！";
+        fMeta.textContent = "You ran out of lives in this challenge. Reviewing the atomic concepts in our Wiki will help you conquer it next time!";
       }
       if (fBtn) {
-        fBtn.textContent = "🔁 重新开始本课";
+        fBtn.textContent = "🔁 Retry Lesson";
       }
       if (failureSecondaryBtn) {
-        failureSecondaryBtn.textContent = "📋 返回关卡中心";
+        failureSecondaryBtn.textContent = "📋 Back to Unit Portal";
         failureSecondaryBtn.href = `?track=${state.activeTrack}`;
       }
     }
@@ -1512,22 +1512,22 @@
       } catch (_) {}
 
       if (sTitle) {
-        sTitle.textContent = "定级通关成功！";
+        sTitle.textContent = "Placement Test Passed!";
         sTitle.style.color = "#ca8a04";
       }
       if (sMetaList && sMetaList[0]) {
-        sMetaList[0].textContent = "太棒了！您成功通过了综合入学定级测验，证明了自己深厚的 CAD 实战经验。";
+        sMetaList[0].textContent = "Great job! You've successfully passed the comprehensive placement test, demonstrating strong CAD competency.";
       }
       if (sMetaList && sMetaList[1]) {
-        sMetaList[1].innerHTML = "🎯 <strong>路线图点亮：</strong> 恭喜！全站所有 4 大职业路径共 20 个技能节点已被全部同步点亮！";
+        sMetaList[1].innerHTML = "🎯 <strong>Roadmap Synced:</strong> Congratulations! All 20 skill nodes across all 4 pathways have been fully lit up!";
       }
 
       if (successPrimaryBtn) {
-        successPrimaryBtn.textContent = "🗺️ 查看技能地图";
+        successPrimaryBtn.textContent = "🗺️ View Learning Map";
         successPrimaryBtn.href = "knowledge-roadmap.html";
       }
       if (successSecondaryBtn) {
-        successSecondaryBtn.textContent = "🔄 挑战其他职业路径";
+        successSecondaryBtn.textContent = "🔄 Try Other Pathways";
         successSecondaryBtn.href = "quiz.html";
       }
 
@@ -1607,43 +1607,43 @@
         } catch (_) {}
 
         if (sTitle) {
-          sTitle.textContent = "单元通关成功！";
+          sTitle.textContent = "Unit Completed!";
           sTitle.style.color = "#10b981";
         }
         if (sMetaList && sMetaList[0]) {
-          sMetaList[0].textContent = `恭喜！您已成功通关 ${track.trackTitle} 的全部课程！`;
+          sMetaList[0].textContent = `Congratulations! You have successfully completed all lessons for the ${track.trackTitle} track.`;
         }
         if (sMetaList && sMetaList[1]) {
-          sMetaList[1].innerHTML = "🎯 <strong>技能树已点亮：</strong> 恭喜！本单元在技能地图上的 5 个核心节点已被全部点亮，并同步更新至您的 Wiki 概念库中！";
+          sMetaList[1].innerHTML = "🎯 <strong>Roadmap Synced:</strong> Congratulations! All 5 core nodes on the skill map have been lit up and added to your concept library.";
         }
 
         if (successPrimaryBtn) {
-          successPrimaryBtn.textContent = "🗺️ 查看技能地图";
+          successPrimaryBtn.textContent = "🗺️ View Learning Map";
           successPrimaryBtn.href = "knowledge-roadmap.html";
         }
         if (successSecondaryBtn) {
-          successSecondaryBtn.textContent = "🔄 挑战其他职业路径";
+          successSecondaryBtn.textContent = "🔄 Try Other Pathways";
           successSecondaryBtn.href = "quiz.html";
         }
       } else {
         // Lesson 1 或 2 通关
         if (sTitle) {
-          sTitle.textContent = "小课挑战成功！";
+          sTitle.textContent = "Lesson Completed!";
           sTitle.style.color = "#10b981";
         }
         if (sMetaList && sMetaList[0]) {
-          sMetaList[0].textContent = `恭喜通关 ${lesson.title}！您已经掌握了本小课的核心概念。`;
+          sMetaList[0].textContent = `Congratulations on passing ${lesson.title}! You have mastered the core concepts of this lesson.`;
         }
         if (sMetaList && sMetaList[1]) {
-          sMetaList[1].innerHTML = "🎯 <strong>下一课已解锁：</strong> 继续挑战下一课，完整通关本单元以点亮技能树！";
+          sMetaList[1].innerHTML = "🎯 <strong>Next Lesson Unlocked:</strong> Continue to the next challenge, or finish the unit to light up the skill tree!";
         }
 
         if (successPrimaryBtn) {
-          successPrimaryBtn.textContent = "➡️ 继续下一课";
+          successPrimaryBtn.textContent = "➡️ Continue";
           successPrimaryBtn.href = `?track=${state.activeTrack}&lesson=${state.activeLessonId + 1}`;
         }
         if (successSecondaryBtn) {
-          successSecondaryBtn.textContent = "📋 返回关卡中心";
+          successSecondaryBtn.textContent = "📋 Back to Unit Portal";
           successSecondaryBtn.href = `?track=${state.activeTrack}`;
         }
       }

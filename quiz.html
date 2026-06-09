@@ -57,13 +57,16 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link" href="knowledge-base.html">Wiki</a>
-            <a class="nav-link" href="tutorials.html">Tutorials</a>
-            <a class="nav-link" href="news.html">News</a>
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" data-nav="home" href="./index.html">Home</a>
+            <a class="nav-link" data-nav="domains" href="./knowledge-domains.html">Domains</a>
+            <a class="nav-link" data-nav="roadmap" href="./knowledge-roadmap.html">Roadmap</a>
+            <a class="nav-link active" data-nav="quiz" href="./quiz.html">Quiz</a>
+            <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="./news.html">News</a>
+            <a class="nav-link" data-nav="about" href="./about.html">About</a>
             <!-- Streak Fire Badge -->
-            <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak天数">
+            <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak Days">
               🔥 <span id="global-streak-count">0</span> Days
             </div>
           </nav>
@@ -82,14 +85,14 @@
           </p>
         </div>
 
-        <!-- 入学定级测试 (Placement Test) 卡片横幅 -->
+        <!-- Placement Test Banner Card -->
         <div class="placement-banner-card">
           <div class="placement-banner-content">
-            <span class="placement-badge">🏆 入学定级测试 (Placement Test)</span>
-            <h3 class="placement-title">已经拥有丰富的 CAD 实战经验？</h3>
-            <p class="meta placement-desc">通过 10 道涵盖 BIM、MCAD、Civil 与 2D 制图的综合定级测验（正确率 &ge; 80%），即可直接<b>一键点亮全站 20 个技能节点</b>并获得 150 XP！</p>
+            <span class="placement-badge">🏆 Placement Test</span>
+            <h3 class="placement-title">Already have rich CAD experience?</h3>
+            <p class="meta placement-desc">Pass our 10-question comprehensive test (accuracy &ge; 80%) covering BIM, MCAD, Civil, and 2D Draft to <b>instantly unlock all 20 skill nodes</b> across the site and earn 150 XP!</p>
           </div>
-          <button type="button" class="btn btn-primary btn-placement-go" onclick="window.location.href='?track=placement'">开始定级测试</button>
+          <button type="button" class="btn btn-primary btn-placement-go" onclick="window.location.href='?track=placement'">Start Placement Test</button>
         </div>
 
         <div class="domain-grid-container" style="max-width: 1100px; margin: 0 auto;">
@@ -142,42 +145,42 @@
           </div>
         </div>
 
-        <!-- 进度管家 (Duo Backup Manager) 面板 -->
+        <!-- CADLingo Backup Manager -->
         <div class="backup-manager-card" style="margin-top: 48px;">
           <div class="backup-header">
-            <h3>💾 CADLingo 进度管家 (免注册备份)</h3>
-            <p class="meta" style="margin-top: 4px;">您的学习进度已自动保存在当前浏览器。若需更换设备或备份防丢，可在下方复制恢复码；也可粘贴恢复码进行进度还原。</p>
+            <h3>💾 CADLingo Backup Manager (No Registration Required)</h3>
+            <p class="meta" style="margin-top: 4px;">Your learning progress is automatically saved in this browser. Copy your recovery code below to backup or transfer devices, or paste a code to restore your progress.</p>
           </div>
           
           <div class="backup-stats-row">
             <div class="backup-stat-item">
-              <span class="stat-label">总经验值 (XP)</span>
+              <span class="stat-label">Total XP</span>
               <strong class="stat-value" id="backup-stat-xp">0 XP</strong>
             </div>
             <div class="backup-stat-item">
-              <span class="stat-label">打卡连胜 (Streak)</span>
-              <strong class="stat-value" id="backup-stat-streak">🔥 0 天</strong>
+              <span class="stat-label">Daily Streak</span>
+              <strong class="stat-value" id="backup-stat-streak">🔥 0 Days</strong>
             </div>
             <div class="backup-stat-item">
-              <span class="stat-label">点亮节点数</span>
+              <span class="stat-label">Lit Nodes</span>
               <strong class="stat-value" id="backup-stat-nodes">0 / 20</strong>
             </div>
           </div>
 
           <div class="backup-actions">
             <div class="backup-code-group">
-              <label for="backup-code-input">我的进度恢复码 (点击输入框可全选)</label>
+              <label for="backup-code-input">My Progress Recovery Code (Click input to select all)</label>
               <div class="backup-input-wrapper">
-                <input type="text" id="backup-code-input" readonly placeholder="数据加载中..." onclick="this.select();">
-                <button type="button" class="btn btn-primary" id="btn-copy-backup" style="min-width: 90px;">复制</button>
+                <input type="text" id="backup-code-input" readonly placeholder="Loading data..." onclick="this.select();">
+                <button type="button" class="btn btn-primary" id="btn-copy-backup" style="min-width: 90px;">Copy</button>
               </div>
             </div>
             
             <div class="backup-import-group">
-              <label for="import-code-input">导入进度恢复码</label>
+              <label for="import-code-input">Import Progress Recovery Code</label>
               <div class="backup-input-wrapper">
-                <input type="text" id="import-code-input" placeholder="请在此粘贴已备份的恢复码...">
-                <button type="button" class="btn" id="btn-import-backup" style="min-width: 90px;">还原</button>
+                <input type="text" id="import-code-input" placeholder="Paste your backed-up recovery code here...">
+                <button type="button" class="btn" id="btn-import-backup" style="min-width: 90px;">Restore</button>
               </div>
             </div>
           </div>
@@ -199,7 +202,7 @@
         </div>
 
         <div style="text-align: center; margin-top: 32px;">
-          <button type="button" class="btn" onclick="window.location.href='quiz.html'" style="min-width: 150px;">🔙 返回职业选择</button>
+          <button type="button" class="btn" onclick="window.location.href='quiz.html'" style="min-width: 150px;">🔙 Back to Tracks</button>
         </div>
       </section>
 
@@ -298,10 +301,15 @@
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="./tutorials.html">Tutorial Library</a></li>
-            <li><a href="./knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="./knowledge-domains.html">Domain Map</a></li>
             <li><a href="./knowledge-roadmap.html">Interactive Map</a></li>
             <li><a href="./quiz.html">Quiz Challenge</a></li>
+            <li><a href="./tutorials.html">Tutorial Library</a></li>
+            <li><a href="./knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="./kb-graph.html">Interactive Graph</a></li>
+            <li><a href="./kb-software.html">Software Index</a></li>
+            <li><a href="./kb-terms.html">CAD Glossary</a></li>
+            <li><a href="./kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
       </div>
