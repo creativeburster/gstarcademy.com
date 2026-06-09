@@ -32,11 +32,11 @@
     <link rel="canonical" href="/quiz.html" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="manifest" href="./manifest.json" />
-    <link rel="preload" href="./styles.css?v=v15_subnav_dropdown" as="style" />
+    <link rel="preload" href="./styles.css?v=v16_drawer_quiz_domains" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="./styles.css?v=v15_subnav_dropdown" />
+    <link rel="stylesheet" href="./styles.css?v=v16_drawer_quiz_domains" />
   </head>
   <body data-page="quiz" class="quiz-body">
     <div class="header-stack">
@@ -91,6 +91,16 @@
             <p class="meta placement-desc">Pass our 10-question comprehensive test (accuracy &ge; 80%) covering BIM, MCAD, Civil, and 2D Draft to <b>instantly unlock all 20 skill nodes</b> across the site and earn 150 XP!</p>
           </div>
           <button type="button" class="btn btn-primary btn-placement-go" onclick="window.location.href='?track=placement'">Start Placement Test</button>
+        </div>
+
+        <!-- Mistake Review Card -->
+        <div id="mistake-review-card" class="placement-banner-card" style="margin-bottom: 28px; background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(220, 38, 38, 0.04) 100%); border: 1px dashed rgba(239, 68, 68, 0.3); display: none;">
+          <div class="placement-banner-content">
+            <span class="placement-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">🔴 Mistake Review</span>
+            <h3 class="placement-title">Clear Your Mistakes</h3>
+            <p class="meta placement-desc">Review and resolve your historically incorrect questions. Correct answers will remove them from your mistake book and award XP!</p>
+          </div>
+          <button type="button" class="btn btn-primary" id="btn-mistake-go" style="min-width: 150px; background: #ef4444; border-color: #ef4444;" onclick="window.location.href='?track=mistake'">Start Review (<span id="mistake-count-badge">0</span>)</button>
         </div>
 
         <div class="domain-grid-container" style="max-width: 1100px; margin: 0 auto;">
@@ -225,6 +235,7 @@
             <div class="quiz-options-grid" id="quiz-options-wrapper">
               <!-- Rendered by JS -->
             </div>
+            <button id="quiz-submit-btn" class="btn btn-primary" style="display: none; margin: 24px auto 0 auto; width: 100%; max-width: 280px; justify-content: center; align-items: center;">Submit Answer</button>
           </div>
         </div>
       </section>
@@ -317,7 +328,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="./app.js?v=v14_cadlingo_full" defer></script>
-    <script src="./quiz.js?v=v14_cadlingo_full" defer></script>
+    <script src="./app.js?v=v14_drawer_pitfall_quiz" defer></script>
+    <script src="./quiz.js?v=v15_multiple_mistakes" defer></script>
   </body>
 </html>

@@ -7264,17 +7264,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   stroke: #818cf8;
 }
 
-.skill-inspector {
-  background: linear-gradient(135deg, var(--bg-app-shell) 0%, var(--surface-solid) 100%);
-  border: 1.5px solid var(--line-strong);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-}
+/* .skill-inspector — 已迁移至文件底部的 "Roadmap Drawer Panel Upgrade" 区块 */
 
 .skill-inspector-head {
   display: flex;
@@ -8463,6 +8453,102 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   }
   .nav-dropdown-content a:hover, .kb-subnav-dropdown-content a:hover {
     background-color: #334155 !important;
+  }
+}
+
+/* --- Roadmap Drawer Panel Upgrade --- */
+.skill-inspector-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skill-inspector-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.skill-inspector {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  background: var(--surface-strong);
+  border-left: 1.5px solid var(--line-strong);
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  padding: 40px 32px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+.skill-inspector.open {
+  transform: translateX(0);
+}
+
+.skill-inspector-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line-strong);
+  color: var(--text-muted);
+  font-size: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+.skill-inspector-close-btn:hover {
+  background: var(--line-strong);
+  color: var(--text-main);
+  transform: scale(1.05);
+}
+
+.skill-inspector-pitfall {
+  font-size: 13.5px;
+  background: rgba(239, 68, 68, 0.08);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border-left: 3px solid #ef4444;
+  color: var(--text-main);
+  line-height: 1.55;
+  margin-top: 4px;
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .skill-inspector {
+    background: #0f172a;
+    border-left-color: #334155;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+  }
+  .skill-inspector-close-btn {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  .skill-inspector-close-btn:hover {
+    background: #334155;
   }
 }
 

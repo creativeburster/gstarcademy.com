@@ -42,12 +42,12 @@
     <meta name="twitter:title" content="CAD Knowledge Base · Self-study roadmap" />
     <meta name="twitter:description" content="How to learn CAD on your own—tracks, tools, and practice loops." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="preload" href="./styles.css?v=v15_subnav_dropdown" as="style" />
+    <link rel="preload" href="./styles.css?v=v16_drawer_quiz_domains" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="./styles.css?v=v15_subnav_dropdown" />
+    <link rel="stylesheet" href="./styles.css?v=v16_drawer_quiz_domains" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -226,14 +226,19 @@
                     <div class="skill-tree-level" id="level-3"></div>
                   </div>
 
+                  <!-- Backdrop for drawer -->
+                  <div class="skill-inspector-backdrop" id="inspect-backdrop"></div>
+
                   <!-- Detail Skill Inspector Drawer Panel -->
                   <div class="skill-inspector" id="skill-inspector-panel">
+                    <button type="button" class="skill-inspector-close-btn" id="btn-inspect-close" aria-label="Close panel">&times;</button>
                     <div class="skill-inspector-head">
                       <h5 class="skill-inspector-title" id="inspect-title">Click a skill node to inspect</h5>
                       <span class="skill-inspector-badge" id="inspect-difficulty" style="display:none;">Beginner</span>
                     </div>
                     <p class="skill-inspector-desc" id="inspect-desc">Select any competency node above to view core technical definitions, industry importance, and quick links to master it.</p>
                     <div class="skill-inspector-why" id="inspect-why" style="display:none;"></div>
+                    <div class="skill-inspector-pitfall" id="inspect-pitfall" style="display:none;"></div>
                     <div class="skill-inspector-actions">
                       <a href="#" class="btn-inspector btn-inspector-primary" id="btn-inspect-wiki" style="display:none;">📚 Read Wiki Article</a>
                       <a href="#" class="btn-inspector btn-inspector-secondary" id="btn-inspect-tutorials" style="display:none;">📺 Practice Lessons</a>
@@ -312,7 +317,7 @@
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="./app.js?v=v13_isolated_quiz" defer></script>
+    <script src="./app.js?v=v14_drawer_pitfall_quiz" defer></script>
     <script src="./knowledge.js?v=v13_isolated_quiz" defer></script>
   </body>
 </html>
