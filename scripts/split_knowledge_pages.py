@@ -156,28 +156,36 @@ SIDEBAR = f"""      <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" ar
 
 
 def subnav(active: str) -> str:
-    orphans = {"learn", "library", "curriculum"}
-    key_active = "__none__" if active in orphans else active
+    kb_active = 'overview'
+    if active == 'software':
+        kb_active = 'software'
+    elif active in ['concepts', 'terms']:
+        kb_active = 'terms'
+    elif active == 'faq':
+        kb_active = 'faq'
+    elif active == 'graph':
+        kb_active = 'graph'
+    elif active == 'quiz':
+        kb_active = 'quiz'
+    elif active == 'domains':
+        kb_active = 'domains'
+    elif active == 'roadmap':
+        kb_active = 'roadmap'
 
-    def item(key: str, href: str, label: str) -> str:
-        cls = (
-            ' class="kb-subnav-link active"'
-            if key == key_active and key_active != "__none__"
-            else ' class="kb-subnav-link"'
-        )
-        return f'          <a{cls} href="{href}">{label}</a>\n'
-
-    return (
-        '        <nav class="kb-subnav" aria-label="Knowledge base sections">\n'
-        + item("overview", "./knowledge-base.html", "Overview")
-        + item("cax", "./knowledge-cax.html", "CAx")
-        + item("concepts", "./kb-terms.html", "Terms")
-        + item("graph", "./kb-graph.html", "Graph")
-        + item("software", "./kb-software.html", "Software")
-        + item("vendor", "./kb-vendors.html", "Vendor hubs")
-        + item("domains", "./knowledge-domains.html", "Domains")
-        + "        </nav>\n"
-    )
+    return f'''        <nav class="kb-subnav" aria-label="Knowledge base sections">
+          <a class="kb-subnav-link{" active" if kb_active == "overview" else ""}" href="./knowledge-base.html">Overview</a>
+          <a class="kb-subnav-link{" active" if kb_active == "software" else ""}" href="./kb-software.html">Software</a>
+          <a class="kb-subnav-link{" active" if kb_active == "terms" else ""}" href="./kb-terms.html">Terms</a>
+          <a class="kb-subnav-link{" active" if kb_active == "faq" else ""}" href="./kb-faq.html">FAQ</a>
+          <a class="kb-subnav-link{" active" if kb_active == "graph" else ""}" href="./kb-graph.html">Graph</a>
+          <div class="kb-subnav-dropdown">
+            <a class="kb-subnav-link{" active" if kb_active in ["quiz", "domains", "roadmap"] else ""}" href="./quiz.html">Quiz ▾</a>
+            <div class="kb-subnav-dropdown-content">
+              <a href="./knowledge-domains.html">Domains</a>
+              <a href="./knowledge-roadmap.html">Roadmap</a>
+            </div>
+          </div>
+        </nav>'''
 
 
 def head_block(*, title: str, canonical: str, description: str, ld_url: str) -> str:

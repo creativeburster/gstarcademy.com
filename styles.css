@@ -8379,4 +8379,91 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   }
 }
 
+/* --- Navigation Dropdown menu --- */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--surface-strong);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  min-width: 140px;
+  z-index: 100;
+  padding: 8px 0;
+  margin-top: 4px;
+}
+.nav-dropdown:hover .nav-dropdown-content {
+  display: block;
+}
+.nav-dropdown-content a {
+  color: var(--text-main);
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+.nav-dropdown-content a:hover {
+  background-color: var(--bg-soft);
+  color: var(--accent);
+}
+
+/* --- Wiki Subnav Dropdown --- */
+.kb-subnav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.kb-subnav-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--surface-strong);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  min-width: 140px;
+  z-index: 100;
+  padding: 8px 0;
+  margin-top: 4px;
+}
+.kb-subnav-dropdown:hover .kb-subnav-dropdown-content {
+  display: block;
+}
+.kb-subnav-dropdown-content a {
+  color: var(--text-main) !important;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+.kb-subnav-dropdown-content a:hover {
+  background-color: var(--bg-soft) !important;
+  color: var(--accent) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav-dropdown-content, .kb-subnav-dropdown-content {
+    background-color: #1e293b;
+    border-color: #334155;
+  }
+  .nav-dropdown-content a:hover, .kb-subnav-dropdown-content a:hover {
+    background-color: #334155 !important;
+  }
+}
+
 
