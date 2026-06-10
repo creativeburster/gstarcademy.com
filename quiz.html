@@ -32,11 +32,11 @@
     <link rel="canonical" href="/quiz.html" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="manifest" href="./manifest.json" />
-    <link rel="preload" href="./styles.css?v=v16_drawer_quiz_domains" as="style" />
+    <link rel="preload" href="./styles.css?v=v17_dashboard_concept_filters" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="./styles.css?v=v16_drawer_quiz_domains" />
+    <link rel="stylesheet" href="./styles.css?v=v17_dashboard_concept_filters" />
   </head>
   <body data-page="quiz" class="quiz-body">
     <div class="header-stack">
@@ -81,6 +81,72 @@
           <p class="meta" style="max-width: 36rem; margin: 0 auto;">
             Select a specialized career pathway, answer 5 practice-oriented questions correctly, and light up the skill nodes on your learning map!
           </p>
+        </div>
+
+        <!-- Interactive Learning Stats Dashboard -->
+        <div class="quiz-dashboard-panel" id="quiz-dashboard-panel">
+          <h2 class="quiz-dashboard-title">📊 Career Pathway Mastery Index</h2>
+          <div class="quiz-dashboard-grid">
+            <!-- BIM Coordinator -->
+            <div class="quiz-stat-card" data-track-card="bim">
+              <div class="quiz-stat-ring-container">
+                <svg class="quiz-stat-ring-svg">
+                  <circle class="quiz-stat-ring-bg" cx="30" cy="30" r="25"></circle>
+                  <circle class="quiz-stat-ring-active" id="ring-fill-bim" cx="30" cy="30" r="25"></circle>
+                </svg>
+                <span class="quiz-stat-ring-text" id="ring-text-bim">0%</span>
+              </div>
+              <div class="quiz-stat-info">
+                <span class="quiz-stat-title">BIM Coordinator</span>
+                <span class="quiz-stat-desc" id="stat-desc-bim">0 / 5 Lit</span>
+              </div>
+            </div>
+
+            <!-- Mechanical Design -->
+            <div class="quiz-stat-card" data-track-card="mcad">
+              <div class="quiz-stat-ring-container">
+                <svg class="quiz-stat-ring-svg">
+                  <circle class="quiz-stat-ring-bg" cx="30" cy="30" r="25"></circle>
+                  <circle class="quiz-stat-ring-active" id="ring-fill-mcad" cx="30" cy="30" r="25"></circle>
+                </svg>
+                <span class="quiz-stat-ring-text" id="ring-text-mcad">0%</span>
+              </div>
+              <div class="quiz-stat-info">
+                <span class="quiz-stat-title">Mechanical Eng.</span>
+                <span class="quiz-stat-desc" id="stat-desc-mcad">0 / 5 Lit</span>
+              </div>
+            </div>
+
+            <!-- Civil Infrastructure -->
+            <div class="quiz-stat-card" data-track-card="civil">
+              <div class="quiz-stat-ring-container">
+                <svg class="quiz-stat-ring-svg">
+                  <circle class="quiz-stat-ring-bg" cx="30" cy="30" r="25"></circle>
+                  <circle class="quiz-stat-ring-active" id="ring-fill-civil" cx="30" cy="30" r="25"></circle>
+                </svg>
+                <span class="quiz-stat-ring-text" id="ring-text-civil">0%</span>
+              </div>
+              <div class="quiz-stat-info">
+                <span class="quiz-stat-title">Civil Infrastructure</span>
+                <span class="quiz-stat-desc" id="stat-desc-civil">0 / 5 Lit</span>
+              </div>
+            </div>
+
+            <!-- 2D Drafting -->
+            <div class="quiz-stat-card" data-track-card="draft">
+              <div class="quiz-stat-ring-container">
+                <svg class="quiz-stat-ring-svg">
+                  <circle class="quiz-stat-ring-bg" cx="30" cy="30" r="25"></circle>
+                  <circle class="quiz-stat-ring-active" id="ring-fill-draft" cx="30" cy="30" r="25"></circle>
+                </svg>
+                <span class="quiz-stat-ring-text" id="ring-text-draft">0%</span>
+              </div>
+              <div class="quiz-stat-info">
+                <span class="quiz-stat-title">2D Drafting</span>
+                <span class="quiz-stat-desc" id="stat-desc-draft">0 / 5 Lit</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Placement Test Banner Card -->
@@ -328,7 +394,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="./app.js?v=v14_drawer_pitfall_quiz" defer></script>
-    <script src="./quiz.js?v=v15_multiple_mistakes" defer></script>
+    <script src="./app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="./quiz.js?v=v16_dashboard_stats_svg" defer></script>
   </body>
 </html>

@@ -8552,4 +8552,140 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   }
 }
 
+/* --- Floating XP Animation --- */
+@keyframes floatUpFade {
+  0% { transform: translateY(0) scale(0.8); opacity: 0; }
+  20% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+  80% { transform: translateY(-25px) scale(1); opacity: 1; }
+  100% { transform: translateY(-35px) scale(0.9); opacity: 0; }
+}
+
+/* --- Quiz Dashboard & Stats Panel --- */
+.quiz-dashboard-panel {
+  background: var(--surface-strong);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quiz-dashboard-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quiz-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.quiz-stat-card {
+  background: var(--bg-app-shell);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.quiz-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.quiz-stat-ring-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-stat-ring-svg {
+  transform: rotate(-90deg);
+  width: 60px;
+  height: 60px;
+}
+
+.quiz-stat-ring-bg {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 4.5;
+}
+
+.quiz-stat-ring-active {
+  fill: none;
+  stroke: var(--accent);
+  stroke-dasharray: 157; /* 2 * PI * r (r = 25) */
+  stroke-dashoffset: 157;
+  stroke-linecap: round;
+  stroke-width: 5;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quiz-stat-ring-text {
+  position: absolute;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.quiz-stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quiz-stat-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.quiz-stat-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Specific ring colors for wow factor */
+.quiz-stat-card[data-track-card="bim"] .quiz-stat-ring-active {
+  stroke: #10b981; /* Emerald */
+}
+.quiz-stat-card[data-track-card="mcad"] .quiz-stat-ring-active {
+  stroke: #3b82f6; /* Blue */
+}
+.quiz-stat-card[data-track-card="civil"] .quiz-stat-ring-active {
+  stroke: #8b5cf6; /* Purple */
+}
+.quiz-stat-card[data-track-card="draft"] .quiz-stat-ring-active {
+  stroke: #f59e0b; /* Amber */
+}
+
+/* Dark mode adjustment */
+@media (prefers-color-scheme: dark) {
+  .quiz-dashboard-panel {
+    background: #0f172a;
+    border-color: #334155;
+  }
+  .quiz-stat-card {
+    background: #1e293b;
+    border-color: #334155;
+  }
+}
+
+
 

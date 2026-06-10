@@ -1234,6 +1234,50 @@
     updateBackupManager();
     // 初始化/更新错题本卡片
     updateMistakeCard();
+    // 渲染可视化仪表盘
+    renderDashboardStats();
+  }
+
+  // 渲染/动画化可视化熟练度图谱面板
+  function renderDashboardStats() {
+    let masteredProgress = { bim: [], mcad: [], civil: [], draft: [] };
+    try {
+      masteredProgress = JSON.parse(localStorage.getItem("gstarcademy_roadmap_progress")) || {
+        bim: [], mcad: [], civil: [], draft: []
+      };
+    } catch (_) {}
+
+    // 补全结构安全防护
+    ["bim", "mcad", "civil", "draft"].forEach(t => {
+      if (!masteredProgress[t]) masteredProgress[t] = [];
+    });
+
+    const tracks = ["bim", "mcad", "civil", "draft"];
+    tracks.forEach(tKey => {
+      const count = Math.min(masteredProgress[tKey].length, 5); // 上限 5
+      const pct = Math.round((count / 5) * 100);
+
+      // 找到对应的 DOM
+      const ringFill = document.getElementById(`ring-fill-${tKey}`);
+      const ringText = document.getElementById(`ring-text-${tKey}`);
+      const statDesc = document.getElementById(`stat-desc-${tKey}`);
+
+      if (statDesc) {
+        statDesc.textContent = `${count} / 5 Lit`;
+      }
+      if (ringText) {
+        ringText.textContent = `${pct}%`;
+      }
+
+      if (ringFill) {
+        // 圆环周长为 157 (2 * PI * 25)
+        const strokeOffset = 157 - (157 * pct) / 100;
+        // 延迟触发动画以实现动效
+        setTimeout(() => {
+          ringFill.style.strokeDashoffset = String(strokeOffset);
+        }, 100);
+      }
+    });
   }
 
   // 初始化/更新进度管家数据及事件绑定

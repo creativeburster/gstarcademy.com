@@ -153,15 +153,14 @@ document.addEventListener("keydown", (ev) => {
     status.textContent =
       "Demo only: nothing was transmitted. For real inquiries, use the mailbox links on this page.";
   });
-})();
-
-(function initTutorialFilters() {
+})();(function initTutorialFilters() {
   if (document.body.getAttribute("data-page") !== "tutorials") return;
 
   const chips = document.querySelectorAll(".chips .chip");
   const searchInput = document.querySelector(".search-row input");
   const searchBtn = document.querySelector(".search-row button");
   const tutorialItems = document.querySelectorAll(".tutorial-item");
+  const listContainer = document.querySelector(".list");
 
   const state = {
     software: "all",
@@ -171,8 +170,51 @@ document.addEventListener("keydown", (ev) => {
     search: ""
   };
 
+  // 创建动态空状态占位
+  let noResultsEl = document.getElementById("tutorials-no-results");
+  if (!noResultsEl && listContainer) {
+    noResultsEl = document.createElement("div");
+    noResultsEl.id = "tutorials-no-results";
+    noResultsEl.style.display = "none";
+    noResultsEl.style.flexDirection = "column";
+    noResultsEl.style.alignItems = "center";
+    noResultsEl.style.justifyContent = "center";
+    noResultsEl.style.padding = "60px 40px";
+    noResultsEl.style.textAlign = "center";
+    noResultsEl.style.background = "var(--surface-soft)";
+    noResultsEl.style.border = "1px dashed var(--line-strong)";
+    noResultsEl.style.borderRadius = "20px";
+    noResultsEl.style.margin = "20px 0";
+    noResultsEl.style.gap = "12px";
+    
+    noResultsEl.innerHTML = `
+      <span style="font-size: 40px;">🔍</span>
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); margin: 0;">No Tutorials Found</h3>
+      <p style="font-size: 14px; color: var(--text-muted); max-width: 380px; margin: 0 auto;">We couldn't find any lessons matching your filters. Try selecting a different software, clearing your search, or resetting pricing filters.</p>
+      <button type="button" class="btn btn-secondary" id="btn-reset-filters" style="margin-top: 8px; font-size: 13px; font-weight: 700;">Reset Filters</button>
+    `;
+    listContainer.appendChild(noResultsEl);
+
+    noResultsEl.querySelector("#btn-reset-filters").addEventListener("click", () => {
+      document.querySelectorAll(".chips").forEach(group => {
+        group.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        const allChip = group.querySelector('.chip[data-filter-value="all"]');
+        if (allChip) allChip.classList.add("active");
+      });
+      if (searchInput) searchInput.value = "";
+      state.software = "all";
+      state.task = "all";
+      state.level = "all";
+      state.price = "all";
+      state.search = "";
+      applyFilters();
+    });
+  }
+
   // 1. Function to apply the current filter state
   function applyFilters() {
+    let visibleCount = 0;
+
     tutorialItems.forEach((item) => {
       // Software filter (handles space-separated values)
       const itemSoftwareAttr = item.getAttribute("data-software") || "";
@@ -207,16 +249,29 @@ document.addEventListener("keydown", (ev) => {
       }
 
       if (matchesSoftware && matchesTask && matchesLevel && matchesPrice && matchesSearch) {
-        item.style.display = "";
+        visibleCount++;
+        // 先设为 display 展现，重置不带转换的初始值
+        if (item.style.display === "none") {
+          item.style.display = "";
+          item.style.opacity = "0";
+          item.style.transform = "translateY(12px)";
+        }
+        
+        // 微小延迟触发 CSS 过渡
         setTimeout(() => {
           item.style.opacity = "1";
           item.style.transform = "translateY(0)";
-        }, 10);
+        }, 20);
       } else {
         item.style.display = "none";
         item.style.opacity = "0";
       }
     });
+
+    // 控制空状态显隐
+    if (noResultsEl) {
+      noResultsEl.style.display = visibleCount === 0 ? "flex" : "none";
+    }
   }
 
   // 2. Chip click handlers
@@ -272,7 +327,13 @@ document.addEventListener("keydown", (ev) => {
       if (val) {
         const chip = document.querySelector(`.chips[data-filter-group="${key}"] .chip[data-filter-value="${val}"]`);
         if (chip) {
-          chip.click();
+          // 清空同组 active 并高亮此项
+          const groupEl = chip.closest(".chips");
+          if (groupEl) {
+            groupEl.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+          }
+          chip.classList.add("active");
+          state[key] = val;
         }
       }
     });
@@ -304,22 +365,28 @@ document.addEventListener("keydown", (ev) => {
       if (mappedSoftware) {
         const chip = document.querySelector(`.chips[data-filter-group="software"] .chip[data-filter-value="${mappedSoftware}"]`);
         if (chip) {
-          chip.click();
+          const groupEl = chip.closest(".chips");
+          if (groupEl) {
+            groupEl.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+          }
+          chip.classList.add("active");
+          state.software = mappedSoftware;
         }
       } else {
         // Just put it in the search input and filter
         if (searchInput) {
           searchInput.value = query;
           state.search = query;
-          applyFilters();
         }
       }
     }
+    
+    // 执行初次筛选
+    applyFilters();
   }
 
   // 5. Sorting logic
   const sortSelect = document.getElementById("tutorial-sort-select");
-  const listContainer = document.querySelector(".list");
 
   function sortTutorials() {
     if (!sortSelect || !listContainer) return;
@@ -376,7 +443,7 @@ document.addEventListener("keydown", (ev) => {
   if (!container) return; // Only run on knowledge-roadmap.html
 
   // Career Tracks Data
-  const ROADMAP_DATA = {
+  window.ROADMAP_DATA = {
     bim: {
       title: "BIM Coordinator (BIM 协调员)",
       salary: "Est. Salary: $65,000 - $95,000 / yr",
@@ -654,6 +721,7 @@ document.addEventListener("keydown", (ev) => {
       ]
     }
   };
+  const ROADMAP_DATA = window.ROADMAP_DATA;
 
   // State Management
   let activeTrack = "bim";
@@ -1044,6 +1112,9 @@ document.addEventListener("keydown", (ev) => {
     // Add click listeners to option buttons
     optionBtns.forEach(btn => {
       btn.addEventListener("click", () => {
+        if (container.getAttribute("data-answered") === "true") return;
+        container.setAttribute("data-answered", "true");
+
         const selectedIdx = parseInt(btn.getAttribute("data-option-idx"), 10);
         const isCorrect = selectedIdx === correctIdx;
 
@@ -1062,7 +1133,7 @@ document.addEventListener("keydown", (ev) => {
           explanationBox.style.display = "block";
           if (feedbackTitle) {
             if (isCorrect) {
-              feedbackTitle.textContent = "✓ Correct!";
+              feedbackTitle.textContent = "✓ Correct! +10 XP";
               feedbackTitle.style.color = "#10b981";
             } else {
               feedbackTitle.textContent = "✕ Incorrect. Try studying the concept again!";
@@ -1071,16 +1142,110 @@ document.addEventListener("keydown", (ev) => {
           }
         }
 
-        // If correct, save to localStorage
-        if (isCorrect && !masteredConcepts.includes(termSlug)) {
-          masteredConcepts.push(termSlug);
+        if (isCorrect) {
+          // 1. Save concept mastery to localStorage if new
+          if (!masteredConcepts.includes(termSlug)) {
+            masteredConcepts.push(termSlug);
+            try {
+              localStorage.setItem("gstarcademy_concept_mastery", JSON.stringify(masteredConcepts));
+            } catch (e) {}
+          }
+
+          // 2. Add 10 XP
+          let currentTotalXp = 0;
           try {
-            localStorage.setItem("gstarcademy_concept_mastery", JSON.stringify(masteredConcepts));
+            currentTotalXp = parseInt(localStorage.getItem("gstarcademy_total_xp"), 10) || 0;
+          } catch (e) {}
+          currentTotalXp += 10;
+          try {
+            localStorage.setItem("gstarcademy_total_xp", String(currentTotalXp));
           } catch (e) {}
 
-          // Highlight the parent card
+          // 3. Sync and light up Roadmap Nodes
+          if (window.ROADMAP_DATA) {
+            let matchedNodeId = null;
+            let matchedTrackKey = null;
+            for (const trackKey in window.ROADMAP_DATA) {
+              const node = window.ROADMAP_DATA[trackKey].nodes.find(n => n.wiki && n.wiki.includes(termSlug));
+              if (node) {
+                matchedNodeId = node.id;
+                matchedTrackKey = trackKey;
+                break;
+              }
+            }
+            if (matchedNodeId && matchedTrackKey) {
+              let masteredProgress = { bim: [], mcad: [], civil: [], draft: [] };
+              try {
+                masteredProgress = JSON.parse(localStorage.getItem("gstarcademy_roadmap_progress")) || {
+                  bim: [], mcad: [], civil: [], draft: []
+                };
+              } catch (e) {}
+              // Ensure safety
+              ["bim", "mcad", "civil", "draft"].forEach(t => {
+                if (!masteredProgress[t]) masteredProgress[t] = [];
+              });
+              if (!masteredProgress[matchedTrackKey].includes(matchedNodeId)) {
+                masteredProgress[matchedTrackKey].push(matchedNodeId);
+                try {
+                  localStorage.setItem("gstarcademy_roadmap_progress", JSON.stringify(masteredProgress));
+                } catch (e) {}
+              }
+            }
+          }
+
+          // 4. Remove from mistake book if present
+          let mistakes = [];
+          try {
+            mistakes = JSON.parse(localStorage.getItem("gstarcademy_mistakes")) || [];
+          } catch (e) {}
+          if (mistakes.includes(termSlug)) {
+            mistakes = mistakes.filter(s => s !== termSlug);
+            try {
+              localStorage.setItem("gstarcademy_mistakes", JSON.stringify(mistakes));
+            } catch (e) {}
+          }
+
+          // 5. Highlight parent card and trigger float XP animation
           container.style.borderColor = "#10b981";
           container.style.boxShadow = "0 8px 24px -4px rgba(16, 185, 129, 0.12)";
+
+          const floatXp = document.createElement("div");
+          floatXp.className = "float-xp-indicator";
+          floatXp.textContent = "+10 XP 🎉";
+          floatXp.style.cssText = `
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #10b981;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            pointer-events: none;
+            z-index: 10;
+            animation: floatUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          `;
+          container.style.position = "relative";
+          container.appendChild(floatXp);
+          setTimeout(() => floatXp.remove(), 1200);
+
+        } else {
+          // Save as mistake in local mistakes book
+          let mistakes = [];
+          try {
+            mistakes = JSON.parse(localStorage.getItem("gstarcademy_mistakes")) || [];
+          } catch (e) {}
+          if (!mistakes.includes(termSlug)) {
+            mistakes.push(termSlug);
+            try {
+              localStorage.setItem("gstarcademy_mistakes", JSON.stringify(mistakes));
+            } catch (e) {}
+          }
+          
+          container.style.borderColor = "#ef4444";
+          container.style.boxShadow = "0 8px 24px -4px rgba(239, 68, 68, 0.12)";
         }
       });
     });
