@@ -2005,35 +2005,78 @@ def patch_terms_index(software_list: list[dict]) -> None:
 
 # -- sitemap.xml patch ---------------------------------------------------
 
-SITEMAP_START = "<!-- AUTO-GEN sw-sitemap START -->"
-SITEMAP_END = "<!-- AUTO-GEN sw-sitemap END -->"
-
-
 def patch_sitemap(software_list: list[dict]) -> None:
     path = ROOT / "sitemap.xml"
-    text = path.read_text(encoding="utf-8")
 
-    urls = []
+    # 静态核心页面字典，键为相对根目录的路径
+    STATIC_PAGES = {
+        "index.html": {"changefreq": "daily", "priority": "1.0"},
+        "tutorials.html": {"changefreq": "daily", "priority": "0.9"},
+        "tutorial-detail.html": {"changefreq": "weekly", "priority": "0.8"},
+        "paths.html": {"changefreq": "weekly", "priority": "0.9"},
+        "news.html": {"changefreq": "daily", "priority": "0.85"},
+        "knowledge-base.html": {"changefreq": "weekly", "priority": "0.9"},
+        "knowledge-cax.html": {"changefreq": "weekly", "priority": "0.85"},
+        "knowledge-roadmap.html": {"changefreq": "weekly", "priority": "0.85"},
+        "knowledge-library.html": {"changefreq": "weekly", "priority": "0.85"},
+        "knowledge-curriculum.html": {"changefreq": "weekly", "priority": "0.85"},
+        "kb-terms.html": {"changefreq": "weekly", "priority": "0.85"},
+        "kb-faq.html": {"changefreq": "monthly", "priority": "0.82"},
+        "kb-graph.html": {"changefreq": "weekly", "priority": "0.8"},
+        "kb-software.html": {"changefreq": "monthly", "priority": "0.75"},
+        "knowledge-domains.html": {"changefreq": "monthly", "priority": "0.75"},
+        "legal.html": {"changefreq": "monthly", "priority": "0.5"},
+        "about.html": {"changefreq": "monthly", "priority": "0.6"},
+        "editorial-process.html": {"changefreq": "monthly", "priority": "0.6"},
+        "contact.html": {"changefreq": "monthly", "priority": "0.5"},
+        "privacy.html": {"changefreq": "yearly", "priority": "0.4"},
+        "terms.html": {"changefreq": "yearly", "priority": "0.4"},
+    }
+
+    # 待校验的 URL 及其配置映射
+    # 结构为: { "相对路径": { "changefreq": "...", "priority": "..." } }
+    pages_to_verify = {}
+    for rel_path, cfg in STATIC_PAGES.items():
+        pages_to_verify[rel_path] = cfg
+
+    # 动态页面：软件，商家，概念
     for sw in software_list:
-        urls.append(f"{SITE_URL}/kb/software/{sw['slug']}.html")
-        urls.append(f"{SITE_URL}/kb/vendors/{sw['vendor']['slug']}.html")
+        sw_rel = f"kb/software/{sw['slug']}.html"
+        pages_to_verify[sw_rel] = {"changefreq": "monthly", "priority": "0.75"}
+
+        vendor_rel = f"kb/vendors/{sw['vendor']['slug']}.html"
+        pages_to_verify[vendor_rel] = {"changefreq": "monthly", "priority": "0.7"}
+
         for t in sw.get("terms", []):
-            urls.append(f"{SITE_URL}/kb/concepts/{t['slug']}.html")
-    urls = sorted(set(urls))
+            concept_rel = f"kb/concepts/{t['slug']}.html"
+            pages_to_verify[concept_rel] = {"changefreq": "weekly", "priority": "0.7"}
 
-    entries = "\n".join(
-        f"  <url>\n    <loc>{u}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>"
-        for u in urls
+    # 校验每个相对路径对应的文件在磁盘上是否存在
+    valid_entries = []
+    for rel_path, cfg in sorted(pages_to_verify.items()):
+        file_path = ROOT / rel_path
+        if file_path.exists():
+            loc = f"{SITE_URL}/{rel_path}"
+            valid_entries.append(
+                f"  <url>\n"
+                f"    <loc>{loc}</loc>\n"
+                f"    <changefreq>{cfg['changefreq']}</changefreq>\n"
+                f"    <priority>{cfg['priority']}</priority>\n"
+                f"  </url>"
+            )
+        else:
+            print(f"Sitemap filter: {rel_path} does not exist on disk, skipped.")
+
+    # 拼装完整的 sitemap.xml
+    xml_content = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "\n".join(valid_entries) + "\n"
+        '</urlset>\n'
     )
-    block = SITEMAP_START + "\n" + entries + "\n  " + SITEMAP_END
 
-    if SITEMAP_START in text and SITEMAP_END in text:
-        pattern = re.compile(re.escape(SITEMAP_START) + r"[\s\S]*?" + re.escape(SITEMAP_END))
-        text = pattern.sub(lambda _m: block, text)
-    else:
-        text = text.replace("</urlset>", "  " + block + "\n</urlset>", 1)
-
-    path.write_text(text, encoding="utf-8")
+    path.write_text(xml_content, encoding="utf-8")
+    print(f"Generated sitemap.xml with {len(valid_entries)} verified URLs.")
 
 
 # -- driver --------------------------------------------------------------
