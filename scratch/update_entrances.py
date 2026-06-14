@@ -47,7 +47,6 @@ def update_file(file_path):
             </div>
             <a class="nav-link{" active" if active_nav == "home" else ""}" data-nav="home" href="{prefix}index.html">Home</a>
             <a class="nav-link{" active" if is_knowledge_active else ""}" data-nav="knowledge" href="{prefix}knowledge-base.html">Wiki</a>
-            <a class="nav-link{" active" if active_nav == "quiz" else ""}" data-nav="quiz" href="{prefix}quiz.html">Quiz</a>
             <a class="nav-link{" active" if active_nav == "tutorials" else ""}" data-nav="tutorials" href="{prefix}tutorials.html">Tutorials</a>
             <a class="nav-link{" active" if active_nav == "news" else ""}" data-nav="news" href="{prefix}news.html">News</a>
             <a class="nav-link{" active" if active_nav == "about" else ""}" data-nav="about" href="{prefix}about.html">About</a>

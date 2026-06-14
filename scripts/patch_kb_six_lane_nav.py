@@ -88,7 +88,7 @@ def build_sidebar(prefix: str) -> str:
         f'              <button class="kb-nav-toggle" aria-expanded="true">Drill down</button>\n'
         f'              <div class="kb-nav-links">\n'
         f'                <a class="kb-side-link" href="{prefix}tutorials.html">Tutorial library</a>\n'
-        f'                <a class="kb-side-link" href="{prefix}knowledge-glossary.html">Term glossary (cards)</a>\n'
+        f'                <a class="kb-side-link" href="{prefix}kb-terms.html">Term glossary (cards)</a>\n'
         f"              </div>\n"
         f'            </div>\n'
         f'            <div class="kb-nav-group">\n'
@@ -108,7 +108,7 @@ def build_sidebar(prefix: str) -> str:
 
 
 def splice_sidebar(html: str, prefix: str) -> str:
-    start = html.find('<div class="kb-index-box">')
+    start = html.find('<div class="kb-index-box')
     stage = html.find('<div class="kb-stage">')
     if start < 0 or stage < 0:
         raise ValueError("sidebar anchors missing")
@@ -149,6 +149,8 @@ def process(path: Path) -> bool:
 def main() -> int:
     files: list[Path] = []
     for p in sorted(REPO.glob("knowledge*.html")):
+        files.append(p)
+    for p in sorted(REPO.glob("kb-*.html")):
         files.append(p)
     ks = REPO / "kb" / "software"
     if ks.is_dir():

@@ -58,7 +58,8 @@ def process_file(file_path: pathlib.Path, root_dir: pathlib.Path):
     eeat_pages = [
         "about.html", "kb-graph.html", "knowledge-base.html", "knowledge-cax.html",
         "knowledge-curriculum.html", "knowledge-domains.html", "knowledge-library.html",
-        "knowledge-roadmap.html", "quiz.html", "tutorials.html", "kb/software/index.html"
+        "knowledge-roadmap.html", "quiz.html", "tutorials.html", "kb/software/index.html",
+        "kb-vendors.html"
     ]
     if rel_path_str in eeat_pages:
         # Check if already contains byline

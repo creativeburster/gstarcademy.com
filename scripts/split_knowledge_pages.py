@@ -227,7 +227,6 @@ def head_block(*, title: str, canonical: str, description: str, ld_url: str) -> 
           <a class="nav-link" data-nav="home" href="./index.html">Home</a>
           <a class="nav-link" data-nav="domains" href="./knowledge-domains.html">Domains</a>
           <a class="nav-link" data-nav="roadmap" href="./knowledge-roadmap.html">Roadmap</a>
-          <a class="nav-link" data-nav="quiz" href="./quiz.html">Quiz</a>
           <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Knowledge Base</a>
           <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
           <a class="nav-link" data-nav="news" href="./news.html">News</a>
