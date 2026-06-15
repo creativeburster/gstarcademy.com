@@ -63,12 +63,12 @@
         "description": "CAD tutorial navigation, curated external sources, and a beginner knowledge base.",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": { "@type": "EntryPoint", "urlTemplate": "https://gstarcademy.com/kb-terms.html?q={search_term_string}" },
+          "target": { "@type": "EntryPoint", "urlTemplate": "https://gstarcademy.com/kb-terms?q={search_term_string}" },
           "query-input": "required name=search_term_string"
         }
       }
     </script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"description":"Gstarcademy is a structured CAD knowledge base and tutorial navigation site for AEC, MFG, and Civil Engineering professionals. Articles are written by Gstarcademy editors and technically reviewed by Gstarsoft Co., Ltd before publication.","sameAs":["https://gstarcademy.com/about.html","https://gstarcademy.com/editorial-process.html"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"description":"Gstarcademy is a structured CAD knowledge base and tutorial navigation site for AEC, MFG, and Civil Engineering professionals. Articles are written by Gstarcademy editors and technically reviewed by Gstarsoft Co., Ltd before publication.","sameAs":["https://gstarcademy.com/about","https://gstarcademy.com/editorial-process"]}</script>
   </head>
   <body data-page="home">
     
@@ -82,7 +82,7 @@
         <div class="site-notice-inner container">
           <p class="site-notice-text">
             Tip: open the
-            <a class="site-notice-link" href="./tutorials.html">tutorial library</a>
+            <a class="site-notice-link" href="./tutorials">tutorial library</a>
             to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
@@ -92,7 +92,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="./index.html">
+          <a class="brand" href="./">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -107,11 +107,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link active" data-nav="home" href="./index.html">Home</a>
-            <a class="nav-link" data-nav="knowledge" href="./knowledge-base.html">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="./tutorials.html">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="./news.html">News</a>
-            <a class="nav-link" data-nav="about" href="./about.html">About</a>
+            <a class="nav-link active" data-nav="home" href="./">Home</a>
+            <a class="nav-link" data-nav="knowledge" href="./knowledge-base">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="./tutorials">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="./news">News</a>
+            <a class="nav-link" data-nav="about" href="./about">About</a>
             <!-- Streak Fire Badge -->
             <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak Days">
               🔥 <span id="global-streak-count">0</span> Days
@@ -145,8 +145,8 @@
           </div>
         </div>
         <div class="hero-cta-row">
-          <a class="btn btn-premium-secondary" href="./knowledge-base.html">Knowledge Center</a>
-          <a class="btn btn-premium-ghost" href="./tutorials.html">Browse Library</a>
+          <a class="btn btn-premium-secondary" href="./knowledge-base">Knowledge Center</a>
+          <a class="btn btn-premium-ghost" href="./tutorials">Browse Library</a>
         </div>
       </div>
     </section>
@@ -159,22 +159,22 @@
           <span class="section-note">Master the map before you study the app — our four core pillars</span>
         </div>
         <div class="grid grid-3">
-          <a class="card card-glass" href="./kb-software.html">
+          <a class="card card-glass" href="./kb-software">
             <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">🧰</span>
             <h3>Software Landscape Highlights</h3>
             <p class="meta">Explore detailed profiles of 21 CAD/BIM packages (AutoCAD, Revit, GstarCAD, SOLIDWORKS) and official vendor gateways.</p>
           </a>
-          <a class="card card-glass" href="./kb-terms.html">
+          <a class="card card-glass" href="./kb-terms">
             <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">📇</span>
             <h3>Atomic Terms &amp; Concepts</h3>
             <p class="meta">Review 40+ structured conceptual units—such as Parametric Constraints and Intelligent Objects—linked across domains.</p>
           </a>
-          <a class="card card-glass" href="./kb-faq.html">
+          <a class="card card-glass" href="./kb-faq">
             <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">❓</span>
             <h3>Collapsible Q&amp;A FAQ</h3>
             <p class="meta">Get direct answers to high-frequency technical questions regarding CAD differences, engine memory optimization, and more.</p>
           </a>
-          <a class="card card-glass" href="./kb-graph.html" style="grid-column: span 3; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; text-align: left;">
+          <a class="card card-glass" href="./kb-graph" style="grid-column: span 3; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; text-align: left;">
             <div style="font-size: 2.2rem; flex-shrink: 0;" aria-hidden="true">🕸️</div>
             <div style="flex: 1; min-width: 220px;">
               <h3 style="margin-bottom: 4px;">Interactive D3 Concept Graph Hub</h3>
@@ -188,7 +188,7 @@
       <section class="section">
         <div class="section-head">
           <h2 class="section-title">Aggregated Tutorials &amp; Learning Paths</h2>
-          <a class="section-note" href="./tutorials.html">View full library</a>
+          <a class="section-note" href="./tutorials">View full library</a>
         </div>
         <div class="list">
           <article class="tutorial-item">
@@ -197,7 +197,7 @@
               <h3>Starter Sequence: CAD General Literacy in 14 Days</h3>
               <p class="meta">Source: Gstarcademy · Type: Structured roadmap · Focus: software landscapes, atomic terms, and command line foundations.</p>
               <div class="item-tags"><span class="tag">Beginner</span><span class="tag">Literacy</span><span class="tag">Roadmap</span></div>
-              <div class="actions"><a class="btn btn-primary" href="./tutorials.html">Start Sequence &rarr;</a></div>
+              <div class="actions"><a class="btn btn-primary" href="./tutorials">Start Sequence &rarr;</a></div>
             </div>
           </article>
           <article class="tutorial-item">
@@ -216,26 +216,26 @@
       <section class="section">
         <div class="section-head">
           <h2 class="section-title">Curated Industry News Highlights</h2>
-          <a class="section-note" href="./news.html">View news timeline</a>
+          <a class="section-note" href="./news">View news timeline</a>
         </div>
         <div class="grid grid-3">
           <article class="card card-glass">
             <span class="eyebrow" style="margin-bottom: 8px;">IFC Interop</span>
             <h3>Open BIM &amp; IFC Specification Updates</h3>
             <p class="meta">buildingSMART continues coordinating open specifications. Check standard cadence updates before deploying complex pipelines.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news.html">Read summary &rarr;</a></div>
+            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news">Read summary &rarr;</a></div>
           </article>
           <article class="card card-glass">
             <span class="eyebrow" style="margin-bottom: 8px;">AEC Tech</span>
             <h3>Construction Tech &amp; BIM Practice – Autodesk Blog</h3>
             <p class="meta">Curated articles tracking site coordination, field operations, and cloud sync frameworks that sit alongside CAD modeling.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news.html">Read summary &rarr;</a></div>
+            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news">Read summary &rarr;</a></div>
           </article>
           <article class="card card-glass">
             <span class="eyebrow" style="margin-bottom: 8px;">Releases</span>
             <h3>Rhino &amp; Grasshopper Cadence Updates</h3>
             <p class="meta">McNeel's news hub release updates, perfect for verifying team rollout dates and Grasshopper script compatibility.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news.html">Read summary &rarr;</a></div>
+            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news">Read summary &rarr;</a></div>
           </article>
         </div>
       </section>
@@ -303,51 +303,51 @@
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="./kb/software/autocad.html">AutoCAD Guide</a></li>
-            <li><a href="./kb/software/revit.html">Revit Guide</a></li>
-            <li><a href="./kb/software/fusion-360.html">Fusion 360</a></li>
-            <li><a href="./kb/software/civil-3d.html">Civil 3D Guide</a></li>
-            <li><a href="./kb/software/solidworks.html">SOLIDWORKS</a></li>
-            <li><a href="./kb/software/catia.html">CATIA Guide</a></li>
-            <li><a href="./kb/software/gstarcad.html">GstarCAD</a></li>
-            <li><a href="./kb/software/inventor.html">Autodesk Inventor</a></li>
+            <li><a href="./kb/software/autocad">AutoCAD Guide</a></li>
+            <li><a href="./kb/software/revit">Revit Guide</a></li>
+            <li><a href="./kb/software/fusion-360">Fusion 360</a></li>
+            <li><a href="./kb/software/civil-3d">Civil 3D Guide</a></li>
+            <li><a href="./kb/software/solidworks">SOLIDWORKS</a></li>
+            <li><a href="./kb/software/catia">CATIA Guide</a></li>
+            <li><a href="./kb/software/gstarcad">GstarCAD</a></li>
+            <li><a href="./kb/software/inventor">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="./kb-terms.html">2D Drafting</a></li>
-            <li><a href="./kb/concepts/bim-workbench.html">BIM Coordination</a></li>
-            <li><a href="./kb/concepts/constraints-fusion.html">Parametrics</a></li>
-            <li><a href="./kb/concepts/dynamic-input.html">Command Line</a></li>
-            <li><a href="./kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
-            <li><a href="./kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
-            <li><a href="./kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
-            <li><a href="./kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
+            <li><a href="./kb-terms">2D Drafting</a></li>
+            <li><a href="./kb/concepts/bim-workbench">BIM Coordination</a></li>
+            <li><a href="./kb/concepts/constraints-fusion">Parametrics</a></li>
+            <li><a href="./kb/concepts/dynamic-input">Command Line</a></li>
+            <li><a href="./kb/concepts/dwg-file-format">Drawing Merge</a></li>
+            <li><a href="./kb/concepts/file-comparison-zw">DWG Compare</a></li>
+            <li><a href="./kb/concepts/layers-gstarcad">Layer Strategy</a></li>
+            <li><a href="./kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="./knowledge-domains.html">Domain Map</a></li>
-            <li><a href="./knowledge-roadmap.html">Interactive Map</a></li>
-            <li><a href="./quiz.html">Quiz Challenge</a></li>
-            <li><a href="./tutorials.html">Tutorial Library</a></li>
-            <li><a href="./knowledge-base.html">Knowledge Center</a></li>
-            <li><a href="./kb-graph.html">Interactive Graph</a></li>
-            <li><a href="./kb-software.html">Software Index</a></li>
-            <li><a href="./kb-terms.html">CAD Glossary</a></li>
-            <li><a href="./kb-faq.html">Technical FAQ</a></li>
+            <li><a href="./knowledge-domains">Domain Map</a></li>
+            <li><a href="./knowledge-roadmap">Interactive Map</a></li>
+            <li><a href="./quiz">Quiz Challenge</a></li>
+            <li><a href="./tutorials">Tutorial Library</a></li>
+            <li><a href="./knowledge-base">Knowledge Center</a></li>
+            <li><a href="./kb-graph">Interactive Graph</a></li>
+            <li><a href="./kb-software">Software Index</a></li>
+            <li><a href="./kb-terms">CAD Glossary</a></li>
+            <li><a href="./kb-faq">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="./about.html">About Project</a></li>
-            <li><a href="./contact.html">Contact Us</a></li>
-            <li><a href="./privacy.html">Privacy Policy</a></li>
-            <li><a href="./terms.html">Terms of Use</a></li>
-            <li><a href="./legal.html">Copyright &amp; Disclaimer</a></li>
+            <li><a href="./about">About Project</a></li>
+            <li><a href="./contact">Contact Us</a></li>
+            <li><a href="./privacy">Privacy Policy</a></li>
+            <li><a href="./terms">Terms of Use</a></li>
+            <li><a href="./legal">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
@@ -371,7 +371,7 @@
       <div class="cookie-consent-inner">
         <p class="cookie-consent-text">
           We use optional cookies for basic analytics. This is a demo banner; see our
-          <a href="./privacy.html">privacy policy</a>.
+          <a href="./privacy">privacy policy</a>.
         </p>
         <div class="cookie-consent-actions">
           <button type="button" class="btn-cookie-outline">Deny</button>

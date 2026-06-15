@@ -457,8 +457,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Building Information Modeling (BIM) operates on active, object-based relational databases coordinate design data.",
           why: "Essential core concept. BIM replaces basic 2D lines with smart parametric entities representing walls, doors, and piping.",
           pitfall: "Do not treat BIM as just a 3D visual model; a 3D model without metadata is not a BIM model.",
-          wiki: "./kb/concepts/bim.html",
-          tutorials: "./tutorials.html?q=bim"
+          wiki: "./kb/concepts/bim",
+          tutorials: "./tutorials?q=bim"
         },
         {
           id: "revit",
@@ -468,8 +468,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Autodesk's flagship BIM coordinator tool organizing structural, architectural and MEP models.",
           why: "Revit is the primary authoring platform used by design offices for model coordination.",
           pitfall: "Avoid loading high-polygon nested families directly, which degrades pan/zoom and synchronization speed.",
-          wiki: "./kb/software/revit.html",
-          tutorials: "./tutorials.html?q=revit"
+          wiki: "./kb/software/revit",
+          tutorials: "./tutorials?q=revit"
         },
         {
           id: "shared-coords",
@@ -479,8 +479,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Multi-disciplinary coordinate system ensuring all project elements align perfectly in global coordinate space.",
           why: "Prevents drawing shift errors during multi-discipline assembly merges and clash checks.",
           pitfall: "Never manually drag linked models to align them. Always acquire coordinates to maintain georeferenced accuracy.",
-          wiki: "./kb/concepts/shared-coordinates-revit.html",
-          tutorials: "./tutorials.html?q=coordinates"
+          wiki: "./kb/concepts/shared-coordinates-revit",
+          tutorials: "./tutorials?q=coordinates"
         },
         {
           id: "clash",
@@ -490,8 +490,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Diagnostic clash detection verifying physical geometry intersections between MEP and structural frameworks.",
           why: "Crucial project deliverable. Saves millions in site reconstruction costs by finding overlaps pre-build.",
           pitfall: "Do not run clash tests on the entire model without filter rules. This creates thousands of useless duplicate clash reports.",
-          wiki: "./kb/concepts/navisworks-clash-detection.html",
-          tutorials: "./tutorials.html?q=clash"
+          wiki: "./kb/concepts/navisworks-clash-detection",
+          tutorials: "./tutorials?q=clash"
         },
         {
           id: "ifc",
@@ -501,8 +501,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Industry Foundation Classes (IFC) data export mapping drawing entities to open-standard definitions.",
           why: "Critical for openBIM coordination, letting Revit, Bentley, and ArchiCAD models federate cleanly.",
           pitfall: "Always specify the required IFC Schema version in the BEP, as incorrect export settings strip custom parameters.",
-          wiki: "./kb/concepts/ifc-export-revit.html",
-          tutorials: "./tutorials.html?q=ifc"
+          wiki: "./kb/concepts/ifc-export-revit",
+          tutorials: "./tutorials?q=ifc"
         }
       ],
       links: [
@@ -526,8 +526,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Mathematical dimension and relationship rules governing sketch behavior (tangency, concentricity).",
           why: "Foundation of mechanical solid modeling. Lets designers change dimensions and automatically update parts.",
           pitfall: "Avoid over-constraining sketch geometries; doing so locks relations and triggers parametric solver conflicts.",
-          wiki: "./kb/concepts/parametric-constraints.html",
-          tutorials: "./tutorials.html?q=constraints"
+          wiki: "./kb/concepts/parametric-constraints",
+          tutorials: "./tutorials?q=constraints"
         },
         {
           id: "solidworks",
@@ -537,8 +537,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Industry standard solid modeler utilizing parametric feature trees and assembly constraints.",
           why: "The most widely deployed mid-range MCAD software for industrial product design.",
           pitfall: "Never rename CAD part files directly in Windows Explorer; doing so breaks mates and assembly links.",
-          wiki: "./kb/software/solidworks.html",
-          tutorials: "./tutorials.html?q=solidworks"
+          wiki: "./kb/software/solidworks",
+          tutorials: "./tutorials?q=solidworks"
         },
         {
           id: "brep",
@@ -548,8 +548,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Boundary Representation kernels maintaining model topology via mathematical faces, edges, and vertices.",
           why: "Understanding B-Rep prevents solver failures and zero-thickness geometry regeneration errors.",
           pitfall: "Avoid creating zero-thickness geometries or self-intersecting boundary loops, which crash feature regeneration.",
-          wiki: "./kb/concepts/intelligent-objects.html",
-          tutorials: "./tutorials.html?q=modeling"
+          wiki: "./kb/concepts/intelligent-objects",
+          tutorials: "./tutorials?q=modeling"
         },
         {
           id: "assembly",
@@ -559,8 +559,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Assembling discrete parts together using kinematic mate conditions (coincident, concentric, parallel).",
           why: "Enables designers to verify fits, tolerances, clearances, and run mechanical animations.",
           pitfall: "Never create circular mate references in assemblies. They trigger rebuild loops and slow performance.",
-          wiki: "./kb/concepts/skeleton-creo.html",
-          tutorials: "./tutorials.html?q=assembly"
+          wiki: "./kb/concepts/skeleton-creo",
+          tutorials: "./tutorials?q=assembly"
         },
         {
           id: "mbd",
@@ -570,8 +570,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Injecting manufacturing dimensions and product specifications (GD&T) directly into 3D solid profiles.",
           why: "Eliminates the need for tedious 2D drawing sheets by using rich digital metadata.",
           pitfall: "Do not skip datum references in GD&T tolerances. Coordinate tolerance ranges must be tied to physical datum frames.",
-          wiki: "./kb/concepts/model-based-definition-solidworks.html",
-          tutorials: "./tutorials.html?q=mbd"
+          wiki: "./kb/concepts/model-based-definition-solidworks",
+          tutorials: "./tutorials?q=mbd"
         }
       ],
       links: [
@@ -595,8 +595,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Creating digital terrain models (DTM) using triangles (TIN) representing topography.",
           why: "Foundation of all civil sites. Surfaces calculate precise cut-and-fill volumes.",
           pitfall: "Do not build surfaces using too many dense points without filtering. Unfiltered raw files cause massive file lag.",
-          wiki: "./kb/concepts/surfaces-civil-3d.html",
-          tutorials: "./tutorials.html?q=surfaces"
+          wiki: "./kb/concepts/surfaces-civil-3d",
+          tutorials: "./tutorials?q=surfaces"
         },
         {
           id: "civil3d",
@@ -606,8 +606,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Autodesk's land development platform built on top of the AutoCAD drafting engine.",
           why: "The primary tool for civil drawings, grading, and road network designs.",
           pitfall: "Avoid working in un-projected drawing spaces. Always establish a coordinate projection zone before drawing.",
-          wiki: "./kb/software/civil-3d.html",
-          tutorials: "./tutorials.html?q=civil"
+          wiki: "./kb/software/civil-3d",
+          tutorials: "./tutorials?q=civil"
         },
         {
           id: "alignments",
@@ -617,8 +617,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Horizontal road centerlines (alignments) paired with vertical elevation grids (profiles).",
           why: "Defines the 3D pathway coordinates for highways, pipelines, and rail tracks.",
           pitfall: "Do not edit horizontal alignments manually by moving vertex points without checking curve design speed rules.",
-          wiki: "./kb/concepts/profiles-civil-3d.html",
-          tutorials: "./tutorials.html?q=profile"
+          wiki: "./kb/concepts/profiles-civil-3d",
+          tutorials: "./tutorials?q=profile"
         },
         {
           id: "corridors",
@@ -628,8 +628,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Sweeping road cross-sections (assemblies) along a 3D alignment and profile path.",
           why: "Creates rich 3D road models with dynamic shoulders, daylight grading, and cut limits.",
           pitfall: "Never build corridor surfaces without boundary settings. Unbounded surfaces will cross corridor limit lines.",
-          wiki: "./kb/concepts/subassembly-civil-3d.html",
-          tutorials: "./tutorials.html?q=corridor"
+          wiki: "./kb/concepts/subassembly-civil-3d",
+          tutorials: "./tutorials?q=corridor"
         },
         {
           id: "landxml",
@@ -639,8 +639,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Open standard file format transferring surfaces, alignments, and parcels to survey equipment.",
           why: "Essential for site deployment. Connects designer offices directly to GPS grading hardware.",
           pitfall: "Ensure coordinate unit projection settings are correct before exporting LandXML; wrong units shift site coordinates.",
-          wiki: "./kb/concepts/pressure-networks-civil-3d.html",
-          tutorials: "./tutorials.html?q=xml"
+          wiki: "./kb/concepts/pressure-networks-civil-3d",
+          tutorials: "./tutorials?q=xml"
         }
       ],
       links: [
@@ -664,8 +664,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Organizing DWG assets by layers with strict color, linetype, and viewport visibility properties.",
           why: "Basic hygiene of all drawing files. Structured layering keeps drawings readable.",
           pitfall: "Avoid drawing elements directly on Layer 0. Layer 0 should only be used to create blocks.",
-          wiki: "./kb/concepts/layer.html",
-          tutorials: "./tutorials.html?q=layer"
+          wiki: "./kb/concepts/layer",
+          tutorials: "./tutorials?q=layer"
         },
         {
           id: "xref",
@@ -675,8 +675,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Linking external DWG files (Xrefs) and grouping recurring items as block references.",
           why: "Crucial for team drafting. Keeps parent files lightweight by referencing background plates.",
           pitfall: "Avoid using absolute paths for Xrefs. Absolute paths break reference links when files move between servers.",
-          wiki: "./kb/concepts/xref.html",
-          tutorials: "./tutorials.html?q=xref"
+          wiki: "./kb/concepts/xref",
+          tutorials: "./tutorials?q=xref"
         },
         {
           id: "alias",
@@ -686,8 +686,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Keyboard shortcuts mapping fast inputs (L for LINE, CO for COPY) into the CAD console.",
           why: "Draftsman speed enhancer. Minimizes reliance on mouse clicks, boosting efficiency.",
           pitfall: "Do not map too many custom command aliases. It makes collaborating on other work PCs extremely difficult.",
-          wiki: "./kb/concepts/command-alias.html",
-          tutorials: "./tutorials.html?q=alias"
+          wiki: "./kb/concepts/command-alias",
+          tutorials: "./tutorials?q=alias"
         },
         {
           id: "plot",
@@ -697,8 +697,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Configuring paperspace layouts, viewports, annotation scaling, and CTB plot styles.",
           why: "Guarantees drawings print accurately to scale without overlapping lines.",
           pitfall: "Never override object line thicknesses manually in layout space; always control them via CTB styles.",
-          wiki: "./kb/concepts/plot-style.html",
-          tutorials: "./tutorials.html?q=plot"
+          wiki: "./kb/concepts/plot-style",
+          tutorials: "./tutorials?q=plot"
         },
         {
           id: "merge",
@@ -708,8 +708,8 @@ document.addEventListener("keydown", (ev) => {
           desc: "Auditing revision changes and merging changes from external coordinates cleanly.",
           why: "Crucial for coordination. Ensures concurrent edits merge without database corruption.",
           pitfall: "Avoid merging drawings with different base units or scale factors, which corrupts coordinate database scales.",
-          wiki: "./kb/concepts/drawing-merge.html",
-          tutorials: "./tutorials.html?q=compare"
+          wiki: "./kb/concepts/drawing-merge",
+          tutorials: "./tutorials?q=compare"
         }
       ],
       links: [
@@ -779,7 +779,7 @@ document.addEventListener("keydown", (ev) => {
     
     // Render Nodes
     track.nodes.forEach(node => {
-      const nodeSlug = node.wiki ? node.wiki.split("/").pop().replace(".html", "") : "";
+      const nodeSlug = node.wiki ? node.wiki.split("/").pop().replace("", "") : "";
       let isMastered = masteredProgress[activeTrack].includes(node.id);
       
       // Sync from quiz mastery
@@ -832,7 +832,7 @@ document.addEventListener("keydown", (ev) => {
     // Set quiz button link dynamically
     const quizBtn = document.getElementById("btn-inspect-quiz");
     if (quizBtn) {
-      quizBtn.href = `./quiz.html?track=${activeTrack}`;
+      quizBtn.href = `./quiz?track=${activeTrack}`;
     }
 
     // Draw lines after layout renders
@@ -885,7 +885,7 @@ document.addEventListener("keydown", (ev) => {
       if (idx === 0) lessonId = 1;
       else if (idx === 1 || idx === 2) lessonId = 2;
       else if (idx === 3 || idx === 4) lessonId = 3;
-      quizBtn.href = `./quiz.html?track=${activeTrack}&lesson=${lessonId}`;
+      quizBtn.href = `./quiz?track=${activeTrack}&lesson=${lessonId}`;
     }
 
     // Open Drawer
@@ -913,7 +913,7 @@ document.addEventListener("keydown", (ev) => {
     const masteredList = masteredProgress[activeTrack];
     const index = masteredList.indexOf(nodeId);
     const nodeObj = ROADMAP_DATA[activeTrack].nodes.find(n => n.id === nodeId);
-    const nodeSlug = nodeObj && nodeObj.wiki ? nodeObj.wiki.split("/").pop().replace(".html", "") : "";
+    const nodeSlug = nodeObj && nodeObj.wiki ? nodeObj.wiki.split("/").pop().replace("", "") : "";
     
     let masteredConcepts = [];
     try {
@@ -1030,7 +1030,7 @@ document.addEventListener("keydown", (ev) => {
       
       const quizBtn = document.getElementById("btn-inspect-quiz");
       if (quizBtn) {
-        quizBtn.href = `./quiz.html?track=${activeTrack}`;
+        quizBtn.href = `./quiz?track=${activeTrack}`;
       }
     });
   });
@@ -1051,7 +1051,7 @@ document.addEventListener("keydown", (ev) => {
       const trackNodes = ROADMAP_DATA[activeTrack].nodes;
       trackNodes.forEach(node => {
         if (node.wiki) {
-          const slug = node.wiki.split("/").pop().replace(".html", "");
+          const slug = node.wiki.split("/").pop().replace("", "");
           const idx = masteredConcepts.indexOf(slug);
           if (idx >= 0) {
             masteredConcepts.splice(idx, 1);

@@ -1130,7 +1130,7 @@
           mistakes = JSON.parse(localStorage.getItem("gstarcademy_mistakes")) || [];
         } catch (_) {}
         if (mistakes.length === 0) {
-          window.location.href = "quiz.html";
+          window.location.href = "quiz";
         } else {
           startQuiz("mistake");
         }
@@ -1141,10 +1141,10 @@
             if (isLessonUnlocked(trackParam, lessonId)) {
               startQuiz(trackParam, lessonId);
             } else {
-              window.location.href = `quiz.html?track=${trackParam}`;
+              window.location.href = `quiz?track=${trackParam}`;
             }
           } else {
-            window.location.href = `quiz.html?track=${trackParam}`;
+            window.location.href = `quiz?track=${trackParam}`;
           }
         } else {
           showLessonsScreen(trackParam);
@@ -1692,7 +1692,7 @@
       }
       if (failureSecondaryBtn) {
         failureSecondaryBtn.textContent = "📚 Browse Wiki";
-        failureSecondaryBtn.href = "knowledge-base.html";
+        failureSecondaryBtn.href = "knowledge-base";
       }
     } else if (state.activeTrack === "mistake") {
       const fTitle = failureView.querySelector('.hero-title');
@@ -1710,7 +1710,7 @@
       }
       if (failureSecondaryBtn) {
         failureSecondaryBtn.textContent = "📋 Back to Tracks";
-        failureSecondaryBtn.href = "quiz.html";
+        failureSecondaryBtn.href = "quiz";
       }
     } else {
       // 恢复普通失败文案
@@ -1776,11 +1776,11 @@
 
       if (successPrimaryBtn) {
         successPrimaryBtn.textContent = "📋 Back to Tracks";
-        successPrimaryBtn.href = "quiz.html";
+        successPrimaryBtn.href = "quiz";
       }
       if (successSecondaryBtn) {
         successSecondaryBtn.textContent = "🗺️ View Learning Map";
-        successSecondaryBtn.href = "knowledge-roadmap.html";
+        successSecondaryBtn.href = "knowledge-roadmap";
       }
       
       activeScreen.style.display = "none";
@@ -1877,11 +1877,11 @@
 
       if (successPrimaryBtn) {
         successPrimaryBtn.textContent = "🗺️ View Learning Map";
-        successPrimaryBtn.href = "knowledge-roadmap.html";
+        successPrimaryBtn.href = "knowledge-roadmap";
       }
       if (successSecondaryBtn) {
         successSecondaryBtn.textContent = "🔄 Try Other Pathways";
-        successSecondaryBtn.href = "quiz.html";
+        successSecondaryBtn.href = "quiz";
       }
 
     } else {
@@ -1972,11 +1972,11 @@
 
         if (successPrimaryBtn) {
           successPrimaryBtn.textContent = "🗺️ View Learning Map";
-          successPrimaryBtn.href = "knowledge-roadmap.html";
+          successPrimaryBtn.href = "knowledge-roadmap";
         }
         if (successSecondaryBtn) {
           successSecondaryBtn.textContent = "🔄 Try Other Pathways";
-          successSecondaryBtn.href = "quiz.html";
+          successSecondaryBtn.href = "quiz";
         }
       } else {
         // Lesson 1 或 2 通关
