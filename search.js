@@ -210,7 +210,7 @@ const CADSearch = {
       window.location.href = this.resolvePath(matches[0].url);
     } else {
       // Fallback: search on kb-terms index
-      const termsIndex = this.resolvePath("./kb-terms.html");
+      const termsIndex = this.resolvePath("./kb-terms");
       window.location.href = `${termsIndex}?q=${encodeURIComponent(query)}`;
     }
   },

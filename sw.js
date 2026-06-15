@@ -1,11 +1,10 @@
 // CAD Learn Hub — PWA Service Worker (sw.js)
-const CACHE_NAME = "learncad-shell-v10";
-const DYNAMIC_CACHE = "learncad-content-v10";
+const CACHE_NAME = "learncad-shell-v11";
+const DYNAMIC_CACHE = "learncad-content-v11";
 
 // Core App Shell Assets (Pre-cached for instant loading and 100% offline baseline)
 const ASSETS_TO_PRECACHE = [
   "./",
-  "./index.html",
   "./styles.css?v=v9_concept_visibility",
   "./styles.css",
   "./app.js?v=v9_concept_visibility",
@@ -17,14 +16,14 @@ const ASSETS_TO_PRECACHE = [
   "./d3.min.js",
   "./favicon.svg",
   "./manifest.json",
-  "./knowledge-base.html",
-  "./tutorials.html",
-  "./news.html",
-  "./kb-terms.html",
-  "./kb-faq.html",
-  "./kb-software.html",
-  "./about.html",
-  "./offline.html",
+  "./knowledge-base",
+  "./tutorials",
+  "./news",
+  "./kb-terms",
+  "./kb-faq",
+  "./kb-software",
+  "./about",
+  "./offline",
   "./data/search_nodes.json"
 ];
 
@@ -102,7 +101,7 @@ self.addEventListener("fetch", (event) => {
           // If network fails and we are requesting an HTML page, serve offline.html
           if (event.request.headers.get("accept").includes("text/html")) {
             console.log("[Service Worker] Network down, serving offline fallback page.");
-            return caches.match("./offline.html") || caches.match("/offline.html");
+            return caches.match("./offline") || caches.match("/offline");
           }
           throw err;
         });
