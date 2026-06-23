@@ -121,7 +121,18 @@
         </div>
 
         
-        <section class="kb-concept-section">
+        
+    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 12px;">🔗 Related Concepts</h2>
+      <p style="font-size: 14px; color: var(--ink-text-soft); margin-bottom: 16px;">Deepen your understanding with these related topics:</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+        <a href="./cui-autocad" style="display: block; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;">Customize User Interface (CUI)</a>
+        <a href="./draftsight-term-3" style="display: block; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;">LISP &amp; API Integrations (DraftSight)</a>
+        <a href="./sketchup-term-2" style="display: block; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;">Components vs. Groups (SketchUp)</a>
+      </div>
+    </section>
+
+    <section class="kb-concept-section">
           <h2>Definition</h2>
           <p>AutoLISP is a Lisp variant available in <a href="../software/autocad">AutoCAD</a> since 1986. It exposes AutoCAD&#x27;s command line, entity database, and selection sets as Lisp s-expressions: (command &quot;line&quot; &#x27;(0 0) &#x27;(10 0) &quot;&quot;) draws a line, (ssget &quot;X&quot; &#x27;((0 . &quot;CIRCLE&quot;))) selects every circle. Visual LISP extended AutoLISP with an IDE, debugging, and ActiveX access; both are still supported in modern AutoCAD.</p>
 <p>DCL (Dialog Control Language) provides simple dialog boxes; for richer UI, modern shops prefer .NET. AutoLISP files (.lsp) load via APPLOAD or auto-load via acaddoc.lsp / acad.lsp.</p>
