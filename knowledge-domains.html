@@ -54,7 +54,26 @@
     <script src="./search.js" defer></script>
   </head>
   <body data-page="knowledge">
-    <header class="topbar">
+
+    <div class="header-stack">
+      <aside
+        class="site-notice"
+        id="site-notice"
+        data-notice-id="global-v2"
+        aria-label="Announcement"
+      >
+        <div class="site-notice-inner container">
+          <p class="site-notice-text">
+            Tip: open the
+            <a class="site-notice-link" href="./tutorials">tutorial library</a>
+            to filter by software, task, level, and source—then follow outbound links to the originals.
+          </p>
+          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </aside>
+      <header class="topbar">
       <div class="container topbar-inner">
         <a class="brand" href="./">
           <span class="brand-badge">GC</span>
@@ -84,6 +103,7 @@
       </div>
       <div class="nav-overlay" aria-hidden="true"></div>
     </header>
+    </div><!-- /header-stack -->
 
     <div class="kb-app" id="kb-app">
       <aside class="kb-sidebar kb-sidebar--portal" id="kb-rail" aria-label="Knowledge base navigation">
@@ -336,6 +356,6 @@
             
     </footer>
     <script src="./app.js?v=v15_dashboard_concept_filters" defer></script>
-    <script src="./knowledge.js?v=v13_isolated_quiz" defer></script>
+    <script src="./knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>

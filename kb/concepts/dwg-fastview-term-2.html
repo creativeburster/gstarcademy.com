@@ -45,12 +45,12 @@
     <meta name="twitter:title" content="Cross-Platform Drawing Share" />
     <meta name="twitter:description" content="Technical best practices for Cross-Platform Drawing Share inside DWG FastView." />
 
-    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
+    <link rel="preload" href="../../styles.css?v=v15_subnav_dropdown" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cross-Platform Drawing Share","description":"Technical best practices for Cross-Platform Drawing Share inside DWG FastView.","url":"https://gstarcademy.com/kb/concepts/dwg-fastview-term-2","datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Gstarcademy","url":"https://gstarcademy.com"},"mainEntityOfPage":"https://gstarcademy.com/kb/concepts/dwg-fastview-term-2","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
+    <link rel="stylesheet" href="../../styles.css?v=v15_subnav_dropdown" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cross-Platform Drawing Share","description":"Technical best practices for Cross-Platform Drawing Share inside DWG FastView.","url":"https://gstarcademy.com/kb/concepts/dwg-fastview-term-2","datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Gstarcademy","url":"https://gstarcademy.com"},"mainEntityOfPage":"https://gstarcademy.com/kb/concepts/dwg-fastview-term-2","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Cross-Platform Drawing Share","description":"Technical best practices for Cross-Platform Drawing Share inside DWG FastView.","url":"https://gstarcademy.com/kb/concepts/dwg-fastview-term-2","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Cross-Platform Drawing Share","item":"https://gstarcademy.com/kb/concepts/dwg-fastview-term-2"}]}</script>
   </head>
@@ -112,22 +112,6 @@
 
         <div class="ink-byline" role="contentinfo">
           <span><strong>By</strong> Gstarcademy Editorial Team</span>
-          <span class="verified-reviewer-container">
-            <strong>Reviewed by</strong>
-            <span class="reviewer-badge-trigger">
-              Gstarsoft Co., Ltd
-              <span class="verified-badge-icon">✓</span>
-            </span>
-            <div class="reviewer-popover-card">
-              <div class="reviewer-popover-header">
-                <span class="reviewer-popover-name">Gstarsoft Co., Ltd</span>
-                <span class="reviewer-popover-role">CAD software developer · technical review</span>
-              </div>
-              <div class="reviewer-popover-body">
-                <p class="reviewer-popover-bio">Technical review by Gstarsoft Co., Ltd — a CAD software developer and the maker of GstarCAD — checked against current vendor documentation.</p>
-              </div>
-            </div>
-          </span>
           <span><strong>Last reviewed</strong> <time datetime="2026-05-24">2026-05-24</time></span>
           <span><a href="../../about#editorial-process">Editorial process</a></span>
         </div>
@@ -150,13 +134,13 @@
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-          
-    <p>Deploying <strong>Cross-Platform Drawing Share</strong> in a commercial design production pipeline requires a standardized, structured workflow to minimize model regression and file corruption:</p>
+
+    <p>Deploying <strong>Cross-Platform Drawing Share</strong> in a visualization or rendering pipeline requires careful scene setup and asset management:</p>
     <ol>
-      <li><strong>Establish the Coordinate &amp; Style Template:</strong> Before generating any elements, bind the drawing or project to the enterprise-level template file (.dwt or .rte), locking units, text scales, and baseline coordinate reference frameworks.</li>
-      <li><strong>Parametric Alignment &amp; Parenting:</strong> When initializing <strong>Cross-Platform Drawing Share</strong>, reference it strictly to stable datum planes or shared project levels. Avoid referencing ephemeral lines or sketches that may undergo topological naming changes.</li>
-      <li><strong>Data Attribute Enrichment:</strong> Populate all standard semantic properties (including manufacturer, rating, K-factor, or materials) within the property panels. Ensure that all inputs align with industry schemas like COBie or standard STEP metadata classes.</li>
-      <li><strong>Audit and Diagnostic Purge:</strong> Run standard diagnostics (such as `AUDIT`, `PURGE`, or model integrity reviews) to clean up dangling database pointers, duplicate scale list elements, and orphaned block references.</li>
+      <li><strong>Import and Prepare the 3D Scene:</strong> Bring in CAD/BIM geometry via supported formats (FBX, OBJ, STEP, 3DM). Clean up mesh topology, remove internal faces, and organize the scene hierarchy by material and object group for efficient rendering.</li>
+      <li><strong>Assign Materials and Lighting:</strong> When working with <strong>Cross-Platform Drawing Share</strong>, apply physically-based materials (PBR) with correct texture maps (albedo, roughness, normal). Set up environment lighting (HDRI) or studio lighting rigs appropriate for the presentation context (product shot vs. architectural interior).</li>
+      <li><strong>Optimize for Render Quality and Speed:</strong> Configure render settings (samples, denoising, resolution) to balance quality against turnaround time. Use render regions, progressive refinement, or GPU acceleration to iterate efficiently on camera angles and compositions.</li>
+      <li><strong>Deliver Final Outputs:</strong> Render final images or animation sequences with appropriate color management (sRGB, ACES). Composite in post-processing tools if needed, and package deliverables at the resolution and format specified by the client or presentation requirements.</li>
     </ol>
     
         </section>
@@ -173,12 +157,12 @@
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-          
-    <p>In global multi-office projects, <strong>Cross-Platform Drawing Share</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>DWG FastView</strong> drawings to IFC for coordination in <a href="../software/navisworks">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+
+    <p>Visualization workflows involving <strong>Cross-Platform Drawing Share</strong> bridge design engineering and client-facing presentation:</p>
     <ul>
-      <li><strong>Class Preservation:</strong> Ensure that <strong>Cross-Platform Drawing Share</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped components default to generic containers, losing their smart structural parameters.</li>
-      <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
-      <li><strong>Visual Overlap Verification:</strong> Run spatial clash checks regularly in a federated viewer to verify that no geometric overlaps or clearance violations occur between <strong>Cross-Platform Drawing Share</strong> and structural frameworks.</li>
+      <li><strong>CAD/BIM Import Pipeline:</strong> Receive design geometry from engineering teams (via FBX, STEP, OBJ, or glTF). Establish a repeatable import pipeline that handles coordinate-system rotation, unit conversion, and mesh cleanup so updated models can be re-imported without rebuilding material assignments.</li>
+      <li><strong>Material and Asset Library Sharing:</strong> Maintain a shared material library (PBR textures, environment maps, furniture assets) across the visualization team. Use version-controlled asset repositories so that scene files reference consistent, approved materials across all project renderings.</li>
+      <li><strong>Client Review and Iteration:</strong> Deliver interactive review formats (360-degree panoramas, real-time walkthroughs, annotated image sets) alongside traditional still renders. Collect markup feedback in a structured format and trace revisions back to specific design changes so the engineering team can verify intent.</li>
     </ul>
     
         </section>
@@ -463,7 +447,7 @@
       </div>
     </footer>
     <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
-    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
     <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>
