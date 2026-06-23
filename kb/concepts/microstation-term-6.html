@@ -214,7 +214,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for MicroStation <a href="./microstation-term-1">DGN Design File Format</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with DGN Design File Format in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>DGN V8 supports unlimited levels, multiple models within one file, and embedded raster references. Set working units (master units, sub-units, resolution) at file creation—changing later risks precision loss. Use the 'Compress Design' tool periodically to remove unused elements and reduce file size.</p>
           </div>
         </details>
         
@@ -223,7 +223,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for MicroStation Cells &amp; Shared Cells?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Cells &amp; Shared Cells in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Create cells for repeated elements (symbols, details, equipment). Shared cells store geometry once and reference it multiple times—editing the shared definition updates all instances. Organize cells in .cel libraries by discipline. Use point cells for single-insertion-point symbols, graphic cells for multi-element groups.</p>
           </div>
         </details>
         
@@ -232,7 +232,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for MicroStation Levels &amp; Level Manager?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Levels &amp; Level Manager in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Organize elements on named levels with assigned colors, line styles, and weights. Use level filters to show only relevant disciplines. Create level libraries (.dgnlib) for consistent standards across files. Apply 'ByLevel' symbology so elements inherit level display properties for uniform plotting.</p>
           </div>
         </details>
         
