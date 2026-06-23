@@ -149,6 +149,36 @@
                 <span class="quiz-stat-desc" id="stat-desc-draft">0 / 5 Lit</span>
               </div>
             </div>
+
+            <!-- Simulation / CAE -->
+            <div class="quiz-stat-card" data-track-card="sim">
+              <div class="quiz-stat-ring-container">
+                <svg class="quiz-stat-ring-svg">
+                  <circle class="quiz-stat-ring-bg" cx="30" cy="30" r="25"></circle>
+                  <circle class="quiz-stat-ring-active" id="ring-fill-sim" cx="30" cy="30" r="25"></circle>
+                </svg>
+                <span class="quiz-stat-ring-text" id="ring-text-sim">0%</span>
+              </div>
+              <div class="quiz-stat-info">
+                <span class="quiz-stat-title">Simulation/CAE</span>
+                <span class="quiz-stat-desc" id="stat-desc-sim">0 / 5 Lit</span>
+              </div>
+            </div>
+
+            <!-- Visualization -->
+            <div class="quiz-stat-card" data-track-card="viz">
+              <div class="quiz-stat-ring-container">
+                <svg class="quiz-stat-ring-svg">
+                  <circle class="quiz-stat-ring-bg" cx="30" cy="30" r="25"></circle>
+                  <circle class="quiz-stat-ring-active" id="ring-fill-viz" cx="30" cy="30" r="25"></circle>
+                </svg>
+                <span class="quiz-stat-ring-text" id="ring-text-viz">0%</span>
+              </div>
+              <div class="quiz-stat-info">
+                <span class="quiz-stat-title">3D Visualization</span>
+                <span class="quiz-stat-desc" id="stat-desc-viz">0 / 5 Lit</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -157,7 +187,7 @@
           <div class="placement-banner-content">
             <span class="placement-badge">🏆 Placement Test</span>
             <h3 class="placement-title">Already have rich CAD experience?</h3>
-            <p class="meta placement-desc">Pass our 10-question comprehensive test (accuracy &ge; 80%) covering BIM, MCAD, Civil, and 2D Draft to <b>instantly unlock all 20 skill nodes</b> across the site and earn 150 XP!</p>
+            <p class="meta placement-desc">Pass our 12-question comprehensive test (accuracy &ge; 80%) covering BIM, MCAD, Civil, 2D Draft, Simulation, and Visualization to <b>instantly unlock all 30 skill nodes</b> across the site and earn 200 XP!</p>
           </div>
           <button type="button" class="btn btn-primary btn-placement-go" onclick="window.location.href='?track=placement'">Start Placement Test</button>
         </div>
@@ -220,6 +250,30 @@
             </div>
             <button class="btn btn-primary domain-btn-go" onclick="window.location.href='?track=draft'">Start Challenge</button>
           </div>
+
+          <!-- Simulation / CAE Card -->
+          <div class="domain-portal-card">
+            <div class="domain-card-header">
+              <span class="domain-badge-duo">🔬 CAE</span>
+              <h3>Simulation / CAE Analyst</h3>
+              <p class="domain-card-content">
+                Covers FEA fundamentals, mesh quality, CFD turbulence models, conjugate heat transfer, topology optimization, and fatigue analysis.
+              </p>
+            </div>
+            <button class="btn btn-primary domain-btn-go" onclick="window.location.href='?track=sim'">Start Challenge</button>
+          </div>
+
+          <!-- Visualization Card -->
+          <div class="domain-portal-card">
+            <div class="domain-card-header">
+              <span class="domain-badge-duo">🎨 Viz</span>
+              <h3>3D Visualization Specialist</h3>
+              <p class="domain-card-content">
+                Covers PBR materials, HDRI lighting, camera settings, render optimization, denoising, and compositing workflows.
+              </p>
+            </div>
+            <button class="btn btn-primary domain-btn-go" onclick="window.location.href='?track=viz'">Start Challenge</button>
+          </div>
         </div>
 
         <!-- CADLingo Backup Manager -->
@@ -240,7 +294,7 @@
             </div>
             <div class="backup-stat-item">
               <span class="stat-label">Lit Nodes</span>
-              <strong class="stat-value" id="backup-stat-nodes">0 / 20</strong>
+              <strong class="stat-value" id="backup-stat-nodes">0 / 30</strong>
             </div>
           </div>
 
