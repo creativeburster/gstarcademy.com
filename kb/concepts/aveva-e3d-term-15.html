@@ -29,10 +29,10 @@
     <title>Equipment Modeling (AVEVA Everything3D) · Gstarcademy</title>
     <meta name="description" content="Parametric construction of plant primitives." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/aveva-e3d-term-15" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
@@ -214,7 +214,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for AVEVA Everything3D <a href="./aveva-e3d-term-1">Spec-Driven Piping Design</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Spec-Driven Piping Design in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Route piping by selecting from project-approved specifications (pipe class, schedule, material). E3D auto-populates fittings, valves, and gaskets from the spec catalog at each connection point. Run 'Spec Check' after routing to flag any out-of-spec substitutions. Update specs centrally—affected routes highlight automatically.</p>
           </div>
         </details>
         
@@ -223,7 +223,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for AVEVA Everything3D Laser Data &amp; Point Clouds?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Laser Data &amp; Point Clouds in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Import laser scan data (.rcp/.pts) as navigable point clouds for brownfield modeling. Align scans to E3D coordinates using survey targets. Use 'Snap to Cloud' for accurate placement of new equipment against existing structures. Hide cloud regions selectively to reduce display overhead in dense plants.</p>
           </div>
         </details>
         
@@ -232,7 +232,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for AVEVA Everything3D <a href="./aveva-e3d-term-3">Bubble View</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Bubble View in AVEVA Everything3D, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Generate Bubble Views (spherical panoramas) from strategic plant locations for operator training and field verification. Link bubble viewpoints to the 3D model for quick navigation. Export as standalone HTML packages for stakeholders without E3D access. Update views after model changes for current-state documentation.</p>
           </div>
         </details>
         
@@ -468,8 +468,8 @@ Without it, downstream fabrication or cross-discipline model federation will fac
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../d3.min.js?v=v15_subnav_dropdown" defer></script>
     <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
-    <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../knowledge.js?v=v15_subnav_dropdown" defer></script>
   </body>
 </html>

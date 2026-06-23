@@ -29,10 +29,10 @@
     <title>NURBS Geometry (Rhinoceros) · Gstarcademy</title>
     <meta name="description" content="Mathematical representation of highly precise smooth curves and freeform surfaces." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/rhinoceros-term-1" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
@@ -214,7 +214,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Rhinoceros NURBS Geometry?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with NURBS Geometry in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Rhino's mathematical foundation is NURBS (Non-Uniform Rational B-Splines), enabling exact representation of complex freeform curves and surfaces. Use degree-3 curves for most modeling (good balance of smoothness and control). Increase degree only for highly flowing surfaces (automotive, yacht hulls). Keep control point counts minimal for clean surfaces.</p>
           </div>
         </details>
         
@@ -223,7 +223,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Rhinoceros Grasshopper?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Grasshopper in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Grasshopper provides visual programming for parametric/generative design within Rhino. Build node graphs connecting inputs (sliders, points) through operations (loft, offset, divide) to outputs. Use data trees for managing lists of geometry. Internalize data for portable definitions. Cluster repeated logic into reusable components.</p>
           </div>
         </details>
         
@@ -232,7 +232,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Rhinoceros <a href="./rhinoceros-term-3">SubD Modeling</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with SubD Modeling in Rhinoceros, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Use SubD (subdivision surfaces) for organic forms that are difficult with NURBS. Start from a simple box mesh, then subdivide and manipulate control vertices. Convert SubD to NURBS with 'ToNURBS' for downstream manufacturing accuracy. SubD offers real-time smooth preview while maintaining low-polygon editability.</p>
           </div>
         </details>
         
@@ -468,8 +468,8 @@ Without it, downstream fabrication or cross-discipline model federation will fac
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../d3.min.js?v=v15_subnav_dropdown" defer></script>
     <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
-    <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../knowledge.js?v=v15_subnav_dropdown" defer></script>
   </body>
 </html>

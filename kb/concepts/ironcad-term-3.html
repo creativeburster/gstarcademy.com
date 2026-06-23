@@ -29,10 +29,10 @@
     <title>Catalog Drag-and-Drop (IronCAD) · Gstarcademy</title>
     <meta name="description" content="Fast modeling by dropping predefined shapes from sidebars onto active models." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/ironcad-term-3" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
@@ -214,7 +214,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for IronCAD <a href="./ironcad-term-1">Dual-Kernel Engine</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Dual-Kernel Engine in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>IronCAD operates on both ACIS and Parasolid kernels simultaneously—choose per part based on downstream needs. Use Parasolid for ANSYS/NX interop, ACIS for Autodesk compatibility. Switch kernels mid-design via right-click > Properties. The dual-kernel approach allows best-of-both-worlds geometry operations.</p>
           </div>
         </details>
         
@@ -223,7 +223,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for IronCAD <a href="./ironcad-term-2">Unified Assembly Environment</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Unified Assembly Environment in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>IronCAD's Scene (assembly) environment embeds parts directly—no separate part files needed unless desired. Drag parts from the catalog into position. Use 'Link External' for shared components needing independent version control. This unified approach eliminates the traditional part-assembly-drawing file management overhead.</p>
           </div>
         </details>
         
@@ -232,7 +232,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for IronCAD Catalog Drag-and-Drop?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Catalog Drag-and-Drop in IronCAD, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Drag standard parts, features, and assemblies directly from the Catalog Browser into the 3D scene. Parts snap to target geometry intelligently—bolts find holes, brackets align to faces. Organize custom catalogs by project or discipline. Use the Search function across all loaded catalogs for fast component finding.</p>
           </div>
         </details>
         
@@ -468,8 +468,8 @@ Without it, downstream fabrication or cross-discipline model federation will fac
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../d3.min.js?v=v15_subnav_dropdown" defer></script>
     <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
-    <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../knowledge.js?v=v15_subnav_dropdown" defer></script>
   </body>
 </html>

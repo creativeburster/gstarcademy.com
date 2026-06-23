@@ -29,10 +29,10 @@
     <title>MicroStation — software profile, learning path, ecosystem · Gstarcademy</title>
     <meta name="description" content="MicroStation profile: Bentley&#x27;s foundational high-performance CAD and BIM platform for large-scale global infrastructure p plus 15 terms and 15 FAQs reviewed by editors." />
     <link rel="canonical" href="https://gstarcademy.com/kb/software/microstation" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
@@ -248,63 +248,63 @@
           <h2>Frequently asked questions (15)</h2>
           <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation DGN Design File Format?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with DGN Design File Format in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>DGN V8 supports unlimited levels, multiple models within one file, and embedded raster references. Set working units (master units, sub-units, resolution) at file creation—changing later risks precision loss. Use the 'Compress Design' tool periodically to remove unused elements and reduce file size.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Cells &amp; Shared Cells?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Cells &amp; Shared Cells in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Create cells for repeated elements (symbols, details, equipment). Shared cells store geometry once and reference it multiple times—editing the shared definition updates all instances. Organize cells in .cel libraries by discipline. Use point cells for single-insertion-point symbols, graphic cells for multi-element groups.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Levels &amp; Level Manager?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Levels &amp; Level Manager in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Organize elements on named levels with assigned colors, line styles, and weights. Use level filters to show only relevant disciplines. Create level libraries (.dgnlib) for consistent standards across files. Apply 'ByLevel' symbology so elements inherit level display properties for uniform plotting.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Reference Files?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Reference Files in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Attach external DGN/DWG files as references for multi-discipline coordination. Use 'Live Nesting' to see nested references from attached files. Set logical names for reference paths to support portable project structures. Lock display of stable references to improve redraw performance in complex models.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Item Types?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Item Types in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Define Item Types to attach structured data (properties) to any graphic element—similar to IFC property sets. Create Item Type libraries per project standard. Use the Properties dialog to populate data and EC Expressions for computed values. Export Item Type data to Excel or query via Bentley iTwin.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Parametric Modeling &amp; Constraints?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Parametric Modeling &amp; Constraints in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use MicroStation's parametric constraints to define relationships between 3D elements. Apply dimensional and geometric constraints in Feature Modeling mode. Create parametric solids that update when constraint values change. Combine with named expressions for spreadsheet-like control over complex parametric families.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation AccuDraw &amp; AccuSnap?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with AccuDraw &amp; AccuSnap in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>AccuDraw provides real-time coordinate input using polar (distance+angle) or rectangular (X,Y) modes. Lock axes with Enter key, toggle mode with spacebar. Use compass rotation (T key) to align with existing geometry. Master AccuDraw shortcuts to dramatically speed up precision placement without typing coordinates.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation ProjectWise Collaboration?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with ProjectWise Collaboration in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use ProjectWise for document management, version control, and workflow automation. Check out DGN files for exclusive editing, check in with revision comments. Configure Saved Searches for quick access to working sets. Integrate with MicroStation's reference system to automatically resolve paths from the managed repository.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Mesh Modeling Tools?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Mesh Modeling Tools in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use MicroStation's mesh modeling for reality capture workflows and conceptual design. Import OBJ/STL meshes, edit with push/pull vertex tools. Convert meshes to analytical surfaces using surface fitting. Reduce polygon count with decimation while preserving key feature edges for efficient visualization.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Print Organizer?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Print Organizer in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Create print sets defining multiple views, scales, and pen tables in a single configuration. Print Organizer automates multi-sheet output to PDF/plotters. Define fence-based print areas linked to saved views. Schedule batch printing for large drawing sets and track print history for document control.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Bentley View Compatibility?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Bentley View Compatibility in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Bentley View is the free viewer for DGN files—distribute to stakeholders without full MicroStation licenses. Use i-model publishing for lightweight sharing with embedded properties. Ensure reference file paths are relative or embedded for portable packages. Test view presentation before distributing to external parties.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Geographic Coordinate Systems?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Geographic Coordinate Systems in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Assign Geographic Coordinate Systems (GCS) to DGN files for geo-referenced design. Select datum and projection (UTM, State Plane) from the built-in library. Use reprojection tools to align data from different coordinate systems. Enable terrain model display with elevation data for infrastructure corridor projects.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation MDL C++ API?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with MDL C++ API in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Develop custom applications using the MDL (MicroStation Development Language) C++ API for high-performance tools. Access the DGN file model via mdlElement functions. Build dialog boxes with resource files. Compile MDL applications (.ma) using the MicroStation SDK. Distribute via the MDLAPPS configuration variable.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation Point Cloud Visualisation?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Point Cloud Visualisation in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Import point clouds (LAS, LAZ, E57) for as-built documentation and brownfield design. Use classification filters (ground, vegetation, buildings) to show relevant data. Set point density display limits for smooth interaction. Clip clouds with fence tools for section analysis and clearance verification.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for MicroStation VBA Automation?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with VBA Automation in MicroStation, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Write VBA macros for MicroStation automation using the built-in VBA IDE (Tools > Macros). Access the MicroStation object model for element creation, modification, and queries. Use UserForms for custom dialogs. Record actions to generate starter code, then enhance with loops and conditionals for batch processing.</p></div>
             </details>
           <p class="meta" style="margin-top:14px;"><a href="../../kb-faq#microstation">All MicroStation FAQs ›</a></p>
         </section>

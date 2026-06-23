@@ -29,10 +29,10 @@
     <title>Reinforcement Reports (Allplan) · Gstarcademy</title>
     <meta name="description" content="Automated schedules driven directly by 3D rebar models." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/allplan-term-5" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
@@ -214,7 +214,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Allplan <a href="./allplan-term-1">SmartParts</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with SmartParts in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Define SmartParts as parametric building components with built-in intelligence. Set parameter ranges (min/max wall thickness, opening sizes) to prevent invalid configurations. Use the SmartPart Editor to create custom families—embed IFC property sets for proper classification in BIM workflows.</p>
           </div>
         </details>
         
@@ -223,7 +223,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Allplan <a href="./allplan-term-2">3D Reinforcement Modeling</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with 3D Reinforcement Modeling in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Model reinforcement in 3D by placing bars along structural member faces. Use bar shapes from the standard library (L, U, stirrup) and define cover rules per exposure class. Generate bar bending schedules automatically—verify quantities match structural calculations before issuing for construction.</p>
           </div>
         </details>
         
@@ -232,7 +232,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Allplan <a href="./allplan-term-3">Allplan Bridge</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Allplan Bridge in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Use Allplan Bridge for parametric bridge design with cross-section variation along alignment. Define tendon geometry using parabolic profiles and check eccentricity limits. Export analysis models to SOFISTIK for structural verification. Coordinate deck segments with construction sequence phasing.</p>
           </div>
         </details>
         
@@ -468,8 +468,8 @@ Without it, downstream fabrication or cross-discipline model federation will fac
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../d3.min.js?v=v15_subnav_dropdown" defer></script>
     <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
-    <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../knowledge.js?v=v15_subnav_dropdown" defer></script>
   </body>
 </html>

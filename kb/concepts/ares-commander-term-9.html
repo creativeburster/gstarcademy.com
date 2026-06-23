@@ -29,10 +29,10 @@
     <title>DGN Import &amp; Underlay (ARES Commander) · Gstarcademy</title>
     <meta name="description" content="Bentley CAD file compatibility and exchange tools." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/ares-commander-term-9" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
@@ -214,7 +214,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for ARES Commander <a href="./ares-commander-term-1">Trinity Concept</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Trinity Concept in ARES Commander, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>ARES Trinity (Commander desktop + Kudo web + Touch mobile) synchronizes drawings via Graebert cloud storage. Save to cloud from Commander for instant mobile/web access. Use Kudo for quick markups in the field, then finalize edits in Commander. Enable auto-sync to avoid version conflicts between platforms.</p>
           </div>
         </details>
         
@@ -223,7 +223,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for ARES Commander <a href="./ares-commander-term-2">DWG Native Engine</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with DWG Native Engine in ARES Commander, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>ARES Commander reads/writes DWG natively (no conversion) using the Graebert ARES kernel. It supports formats from AutoCAD 2000 through 2024. Use 'DWGCHECK' command to verify file integrity after editing. Set default save format to match collaborators' AutoCAD version for seamless exchange.</p>
           </div>
         </details>
         
@@ -232,7 +232,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for ARES Commander <a href="./ares-commander-term-3">ARES Kudo</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with ARES Kudo in ARES Commander, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Access ARES Kudo through any modern browser—no installation needed. Upload DWG files to Graebert cloud or connect Google Drive/Dropbox. Kudo supports basic editing (modify, annotate, measure) but not LISP routines. Use it for review cycles and field measurements, then do production drafting in Commander.</p>
           </div>
         </details>
         
@@ -468,8 +468,8 @@ Without it, downstream fabrication or cross-discipline model federation will fac
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../d3.min.js?v=v15_subnav_dropdown" defer></script>
     <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
-    <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../knowledge.js?v=v15_subnav_dropdown" defer></script>
   </body>
 </html>

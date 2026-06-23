@@ -29,10 +29,10 @@
     <title>STEP/IGES Translation (Alibre Design) · Gstarcademy</title>
     <meta name="description" content="Standardized neutral formats for cross-platform CAD exchange." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/alibre-design-term-14" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.png" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
@@ -214,7 +214,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Alibre Design <a href="./alibre-design-term-1">Parametric Dimension Driver</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Parametric Dimension Driver in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Use Parametric Dimension Driver to link sketch dimensions to equations. Define driving dimensions first, then apply constraints—avoid over-constraining by watching the DOF counter in the status bar. Group related dimensions into named equation sets for complex assemblies.</p>
           </div>
         </details>
         
@@ -223,7 +223,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Alibre Design Geometric Constraints?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Geometric Constraints in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Apply geometric constraints (coincident, tangent, concentric) before adding dimensions. Use 'Show All Constraints' to audit sketch health. Prefer implicit constraints from snapping during sketch creation over manually applied ones for cleaner solver behavior.</p>
           </div>
         </details>
         
@@ -232,7 +232,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the recommended practice for Alibre Design <a href="./alibre-design-term-3">Feature History Tree</a>?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>When working with Feature History Tree in Alibre Design, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p>
+            <p>Organize the Feature History Tree by placing datum planes and reference geometry at the top, followed by primary shape features, then detail features. Use folders for logical grouping. Name features descriptively—avoid 'Extrude1, Extrude2' naming which makes later edits difficult.</p>
           </div>
         </details>
         
@@ -468,8 +468,8 @@ Without it, downstream fabrication or cross-discipline model federation will fac
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../d3.min.js?v=v15_subnav_dropdown" defer></script>
     <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
-    <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script src="../../knowledge.js?v=v15_subnav_dropdown" defer></script>
   </body>
 </html>
