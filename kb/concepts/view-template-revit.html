@@ -128,9 +128,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>At the database tier, <strong>View Templates (<a href="../software/revit">Revit</a>)</strong> within the <strong>Revit</strong> ecosystem relies on a structured, relational object graph rather than simple visual vectors. Each instance is tracked by a unique Global Unique Identifier (GUID), linking its geometry to semantic parameters in the project database. When rendering or scheduling, the engine performs real-time queries to resolve parameter values and apply visibility graphic overrides.</p>
-        <p>In highly federated BIM models, this data structure guarantees that changes in View Templates (Revit) are instantly propagated to structural, MEP, and quantity-takeoff <a href="./schedules-revit">schedules</a>. The coordinate registration uses a double-precision float space, preventing floating-point rounding errors during multi-mile coordinate transformations relative to the project base point.</p>
         
+
+        <p>The analytical model associated with <strong>View Templates (Revit)</strong> is a simplified geometric abstraction used for structural analysis and energy simulation. While the physical model stores the exact 3D geometry (including profile offsets, layer compositions, and connection details), the analytical model reduces this to centerline representations, node points, and load-bearing surfaces. Discrepancies between the physical and analytical representations of View Templates (Revit)—such as misaligned analytical lines or unconnected nodes—propagate errors into structural calculation exports and must be resolved before analysis.</p>
+        <p>Scheduling and tagging of View Templates (Revit) depend on the parameter infrastructure: only shared parameters appear in multi-category schedules, and only parameters exposed in the family definition are available for tagging. Project parameters add data fields to placed instances but don't travel with the family when loaded into other projects. This distinction between shared, project, and family parameters is a frequent source of confusion when teams attempt to extract consistent data from View Templates (Revit) across multiple project files.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>When working with <strong>View Templates (Revit)</strong> in complex multi-user BIM environments, designers frequently encounter specialized coordination anomalies. Use this checklist to diagnose and resolve typical errors:</p>
-        <ul>
-          <li><strong>Topological Reference Orphaned (Revit Warn 102-A):</strong> Occurs when a sketch or parameter reference is lost due to a parent wall/slab deletion. <em>Resolution:</em> Edit the sketch plane and re-associate the broken constraints to active levels.</li>
-          <li><strong><a href="./shared-coordinates-revit">Shared Coordinates</a> Deviation:</strong> Model shifts by several inches or yards during export. <em>Resolution:</em> Verify that the host model's Project Base Point and Survey Point are correctly mapped and coordinate values are aligned before performing a global coordinate publish.</li>
-          <li><strong>Worksharing Permission Locks:</strong> Multiple designers locked out of modifying <strong>View Templates (Revit)</strong>. <em>Resolution:</em> Have the active borrower perform a "Synchronize with Central" and check "Relinquish All Mine" in their collaboration panel.</li>
-        </ul>
         
+
+        <p>Issues commonly encountered with <strong>View Templates (Revit)</strong> in BIM production environments, with resolution procedures:</p>
+        <ul>
+          <li><strong>Element not visible in expected views:</strong> View Templates (Revit) exists in the model but doesn't appear in a particular view. <em>Resolution:</em> Check the view's visibility/graphics overrides for the element's category and subcategory. Verify that the view range (cut plane and depth) encompasses the element's elevation. Confirm the element's phase is included in the view's phase filter settings.</li>
+          <li><strong>Warnings accumulate after model modifications:</strong> Editing View Templates (Revit) generates persistent warnings about overlapping elements or invalid joins. <em>Resolution:</em> Use the Review Warnings dialog to identify the specific issue. For join-related warnings, unjoin and rejoin the elements. For overlap warnings, use the Interference Check tool to visualize the conflict geometry and determine which element should be adjusted.</li>
+          <li><strong>Schedule values don't match element properties:</strong> Quantities or parameters for View Templates (Revit) in schedules differ from the values shown in element properties. <em>Resolution:</em> Verify that the schedule is filtering to the correct phase and design option. Check whether the schedule field uses a calculated value (which may round differently) versus the raw parameter. For type parameters, confirm that the schedule is grouping by type correctly.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Catalog &amp; Spec Editor is critical for production-grade deliverables. Acts as the single source of truth for plant modeling, ensuring every designer selects standard parts.</p>
+          <p>Errors in Catalog &amp; Spec Editor tend to cascade through the project, making early precision worth the extra effort. Acts as the single source of truth for plant modeling, ensuring every designer selects standard parts.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>AVEVA Everything3D</strong>, <strong>Catalog &amp; Spec Editor (AVEVA Everything3D)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading <a href="./drawings-fusion">drawings</a> with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>Catalog &amp; Spec Editor (AVEVA Everything3D)</strong> operates within the plant-design database, which maintains a hierarchical structure: site → plant → zone → equipment → nozzle → pipe-run → pipe-component. Each entity in this hierarchy carries engineering attributes (design pressure, temperature, material specification, insulation class) that propagate through the hierarchy according to the piping specification. The 3D model is generated from these attributes—pipe diameters, wall thicknesses, fitting dimensions are all derived from the spec rather than manually modeled.</p>
+        <p>Catalog-driven placement is central to Catalog &amp; Spec Editor (AVEVA Everything3D): equipment, pipe fittings, valves, and structural steelwork are placed from parametric catalogs that enforce dimensional standards (ASME, EN, DIN). The catalog system ensures that a 6-inch ANSI 150 flange always has the correct bolt-circle diameter, face finish, and rating—the designer selects the specification and the system generates the correct geometry. This catalog dependency means that Catalog &amp; Spec Editor (AVEVA Everything3D) accuracy is only as good as the catalog data, and organizations must maintain and validate their catalog libraries against current vendor datasheets.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Catalog &amp; Spec Editor (AVEVA Everything3D)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Troubleshooting procedures for <strong>Catalog &amp; Spec Editor (AVEVA Everything3D)</strong> in plant design environments:</p>
+        <ul>
+          <li><strong>Pipe routing violates spec constraints:</strong> The routing path for Catalog &amp; Spec Editor (AVEVA Everything3D) uses fittings not defined in the piping specification. <em>Resolution:</em> Verify that the active piping spec includes all required fitting types for the current nominal size and pressure class. Check for spec transitions at size changes—reducer types and branch fitting rules may not be configured for the specific size combination being routed.</li>
+          <li><strong>Clash report includes thousands of duplicate items:</strong> Catalog &amp; Spec Editor (AVEVA Everything3D) clash detection produces an unmanageable number of results. <em>Resolution:</em> Apply clash grouping rules to consolidate related clashes (e.g., all clashes between the same two pipe runs). Set appropriate tolerances to filter out soft clashes that are within construction tolerances. Exclude insulation-vs-insulation clashes unless specifically required by the project.</li>
+          <li><strong>Isometric generation shows incorrect annotations:</strong> Auto-generated isometrics from Catalog &amp; Spec Editor (AVEVA Everything3D) display wrong weld counts or material descriptions. <em>Resolution:</em> Verify that the piping components in the model carry correct catalog attributes (end connections, materials, weight). Check the isometric style configuration for annotation placement rules. Re-extract the isometric after confirming component data integrity in the model browser.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Entering incorrect component dimensions, causing all downstream plant designs to contain geometric errors.&#x27; As the editorial review notes: &#x27;Mastering Catalog &amp; Spec Editor is critical for production-grade deliverables. Acts as the single source of truth for plant modeling, ensuring every designer selects standard parts.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Entering incorrect component dimensions, causing all downstream plant designs to contain geometric errors.&#x27; As the editorial review notes: &#x27;Errors in Catalog &amp; Spec Editor tend to cascade through the project, making early precision worth the extra effort. Acts as the single source of truth for plant modeling, ensuring every designer selects standard parts.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

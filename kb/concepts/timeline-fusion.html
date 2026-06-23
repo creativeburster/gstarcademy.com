@@ -129,14 +129,16 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>Fusion 360</strong>, <strong>Timeline (Fusion 360)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading <a href="./drawings-fusion">drawings</a> with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The boundary representation (B-rep) of <strong>Timeline (Fusion 360)</strong> stores geometry as a collection of faces, each bounded by edge loops, where each edge is the intersection curve of two adjacent face surfaces. The geometric kernel (Parasolid, ACIS, or Open CASCADE depending on the platform) maintains topological consistency: every edge must be shared by exactly two faces, every face must form a closed loop, and the solid must have a well-defined inside/outside orientation. Operations on Timeline (Fusion 360) that violate these rules—such as creating zero-thickness walls or self-intersecting surfaces—produce invalid B-rep errors.</p>
+        <p>Sheet metal operations on Timeline (Fusion 360) require the kernel to maintain a parallel representation: the folded (3D) state and the flat pattern. The flat-pattern algorithm unfolds each bend using a bend allowance or K-factor calculation, accounting for material thickness, bend radius, and material properties. The accuracy of the flat pattern depends on correct K-factor values—typically 0.3-0.5 for steel—and errors here propagate directly to cut blanks that don't fold to the correct dimensions on the press brake.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Timeline (Fusion 360)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Timeline (Fusion 360)</strong> in a mechanical or product-design production pipeline requires dependable modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Timeline (Fusion 360)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Timeline (Fusion 360)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Troubleshooting workflow for <strong>Timeline (Fusion 360)</strong> in PDM-managed parametric CAD environments:</p>
+        <ul>
+          <li><strong>External references lost after file rename or move:</strong> Opening an assembly after reorganizing the file structure causes Timeline (Fusion 360) components to show as missing. <em>Resolution:</em> Use the PDM system's rename/move functions instead of operating-system file operations—PDM tools update all internal reference paths. If references are already broken, use the assembly's file reference dialog to manually remap each missing component to its new location.</li>
+          <li><strong>Mass properties incorrect for multibody parts:</strong> The mass calculation for Timeline (Fusion 360) doesn't match expected values. <em>Resolution:</em> Verify that material assignments are applied to each body in multibody parts (some systems require per-body material rather than per-part). Check for suppressed features that remove material. Confirm the measurement units match expectations (the mass properties dialog may display in different units than the part's modeling units).</li>
+          <li><strong>Drawing views don't update after model change:</strong> Section views or detail views of Timeline (Fusion 360) show stale geometry after modifying the parent model. <em>Resolution:</em> Force a drawing update (Ctrl+Q or equivalent rebuild command). If specific views lag, check for broken view references—views that reference deleted features or configurations may freeze at their last valid state rather than updating.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

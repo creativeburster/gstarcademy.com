@@ -129,9 +129,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>Navisworks</strong>, <strong>TimeLiner 4D Simulator (Navisworks)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>TimeLiner 4D Simulator (Navisworks)</strong> operates on a federated model—a composite of separately authored discipline models merged in a neutral viewing environment. The federation process transforms each source model's local coordinate system into a shared project coordinate system, using origin offsets and rotation angles defined in the project's coordination protocol. Mismatches in these transformation parameters cause apparent model misalignments that masquerade as genuine clashes.</p>
+        <p>Clash detection algorithms evaluate TimeLiner 4D Simulator (Navisworks) by testing spatial overlap between bounding volumes (axis-aligned bounding boxes) as a first pass, then refining with exact geometric intersection tests for candidate pairs. The first-pass AABB test is computationally cheap (O(n log n) with spatial hashing), but the exact geometry test is expensive—particularly for curved elements like pipes, ducts, and structural members with complex profiles. Tolerance settings control whether near-misses are flagged, and grouping rules collapse related clashes (e.g., all clashes between the same two pipes) into single actionable items.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>TimeLiner 4D Simulator (Navisworks)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in layout plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Common issues in <strong>TimeLiner 4D Simulator (Navisworks)</strong> coordination workflows and their resolutions:</p>
+        <ul>
+          <li><strong>False clash results from coordinate misalignment:</strong> Hundreds of clashes reported between models that should be spatially aligned. <em>Resolution:</em> Compare the origin points and shared coordinates of all source models. Even a 1mm offset produces systematic false clashes across the entire model. Re-export the source models with corrected shared coordinates and re-run the detection.</li>
+          <li><strong>BCF issues not visible in authoring tool:</strong> BCF topics created during TimeLiner 4D Simulator (Navisworks) review don't show the correct viewpoint when opened in the BIM authoring tool. <em>Resolution:</em> Verify that the BCF file uses the same coordinate system as the authoring tool. Some tools interpret BCF camera positions differently (local vs. shared coordinates). Test with a single known-position issue to calibrate the viewpoint mapping.</li>
+          <li><strong>Model performance degrades with large federated models:</strong> Navigation becomes sluggish when reviewing TimeLiner 4D Simulator (Navisworks) in a federation with many disciplines. <em>Resolution:</em> Use section boxes to limit the visible scope. Convert models to optimized formats (NWC cache files for Navisworks, lightweight IFC for web viewers). Disable element categories not relevant to the current review (furniture, plumbing fixtures) to reduce rendering load.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

@@ -128,9 +128,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>At the database tier, <strong>Phasing (<a href="../software/revit">Revit</a>)</strong> within the <strong>Revit</strong> ecosystem relies on a structured, relational object graph rather than simple visual vectors. Each instance is tracked by a unique Global Unique Identifier (GUID), linking its geometry to semantic parameters in the project database. When rendering or scheduling, the engine performs real-time queries to resolve parameter values and apply visibility graphic overrides.</p>
-        <p>In highly federated BIM models, this data structure guarantees that changes in Phasing (Revit) are instantly propagated to structural, MEP, and quantity-takeoff <a href="./schedules-revit">schedules</a>. The coordinate registration uses a double-precision float space, preventing floating-point rounding errors during multi-mile coordinate transformations relative to the project base point.</p>
         
+
+        <p>In the BIM database, <strong>Phasing (Revit)</strong> is represented as a parametric element with both geometric definition and semantic metadata. The element's geometry is generated procedurally from parameter values (height, width, offset, profile) rather than stored as fixed coordinates, which means every parameter change triggers a geometry regeneration cycle. This procedural approach enables schedule extraction, quantity takeoff, and interference checking to operate on the same data that produces drawings.</p>
+        <p>The relationship graph connecting Phasing (Revit) to other model elements—hosted elements, room boundaries, structural connections—is maintained through an internal constraint solver. When Phasing (Revit) moves or resizes, the solver propagates changes through the dependency chain: hosted elements follow their hosts, room areas recalculate, and joined elements adjust their geometry at connection points. Understanding this propagation order is critical for predicting which elements will be affected by modifications to Phasing (Revit).</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>When working with <strong>Phasing (Revit)</strong> in complex multi-user BIM environments, designers frequently encounter specialized coordination anomalies. Use this checklist to diagnose and resolve typical errors:</p>
-        <ul>
-          <li><strong>Topological Reference Orphaned (Revit Warn 102-A):</strong> Occurs when a sketch or parameter reference is lost due to a parent wall/slab deletion. <em>Resolution:</em> Edit the sketch plane and re-associate the broken constraints to active levels.</li>
-          <li><strong><a href="./shared-coordinates-revit">Shared Coordinates</a> Deviation:</strong> Model shifts by several inches or yards during export. <em>Resolution:</em> Verify that the host model's Project Base Point and Survey Point are correctly mapped and coordinate values are aligned before performing a global coordinate publish.</li>
-          <li><strong>Worksharing Permission Locks:</strong> Multiple designers locked out of modifying <strong>Phasing (Revit)</strong>. <em>Resolution:</em> Have the active borrower perform a "Synchronize with Central" and check "Relinquish All Mine" in their collaboration panel.</li>
-        </ul>
         
+
+        <p>Diagnostic procedures for <strong>Phasing (Revit)</strong> performance and data integrity:</p>
+        <ul>
+          <li><strong>Model regeneration becomes progressively slower:</strong> Opening views containing Phasing (Revit) takes increasingly longer as the project matures. <em>Resolution:</em> Audit the warning count—models with thousands of warnings regenerate significantly slower. Purge unused families, views, and groups. Check for heavily nested family instances that multiply the geometry the engine must resolve per view.</li>
+          <li><strong>Room/area calculations incorrect:</strong> Rooms containing Phasing (Revit) report wrong area or fail to compute. <em>Resolution:</em> Verify that all bounding elements have their Room Bounding parameter enabled. Check for gaps in the room boundary (use the Room Separation Line tool to close them). Ensure the room's computation height intersects the bounding walls at a level where they have solid geometry.</li>
+          <li><strong>Tag cannot find parameter value:</strong> Tags applied to Phasing (Revit) display question marks instead of parameter values. <em>Resolution:</em> Open the tag family and verify that the label references the correct parameter name (exact match, case-sensitive). Check if the parameter is a type parameter but the tag expects an instance parameter, or vice versa. For shared parameters, confirm the GUID matches between the tag family and the host family.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

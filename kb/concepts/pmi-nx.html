@@ -128,14 +128,16 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong><a href="../software/siemens-nx">Siemens NX</a></strong>, <strong>Product Manufacturing Information (PMI, NX)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>Product Manufacturing Information (PMI, NX)</strong> benefits from the direct-modeling paradigm, which allows face-level manipulation without history-tree dependency. In direct mode, the user selects a face and applies a move, offset, or rotation. The kernel identifies all adjacent faces that must adjust to maintain B-rep validity—fillet faces resize, chamfer faces tilt, and adjacent planar faces extend or trim. This "face recognition" step is what makes direct editing intelligent rather than simple vertex dragging: the kernel infers geometric intent from the face types and adjacency relationships surrounding Product Manufacturing Information (PMI, NX).</p>
+        <p>Synchronous or hybrid technology merges parametric and direct approaches: features created parametrically can be edited directly, and the system attempts to update the feature tree to reflect the direct edit. This back-propagation is not always possible—direct edits that contradict the original feature intent (such as moving a fillet face past its parent edge) cannot be expressed in the tree, requiring the system to either absorb the edit as a "move face" feature or flag a conflict. Understanding these hybrid limitations is essential for teams that mix parametric and direct workflows when working with Product Manufacturing Information (PMI, NX).</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Product Manufacturing Information (PMI, NX)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Product Manufacturing Information (PMI, NX)</strong> in a mechanical or product-design production pipeline requires solid modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Product Manufacturing Information (PMI, NX)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Product Manufacturing Information (PMI, NX)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Troubleshooting workflow for <strong>Product Manufacturing Information (PMI, NX)</strong> in PDM-managed parametric CAD environments:</p>
+        <ul>
+          <li><strong>External references lost after file rename or move:</strong> Opening an assembly after reorganizing the file structure causes Product Manufacturing Information (PMI, NX) components to show as missing. <em>Resolution:</em> Use the PDM system's rename/move functions instead of operating-system file operations—PDM tools update all internal reference paths. If references are already broken, use the assembly's file reference dialog to manually remap each missing component to its new location.</li>
+          <li><strong>Mass properties incorrect for multibody parts:</strong> The mass calculation for Product Manufacturing Information (PMI, NX) doesn't match expected values. <em>Resolution:</em> Verify that material assignments are applied to each body in multibody parts (some systems require per-body material rather than per-part). Check for suppressed features that remove material. Confirm the measurement units match expectations (the mass properties dialog may display in different units than the part's modeling units).</li>
+          <li><strong>Drawing views don't update after model change:</strong> Section views or detail views of Product Manufacturing Information (PMI, NX) show stale geometry after modifying the parent model. <em>Resolution:</em> Force a drawing update (Ctrl+Q or equivalent rebuild command). If specific views lag, check for broken view references—views that reference deleted features or configurations may freeze at their last valid state rather than updating.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

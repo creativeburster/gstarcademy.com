@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering CineRender Engine is critical for production-grade deliverables. Allows structural designers to output stunning client visualizations directly from their active BIM authoring workspace.</p>
+          <p>Reliable use of CineRender Engine reduces rework cycles and improves consistency across project documentation. Allows structural designers to output stunning client visualizations directly from their active BIM authoring workspace.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>At the database tier, <strong>CineRender Engine (Allplan)</strong> within the <strong>Allplan</strong> ecosystem relies on a structured, relational object graph rather than simple visual vectors. Each instance is tracked by a unique Global Unique Identifier (GUID), linking its geometry to semantic parameters in the project database. When rendering or scheduling, the engine performs real-time queries to resolve parameter values and apply visibility graphic overrides.</p>
-        <p>In highly federated BIM models, this data structure guarantees that changes in CineRender Engine (Allplan) are instantly propagated to structural, MEP, and quantity-takeoff <a href="./schedules-revit">schedules</a>. The coordinate registration uses a double-precision float space, preventing floating-point rounding errors during multi-mile coordinate transformations relative to the project base point.</p>
         
+
+        <p>The parametric engine resolves <strong>CineRender Engine (Allplan)</strong> by evaluating a directed acyclic graph (DAG) of dimensional constraints, reference planes, and formula-driven parameters. Each family type defines this constraint graph at authoring time, and every placed instance inherits the same topology. When a parameter changes—whether by direct edit, schedule input, or API call—the engine walks the DAG to determine which geometry nodes need recalculation, minimizing the regeneration scope.</p>
+        <p>Interoperability of CineRender Engine (Allplan) depends heavily on its IFC mapping configuration. During IFC export, the element's native category maps to an IFC entity class (IfcWall, IfcColumn, IfcSlab, etc.), and its parameter values populate IFC property sets (Pset_WallCommon, Pset_ColumnCommon). If the mapping is incorrect or incomplete, downstream coordination software receives a geometrically accurate but semantically empty element—it looks right but carries no usable metadata for clash rules, quantity queries, or facility management systems.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>When working with <strong>CineRender Engine (Allplan)</strong> in complex multi-user BIM environments, designers frequently encounter specialized coordination anomalies. Use this checklist to diagnose and resolve typical errors:</p>
-        <ul>
-          <li><strong>Topological Reference Orphaned (<a href="../software/revit">Revit</a> Warn 102-A):</strong> Occurs when a sketch or parameter reference is lost due to a parent wall/slab deletion. <em>Resolution:</em> Edit the sketch plane and re-associate the broken constraints to active levels.</li>
-          <li><strong><a href="./shared-coordinates-revit">Shared Coordinates</a> Deviation:</strong> Model shifts by several inches or yards during export. <em>Resolution:</em> Verify that the host model's Project Base Point and Survey Point are correctly mapped and coordinate values are aligned before performing a global coordinate publish.</li>
-          <li><strong>Worksharing Permission Locks:</strong> Multiple designers locked out of modifying <strong>CineRender Engine (Allplan)</strong>. <em>Resolution:</em> Have the active borrower perform a "Synchronize with Central" and check "Relinquish All Mine" in their collaboration panel.</li>
-        </ul>
         
+
+        <p>Diagnostic procedures for <strong>CineRender Engine (Allplan)</strong> performance and data integrity:</p>
+        <ul>
+          <li><strong>Model regeneration becomes progressively slower:</strong> Opening views containing CineRender Engine (Allplan) takes increasingly longer as the project matures. <em>Resolution:</em> Audit the warning count—models with thousands of warnings regenerate significantly slower. Purge unused families, views, and groups. Check for heavily nested family instances that multiply the geometry the engine must resolve per view.</li>
+          <li><strong>Room/area calculations incorrect:</strong> Rooms containing CineRender Engine (Allplan) report wrong area or fail to compute. <em>Resolution:</em> Verify that all bounding elements have their Room Bounding parameter enabled. Check for gaps in the room boundary (use the Room Separation Line tool to close them). Ensure the room's computation height intersects the bounding walls at a level where they have solid geometry.</li>
+          <li><strong>Tag cannot find parameter value:</strong> Tags applied to CineRender Engine (Allplan) display question marks instead of parameter values. <em>Resolution:</em> Open the tag family and verify that the label references the correct parameter name (exact match, case-sensitive). Check if the parameter is a type parameter but the tag expects an instance parameter, or vice versa. For shared parameters, confirm the GUID matches between the tag family and the host family.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Applying raw, high-resolution textures without mapping scales, causing pixelated renderings.&#x27; As the editorial review notes: &#x27;Mastering CineRender Engine is critical for production-grade deliverables. Allows structural designers to output stunning client visualizations directly from their active BIM authoring workspace.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Applying raw, high-resolution textures without mapping scales, causing pixelated renderings.&#x27; As the editorial review notes: &#x27;Reliable use of CineRender Engine reduces rework cycles and improves consistency across project documentation. Allows structural designers to output stunning client visualizations directly from their active BIM authoring workspace.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

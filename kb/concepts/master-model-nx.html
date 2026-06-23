@@ -129,14 +129,16 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong><a href="../software/siemens-nx">Siemens NX</a></strong>, <strong>Master Model Concept (NX)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The parametric kernel resolves <strong>Master Model Concept (NX)</strong> by replaying a sequential feature history—each feature in the tree is a recorded operation (extrude, revolve, fillet, pattern) with input references to sketch geometry, datum planes, or existing feature faces. When a parameter changes, the kernel re-evaluates the tree from the modified feature downward, regenerating each dependent feature in order. This replay-based approach means that the order of features in the tree is semantically significant: reordering features can produce different geometry even with identical parameters.</p>
+        <p>Reference stability is the central challenge in Master Model Concept (NX). Sketch constraints and feature inputs bind to specific topological entities (faces, edges, vertices) using internal identifiers. When an upstream feature changes topology—for example, a fillet that previously produced one face now produces two after a radius change—downstream references to Master Model Concept (NX) may lose their binding, producing "dangling reference" or "rebuild error" warnings. Sound modeling practice for Master Model Concept (NX) requires referencing stable entities (origin planes, datum features, named selections) rather than transient topology.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Master Model Concept (NX)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Master Model Concept (NX)</strong> in a mechanical or product-design production pipeline requires proven modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Master Model Concept (NX)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Master Model Concept (NX)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Troubleshooting workflow for <strong>Master Model Concept (NX)</strong> in PDM-managed parametric CAD environments:</p>
+        <ul>
+          <li><strong>External references lost after file rename or move:</strong> Opening an assembly after reorganizing the file structure causes Master Model Concept (NX) components to show as missing. <em>Resolution:</em> Use the PDM system's rename/move functions instead of operating-system file operations—PDM tools update all internal reference paths. If references are already broken, use the assembly's file reference dialog to manually remap each missing component to its new location.</li>
+          <li><strong>Mass properties incorrect for multibody parts:</strong> The mass calculation for Master Model Concept (NX) doesn't match expected values. <em>Resolution:</em> Verify that material assignments are applied to each body in multibody parts (some systems require per-body material rather than per-part). Check for suppressed features that remove material. Confirm the measurement units match expectations (the mass properties dialog may display in different units than the part's modeling units).</li>
+          <li><strong>Drawing views don't update after model change:</strong> Section views or detail views of Master Model Concept (NX) show stale geometry after modifying the parent model. <em>Resolution:</em> Force a drawing update (Ctrl+Q or equivalent rebuild command). If specific views lag, check for broken view references—views that reference deleted features or configurations may freeze at their last valid state rather than updating.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

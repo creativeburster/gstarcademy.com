@@ -128,9 +128,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>Underneath <strong>FreeCAD</strong>'s interface, <strong>FEM Workbench (FreeCAD)</strong> integrates mathematical solver frameworks (e.g. finite element analysis FEA mesh topologies or CAM toolpath algorithms) to translate visual CAD vectors into structured, downstream numeric instructions. The system segments physical boundaries into discrete nodes or cutting steps, executing complex polynomial equations to check structural stress loads or calculate mill spindle feeds.</p>
-        <p>To secure computational accuracy, the engine isolates calculations in high-priority CPU memory threads. This prevents thread locks during multi-pass calculations or mesh convergence audits, maintaining stable viewport refresh rates during complex, non-linear simulations.</p>
         
+
+        <p><strong>FEM Workbench (FreeCAD)</strong> operates within the DWG object hierarchy, where the model-space block record (named *Model_Space) and paper-space block records (named *Paper_Space, *Paper_Space0, etc.) serve as containers for all geometric entities. Every entity created through FEM Workbench (FreeCAD) is owned by exactly one block record, and this ownership determines which space the entity appears in. Cross-space references—such as viewport-frozen layers or annotative objects—add complexity by requiring the engine to resolve visibility rules that differ per viewport.</p>
+        <p>The AUDIT command examines the integrity of objects related to FEM Workbench (FreeCAD) by verifying handle chains, checking for orphaned dictionary entries, and validating cross-references between entity records. Corrupt handle pointers—often caused by abnormal program termination during a save—can make FEM Workbench (FreeCAD) elements invisible or unselectable without any visible error message, making periodic audits a necessary part of production workflows.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>FEM Workbench (FreeCAD)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Technical troubleshooting checklist for <strong>FEM Workbench (FreeCAD)</strong> in enterprise CAD deployments:</p>
+        <ul>
+          <li><strong>Slow regeneration in large drawings:</strong> Viewport pans and zooms lag when FEM Workbench (FreeCAD) is present in drawings with 100k+ entities. <em>Resolution:</em> Enable hardware acceleration (GRAPHICSCONFIG), reduce the number of simultaneously loaded Xrefs, and ensure INDEXCTL is set to 3 (both layer and spatial indexing) on referenced drawings.</li>
+          <li><strong>Custom linetype rendering errors:</strong> Complex linetypes containing text or shapes display incorrectly with FEM Workbench (FreeCAD). <em>Resolution:</em> Confirm that the SHX font file referenced by the linetype definition exists in the support file search path. Reload the linetype definition using LINETYPE > Load if the display remains corrupt after path correction.</li>
+          <li><strong>Attribute synchronization failures:</strong> Block attributes associated with FEM Workbench (FreeCAD) don't update after BATTMAN or ATTSYNC changes. <em>Resolution:</em> Use ATTSYNC on the specific block name to force attribute definition synchronization. For nested blocks, synchronize from the innermost level outward.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

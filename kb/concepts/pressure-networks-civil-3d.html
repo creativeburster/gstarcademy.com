@@ -129,9 +129,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>At the database tier, <strong>Pressure Networks (Civil 3D)</strong> within the <strong>Civil 3D</strong> ecosystem relies on a structured, relational object graph rather than simple visual vectors. Each instance is tracked by a unique Global Unique Identifier (GUID), linking its geometry to semantic parameters in the project database. When rendering or scheduling, the engine performs real-time queries to resolve parameter values and apply visibility graphic overrides.</p>
-        <p>In highly federated BIM models, this data structure guarantees that changes in Pressure Networks (Civil 3D) are instantly propagated to structural, MEP, and quantity-takeoff <a href="./schedules-revit">schedules</a>. The coordinate registration uses a double-precision float space, preventing floating-point rounding errors during multi-mile coordinate transformations relative to the project base point.</p>
         
+
+        <p><strong>Pressure Networks (Civil 3D)</strong> operates on a surface model composed of triangulated irregular networks (TINs) built from survey points, breaklines, and boundaries. Each triangle in the TIN defines a planar facet, and the collection of facets approximates the terrain surface. The quality of Pressure Networks (Civil 3D) operations depends on the TIN's point density and breakline placement—breaklines force triangle edges along linear features (curbs, ridgelines, ditches) that the Delaunay triangulation algorithm would otherwise ignore, preventing the surface from smoothing over sharp grade changes.</p>
+        <p>Corridor modeling with Pressure Networks (Civil 3D) computes 3D geometry by sweeping an assembly (cross-section template) along an alignment at specified frequency intervals and at every horizontal or vertical geometry point. Between these sampling points, the corridor interpolates subassembly offsets, creating a continuous 3D ribbon that represents the road, channel, or rail bed. The accuracy of quantity calculations (cut/fill volumes, material tonnages) depends on the sampling frequency: too coarse and transitions are missed; too fine and the model becomes slow to rebuild without improving accuracy.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>When working with <strong>Pressure Networks (Civil 3D)</strong> in complex multi-user BIM environments, designers frequently encounter specialized coordination anomalies. Use this checklist to diagnose and resolve typical errors:</p>
-        <ul>
-          <li><strong>Topological Reference Orphaned (<a href="../software/revit">Revit</a> Warn 102-A):</strong> Occurs when a sketch or parameter reference is lost due to a parent wall/slab deletion. <em>Resolution:</em> Edit the sketch plane and re-associate the broken constraints to active levels.</li>
-          <li><strong><a href="./shared-coordinates-revit">Shared Coordinates</a> Deviation:</strong> Model shifts by several inches or yards during export. <em>Resolution:</em> Verify that the host model's Project Base Point and Survey Point are correctly mapped and coordinate values are aligned before performing a global coordinate publish.</li>
-          <li><strong>Worksharing Permission Locks:</strong> Multiple designers locked out of modifying <strong>Pressure Networks (Civil 3D)</strong>. <em>Resolution:</em> Have the active borrower perform a "Synchronize with Central" and check "Relinquish All Mine" in their collaboration panel.</li>
-        </ul>
         
+
+        <p>Field-tested troubleshooting procedures for <strong>Pressure Networks (Civil 3D)</strong> in civil engineering workflows:</p>
+        <ul>
+          <li><strong>Surface build errors from conflicting breaklines:</strong> The TIN surface containing Pressure Networks (Civil 3D) data produces flat triangles or spikes at breakline intersections. <em>Resolution:</em> Check for crossing breaklines at the same elevation (the triangulator cannot resolve two breaklines competing for the same edge). Use the surface error viewer to identify problem triangles, then edit the point data or breakline geometry to resolve the conflict.</li>
+          <li><strong>Corridor model doesn't rebuild after alignment edit:</strong> Modifying the horizontal or vertical alignment causes Pressure Networks (Civil 3D) corridor to show stale geometry. <em>Resolution:</em> Rebuild the corridor (right-click > Rebuild). If specific regions fail, check for assembly insertion points that fall outside the alignment's station range. Verify that target surfaces and feature lines referenced by the assembly still exist and are accessible via data shortcuts.</li>
+          <li><strong>Label styles show incorrect values:</strong> Station/offset labels or surface elevation labels for Pressure Networks (Civil 3D) display wrong numbers. <em>Resolution:</em> Check the label style's text component for correct property references. Verify that the label's anchor point is on the correct alignment or surface. For dragged labels, the anchor may have detached from the intended reference object—reattach using the label grip points.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

@@ -129,14 +129,16 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong><a href="../software/fusion-360">Fusion 360</a></strong>, <strong>Tool Library (Fusion 360 Manufacture)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading <a href="./drawings-fusion">drawings</a> with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>Surface modeling operations in <strong>Tool Library (Fusion 360 Manufacture)</strong> create open-body geometry (surfaces without enclosed volume) using NURBS mathematics. Each surface is defined by a control-point grid, knot vectors in U and V directions, and a polynomial degree. The surface passes near (not through) the control points, with the degree determining how smoothly the surface responds to control-point adjustments. Higher-degree surfaces (degree 5 or above) offer more curvature continuity but increase computational cost for intersection and projection operations.</p>
+        <p>When Tool Library (Fusion 360 Manufacture) involves trimming a surface against another (e.g., creating a fillet between two faces), the kernel computes the intersection curve—a computationally expensive operation that involves solving systems of polynomial equations. The resulting trim curve divides each surface into "used" and "unused" regions. Trim-curve accuracy affects downstream operations: poor trim tolerances cause gap or overlap errors at face boundaries, which become visible as "stitching" failures when attempting to convert open surfaces into a closed solid for Tool Library (Fusion 360 Manufacture) downstream operations like shelling or Boolean subtraction.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Tool Library (Fusion 360 Manufacture)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Tool Library (Fusion 360 Manufacture)</strong> in a mechanical or product-design production pipeline requires solid modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Tool Library (Fusion 360 Manufacture)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Tool Library (Fusion 360 Manufacture)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Troubleshooting workflow for <strong>Tool Library (Fusion 360 Manufacture)</strong> in PDM-managed parametric CAD environments:</p>
+        <ul>
+          <li><strong>External references lost after file rename or move:</strong> Opening an assembly after reorganizing the file structure causes Tool Library (Fusion 360 Manufacture) components to show as missing. <em>Resolution:</em> Use the PDM system's rename/move functions instead of operating-system file operations—PDM tools update all internal reference paths. If references are already broken, use the assembly's file reference dialog to manually remap each missing component to its new location.</li>
+          <li><strong>Mass properties incorrect for multibody parts:</strong> The mass calculation for Tool Library (Fusion 360 Manufacture) doesn't match expected values. <em>Resolution:</em> Verify that material assignments are applied to each body in multibody parts (some systems require per-body material rather than per-part). Check for suppressed features that remove material. Confirm the measurement units match expectations (the mass properties dialog may display in different units than the part's modeling units).</li>
+          <li><strong>Drawing views don't update after model change:</strong> Section views or detail views of Tool Library (Fusion 360 Manufacture) show stale geometry after modifying the parent model. <em>Resolution:</em> Force a drawing update (Ctrl+Q or equivalent rebuild command). If specific views lag, check for broken view references—views that reference deleted features or configurations may freeze at their last valid state rather than updating.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

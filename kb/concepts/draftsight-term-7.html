@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering DGN Underlay &amp; Import is critical for production-grade deliverables. Enables seamless collaboration with municipal agencies and public utilities utilizing DGN infrastructure standards.</p>
+          <p>Proficiency with DGN Underlay &amp; Import separates routine work from high-quality output that meets professional standards. Enables seamless collaboration with municipal agencies and public utilities utilizing DGN infrastructure standards.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>DraftSight</strong>, <strong>DGN Underlay &amp; Import (DraftSight)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>DGN Underlay &amp; Import (DraftSight)</strong> operates within the DWG object hierarchy, where the model-space block record (named *Model_Space) and paper-space block records (named *Paper_Space, *Paper_Space0, etc.) serve as containers for all geometric entities. Every entity created through DGN Underlay &amp; Import (DraftSight) is owned by exactly one block record, and this ownership determines which space the entity appears in. Cross-space references—such as viewport-frozen layers or annotative objects—add complexity by requiring the engine to resolve visibility rules that differ per viewport.</p>
+        <p>The AUDIT command examines the integrity of objects related to DGN Underlay &amp; Import (DraftSight) by verifying handle chains, checking for orphaned dictionary entries, and validating cross-references between entity records. Corrupt handle pointers—often caused by abnormal program termination during a save—can make DGN Underlay &amp; Import (DraftSight) elements invisible or unselectable without any visible error message, making periodic audits a necessary part of production workflows.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>DGN Underlay &amp; Import (DraftSight)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Production-environment troubleshooting for <strong>DGN Underlay &amp; Import (DraftSight)</strong> across networked drawing sets:</p>
+        <ul>
+          <li><strong>Xref binding creates duplicate layer names:</strong> After binding Xrefs containing DGN Underlay &amp; Import (DraftSight), layer names appear with $0$ prefixes creating naming conflicts. <em>Resolution:</em> Use Insert-type binding (XREF > Bind > Insert) instead of Bind-type binding to merge Xref layers with identically-named host layers. Post-bind, run LAYMRG to consolidate any remaining duplicate layers.</li>
+          <li><strong>RECOVER needed after network save interruption:</strong> Drawing file containing DGN Underlay &amp; Import (DraftSight) becomes corrupt after a network timeout during save. <em>Resolution:</em> Use RECOVER rather than OPEN to load the corrupt file—RECOVER attempts to rebuild the object table from surviving data. Enable automatic backup (ISAVEBAK=1) and set SAVETIME to a short interval (10-15 minutes) to minimize data loss from future save interruptions.</li>
+          <li><strong>Sheet set index desynchronization:</strong> DGN Underlay &amp; Import (DraftSight)-related drawings show outdated callout values in sheet set views. <em>Resolution:</em> Open and resave each affected drawing individually to update the sheet set index. If the issue persists, delete and recreate the sheet set DST file, re-adding the existing drawings to rebuild the index from scratch.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Mismatching coordinate projection zones when referencing large-scale utility layouts.&#x27; As the editorial review notes: &#x27;Mastering DGN Underlay &amp; Import is critical for production-grade deliverables. Enables seamless collaboration with municipal agencies and public utilities utilizing DGN infrastructure standards.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Mismatching coordinate projection zones when referencing large-scale utility layouts.&#x27; As the editorial review notes: &#x27;Proficiency with DGN Underlay &amp; Import separates routine work from high-quality output that meets professional standards. Enables seamless collaboration with municipal agencies and public utilities utilizing DGN infrastructure standards.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

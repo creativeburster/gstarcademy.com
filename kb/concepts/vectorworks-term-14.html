@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering IFC &amp; BIM Collaboration is critical for production-grade deliverables. Allows Vectorworks architects to coordinate with structural teams (Tekla) and contractors with zero data loss.</p>
+          <p>Reliable use of IFC &amp; BIM Collaboration reduces rework cycles and improves consistency across project documentation. Allows Vectorworks architects to coordinate with structural teams (Tekla) and contractors with zero data loss.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>At the database tier, <strong>IFC &amp; BIM Collaboration (Vectorworks)</strong> within the <strong>Vectorworks</strong> ecosystem relies on a structured, relational object graph rather than simple visual vectors. Each instance is tracked by a unique Global Unique Identifier (GUID), linking its geometry to semantic parameters in the project database. When rendering or scheduling, the engine performs real-time queries to resolve parameter values and apply visibility graphic overrides.</p>
-        <p>In highly federated BIM models, this data structure guarantees that changes in IFC &amp; BIM Collaboration (Vectorworks) are instantly propagated to structural, MEP, and quantity-takeoff <a href="./schedules-revit">schedules</a>. The coordinate registration uses a double-precision float space, preventing floating-point rounding errors during multi-mile coordinate transformations relative to the project base point.</p>
         
+
+        <p>The parametric engine resolves <strong>IFC &amp; BIM Collaboration (Vectorworks)</strong> by evaluating a directed acyclic graph (DAG) of dimensional constraints, reference planes, and formula-driven parameters. Each family type defines this constraint graph at authoring time, and every placed instance inherits the same topology. When a parameter changes—whether by direct edit, schedule input, or API call—the engine walks the DAG to determine which geometry nodes need recalculation, minimizing the regeneration scope.</p>
+        <p>Interoperability of IFC &amp; BIM Collaboration (Vectorworks) depends heavily on its IFC mapping configuration. During IFC export, the element's native category maps to an IFC entity class (IfcWall, IfcColumn, IfcSlab, etc.), and its parameter values populate IFC property sets (Pset_WallCommon, Pset_ColumnCommon). If the mapping is incorrect or incomplete, downstream coordination software receives a geometrically accurate but semantically empty element—it looks right but carries no usable metadata for clash rules, quantity queries, or facility management systems.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>When working with <strong>IFC &amp; BIM Collaboration (Vectorworks)</strong> in complex multi-user BIM environments, designers frequently encounter specialized coordination anomalies. Use this checklist to diagnose and resolve typical errors:</p>
-        <ul>
-          <li><strong>Topological Reference Orphaned (<a href="../software/revit">Revit</a> Warn 102-A):</strong> Occurs when a sketch or parameter reference is lost due to a parent wall/slab deletion. <em>Resolution:</em> Edit the sketch plane and re-associate the broken constraints to active levels.</li>
-          <li><strong><a href="./shared-coordinates-revit">Shared Coordinates</a> Deviation:</strong> Model shifts by several inches or yards during export. <em>Resolution:</em> Verify that the host model's Project Base Point and Survey Point are correctly mapped and coordinate values are aligned before performing a global coordinate publish.</li>
-          <li><strong>Worksharing Permission Locks:</strong> Multiple designers locked out of modifying <strong>IFC &amp; BIM Collaboration (Vectorworks)</strong>. <em>Resolution:</em> Have the active borrower perform a "Synchronize with Central" and check "Relinquish All Mine" in their collaboration panel.</li>
-        </ul>
         
+
+        <p>Troubleshooting <strong>IFC &amp; BIM Collaboration (Vectorworks)</strong> in multi-user BIM coordination workflows:</p>
+        <ul>
+          <li><strong>Synchronization failures with central model:</strong> Attempting to sync IFC &amp; BIM Collaboration (Vectorworks) changes produces "Can't find central model" or element ownership conflicts. <em>Resolution:</em> Verify network connectivity to the central file location. Check if another user holds editing permission on the affected workset. If the file server is unreachable, save the local changes as a backup before attempting to reconnect.</li>
+          <li><strong>IFC export produces generic proxy objects:</strong> IFC &amp; BIM Collaboration (Vectorworks) elements export to IFC as IfcBuildingElementProxy instead of their correct IFC class. <em>Resolution:</em> Review the IFC export mapping table and verify that IFC &amp; BIM Collaboration (Vectorworks)'s category maps to the appropriate IFC entity. Custom families may need their IFC Class parameter explicitly set in the family editor. Re-run the export after correcting the mapping.</li>
+          <li><strong>Linked model positions shift after reload:</strong> After updating a linked model, IFC &amp; BIM Collaboration (Vectorworks) elements in the link appear offset from their expected positions. <em>Resolution:</em> Verify that both the host and linked models use the same shared coordinate system. Check the link's positioning method (Auto - Origin to Origin vs. Auto - By Shared Coordinates). If coordinates were recently acquired or published, the link may need to be removed and reloaded with the updated coordinates.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Exporting files without active IFC mapping rules, converting windows to generic boxes.&#x27; As the editorial review notes: &#x27;Mastering IFC &amp; BIM Collaboration is critical for production-grade deliverables. Allows Vectorworks architects to coordinate with structural teams (Tekla) and contractors with zero data loss.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Exporting files without active IFC mapping rules, converting windows to generic boxes.&#x27; As the editorial review notes: &#x27;Reliable use of IFC &amp; BIM Collaboration reduces rework cycles and improves consistency across project documentation. Allows Vectorworks architects to coordinate with structural teams (Tekla) and contractors with zero data loss.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

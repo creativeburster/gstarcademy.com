@@ -128,9 +128,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong><a href="../software/zwcad">ZWCAD</a></strong>, <strong>FlexNet Licensing (Floating seats)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The rendering pipeline for <strong>FlexNet Licensing (Floating seats)</strong> follows a multi-stage path: the display driver reads entity data from the in-memory database, transforms coordinates through the current viewport matrix (accounting for UCS, view rotation, and zoom level), clips geometry against the viewport boundary, and rasterizes the result to screen pixels. Hardware-accelerated drivers offload the final rasterization to the GPU, but the coordinate transformation and clipping stages remain CPU-bound.</p>
+        <p>When FlexNet Licensing (Floating seats) involves hatching, complex linetypes, or OLE objects, the rendering cost increases disproportionately because these entity types require secondary pattern generation or external process calls. Viewport configuration matters: multiple viewports in paper space multiply the rendering workload because each viewport maintains its own frozen-layer state, view direction, and visual style, forcing the engine to re-evaluate FlexNet Licensing (Floating seats) visibility independently for each viewport.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>FlexNet Licensing (Floating seats)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Common issues encountered when working with <strong>FlexNet Licensing (Floating seats)</strong> in production drawings, with field-tested resolutions:</p>
+        <ul>
+          <li><strong>Unexpected scale or unit mismatch:</strong> Elements from FlexNet Licensing (Floating seats) appear at wrong size after insert or Xref attachment. <em>Resolution:</em> Verify INSUNITS and LUNITS settings match between source and target drawings. Use the UNITS command to confirm the drawing unit interpretation before any cross-file operation.</li>
+          <li><strong>Display artifacts after viewport freeze:</strong> FlexNet Licensing (Floating seats) elements disappear or show stale graphics in paper-space viewports. <em>Resolution:</em> Run REGENALL to force a full viewport regeneration. If the issue persists, check that the viewport's frozen-layer list hasn't inadvertently included the layer containing FlexNet Licensing (Floating seats) elements.</li>
+          <li><strong>File bloat from accumulated undo history:</strong> Drawing file size grows significantly after extensive FlexNet Licensing (Floating seats) edits. <em>Resolution:</em> Use PURGE with all options enabled, then AUDIT to clean orphaned objects. Consider setting UNDOCTL to limit undo recording depth during batch operations.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Custom Blocks is critical for production-grade deliverables. Minimizes manual drafting hours by replacing dozens of legacy static blocks with a single smart parametric symbol.</p>
+          <p>The quality of final deliverables often traces back to how well Custom Blocks was handled in early phases. Minimizes manual drafting hours by replacing dozens of legacy static blocks with a single smart parametric symbol.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>DraftSight</strong>, <strong>Custom Blocks (DraftSight)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>Precision handling for <strong>Custom Blocks (DraftSight)</strong> depends on the CAD engine's use of double-precision floating-point arithmetic (IEEE 754 64-bit). Coordinates are stored with approximately 15 significant decimal digits, but accumulated rounding during complex geometric operations (particularly rotations, scaling, and Boolean operations) can introduce micro-errors. These errors become visible when Custom Blocks (DraftSight) elements are placed far from the drawing origin—beyond roughly 10 km from (0,0) in metric drawings—where the coordinate magnitude consumes precision that would otherwise represent fine detail.</p>
+        <p>The object snap (OSNAP) system resolves Custom Blocks (DraftSight) intersections and endpoints by solving analytic equations between entity geometries in real time. For arcs intersecting splines, or ellipses tangent to polylines, the snap engine uses iterative numerical methods (Newton-Raphson or bisection) that may fail to converge if the geometric relationship is near-degenerate. Understanding these precision limits is essential when Custom Blocks (DraftSight) requires sub-millimeter accuracy in large-site coordinate systems.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Custom Blocks (DraftSight)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Common issues encountered when working with <strong>Custom Blocks (DraftSight)</strong> in production drawings, with field-tested resolutions:</p>
+        <ul>
+          <li><strong>Unexpected scale or unit mismatch:</strong> Elements from Custom Blocks (DraftSight) appear at wrong size after insert or Xref attachment. <em>Resolution:</em> Verify INSUNITS and LUNITS settings match between source and target drawings. Use the UNITS command to confirm the drawing unit interpretation before any cross-file operation.</li>
+          <li><strong>Display artifacts after viewport freeze:</strong> Custom Blocks (DraftSight) elements disappear or show stale graphics in paper-space viewports. <em>Resolution:</em> Run REGENALL to force a full viewport regeneration. If the issue persists, check that the viewport's frozen-layer list hasn't inadvertently included the layer containing Custom Blocks (DraftSight) elements.</li>
+          <li><strong>File bloat from accumulated undo history:</strong> Drawing file size grows significantly after extensive Custom Blocks (DraftSight) edits. <em>Resolution:</em> Use PURGE with all options enabled, then AUDIT to clean orphaned objects. Consider setting UNDOCTL to limit undo recording depth during batch operations.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Forgetting to associate action parameters to visibility states.&#x27; As the editorial review notes: &#x27;Mastering Custom Blocks is critical for production-grade deliverables. Minimizes manual drafting hours by replacing dozens of legacy static blocks with a single smart parametric symbol.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Forgetting to associate action parameters to visibility states.&#x27; As the editorial review notes: &#x27;The quality of final deliverables often traces back to how well Custom Blocks was handled in early phases. Minimizes manual drafting hours by replacing dozens of legacy static blocks with a single smart parametric symbol.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

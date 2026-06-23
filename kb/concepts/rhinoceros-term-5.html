@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Gumball Manipulator is critical for production-grade deliverables. Speeds up conceptual modeling and design <a href="./sketchup-term-4">layout</a>, eliminating the need to type numeric coordinate inputs for basic transformations.</p>
+          <p>Skilled use of Gumball Manipulator saves considerable time during review and revision stages. Speeds up conceptual modeling and design <a href="./sketchup-term-4">layout</a>, eliminating the need to type numeric coordinate inputs for basic transformations.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>Rhinoceros</strong>, <strong>Gumball Manipulator (Rhinoceros)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>Gumball Manipulator (Rhinoceros)</strong> leverages mesh subdivision and polygon optimization to balance visual quality against viewport and render performance. The imported CAD geometry is typically over-tessellated for rendering purposes—NURBS surfaces from CAD exports produce dense triangle meshes that consume GPU memory without adding visible detail. Mesh decimation algorithms reduce polygon count while preserving edge flow and silhouette quality, and level-of-detail (LOD) systems swap between mesh resolutions based on camera distance.</p>
+        <p>Texture mapping for Gumball Manipulator (Rhinoceros) involves UV unwrapping—projecting the 3D mesh surface onto a 2D texture space—which determines how image textures align to the geometry. Architectural and product visualization workflows often require triplanar or box projection mapping for imported CAD geometry, because CAD surfaces lack the UV coordinates that game and film assets carry by design. The quality of Gumball Manipulator (Rhinoceros) materials depends on correct UV mapping: stretched or distorted UVs produce blurred textures and misaligned bump maps that undermine the realism of the final render.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Gumball Manipulator (Rhinoceros)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in layout plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Rendering and visualization troubleshooting for <strong>Gumball Manipulator (Rhinoceros)</strong>:</p>
+        <ul>
+          <li><strong>Render noise doesn't converge:</strong> Even after high sample counts, Gumball Manipulator (Rhinoceros) scene shows persistent firefly artifacts. <em>Resolution:</em> Enable the denoiser (OptiX, OIDN, or NLM depending on the renderer). Check for extremely bright light sources or high-contrast materials that produce sparse but intense light paths. Clamp the maximum ray intensity to eliminate fireflies at the cost of slight energy loss in caustic regions.</li>
+          <li><strong>Imported CAD geometry has inverted normals:</strong> Surfaces from Gumball Manipulator (Rhinoceros) render as black faces or inside-out geometry. <em>Resolution:</em> Recalculate normals (outward direction) after import. In Blender, use Mesh > Normals > Recalculate Outside. In 3ds Max, apply a Normal modifier or use the "Flip" option on affected faces. This is common with STEP/IGES imports where the CAD kernel's face orientation convention differs from the renderer's.</li>
+          <li><strong>Material textures appear stretched or tiled incorrectly:</strong> PBR textures on Gumball Manipulator (Rhinoceros) surfaces don't align with the geometry as expected. <em>Resolution:</em> Check the UV mapping mode (box projection, planar, cylindrical). For imported CAD geometry that lacks UVs, apply triplanar mapping as a quick fix, or use the UV editor to create proper unwraps for hero objects that need precise texture placement.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Accidentally shifting Gumball anchor points off-center, leading to off-axis rotations.&#x27; As the editorial review notes: &#x27;Mastering Gumball Manipulator is critical for production-grade deliverables. Speeds up conceptual modeling and design layout, eliminating the need to type numeric coordinate inputs for basic transformations.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Accidentally shifting Gumball anchor points off-center, leading to off-axis rotations.&#x27; As the editorial review notes: &#x27;Skilled use of Gumball Manipulator saves considerable time during review and revision stages. Speeds up conceptual modeling and design layout, eliminating the need to type numeric coordinate inputs for basic transformations.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

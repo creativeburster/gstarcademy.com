@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Sandbox Tools is critical for production-grade deliverables. Enables the modeling of organic landscapes and roads, allowing designers to drape architectural footprints onto sloped terrains.</p>
+          <p>Understanding Sandbox Tools thoroughly avoids the common pitfalls that lead to project delays and rework. Enables the modeling of organic landscapes and roads, allowing designers to drape architectural footprints onto sloped terrains.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>SketchUp</strong>, <strong>Sandbox Tools (SketchUp)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>Sandbox Tools (SketchUp)</strong> participates in the BIM model's classification system, where each element carries type-level properties (shared across all instances of the same family type) and instance-level properties (unique to each placed element). This two-tier property architecture reduces data redundancy—material definitions, manufacturer data, and keynote values are stored once at the type level—while allowing instance-specific overrides for properties like elevation offset or phase assignment.</p>
+        <p>View representation of Sandbox Tools (SketchUp) is controlled by a cascade of visibility rules: view range (cut plane, top, and bottom offsets), phase filters, workset visibility, and category/subcategory overrides. Each view recalculates which elements to display and how to represent them (coarse, medium, or fine detail level). This separation between model data and view representation means that Sandbox Tools (SketchUp) exists once in the database but can appear differently across dozens of views, each with its own graphic overrides and annotation.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Sandbox Tools (SketchUp)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Troubleshooting <strong>Sandbox Tools (SketchUp)</strong> in multi-user BIM coordination workflows:</p>
+        <ul>
+          <li><strong>Synchronization failures with central model:</strong> Attempting to sync Sandbox Tools (SketchUp) changes produces "Can't find central model" or element ownership conflicts. <em>Resolution:</em> Verify network connectivity to the central file location. Check if another user holds editing permission on the affected workset. If the file server is unreachable, save the local changes as a backup before attempting to reconnect.</li>
+          <li><strong>IFC export produces generic proxy objects:</strong> Sandbox Tools (SketchUp) elements export to IFC as IfcBuildingElementProxy instead of their correct IFC class. <em>Resolution:</em> Review the IFC export mapping table and verify that Sandbox Tools (SketchUp)'s category maps to the appropriate IFC entity. Custom families may need their IFC Class parameter explicitly set in the family editor. Re-run the export after correcting the mapping.</li>
+          <li><strong>Linked model positions shift after reload:</strong> After updating a linked model, Sandbox Tools (SketchUp) elements in the link appear offset from their expected positions. <em>Resolution:</em> Verify that both the host and linked models use the same shared coordinate system. Check the link's positioning method (Auto - Origin to Origin vs. Auto - By Shared Coordinates). If coordinates were recently acquired or published, the link may need to be removed and reloaded with the updated coordinates.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Creating high-density sandbox meshes that lock up rendering pipelines.&#x27; As the editorial review notes: &#x27;Mastering Sandbox Tools is critical for production-grade deliverables. Enables the modeling of organic landscapes and roads, allowing designers to drape architectural footprints onto sloped terrains.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Creating high-density sandbox meshes that lock up rendering pipelines.&#x27; As the editorial review notes: &#x27;Understanding Sandbox Tools thoroughly avoids the common pitfalls that lead to project delays and rework. Enables the modeling of organic landscapes and roads, allowing designers to drape architectural footprints onto sloped terrains.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

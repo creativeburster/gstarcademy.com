@@ -128,9 +128,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>Underneath <strong><a href="../software/freecad">FreeCAD</a></strong>'s interface, <strong>Macro Recording (FreeCAD)</strong> integrates mathematical solver frameworks (e.g. finite element analysis FEA mesh topologies or CAM toolpath algorithms) to translate visual CAD vectors into structured, downstream numeric instructions. The system segments physical boundaries into discrete nodes or cutting steps, executing complex polynomial equations to check structural stress loads or calculate mill spindle feeds.</p>
-        <p>To secure computational accuracy, the engine isolates calculations in high-priority CPU memory threads. This prevents thread locks during multi-pass calculations or mesh convergence audits, maintaining stable viewport refresh rates during complex, non-linear simulations.</p>
         
+
+        <p>The DWG database engine stores <strong>Macro Recording (FreeCAD)</strong> as a collection of entity records identified by unique handles and grouped DXF codes. Each record carries geometric data (group code 10 for point coordinates, code 40 for radius or scale), layer assignment (code 8), and object-specific properties. When Macro Recording (FreeCAD) elements are created or modified, the engine updates the spatial index—typically a quad-tree or R-tree structure—so that viewport redraws only evaluate entities visible in the current extents.</p>
+        <p>Performance depends on how Macro Recording (FreeCAD) interacts with the drawing's block table and dimension style table. Nested block references multiply the entity count that the regeneration engine must resolve, while dimension associativity creates behind-the-scenes reactor objects that listen for geometry changes. Understanding this internal linkage explains why certain operations on Macro Recording (FreeCAD)—such as exploding blocks or redefining dimension styles—can cascade through the drawing in unexpected ways.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Macro Recording (FreeCAD)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Common issues encountered when working with <strong>Macro Recording (FreeCAD)</strong> in production drawings, with field-tested resolutions:</p>
+        <ul>
+          <li><strong>Unexpected scale or unit mismatch:</strong> Elements from Macro Recording (FreeCAD) appear at wrong size after insert or Xref attachment. <em>Resolution:</em> Verify INSUNITS and LUNITS settings match between source and target drawings. Use the UNITS command to confirm the drawing unit interpretation before any cross-file operation.</li>
+          <li><strong>Display artifacts after viewport freeze:</strong> Macro Recording (FreeCAD) elements disappear or show stale graphics in paper-space viewports. <em>Resolution:</em> Run REGENALL to force a full viewport regeneration. If the issue persists, check that the viewport's frozen-layer list hasn't inadvertently included the layer containing Macro Recording (FreeCAD) elements.</li>
+          <li><strong>File bloat from accumulated undo history:</strong> Drawing file size grows significantly after extensive Macro Recording (FreeCAD) edits. <em>Resolution:</em> Use PURGE with all options enabled, then AUDIT to clean orphaned objects. Consider setting UNDOCTL to limit undo recording depth during batch operations.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

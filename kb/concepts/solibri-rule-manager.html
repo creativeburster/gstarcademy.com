@@ -129,9 +129,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong><a href="../software/solibri">Solibri Office</a></strong>, <strong>Solibri Rule Manager (Solibri)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The timelining capability of <strong>Solibri Rule Manager (Solibri)</strong> links model elements to construction schedule activities (typically imported from Primavera P6 or Microsoft Project via CSV). Each activity maps to a set of elements through search sets—saved queries that filter elements by property values, spatial location, or selection sets. When the timeline advances, elements transition through appearance states (not yet built, under construction, complete, demolished), creating a 4D simulation of the construction sequence.</p>
+        <p>Data integrity in Solibri Rule Manager (Solibri) depends on consistent model versioning across disciplines. If the structural model is updated but the MEP model is stale, clash results become unreliable—clashes may be reported against geometry that has already been revised. The common data environment (CDE) protocol addresses this by enforcing model-drop schedules and version stamping, but the coordination software itself cannot distinguish a stale model from a current one without metadata comparison.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Solibri Rule Manager (Solibri)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Common issues in <strong>Solibri Rule Manager (Solibri)</strong> coordination workflows and their resolutions:</p>
+        <ul>
+          <li><strong>False clash results from coordinate misalignment:</strong> Hundreds of clashes reported between models that should be spatially aligned. <em>Resolution:</em> Compare the origin points and shared coordinates of all source models. Even a 1mm offset produces systematic false clashes across the entire model. Re-export the source models with corrected shared coordinates and re-run the detection.</li>
+          <li><strong>BCF issues not visible in authoring tool:</strong> BCF topics created during Solibri Rule Manager (Solibri) review don't show the correct viewpoint when opened in the BIM authoring tool. <em>Resolution:</em> Verify that the BCF file uses the same coordinate system as the authoring tool. Some tools interpret BCF camera positions differently (local vs. shared coordinates). Test with a single known-position issue to calibrate the viewpoint mapping.</li>
+          <li><strong>Model performance degrades with large federated models:</strong> Navigation becomes sluggish when reviewing Solibri Rule Manager (Solibri) in a federation with many disciplines. <em>Resolution:</em> Use section boxes to limit the visible scope. Convert models to optimized formats (NWC cache files for Navisworks, lightweight IFC for web viewers). Disable element categories not relevant to the current review (furniture, plumbing fixtures) to reduce rendering load.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

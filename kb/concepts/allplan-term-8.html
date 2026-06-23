@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Quantity Takeoff is critical for production-grade deliverables. Directly feeds cost estimation and bidding pipelines, preventing material waste and cost overruns.</p>
+          <p>Skilled use of Quantity Takeoff saves considerable time during review and revision stages. Directly feeds cost estimation and bidding pipelines, preventing material waste and cost overruns.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>At the database tier, <strong>Quantity Takeoff (Allplan)</strong> within the <strong>Allplan</strong> ecosystem relies on a structured, relational object graph rather than simple visual vectors. Each instance is tracked by a unique Global Unique Identifier (GUID), linking its geometry to semantic parameters in the project database. When rendering or scheduling, the engine performs real-time queries to resolve parameter values and apply visibility graphic overrides.</p>
-        <p>In highly federated BIM models, this data structure guarantees that changes in Quantity Takeoff (Allplan) are instantly propagated to structural, MEP, and quantity-takeoff <a href="./schedules-revit">schedules</a>. The coordinate registration uses a double-precision float space, preventing floating-point rounding errors during multi-mile coordinate transformations relative to the project base point.</p>
         
+
+        <p><strong>Quantity Takeoff (Allplan)</strong> interacts with the model's phasing system, which assigns every element a "created in phase" and optionally a "demolished in phase" attribute. Views filter elements through phase filters that combine these phase assignments with graphic override rules (show as new, show as existing, show as demolished, or hide). This mechanism allows a single model to represent the building at multiple points in its lifecycle—existing conditions, demolition, new construction—without duplicating geometry.</p>
+        <p>The workset mechanism controls editing access to Quantity Takeoff (Allplan) in multi-user environments. When a team member takes ownership of a workset, the elements within it become editable only on that user's local copy until synchronized back to the central model. Conflicts arise when Quantity Takeoff (Allplan) references elements owned by different users—for example, a wall in one workset hosting a door in another—requiring careful workset organization to minimize synchronization conflicts and reduce the frequency of failed-to-save errors.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>When working with <strong>Quantity Takeoff (Allplan)</strong> in complex multi-user BIM environments, designers frequently encounter specialized coordination anomalies. Use this checklist to diagnose and resolve typical errors:</p>
-        <ul>
-          <li><strong>Topological Reference Orphaned (<a href="../software/revit">Revit</a> Warn 102-A):</strong> Occurs when a sketch or parameter reference is lost due to a parent wall/slab deletion. <em>Resolution:</em> Edit the sketch plane and re-associate the broken constraints to active levels.</li>
-          <li><strong><a href="./shared-coordinates-revit">Shared Coordinates</a> Deviation:</strong> Model shifts by several inches or yards during export. <em>Resolution:</em> Verify that the host model's Project Base Point and Survey Point are correctly mapped and coordinate values are aligned before performing a global coordinate publish.</li>
-          <li><strong>Worksharing Permission Locks:</strong> Multiple designers locked out of modifying <strong>Quantity Takeoff (Allplan)</strong>. <em>Resolution:</em> Have the active borrower perform a "Synchronize with Central" and check "Relinquish All Mine" in their collaboration panel.</li>
-        </ul>
         
+
+        <p>Issues commonly encountered with <strong>Quantity Takeoff (Allplan)</strong> in BIM production environments, with resolution procedures:</p>
+        <ul>
+          <li><strong>Element not visible in expected views:</strong> Quantity Takeoff (Allplan) exists in the model but doesn't appear in a particular view. <em>Resolution:</em> Check the view's visibility/graphics overrides for the element's category and subcategory. Verify that the view range (cut plane and depth) encompasses the element's elevation. Confirm the element's phase is included in the view's phase filter settings.</li>
+          <li><strong>Warnings accumulate after model modifications:</strong> Editing Quantity Takeoff (Allplan) generates persistent warnings about overlapping elements or invalid joins. <em>Resolution:</em> Use the Review Warnings dialog to identify the specific issue. For join-related warnings, unjoin and rejoin the elements. For overlap warnings, use the Interference Check tool to visualize the conflict geometry and determine which element should be adjusted.</li>
+          <li><strong>Schedule values don't match element properties:</strong> Quantities or parameters for Quantity Takeoff (Allplan) in schedules differ from the values shown in element properties. <em>Resolution:</em> Verify that the schedule is filtering to the correct phase and design option. Check whether the schedule field uses a calculated value (which may round differently) versus the raw parameter. For type parameters, confirm that the schedule is grouping by type correctly.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Overlapping spatial volume boundaries, causing double-counting in quantity takeoffs.&#x27; As the editorial review notes: &#x27;Mastering Quantity Takeoff is critical for production-grade deliverables. Directly feeds cost estimation and bidding pipelines, preventing material waste and cost overruns.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Overlapping spatial volume boundaries, causing double-counting in quantity takeoffs.&#x27; As the editorial review notes: &#x27;Skilled use of Quantity Takeoff saves considerable time during review and revision stages. Directly feeds cost estimation and bidding pipelines, preventing material waste and cost overruns.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

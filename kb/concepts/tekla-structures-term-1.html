@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Steel Detailing is critical for production-grade deliverables. Guarantees that prefabricated steel columns and beams fit together perfectly on the construction site, eliminating structural errors.</p>
+          <p>The quality of final deliverables often traces back to how well Steel Detailing was handled in early phases. Guarantees that prefabricated steel columns and beams fit together perfectly on the construction site, eliminating structural errors.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>Tekla Structures</strong>, <strong>Steel Detailing (Tekla Structures)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading <a href="./drawings-fusion">drawings</a> with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The parametric engine resolves <strong>Steel Detailing (Tekla Structures)</strong> by evaluating a directed acyclic graph (DAG) of dimensional constraints, reference planes, and formula-driven parameters. Each family type defines this constraint graph at authoring time, and every placed instance inherits the same topology. When a parameter changes—whether by direct edit, schedule input, or API call—the engine walks the DAG to determine which geometry nodes need recalculation, minimizing the regeneration scope.</p>
+        <p>Interoperability of Steel Detailing (Tekla Structures) depends heavily on its IFC mapping configuration. During IFC export, the element's native category maps to an IFC entity class (IfcWall, IfcColumn, IfcSlab, etc.), and its parameter values populate IFC property sets (Pset_WallCommon, Pset_ColumnCommon). If the mapping is incorrect or incomplete, downstream coordination software receives a geometrically accurate but semantically empty element—it looks right but carries no usable metadata for clash rules, quantity queries, or facility management systems.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Steel Detailing (Tekla Structures)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Issues commonly encountered with <strong>Steel Detailing (Tekla Structures)</strong> in BIM production environments, with resolution procedures:</p>
+        <ul>
+          <li><strong>Element not visible in expected views:</strong> Steel Detailing (Tekla Structures) exists in the model but doesn't appear in a particular view. <em>Resolution:</em> Check the view's visibility/graphics overrides for the element's category and subcategory. Verify that the view range (cut plane and depth) encompasses the element's elevation. Confirm the element's phase is included in the view's phase filter settings.</li>
+          <li><strong>Warnings accumulate after model modifications:</strong> Editing Steel Detailing (Tekla Structures) generates persistent warnings about overlapping elements or invalid joins. <em>Resolution:</em> Use the Review Warnings dialog to identify the specific issue. For join-related warnings, unjoin and rejoin the elements. For overlap warnings, use the Interference Check tool to visualize the conflict geometry and determine which element should be adjusted.</li>
+          <li><strong>Schedule values don't match element properties:</strong> Quantities or parameters for Steel Detailing (Tekla Structures) in schedules differ from the values shown in element properties. <em>Resolution:</em> Verify that the schedule is filtering to the correct phase and design option. Check whether the schedule field uses a calculated value (which may round differently) versus the raw parameter. For type parameters, confirm that the schedule is grouping by type correctly.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Modeling steel members without adjusting for structural tolerances, causing erection clashes.&#x27; As the editorial review notes: &#x27;Mastering Steel Detailing is critical for production-grade deliverables. Guarantees that prefabricated steel columns and beams fit together perfectly on the construction site, eliminating structural errors.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Modeling steel members without adjusting for structural tolerances, causing erection clashes.&#x27; As the editorial review notes: &#x27;The quality of final deliverables often traces back to how well Steel Detailing was handled in early phases. Guarantees that prefabricated steel columns and beams fit together perfectly on the construction site, eliminating structural errors.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

@@ -129,9 +129,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>At the database tier, <strong>Profiles (<a href="../software/civil-3d">Civil 3D</a>)</strong> within the <strong>Civil 3D</strong> ecosystem relies on a structured, relational object graph rather than simple visual vectors. Each instance is tracked by a unique Global Unique Identifier (GUID), linking its geometry to semantic parameters in the project database. When rendering or scheduling, the engine performs real-time queries to resolve parameter values and apply visibility graphic overrides.</p>
-        <p>In highly federated BIM models, this data structure guarantees that changes in Profiles (Civil 3D) are instantly propagated to structural, MEP, and quantity-takeoff <a href="./schedules-revit">schedules</a>. The coordinate registration uses a double-precision float space, preventing floating-point rounding errors during multi-mile coordinate transformations relative to the project base point.</p>
         
+
+        <p>The alignment geometry underlying <strong>Profiles (Civil 3D)</strong> is defined as a sequence of tangent, curve, and spiral elements in the horizontal plane, paired with a vertical profile of grades and parabolic vertical curves. Each geometric element is constrained by design criteria (minimum radius, maximum grade, stopping sight distance) derived from the design speed and applicable standard (AASHTO, Eurocode, local DOT). The software evaluates these criteria in real time, flagging violations as design check warnings that persist until the geometry is corrected.</p>
+        <p>Pipe network design within Profiles (Civil 3D) connects structures (manholes, catch basins, headwalls) with pipes that follow gravity-driven hydraulic profiles. The hydraulic analysis engine computes flow capacity using Manning's equation, checking that each pipe segment carries the design storm flow at the specified minimum velocity without surcharging. Invert elevations, pipe sizes, and structure rim-to-invert depths are interdependent—adjusting one element propagates recalculations through the connected network, similar to parametric constraint propagation in mechanical CAD.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>When working with <strong>Profiles (Civil 3D)</strong> in complex multi-user BIM environments, designers frequently encounter specialized coordination anomalies. Use this checklist to diagnose and resolve typical errors:</p>
-        <ul>
-          <li><strong>Topological Reference Orphaned (<a href="../software/revit">Revit</a> Warn 102-A):</strong> Occurs when a sketch or parameter reference is lost due to a parent wall/slab deletion. <em>Resolution:</em> Edit the sketch plane and re-associate the broken constraints to active levels.</li>
-          <li><strong><a href="./shared-coordinates-revit">Shared Coordinates</a> Deviation:</strong> Model shifts by several inches or yards during export. <em>Resolution:</em> Verify that the host model's Project Base Point and Survey Point are correctly mapped and coordinate values are aligned before performing a global coordinate publish.</li>
-          <li><strong>Worksharing Permission Locks:</strong> Multiple designers locked out of modifying <strong>Profiles (Civil 3D)</strong>. <em>Resolution:</em> Have the active borrower perform a "Synchronize with Central" and check "Relinquish All Mine" in their collaboration panel.</li>
-        </ul>
         
+
+        <p>Field-tested troubleshooting procedures for <strong>Profiles (Civil 3D)</strong> in civil engineering workflows:</p>
+        <ul>
+          <li><strong>Surface build errors from conflicting breaklines:</strong> The TIN surface containing Profiles (Civil 3D) data produces flat triangles or spikes at breakline intersections. <em>Resolution:</em> Check for crossing breaklines at the same elevation (the triangulator cannot resolve two breaklines competing for the same edge). Use the surface error viewer to identify problem triangles, then edit the point data or breakline geometry to resolve the conflict.</li>
+          <li><strong>Corridor model doesn't rebuild after alignment edit:</strong> Modifying the horizontal or vertical alignment causes Profiles (Civil 3D) corridor to show stale geometry. <em>Resolution:</em> Rebuild the corridor (right-click > Rebuild). If specific regions fail, check for assembly insertion points that fall outside the alignment's station range. Verify that target surfaces and feature lines referenced by the assembly still exist and are accessible via data shortcuts.</li>
+          <li><strong>Label styles show incorrect values:</strong> Station/offset labels or surface elevation labels for Profiles (Civil 3D) display wrong numbers. <em>Resolution:</em> Check the label style's text component for correct property references. Verify that the label's anchor point is on the correct alignment or surface. For dragged labels, the anchor may have detached from the intended reference object—reattach using the label grip points.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

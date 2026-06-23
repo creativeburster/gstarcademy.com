@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Components vs. Groups is critical for production-grade deliverables. Ensures highly optimized drawing sizes and fast revisions, letting designers update hundreds of windows or columns instantly.</p>
+          <p>Proficiency with Components vs. Groups separates routine work from high-quality output that meets professional standards. Ensures highly optimized drawing sizes and fast revisions, letting designers update hundreds of windows or columns instantly.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>SketchUp</strong>, <strong>Components vs. Groups (SketchUp)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>Components vs. Groups (SketchUp)</strong> participates in the BIM model's classification system, where each element carries type-level properties (shared across all instances of the same family type) and instance-level properties (unique to each placed element). This two-tier property architecture reduces data redundancy—material definitions, manufacturer data, and keynote values are stored once at the type level—while allowing instance-specific overrides for properties like elevation offset or phase assignment.</p>
+        <p>View representation of Components vs. Groups (SketchUp) is controlled by a cascade of visibility rules: view range (cut plane, top, and bottom offsets), phase filters, workset visibility, and category/subcategory overrides. Each view recalculates which elements to display and how to represent them (coarse, medium, or fine detail level). This separation between model data and view representation means that Components vs. Groups (SketchUp) exists once in the database but can appear differently across dozens of views, each with its own graphic overrides and annotation.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Components vs. Groups (SketchUp)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Issues commonly encountered with <strong>Components vs. Groups (SketchUp)</strong> in BIM production environments, with resolution procedures:</p>
+        <ul>
+          <li><strong>Element not visible in expected views:</strong> Components vs. Groups (SketchUp) exists in the model but doesn't appear in a particular view. <em>Resolution:</em> Check the view's visibility/graphics overrides for the element's category and subcategory. Verify that the view range (cut plane and depth) encompasses the element's elevation. Confirm the element's phase is included in the view's phase filter settings.</li>
+          <li><strong>Warnings accumulate after model modifications:</strong> Editing Components vs. Groups (SketchUp) generates persistent warnings about overlapping elements or invalid joins. <em>Resolution:</em> Use the Review Warnings dialog to identify the specific issue. For join-related warnings, unjoin and rejoin the elements. For overlap warnings, use the Interference Check tool to visualize the conflict geometry and determine which element should be adjusted.</li>
+          <li><strong>Schedule values don't match element properties:</strong> Quantities or parameters for Components vs. Groups (SketchUp) in schedules differ from the values shown in element properties. <em>Resolution:</em> Verify that the schedule is filtering to the correct phase and design option. Check whether the schedule field uses a calculated value (which may round differently) versus the raw parameter. For type parameters, confirm that the schedule is grouping by type correctly.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Drawing geometry without grouping, causing faces to stick together.&#x27; As the editorial review notes: &#x27;Mastering Components vs. Groups is critical for production-grade deliverables. Ensures highly optimized drawing sizes and fast revisions, letting designers update hundreds of windows or columns instantly.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Drawing geometry without grouping, causing faces to stick together.&#x27; As the editorial review notes: &#x27;Proficiency with Components vs. Groups separates routine work from high-quality output that meets professional standards. Ensures highly optimized drawing sizes and fast revisions, letting designers update hundreds of windows or columns instantly.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

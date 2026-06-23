@@ -129,9 +129,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong><a href="../software/altium-designer">Altium Designer</a></strong>, <strong>Interactive 3D PCB Engine (Altium)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>Interactive 3D PCB Engine (Altium)</strong> operates within the EDA tool's schematic database, where components (symbols), nets (electrical connections), and design rules form a relational data model. Each component instance references a library symbol that defines pin names, electrical types (input, output, bidirectional, passive, power), and a linked PCB footprint. The net database tracks which pins are connected, and the Electrical Rules Check (ERC) validates these connections against pin-type compatibility rules—an output driving another output, or a power pin left unconnected, generates violations.</p>
+        <p>The schematic-to-PCB transfer for Interactive 3D PCB Engine (Altium) compiles the net database into a netlist that the PCB layout tool imports. The netlist carries component references, pin-to-pad mappings, and net names. Design rules (trace width, clearance, via size) are defined in a rules hierarchy that allows per-net or per-net-class overrides. The DRC (Design Rule Check) engine evaluates these rules against the physical layout, flagging violations as the designer routes traces and places components. Understanding Interactive 3D PCB Engine (Altium)'s interaction with this rules engine is essential for achieving first-pass DRC-clean layouts.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Interactive 3D PCB Engine (Altium)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Design troubleshooting for <strong>Interactive 3D PCB Engine (Altium)</strong> in electronics design workflows:</p>
+        <ul>
+          <li><strong>DRC violations after autoroute:</strong> The autorouter places traces that violate clearance rules for Interactive 3D PCB Engine (Altium). <em>Resolution:</em> Review the design rule hierarchy—net-class rules may be less restrictive than the board-level rules the DRC checks against. Re-run the autorouter with tighter constraints, or manually route the violating segments. For high-speed nets, apply specific routing rules (impedance, length matching) before autorouting.</li>
+          <li><strong>BOM component mismatch:</strong> The generated BOM for Interactive 3D PCB Engine (Altium) doesn't match the schematic component count. <em>Resolution:</em> Check for unplaced components (present in schematic but not assigned a footprint), duplicate component designators, or multi-part components where not all parts are placed. Run a cross-reference check between schematic and PCB to identify discrepancies.</li>
+          <li><strong>3D clearance violation with enclosure:</strong> Interactive 3D PCB Engine (Altium) PCB assembly collides with the mechanical enclosure in the ECAD-MCAD check. <em>Resolution:</em> Verify that component 3D models (STEP bodies) have accurate heights including lead/pin protrusion. Check the board thickness and standoff height in the assembly. For tall components near enclosure walls, verify the keep-out zones account for both component body and any thermal clearance requirements.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

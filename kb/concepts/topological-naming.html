@@ -123,14 +123,16 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Understanding this problem is crucial for building robust models; designing sketches with offset planes rather than attaching directly to faces avoids broken trees.</p>
+          <p>Understanding this problem is crucial for building well-tested models; designing sketches with offset planes rather than attaching directly to faces avoids broken trees.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>Underneath <strong>FreeCAD</strong>'s interface, <strong>Topological Naming Problem</strong> integrates mathematical solver frameworks (e.g. finite element analysis FEA mesh topologies or CAM toolpath algorithms) to translate visual CAD vectors into structured, downstream numeric instructions. The system segments physical boundaries into discrete nodes or cutting steps, executing complex polynomial equations to check structural stress loads or calculate mill spindle feeds.</p>
-        <p>To secure computational accuracy, the engine isolates calculations in high-priority CPU memory threads. This prevents thread locks during multi-pass calculations or mesh convergence audits, maintaining stable viewport refresh rates during complex, non-linear simulations.</p>
         
+
+        <p>The DWG database engine stores <strong>Topological Naming Problem</strong> as a collection of entity records identified by unique handles and grouped DXF codes. Each record carries geometric data (group code 10 for point coordinates, code 40 for radius or scale), layer assignment (code 8), and object-specific properties. When Topological Naming Problem elements are created or modified, the engine updates the spatial index—typically a quad-tree or R-tree structure—so that viewport redraws only evaluate entities visible in the current extents.</p>
+        <p>Performance depends on how Topological Naming Problem interacts with the drawing's block table and dimension style table. Nested block references multiply the entity count that the regeneration engine must resolve, while dimension associativity creates behind-the-scenes reactor objects that listen for geometry changes. Understanding this internal linkage explains why certain operations on Topological Naming Problem—such as exploding blocks or redefining dimension styles—can cascade through the drawing in unexpected ways.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Topological Naming Problem</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Technical troubleshooting checklist for <strong>Topological Naming Problem</strong> in enterprise CAD deployments:</p>
+        <ul>
+          <li><strong>Slow regeneration in large drawings:</strong> Viewport pans and zooms lag when Topological Naming Problem is present in drawings with 100k+ entities. <em>Resolution:</em> Enable hardware acceleration (GRAPHICSCONFIG), reduce the number of simultaneously loaded Xrefs, and ensure INDEXCTL is set to 3 (both layer and spatial indexing) on referenced drawings.</li>
+          <li><strong>Custom linetype rendering errors:</strong> Complex linetypes containing text or shapes display incorrectly with Topological Naming Problem. <em>Resolution:</em> Confirm that the SHX font file referenced by the linetype definition exists in the support file search path. Reload the linetype definition using LINETYPE > Load if the display remains corrupt after path correction.</li>
+          <li><strong>Attribute synchronization failures:</strong> Block attributes associated with Topological Naming Problem don't update after BATTMAN or ATTSYNC changes. <em>Resolution:</em> Use ATTSYNC on the specific block name to force attribute definition synchronization. For nested blocks, synchronize from the innermost level outward.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -255,7 +259,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Filleting model edges too early in the Part Navigator tree.&#x27; As the editorial review notes: &#x27;Understanding this problem is crucial for building robust models; designing sketches with offset planes rather than attaching directly to faces avoids broken trees.&#x27;</div>
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Filleting model edges too early in the Part Navigator tree.&#x27; As the editorial review notes: &#x27;Understanding this problem is crucial for building well-tested models; designing sketches with offset planes rather than attaching directly to faces avoids broken trees.&#x27;</div>
     </div>
   </div>
 </section>

@@ -124,20 +124,22 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Alibre Script is critical for production-grade deliverables. Speeds up the modeling of highly repetitive or family-based part series, reducing modeling hours to seconds.</p>
+          <p>A firm grasp of Alibre Script distinguishes experienced practitioners from beginners in professional settings. Speeds up the modeling of highly repetitive or family-based part series, reducing modeling hours to seconds.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>From a geometric perspective, <strong>Alibre Script (Alibre Design)</strong> represents a parametric boundary representation (B-Rep) mechanism within <strong>Alibre Design</strong>. The underlying geometric modeling kernel—whether Parasolid, ACIS, or a proprietary solver—maintains a strictly ordered history tree (Feature Manager). Each operation stores topological references (faces, edges, vertices) that are re-evaluated sequentially during model regeneration.</p>
-        <p>Because B-Rep operations are highly dependent on predecessor geometry, modifications to <strong>Alibre Script (Alibre Design)</strong> require the solver to calculate parent-child relationships. To optimize performance and avoid topological naming reference losses, engineers must establish a robust modeling methodology, minimizing direct dependencies on complex chamfers or fillets in early <a href="./feature-tree-solidworks">feature tree</a> operations.</p>
         
+
+        <p><strong>Alibre Script (Alibre Design)</strong> interacts with the assembly solver, which maintains positional relationships between components through a system of mates or constraints (coincident, concentric, distance, angle). The solver treats each mate as an equation in a nonlinear system: coincident planes produce equality constraints on normal vectors and offsets, while distance mates produce inequality or equality constraints on point-to-plane distances. The solver finds a configuration that satisfies all constraints simultaneously, or reports over-constrained/under-constrained status.</p>
+        <p>Large assemblies involving Alibre Script (Alibre Design) stress the solver because the constraint count grows combinatorially with component count. Lightweight and simplified representations reduce the geometric data loaded into memory without removing constraint definitions, allowing the solver to position components without rendering full detail. Understanding when to use lightweight mode versus fully resolved mode for Alibre Script (Alibre Design) is essential for maintaining interactive performance in assemblies with thousands of components.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Alibre Script (Alibre Design)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Alibre Script (Alibre Design)</strong> in a mechanical or product-design production pipeline requires dependable modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Alibre Script (Alibre Design)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Parameter recalculation failures are highly disruptive during mechanical assembly rebuilds. Follow these diagnostic steps to clear feature errors related to <strong>Alibre Script (Alibre Design)</strong>:</p>
-        <ul>
-          <li><strong>Parent-Child Reference Lost (Regeneration Fail):</strong> The feature tree shows red exclamation marks due to broken edges. <em>Resolution:</em> Right-click the failed feature, edit the sketch plane, and re-project missing references onto active solids.</li>
-          <li><strong>Over-Constrained Sketch Conflict:</strong> The sketch solver turns yellow/red and locks geometry. <em>Resolution:</em> Suppress or delete redundant dimensional constraints, relying on <a href="./alibre-design-term-2">geometric constraints</a> (concentric, collinear) to define design intent.</li>
-          <li><strong>Zero-Thickness Geometry Error:</strong> Occurs when solid faces intersect along a perfect line or vertex. <em>Resolution:</em> Add a micro-offset (e.g. 0.001mm) to the sketch dimensions to ensure the boolean cut or join creates a mathematically valid solid.</li>
-        </ul>
         
+
+        <p>Troubleshooting workflow for <strong>Alibre Script (Alibre Design)</strong> in PDM-managed parametric CAD environments:</p>
+        <ul>
+          <li><strong>External references lost after file rename or move:</strong> Opening an assembly after reorganizing the file structure causes Alibre Script (Alibre Design) components to show as missing. <em>Resolution:</em> Use the PDM system's rename/move functions instead of operating-system file operations—PDM tools update all internal reference paths. If references are already broken, use the assembly's file reference dialog to manually remap each missing component to its new location.</li>
+          <li><strong>Mass properties incorrect for multibody parts:</strong> The mass calculation for Alibre Script (Alibre Design) doesn't match expected values. <em>Resolution:</em> Verify that material assignments are applied to each body in multibody parts (some systems require per-body material rather than per-part). Check for suppressed features that remove material. Confirm the measurement units match expectations (the mass properties dialog may display in different units than the part's modeling units).</li>
+          <li><strong>Drawing views don't update after model change:</strong> Section views or detail views of Alibre Script (Alibre Design) show stale geometry after modifying the parent model. <em>Resolution:</em> Force a drawing update (Ctrl+Q or equivalent rebuild command). If specific views lag, check for broken view references—views that reference deleted features or configurations may freeze at their last valid state rather than updating.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Using global variables that persist across sessions.&#x27; As the editorial review notes: &#x27;Mastering Alibre Script is critical for production-grade deliverables. Speeds up the modeling of highly repetitive or family-based part series, reducing modeling hours to seconds.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Using global variables that persist across sessions.&#x27; As the editorial review notes: &#x27;A firm grasp of Alibre Script distinguishes experienced practitioners from beginners in professional settings. Speeds up the modeling of highly repetitive or family-based part series, reducing modeling hours to seconds.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

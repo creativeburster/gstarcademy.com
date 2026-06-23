@@ -128,9 +128,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>BricsCAD</strong>, <strong>API Extensibility</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The DWG database engine stores <strong>API Extensibility</strong> as a collection of entity records identified by unique handles and grouped DXF codes. Each record carries geometric data (group code 10 for point coordinates, code 40 for radius or scale), layer assignment (code 8), and object-specific properties. When API Extensibility elements are created or modified, the engine updates the spatial index—typically a quad-tree or R-tree structure—so that viewport redraws only evaluate entities visible in the current extents.</p>
+        <p>Performance depends on how API Extensibility interacts with the drawing's block table and dimension style table. Nested block references multiply the entity count that the regeneration engine must resolve, while dimension associativity creates behind-the-scenes reactor objects that listen for geometry changes. Understanding this internal linkage explains why certain operations on API Extensibility—such as exploding blocks or redefining dimension styles—can cascade through the drawing in unexpected ways.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>API Extensibility</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Common issues encountered when working with <strong>API Extensibility</strong> in production drawings, with field-tested resolutions:</p>
+        <ul>
+          <li><strong>Unexpected scale or unit mismatch:</strong> Elements from API Extensibility appear at wrong size after insert or Xref attachment. <em>Resolution:</em> Verify INSUNITS and LUNITS settings match between source and target drawings. Use the UNITS command to confirm the drawing unit interpretation before any cross-file operation.</li>
+          <li><strong>Display artifacts after viewport freeze:</strong> API Extensibility elements disappear or show stale graphics in paper-space viewports. <em>Resolution:</em> Run REGENALL to force a full viewport regeneration. If the issue persists, check that the viewport's frozen-layer list hasn't inadvertently included the layer containing API Extensibility elements.</li>
+          <li><strong>File bloat from accumulated undo history:</strong> Drawing file size grows significantly after extensive API Extensibility edits. <em>Resolution:</em> Use PURGE with all options enabled, then AUDIT to clean orphaned objects. Consider setting UNDOCTL to limit undo recording depth during batch operations.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

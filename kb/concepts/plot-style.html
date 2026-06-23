@@ -129,9 +129,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>AutoCAD</strong>, <strong>Plot Styles (CTB / STB)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The rendering pipeline for <strong>Plot Styles (CTB / STB)</strong> follows a multi-stage path: the display driver reads entity data from the in-memory database, transforms coordinates through the current viewport matrix (accounting for UCS, view rotation, and zoom level), clips geometry against the viewport boundary, and rasterizes the result to screen pixels. Hardware-accelerated drivers offload the final rasterization to the GPU, but the coordinate transformation and clipping stages remain CPU-bound.</p>
+        <p>When Plot Styles (CTB / STB) involves hatching, complex linetypes, or OLE objects, the rendering cost increases disproportionately because these entity types require secondary pattern generation or external process calls. Viewport configuration matters: multiple viewports in paper space multiply the rendering workload because each viewport maintains its own frozen-layer state, view direction, and visual style, forcing the engine to re-evaluate Plot Styles (CTB / STB) visibility independently for each viewport.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Plot Styles (CTB / STB)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Diagnostic workflow for resolving <strong>Plot Styles (CTB / STB)</strong> issues in DWG-based environments:</p>
+        <ul>
+          <li><strong>Object selection failures:</strong> Clicking on Plot Styles (CTB / STB) entities doesn't select them. <em>Resolution:</em> Check if the entities are on a locked layer (LAYLOCKFADECTL), if PICKSTYLE is set to exclude certain object types, or if a drawing filter (QSELECT or selection cycling) is active. Use LIST command on a window-selected area to confirm entity presence.</li>
+          <li><strong>Printing discrepancies:</strong> Plot Styles (CTB / STB) elements appear correctly on screen but print with wrong lineweights or colors. <em>Resolution:</em> Verify the active CTB/STB plot style table assignment. Check whether the viewport is set to display plot styles (View menu). Confirm that object-level color/lineweight overrides aren't conflicting with layer-level settings.</li>
+          <li><strong>Associativity loss after copy/paste:</strong> Dimensions or leaders referencing Plot Styles (CTB / STB) geometry lose their association after pasting into another drawing. <em>Resolution:</em> Use PASTEORIG to maintain coordinate relationships. For complex associative groups, consider WBLOCK export instead of clipboard copy to preserve internal handle references.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

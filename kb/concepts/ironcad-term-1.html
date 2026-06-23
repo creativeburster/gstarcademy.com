@@ -124,20 +124,22 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Dual-Kernel Engine is critical for production-grade deliverables. Directly prevents geometry rebuild failures; if a complex fillet fails on the ACIS solver, the system re-computes it cleanly on Parasolid.</p>
+          <p>Errors in Dual-Kernel Engine tend to cascade through the project, making early precision worth the extra effort. Directly prevents geometry rebuild failures; if a complex fillet fails on the ACIS solver, the system re-computes it cleanly on Parasolid.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>From a geometric perspective, <strong>Dual-Kernel Engine (IronCAD)</strong> represents a parametric boundary representation (B-Rep) mechanism within <strong>IronCAD</strong>. The underlying geometric modeling kernel—whether Parasolid, ACIS, or a proprietary solver—maintains a strictly ordered history tree (Feature Manager). Each operation stores topological references (faces, edges, vertices) that are re-evaluated sequentially during model regeneration.</p>
-        <p>Because B-Rep operations are highly dependent on predecessor geometry, modifications to <strong>Dual-Kernel Engine (IronCAD)</strong> require the solver to calculate parent-child relationships. To optimize performance and avoid topological naming reference losses, engineers must establish a robust modeling methodology, minimizing direct dependencies on complex chamfers or fillets in early <a href="./feature-tree-solidworks">feature tree</a> operations.</p>
         
+
+        <p>The parametric kernel resolves <strong>Dual-Kernel Engine (IronCAD)</strong> by replaying a sequential feature history—each feature in the tree is a recorded operation (extrude, revolve, fillet, pattern) with input references to sketch geometry, datum planes, or existing feature faces. When a parameter changes, the kernel re-evaluates the tree from the modified feature downward, regenerating each dependent feature in order. This replay-based approach means that the order of features in the tree is semantically significant: reordering features can produce different geometry even with identical parameters.</p>
+        <p>Reference stability is the central challenge in Dual-Kernel Engine (IronCAD). Sketch constraints and feature inputs bind to specific topological entities (faces, edges, vertices) using internal identifiers. When an upstream feature changes topology—for example, a fillet that previously produced one face now produces two after a radius change—downstream references to Dual-Kernel Engine (IronCAD) may lose their binding, producing "dangling reference" or "rebuild error" warnings. Sound modeling practice for Dual-Kernel Engine (IronCAD) requires referencing stable entities (origin planes, datum features, named selections) rather than transient topology.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Dual-Kernel Engine (IronCAD)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Dual-Kernel Engine (IronCAD)</strong> in a mechanical or product-design production pipeline requires solid modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Dual-Kernel Engine (IronCAD)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Parameter recalculation failures are highly disruptive during mechanical assembly rebuilds. Follow these diagnostic steps to clear feature errors related to <strong>Dual-Kernel Engine (IronCAD)</strong>:</p>
-        <ul>
-          <li><strong>Parent-Child Reference Lost (Regeneration Fail):</strong> The feature tree shows red exclamation marks due to broken edges. <em>Resolution:</em> Right-click the failed feature, edit the sketch plane, and re-project missing references onto active solids.</li>
-          <li><strong>Over-Constrained Sketch Conflict:</strong> The sketch solver turns yellow/red and locks geometry. <em>Resolution:</em> Suppress or delete redundant dimensional constraints, relying on <a href="./alibre-design-term-2">geometric constraints</a> (concentric, collinear) to define design intent.</li>
-          <li><strong>Zero-Thickness Geometry Error:</strong> Occurs when solid faces intersect along a perfect line or vertex. <em>Resolution:</em> Add a micro-offset (e.g. 0.001mm) to the sketch dimensions to ensure the boolean cut or join creates a mathematically valid solid.</li>
-        </ul>
         
+
+        <p>Resolution guide for common <strong>Dual-Kernel Engine (IronCAD)</strong> issues in parametric modeling environments:</p>
+        <ul>
+          <li><strong>Rebuild errors after feature reorder:</strong> Moving a feature earlier in the tree causes Dual-Kernel Engine (IronCAD) to fail with "dangling reference" errors. <em>Resolution:</em> Before reordering, inspect the feature's parent-child relationships (right-click > Parent/Child). Ensure that all referenced geometry (faces, edges, planes) exists at the new position in the tree. Use origin planes and datum features as references instead of model faces to reduce reorder sensitivity.</li>
+          <li><strong>Fillet or chamfer failure on complex geometry:</strong> Applying a fillet to edges created by Dual-Kernel Engine (IronCAD) produces "failed to create fillet" errors. <em>Resolution:</em> Check for tangent edges, very short edges, or edges where the fillet radius exceeds the available face width. Try reducing the radius or splitting the fillet into multiple smaller operations. Some kernels handle variable-radius fillets more robustly than constant-radius fillets for complex edge chains.</li>
+          <li><strong>Assembly interference not detected:</strong> Components overlap but the interference check reports no conflicts. <em>Resolution:</em> Verify that all components are fully resolved (not lightweight or suppressed). Check that the interference check settings include the correct component pairs. Surface bodies and reference geometry are typically excluded from interference checks—ensure the overlapping bodies are solid bodies.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Creating complex features without verifying kernel compatibility, resulting in slow file save times.&#x27; As the editorial review notes: &#x27;Mastering Dual-Kernel Engine is critical for production-grade deliverables. Directly prevents geometry rebuild failures; if a complex fillet fails on the ACIS solver, the system re-computes it cleanly on Parasolid.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Creating complex features without verifying kernel compatibility, resulting in slow file save times.&#x27; As the editorial review notes: &#x27;Errors in Dual-Kernel Engine tend to cascade through the project, making early precision worth the extra effort. Directly prevents geometry rebuild failures; if a complex fillet fails on the ACIS solver, the system re-computes it cleanly on Parasolid.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

@@ -128,14 +128,16 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>Fusion 360</strong>, <strong>Post-Processor (Fusion 360)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading <a href="./drawings-fusion">drawings</a> with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The parametric kernel resolves <strong>Post-Processor (Fusion 360)</strong> by replaying a sequential feature history—each feature in the tree is a recorded operation (extrude, revolve, fillet, pattern) with input references to sketch geometry, datum planes, or existing feature faces. When a parameter changes, the kernel re-evaluates the tree from the modified feature downward, regenerating each dependent feature in order. This replay-based approach means that the order of features in the tree is semantically significant: reordering features can produce different geometry even with identical parameters.</p>
+        <p>Reference stability is the central challenge in Post-Processor (Fusion 360). Sketch constraints and feature inputs bind to specific topological entities (faces, edges, vertices) using internal identifiers. When an upstream feature changes topology—for example, a fillet that previously produced one face now produces two after a radius change—downstream references to Post-Processor (Fusion 360) may lose their binding, producing "dangling reference" or "rebuild error" warnings. Sound modeling practice for Post-Processor (Fusion 360) requires referencing stable entities (origin planes, datum features, named selections) rather than transient topology.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Post-Processor (Fusion 360)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Post-Processor (Fusion 360)</strong> in a mechanical or product-design production pipeline requires dependable modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Post-Processor (Fusion 360)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Post-Processor (Fusion 360)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Resolution guide for common <strong>Post-Processor (Fusion 360)</strong> issues in parametric modeling environments:</p>
+        <ul>
+          <li><strong>Rebuild errors after feature reorder:</strong> Moving a feature earlier in the tree causes Post-Processor (Fusion 360) to fail with "dangling reference" errors. <em>Resolution:</em> Before reordering, inspect the feature's parent-child relationships (right-click > Parent/Child). Ensure that all referenced geometry (faces, edges, planes) exists at the new position in the tree. Use origin planes and datum features as references instead of model faces to reduce reorder sensitivity.</li>
+          <li><strong>Fillet or chamfer failure on complex geometry:</strong> Applying a fillet to edges created by Post-Processor (Fusion 360) produces "failed to create fillet" errors. <em>Resolution:</em> Check for tangent edges, very short edges, or edges where the fillet radius exceeds the available face width. Try reducing the radius or splitting the fillet into multiple smaller operations. Some kernels handle variable-radius fillets more robustly than constant-radius fillets for complex edge chains.</li>
+          <li><strong>Assembly interference not detected:</strong> Components overlap but the interference check reports no conflicts. <em>Resolution:</em> Verify that all components are fully resolved (not lightweight or suppressed). Check that the interference check settings include the correct component pairs. Surface bodies and reference geometry are typically excluded from interference checks—ensure the overlapping bodies are solid bodies.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

@@ -124,20 +124,22 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering Clean Up &amp; Repair is critical for production-grade deliverables. Ensures imported step files are watertight and error-free before downstream CAM or FEA operations are initiated.</p>
+          <p>Understanding Clean Up &amp; Repair thoroughly avoids the common pitfalls that lead to project delays and rework. Ensures imported step files are watertight and error-free before downstream CAM or FEA operations are initiated.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>From a geometric perspective, <strong>Clean Up &amp; Repair (ANSYS SpaceClaim)</strong> represents a parametric boundary representation (B-Rep) mechanism within <strong>ANSYS SpaceClaim</strong>. The underlying geometric modeling kernel—whether Parasolid, ACIS, or a proprietary solver—maintains a strictly ordered history tree (Feature Manager). Each operation stores topological references (faces, edges, vertices) that are re-evaluated sequentially during model regeneration.</p>
-        <p>Because B-Rep operations are highly dependent on predecessor geometry, modifications to <strong>Clean Up &amp; Repair (ANSYS SpaceClaim)</strong> require the solver to calculate parent-child relationships. To optimize performance and avoid topological naming reference losses, engineers must establish a robust modeling methodology, minimizing direct dependencies on complex chamfers or fillets in early <a href="./feature-tree-solidworks">feature tree</a> operations.</p>
         
+
+        <p>The boundary representation (B-rep) of <strong>Clean Up &amp; Repair (ANSYS SpaceClaim)</strong> stores geometry as a collection of faces, each bounded by edge loops, where each edge is the intersection curve of two adjacent face surfaces. The geometric kernel (Parasolid, ACIS, or Open CASCADE depending on the platform) maintains topological consistency: every edge must be shared by exactly two faces, every face must form a closed loop, and the solid must have a well-defined inside/outside orientation. Operations on Clean Up &amp; Repair (ANSYS SpaceClaim) that violate these rules—such as creating zero-thickness walls or self-intersecting surfaces—produce invalid B-rep errors.</p>
+        <p>Sheet metal operations on Clean Up &amp; Repair (ANSYS SpaceClaim) require the kernel to maintain a parallel representation: the folded (3D) state and the flat pattern. The flat-pattern algorithm unfolds each bend using a bend allowance or K-factor calculation, accounting for material thickness, bend radius, and material properties. The accuracy of the flat pattern depends on correct K-factor values—typically 0.3-0.5 for steel—and errors here propagate directly to cut blanks that don't fold to the correct dimensions on the press brake.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Clean Up &amp; Repair (ANSYS SpaceClaim)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Clean Up &amp; Repair (ANSYS SpaceClaim)</strong> in a mechanical or product-design production pipeline requires proven modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Clean Up &amp; Repair (ANSYS SpaceClaim)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Parameter recalculation failures are highly disruptive during mechanical assembly rebuilds. Follow these diagnostic steps to clear feature errors related to <strong>Clean Up &amp; Repair (ANSYS SpaceClaim)</strong>:</p>
-        <ul>
-          <li><strong>Parent-Child Reference Lost (Regeneration Fail):</strong> The feature tree shows red exclamation marks due to broken edges. <em>Resolution:</em> Right-click the failed feature, edit the sketch plane, and re-project missing references onto active solids.</li>
-          <li><strong>Over-Constrained Sketch Conflict:</strong> The sketch solver turns yellow/red and locks geometry. <em>Resolution:</em> Suppress or delete redundant dimensional constraints, relying on <a href="./alibre-design-term-2">geometric constraints</a> (concentric, collinear) to define design intent.</li>
-          <li><strong>Zero-Thickness Geometry Error:</strong> Occurs when solid faces intersect along a perfect line or vertex. <em>Resolution:</em> Add a micro-offset (e.g. 0.001mm) to the sketch dimensions to ensure the boolean cut or join creates a mathematically valid solid.</li>
-        </ul>
         
+
+        <p>Troubleshooting workflow for <strong>Clean Up &amp; Repair (ANSYS SpaceClaim)</strong> in PDM-managed parametric CAD environments:</p>
+        <ul>
+          <li><strong>External references lost after file rename or move:</strong> Opening an assembly after reorganizing the file structure causes Clean Up &amp; Repair (ANSYS SpaceClaim) components to show as missing. <em>Resolution:</em> Use the PDM system's rename/move functions instead of operating-system file operations—PDM tools update all internal reference paths. If references are already broken, use the assembly's file reference dialog to manually remap each missing component to its new location.</li>
+          <li><strong>Mass properties incorrect for multibody parts:</strong> The mass calculation for Clean Up &amp; Repair (ANSYS SpaceClaim) doesn't match expected values. <em>Resolution:</em> Verify that material assignments are applied to each body in multibody parts (some systems require per-body material rather than per-part). Check for suppressed features that remove material. Confirm the measurement units match expectations (the mass properties dialog may display in different units than the part's modeling units).</li>
+          <li><strong>Drawing views don't update after model change:</strong> Section views or detail views of Clean Up &amp; Repair (ANSYS SpaceClaim) show stale geometry after modifying the parent model. <em>Resolution:</em> Force a drawing update (Ctrl+Q or equivalent rebuild command). If specific views lag, check for broken view references—views that reference deleted features or configurations may freeze at their last valid state rather than updating.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Auto-healing geometry without reviewing changes, which can subtly alter critical dimensions.&#x27; As the editorial review notes: &#x27;Mastering Clean Up &amp; Repair is critical for production-grade deliverables. Ensures imported step files are watertight and error-free before downstream CAM or FEA operations are initiated.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Auto-healing geometry without reviewing changes, which can subtly alter critical dimensions.&#x27; As the editorial review notes: &#x27;Understanding Clean Up &amp; Repair thoroughly avoids the common pitfalls that lead to project delays and rework. Ensures imported step files are watertight and error-free before downstream CAM or FEA operations are initiated.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

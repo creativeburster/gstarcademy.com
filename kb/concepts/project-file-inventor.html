@@ -128,14 +128,16 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>From a geometric perspective, <strong>Project File (.ipj, Inventor)</strong> represents a parametric boundary representation (B-Rep) mechanism within <strong>Inventor</strong>. The underlying geometric modeling kernel—whether Parasolid, ACIS, or a proprietary solver—maintains a strictly ordered history tree (Feature Manager). Each operation stores topological references (faces, edges, vertices) that are re-evaluated sequentially during model regeneration.</p>
-        <p>Because B-Rep operations are highly dependent on predecessor geometry, modifications to <strong>Project File (.ipj, Inventor)</strong> require the solver to calculate parent-child relationships. To optimize performance and avoid topological naming reference losses, engineers must establish a robust modeling methodology, minimizing direct dependencies on complex chamfers or fillets in early <a href="./feature-tree-solidworks">feature tree</a> operations.</p>
         
+
+        <p><strong>Project File (.ipj, Inventor)</strong> interacts with the assembly solver, which maintains positional relationships between components through a system of mates or constraints (coincident, concentric, distance, angle). The solver treats each mate as an equation in a nonlinear system: coincident planes produce equality constraints on normal vectors and offsets, while distance mates produce inequality or equality constraints on point-to-plane distances. The solver finds a configuration that satisfies all constraints simultaneously, or reports over-constrained/under-constrained status.</p>
+        <p>Large assemblies involving Project File (.ipj, Inventor) stress the solver because the constraint count grows combinatorially with component count. Lightweight and simplified representations reduce the geometric data loaded into memory without removing constraint definitions, allowing the solver to position components without rendering full detail. Understanding when to use lightweight mode versus fully resolved mode for Project File (.ipj, Inventor) is essential for maintaining interactive performance in assemblies with thousands of components.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>Project File (.ipj, Inventor)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>Project File (.ipj, Inventor)</strong> in a mechanical or product-design production pipeline requires dependable modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Project File (.ipj, Inventor)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Parameter recalculation failures are highly disruptive during mechanical assembly rebuilds. Follow these diagnostic steps to clear feature errors related to <strong>Project File (.ipj, Inventor)</strong>:</p>
-        <ul>
-          <li><strong>Parent-Child Reference Lost (Regeneration Fail):</strong> The feature tree shows red exclamation marks due to broken edges. <em>Resolution:</em> Right-click the failed feature, edit the sketch plane, and re-project missing references onto active solids.</li>
-          <li><strong>Over-Constrained Sketch Conflict:</strong> The sketch solver turns yellow/red and locks geometry. <em>Resolution:</em> Suppress or delete redundant dimensional constraints, relying on <a href="./alibre-design-term-2">geometric constraints</a> (concentric, collinear) to define design intent.</li>
-          <li><strong>Zero-Thickness Geometry Error:</strong> Occurs when solid faces intersect along a perfect line or vertex. <em>Resolution:</em> Add a micro-offset (e.g. 0.001mm) to the sketch dimensions to ensure the boolean cut or join creates a mathematically valid solid.</li>
-        </ul>
         
+
+        <p>Diagnostic procedures for <strong>Project File (.ipj, Inventor)</strong> data exchange and interoperability issues:</p>
+        <ul>
+          <li><strong>STEP export loses fillet geometry:</strong> Fillets and rounds in Project File (.ipj, Inventor) translate as faceted approximations or disappear entirely in STEP output. <em>Resolution:</em> Increase the STEP export precision settings (tighter chord tolerance and angle tolerance). Verify the STEP AP version—AP214 handles complex surfaces more reliably than AP203 for modern geometry. If specific fillets consistently fail, try increasing the fillet radius slightly or simplifying the adjacent face geometry.</li>
+          <li><strong>Configuration/variant not included in export:</strong> Only the active configuration of Project File (.ipj, Inventor) appears in the exported file. <em>Resolution:</em> Most neutral formats (STEP, IGES) support only a single configuration per file. Export each required configuration separately, or use native format exchange if the receiving system supports it. For assemblies, verify that the correct configuration is active in each component before batch export.</li>
+          <li><strong>Thread cosmetics missing after translation:</strong> Cosmetic thread annotations on Project File (.ipj, Inventor) don't appear in the receiving CAD system. <em>Resolution:</em> Cosmetic threads are annotation features, not geometric features, and don't survive neutral-format translation. Replace cosmetic threads with modeled threads (helical cut) if the receiving system needs actual thread geometry, accepting the increased file size and rebuild time.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

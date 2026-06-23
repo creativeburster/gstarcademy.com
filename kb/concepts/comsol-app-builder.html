@@ -129,9 +129,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong><a href="../software/comsol">COMSOL Multiphysics</a></strong>, <strong>COMSOL Application Builder (COMSOL)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p><strong>COMSOL Application Builder (COMSOL)</strong> requires specification of constitutive models that relate stress to strain (structural), or pressure to velocity (fluid). Linear elastic models assume proportional stress-strain response, which is valid only below the material's yield point. For problems involving plasticity, creep, hyperelasticity, or damage, COMSOL Application Builder (COMSOL) must use nonlinear constitutive models that require iterative solution methods (Newton-Raphson) at each load increment. The iterative solver attempts to find an equilibrium configuration where internal forces balance external loads, and convergence failure typically indicates either an inappropriate constitutive model or load increments that are too large.</p>
+        <p>Contact modeling in COMSOL Application Builder (COMSOL) adds another layer of nonlinearity. Contact pairs define surfaces that may come into contact during deformation, and the solver must detect when contact occurs, apply normal pressure to prevent penetration, and optionally apply tangential friction forces. The penalty method (applying a spring-like stiffness at contact points) is computationally efficient but allows small penetration; the Lagrange multiplier method enforces zero penetration exactly but adds equations to the system. The choice affects both accuracy and convergence stability of COMSOL Application Builder (COMSOL) results.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -148,13 +150,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>COMSOL Application Builder (COMSOL)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Analysis troubleshooting for <strong>COMSOL Application Builder (COMSOL)</strong> in simulation environments:</p>
+        <ul>
+          <li><strong>Solver convergence failure:</strong> The nonlinear solver fails to converge after multiple iterations at a particular load step. <em>Resolution:</em> Reduce the load step size (increase the number of substeps). Check for overconstrained boundary conditions that conflict with the deformation pattern. Review the contact definitions for sudden status changes (open/closed) that create discontinuities. Enable line search and/or increase the maximum number of equilibrium iterations.</li>
+          <li><strong>Stress singularity at point loads or sharp corners:</strong> Stress values for COMSOL Application Builder (COMSOL) increase without bound as the mesh is refined near concentrated loads or re-entrant corners. <em>Resolution:</em> Stress singularities are a mathematical artifact, not physical reality. Use the stress a small distance away from the singularity (St. Venant's principle), replace point loads with distributed pressure, or add physical fillets to re-entrant corners. Report the stress at a distance of at least 2-3 element lengths from the singularity.</li>
+          <li><strong>Mesh quality errors in imported geometry:</strong> Meshing COMSOL Application Builder (COMSOL) geometry fails with "bad element quality" or "unmeshable region" errors. <em>Resolution:</em> Run geometry cleanup to remove sliver faces, short edges, and gaps/overlaps. Increase the mesh size in the problematic region, or apply local mesh controls (sizing, mapped meshing) to guide the mesher around difficult features. For persistent failures, defeature the local geometry by removing small fillets or chamfers that serve no structural purpose.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

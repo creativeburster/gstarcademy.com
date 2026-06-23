@@ -128,9 +128,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>Underneath <strong><a href="../software/freecad">FreeCAD</a></strong>'s interface, <strong>Python Console (FreeCAD)</strong> integrates mathematical solver frameworks (e.g. finite element analysis FEA mesh topologies or CAM toolpath algorithms) to translate visual CAD vectors into structured, downstream numeric instructions. The system segments physical boundaries into discrete nodes or cutting steps, executing complex polynomial equations to check structural stress loads or calculate mill spindle feeds.</p>
-        <p>To secure computational accuracy, the engine isolates calculations in high-priority CPU memory threads. This prevents thread locks during multi-pass calculations or mesh convergence audits, maintaining stable viewport refresh rates during complex, non-linear simulations.</p>
         
+
+        <p>The rendering pipeline for <strong>Python Console (FreeCAD)</strong> follows a multi-stage path: the display driver reads entity data from the in-memory database, transforms coordinates through the current viewport matrix (accounting for UCS, view rotation, and zoom level), clips geometry against the viewport boundary, and rasterizes the result to screen pixels. Hardware-accelerated drivers offload the final rasterization to the GPU, but the coordinate transformation and clipping stages remain CPU-bound.</p>
+        <p>When Python Console (FreeCAD) involves hatching, complex linetypes, or OLE objects, the rendering cost increases disproportionately because these entity types require secondary pattern generation or external process calls. Viewport configuration matters: multiple viewports in paper space multiply the rendering workload because each viewport maintains its own frozen-layer state, view direction, and visual style, forcing the engine to re-evaluate Python Console (FreeCAD) visibility independently for each viewport.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Python Console (FreeCAD)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Production-environment troubleshooting for <strong>Python Console (FreeCAD)</strong> across networked drawing sets:</p>
+        <ul>
+          <li><strong>Xref binding creates duplicate layer names:</strong> After binding Xrefs containing Python Console (FreeCAD), layer names appear with $0$ prefixes creating naming conflicts. <em>Resolution:</em> Use Insert-type binding (XREF > Bind > Insert) instead of Bind-type binding to merge Xref layers with identically-named host layers. Post-bind, run LAYMRG to consolidate any remaining duplicate layers.</li>
+          <li><strong>RECOVER needed after network save interruption:</strong> Drawing file containing Python Console (FreeCAD) becomes corrupt after a network timeout during save. <em>Resolution:</em> Use RECOVER rather than OPEN to load the corrupt file—RECOVER attempts to rebuild the object table from surviving data. Enable automatic backup (ISAVEBAK=1) and set SAVETIME to a short interval (10-15 minutes) to minimize data loss from future save interruptions.</li>
+          <li><strong>Sheet set index desynchronization:</strong> Python Console (FreeCAD)-related drawings show outdated callout values in sheet set views. <em>Resolution:</em> Open and resave each affected drawing individually to update the sheet set index. If the issue persists, delete and recreate the sheet set DST file, re-adding the existing drawings to rebuild the index from scratch.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

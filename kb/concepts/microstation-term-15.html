@@ -124,15 +124,17 @@
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Mastering VBA Automation is critical for production-grade deliverables. Saves massive drafting hours by automating repetitive sheet setup, numbering, and drawing clean-up operations.</p>
+          <p>Proficiency with VBA Automation separates routine work from high-quality output that meets professional standards. Saves massive drafting hours by automating repetitive sheet setup, numbering, and drawing clean-up operations.</p>
 <p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong>MicroStation</strong>, <strong>VBA Automation (MicroStation)</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The analytical model associated with <strong>VBA Automation (MicroStation)</strong> is a simplified geometric abstraction used for structural analysis and energy simulation. While the physical model stores the exact 3D geometry (including profile offsets, layer compositions, and connection details), the analytical model reduces this to centerline representations, node points, and load-bearing surfaces. Discrepancies between the physical and analytical representations of VBA Automation (MicroStation)—such as misaligned analytical lines or unconnected nodes—propagate errors into structural calculation exports and must be resolved before analysis.</p>
+        <p>Scheduling and tagging of VBA Automation (MicroStation) depend on the parameter infrastructure: only shared parameters appear in multi-category schedules, and only parameters exposed in the family definition are available for tagging. Project parameters add data fields to placed instances but don't travel with the family when loaded into other projects. This distinction between shared, project, and family parameters is a frequent source of confusion when teams attempt to extract consistent data from VBA Automation (MicroStation) across multiple project files.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -149,13 +151,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>VBA Automation (MicroStation)</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Diagnostic procedures for <strong>VBA Automation (MicroStation)</strong> performance and data integrity:</p>
+        <ul>
+          <li><strong>Model regeneration becomes progressively slower:</strong> Opening views containing VBA Automation (MicroStation) takes increasingly longer as the project matures. <em>Resolution:</em> Audit the warning count—models with thousands of warnings regenerate significantly slower. Purge unused families, views, and groups. Check for heavily nested family instances that multiply the geometry the engine must resolve per view.</li>
+          <li><strong>Room/area calculations incorrect:</strong> Rooms containing VBA Automation (MicroStation) report wrong area or fail to compute. <em>Resolution:</em> Verify that all bounding elements have their Room Bounding parameter enabled. Check for gaps in the room boundary (use the Room Separation Line tool to close them). Ensure the room's computation height intersects the bounding walls at a level where they have solid geometry.</li>
+          <li><strong>Tag cannot find parameter value:</strong> Tags applied to VBA Automation (MicroStation) display question marks instead of parameter values. <em>Resolution:</em> Open the tag family and verify that the label references the correct parameter name (exact match, case-sensitive). Check if the parameter is a type parameter but the tag expects an instance parameter, or vice versa. For shared parameters, confirm the GUID matches between the tag family and the host family.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
@@ -257,7 +261,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Using 32-bit VBA libraries on 64-bit MicroStation installations, causing script crashes.&#x27; As the editorial review notes: &#x27;Mastering VBA Automation is critical for production-grade deliverables. Saves massive drafting hours by automating repetitive sheet setup, numbering, and drawing clean-up operations.
+      <div data-feedback-text>Correct. A common pitfall is &#x27;Using 32-bit VBA libraries on 64-bit MicroStation installations, causing script crashes.&#x27; As the editorial review notes: &#x27;Proficiency with VBA Automation separates routine work from high-quality output that meets professional standards. Saves massive drafting hours by automating repetitive sheet setup, numbering, and drawing clean-up operations.
 
 Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.&#x27;</div>
     </div>

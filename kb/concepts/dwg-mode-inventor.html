@@ -128,14 +128,16 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>From a geometric perspective, <strong>DWG TrueConnect (Inventor)</strong> represents a parametric boundary representation (B-Rep) mechanism within <strong>Inventor</strong>. The underlying geometric modeling kernel—whether Parasolid, ACIS, or a proprietary solver—maintains a strictly ordered history tree (Feature Manager). Each operation stores topological references (faces, edges, vertices) that are re-evaluated sequentially during model regeneration.</p>
-        <p>Because B-Rep operations are highly dependent on predecessor geometry, modifications to <strong>DWG TrueConnect (Inventor)</strong> require the solver to calculate parent-child relationships. To optimize performance and avoid topological naming reference losses, engineers must establish a robust modeling methodology, minimizing direct dependencies on complex chamfers or fillets in early <a href="./feature-tree-solidworks">feature tree</a> operations.</p>
         
+
+        <p>The boundary representation (B-rep) of <strong>DWG TrueConnect (Inventor)</strong> stores geometry as a collection of faces, each bounded by edge loops, where each edge is the intersection curve of two adjacent face surfaces. The geometric kernel (Parasolid, ACIS, or Open CASCADE depending on the platform) maintains topological consistency: every edge must be shared by exactly two faces, every face must form a closed loop, and the solid must have a well-defined inside/outside orientation. Operations on DWG TrueConnect (Inventor) that violate these rules—such as creating zero-thickness walls or self-intersecting surfaces—produce invalid B-rep errors.</p>
+        <p>Sheet metal operations on DWG TrueConnect (Inventor) require the kernel to maintain a parallel representation: the folded (3D) state and the flat pattern. The flat-pattern algorithm unfolds each bend using a bend allowance or K-factor calculation, accounting for material thickness, bend radius, and material properties. The accuracy of the flat pattern depends on correct K-factor values—typically 0.3-0.5 for steel—and errors here propagate directly to cut blanks that don't fold to the correct dimensions on the press brake.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
 
-    <p>Deploying <strong>DWG TrueConnect (Inventor)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
+    <p>Deploying <strong>DWG TrueConnect (Inventor)</strong> in a mechanical or product-design production pipeline requires proven modeling discipline and data management:</p>
     <ol>
       <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
       <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>DWG TrueConnect (Inventor)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Parameter recalculation failures are highly disruptive during mechanical assembly rebuilds. Follow these diagnostic steps to clear feature errors related to <strong>DWG TrueConnect (Inventor)</strong>:</p>
-        <ul>
-          <li><strong>Parent-Child Reference Lost (Regeneration Fail):</strong> The feature tree shows red exclamation marks due to broken edges. <em>Resolution:</em> Right-click the failed feature, edit the sketch plane, and re-project missing references onto active solids.</li>
-          <li><strong>Over-Constrained Sketch Conflict:</strong> The sketch solver turns yellow/red and locks geometry. <em>Resolution:</em> Suppress or delete redundant dimensional constraints, relying on <a href="./alibre-design-term-2">geometric constraints</a> (concentric, collinear) to define design intent.</li>
-          <li><strong>Zero-Thickness Geometry Error:</strong> Occurs when solid faces intersect along a perfect line or vertex. <em>Resolution:</em> Add a micro-offset (e.g. 0.001mm) to the sketch dimensions to ensure the boolean cut or join creates a mathematically valid solid.</li>
-        </ul>
         
+
+        <p>Diagnostic procedures for <strong>DWG TrueConnect (Inventor)</strong> data exchange and interoperability issues:</p>
+        <ul>
+          <li><strong>STEP export loses fillet geometry:</strong> Fillets and rounds in DWG TrueConnect (Inventor) translate as faceted approximations or disappear entirely in STEP output. <em>Resolution:</em> Increase the STEP export precision settings (tighter chord tolerance and angle tolerance). Verify the STEP AP version—AP214 handles complex surfaces more reliably than AP203 for modern geometry. If specific fillets consistently fail, try increasing the fillet radius slightly or simplifying the adjacent face geometry.</li>
+          <li><strong>Configuration/variant not included in export:</strong> Only the active configuration of DWG TrueConnect (Inventor) appears in the exported file. <em>Resolution:</em> Most neutral formats (STEP, IGES) support only a single configuration per file. Export each required configuration separately, or use native format exchange if the receiving system supports it. For assemblies, verify that the correct configuration is active in each component before batch export.</li>
+          <li><strong>Thread cosmetics missing after translation:</strong> Cosmetic thread annotations on DWG TrueConnect (Inventor) don't appear in the receiving CAD system. <em>Resolution:</em> Cosmetic threads are annotation features, not geometric features, and don't survive neutral-format translation. Replace cosmetic threads with modeled threads (helical cut) if the receiving system needs actual thread geometry, accepting the increased file size and rebuild time.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>

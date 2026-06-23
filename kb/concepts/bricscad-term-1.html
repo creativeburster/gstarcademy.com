@@ -128,9 +128,11 @@
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
           
-        <p>In 2D vector engines like <strong><a href="../software/bricscad">BricsCAD</a></strong>, <strong>Direct Modeling</strong> directly influences the system's memory-mapped database structure. Rather than storing arbitrary pixel rasters, the DWG/DXF format describes each entity using grouped DXF codes (such as code 10 for coordinates, code 8 for <a href="./layers-gstarcad">layers</a>, and code 100 for class markers). The virtual screen index utilizes highly optimized spatial indexing trees (like quad-trees or R-trees) to manage viewport pan and zoom sweeps efficiently.</p>
-        <p>When executing complex editing commands or linking <a href="./xref-autocad">external reference</a> files, the CAD engine accesses these index tables directly, avoiding linear file scans. This direct memory access is critical for retaining high viewport frame rates (FPS) when loading drawings with hundreds of thousands of lines, arcs, and text annotations.</p>
         
+
+        <p>The DWG database engine stores <strong>Direct Modeling</strong> as a collection of entity records identified by unique handles and grouped DXF codes. Each record carries geometric data (group code 10 for point coordinates, code 40 for radius or scale), layer assignment (code 8), and object-specific properties. When Direct Modeling elements are created or modified, the engine updates the spatial index—typically a quad-tree or R-tree structure—so that viewport redraws only evaluate entities visible in the current extents.</p>
+        <p>Performance depends on how Direct Modeling interacts with the drawing's block table and dimension style table. Nested block references multiply the entity count that the regeneration engine must resolve, while dimension associativity creates behind-the-scenes reactor objects that listen for geometry changes. Understanding this internal linkage explains why certain operations on Direct Modeling—such as exploding blocks or redefining dimension styles—can cascade through the drawing in unexpected ways.</p>
+
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
@@ -147,13 +149,15 @@
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
           
-        <p>Avoid drawing corruption and viewport lag when referencing large assets with <strong>Direct Modeling</strong> by using this technical audit pipeline:</p>
-        <ul>
-          <li><strong>Registry bloat &amp; Layer Overlap:</strong> The file size jumps exponentially. <em>Resolution:</em> Run the `DGNPURGE` or `-PURGE` command with all options active, and delete duplicate scale references via the `SCALELISTEDIT` defaults.</li>
-          <li><strong><a href="./xref-clipping-zw">Xref Clipping</a> Boundary Disappearance:</strong> Underlays do not render boundary lines properly. <em>Resolution:</em> Set the global system variable `FRAME` or `XCLIPFRAME` to 1 or 2, allowing visual handles to display without showing up in <a href="./sketchup-term-4">layout</a> plots.</li>
-          <li><strong>Custom Object Proxy Warnings:</strong> Drawing shows empty boxes where smart parts should be. <em>Resolution:</em> Ensure the appropriate vendor ObjectEnabler is installed, or set `PROXYSHOW` to 1 to show proxy graphics during plotting.</li>
-        </ul>
         
+
+        <p>Technical troubleshooting checklist for <strong>Direct Modeling</strong> in enterprise CAD deployments:</p>
+        <ul>
+          <li><strong>Slow regeneration in large drawings:</strong> Viewport pans and zooms lag when Direct Modeling is present in drawings with 100k+ entities. <em>Resolution:</em> Enable hardware acceleration (GRAPHICSCONFIG), reduce the number of simultaneously loaded Xrefs, and ensure INDEXCTL is set to 3 (both layer and spatial indexing) on referenced drawings.</li>
+          <li><strong>Custom linetype rendering errors:</strong> Complex linetypes containing text or shapes display incorrectly with Direct Modeling. <em>Resolution:</em> Confirm that the SHX font file referenced by the linetype definition exists in the support file search path. Reload the linetype definition using LINETYPE > Load if the display remains corrupt after path correction.</li>
+          <li><strong>Attribute synchronization failures:</strong> Block attributes associated with Direct Modeling don't update after BATTMAN or ATTSYNC changes. <em>Resolution:</em> Use ATTSYNC on the specific block name to force attribute definition synchronization. For nested blocks, synchronize from the innermost level outward.</li>
+        </ul>
+
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
