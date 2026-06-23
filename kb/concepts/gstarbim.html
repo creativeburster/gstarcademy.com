@@ -385,6 +385,16 @@
     
 
         
+        <section class="kb-concept-section">
+        <h2>Practical Workflow Tips</h2>
+        <p>Lessons learned from production environments working with GstarBIM Platform:</p>
+        <ul>
+          <li><strong>Freeze rather than turn off layers:</strong> When temporarily hiding GstarBIM Platform elements, freeze the layer instead of turning it off. Frozen layers are excluded from regeneration calculations, improving viewport performance.</li>
+          <li><strong>Keep Xref paths relative:</strong> When GstarBIM Platform involves external references, use relative paths rather than absolute paths. This makes the drawing set portable across workstations and prevents "Xref not found" errors.</li>
+          <li><strong>Purge regularly during extended sessions:</strong> Running PURGE periodically while working on GstarBIM Platform prevents gradual file bloat that slows operations and increases save times.</li>
+          <li><strong>Document non-obvious decisions in drawing notes:</strong> When GstarBIM Platform requires judgment calls, add a note on a non-plotting layer. The reasoning behind decisions is often more valuable than the decisions themselves when revisited months later.</li>
+        </ul>
+        </section>
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Sources &amp; further reading</h2>
           <ul class="ink-source-list"><li><a href="https://www.gstarcad.net/support/" rel="noopener noreferrer nofollow" target="_blank">Gstarsoft Support Center &amp; Technical FAQ Portal</a> · <span class="meta">Gstarsoft Co., Ltd.</span></li></ul>

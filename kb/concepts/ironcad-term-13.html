@@ -368,6 +368,16 @@ Without it, downstream fabrication or cross-discipline model federation will fac
     
 
         
+        <section class="kb-concept-section">
+        <h2>Practical Workflow Tips</h2>
+        <p>Principles refined through years of parametric modeling and B-Rep Booleans (IronCAD) workflows:</p>
+        <ul>
+          <li><strong>Sketch fully before constraining:</strong> Draw the complete sketch profile before adding dimensions and constraints. This prevents over-constrained situations that require deleting and re-adding constraints.</li>
+          <li><strong>Reference origin planes, not model faces:</strong> When positioning B-Rep Booleans (IronCAD) features, reference origin planes or datum planes rather than model faces. Origin planes never change topology.</li>
+          <li><strong>Name features in the tree:</strong> Rename each feature from its default name to a descriptive name. In complex models with 200+ features, named features save minutes per search and make design intent readable.</li>
+          <li><strong>Use configurations for variants:</strong> Rather than creating separate files for B-Rep Booleans (IronCAD) size variants, use configurations or design tables. This keeps all variants linked to a single master definition.</li>
+        </ul>
+        </section>
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Sources &amp; further reading</h2>
           <ul class="ink-source-list"><li><a href="https://www.ironcad.com/support/" rel="noopener noreferrer nofollow" target="_blank">IronCAD Support & Technical Documentation</a> · <span class="meta">IronCAD LLC</span></li><li><a href="https://www.ironcad.com/products/ironcad/" rel="noopener noreferrer nofollow" target="_blank">IronCAD Design Collaboration Suite — Product Overview</a> · <span class="meta">IronCAD LLC</span></li></ul>

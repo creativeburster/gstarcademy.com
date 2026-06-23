@@ -383,6 +383,16 @@
     
 
         
+        <section class="kb-concept-section">
+        <h2>Practical Workflow Tips</h2>
+        <p>Lessons learned from production environments working with Smart Plot (ZWCAD):</p>
+        <ul>
+          <li><strong>Freeze rather than turn off layers:</strong> When temporarily hiding Smart Plot (ZWCAD) elements, freeze the layer instead of turning it off. Frozen layers are excluded from regeneration calculations, improving viewport performance.</li>
+          <li><strong>Keep Xref paths relative:</strong> When Smart Plot (ZWCAD) involves external references, use relative paths rather than absolute paths. This makes the drawing set portable across workstations and prevents "Xref not found" errors.</li>
+          <li><strong>Purge regularly during extended sessions:</strong> Running PURGE periodically while working on Smart Plot (ZWCAD) prevents gradual file bloat that slows operations and increases save times.</li>
+          <li><strong>Document non-obvious decisions in drawing notes:</strong> When Smart Plot (ZWCAD) requires judgment calls, add a note on a non-plotting layer. The reasoning behind decisions is often more valuable than the decisions themselves when revisited months later.</li>
+        </ul>
+        </section>
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Sources &amp; further reading</h2>
           <ul class="ink-source-list"><li><a href="https://www.zwsoft.com/support" rel="noopener noreferrer nofollow" target="_blank">ZWSOFT Support Center &amp; Help portal</a> · <span class="meta">ZWSOFT</span></li></ul>

@@ -368,6 +368,16 @@ Without it, downstream fabrication or cross-discipline model federation will fac
     
 
         
+        <section class="kb-concept-section">
+        <h2>Practical Workflow Tips</h2>
+        <p>Practical experience with Sheet Metal Unfolding (ANSYS SpaceClaim) in production parametric CAD environments:</p>
+        <ul>
+          <li><strong>Keep feature count low:</strong> Fewer features means faster rebuilds and fewer reference failures. Combine operations where possible—a single multi-contour extrude is more stable than several separate ones.</li>
+          <li><strong>Test with extreme parameters:</strong> After building a parametric model, drive dimensions to minimum and maximum values to verify the model rebuilds correctly across the full range.</li>
+          <li><strong>Simplify for downstream use:</strong> Before sharing Sheet Metal Unfolding (ANSYS SpaceClaim) geometry with FEA or CAM teams, remove cosmetic features that add complexity without affecting the downstream task.</li>
+          <li><strong>Write meaningful PDM revision descriptions:</strong> "Updated per review" tells the next person nothing; "Increased wall thickness from 2mm to 3mm per stress analysis results (ECN-4521)" provides traceable context.</li>
+        </ul>
+        </section>
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Sources &amp; further reading</h2>
           <ul class="ink-source-list"><li><a href="https://ansyshelp.ansys.com/" rel="noopener noreferrer nofollow" target="_blank">ANSYS SpaceClaim Documentation — Ansys Help Portal</a> · <span class="meta">ANSYS</span></li><li><a href="https://courses.ansys.com/" rel="noopener noreferrer nofollow" target="_blank">Ansys Innovation Courses — Free Simulation Training</a> · <span class="meta">ANSYS</span></li></ul>
