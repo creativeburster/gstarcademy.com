@@ -940,7 +940,7 @@ input::placeholder { color: #8a9abb; }
 .footer.site-footer {
   margin-top: 80px;
   background: #020617;
-  padding: 80px 0 40px;
+  padding: 48px 0 24px;
   color: #94a3b8;
   position: relative;
   overflow: hidden;
@@ -960,7 +960,7 @@ input::placeholder { color: #8a9abb; }
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 36px; /* Slightly tighter gap to support 5 columns cleanly */
-  margin-bottom: 60px;
+  margin-bottom: 24px;
 }
 
 .site-footer-tagline {
@@ -1008,7 +1008,7 @@ input::placeholder { color: #8a9abb; }
 }
 
 .site-footer-bottom {
-  padding-top: 40px;
+  padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
   font-size: 0.8rem;
@@ -5223,7 +5223,7 @@ h3 { line-height: 1.25; }
   background: linear-gradient(90deg, transparent, var(--ink-accent), transparent);
   opacity: 0.5;
 }
-.site-footer-inner { padding: 56px clamp(20px, 4vw, 48px) !important; gap: 40px; }
+.site-footer-inner { padding: 40px clamp(20px, 4vw, 48px) 16px !important; gap: 40px; }
 .site-footer-brand .site-footer-tagline {
   font-family: var(--ink-font-display) !important;
   font-size: 22px !important;
