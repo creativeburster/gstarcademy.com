@@ -152,13 +152,13 @@
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-          
-    <p>Deploying <strong>Draft Workbench (AVEVA Everything3D)</strong> in a commercial design production pipeline requires a standardized, structured workflow to minimize model regression and file corruption:</p>
+
+    <p>Deploying <strong>Draft Workbench (AVEVA Everything3D)</strong> in a plant or process design environment requires integration with P&ID data and adherence to piping standards:</p>
     <ol>
-      <li><strong>Establish the Coordinate &amp; Style Template:</strong> Before generating any elements, bind the drawing or project to the enterprise-level template file (.dwt or .rte), locking units, text scales, and baseline coordinate reference frameworks.</li>
-      <li><strong>Parametric Alignment &amp; Parenting:</strong> When initializing <strong>Draft Workbench (AVEVA Everything3D)</strong>, reference it strictly to stable datum planes or shared project levels. Avoid referencing ephemeral lines or sketches that may undergo topological naming changes.</li>
-      <li><strong>Data Attribute Enrichment:</strong> Populate all standard semantic properties (including manufacturer, rating, K-factor, or materials) within the property panels. Ensure that all inputs align with industry schemas like COBie or standard STEP metadata classes.</li>
-      <li><strong>Audit and Diagnostic Purge:</strong> Run standard diagnostics (such as `AUDIT`, `PURGE`, or model integrity reviews) to clean up dangling database pointers, duplicate scale list elements, and orphaned block references.</li>
+      <li><strong>Establish the Plant Reference Model:</strong> Import the point-cloud survey or existing plant model as a positional reference. Define the project's piping specifications (pipe classes, insulation requirements, valve ratings) and equipment datasheets in the project database.</li>
+      <li><strong>3D Model Development:</strong> When configuring <strong>Draft Workbench (AVEVA Everything3D)</strong>, place equipment from catalogs, route piping along defined specifications, and add structural steel supports. Maintain P&ID consistency by verifying that every modeled line matches its corresponding P&ID tag and specification.</li>
+      <li><strong>Interference Management:</strong> Run clash detection iteratively as disciplines (piping, structural, electrical, HVAC) progress. Categorize clashes by severity and discipline responsibility. Use automated reporting to track resolution rates against project milestones.</li>
+      <li><strong>Deliverable Extraction:</strong> Generate isometric drawings, plan/elevation views, material take-offs, and stress analysis inputs directly from the 3D model. Verify that all extractable data (line lists, valve schedules, nozzle orientations) aligns with the engineering database before procurement release.</li>
     </ol>
     
         </section>
@@ -175,12 +175,12 @@
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-          
-    <p>In global multi-office projects, <strong>Draft Workbench (AVEVA Everything3D)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>AVEVA Everything3D</strong> drawings to IFC for coordination in <a href="../software/navisworks">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+
+    <p>Plant design workflows using <strong>Draft Workbench (AVEVA Everything3D)</strong> require tight integration across process, piping, structural, and electrical disciplines:</p>
     <ul>
-      <li><strong>Class Preservation:</strong> Ensure that <strong>Draft Workbench (AVEVA Everything3D)</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped <a href="./components-fusion">components</a> default to generic containers, losing their smart structural parameters.</li>
-      <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
-      <li><strong>Visual Overlap Verification:</strong> Run spatial <a href="./tekla-structures-term-8">clash checks</a> regularly in a federated viewer to verify that no geometric overlaps or clearance violations occur between <strong>Draft Workbench (AVEVA Everything3D)</strong> and structural frameworks.</li>
+      <li><strong>P&ID to 3D Model Consistency:</strong> Maintain a live link or rigorous manual cross-check between the P&ID (process and instrumentation diagram) and the 3D model. Every line, valve, and instrument in the model must trace back to a P&ID tag with matching specification and size.</li>
+      <li><strong>Multi-Discipline Model Federation:</strong> Coordinate piping, structural steel, electrical tray, and HVAC duct models in a common reference environment. Schedule regular clash-detection runs and resolve interferences through documented change orders rather than informal field adjustments.</li>
+      <li><strong>Isometric and Material Extraction:</strong> Generate piping isometrics, material take-offs, and stress analysis input files directly from the model. Verify that extracted data (spool numbers, weld counts, support locations) matches the engineering database and procurement records before fabrication release.</li>
     </ul>
     
         </section>

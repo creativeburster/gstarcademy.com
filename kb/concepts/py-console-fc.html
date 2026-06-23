@@ -150,13 +150,13 @@
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-          
-    <p>Deploying <strong>Python Console (FreeCAD)</strong> in a commercial design production pipeline requires a standardized, structured workflow to minimize model regression and file corruption:</p>
+
+    <p>Deploying <strong>Python Console (FreeCAD)</strong> in a FreeCAD-based design workflow requires understanding of the workbench ecosystem and parametric kernel behavior:</p>
     <ol>
-      <li><strong>Establish the Coordinate &amp; Style Template:</strong> Before generating any elements, bind the drawing or project to the enterprise-level template file (.dwt or .rte), locking units, text scales, and baseline coordinate reference frameworks.</li>
-      <li><strong>Parametric Alignment &amp; Parenting:</strong> When initializing <strong>Python Console (FreeCAD)</strong>, reference it strictly to stable datum planes or shared project levels. Avoid referencing ephemeral lines or sketches that may undergo topological naming changes.</li>
-      <li><strong>Data Attribute Enrichment:</strong> Populate all standard semantic properties (including manufacturer, rating, K-factor, or materials) within the property panels. Ensure that all inputs align with industry schemas like COBie or standard STEP metadata classes.</li>
-      <li><strong>Audit and Diagnostic Purge:</strong> Run standard diagnostics (such as `AUDIT`, `PURGE`, or model integrity reviews) to clean up dangling database pointers, duplicate scale list elements, and orphaned block references.</li>
+      <li><strong>Select the Appropriate Workbench:</strong> Choose the correct FreeCAD workbench for the task (Part Design for solids, Sketcher for 2D constraints, TechDraw for drawings). Install required add-ons through the Addon Manager if your workflow depends on community extensions.</li>
+      <li><strong>Build a Clean Parametric Foundation:</strong> When using <strong>Python Console (FreeCAD)</strong>, start with a fully constrained sketch attached to a stable datum plane. Be aware of the topological naming issue — avoid referencing edges or faces that may be renumbered after feature modifications.</li>
+      <li><strong>Manage Data with Spreadsheets and Expressions:</strong> Drive key dimensions through a Spreadsheet workbench to centralize parametric control. Link expressions across features and assemblies so design changes propagate consistently without manual updates.</li>
+      <li><strong>Export and Interoperate:</strong> Export to STEP or IGES for interoperability with commercial CAD tools. Verify that the Open CASCADE kernel preserves geometry fidelity. Use TechDraw for 2D drawing output or export mesh formats (STL, OBJ) for visualization and 3D printing.</li>
     </ol>
     
         </section>
@@ -173,12 +173,12 @@
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-          
-    <p>In global multi-office projects, <strong>Python Console (FreeCAD)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>FreeCAD</strong> <a href="./drawings-fusion">drawings</a> to IFC for coordination in <a href="../software/navisworks">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+
+    <p>FreeCAD-based workflows using <strong>Python Console (FreeCAD)</strong> often need to integrate with commercial tools and open-source ecosystems:</p>
     <ul>
-      <li><strong>Class Preservation:</strong> Ensure that <strong>Python Console (FreeCAD)</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped <a href="./components-fusion">components</a> default to generic containers, losing their smart structural parameters.</li>
-      <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
-      <li><strong>Visual Overlap Verification:</strong> Run spatial <a href="./tekla-structures-term-8">clash checks</a> regularly in a federated viewer to verify that no geometric overlaps or clearance violations occur between <strong>Python Console (FreeCAD)</strong> and structural frameworks.</li>
+      <li><strong>STEP/IGES Exchange:</strong> Export solid geometry to STEP AP214 for sharing with commercial CAD users (SolidWorks, CATIA, NX). The Open CASCADE kernel handles most B-rep translations well, but verify fillet and chamfer fidelity — complex surface trims can sometimes degrade during conversion.</li>
+      <li><strong>IFC for BIM Workflows:</strong> Use the BIM Workbench's IFC export (via IfcOpenShell) for architectural coordination. Assign correct IFC classes and property sets before export so that BIM coordinators receive semantically rich models rather than generic shape representations.</li>
+      <li><strong>Community and Macro Sharing:</strong> Leverage FreeCAD's Python scripting and macro ecosystem to automate repetitive tasks. Share parameterized templates and scripts through version control (Git) so that team members and collaborators can reproduce designs and analyses on any platform without license constraints.</li>
     </ul>
     
         </section>

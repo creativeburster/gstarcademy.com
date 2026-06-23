@@ -151,13 +151,13 @@
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-          
-    <p>Deploying <strong>Active Workspace Interface (Teamcenter)</strong> in a commercial design production pipeline requires a standardized, structured workflow to minimize model regression and file corruption:</p>
+
+    <p>Deploying <strong>Active Workspace Interface (Teamcenter)</strong> in a mechanical or product-design production pipeline requires robust modeling discipline and data management:</p>
     <ol>
-      <li><strong>Establish the Coordinate &amp; Style Template:</strong> Before generating any elements, bind the drawing or project to the enterprise-level template file (.dwt or .rte), locking units, text scales, and baseline coordinate reference frameworks.</li>
-      <li><strong>Parametric Alignment &amp; Parenting:</strong> When initializing <strong>Active Workspace Interface (Teamcenter)</strong>, reference it strictly to stable datum planes or shared project levels. Avoid referencing ephemeral lines or sketches that may undergo topological naming changes.</li>
-      <li><strong>Data Attribute Enrichment:</strong> Populate all standard semantic properties (including manufacturer, rating, K-factor, or materials) within the property panels. Ensure that all inputs align with industry schemas like COBie or standard STEP metadata classes.</li>
-      <li><strong>Audit and Diagnostic Purge:</strong> Run standard diagnostics (such as `AUDIT`, `PURGE`, or model integrity reviews) to clean up dangling database pointers, duplicate scale list elements, and orphaned block references.</li>
+      <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
+      <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Active Workspace Interface (Teamcenter)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
+      <li><strong>Enrich Metadata for Manufacturing:</strong> Populate custom properties (material, finish, heat treatment, part number) in the model's iProperties, custom attributes, or parameters. These feed directly into BOMs, PDM systems, and ERP integrations.</li>
+      <li><strong>Validate and Release:</strong> Run interference detection on assemblies, verify mass properties, and check for rebuild errors or suppressed features. Pass the model through your PDM/PLM check-in workflow with appropriate revision and lifecycle state updates.</li>
     </ol>
     
         </section>
@@ -174,12 +174,12 @@
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-          
-    <p>In global multi-office projects, <strong>Active Workspace Interface (Teamcenter)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>Siemens Teamcenter</strong> drawings to IFC for coordination in <a href="../software/navisworks">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+
+    <p>In multi-discipline product development, <strong>Active Workspace Interface (Teamcenter)</strong> must integrate smoothly with downstream manufacturing, simulation, and documentation workflows:</p>
     <ul>
-      <li><strong>Class Preservation:</strong> Ensure that <strong>Active Workspace Interface (Teamcenter)</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped components default to generic containers, losing their smart structural parameters.</li>
-      <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
-      <li><strong>Visual Overlap Verification:</strong> Run spatial clash checks regularly in a federated viewer to verify that no geometric overlaps or clearance violations occur between <strong>Active Workspace Interface (Teamcenter)</strong> and structural frameworks.</li>
+      <li><strong>Neutral Format Exchange:</strong> Export to STEP AP214/AP242 for maximum fidelity when sharing with partners who use different CAD platforms. Validate that feature topology, PMI (tolerances, datums, surface finish), and assembly structure survive the translation. Avoid relying on native formats for external suppliers.</li>
+      <li><strong>PDM/PLM Integration:</strong> Check in models through the product data management system with complete metadata (revision, lifecycle state, effectivity). Ensure that the BOM structure visible in the PLM matches the CAD assembly hierarchy, and that released parts are locked from unauthorized edits.</li>
+      <li><strong>Simulation and Manufacturing Handoff:</strong> Provide defeatured geometry to FEA analysts (remove cosmetic rounds, simplify internal cavities) and manufacturing-ready geometry to CAM programmers (with GD&T annotations). Coordinate on material specifications and tolerance stack-ups across the design-to-production chain.</li>
     </ul>
     
         </section>

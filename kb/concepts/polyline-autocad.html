@@ -151,13 +151,13 @@
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-          
-    <p>Deploying <strong>Polyline (AutoCAD)</strong> in a commercial design production pipeline requires a standardized, structured workflow to minimize model regression and file corruption:</p>
+
+    <p>Deploying <strong>Polyline (AutoCAD)</strong> in a production drafting pipeline requires disciplined setup and layer management:</p>
     <ol>
-      <li><strong>Establish the Coordinate &amp; Style Template:</strong> Before generating any elements, bind the drawing or project to the enterprise-level template file (.dwt or .rte), locking units, text scales, and baseline coordinate reference frameworks.</li>
-      <li><strong>Parametric Alignment &amp; Parenting:</strong> When initializing <strong>Polyline (AutoCAD)</strong>, reference it strictly to stable datum planes or shared project levels. Avoid referencing ephemeral lines or sketches that may undergo topological naming changes.</li>
-      <li><strong>Data Attribute Enrichment:</strong> Populate all standard semantic properties (including manufacturer, rating, K-factor, or materials) within the property panels. Ensure that all inputs align with industry schemas like COBie or standard STEP metadata classes.</li>
-      <li><strong>Audit and Diagnostic Purge:</strong> Run standard diagnostics (such as `AUDIT`, `PURGE`, or model integrity reviews) to clean up dangling database pointers, duplicate scale list elements, and orphaned block references.</li>
+      <li><strong>Configure the Drawing Template (.dwt):</strong> Start from an enterprise-standard template that locks units, dimension styles, text heights, and layer naming conventions. Verify that the title-block attributes map correctly to your project metadata schema.</li>
+      <li><strong>Establish Layer and Style Standards:</strong> When working with <strong>Polyline (AutoCAD)</strong>, assign elements to correctly named layers with appropriate colors, linetypes, and lineweights. Use layer filters and states to manage visibility across complex sheet sets.</li>
+      <li><strong>Apply Annotation and Dimensioning Rules:</strong> Set annotative scales, dimension overrides, and text-style mappings that conform to your organization's drafting standards (ISO, ANSI, or company-specific). Validate dimension associativity to geometry.</li>
+      <li><strong>Run Drawing Audit and Cleanup:</strong> Execute AUDIT and PURGE commands to remove unused blocks, orphaned dimension styles, and zero-length geometry. Verify external reference (Xref) paths resolve correctly before packaging for deliverables.</li>
     </ol>
     
         </section>
@@ -174,12 +174,12 @@
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-          
-    <p>In global multi-office projects, <strong>Polyline (AutoCAD)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>AutoCAD</strong> drawings to IFC for coordination in <a href="../software/navisworks">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+
+    <p>In multi-team drafting projects, <strong>Polyline (AutoCAD)</strong> frequently participates in cross-platform file exchanges. When sharing DWG/DXF files between offices or disciplines:</p>
     <ul>
-      <li><strong>Class Preservation:</strong> Ensure that <strong>Polyline (AutoCAD)</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped components default to generic containers, losing their smart structural parameters.</li>
-      <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
-      <li><strong>Visual Overlap Verification:</strong> Run spatial clash checks regularly in a federated viewer to verify that no geometric overlaps or clearance violations occur between <strong>Polyline (AutoCAD)</strong> and structural frameworks.</li>
+      <li><strong>Reference File Strategy:</strong> Use external references (Xrefs) rather than block insertions for shared background drawings. This keeps file sizes manageable and ensures each team always loads the latest issued version. Establish overlay vs. attachment protocols based on plotting requirements.</li>
+      <li><strong>Standards Compliance:</strong> Run CAD Standards checking (DWS files) before issuing drawings to verify that layer names, text styles, and dimension styles conform to the project's drafting manual. Non-compliant elements cause confusion in multi-firm coordination.</li>
+      <li><strong>Format Interoperability:</strong> When exporting to downstream consumers (GIS analysts, structural engineers, facilities managers), verify that unit scaling, coordinate alignment, and entity types (polylines vs. regions) translate correctly to the target application's expectations.</li>
     </ul>
     
         </section>

@@ -152,13 +152,13 @@
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-          
-    <p>Deploying <strong>SubD Modeling (Rhinoceros)</strong> in a commercial design production pipeline requires a standardized, structured workflow to minimize model regression and file corruption:</p>
+
+    <p>Deploying <strong>SubD Modeling (Rhinoceros)</strong> in a visualization or rendering pipeline requires careful scene setup and asset management:</p>
     <ol>
-      <li><strong>Establish the Coordinate &amp; Style Template:</strong> Before generating any elements, bind the drawing or project to the enterprise-level template file (.dwt or .rte), locking units, text scales, and baseline coordinate reference frameworks.</li>
-      <li><strong>Parametric Alignment &amp; Parenting:</strong> When initializing <strong>SubD Modeling (Rhinoceros)</strong>, reference it strictly to stable datum planes or shared project levels. Avoid referencing ephemeral lines or sketches that may undergo topological naming changes.</li>
-      <li><strong>Data Attribute Enrichment:</strong> Populate all standard semantic properties (including manufacturer, rating, K-factor, or materials) within the property panels. Ensure that all inputs align with industry schemas like COBie or standard STEP metadata classes.</li>
-      <li><strong>Audit and Diagnostic Purge:</strong> Run standard diagnostics (such as `AUDIT`, `PURGE`, or model integrity reviews) to clean up dangling database pointers, duplicate scale list elements, and orphaned block references.</li>
+      <li><strong>Import and Prepare the 3D Scene:</strong> Bring in CAD/BIM geometry via supported formats (FBX, OBJ, STEP, 3DM). Clean up mesh topology, remove internal faces, and organize the scene hierarchy by material and object group for efficient rendering.</li>
+      <li><strong>Assign Materials and Lighting:</strong> When working with <strong>SubD Modeling (Rhinoceros)</strong>, apply physically-based materials (PBR) with correct texture maps (albedo, roughness, normal). Set up environment lighting (HDRI) or studio lighting rigs appropriate for the presentation context (product shot vs. architectural interior).</li>
+      <li><strong>Optimize for Render Quality and Speed:</strong> Configure render settings (samples, denoising, resolution) to balance quality against turnaround time. Use render regions, progressive refinement, or GPU acceleration to iterate efficiently on camera angles and compositions.</li>
+      <li><strong>Deliver Final Outputs:</strong> Render final images or animation sequences with appropriate color management (sRGB, ACES). Composite in post-processing tools if needed, and package deliverables at the resolution and format specified by the client or presentation requirements.</li>
     </ol>
     
         </section>
@@ -175,12 +175,12 @@
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-          
-    <p>In global multi-office projects, <strong>SubD Modeling (Rhinoceros)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>Rhinoceros</strong> drawings to IFC for coordination in <a href="../software/navisworks">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+
+    <p>Visualization workflows involving <strong>SubD Modeling (Rhinoceros)</strong> bridge design engineering and client-facing presentation:</p>
     <ul>
-      <li><strong>Class Preservation:</strong> Ensure that <strong>SubD Modeling (Rhinoceros)</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped components default to generic containers, losing their smart structural parameters.</li>
-      <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
-      <li><strong>Visual Overlap Verification:</strong> Run spatial clash checks regularly in a federated viewer to verify that no geometric overlaps or clearance violations occur between <strong>SubD Modeling (Rhinoceros)</strong> and structural frameworks.</li>
+      <li><strong>CAD/BIM Import Pipeline:</strong> Receive design geometry from engineering teams (via FBX, STEP, OBJ, or glTF). Establish a repeatable import pipeline that handles coordinate-system rotation, unit conversion, and mesh cleanup so updated models can be re-imported without rebuilding material assignments.</li>
+      <li><strong>Material and Asset Library Sharing:</strong> Maintain a shared material library (PBR textures, environment maps, furniture assets) across the visualization team. Use version-controlled asset repositories so that scene files reference consistent, approved materials across all project renderings.</li>
+      <li><strong>Client Review and Iteration:</strong> Deliver interactive review formats (360-degree panoramas, real-time walkthroughs, annotated image sets) alongside traditional still renders. Collect markup feedback in a structured format and trace revisions back to specific design changes so the engineering team can verify intent.</li>
     </ul>
     
         </section>

@@ -151,13 +151,13 @@
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-          
-    <p>Deploying <strong>Interactive 3D PCB Engine (Altium)</strong> in a commercial design production pipeline requires a standardized, structured workflow to minimize model regression and file corruption:</p>
+
+    <p>Deploying <strong>Interactive 3D PCB Engine (Altium)</strong> in an electronics design workflow requires structured library management and design-rule compliance:</p>
     <ol>
-      <li><strong>Establish the Coordinate &amp; Style Template:</strong> Before generating any elements, bind the drawing or project to the enterprise-level template file (.dwt or .rte), locking units, text scales, and baseline coordinate reference frameworks.</li>
-      <li><strong>Parametric Alignment &amp; Parenting:</strong> When initializing <strong>Interactive 3D PCB Engine (Altium)</strong>, reference it strictly to stable datum planes or shared project levels. Avoid referencing ephemeral lines or sketches that may undergo topological naming changes.</li>
-      <li><strong>Data Attribute Enrichment:</strong> Populate all standard semantic properties (including manufacturer, rating, K-factor, or materials) within the property panels. Ensure that all inputs align with industry schemas like COBie or standard STEP metadata classes.</li>
-      <li><strong>Audit and Diagnostic Purge:</strong> Run standard diagnostics (such as `AUDIT`, `PURGE`, or model integrity reviews) to clean up dangling database pointers, duplicate scale list elements, and orphaned block references.</li>
+      <li><strong>Set Up Component Libraries:</strong> Configure your schematic symbol and PCB footprint libraries with verified, manufacturer-sourced data. Establish naming conventions and version control for library components to prevent BOM mismatches in production.</li>
+      <li><strong>Schematic Capture with Net Integrity:</strong> When building <strong>Interactive 3D PCB Engine (Altium)</strong>, capture the circuit topology with correct net labels, power flags, and hierarchical sheet structure. Run Electrical Rules Check (ERC) to catch floating pins, conflicting outputs, or missing connections before proceeding to layout.</li>
+      <li><strong>PCB Layout with Manufacturing Constraints:</strong> Transfer the netlist to the board layout. Apply design rules (trace width, clearance, via size) from your PCB fabricator's capabilities. Route critical signals first (high-speed, power), and validate with Design Rule Check (DRC) at every major milestone.</li>
+      <li><strong>Generate Manufacturing Outputs:</strong> Produce Gerber files, drill files, pick-and-place data, and BOM. Cross-verify 3D clearances against the mechanical enclosure model. Submit outputs through your fabrication and assembly partner's requirements checklist.</li>
     </ol>
     
         </section>
@@ -174,12 +174,12 @@
         </section>
         <section class="kb-concept-section">
           <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-          
-    <p>In global multi-office projects, <strong>Interactive 3D PCB Engine (Altium)</strong> is a high-frequency handoff node between diverse software packages. During cross-platform export (for example, exporting <strong>Altium Designer</strong> drawings to IFC for coordination in <a href="../software/navisworks">Navisworks</a> or Solibri, or converting mechanical STEP files into BIM detail families):</p>
+
+    <p>Electronics design with <strong>Interactive 3D PCB Engine (Altium)</strong> must coordinate tightly with mechanical enclosure design and manufacturing:</p>
     <ul>
-      <li><strong>Class Preservation:</strong> Ensure that <strong>Interactive 3D PCB Engine (Altium)</strong> is mapped to its correct IFC class classification (e.g., `IfcWallStandardCase` for walls, `IfcBuildingElementProxy` for generic parts). Unmapped components default to generic containers, losing their smart structural parameters.</li>
-      <li><strong>Precision Offsets:</strong> Watch coordinate system compatibility. Standard DWG environments use global Cartesian axes, while mechanical solid modeling relies on local centroidal coordinate systems. Check translation offsets during file merging to avoid multi-mile position mismatches.</li>
-      <li><strong>Visual Overlap Verification:</strong> Run spatial clash checks regularly in a federated viewer to verify that no geometric overlaps or clearance violations occur between <strong>Interactive 3D PCB Engine (Altium)</strong> and structural frameworks.</li>
+      <li><strong>ECAD-MCAD Integration:</strong> Export the PCB board outline, component placement, and height maps to the mechanical team's CAD environment (via IDF, STEP, or native 3D export). Iterate on enclosure fit, connector positioning, and thermal clearance in a shared model space.</li>
+      <li><strong>Supply Chain Coordination:</strong> Synchronize the BOM with procurement and manufacturing. Flag components with long lead times, end-of-life risks, or single-source dependencies early in the design cycle. Cross-reference footprint assignments against manufacturer-recommended land patterns.</li>
+      <li><strong>Manufacturing Handoff:</strong> Package Gerber, drill, and assembly files per your fabrication partner's requirements. Include assembly drawings, test-point documentation, and programming files. Conduct a pre-production design review to verify that all DFM (Design for Manufacturing) and DFA (Design for Assembly) guidelines are met.</li>
     </ul>
     
         </section>
