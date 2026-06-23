@@ -341,6 +341,36 @@
               correctIndices: [0, 1, 2],
               why: "A circle requires size (diameter) and position (X and Y coordinates) to be fully defined. View scale is an output parameter, not a sketch constraint.",
               pitfall: "Avoid leaving sketch entities under-defined (blue), as they can shift unpredictably when parent features are modified."
+            },
+            {
+              type: "single",
+              nodeId: "parametrics",
+              slug: "feature-tree-order",
+              question: "Why does the order of features in a parametric feature tree matter for design stability?",
+              options: [
+                "Features are evaluated sequentially; later features depend on the geometry created by earlier ones, so reordering can break references.",
+                "Feature order only affects the display color sequence in the graphics viewport.",
+                "Feature trees are always recalculated in random order by the solver.",
+                "Feature order is cosmetic and has no effect on model geometry."
+              ],
+              correctIdx: 0,
+              why: "Parametric solvers evaluate features top-to-bottom. A fillet referencing an edge created by a later feature will fail if moved above it.",
+              pitfall: "Plan your modeling sequence before starting. Retrofitting features into the middle of a mature tree often cascades rebuild errors."
+            },
+            {
+              type: "single",
+              nodeId: "solidworks",
+              slug: "solidworks-design-table",
+              question: "In SOLIDWORKS, what is the relationship between Design Tables and Configurations?",
+              options: [
+                "A Design Table is an Excel spreadsheet that drives multiple Configurations by mapping dimension values to configuration names in rows and columns.",
+                "Design Tables replace the feature tree entirely with a flat list of coordinates.",
+                "Design Tables are used exclusively for rendering material assignments.",
+                "Configurations are created manually and cannot be controlled by external data."
+              ],
+              correctIdx: 0,
+              why: "Design Tables provide a spreadsheet interface to create and manage large families of configurations (e.g., bolt sizes M4 through M20) efficiently.",
+              pitfall: "Column headers in Design Tables must exactly match dimension names including the feature reference (e.g., 'D1@Boss-Extrude1'). Typos silently fail."
             }
           ]
         },
@@ -408,6 +438,21 @@
               correctIndices: [0, 1, 2],
               why: "GD&T, surface finish, and thread specs are core Product Manufacturing Information (PMI) embedded in MBD models. Supplier financials are not CAD metadata.",
               pitfall: "Ensure downstream CNC and CMM software can interpret semantic PMI; graphical-only PMI cannot be read automatically by machining tools."
+            },
+            {
+              type: "single",
+              nodeId: "brep",
+              slug: "nurbs-vs-brep",
+              question: "What is the relationship between NURBS surfaces and B-Rep solid models in CAD kernels?",
+              options: [
+                "B-Rep uses NURBS surfaces as the geometric definition of faces, combined with topological data (edges, vertices) to define the solid boundary.",
+                "NURBS and B-Rep are competing formats that cannot coexist in the same model.",
+                "B-Rep stores only mesh triangles; NURBS is used exclusively for rendering.",
+                "NURBS defines 2D curves only; B-Rep handles all 3D geometry independently."
+              ],
+              correctIdx: 0,
+              why: "B-Rep topology (faces, edges, vertices) references NURBS surface equations for exact geometry. The topology defines how surfaces connect; NURBS defines their shape.",
+              pitfall: "Importing STEP files with trimmed NURBS surfaces can introduce gap tolerances. Always run a geometry heal check after import."
             }
           ]
         },
@@ -460,6 +505,36 @@
               correctIndices: [0, 1, 2],
               why: "Tolerance deviations, thermal expansion, and thread mismatches cause real assembly interference. Missing rendering textures only affect visuals, not geometry.",
               pitfall: "Perform clearance verification check runs under simulated operating temperatures if components utilize materials with varying thermal coefficients."
+            },
+            {
+              type: "single",
+              nodeId: "assembly",
+              slug: "gdt-datums",
+              question: "In GD&T (Geometric Dimensioning and Tolerancing), what is the primary function of establishing Datum features?",
+              options: [
+                "Datums define the reference coordinate system from which all geometric tolerances and measurements are taken, ensuring consistent inspection.",
+                "Datums set the rendering viewpoint for 3D model screenshots.",
+                "Datums control the order of features in the parametric feature tree.",
+                "Datums specify the material grade for structural steel beams."
+              ],
+              correctIdx: 0,
+              why: "Datums establish the measurement framework. A positional tolerance of 0.1mm references specific Datum planes (A, B, C) to define where that tolerance is measured from.",
+              pitfall: "Datum order matters (primary A, secondary B, tertiary C). Swapping datum priority changes the entire tolerance zone orientation."
+            },
+            {
+              type: "single",
+              nodeId: "solidworks",
+              slug: "sheet-metal-k-factor",
+              question: "In sheet metal design, what does the K-factor represent and why is it critical for flat pattern accuracy?",
+              options: [
+                "K-factor defines the position of the neutral axis within the bend thickness, determining how much material stretches during bending to calculate correct flat pattern dimensions.",
+                "K-factor measures the hardness of the metal sheet material.",
+                "K-factor sets the number of bends allowed per part.",
+                "K-factor controls the rendering color of bent edges in the 3D view."
+              ],
+              correctIdx: 0,
+              why: "The neutral axis shifts during bending. K-factor (0 to 1) locates it within the material thickness, directly affecting the Bend Allowance calculation for flat patterns.",
+              pitfall: "K-factor varies by material, thickness, and bend radius. Using a generic K-factor for all materials produces inaccurate flat patterns and fabrication rejects."
             }
           ]
         }
@@ -519,6 +594,36 @@
               correctIndices: [0, 1, 2],
               why: "COGO points, contour lines, and point clouds contain elevation data. Flat 2D text strings do not have height data to build a TIN surface.",
               pitfall: "Filter out redundant survey point clouds before building TIN surfaces; excessive density causes severe file size and rendering lag."
+            },
+            {
+              type: "single",
+              nodeId: "terrain",
+              slug: "breaklines-tin",
+              question: "Why are breaklines essential when constructing TIN surfaces for civil design?",
+              options: [
+                "Breaklines enforce hard edges (ridges, ditches, retaining walls) in the triangulation, preventing the TIN from smoothing across distinct grade changes.",
+                "Breaklines add color coding to surface triangles for visual clarity.",
+                "Breaklines compress the file size of large survey datasets.",
+                "Breaklines convert TIN surfaces into flat 2D contour PDFs."
+              ],
+              correctIdx: 0,
+              why: "Without breaklines, TIN triangulation interpolates smoothly between points, missing sharp grade transitions like curbs, ditches, and wall footings.",
+              pitfall: "Ensure breaklines do not cross each other at conflicting elevations; crossing breaklines at different heights create surface artifacts and incorrect grading."
+            },
+            {
+              type: "single",
+              nodeId: "alignment",
+              slug: "superelevation-design",
+              question: "What does superelevation represent in highway alignment design?",
+              options: [
+                "The intentional banking (cross-slope tilting) of the road surface on horizontal curves to counteract centrifugal force and improve vehicle safety.",
+                "The vertical height of overhead bridge structures above the road surface.",
+                "The elevation difference between the road centerline and the property boundary.",
+                "The maximum speed limit posted on highway curve warning signs."
+              ],
+              correctIdx: 0,
+              why: "Superelevation tilts the road surface on curves so gravity and friction together counteract centrifugal force, reducing skidding risk at design speed.",
+              pitfall: "Transition lengths between normal crown and full superelevation must be gradual. Abrupt superelevation changes cause driver discomfort and drainage pooling."
             }
           ]
         },
@@ -571,6 +676,36 @@
               correctIndices: [0, 1, 2],
               why: "EG, FG, and Sub-grade datum surfaces are compared to calculate cut/fill volumes. Revit columns are not used in civil site volume calculations.",
               pitfall: "Ensure boundary regions are locked in the volume properties, otherwise the volume engine will calculate outside site limits."
+            },
+            {
+              type: "single",
+              nodeId: "corridor",
+              slug: "corridor-targets",
+              question: "In Civil 3D corridor modeling, what is the purpose of assigning 'Targets' to subassembly parameters?",
+              options: [
+                "Targets dynamically link subassembly parameters (like daylight slope or lane width) to external objects such as surfaces, alignments, or offsets, enabling adaptive corridor geometry.",
+                "Targets set the background color of the corridor visualization.",
+                "Targets define the construction schedule timeline for the project.",
+                "Targets specify which users have permission to edit the corridor model."
+              ],
+              correctIdx: 0,
+              why: "Without targets, subassemblies use fixed values. By targeting the existing ground surface, a daylight subassembly automatically extends its slope until it intersects the terrain.",
+              pitfall: "Verify target assignments at every region break. Missing targets cause subassemblies to extend infinitely or collapse to zero width."
+            },
+            {
+              type: "single",
+              nodeId: "corridor",
+              slug: "pipe-network-parts-list",
+              question: "In Civil 3D pipe network design, what role does the Parts List play?",
+              options: [
+                "The Parts List defines the catalog of available pipe sizes, materials, and structure types that can be placed in the network, enforcing design standards.",
+                "The Parts List generates construction cost estimates for the entire project.",
+                "The Parts List controls the display color of pipes in plan view.",
+                "The Parts List sets the maximum number of pipes allowed in a single drawing."
+              ],
+              correctIdx: 0,
+              why: "Parts Lists tie pipe networks to standard catalogs (e.g., HDPE 300mm, concrete manholes). Pipe sizes and structure dimensions come from the catalog, not manual entry.",
+              pitfall: "Ensure the Parts List matches local municipal standards before design. Using a mismatched catalog means redesigning the entire network at review."
             }
           ]
         },
@@ -623,6 +758,36 @@
               correctIndices: [0, 1, 2],
               why: "EPSG codes, attribute tables, and vector shapes are critical to align and database CAD elements in GIS. CAD license login data is not geo-metadata.",
               pitfall: "Validate coordinate references before export; importing CAD models without EPSG codes will place the model in the middle of the ocean."
+            },
+            {
+              type: "single",
+              nodeId: "grading",
+              slug: "grading-criteria",
+              question: "In site grading design, what determines the choice between 'Grade to Surface' and 'Grade to Distance' criteria?",
+              options: [
+                "'Grade to Surface' extends slopes until they meet an existing terrain surface (daylight), while 'Grade to Distance' extends slopes a fixed horizontal distance regardless of terrain.",
+                "'Grade to Surface' applies only to parking lots; 'Grade to Distance' applies only to highways.",
+                "'Grade to Surface' uses metric units; 'Grade to Distance' uses imperial units.",
+                "Both options produce identical results and are interchangeable."
+              ],
+              correctIdx: 0,
+              why: "Grade to Surface is used when fill slopes must tie into existing ground (variable distance). Grade to Distance is used for fixed-width features like sidewalks.",
+              pitfall: "When using Grade to Surface, verify the target surface extends beyond the grading footprint. Missing surface data causes grading objects to fail silently."
+            },
+            {
+              type: "single",
+              nodeId: "landxml",
+              slug: "quantity-takeoff-surfaces",
+              question: "How are earthwork quantity takeoffs typically calculated in civil infrastructure projects?",
+              options: [
+                "By comparing the existing ground surface against the proposed design surface using composite volume calculations (Average End Area or prismoidal methods).",
+                "By counting the number of contour lines on a printed topographic map.",
+                "By weighing soil samples collected from each grid point on the site.",
+                "By measuring the perimeter boundary length of the site footprint."
+              ],
+              correctIdx: 0,
+              why: "Volume between two TIN surfaces (existing vs. proposed) is calculated using computational geometry methods, giving accurate cut and fill quantities for each station range.",
+              pitfall: "Always define a boundary for volume calculations. Without boundaries, the engine computes volumes over the entire surface extents, including areas outside the project limits."
             }
           ]
         }
@@ -697,6 +862,21 @@
               correctIndices: [0, 1, 2],
               why: "Overlay type, relative paths, and Bind-Insert are standard practices for error-free Xref delivery. Random renaming breaks link associations.",
               pitfall: "Never use 'Attach' reference types for background layouts, as this creates circular reference dependencies that crash sessions."
+            },
+            {
+              type: "single",
+              nodeId: "layers",
+              slug: "layer-filters-cad",
+              question: "In large multi-discipline DWG files, what is the primary benefit of creating Layer Filters?",
+              options: [
+                "Layer Filters group layers by name pattern, discipline, or property, allowing draftsmen to quickly isolate and manage relevant layers from hundreds of available layers.",
+                "Layer Filters increase the rendering speed of 3D perspective views.",
+                "Layer Filters automatically translate layer names into multiple languages.",
+                "Layer Filters encrypt layer data to prevent unauthorized access."
+              ],
+              correctIdx: 0,
+              why: "In production drawings with 200+ layers, filters (e.g., show only layers starting with 'M-' for mechanical) make layer management practical.",
+              pitfall: "Name-based filters only work if layer naming follows a consistent convention. Inconsistent naming renders filters useless."
             }
           ]
         },
@@ -749,6 +929,36 @@
               correctIndices: [0, 1, 2],
               why: "VP Freeze, VP Color, and VP Linetype are viewport-specific overrides. Global Delete is a global database change, not a viewport property override.",
               pitfall: "Ensure drawing objects are set to 'ByLayer' properties, otherwise object-level overrides will block viewport-level property overrides."
+            },
+            {
+              type: "single",
+              nodeId: "annotative",
+              slug: "dimension-styles-cad",
+              question: "Why is it important to define and use named Dimension Styles rather than overriding individual dimensions?",
+              options: [
+                "Named Dimension Styles ensure all dimensions in a drawing share consistent formatting (text height, arrow size, tolerances), and global changes propagate by updating the style definition.",
+                "Dimension Styles are required for exporting to PDF format.",
+                "Individual dimension overrides are not supported in any CAD platform.",
+                "Dimension Styles control the layer assignments of all geometry objects."
+              ],
+              correctIdx: 0,
+              why: "Dimension Styles act like CSS for dimensions. Changing the style updates every dimension using it, ensuring uniformity across hundreds of sheets.",
+              pitfall: "Dimension overrides (right-click > properties on individual dims) are invisible in the style manager and create inconsistencies that are hard to diagnose."
+            },
+            {
+              type: "single",
+              nodeId: "viewport",
+              slug: "dwg-compare-tool",
+              question: "What is the primary use case for the DWG Compare tool in production drafting workflows?",
+              options: [
+                "Automatically highlighting geometric differences between two revisions of the same drawing, enabling draftsmen to quickly identify what changed between versions.",
+                "Comparing rendering quality between different graphics card drivers.",
+                "Measuring the file size difference between compressed and uncompressed DWG files.",
+                "Comparing construction cost estimates between two project proposals."
+              ],
+              correctIdx: 0,
+              why: "DWG Compare overlays two drawing versions and color-codes additions, deletions, and modifications, making revision review systematic rather than visual guesswork.",
+              pitfall: "Ensure both DWG files use the same coordinate system and units before comparing; misaligned origins will flag every entity as 'changed'."
             }
           ]
         },
@@ -801,6 +1011,544 @@
               correctIndices: [0, 1, 2],
               why: "Tag, Prompt, and Default value are core attributes definitions. Texture files are rendering properties, not attributed block metadata.",
               pitfall: "Avoid using blank spaces in Attribute Tags (e.g. use 'DOOR_WIDTH' instead of 'DOOR WIDTH'), as spaces break BOM data table extraction scripts."
+            },
+            {
+              type: "single",
+              nodeId: "purge",
+              slug: "etransmit-cad",
+              question: "Why should draftsmen use eTransmit (or Pack-and-Go) when delivering DWG files to external consultants?",
+              options: [
+                "eTransmit packages the DWG file together with all dependent files (Xrefs, fonts, plot styles, images) and converts paths to relative, ensuring the recipient can open the drawing without missing references.",
+                "eTransmit encrypts the drawing database to prevent unauthorized edits.",
+                "eTransmit converts DWG files to PDF format for email delivery.",
+                "eTransmit removes all layers to reduce the file size for transmission."
+              ],
+              correctIdx: 0,
+              why: "Without eTransmit, recipients often see 'missing Xref' or 'missing font' warnings because dependent files were not included or paths are absolute.",
+              pitfall: "Always include plot style tables (CTB/STB) in the transmittal package. Missing plot styles cause incorrect line weights and colors when the recipient plots."
+            },
+            {
+              type: "single",
+              nodeId: "layers",
+              slug: "audit-recover-cad",
+              question: "When a DWG file becomes corrupted (crashes on open, missing objects), what is the recommended recovery procedure?",
+              options: [
+                "Use the RECOVER command to open and repair the file, then run AUDIT to fix remaining database errors, and finally PURGE to remove orphaned objects.",
+                "Rename the file extension from .dwg to .bak and reopen it.",
+                "Delete the file and redraw all content from memory.",
+                "Convert the file to PDF and then back to DWG to clean corrupted data."
+              ],
+              correctIdx: 0,
+              why: "RECOVER reads the raw DWG database and rebuilds corrupted structures. AUDIT fixes logical errors. Together they salvage most data from damaged files.",
+              pitfall: "Always work on a copy when recovering. If RECOVER fails, try inserting the corrupted file as a block into a new drawing to extract salvageable geometry."
+            }
+          ]
+        }
+      ]
+    },
+
+    sim: {
+      trackTitle: "Simulation / CAE Analyst",
+      trackBadge: "🔬 CAE",
+      nodesToMaster: ["fea-basics", "meshing", "cfd", "thermal", "optimization"],
+      lessons: [
+        {
+          id: 1,
+          title: "Lesson 1: FEA Fundamentals",
+          desc: "Finite Element Method, Element Types, & Boundary Conditions",
+          questions: [
+            {
+              type: "single",
+              nodeId: "fea-basics",
+              slug: "fea-discretization",
+              question: "What is the fundamental principle behind the Finite Element Method (FEM)?",
+              options: [
+                "Dividing a continuous geometry into discrete small elements, solving equilibrium equations at each element, and assembling results to approximate the global behavior.",
+                "Drawing stress contour lines manually on printed cross-section drawings.",
+                "Measuring physical prototype strain using only analog dial indicators.",
+                "Replacing all CAD geometry with simplified 2D wireframe sketches."
+              ],
+              correctIdx: 0,
+              why: "FEM discretizes continuous domains into elements with nodes. Each element has simple shape functions; assembling all element stiffness matrices yields the global system of equations.",
+              pitfall: "FEA results are approximations. Always validate with hand calculations or experimental data for critical load cases before using results for design decisions."
+            },
+            {
+              type: "single",
+              nodeId: "fea-basics",
+              slug: "element-types-comparison",
+              question: "When should a structural analyst choose solid (3D) elements over shell (2D) elements in FEA?",
+              options: [
+                "When the component has significant through-thickness stress variation or complex 3D geometry that cannot be represented as a surface with uniform thickness.",
+                "Solid elements should always be used because they are more accurate in every situation.",
+                "Shell elements are obsolete and no longer supported in modern FEA software.",
+                "Solid elements are used for thermal analysis only; shell elements handle all structural loads."
+              ],
+              correctIdx: 0,
+              why: "Shell elements assume plane-stress through thickness and are efficient for thin-walled structures. Solid elements capture 3D stress states needed for thick or complex geometries.",
+              pitfall: "Using solid elements on thin-walled structures requires many elements through the thickness, dramatically increasing solve time without improving accuracy over shells."
+            },
+            {
+              type: "single",
+              nodeId: "fea-basics",
+              slug: "boundary-conditions-fea",
+              question: "Why is correct boundary condition (BC) definition the most critical step in setting up an FEA simulation?",
+              options: [
+                "Boundary conditions define how the model is supported and loaded; incorrect BCs produce mathematically valid but physically meaningless results.",
+                "Boundary conditions only affect the visual display of the deformed shape plot.",
+                "Boundary conditions are automatically determined by the FEA solver from the geometry.",
+                "Boundary conditions set the mesh density and element type selection."
+              ],
+              correctIdx: 0,
+              why: "The solver faithfully computes results for whatever BCs you define. An over-constrained model shows artificially low stress; an under-constrained model has rigid-body motion errors.",
+              pitfall: "Avoid fully fixing all degrees of freedom at supports unless the real structure is truly rigid there. Over-constraining introduces unrealistic stress concentrations."
+            },
+            {
+              type: "single",
+              nodeId: "meshing",
+              slug: "mesh-quality-metrics",
+              question: "What mesh quality metric indicates that an element is too distorted for reliable FEA results?",
+              options: [
+                "High aspect ratio (long, thin elements), high skewness (deviation from ideal shape), or Jacobian values below acceptable thresholds indicate poor element quality.",
+                "Elements with more than 4 nodes are always considered poor quality.",
+                "Mesh quality is measured only by the total number of elements in the model.",
+                "Dark-colored elements in the visualization indicate poor mesh quality."
+              ],
+              correctIdx: 0,
+              why: "Distorted elements have poor shape functions that introduce numerical errors. Aspect ratio, skewness, and Jacobian ratios quantify how far an element deviates from its ideal shape.",
+              pitfall: "Check mesh quality metrics before solving. A single highly distorted element near a stress concentration can corrupt results in the entire surrounding region."
+            },
+            {
+              type: "multiple",
+              nodeId: "fea-basics",
+              slug: "fea-analysis-types",
+              question: "Which of the following are standard analysis types available in structural FEA software? (Select all correct)",
+              options: [
+                "Linear static analysis (small deformation, linear material)",
+                "Modal analysis (natural frequency and mode shapes)",
+                "Nonlinear analysis (large deformation, contact, plasticity)",
+                "Autonomous vehicle navigation path planning"
+              ],
+              correctIndices: [0, 1, 2],
+              why: "Linear static, modal, and nonlinear analyses are core structural FEA capabilities. Vehicle navigation is a robotics/AI problem, not structural simulation.",
+              pitfall: "Start with linear static analysis. Only add nonlinear effects (contact, large deformation, plasticity) when the linear results indicate they are necessary."
+            }
+          ]
+        },
+        {
+          id: 2,
+          title: "Lesson 2: CFD & Thermal",
+          desc: "Computational Fluid Dynamics, Heat Transfer, & Turbulence Models",
+          questions: [
+            {
+              type: "single",
+              nodeId: "cfd",
+              slug: "cfd-reynolds-number",
+              question: "Why is the Reynolds number the first parameter a CFD analyst should calculate before setting up a simulation?",
+              options: [
+                "Reynolds number determines whether the flow is laminar or turbulent, which dictates the choice of turbulence model, mesh resolution requirements, and solver settings.",
+                "Reynolds number sets the color scale of velocity contour plots.",
+                "Reynolds number is only relevant for incompressible water simulations.",
+                "Reynolds number determines the maximum number of mesh cells allowed in the model."
+              ],
+              correctIdx: 0,
+              why: "Re = (density x velocity x length) / viscosity. Low Re means laminar flow (no turbulence model needed); high Re means turbulent flow requiring appropriate modeling.",
+              pitfall: "Using a laminar solver for high-Reynolds-number flows produces completely wrong results. Always estimate Re before choosing solver settings."
+            },
+            {
+              type: "single",
+              nodeId: "cfd",
+              slug: "turbulence-models-selection",
+              question: "When would an engineer select the k-epsilon turbulence model over the k-omega SST model in CFD?",
+              options: [
+                "k-epsilon performs well for fully turbulent free-stream flows away from walls, while k-omega SST is preferred when accurate near-wall boundary layer resolution is critical.",
+                "k-epsilon is newer and always more accurate than k-omega SST.",
+                "k-omega SST can only be used for gas flows; k-epsilon handles all fluid types.",
+                "Both models produce identical results regardless of the flow conditions."
+              ],
+              correctIdx: 0,
+              why: "k-omega SST blends k-omega (accurate near walls) with k-epsilon (stable in free stream), making it the default choice for most engineering applications.",
+              pitfall: "Verify y+ values at walls match the turbulence model requirements. k-omega SST with wall functions needs y+ around 30-300; resolving the boundary layer needs y+ < 1."
+            },
+            {
+              type: "single",
+              nodeId: "thermal",
+              slug: "conjugate-heat-transfer",
+              question: "What defines a Conjugate Heat Transfer (CHT) simulation?",
+              options: [
+                "Simultaneously solving heat conduction through solid domains and convective heat transfer in adjacent fluid domains, with thermal coupling at the solid-fluid interface.",
+                "Running separate thermal and flow simulations independently without data exchange.",
+                "Simulating heat transfer only through radiation between two distant surfaces.",
+                "Calculating the thermal expansion of a solid without considering fluid cooling effects."
+              ],
+              correctIdx: 0,
+              why: "CHT couples the solid conduction equation with the fluid energy equation at shared interfaces, capturing the interaction between cooling fluid flow and component heating.",
+              pitfall: "Ensure the mesh at the solid-fluid interface is conformal (matching nodes). Non-conformal interfaces require interpolation that can introduce thermal energy imbalance."
+            },
+            {
+              type: "single",
+              nodeId: "thermal",
+              slug: "transient-vs-steady-state",
+              question: "When should a thermal simulation be run as transient rather than steady-state?",
+              options: [
+                "When the temperature distribution changes over time (e.g., startup, shutdown, cyclic loading), and the time-dependent thermal response is needed for design decisions.",
+                "Transient simulations should always be used because they are more accurate.",
+                "Transient analysis is only available for 2D models; 3D models must use steady-state.",
+                "Steady-state analysis cannot model any form of heat transfer."
+              ],
+              correctIdx: 0,
+              why: "Steady-state finds the equilibrium temperature distribution. Transient analysis tracks how temperature evolves over time, which matters for thermal shock, cycling, and startup.",
+              pitfall: "Transient simulations require appropriate time step sizes. Too large a time step misses rapid temperature changes; too small wastes computation time."
+            },
+            {
+              type: "multiple",
+              nodeId: "cfd",
+              slug: "cfd-post-processing-checks",
+              question: "Which post-processing checks should a CFD analyst perform to verify simulation validity? (Select all correct)",
+              options: [
+                "Monitor residual convergence to ensure equations are solved to acceptable tolerance",
+                "Check mass and energy conservation across inlet and outlet boundaries",
+                "Perform mesh independence study by comparing results at different mesh densities",
+                "Verify the simulation by checking if velocity contours look aesthetically pleasing"
+              ],
+              correctIndices: [0, 1, 2],
+              why: "Residual convergence, conservation checks, and mesh independence are standard validation practices. Visual aesthetics alone do not indicate numerical accuracy.",
+              pitfall: "Converged residuals alone do not guarantee accurate results. Always check physical conservation balances and compare against experimental data when available."
+            }
+          ]
+        },
+        {
+          id: 3,
+          title: "Lesson 3: Optimization & Best Practices",
+          desc: "Topology Optimization, Design Studies, & Solver Performance",
+          questions: [
+            {
+              type: "single",
+              nodeId: "optimization",
+              slug: "topology-optimization",
+              question: "What is the primary engineering purpose of topology optimization in structural design?",
+              options: [
+                "Determining the optimal material distribution within a design space to minimize weight while satisfying stress, displacement, and manufacturing constraints.",
+                "Automatically generating photorealistic renderings of structural components.",
+                "Sorting the feature tree operations into the most efficient rebuild order.",
+                "Converting mesh elements into NURBS surfaces for CAD export."
+              ],
+              correctIdx: 0,
+              why: "Topology optimization iteratively removes material from low-stress regions, producing organic-looking structures that are structurally efficient for the defined load cases.",
+              pitfall: "Topology optimization results require interpretation and redesign. The raw optimized shape is not directly manufacturable without smoothing and feature reconstruction."
+            },
+            {
+              type: "single",
+              nodeId: "optimization",
+              slug: "design-of-experiments",
+              question: "In simulation-driven design, what is the purpose of a Design of Experiments (DOE) study?",
+              options: [
+                "Systematically varying design parameters (dimensions, materials, loads) across a structured matrix to understand how each parameter affects performance metrics.",
+                "Randomly changing all parameters simultaneously to find the single best design.",
+                "Running the same simulation repeatedly with identical inputs to check reproducibility.",
+                "Documenting the experimental test plan for physical prototype testing only."
+              ],
+              correctIdx: 0,
+              why: "DOE uses structured parameter combinations (Latin Hypercube, Full Factorial) to efficiently map the design space, revealing parameter sensitivity and interaction effects.",
+              pitfall: "Full factorial DOE becomes computationally prohibitive with many parameters. Use Latin Hypercube or response surface methods for 5+ parameter studies."
+            },
+            {
+              type: "single",
+              nodeId: "meshing",
+              slug: "adaptive-mesh-refinement",
+              question: "What is adaptive mesh refinement (AMR) and when should it be used?",
+              options: [
+                "AMR automatically refines the mesh in regions of high solution gradient (stress concentration, flow separation) during or between solver iterations, improving accuracy where it matters most.",
+                "AMR uniformly doubles the mesh density across the entire model after each solve.",
+                "AMR reduces mesh density everywhere to speed up computation time.",
+                "AMR only applies to 2D simulations and cannot be used in 3D models."
+              ],
+              correctIdx: 0,
+              why: "AMR concentrates computational resources where the solution changes rapidly, achieving higher accuracy in critical regions without the cost of globally fine meshes.",
+              pitfall: "Set AMR convergence criteria carefully. Without limits, AMR can refine indefinitely at singularities (sharp corners), consuming all available memory."
+            },
+            {
+              type: "single",
+              nodeId: "optimization",
+              slug: "fatigue-analysis-sn",
+              question: "In mechanical fatigue analysis, what does an S-N curve represent?",
+              options: [
+                "The relationship between applied stress amplitude (S) and the number of cycles to failure (N) for a given material, used to predict component fatigue life.",
+                "The relationship between simulation speed and the number of mesh nodes.",
+                "The signal-to-noise ratio in vibration measurement instruments.",
+                "The surface roughness (S) versus nominal thickness (N) for sheet metal parts."
+              ],
+              correctIdx: 0,
+              why: "S-N curves (Wohler curves) are the foundation of fatigue design. They define how many load cycles a material can withstand at each stress level before cracking.",
+              pitfall: "S-N curves from material databases assume polished specimens. Apply surface finish, size, and reliability correction factors for real-world components."
+            },
+            {
+              type: "multiple",
+              nodeId: "meshing",
+              slug: "solver-performance-tips",
+              question: "Which strategies effectively reduce FEA solver computation time without significantly sacrificing accuracy? (Select all correct)",
+              options: [
+                "Using symmetry boundary conditions to model only half or quarter of symmetric geometries",
+                "Applying submodeling to refine only the critical region using boundary conditions from a coarser global model",
+                "Simplifying geometry by removing small fillets, holes, and features far from the region of interest",
+                "Reducing the number of load cases by ignoring the most critical loading scenario"
+              ],
+              correctIndices: [0, 1, 2],
+              why: "Symmetry, submodeling, and geometry simplification are standard efficiency techniques. Ignoring critical load cases compromises the entire analysis purpose.",
+              pitfall: "When using symmetry, verify the loading and boundary conditions are truly symmetric. Asymmetric loads on a symmetric geometry still require a full model."
+            }
+          ]
+        }
+      ]
+    },
+
+    viz: {
+      trackTitle: "3D Visualization Specialist",
+      trackBadge: "🎨 Viz",
+      nodesToMaster: ["materials", "lighting", "camera", "rendering", "post-process"],
+      lessons: [
+        {
+          id: 1,
+          title: "Lesson 1: Materials & Textures",
+          desc: "PBR Materials, UV Mapping, & Texture Resolution",
+          questions: [
+            {
+              type: "single",
+              nodeId: "materials",
+              slug: "pbr-workflow",
+              question: "What is the core principle of Physically Based Rendering (PBR) materials?",
+              options: [
+                "PBR materials use physics-based equations to calculate light interaction (reflection, refraction, absorption), producing consistent and realistic results under any lighting condition.",
+                "PBR materials require hand-painting every shadow and highlight onto texture maps.",
+                "PBR only works with exterior daylight scenes and cannot render interior spaces.",
+                "PBR replaces all geometry with photographic images mapped onto flat planes."
+              ],
+              correctIdx: 0,
+              why: "PBR separates material properties (base color, metalness, roughness) from lighting, ensuring materials look correct whether lit by sun, studio lights, or HDR environments.",
+              pitfall: "Avoid setting metalness to values between 0 and 1 for real materials. In PBR, materials are either metallic (1.0) or dielectric (0.0); in-between values are physically incorrect."
+            },
+            {
+              type: "single",
+              nodeId: "materials",
+              slug: "texture-resolution-selection",
+              question: "How should a visualization artist determine the appropriate texture resolution for a material?",
+              options: [
+                "Based on the texel density: the texture resolution should provide sufficient pixels per meter of surface area at the expected camera distance, typically 10-20 pixels per centimeter for close-up objects.",
+                "Always use the maximum resolution (8K) for every material to ensure quality.",
+                "Texture resolution should match the monitor resolution regardless of object distance.",
+                "Lower resolution textures are always preferred because they render faster."
+              ],
+              correctIdx: 0,
+              why: "Texel density matches pixel coverage to viewing conditions. A distant building facade needs lower resolution than a close-up countertop material.",
+              pitfall: "Over-resolution textures waste VRAM and slow rendering without visible quality improvement. Match texture resolution to the largest on-screen pixel coverage."
+            },
+            {
+              type: "single",
+              nodeId: "materials",
+              slug: "normal-vs-displacement",
+              question: "What is the practical difference between Normal maps and Displacement maps in architectural visualization?",
+              options: [
+                "Normal maps simulate surface detail by perturbing lighting calculations without changing geometry; Displacement maps physically modify the mesh surface, creating real geometric depth visible in silhouettes.",
+                "Normal maps and Displacement maps produce identical results in all rendering engines.",
+                "Normal maps are used for metallic materials; Displacement maps are used for wood only.",
+                "Displacement maps can only be applied in 2D rendering workflows."
+              ],
+              correctIdx: 0,
+              why: "Normal maps are fast but fake depth (silhouettes remain flat). Displacement maps create real geometry, producing correct shadows, occlusion, and parallax at the cost of higher polygon count.",
+              pitfall: "Displacement maps require sufficient mesh subdivision to capture the detail. Without enough geometry, displacement looks blocky and stepped."
+            },
+            {
+              type: "single",
+              nodeId: "materials",
+              slug: "ior-glass-materials",
+              question: "Why is the Index of Refraction (IOR) setting critical when creating glass and water materials?",
+              options: [
+                "IOR determines how much light bends when passing through the material, directly affecting transparency, reflection intensity, and the visual appearance of thick glass, water pools, and gemstones.",
+                "IOR only affects the color tint of transparent materials.",
+                "IOR is a rendering speed optimization parameter with no visual effect.",
+                "IOR must always be set to 1.0 for all transparent materials."
+              ],
+              correctIdx: 0,
+              why: "Glass IOR is 1.52, water is 1.33, diamond is 2.42. Incorrect IOR makes glass look like plastic or water look like air. PBR renderers calculate Fresnel reflections from IOR.",
+              pitfall: "For architectural glass, also model the glass thickness. Single-surface glass without thickness misses the refraction offset visible in real thick glazing panels."
+            },
+            {
+              type: "multiple",
+              nodeId: "materials",
+              slug: "pbr-texture-maps",
+              question: "Which texture maps are part of a standard PBR metallic-roughness material workflow? (Select all correct)",
+              options: [
+                "Base Color (Albedo) map defining surface color without lighting information",
+                "Roughness map controlling microsurface smoothness (shiny vs. matte)",
+                "Normal map adding surface detail without extra geometry",
+                "Ambient light temperature map setting the room thermostat value"
+              ],
+              correctIndices: [0, 1, 2],
+              why: "Base Color, Roughness, and Normal maps are core PBR texture channels. Room temperature is a physical property unrelated to material rendering.",
+              pitfall: "Ensure Base Color maps do not contain baked lighting or shadows. PBR relies on the renderer calculating lighting; pre-baked shadows create incorrect double-lighting."
+            }
+          ]
+        },
+        {
+          id: 2,
+          title: "Lesson 2: Lighting & Camera",
+          desc: "HDRI Environments, Three-Point Lighting, & Camera Settings",
+          questions: [
+            {
+              type: "single",
+              nodeId: "lighting",
+              slug: "hdri-environment-lighting",
+              question: "Why are HDRI (High Dynamic Range Image) environment maps the preferred lighting method for product and architectural visualization?",
+              options: [
+                "HDRIs capture real-world light intensity across the full dynamic range, providing physically accurate ambient illumination, reflections, and soft shadows from a single image.",
+                "HDRIs are smaller in file size than standard JPG images.",
+                "HDRIs can only be used in exterior scenes and do not work for interior rendering.",
+                "HDRIs replace all material textures in the scene with environment colors."
+              ],
+              correctIdx: 0,
+              why: "HDRIs store brightness values far beyond the 0-255 range of standard images. This extended range drives realistic exposure, light falloff, and specular reflections.",
+              pitfall: "Rotate the HDRI to align the dominant light source (sun) with the intended shadow direction. The default orientation rarely matches the desired lighting angle."
+            },
+            {
+              type: "single",
+              nodeId: "lighting",
+              slug: "three-point-lighting",
+              question: "In the three-point lighting setup for product visualization, what is the specific role of the fill light?",
+              options: [
+                "The fill light softens shadows created by the key light by providing lower-intensity illumination from the opposite side, controlling the shadow density and contrast ratio.",
+                "The fill light is the brightest light in the scene and defines the primary shadow direction.",
+                "The fill light is placed directly behind the product to create a silhouette effect.",
+                "The fill light is only used in outdoor scenes and has no role in studio setups."
+              ],
+              correctIdx: 0,
+              why: "Key light establishes the dominant direction and shadows. Fill light (typically 1/2 to 1/4 key intensity) lifts shadow areas to control the contrast ratio.",
+              pitfall: "Do not make the fill light as bright as the key light. Equal-intensity front lighting produces flat, shadowless renders that lack dimensionality."
+            },
+            {
+              type: "single",
+              nodeId: "camera",
+              slug: "camera-focal-length",
+              question: "How does camera focal length affect architectural interior visualization renders?",
+              options: [
+                "Shorter focal lengths (wide-angle, 18-24mm) capture more of the room but introduce perspective distortion; longer focal lengths (50-85mm) produce more natural proportions but show less of the space.",
+                "Focal length only affects the brightness of the render output.",
+                "All architectural renders should use a 200mm telephoto lens for realism.",
+                "Focal length has no effect on perspective; it only changes the zoom level."
+              ],
+              correctIdx: 0,
+              why: "Wide angles exaggerate spatial depth (rooms look larger) but distort edges. Standard focal lengths (35-50mm) balance spatial coverage with natural-looking proportions.",
+              pitfall: "Avoid extreme wide-angle lenses (below 18mm) for interior visualization. The barrel distortion makes straight walls appear curved and rooms look unrealistically large."
+            },
+            {
+              type: "single",
+              nodeId: "camera",
+              slug: "exposure-settings-render",
+              question: "In physically-based rendering, what three camera parameters control exposure?",
+              options: [
+                "Aperture (f-stop), shutter speed, and ISO sensitivity work together to control how much light reaches the virtual sensor, just as in physical photography.",
+                "Resolution, anti-aliasing samples, and output file format.",
+                "Material reflectivity, scene polygon count, and GPU memory.",
+                "Render engine version, operating system, and monitor calibration."
+              ],
+              correctIdx: 0,
+              why: "PBR cameras simulate real photography exposure. Lower f-stop = more light + shallower DOF. Slower shutter = more light + motion blur. Higher ISO = more light + noise.",
+              pitfall: "When adjusting exposure, change one parameter at a time. Compensating aperture changes with ISO changes simultaneously makes it impossible to isolate the visual effect."
+            },
+            {
+              type: "multiple",
+              nodeId: "lighting",
+              slug: "gi-algorithms",
+              question: "Which of the following are Global Illumination (GI) algorithms used in rendering engines? (Select all correct)",
+              options: [
+                "Path Tracing (unbiased Monte Carlo light transport simulation)",
+                "Irradiance Cache / Light Cache (interpolated indirect illumination)",
+                "Photon Mapping (two-pass method storing photon energy hits)",
+                "Gouraud Shading (per-vertex color interpolation for real-time display)"
+              ],
+              correctIndices: [0, 1, 2],
+              why: "Path Tracing, Irradiance Cache, and Photon Mapping are GI techniques for computing indirect light bounces. Gouraud shading is a real-time display technique, not a GI algorithm.",
+              pitfall: "Path tracing produces the most accurate results but requires many samples to reduce noise. Use denoising algorithms to achieve clean results at practical sample counts."
+            }
+          ]
+        },
+        {
+          id: 3,
+          title: "Lesson 3: Rendering & Post-Production",
+          desc: "Render Settings, Denoising, & Compositing Workflows",
+          questions: [
+            {
+              type: "single",
+              nodeId: "rendering",
+              slug: "sampling-noise-tradeoff",
+              question: "What is the relationship between render sample count and image noise in path-traced rendering?",
+              options: [
+                "Higher sample counts reduce noise by averaging more random light paths per pixel, but render time increases linearly with sample count; halving noise requires quadrupling samples.",
+                "Sample count only affects render resolution, not image quality.",
+                "Lower sample counts always produce cleaner images because they avoid light path interference.",
+                "Sample count is fixed by the rendering engine and cannot be adjusted by the user."
+              ],
+              correctIdx: 0,
+              why: "Monte Carlo path tracing convergence follows the inverse square root law. Doubling quality (halving noise) requires 4x the samples and thus 4x the render time.",
+              pitfall: "Use AI denoising (Intel OIDN, NVIDIA OptiX) to achieve clean results at lower sample counts. Modern denoisers can produce production-quality results at 1/4 the traditional sample count."
+            },
+            {
+              type: "single",
+              nodeId: "rendering",
+              slug: "render-passes-compositing",
+              question: "Why do production visualization studios render separate passes (diffuse, reflection, shadow, depth) instead of a single beauty image?",
+              options: [
+                "Separate passes allow post-production adjustment of individual components (brighten reflections, soften shadows, add depth-of-field) without re-rendering the entire scene.",
+                "Rendering passes is faster than rendering a single combined image.",
+                "Separate passes are required because rendering engines cannot combine lighting effects.",
+                "Passes are only useful for animation and serve no purpose in still image production."
+              ],
+              correctIdx: 0,
+              why: "Multi-pass rendering gives compositors control. Adjusting reflection intensity in Photoshop takes seconds; re-rendering the entire scene to adjust reflections takes hours.",
+              pitfall: "Ensure all passes are rendered with the same camera, resolution, and sample settings. Mismatched passes produce visible compositing artifacts at edges."
+            },
+            {
+              type: "single",
+              nodeId: "post-process",
+              slug: "color-management-aces",
+              question: "Why is ACES (Academy Color Encoding System) recommended for architectural visualization color management?",
+              options: [
+                "ACES provides a scene-referred, wide-gamut color space that preserves the full dynamic range of rendered data through the entire pipeline from rendering to final display output.",
+                "ACES reduces the file size of rendered images by compressing color data.",
+                "ACES is only used in film production and has no benefit for architectural rendering.",
+                "ACES automatically color-corrects renders to match the client's monitor calibration."
+              ],
+              correctIdx: 0,
+              why: "ACES separates the rendering color space from the display color space. This preserves highlight and shadow detail that would be clipped in standard sRGB workflows.",
+              pitfall: "When using ACES, ensure texture inputs are converted to the correct ACES color space (ACEScg for linear data, sRGB for display-referred textures like base color maps)."
+            },
+            {
+              type: "single",
+              nodeId: "post-process",
+              slug: "chromatic-aberration-lens",
+              question: "In post-production for photorealistic visualization, what effect does adding subtle chromatic aberration achieve?",
+              options: [
+                "It simulates the color fringing at high-contrast edges caused by real camera lenses failing to focus all wavelengths at the same point, adding photographic realism.",
+                "It converts the entire image to black and white for artistic effect.",
+                "It increases the resolution of the rendered image beyond the original pixel count.",
+                "It removes all lens distortion to produce perfectly straight lines."
+              ],
+              correctIdx: 0,
+              why: "Real lenses have imperfections. Subtle chromatic aberration, vignetting, and lens distortion make CG images feel like photographs rather than computer graphics.",
+              pitfall: "Apply lens effects subtly. Excessive chromatic aberration or bloom makes renders look artificial rather than photographic. Less is more for realism."
+            },
+            {
+              type: "multiple",
+              nodeId: "rendering",
+              slug: "gpu-vs-cpu-rendering",
+              question: "Which statements about GPU rendering versus CPU rendering are correct? (Select all correct)",
+              options: [
+                "GPU renderers (like NVIDIA OptiX, Redshift) are significantly faster for path tracing due to massive parallel processing cores",
+                "CPU renderers (like Arnold CPU, V-Ray CPU) typically handle more complex scenes because system RAM is larger than VRAM",
+                "Hybrid rendering uses both CPU and GPU resources to balance speed and scene complexity",
+                "GPU rendering always produces more accurate results than CPU rendering regardless of the algorithm"
+              ],
+              correctIndices: [0, 1, 2],
+              why: "GPUs excel at parallel computation (speed). CPUs handle larger scenes (more RAM). Hybrid rendering leverages both. Accuracy depends on the algorithm, not the processor type.",
+              pitfall: "GPU rendering is limited by VRAM. Scenes exceeding available VRAM either fail or fall back to slower out-of-core rendering. Monitor VRAM usage during test renders."
             }
           ]
         }
@@ -809,7 +1557,7 @@
     placement: {
       trackTitle: "Placement Test",
       trackBadge: "🏆 Placement",
-      drawCount: 10,
+      drawCount: 12,
       questions: [
         {
           type: "single",
@@ -960,6 +1708,66 @@
           correctIdx: 0,
           why: "LISP routines access the drawing database directly, letting draftsmen create custom utilities, automate repetitive offsets, and coordinate data exports.",
           pitfall: "Test custom LISP tools in empty drawings first; infinite loop bugs in LISP scripts will freeze sessions and cause unsaved data loss."
+        },
+        {
+          type: "single",
+          nodeId: "placement",
+          slug: "placement-fea-mesh",
+          question: "In Finite Element Analysis (FEA), why is mesh convergence testing essential before accepting simulation results?",
+          options: [
+            "Mesh convergence verifies that results are independent of mesh density by iteratively refining until stress values stabilize, confirming numerical accuracy.",
+            "Mesh convergence testing is only needed for 2D simulations.",
+            "Mesh convergence speeds up the solver by reducing the total number of elements.",
+            "Mesh convergence applies only to thermal simulations, not structural."
+          ],
+          correctIdx: 0,
+          why: "Without convergence testing, results may change significantly with different mesh sizes, indicating the solution is mesh-dependent and unreliable.",
+          pitfall: "Watch for stress singularities at sharp corners that prevent convergence. Model realistic fillets to avoid mathematically infinite stress concentrations."
+        },
+        {
+          type: "single",
+          nodeId: "placement",
+          slug: "placement-cfd-turbulence",
+          question: "In CFD simulation, what determines whether to use a laminar or turbulent flow solver?",
+          options: [
+            "The Reynolds number of the flow: low Re indicates laminar flow, high Re indicates turbulent flow requiring a turbulence model like k-omega SST or k-epsilon.",
+            "Turbulent solvers should always be used regardless of flow conditions.",
+            "The choice depends on the color scheme preferred for velocity contour plots.",
+            "Laminar solvers are for gases only; turbulent solvers are for liquids only."
+          ],
+          correctIdx: 0,
+          why: "Reynolds number is the dimensionless ratio of inertial to viscous forces. It determines the flow regime and thus the appropriate solver configuration.",
+          pitfall: "Using a laminar solver for high-Reynolds-number turbulent flows produces physically incorrect results. Always estimate Re first."
+        },
+        {
+          type: "single",
+          nodeId: "placement",
+          slug: "placement-pbr-materials",
+          question: "In Physically Based Rendering (PBR), what do the Metalness and Roughness parameters control?",
+          options: [
+            "Metalness determines whether light is reflected as colored specular (metal=1) or white specular with diffuse color (metal=0); Roughness controls microsurface smoothness from mirror-like (0) to matte (1).",
+            "Metalness sets the weight of the object; Roughness sets the polygon count.",
+            "Both parameters only affect how the material appears in wireframe mode.",
+            "Metalness and Roughness are interchangeable and produce the same visual effect."
+          ],
+          correctIdx: 0,
+          why: "PBR separates materials into metallic conductors and dielectric insulators. Roughness controls the spread of specular reflections on both types.",
+          pitfall: "Real-world metals have base colors from their Fresnel reflectance curves (gold is yellow, copper is reddish). Do not use pure white as the base color for metals."
+        },
+        {
+          type: "single",
+          nodeId: "placement",
+          slug: "placement-render-passes",
+          question: "Why do visualization studios render separate passes (diffuse, reflection, depth, shadow) rather than a single composite image?",
+          options: [
+            "Separate passes enable non-destructive post-production adjustments — brightening reflections, adding depth-of-field blur, or softening shadows — without re-rendering the entire scene.",
+            "Rendering separate passes is faster than rendering a single combined image.",
+            "Separate passes are only useful for film VFX and have no application in architecture.",
+            "Rendering engines cannot combine multiple light effects into a single output."
+          ],
+          correctIdx: 0,
+          why: "Multi-pass rendering separates light components for compositing flexibility. Adjusting a reflection pass in Photoshop takes seconds versus hours of re-rendering.",
+          pitfall: "Always render passes at the same resolution and sample count. Mismatched settings cause visible edge artifacts when compositing."
         }
       ]
     }
