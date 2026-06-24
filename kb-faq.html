@@ -46,12 +46,12 @@
     <meta name="twitter:title" content="CAD Knowledge Base · FAQ" />
     <meta name="twitter:description" content="Frequently asked questions about the Gstarcademy knowledge base, tutorials, and how we link to external sources." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="preload" href="./styles.css?v=v16_css_purge" as="style" />
+    <link rel="preload" href="./styles.min.css" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="./styles.css?v=v16_css_purge" />
+    <link rel="stylesheet" href="./styles.min.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -113,7 +113,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"ZWCAD FAQs","url":"https://gstarcademy.com/kb-faq#zwcad","mainEntity":[{"@type":"Question","name":"How compatible is ZWCAD with AutoCAD?","acceptedAnswer":{"@type":"Answer","text":"ZWCAD is highly compatible with AutoCAD. It supports the native DWG format, matches core drawing commands and keyboard shortcuts directly, and reads standard templates, scripts, and customization files seamlessly."}},{"@type":"Question","name":"What is the difference between ZWCAD Lite and Pro?","acceptedAnswer":{"@type":"Answer","text":"ZWCAD Lite is focused strictly on 2D drafting. ZWCAD Pro adds 3D solid modeling, direct STEP/IGES file translation, support for custom C++ (ZRX) and .NET APIs, and is compatible with ZWCAD Mechanical Vertical."}},{"@type":"Question","name":"Does ZWCAD support AutoLISP?","acceptedAnswer":{"@type":"Answer","text":"Yes, ZWCAD includes a highly compatible LISP engine that runs standard AutoLISP and Visual LISP (.lsp, .fas, .vlx) scripts without requiring modification."}},{"@type":"Question","name":"What is the ZRX C++ API?","acceptedAnswer":{"@type":"Answer","text":"ZRX is ZWSOFT's high-level C++ API for ZWCAD, highly compatible with AutoCAD's ObjectARX. It allows developers to compile and port advanced custom design add-ins instantly."}},{"@type":"Question","name":"Does ZWCAD offer perpetual licenses?","acceptedAnswer":{"@type":"Answer","text":"Yes, ZWSOFT continues to offer perpetual (non-expiring, buy-once-own-forever) licenses for ZWCAD Lite and Pro, helping enterprises reduce IT subscription expenditures."}},{"@type":"Question","name":"Can ZWCAD run on Linux?","acceptedAnswer":{"@type":"Answer","text":"Yes, ZWCAD is one of the few professional CAD packages providing native Linux editions certified for popular distributions like Ubuntu, Red Hat, and Deepin."}},{"@type":"Question","name":"What is Smart Mouse in ZWCAD?","acceptedAnswer":{"@type":"Answer","text":"Smart Mouse is a gesture-based control feature. It allows you to trigger common CAD commands (like Zoom, Erase, or Undo) simply by moving your mouse in predefined swipe paths while holding the right mouse button."}},{"@type":"Question","name":"Can ZWCAD import DGN files directly?","acceptedAnswer":{"@type":"Answer","text":"Yes, ZWCAD Pro and above support attaching, clipping, and importing Bentley MicroStation DGN files directly as drawing references."}},{"@type":"Question","name":"How do I perform a batch plot in ZWCAD?","acceptedAnswer":{"@type":"Answer","text":"You can use the Smart Plot (SmartSel) command. It automatically scans your model space layouts, identifies sheet borders, and plots them to individual PDFs concurrently."}},{"@type":"Question","name":"What is the ZWCAD multi-core rendering technology?","acceptedAnswer":{"@type":"Answer","text":"ZWCAD leverages multi-threaded CPU architectures to accelerate drawing load times and pan/zoom canvas regenerations, especially on extremely heavy topographic maps."}},{"@type":"Question","name":"Does ZWCAD include standard mechanical part libraries?","acceptedAnswer":{"@type":"Answer","text":"The ZWCAD Mechanical vertical edition includes comprehensive international libraries (ISO, DIN, JIS) for standard fasteners, mechanical symbols, and automated BOM generators."}},{"@type":"Question","name":"How do I manage ZWCAD licenses on a company network?","acceptedAnswer":{"@type":"Answer","text":"ZWSOFT provides a Network License manager utility powered by FlexNet, allowing companies to distribute a floating pool of CAD licenses dynamically to active users."}},{"@type":"Question","name":"Can ZWCAD convert PDF files back to DWG?","acceptedAnswer":{"@type":"Answer","text":"Yes, ZWCAD includes a high-performance PDF import tool that converts vector geometries, layers, and text blocks inside PDFs back into editable native DWG entities."}},{"@type":"Question","name":"What is Smart Voice in ZWCAD?","acceptedAnswer":{"@type":"Answer","text":"Smart Voice is an annotation tool that allows you to record voice notes using your microphone and attach them as audio playback bubbles directly to coordinates on the drawing."}},{"@type":"Question","name":"Does ZWCAD run natively on Apple Silicon Macs?","acceptedAnswer":{"@type":"Answer","text":"Yes, ZWCAD offers native ARM64 installation packages for macOS, optimized for Apple Silicon (M1, M2, M3) to ensure high-performance rendering and lower power consumption."}}]}</script>
 <!-- AUTO-GEN faq-jsonld END -->
       <link rel="manifest" href="./manifest.json" />
-    <script src="./search.js" defer></script>
+    <script src="./search.min.js" defer></script>
   </head>
   <body data-page="knowledge">
     <div class="header-stack">
@@ -406,8 +406,8 @@
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="./app.js?v=v15_dashboard_concept_filters" defer></script>
-    <script src="./knowledge.js?v=v15_subnav_dropdown" defer></script>
+    <script src="./app.min.js" defer></script>
+    <script src="./knowledge.min.js" defer></script>
     <script>
       (function () {
         var tabs = document.querySelectorAll(".kb-faq-tab");
