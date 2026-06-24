@@ -146,24 +146,20 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p>The parametric engine resolves <strong>Shared Parameters (Revit)</strong> by evaluating a directed acyclic graph (DAG) of dimensional constraints, reference planes, and formula-driven parameters. Each family type defines this constraint graph at authoring time, and every placed instance inherits the same topology. When a parameter changes—whether by direct edit, schedule input, or API call—the engine walks the DAG to determine which geometry nodes need recalculation, minimizing the regeneration scope.</p>
-        <p>Interoperability of Shared Parameters (Revit) depends heavily on its IFC mapping configuration. During IFC export, the element's native category maps to an IFC entity class (IfcWall, IfcColumn, IfcSlab, etc.), and its parameter values populate IFC property sets (Pset_WallCommon, Pset_ColumnCommon). If the mapping is incorrect or incomplete, downstream coordination software receives a geometrically accurate but semantically empty element—it looks right but carries no usable metadata for clash rules, quantity queries, or facility management systems.</p>
-
+          <p>A <strong>shared parameter</strong> is defined outside any project or family — in a plain-text <code>.txt</code> file — and identified by a GUID (globally unique identifier). Because the GUID is stable, the same parameter can be attached to multiple families and to the project, and they all refer to the same data field. This enables cross-family scheduling and tagging that is impossible with project-only or family-only parameters.</p>
+<p>The shared parameter file has a simple structure: groups (logical containers) and parameters within each group (name, GUID, data type, description). The data type is fixed at creation — you cannot change a text parameter to a number after creation. Always define parameters with the most specific type needed (Length, Area, Integer, Yes/No) rather than Text, because typed parameters can be used in formulas.</p>
+<p>The critical limitation: shared parameters appear in schedules and tags <em>only</em> if they are added to the project as a <em>Project Parameter</em> (Manage → Project Parameters → Add → Shared Parameter). A parameter can exist in a family but remain invisible in schedules if this project-level binding step is skipped.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Shared Parameters (Revit)</strong> in a BIM production environment requires careful coordination of model integrity and data standards:</p>
-    <ol>
-      <li><strong>Initialize from the BIM Execution Plan (BEP):</strong> Bind the model to the project template that defines levels, grids, shared coordinates, and workset structure. Confirm that the BEP's LOD requirements match the current design phase.</li>
-      <li><strong>Model Element Placement with Proper Classification:</strong> When configuring <strong>Shared Parameters (Revit)</strong>, assign correct IFC classifications (e.g., IfcWall, IfcSlab, IfcBeam) and ensure that type/instance parameters carry the required COBie or Uniclass data for downstream handoff.</li>
-      <li><strong>Coordination and Clash Resolution:</strong> Federate the model regularly with structural, MEP, and architectural disciplines. Run interference checks to identify spatial conflicts, and log resolution actions in a BCF-compatible issue tracker.</li>
-      <li><strong>Model Health Validation:</strong> Run model audit tools to detect warnings such as duplicate instances, room-bounding errors, or unjoined elements. Verify that schedules and quantity takeoffs reflect accurate, current model data before milestone submissions.</li>
-    </ol>
-    
+          <p>Setting up shared parameters for cross-family scheduling:</p>
+<ol>
+  <li><strong>Create the shared parameter file:</strong> Manage → Shared Parameters → Create. Save the <code>.txt</code> file in a location accessible to all team members (typically a project server path, not a local drive).</li>
+  <li><strong>Define groups and parameters:</strong> Click Edit, add a Group (e.g., "Project Data"), then add parameters within it (e.g., "Fire Rating" as Text, "Load Capacity" as Number). Document each parameter purpose — the file is permanent and shared.</li>
+  <li><strong>Add to families:</strong> Open each family in the Family Editor → Create tab → Family Types → Add Parameter → Shared Parameter. Browse to the file, select the parameter, assign it to the correct parameter group in the family (e.g., Identity Data). Save and reload the family.</li>
+  <li><strong>Bind to the project:</strong> In the project, Manage → Project Parameters → Add → Shared Parameter → select the same parameter from the same file. Assign it to the relevant category (Doors, Windows, etc.). Now it appears as a schedulable column.</li>
+  <li><strong>Tag the parameter:</strong> Create an Annotation Family using a Label that references the shared parameter. Because it is shared, the tag works across all families that have the parameter bound, with no additional setup.</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>

@@ -162,24 +162,20 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p>The DWG database engine stores <strong>Dynamic Blocks (GstarCAD)</strong> as a collection of entity records identified by unique handles and grouped DXF codes. Each record carries geometric data (group code 10 for point coordinates, code 40 for radius or scale), layer assignment (code 8), and object-specific properties. When Dynamic Blocks (GstarCAD) elements are created or modified, the engine updates the spatial index—typically a quad-tree or R-tree structure—so that viewport redraws only evaluate entities visible in the current extents.</p>
-        <p>Performance depends on how Dynamic Blocks (GstarCAD) interacts with the drawing's block table and dimension style table. Nested block references multiply the entity count that the regeneration engine must resolve, while dimension associativity creates behind-the-scenes reactor objects that listen for geometry changes. Understanding this internal linkage explains why certain operations on Dynamic Blocks (GstarCAD)—such as exploding blocks or redefining dimension styles—can cascade through the drawing in unexpected ways.</p>
-
+          <p>GstarCAD's Block Editor is fully compatible with AutoCAD's dynamic block format — a block created in GstarCAD opens correctly in AutoCAD and vice versa, as long as both are working with DWG 2018 or later format. This compatibility makes GstarCAD dynamic blocks a safe choice in mixed-software project environments.</p>
+<p>The authoring workflow is identical: <strong>Parameters</strong> (Linear, Polar, Rotation, Visibility, Lookup, Flip, Alignment) define what can vary; <strong>Actions</strong> (Stretch, Move, Scale, Rotate, Array, Lookup) define how the geometry responds. GstarCAD also supports the <strong>Parameter Set</strong> shortcut — a combined parameter+action bundle for common combinations like "linear stretch" that saves authoring time.</p>
+<p>GstarCAD's Block Editor includes a <strong>Constraint Panel</strong> that adds geometric constraints (coincident, parallel, perpendicular, tangent) to block geometry — similar to sketch constraints in parametric modelers. Constraints ensure the block geometry stays geometrically valid as grips are dragged, preventing impossible shapes that can occur when stretch actions are added without geometric guards.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Dynamic Blocks (GstarCAD)</strong> in a production drafting pipeline requires disciplined setup and layer management:</p>
-    <ol>
-      <li><strong>Configure the Drawing Template (.dwt):</strong> Start from an enterprise-standard template that locks units, dimension styles, text heights, and layer naming conventions. Verify that the title-block attributes map correctly to your project metadata schema.</li>
-      <li><strong>Establish Layer and Style Standards:</strong> When working with <strong>Dynamic Blocks (GstarCAD)</strong>, assign elements to correctly named layers with appropriate colors, linetypes, and lineweights. Use layer filters and states to manage visibility across complex sheet sets.</li>
-      <li><strong>Apply Annotation and Dimensioning Rules:</strong> Set annotative scales, dimension overrides, and text-style mappings that conform to your organization's drafting standards (ISO, ANSI, or company-specific). Validate dimension associativity to geometry.</li>
-      <li><strong>Run Drawing Audit and Cleanup:</strong> Execute AUDIT and PURGE commands to remove unused blocks, orphaned dimension styles, and zero-length geometry. Verify external reference (Xref) paths resolve correctly before packaging for deliverables.</li>
-    </ol>
-    
+          <p>Creating a dynamic block with visibility states in GstarCAD:</p>
+<ol>
+  <li><strong>Open Block Editor:</strong> Type <code>BEDIT</code>, select an existing block or enter a new name to create one from scratch. The Block Editor opens with the Block Authoring Palettes.</li>
+  <li><strong>Draw or copy geometry:</strong> Model the base state geometry inside the editor. Use standard draw and modify commands — the Block Editor is a full modeling environment with the same commands as the main workspace.</li>
+  <li><strong>Add a Visibility Parameter:</strong> From the Parameters palette, drag a Visibility Parameter onto the block geometry. A VP label appears. Right-click the parameter → Visibility States Manager. Create named states (e.g., "Type A", "Type B", "Type C").</li>
+  <li><strong>Assign geometry to states:</strong> Select a Visibility State, then click "Show All" or "Hide All" for geometry in that state. Assign which geometry is visible in each state using the Make Visible / Make Invisible buttons.</li>
+  <li><strong>Save and test:</strong> Click Save Block (BSAVE). Click Test Block (BTEST) — a test window opens. Click the Visibility grip to cycle through states. Close the test window, then close the Block Editor with BCLOSE.</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>

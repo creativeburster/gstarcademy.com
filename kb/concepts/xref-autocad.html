@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
@@ -138,36 +138,6 @@
     <section class="kb-concept-section">
           <h2>Definition</h2>
           <p>An XREF is a DWG attached to a host drawing via XATTACH. The referenced drawing remains a separate file; the host stores only the path, <a href="./rhinoceros-term-7">layer states</a>, and any clip boundaries. When the referenced DWG changes on disk, the host shows the update on its next open or XREFRELOAD.</p>
-<p>XREFs come in two flavours: attached (transitive — if A references B which references C, opening A shows C) and overlay (not transitive — useful to avoid circular references in coordination workflows).</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Why it matters</h2>
-          <p>XREFs are the difference between a project that scales and one that does not. A 50-sheet building set sharing one core-and-shell DWG via XREF is maintainable; the same set with the core copy-pasted into every sheet is not. They are also the foundation of multi-discipline coordination: architecture XREFs structural, structural XREFs MEP, every team works in their own native file.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p>The rendering pipeline for <strong>External Reference (XREF)</strong> follows a multi-stage path: the display driver reads entity data from the in-memory database, transforms coordinates through the current viewport matrix (accounting for UCS, view rotation, and zoom level), clips geometry against the viewport boundary, and rasterizes the result to screen pixels. Hardware-accelerated drivers offload the final rasterization to the GPU, but the coordinate transformation and clipping stages remain CPU-bound.</p>
-        <p>When External Reference (XREF) involves hatching, complex linetypes, or OLE objects, the rendering cost increases disproportionately because these entity types require secondary pattern generation or external process calls. Viewport configuration matters: multiple viewports in paper space multiply the rendering workload because each viewport maintains its own frozen-layer state, view direction, and visual style, forcing the engine to re-evaluate External Reference (XREF) visibility independently for each viewport.</p>
-
-        </section>
-        <section class="kb-concept-section">
-          <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>External Reference (XREF)</strong> in a production drafting pipeline requires disciplined setup and layer management:</p>
-    <ol>
-      <li><strong>Configure the Drawing Template (.dwt):</strong> Start from an enterprise-standard template that locks units, dimension styles, text heights, and layer naming conventions. Verify that the title-block attributes map correctly to your project metadata schema.</li>
-      <li><strong>Establish Layer and Style Standards:</strong> When working with <strong>External Reference (XREF)</strong>, assign elements to correctly named layers with appropriate colors, linetypes, and lineweights. Use layer filters and states to manage visibility across complex sheet sets.</li>
-      <li><strong>Apply Annotation and Dimensioning Rules:</strong> Set annotative scales, dimension overrides, and text-style mappings that conform to your organization's drafting standards (ISO, ANSI, or company-specific). Validate dimension associativity to geometry.</li>
-      <li><strong>Run Drawing Audit and Cleanup:</strong> Execute AUDIT and PURGE commands to remove unused blocks, orphaned dimension styles, and zero-length geometry. Verify external reference (Xref) paths resolve correctly before packaging for deliverables.</li>
-    </ol>
-    
-        </section>
-        <section class="kb-concept-section">
-          <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
-          
         
 
         <p>Error patterns and resolutions for <strong>External Reference (XREF)</strong> in cross-platform CAD workflows:</p>

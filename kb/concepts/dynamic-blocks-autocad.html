@@ -146,24 +146,21 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p>Precision handling for <strong>Dynamic Blocks</strong> depends on the CAD engine's use of double-precision floating-point arithmetic (IEEE 754 64-bit). Coordinates are stored with approximately 15 significant decimal digits, but accumulated rounding during complex geometric operations (particularly rotations, scaling, and Boolean operations) can introduce micro-errors. These errors become visible when Dynamic Blocks elements are placed far from the drawing origin—beyond roughly 10 km from (0,0) in metric drawings—where the coordinate magnitude consumes precision that would otherwise represent fine detail.</p>
-        <p>The object snap (OSNAP) system resolves Dynamic Blocks intersections and endpoints by solving analytic equations between entity geometries in real time. For arcs intersecting splines, or ellipses tangent to polylines, the snap engine uses iterative numerical methods (Newton-Raphson or bisection) that may fail to converge if the geometric relationship is near-degenerate. Understanding these precision limits is essential when Dynamic Blocks requires sub-millimeter accuracy in large-site coordinate systems.</p>
-
+          <p>Dynamic Blocks are edited exclusively inside the <strong>Block Editor</strong> (BEDIT command). The editor exposes two palettes: <em>Parameters</em> (defining what can change — linear, polar, rotation, visibility, lookup, flip, alignment) and <em>Actions</em> (defining how it changes — move, stretch, scale, rotate, array, lookup). Parameters alone do nothing; they must have at least one Action associated, or AutoCAD shows a yellow alert icon.</p>
+<p><strong>Visibility States</strong> let a single block display different geometry configurations. Each state shows or hides specific objects within the block definition. Combined with a visibility parameter, you can grip-click to cycle through named states (e.g., "Single Door", "Double Door", "Sliding"). Visibility states are the most powerful — and most overused — feature: more than 8–10 states in one block becomes unmanageable to edit.</p>
+<p><strong>Lookup parameters</strong> drive a property table: a grip click opens a dropdown of named rows (e.g., bolt sizes M6/M8/M10/M12), each row mapping to exact dimension values. This replaces a family of blocks with a single smart block and is the correct pattern for standard-library symbols.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Dynamic Blocks</strong> in a production drafting pipeline requires disciplined setup and layer management:</p>
-    <ol>
-      <li><strong>Configure the Drawing Template (.dwt):</strong> Start from an enterprise-standard template that locks units, dimension styles, text heights, and layer naming conventions. Verify that the title-block attributes map correctly to your project metadata schema.</li>
-      <li><strong>Establish Layer and Style Standards:</strong> When working with <strong>Dynamic Blocks</strong>, assign elements to correctly named layers with appropriate colors, linetypes, and lineweights. Use layer filters and states to manage visibility across complex sheet sets.</li>
-      <li><strong>Apply Annotation and Dimensioning Rules:</strong> Set annotative scales, dimension overrides, and text-style mappings that conform to your organization's drafting standards (ISO, ANSI, or company-specific). Validate dimension associativity to geometry.</li>
-      <li><strong>Run Drawing Audit and Cleanup:</strong> Execute AUDIT and PURGE commands to remove unused blocks, orphaned dimension styles, and zero-length geometry. Verify external reference (Xref) paths resolve correctly before packaging for deliverables.</li>
-    </ol>
-    
+          <p>Building a dynamic block in the Block Editor:</p>
+<ol>
+  <li><strong>Enter BEDIT:</strong> Type <code>BEDIT</code>, select or create a block definition. The Block Editor opens with a grey background and the Block Authoring Palettes panel on the right.</li>
+  <li><strong>Add a parameter first:</strong> Drag a <em>Linear Parameter</em> onto the geometry (e.g., spanning the width of a door). Name it descriptively — "Width" not "Distance1". Set the grip count to 1 (one end fixed, one moves) to avoid confusion.</li>
+  <li><strong>Associate an action:</strong> From the Actions palette, drag <em>Stretch</em> onto the parameter arrow. Select the parameter grip point, then window-select the geometry that should stretch. A blue lightning icon appears confirming the action is linked.</li>
+  <li><strong>Add value sets (optional):</strong> Right-click the parameter → Properties → Value Set → List. Enter allowed values (e.g., 800, 900, 1000). This snaps the grip to valid sizes only.</li>
+  <li><strong>Test with BTEST:</strong> Click <em>Test Block</em> in the Block Editor toolbar. Grip-drag in the test window to verify behavior. Return with Close Test Block Window.</li>
+  <li><strong>Save and close:</strong> Click <em>Save Block Definition</em> (not Save Drawing), then <em>Close Block Editor</em>. Insert the block and grip-test in model space.</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>

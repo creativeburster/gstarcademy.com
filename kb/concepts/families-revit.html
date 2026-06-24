@@ -146,24 +146,20 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p><strong>Families (Revit)</strong> interacts with the model's phasing system, which assigns every element a "created in phase" and optionally a "demolished in phase" attribute. Views filter elements through phase filters that combine these phase assignments with graphic override rules (show as new, show as existing, show as demolished, or hide). This mechanism allows a single model to represent the building at multiple points in its lifecycle—existing conditions, demolition, new construction—without duplicating geometry.</p>
-        <p>The workset mechanism controls editing access to Families (Revit) in multi-user environments. When a team member takes ownership of a workset, the elements within it become editable only on that user's local copy until synchronized back to the central model. Conflicts arise when Families (Revit) references elements owned by different users—for example, a wall in one workset hosting a door in another—requiring careful workset organization to minimize synchronization conflicts and reduce the frequency of failed-to-save errors.</p>
-
+          <p>Revit families divide into three fundamental categories. <strong>System families</strong> (walls, floors, roofs, stairs, ceilings) are defined within the project and cannot exist as external files — they are edited through Type Properties and duplicated with "Duplicate Type". <strong>Loadable families</strong> (doors, windows, furniture, structural columns, annotations) live as <code>.rfa</code> files, can be shared between projects, and are edited in the Family Editor. <strong>In-place families</strong> are unique geometry created directly in the project context — use sparingly because they bloat file size and cannot be reused.</p>
+<p>Within loadable families, the distinction between <strong>Type parameters</strong> (shared by all instances of a type, e.g., nominal width) and <strong>Instance parameters</strong> (individual per placed element, e.g., sill height) directly governs scheduling and tagging. A parameter that users need to change without duplicating a type must be an Instance parameter.</p>
+<p>Family template choice is permanent — a door template has host behavior baked in (cuts the host wall, manages the rough opening), while a furniture template does not. Choosing the wrong template and trying to work around it creates fragile workarounds. Match the template to the real-world behavior of the element.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Families (Revit)</strong> in a BIM production environment requires careful coordination of model integrity and data standards:</p>
-    <ol>
-      <li><strong>Initialize from the BIM Execution Plan (BEP):</strong> Bind the model to the project template that defines levels, grids, shared coordinates, and workset structure. Confirm that the BEP's LOD requirements match the current design phase.</li>
-      <li><strong>Model Element Placement with Proper Classification:</strong> When configuring <strong>Families (Revit)</strong>, assign correct IFC classifications (e.g., IfcWall, IfcSlab, IfcBeam) and ensure that type/instance parameters carry the required COBie or Uniclass data for downstream handoff.</li>
-      <li><strong>Coordination and Clash Resolution:</strong> Federate the model regularly with structural, MEP, and architectural disciplines. Run interference checks to identify spatial conflicts, and log resolution actions in a BCF-compatible issue tracker.</li>
-      <li><strong>Model Health Validation:</strong> Run model audit tools to detect warnings such as duplicate instances, room-bounding errors, or unjoined elements. Verify that schedules and quantity takeoffs reflect accurate, current model data before milestone submissions.</li>
-    </ol>
-    
+          <p>Creating and loading a custom loadable family:</p>
+<ol>
+  <li><strong>Choose the right template:</strong> File → New → Family, select the template that matches the element behavior (e.g., <em>Door.rft</em> for wall-hosted openings, <em>Generic Model.rft</em> for non-hosted geometry, <em>Structural Column.rft</em> for base-point hosted structure). Template choice determines hosting rules and cannot be changed later.</li>
+  <li><strong>Model with reference planes:</strong> Draw named reference planes (not model lines) as the skeleton. Lock geometry to these planes with the padlock icon. This ensures the family stretches correctly when type parameters change.</li>
+  <li><strong>Add parameters:</strong> In Family Types dialog, add parameters and assign them to dimensions that are locked to reference planes. Mark as <em>Instance</em> if users need per-placement control; <em>Type</em> if the value defines the type.</li>
+  <li><strong>Create multiple types:</strong> In Family Types, click New and enter values for each standard size (e.g., 800mm door, 900mm door, 1000mm door). Each size becomes a type in the project.</li>
+  <li><strong>Load into project:</strong> Click Load into Project (or Load into Project and Close). Revit places the family and all its types in the project. Find it in the Properties palette or Project Browser under Families.</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>

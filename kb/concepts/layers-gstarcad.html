@@ -162,24 +162,20 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p>Precision handling for <strong>Layers (GstarCAD)</strong> depends on the CAD engine's use of double-precision floating-point arithmetic (IEEE 754 64-bit). Coordinates are stored with approximately 15 significant decimal digits, but accumulated rounding during complex geometric operations (particularly rotations, scaling, and Boolean operations) can introduce micro-errors. These errors become visible when Layers (GstarCAD) elements are placed far from the drawing origin—beyond roughly 10 km from (0,0) in metric drawings—where the coordinate magnitude consumes precision that would otherwise represent fine detail.</p>
-        <p>The object snap (OSNAP) system resolves Layers (GstarCAD) intersections and endpoints by solving analytic equations between entity geometries in real time. For arcs intersecting splines, or ellipses tangent to polylines, the snap engine uses iterative numerical methods (Newton-Raphson or bisection) that may fail to converge if the geometric relationship is near-degenerate. Understanding these precision limits is essential when Layers (GstarCAD) requires sub-millimeter accuracy in large-site coordinate systems.</p>
-
+          <p>Each GstarCAD layer stores five properties: <strong>Color</strong> (controls display and, if using plot styles, plotted pen width), <strong>Linetype</strong> (Continuous, Dashed, Center, etc. — loaded into the drawing from the .lin file first), <strong>Lineweight</strong> (stored in the drawing but only visible when Lineweight Display is on, via the LWT toggle in the status bar), <strong>Plot</strong> (whether the layer prints), and <strong>Transparency</strong>. These are the layer defaults — individual entities override them with the BYLAYER / explicit property distinction.</p>
+<p><strong>Layer States</strong> are named snapshots of the current layer visibility, lock, and freeze configuration. A "Design" state might have all layers on; an "Issue for Construction" state might freeze all reference layers and lock dimension layers. Layer States travel with the drawing and can be exported (<code>.las</code> file) for sharing across a project team.</p>
+<p><strong>Layer Filters</strong> manage visibility in the Layer Properties Manager for large drawings. A <em>Property Filter</em> shows layers matching criteria (e.g., all layers starting with "A-"). A <em>Group Filter</em> is a manually curated list. Right-click a filter → Select Layers → Add to Group to build discipline-specific layer groups without affecting which layers are actually active.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Layers (GstarCAD)</strong> in a production drafting pipeline requires disciplined setup and layer management:</p>
-    <ol>
-      <li><strong>Configure the Drawing Template (.dwt):</strong> Start from an enterprise-standard template that locks units, dimension styles, text heights, and layer naming conventions. Verify that the title-block attributes map correctly to your project metadata schema.</li>
-      <li><strong>Establish Layer and Style Standards:</strong> When working with <strong>Layers (GstarCAD)</strong>, assign elements to correctly named layers with appropriate colors, linetypes, and lineweights. Use layer filters and states to manage visibility across complex sheet sets.</li>
-      <li><strong>Apply Annotation and Dimensioning Rules:</strong> Set annotative scales, dimension overrides, and text-style mappings that conform to your organization's drafting standards (ISO, ANSI, or company-specific). Validate dimension associativity to geometry.</li>
-      <li><strong>Run Drawing Audit and Cleanup:</strong> Execute AUDIT and PURGE commands to remove unused blocks, orphaned dimension styles, and zero-length geometry. Verify external reference (Xref) paths resolve correctly before packaging for deliverables.</li>
-    </ol>
-    
+          <p>Setting up and managing layers for a production drawing:</p>
+<ol>
+  <li><strong>Create layers from the template:</strong> Type <code>LAYER</code> (or LA) to open the Layer Properties Manager. Click the New Layer icon. Name layers using your organization's standard (e.g., A-WALL, A-ANNO-DIM, S-BEAM). Set Color, Linetype, and Lineweight to the standard values. Do not draw anything before the layer structure is in place.</li>
+  <li><strong>Load linetypes before assigning:</strong> Linetypes must be loaded into the drawing before they can be assigned to a layer. In the Layer Properties Manager, click the Linetype column → Load → select the linetype from the .lin file. Then assign it to the layer.</li>
+  <li><strong>Use BYLAYER for all entities:</strong> Verify that new entities are created with Color = BYLAYER, Linetype = BYLAYER, Lineweight = BYLAYER (check the Properties toolbar at the top). Entities with explicit colors override the layer and cause plot problems.</li>
+  <li><strong>Save a Layer State before major edits:</strong> Type <code>LAYERSTATE</code> → New → name it with a date stamp (e.g., "BeforeRedline_2026-06"). This provides a recovery point if layer changes go wrong.</li>
+  <li><strong>Use Layer Freeze (not Off) for performance:</strong> Frozen layers are excluded from regeneration. For large drawings with background survey data you rarely need, freeze those layers rather than turning them off.</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>

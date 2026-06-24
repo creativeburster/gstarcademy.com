@@ -146,24 +146,22 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p><strong>Paper Space (AutoCAD)</strong> operates within the DWG object hierarchy, where the model-space block record (named *Model_Space) and paper-space block records (named *Paper_Space, *Paper_Space0, etc.) serve as containers for all geometric entities. Every entity created through Paper Space (AutoCAD) is owned by exactly one block record, and this ownership determines which space the entity appears in. Cross-space references—such as viewport-frozen layers or annotative objects—add complexity by requiring the engine to resolve visibility rules that differ per viewport.</p>
-        <p>The AUDIT command examines the integrity of objects related to Paper Space (AutoCAD) by verifying handle chains, checking for orphaned dictionary entries, and validating cross-references between entity records. Corrupt handle pointers—often caused by abnormal program termination during a save—can make Paper Space (AutoCAD) elements invisible or unselectable without any visible error message, making periodic audits a necessary part of production workflows.</p>
-
+          <p>AutoCAD maintains two parallel coordinate spaces. <strong>Model space</strong> is infinite and contains the actual geometry drawn at 1:1 real-world scale. <strong>Paper space</strong> (Layouts) represents the plotted sheet and is measured in paper units (mm or inches). <em>Viewports</em> are windows cut through the paper into model space — each viewport can have an independent scale, view direction, and layer override set.</p>
+<p><strong>Viewport scale</strong> is set by selecting the viewport border, right-clicking, and choosing a scale from the Standard Scale list — or by entering <code>1/50XP</code> in the zoom prompt (1:50 scale). The <code>PSLTSCALE</code> variable controls whether linetype dash lengths are scaled relative to the viewport or to paper: set to 1 for consistent paper-space dash lengths across multiple viewport scales.</p>
+<p><strong>Layer overrides per viewport</strong> allow a layer to have a different color or linetype in one viewport than in another. Right-click a layer in the Layer Properties Manager → <em>VP Color</em>. This is essential for greying out existing conditions in a demo plan while keeping the new-work layer red.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Paper Space (AutoCAD)</strong> in a production drafting pipeline requires disciplined setup and layer management:</p>
-    <ol>
-      <li><strong>Configure the Drawing Template (.dwt):</strong> Start from an enterprise-standard template that locks units, dimension styles, text heights, and layer naming conventions. Verify that the title-block attributes map correctly to your project metadata schema.</li>
-      <li><strong>Establish Layer and Style Standards:</strong> When working with <strong>Paper Space (AutoCAD)</strong>, assign elements to correctly named layers with appropriate colors, linetypes, and lineweights. Use layer filters and states to manage visibility across complex sheet sets.</li>
-      <li><strong>Apply Annotation and Dimensioning Rules:</strong> Set annotative scales, dimension overrides, and text-style mappings that conform to your organization's drafting standards (ISO, ANSI, or company-specific). Validate dimension associativity to geometry.</li>
-      <li><strong>Run Drawing Audit and Cleanup:</strong> Execute AUDIT and PURGE commands to remove unused blocks, orphaned dimension styles, and zero-length geometry. Verify external reference (Xref) paths resolve correctly before packaging for deliverables.</li>
-    </ol>
-    
+          <p>Setting up a professional plot layout in paper space:</p>
+<ol>
+  <li><strong>Create the layout:</strong> Right-click a Layout tab → <em>New Layout</em> (or copy an existing one). In Page Setup Manager, assign the correct plotter, paper size, and orientation.</li>
+  <li><strong>Delete the default viewport:</strong> AutoCAD auto-creates a viewport on new layouts. Delete it — you will create viewports precisely positioned inside your title block instead.</li>
+  <li><strong>Insert title block:</strong> Insert your standard title block DWG or block at 0,0 in paper space at 1:1 scale. Everything in paper space is plotted at 1:1.</li>
+  <li><strong>Create viewports with MVIEW:</strong> Type <code>MVIEW</code> and draw a rectangle exactly matching the drawing area inside the title block. Multiple viewports can show different areas or scales of the same model.</li>
+  <li><strong>Set scale:</strong> Double-click inside the viewport (enter model space through the viewport), then type <code>ZOOM</code> → <code>1/50XP</code> for 1:50, or right-click the viewport border → Properties → Standard Scale.</li>
+  <li><strong>Lock the viewport:</strong> Right-click the viewport border → Display Locked → Yes. This prevents accidental zoom changes that would break the plotted scale.</li>
+  <li><strong>Freeze layers per viewport:</strong> With the viewport active, freeze irrelevant layers using the VP Freeze column in the Layer Properties Manager. These freezes apply only to the current viewport.</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>

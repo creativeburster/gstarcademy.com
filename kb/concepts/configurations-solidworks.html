@@ -146,24 +146,20 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p><strong>Configurations (SOLIDWORKS)</strong> benefits from the direct-modeling paradigm, which allows face-level manipulation without history-tree dependency. In direct mode, the user selects a face and applies a move, offset, or rotation. The kernel identifies all adjacent faces that must adjust to maintain B-rep validity—fillet faces resize, chamfer faces tilt, and adjacent planar faces extend or trim. This "face recognition" step is what makes direct editing intelligent rather than simple vertex dragging: the kernel infers geometric intent from the face types and adjacency relationships surrounding Configurations (SOLIDWORKS).</p>
-        <p>Synchronous or hybrid technology merges parametric and direct approaches: features created parametrically can be edited directly, and the system attempts to update the feature tree to reflect the direct edit. This back-propagation is not always possible—direct edits that contradict the original feature intent (such as moving a fillet face past its parent edge) cannot be expressed in the tree, requiring the system to either absorb the edit as a "move face" feature or flag a conflict. Understanding these hybrid limitations is essential for teams that mix parametric and direct workflows when working with Configurations (SOLIDWORKS).</p>
-
+          <p>Configurations are stored within the same SLDPRT or SLDASM file and share all feature history, geometry, and references — only the suppression state, dimension values, and custom properties differ between them. A configuration is not a copy; it is a lightweight overlay that selectively overrides the default state. This means changing a base feature propagates to all configurations unless that feature is suppressed in a specific one.</p>
+<p><strong>Derived configurations</strong> form a parent-child hierarchy. A child inherits all properties of its parent unless explicitly overridden. This is the correct structure for color/finish variants (child changes Appearance only) and tolerance variants (child changes dimension tolerances only) — avoiding duplication of the full configuration setup.</p>
+<p><strong>Design Tables</strong> (an Excel sheet embedded in the file) can drive configurations at scale. Each row defines one configuration; each column maps to a feature, dimension, or custom property. Design Tables are the right tool when you have more than 10 configurations or when the configuration data originates in an engineering spreadsheet — manual Configuration Manager editing becomes error-prone beyond that scale.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Configurations (SOLIDWORKS)</strong> in a mechanical or product-design production pipeline requires well-tested modeling discipline and data management:</p>
-    <ol>
-      <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
-      <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Configurations (SOLIDWORKS)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
-      <li><strong>Enrich Metadata for Manufacturing:</strong> Populate custom properties (material, finish, heat treatment, part number) in the model's iProperties, custom attributes, or parameters. These feed directly into BOMs, PDM systems, and ERP integrations.</li>
-      <li><strong>Validate and Release:</strong> Run interference detection on assemblies, verify mass properties, and check for rebuild errors or suppressed features. Pass the model through your PDM/PLM check-in workflow with appropriate revision and lifecycle state updates.</li>
-    </ol>
-    
+          <p>Creating and managing product variant configurations:</p>
+<ol>
+  <li><strong>Add a configuration:</strong> In the ConfigurationManager tab (right of Feature Manager), right-click the part name → Add Configuration. Enter a descriptive name (e.g., "100mm_Steel", not "Config2"). Avoid spaces — configuration names appear in BOM and file properties.</li>
+  <li><strong>Suppress features per configuration:</strong> Switch to the target configuration, then right-click a feature in the FeatureManager → Configure Feature. A table appears showing all configurations. Set Suppressed/Unsuppressed per configuration in the table rather than individually.</li>
+  <li><strong>Override dimensions:</strong> Double-click a dimension in the model → the Modify dialog shows a pin icon. Click it to make this dimension configuration-specific. Enter the value for this configuration; the parent configuration retains its original value.</li>
+  <li><strong>Add custom properties per configuration:</strong> File → Properties → Configuration Specific tab. Add properties (Material, Finish, Part Number) that vary per configuration. These feed into the BOM and drawing title block via linked notes.</li>
+  <li><strong>Switch configurations:</strong> Double-click a configuration name in ConfigurationManager to activate it. Save — SOLIDWORKS saves all configurations in the single file; file size reflects all active geometry states.</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>

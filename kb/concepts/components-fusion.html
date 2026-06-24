@@ -146,24 +146,20 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p><strong>Components (Fusion 360)</strong> benefits from the direct-modeling paradigm, which allows face-level manipulation without history-tree dependency. In direct mode, the user selects a face and applies a move, offset, or rotation. The kernel identifies all adjacent faces that must adjust to maintain B-rep validity—fillet faces resize, chamfer faces tilt, and adjacent planar faces extend or trim. This "face recognition" step is what makes direct editing intelligent rather than simple vertex dragging: the kernel infers geometric intent from the face types and adjacency relationships surrounding Components (Fusion 360).</p>
-        <p>Synchronous or hybrid technology merges parametric and direct approaches: features created parametrically can be edited directly, and the system attempts to update the feature tree to reflect the direct edit. This back-propagation is not always possible—direct edits that contradict the original feature intent (such as moving a fillet face past its parent edge) cannot be expressed in the tree, requiring the system to either absorb the edit as a "move face" feature or flag a conflict. Understanding these hybrid limitations is essential for teams that mix parametric and direct workflows when working with Components (Fusion 360).</p>
-
+          <p>The distinction between <strong>Bodies</strong> and <strong>Components</strong> is Fusion 360's most important structural concept. A Body is a piece of solid geometry with no independent origin or transform. A Component is a container with its own origin plane, its own Timeline, and the ability to have Joints attached to it. An assembly is a hierarchy of Components — never of Bodies. If geometry needs to move relative to anything else, it must be a Component.</p>
+<p><strong>Joints</strong> define the motion relationship between two components. A <em>Rigid Group</em> locks multiple components together as if welded — use it for sub-assemblies that move as a unit. <em>As-Built Joints</em> define a joint based on where components currently are in space (without moving them); standard Joints snap components together at specified geometry. Ground a component (right-click → Ground) to fix it in world space — all other motion is relative to the grounded component.</p>
+<p>Fusion 360's <strong>Timeline</strong> records all operations in order. Components created or inserted later in the Timeline can reference earlier geometry, but the reverse causes dependency errors. When editing a component, the Timeline filters to show only that component's operations — understanding this filter prevents confusion when features seem to "disappear" during editing.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Components (Fusion 360)</strong> in a mechanical or product-design production pipeline requires solid modeling discipline and data management:</p>
-    <ol>
-      <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
-      <li><strong>Apply Parametric Constraints Methodically:</strong> When building <strong>Components (Fusion 360)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
-      <li><strong>Enrich Metadata for Manufacturing:</strong> Populate custom properties (material, finish, heat treatment, part number) in the model's iProperties, custom attributes, or parameters. These feed directly into BOMs, PDM systems, and ERP integrations.</li>
-      <li><strong>Validate and Release:</strong> Run interference detection on assemblies, verify mass properties, and check for rebuild errors or suppressed features. Pass the model through your PDM/PLM check-in workflow with appropriate revision and lifecycle state updates.</li>
-    </ol>
-    
+          <p>Building a multi-component assembly with correct joint behavior:</p>
+<ol>
+  <li><strong>Decide: New Component vs New Body:</strong> Before modeling, ask whether this geometry will move independently. If yes, create it as a New Component (Assemble → New Component, or right-click in Browser → New Component). If it is permanently attached geometry, a Body is acceptable — but Components are safer for assembly work.</li>
+  <li><strong>Model in context:</strong> Activate a component (double-click its name in the Browser — the others dim). All sketch and modeling operations now belong to that component. Use <em>Project</em> to reference geometry from other components in your sketches.</li>
+  <li><strong>Ground the base component:</strong> Right-click the base component (the chassis, frame, or fixed part) → <em>Ground</em>. A pin icon appears. All joint motion will be relative to this grounded component.</li>
+  <li><strong>Add joints:</strong> Assemble → Joint. Select a snap point on one component (e.g., an axis center), then on the other. Choose the joint type (Revolute for a hinge, Slider for linear motion, Rigid for fixed). Set motion limits if needed.</li>
+  <li><strong>Test motion:</strong> Drag a component — it should move only within its joint constraints. Use Inspect → Motion Link to couple two joints (e.g., a rack-and-pinion relationship).</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>

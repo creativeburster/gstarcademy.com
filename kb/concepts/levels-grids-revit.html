@@ -145,24 +145,20 @@
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p>The analytical model associated with <strong>Levels and Grids (Revit)</strong> is a simplified geometric abstraction used for structural analysis and energy simulation. While the physical model stores the exact 3D geometry (including profile offsets, layer compositions, and connection details), the analytical model reduces this to centerline representations, node points, and load-bearing surfaces. Discrepancies between the physical and analytical representations of Levels and Grids (Revit)—such as misaligned analytical lines or unconnected nodes—propagate errors into structural calculation exports and must be resolved before analysis.</p>
-        <p>Scheduling and tagging of Levels and Grids (Revit) depend on the parameter infrastructure: only shared parameters appear in multi-category schedules, and only parameters exposed in the family definition are available for tagging. Project parameters add data fields to placed instances but don't travel with the family when loaded into other projects. This distinction between shared, project, and family parameters is a frequent source of confusion when teams attempt to extract consistent data from Levels and Grids (Revit) across multiple project files.</p>
-
+          <p><strong>Levels</strong> are finite horizontal datum planes that host floor-based, ceiling-based, and roof-based elements. Every hosted element has a level relationship: Base Constraint (the level it sits on) and, for walls, a Top Constraint. Levels appear in all elevation and section views but not in plan views. Changing a level elevation adjusts all elements hosted to it — this is why late-stage level adjustments cascade through an entire model and require careful coordination.</p>
+<p><strong>Grids</strong> are named reference lines (straight or arc) that appear in plan, elevation, and section views. Grid bubbles display at the ends of the grid line — each end can be independently toggled on or off per view. Grids are not constraints in themselves; elements do not automatically attach to grids. They are visual and coordination references — the primary tool for communicating column line locations across disciplines.</p>
+<p>Both Levels and Grids are <strong>datum elements</strong>: they exist in 3D space and project into all relevant views. The extents (how far the level line reaches in an elevation, how far the grid extends in plan) are view-specific and can be set per view without affecting other views. Pin datums (Modify → Pin) to prevent accidental movement during editing.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Levels and Grids (Revit)</strong> in a BIM production environment requires careful coordination of model integrity and data standards:</p>
-    <ol>
-      <li><strong>Initialize from the BIM Execution Plan (BEP):</strong> Bind the model to the project template that defines levels, grids, shared coordinates, and workset structure. Confirm that the BEP's LOD requirements match the current design phase.</li>
-      <li><strong>Model Element Placement with Proper Classification:</strong> When configuring <strong>Levels and Grids (Revit)</strong>, assign correct IFC classifications (e.g., IfcWall, IfcSlab, IfcBeam) and ensure that type/instance parameters carry the required COBie or Uniclass data for downstream handoff.</li>
-      <li><strong>Coordination and Clash Resolution:</strong> Federate the model regularly with structural, MEP, and architectural disciplines. Run interference checks to identify spatial conflicts, and log resolution actions in a BCF-compatible issue tracker.</li>
-      <li><strong>Model Health Validation:</strong> Run model audit tools to detect warnings such as duplicate instances, room-bounding errors, or unjoined elements. Verify that schedules and quantity takeoffs reflect accurate, current model data before milestone submissions.</li>
-    </ol>
-    
+          <p>Setting up levels and grids at project start:</p>
+<ol>
+  <li><strong>Create levels in an elevation view:</strong> Open an elevation view (not a plan). Use Architecture → Level (or LL shortcut). Click to place the level line, then type the elevation. Revit auto-creates a floor plan view for each level — name the level before creating it to avoid renaming the plan view later.</li>
+  <li><strong>Copy levels precisely:</strong> Select an existing level → Copy → Constrained. Enter the exact offset distance. This is faster than placing levels manually and ensures the offset is exact.</li>
+  <li><strong>Set level offsets for elements:</strong> After placing elements, use the Base Offset parameter to fine-adjust (e.g., a slab that sits 50mm below the level line). Never use the level elevation itself as a workaround for offsets.</li>
+  <li><strong>Create grids in a plan view:</strong> Open the lowest applicable floor plan. Architecture → Grid (GR shortcut). Draw from one side of the building to the other. Name the grid in the Properties palette immediately (1, 2, 3 for columns; A, B, C for rows is the AEC convention).</li>
+  <li><strong>Pin all datums:</strong> Select all grids and levels → Modify → Pin (PN). This locks them against accidental moves. Unpin only when intentional repositioning is needed. Pin status does not affect editing their extents in individual views.</li>
+</ol>
         </section>
         <section class="kb-concept-section">
           <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
