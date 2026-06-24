@@ -940,7 +940,7 @@ input::placeholder { color: #8a9abb; }
 .footer.site-footer {
   margin-top: 80px;
   background: #020617;
-  padding: 48px 0 24px;
+  padding: 40px 0 12px;
   color: #94a3b8;
   position: relative;
   overflow: hidden;
@@ -959,8 +959,8 @@ input::placeholder { color: #8a9abb; }
 .site-footer-inner {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  gap: 36px; /* Slightly tighter gap to support 5 columns cleanly */
-  margin-bottom: 24px;
+  gap: 36px;
+  margin-bottom: 0;
 }
 
 .site-footer-tagline {
@@ -1008,11 +1008,16 @@ input::placeholder { color: #8a9abb; }
 }
 
 .site-footer-bottom {
-  padding-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
   font-size: 0.8rem;
   color: #475569;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.site-footer-bottom p {
+  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -5223,7 +5228,7 @@ h3 { line-height: 1.25; }
   background: linear-gradient(90deg, transparent, var(--ink-accent), transparent);
   opacity: 0.5;
 }
-.site-footer-inner { padding: 40px clamp(20px, 4vw, 48px) 16px !important; gap: 40px; }
+.site-footer-inner { padding: 32px clamp(20px, 4vw, 48px) 8px !important; gap: 32px; margin-bottom: 0 !important; }
 .site-footer-brand .site-footer-tagline {
   font-family: var(--ink-font-display) !important;
   font-size: 22px !important;
@@ -5424,7 +5429,7 @@ h3 { line-height: 1.25; }
   .hero-title, .hero-page-title { font-size: clamp(28px, 7vw, 38px) !important; }
   .section-title { font-size: 22px !important; }
   .kb-concept-detail { padding: 28px 20px !important; }
-  .site-footer-inner { padding: 36px 20px !important; gap: 28px; flex-direction: column; }
+  .site-footer-inner { padding: 28px 20px 8px !important; gap: 28px; flex-direction: column; margin-bottom: 0 !important; }
 }
 
 /* ============================================================
@@ -5826,7 +5831,8 @@ body[data-page="knowledge"] .kb-subnav {
   .site-footer-inner {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
-    padding: 32px 16px !important;
+    padding: 24px 16px 8px !important;
+    margin-bottom: 0 !important;
   }
   .site-footer h4 { margin-top: 0; }
 
