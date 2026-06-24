@@ -112,7 +112,7 @@
         <header class="kb-concept-header" style="margin-bottom: 28px;">
           <span class="chip pill-warn">Atomic Knowledge · AutoCAD</span>
           <h1 style="margin-top: 12px;">DWG File Format</h1>
-          <p class="hero-sub">Autodesk&#x27;s native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications.</p>
+          <p class="hero-sub">Autodesk's native binary CAD drawing format, also the industry de-facto exchange format read by dozens of non-Autodesk applications.</p>
         </header>
 
         <div class="ink-byline" role="contentinfo">
@@ -136,11 +136,11 @@
     <section class="kb-concept-section">
           <h2>Definition</h2>
           <p>DWG is a binary, versioned file format whose internal structure includes entities (lines, <a href="./polyline-autocad">polylines</a>, blocks), tables (<a href="./layers-gstarcad">layers</a>, linetypes, text styles, dimension styles, UCS), and a header block holding system variables. Each AutoCAD release introduces a new DWG version (e.g., AutoCAD 2018 DWG, current through 2024+); older AutoCAD cannot open newer DWGs without conversion.</p>
-<p>The DWG format is reverse-engineered and supported by the Open Design Alliance&#x27;s libraries, which is what allows <a href="../software/bricscad">BricsCAD</a>, <a href="../software/gstarcad">GstarCAD</a>, ZWCAD, and many CAD viewers to read and write DWGs natively.</p>
+<p>The DWG format is reverse-engineered and supported by the Open Design Alliance's libraries, which is what allows <a href="../software/bricscad">BricsCAD</a>, <a href="../software/gstarcad">GstarCAD</a>, ZWCAD, and many CAD viewers to read and write DWGs natively.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
-          <p>Choosing the right DWG version for outgoing files matters: a 2018-format DWG sent to a consultant on <a href="../software/autocad">AutoCAD</a> 2010 won&#x27;t open. The SAVEAS dialog lets you save down. Equally, signing off on a contract DWG without checking what is inside (purgeable junk, anonymous blocks, embedded raster) is a quality control miss.</p>
+          <p>Choosing the right DWG version for outgoing files matters: a 2018-format DWG sent to a consultant on <a href="../software/autocad">AutoCAD</a> 2010 won't open. The SAVEAS dialog lets you save down. Equally, signing off on a contract DWG without checking what is inside (purgeable junk, anonymous blocks, embedded raster) is a quality control miss.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Technical Deep Dive &amp; Core Mechanics</h2>
@@ -226,7 +226,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the latest DWG file version AutoCAD writes?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>AutoCAD 2018+ writes the &#x27;AutoCAD 2018&#x27; DWG format, which is current through AutoCAD 2024 and 2025. Newer releases have not (so far) introduced a new DWG version — meaning files travel freely between recent releases. Always SAVEAS to the recipient&#x27;s release if you know they are older.</p>
+            <p>AutoCAD 2018+ writes the 'AutoCAD 2018' DWG format, which is current through AutoCAD 2024 and 2025. Newer releases have not (so far) introduced a new DWG version — meaning files travel freely between recent releases. Always SAVEAS to the recipient's release if you know they are older.</p>
           </div>
         </details>
         
@@ -235,7 +235,7 @@
             <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> Why does my plot look different at home than at the office?
           </summary>
           <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>Almost always plot-style mismatch. AutoCAD <a href="./plot-style">plot styles</a> (.ctb or .stb) live separately from DWG and are searched in the configured Printer Support File Path. Either embed your styles in the drawing&#x27;s plot-style folder, or include them in your project package alongside the DWG.</p>
+            <p>Almost always plot-style mismatch. AutoCAD <a href="./plot-style">plot styles</a> (.ctb or .stb) live separately from DWG and are searched in the configured Printer Support File Path. Either embed your styles in the drawing's plot-style folder, or include them in your project package alongside the DWG.</p>
           </div>
         </details>
         
@@ -277,7 +277,7 @@
     </div>
     <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
       <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is &#x27;Sending current-format DWGs to clients on older releases without saving down.&#x27; As the editorial review notes: &#x27;Choosing the right DWG version for outgoing files matters: a 2018-format DWG sent to a consultant on AutoCAD 2010 won&#x27;t open. The SAVEAS dialog lets you save down. Equally, signing off on a contract DWG without checking what is inside (purgeable junk, anonymous blocks, embedded raster) is a quality control miss.&#x27;</div>
+      <div data-feedback-text>Correct. A common pitfall is 'Sending current-format DWGs to clients on older releases without saving down.' As the editorial review notes: 'Choosing the right DWG version for outgoing files matters: a 2018-format DWG sent to a consultant on AutoCAD 2010 won't open. The SAVEAS dialog lets you save down. Equally, signing off on a contract DWG without checking what is inside (purgeable junk, anonymous blocks, embedded raster) is a quality control miss.'</div>
     </div>
   </div>
 </section>

@@ -417,6 +417,32 @@
         var currentPage = 1;
         var currentFilter = "all";
         var allEntries = [];
+        var rawData = [];
+
+        /* Software display name map */
+        var SW_NAMES = {
+          "autocad":"AutoCAD","gstarcad":"GstarCAD","revit":"Revit","solidworks":"SOLIDWORKS",
+          "fusion":"Fusion 360","inventor":"Autodesk Inventor","civil3d":"Civil 3D",
+          "catia":"CATIA","creo":"PTC Creo","siemens":"Siemens NX","bentley":"Bentley",
+          "draftsight":"DraftSight","bricscad":"BricsCAD","3dsmax":"3ds Max",
+          "abaqus":"Abaqus FEA","archicad":"Archicad","allplan":"Allplan",
+          "ansys-fluent":"ANSYS Fluent","ansys-mechanical":"ANSYS Mechanical",
+          "ansys-spaceclaim":"ANSYS SpaceClaim","alibre-design":"Alibre Design",
+          "altium-designer":"Altium Designer","aveva-e3d":"AVEVA Everything3D",
+          "blender":"Blender","comsol":"COMSOL Multiphysics","freecad":"FreeCAD",
+          "ironcad":"IronCAD","navisworks":"Navisworks","onshape":"Onshape",
+          "openfoam":"OpenFOAM","openroads":"OpenRoads Designer","rhinoceros":"Rhinoceros",
+          "sketchup":"SketchUp","solid-edge":"Solid Edge","solibri":"Solibri",
+          "spaceclaim":"SpaceClaim","staad-pro":"STAAD.Pro","tekla-structures":"Tekla Structures",
+          "vectorworks":"Vectorworks","zwcad":"ZWCAD","autodesk":"Autodesk (General)",
+          "fastview":"FastView","dwg-fastview":"DWG FastView","dwg-fastview-plus":"DWG FastView Plus",
+          "fastview-3d":"3D FastView","gstarbim":"GstarBIM","gstarcad-365":"GstarCAD 365",
+          "gstarcad-architecture":"GstarCAD Architecture","gstarcad-mechanical":"GstarCAD Mechanical",
+          "gstarcad-point-cloud":"GstarCAD Point Cloud","houseplan":"Houseplan",
+          "teamcenter":"Siemens Teamcenter","ares-commander":"ARES Commander"
+        };
+
+        function swName(t) { return SW_NAMES[t] || (t.charAt(0).toUpperCase() + t.slice(1)); }
 
         function esc(s) {
           return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
@@ -469,6 +495,12 @@
           paginationContainer.appendChild(nextBtn);
         }
 
+        /* Remove existing H2 group headers */
+        function clearGroupHeaders() {
+          var headers = listSection.querySelectorAll(".kb-faq-group-h2");
+          headers.forEach(function(h){ h.remove(); });
+        }
+
         function updatePageDisplay() {
           var filtered = allEntries.filter(function (el) {
             var t = el.getAttribute("data-kb-faq-topic") || "";
@@ -479,12 +511,31 @@
           var totalPages = Math.ceil(total / pageSize) || 1;
           if (currentPage > totalPages) currentPage = totalPages;
           if (currentPage < 1) currentPage = 1;
+
           allEntries.forEach(function (el) {
             el.classList.add("kb-hidden"); el.classList.remove("is-open");
             var ico = el.querySelector(".kb-faq-toggle-ico");
             if (ico) ico.textContent = "＋";
           });
-          filtered.slice((currentPage-1)*pageSize, currentPage*pageSize).forEach(function (el) { el.classList.remove("kb-hidden"); });
+
+          var pageItems = filtered.slice((currentPage-1)*pageSize, currentPage*pageSize);
+          clearGroupHeaders();
+
+          /* Insert H2 group headers */
+          var lastTopic = null;
+          pageItems.forEach(function (el) {
+            var t = el.getAttribute("data-kb-faq-topic") || "";
+            if (t !== lastTopic) {
+              var h2 = document.createElement("h2");
+              h2.className = "kb-faq-group-h2";
+              h2.textContent = swName(t) + " FAQs";
+              h2.style.cssText = "font-size:1.1rem;font-weight:700;color:var(--ink-text,#1e293b);margin:28px 0 10px;padding:10px 0;border-bottom:2px solid var(--ink-line,#e2e8f0);";
+              el.parentNode.insertBefore(h2, el);
+              lastTopic = t;
+            }
+            el.classList.remove("kb-hidden");
+          });
+
           renderPagination(total, pageSize, totalPages);
         }
 
@@ -505,6 +556,7 @@
         fetch("./data/faq_entries.json")
           .then(function (r) { return r.json(); })
           .then(function (data) {
+            rawData = data;
             if (loadingEl) loadingEl.remove();
             var frag = document.createDocumentFragment();
             data.forEach(function (item) {
