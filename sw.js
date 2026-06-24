@@ -1,18 +1,17 @@
 // CAD Learn Hub — PWA Service Worker (sw.js)
-const CACHE_NAME = "learncad-shell-v11";
-const DYNAMIC_CACHE = "learncad-content-v11";
+const CACHE_NAME = "learncad-shell-v16";
+const DYNAMIC_CACHE = "learncad-content-v16";
 
 // Core App Shell Assets (Pre-cached for instant loading and 100% offline baseline)
 const ASSETS_TO_PRECACHE = [
   "./",
-  "./styles.css?v=v9_concept_visibility",
+  "./styles.css?v=v15_subnav_dropdown",
   "./styles.css",
-  "./app.js?v=v9_concept_visibility",
+  "./app.js?v=v15_dashboard_concept_filters",
   "./app.js",
   "./search.js",
-  "./knowledge.js?v=v9_concept_visibility",
+  "./knowledge.js?v=v15_subnav_dropdown",
   "./knowledge.js",
-  "./d3.min.js?v=v9_concept_visibility",
   "./d3.min.js",
   "./favicon.svg",
   "./manifest.json",
