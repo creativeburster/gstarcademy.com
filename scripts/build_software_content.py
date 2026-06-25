@@ -36,7 +36,7 @@ EDITORIAL_PATH = ROOT / "data" / "editorial.json"
 CONCEPTS_DIR = ROOT / "kb" / "concepts"
 SOFTWARE_DIR = ROOT / "kb" / "software"
 VENDORS_DIR = ROOT / "kb" / "vendors"
-SITE_URL = "https://learncad.io"
+SITE_URL = "https://gstarcademy.com"
 CSS_VER = "v12_roadmap_sorting_credibility"
 
 CONCEPTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -1162,7 +1162,7 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
         else:
             sources.append({
                 "label": f"{sw_name} Official Product Documentation",
-                "url": software.get("homepage", "https://learncad.io/"),
+                "url": software.get("homepage", "https://gstarcademy.com/"),
                 "publisher": vendor_name
             })
 
@@ -1554,7 +1554,7 @@ def render_software_profile(sw: dict, editorial: dict, all_terms_index: dict[str
             elif "trimble" in vendor_name.lower() or "tekla" in sw_name.lower() or "sketchup" in sw_name.lower():
                 homepage = "https://www.trimble.com/"
             else:
-                homepage = "https://learncad.io/"
+                homepage = "https://gstarcademy.com/"
         sources = [{
             "label": f"{sw_name} Official Homepage & Resource Directory",
             "url": homepage,
@@ -1783,7 +1783,7 @@ def render_vendor(vendor: dict, software_under_vendor: list[dict], editorial: di
             elif "trimble" in vendor_name.lower():
                 homepage = "https://www.trimble.com/"
             else:
-                homepage = "https://learncad.io/"
+                homepage = "https://gstarcademy.com/"
         sources = [{
             "label": f"{vendor_name} Official Corporate Portal",
             "url": homepage,

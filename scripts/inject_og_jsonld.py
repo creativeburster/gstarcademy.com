@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SITE_URL = "https://learncad.io"
+SITE_URL = "https://gstarcademy.com"
 
 # Pages handled by build_software_content.py — skip them here.
 SKIP_PATTERNS = ["kb/concepts/", "kb/software/", "kb/vendors/", "kb/pilot/"]
@@ -112,23 +112,23 @@ def _escape(s: str) -> str:
 def build_jsonld(basename: str, canonical_url: str, og_title: str, description: str) -> str:
     """Build Organization + WebSite JSON-LD for index, Article JSON-LD for others."""
     publisher_json = (
-        '"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://learncad.io/",'
-        '"logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"},'
-        '"sameAs":["https://learncad.io/about.html"]}'
+        '"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/",'
+        '"logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},'
+        '"sameAs":["https://gstarcademy.com/about.html"]}'
     )
     if basename == "index.html":
         organization = (
             '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization",'
-            '"name":"Gstarcademy","url":"https://learncad.io/",'
-            '"logo":{"@type":"ImageObject","url":"https://learncad.io/favicon.svg"},'
+            '"name":"Gstarcademy","url":"https://gstarcademy.com/",'
+            '"logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},'
             '"description":"Gstarcademy is a structured CAD knowledge base and tutorial navigation site for AEC, MFG, and Civil Engineering professionals.",'
-            '"sameAs":["https://learncad.io/about.html","https://learncad.io/editorial-process.html"]}</script>'
+            '"sameAs":["https://gstarcademy.com/about.html","https://gstarcademy.com/editorial-process.html"]}</script>'
         )
         website = (
             '<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite",'
-            '"name":"Gstarcademy","url":"https://learncad.io/",'
+            '"name":"Gstarcademy","url":"https://gstarcademy.com/",'
             '"potentialAction":{"@type":"SearchAction",'
-            '"target":{"@type":"EntryPoint","urlTemplate":"https://learncad.io/kb-terms.html?q={search_term_string}"},'
+            '"target":{"@type":"EntryPoint","urlTemplate":"https://gstarcademy.com/kb-terms.html?q={search_term_string}"},'
             '"query-input":"required name=search_term_string"}}</script>'
         )
         return f"    {organization}\n    {website}"
@@ -140,7 +140,7 @@ def build_jsonld(basename: str, canonical_url: str, og_title: str, description: 
         f'"url":"{canonical_url}",'
         '"datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en",'
         '"mainEntityOfPage":"' + canonical_url + '",'
-        '"author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://learncad.io/about.html"},'
+        '"author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about.html"},'
         + publisher_json
         + "}</script>"
     )

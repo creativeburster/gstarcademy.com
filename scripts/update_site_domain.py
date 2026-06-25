@@ -1,4 +1,4 @@
-"""Normalize site URL/email to https://learncad.io (migrate legacy cadlearnhub.com / learncad.guide)."""
+"""Normalize site URL/email to https://gstarcademy.com (migrate legacy cadlearnhub.com / learncad.guide / learncad.io)."""
 
 from __future__ import annotations
 
@@ -32,12 +32,16 @@ def main() -> int:
             continue
         text = path.read_text(encoding="utf-8")
         new = (
-            text.replace("https://cadlearnhub.com", "https://learncad.io")
-            .replace("https://learncad.guide", "https://learncad.io")
-            .replace("@cadlearnhub.com", "@learncad.io")
-            .replace("@learncad.guide", "@learncad.io")
-            .replace("cadlearnhub-site-notice", "learncad-site-notice")
-            .replace("cadlearnhub-cookie-consent-v1", "learncad-cookie-consent-v1")
+            text.replace("https://cadlearnhub.com", "https://gstarcademy.com")
+            .replace("https://learncad.guide", "https://gstarcademy.com")
+            .replace("https://learncad.io", "https://gstarcademy.com")
+            .replace("@cadlearnhub.com", "@gstarcademy.com")
+            .replace("@learncad.guide", "@gstarcademy.com")
+            .replace("@learncad.io", "@gstarcademy.com")
+            .replace("cadlearnhub-site-notice", "gstarcademy-site-notice")
+            .replace("cadlearnhub-cookie-consent-v1", "gstarcademy-cookie-consent-v1")
+            .replace("learncad-site-notice", "gstarcademy-site-notice")
+            .replace("learncad-cookie-consent-v1", "gstarcademy-cookie-consent-v1")
         )
         if new != text:
             path.write_text(new, encoding="utf-8")

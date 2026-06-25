@@ -16,7 +16,7 @@ REPO = Path(__file__).resolve().parents[1]
 DATA = REPO / "data" / "kb_software.json"
 OUT_DIR = REPO / "kb" / "software"
 CSS_VER = "20260427kb12"
-SITE = "https://learncad.io"
+SITE = "https://gstarcademy.com"
 
 
 def esc(s: str) -> str:
