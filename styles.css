@@ -1982,163 +1982,7 @@ a.kb-domain-card:hover .kb-domain-card-cta {
   }
 }
 
-@media (prefers-color-scheme: dark-disabled) {
-  :root {
-    --bg: #07090f;
-    --bg-soft: #101621;
-    --surface: rgba(16, 25, 42, 0.84);
-    --surface-strong: #111b2f;
-    --line: #273143;
-    --line-soft: #1f2938;
-    --text: #d8e3f8;
-    --muted: #98a7bf;
-    --brand: #c4c9d4;
-    --brand-2: #6366f1;
-    --accent: #94a3b8;
-    --shadow: 0 16px 32px rgba(0, 0, 0, 0.34);
-    --shadow-lg: 0 24px 52px rgba(0, 0, 0, 0.45);
-  }
 
-  body {
-    background:
-      radial-gradient(50rem 26rem at -10% -6%, rgba(99, 102, 241, 0.14) 0%, transparent 52%),
-      radial-gradient(40rem 22rem at 110% -8%, rgba(100, 116, 139, 0.14) 0%, transparent 50%),
-      linear-gradient(180deg, #07090f 0%, #0b1018 48%, #101826 100%);
-  }
-
-  .topbar {
-    background: rgba(2, 6, 18, 0.94);
-    border-bottom-color: rgba(59, 130, 246, 0.16);
-  }
-
-  .hero-title,
-  .section-title,
-  .panel-title,
-  .card h3,
-  .kb-section-head h3,
-
-
-
-
-  .chip,
-  .tag,
-  .kb-tag {
-    background: rgba(17, 27, 47, 0.94);
-    border-color: #304362;
-    color: #a9bbdb;
-  }
-
-  .btn {
-    background: rgba(15, 24, 42, 0.95);
-    border-color: #334869;
-    color: #d8e4ff;
-  }
-
-  .btn:hover {
-    background: rgba(22, 34, 58, 0.96);
-  }
-
-  .btn-primary {
-    color: #fff;
-    border-color: transparent;
-  }
-
-  input[type="text"],
-  select {
-    background: rgba(14, 23, 40, 0.96);
-    border-color: #314565;
-    color: #d8e4ff;
-  }
-
-  input::placeholder {
-    color: #8ba1c5;
-  }
-
-  .meta,
-  .section-note,
-  .hero-sub,
-  .kb-sub {
-    color: #9bb0d1;
-  }
-
-  .nav-link:hover,
-  .nav-link.active {
-    color: #f8fafc;
-    background: rgba(37, 99, 235, 0.22);
-    box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.22);
-  }
-
-
-
-  /* Keep classic KB sidebar in bright reading mode (portal rail stays dark) */
-  body[data-page="knowledge"] .kb-sidebar:not(.kb-sidebar--portal) {
-    background: linear-gradient(180deg, #ffffff, #f7f9fd);
-    color: #1f2937;
-    border: 1px solid #dfe4ec;
-    box-shadow: 0 16px 28px rgba(15, 23, 42, 0.1);
-  }
-
-  body[data-page="knowledge"] .kb-sidebar:not(.kb-sidebar--portal) .kb-side-link {
-    color: #4b5568;
-  }
-
-  body[data-page="knowledge"] .kb-sidebar:not(.kb-sidebar--portal) .kb-side-link:hover,
-  body[data-page="knowledge"] .kb-sidebar:not(.kb-sidebar--portal) .kb-side-link.active {
-    background: #eef2ff;
-    color: #303b59;
-  }
-
-  body[data-page="knowledge"] .kb-sidebar:not(.kb-sidebar--portal) .kb-nav-group {
-    border-top-color: #e6ebf3;
-  }
-
-  body[data-page="knowledge"] .kb-main,
-  body[data-page="knowledge"] .kb-feature,
-  body[data-page="knowledge"] .kb-about,
-  body[data-page="knowledge"] .kb-info-panel,
-  body[data-page="knowledge"] .kb-quick,
-  body[data-page="knowledge"] .kb-person,
-  body[data-page="knowledge"] .kb-stat,
-  body[data-page="knowledge"] .kb-daily {
-    background: #ffffff;
-    border-color: #dfe4ec;
-    color: #1f2937;
-  }
-
-  body[data-page="knowledge"] .kb-mini-btn,
-  body[data-page="knowledge"] .kb-tag {
-    background: #ffffff;
-    border-color: #d7dde7;
-    color: #4f5c74;
-  }
-
-  body[data-page="knowledge"] .kb-canvas {
-    background: #ffffff;
-    border-color: #dfe4ec;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .hero.hero-premium::after {
-    background: linear-gradient(180deg, transparent, rgba(7, 9, 15, 0.92));
-  }
-}
 
 /* ------------------------------------------------------------------
    Final Theme Override: long-reading friendly (Ramanamaharshi-like)
@@ -4827,85 +4671,7 @@ h3 { line-height: 1.25; }
 .kb-faq-breadcrumbs a:hover { color: var(--ink-primary) !important; border-bottom-color: var(--ink-primary); }
 
 /* ---- DARK MODE — Deep Ink ---- */
-@media (prefers-color-scheme: dark-disabled) {
-  :root {
-    --ink-bg: #0A0F1A;
-    --ink-bg-soft: #0E1422;
-    --ink-surface: #111827;
-    --ink-surface-2: #0F1626;
-    --ink-text: #ECEFF6;
-    --ink-text-soft: #C9D0E0;
-    --ink-text-muted: #8A93A8;
-    --ink-line: rgba(232,234,242,0.10);
-    --ink-line-strong: rgba(232,234,242,0.18);
-    --ink-rule: rgba(232,234,242,0.08);
-    --ink-primary: #8B96FF;
-    --ink-primary-hover: #A0AAFF;
-    --ink-primary-soft: rgba(139,150,255,0.12);
-    --ink-primary-strong: #B5BCFF;
-    --ink-accent: #D9B074;
-    --ink-accent-strong: #E8C68A;
-    --ink-accent-soft: rgba(217,176,116,0.12);
-  }
-  body { background: var(--ink-bg) !important; color: var(--ink-text) !important; }
-  body::before {
-    background:
-      linear-gradient(rgba(232,234,242,0.025) 1px, transparent 1px) 0 0 / 32px 32px,
-      linear-gradient(90deg, rgba(232,234,242,0.025) 1px, transparent 1px) 0 0 / 32px 32px !important;
-  }
-  .topbar { background: rgba(10,15,26,0.86) !important; border-bottom-color: var(--ink-line) !important; }
-  .brand-badge { background: var(--ink-text); color: var(--ink-bg); }
-  .nav-link.active { background: var(--ink-text); color: var(--ink-bg); }
-  .site-notice { background: linear-gradient(180deg, #060911 0%, #0A0F1A 100%) !important; }
 
-  .hero, .hero-premium, .hero-page, .hero-wide-rounded {
-    background: linear-gradient(180deg, #101728 0%, #0A0F1A 100%) !important;
-    border-color: var(--ink-line) !important;
-    color: var(--ink-text) !important;
-  }
-  .hero-title, .hero-page-title, .hero-sub { color: var(--ink-text) !important; }
-  .hero-sub { color: var(--ink-text-soft) !important; }
-  .hero-search-shell, .hero-page-actions .search-row {
-    background: var(--ink-surface) !important; border-color: var(--ink-line-strong) !important;
-  }
-  .hero-search-shell input[type="text"] { color: var(--ink-text) !important; }
-
-  .btn { background: var(--ink-surface) !important; border-color: var(--ink-line-strong) !important; color: var(--ink-text) !important; }
-  .btn:hover { background: #15203A !important; }
-  .btn-primary { background: var(--ink-text) !important; color: var(--ink-bg) !important; border-color: var(--ink-text) !important; }
-  .btn-premium-secondary { background: var(--ink-primary) !important; color: #0A0F1A !important; border-color: var(--ink-primary) !important; }
-
-  .card, .card-glass, .kb-quick, .kb-feature, .panel, .kb-main, .tutorial-item, .news-curated-item, .kb-detail-card, .kb-people, .kb-person {
-    background: var(--ink-surface) !important;
-    border-color: var(--ink-line) !important;
-  }
-  .card h3, .card-glass h3, .kb-quick h3, .kb-feature h3 { color: var(--ink-text) !important; }
-  .card .meta, .meta { color: var(--ink-text-muted) !important; }
-
-  .chip, .tag, .kb-tag {
-    background: var(--ink-surface) !important;
-    border-color: var(--ink-line-strong) !important;
-    color: var(--ink-text-soft) !important;
-  }
-  .chip.active, .tag.active, .kb-tag.kb-active { background: var(--ink-text) !important; color: var(--ink-bg) !important; }
-
-  .kb-rail, .kb-sidebar, .kb-sidebar--portal {
-    background: var(--ink-surface-2) !important;
-    border-color: var(--ink-line) !important;
-  }
-  .kb-portal-search { background: #0A1020 !important; color: var(--ink-text) !important; }
-  .kb-index-box { background: rgba(232,234,242,0.03); border-color: var(--ink-line); }
-  .kb-index-link, .kb-side-link, .kb-subnav-link { color: var(--ink-text-soft) !important; }
-
-
-
-  .kb-concept-detail { background: var(--ink-surface) !important; border-color: var(--ink-line) !important; }
-  .kb-concept-detail p, .kb-concept-detail li { color: var(--ink-text-soft); }
-
-  .footer, .footer.site-footer, .site-footer {
-    background: linear-gradient(180deg, #060911 0%, #02040A 100%) !important;
-  }
-}
 
 /* ---- Responsive polish ---- */
 @media (max-width: 768px) {
@@ -5067,35 +4833,7 @@ body[data-page="knowledge"] .kb-subnav {
 }
 
 /* Dark mode: revert sidebar to deep-ink theme but keep correct contrast */
-@media (prefers-color-scheme: dark-disabled) {
-  .kb-sidebar.kb-sidebar--portal,
-  body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
-    background: linear-gradient(180deg, #0E1422 0%, #08101F 100%) !important;
-    border-right-color: rgba(255,255,255,0.06) !important;
-  }
-  .kb-sidebar--portal .kb-index-box {
-    background: rgba(255,255,255,0.03) !important;
-    border-color: rgba(255,255,255,0.08) !important;
-  }
-  .kb-sidebar--portal .kb-index-title,
-  .kb-sidebar--portal .kb-nav-toggle,
-  .kb-sidebar--portal .kb-sidebar-taxonomy-note { color: rgba(232,236,245,0.65) !important; }
-  .kb-sidebar--portal .kb-index-link,
-  .kb-sidebar--portal .kb-side-link { color: rgba(232,236,245,0.9) !important; }
-  .kb-sidebar--portal .kb-portal-search {
-    background: rgba(255,255,255,0.04) !important;
-    color: rgba(232,236,245,0.95) !important;
-    border-color: rgba(255,255,255,0.1) !important;
-  }
-  .kb-subnav,
-  body[data-page="knowledge"] .kb-subnav {
-    background: linear-gradient(180deg, #141a28 0%, #0d1320 100%) !important;
-    border-color: rgba(255,255,255,0.06) !important;
-  }
-  .kb-subnav-link { color: rgba(232,236,245,0.85) !important; }
-  .kb-subnav-link:hover { background: rgba(255,255,255,0.05) !important; color: #FFFFFF !important; }
-  .kb-subnav-link.active { color: var(--ink-accent, #B68A4E) !important; }
-}
+
 
 /* ============================================================
    v8_3_mobile — comprehensive mobile responsive layer
@@ -6969,29 +6707,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* Dark mode overrides */
-@media (prefers-color-scheme: dark-disabled) {
-  .kb-quiz-option-btn.correct {
-    background: rgba(16, 185, 129, 0.15) !important;
-    border-color: #34d399 !important;
-    color: #a7f3d0 !important;
-  }
-  
-  .kb-quiz-option-btn.correct .kb-quiz-option-indicator {
-    background: #34d399 !important;
-    border-color: #34d399 !important;
-  }
-  
-  .kb-quiz-option-btn.incorrect {
-    background: rgba(239, 68, 68, 0.15) !important;
-    border-color: #f87171 !important;
-    color: #fca5a5 !important;
-  }
-  
-  .kb-quiz-option-btn.incorrect .kb-quiz-option-indicator {
-    background: #f87171 !important;
-    border-color: #f87171 !important;
-  }
-}
+
 
 /* ----------------------------------------------------
    Verified Reviewer Popover Cards
@@ -7099,9 +6815,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 
 
 
-@media (prefers-color-scheme: dark-disabled) {
 
-}
 
 /* =================================================================*
    Phase P1: Duolingo-style Quiz, Domains & Tutorials Advisory styles
@@ -7281,22 +6995,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   border-top-color: #fecaca;
 }
 /* 暗色模式下的反馈栏 */
-@media (prefers-color-scheme: dark-disabled) {
-  .quiz-feedback-bar.correct-bar {
-    background: linear-gradient(180deg, rgba(6, 78, 59, 0.98), rgba(17, 27, 47, 0.98)) !important;
-    border-top-color: #065f46 !important;
-  }
-  .quiz-feedback-bar.incorrect-bar {
-    background: linear-gradient(180deg, rgba(127, 29, 29, 0.98), rgba(17, 27, 47, 0.98)) !important;
-    border-top-color: #991b1b !important;
-  }
-  .quiz-option-btn.correct {
-    color: #34d399 !important;
-  }
-  .quiz-option-btn.incorrect {
-    color: #f87171 !important;
-  }
-}
+
 
 .quiz-feedback-inner {
   max-width: 720px;
@@ -7599,17 +7298,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* 暗色模式支持 */
-@media (prefers-color-scheme: dark-disabled) {
-  .backup-manager-card {
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .backup-manager-card:hover {
-    border-color: var(--accent);
-  }
-  .backup-stats-row {
-    background: rgba(255, 255, 255, 0.03);
-  }
-}
+
 
 /* 修复 quiz.html 页面浅色背景下文字看不清的问题 */
 .quiz-body .hero-title {
@@ -7617,11 +7306,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   text-shadow: none !important;
 }
 
-@media (prefers-color-scheme: dark-disabled) {
-  .quiz-body .hero-title {
-    color: #ffffff !important;
-  }
-}
+
 
 /* --- Phase 3: Placement Banner Styles --- */
 .placement-banner-card {
@@ -7691,12 +7376,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   }
 }
 
-@media (prefers-color-scheme: dark-disabled) {
-  .placement-banner-card {
-    background: linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(15, 23, 42, 0.9) 100%) !important;
-    border-color: #ca8a04 !important;
-  }
-}
+
 
 /* --- Phase 4: Units & Lessons lock-progression Styles --- */
 .lesson-portal-card {
@@ -7796,12 +7476,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* 暗色模式下微调 */
-@media (prefers-color-scheme: dark-disabled) {
-  .lesson-portal-card.locked {
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.05);
-  }
-}
+
 
 /* --- Navigation Dropdown menu --- */
 
@@ -7817,10 +7492,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 
 
 
-@media (prefers-color-scheme: dark-disabled) {
 
-
-}
 
 /* --- Roadmap Drawer Panel Upgrade --- */
 .skill-inspector-backdrop {
@@ -7903,20 +7575,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* Dark mode enhancements */
-@media (prefers-color-scheme: dark-disabled) {
-  .skill-inspector {
-    background: #0f172a;
-    border-left-color: #334155;
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
-  }
-  .skill-inspector-close-btn {
-    background: #1e293b;
-    border-color: #334155;
-  }
-  .skill-inspector-close-btn:hover {
-    background: #334155;
-  }
-}
+
 
 /* --- Floating XP Animation --- */
 @keyframes floatUpFade {
@@ -8042,16 +7701,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* Dark mode adjustment */
-@media (prefers-color-scheme: dark-disabled) {
-  .quiz-dashboard-panel {
-    background: #0f172a;
-    border-color: #334155;
-  }
-  .quiz-stat-card {
-    background: #1e293b;
-    border-color: #334155;
-  }
-}
+
 
 /* FORCE LIGHT THEME EVERYWHERE */
 :root {
