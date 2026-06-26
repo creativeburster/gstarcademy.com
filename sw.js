@@ -1,6 +1,6 @@
-﻿// CAD Learn Hub — PWA Service Worker (sw.js)
-const CACHE_NAME = "gstarcademy-shell-v19";
-const DYNAMIC_CACHE = "gstarcademy-content-v19";
+// CAD Learn Hub — PWA Service Worker (sw.js)
+const CACHE_NAME = "gstarcademy-shell-v20";
+const DYNAMIC_CACHE = "gstarcademy-content-v20";
 
 // Core App Shell Assets (Pre-cached for instant loading and 100% offline baseline)
 const ASSETS_TO_PRECACHE = [
