@@ -56,7 +56,8 @@ body::before {
 }
 
 a { color: inherit; text-decoration: none; }
-.container { width: min(1800px, 96%); margin: 0 auto; }
+.container { width: min(1800px, 96%); margin: 0 auto; }
+
 
 .header-stack {
   position: sticky;
@@ -510,7 +511,8 @@ a { color: inherit; text-decoration: none; }
   justify-content: flex-end !important;
 }
 
-/* News page layout alignment - natural container flow */
+/* News page layout alignment - natural container flow */
+
 
 .hero-page .search-row {
   width: 100% !important;
@@ -555,8 +557,10 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.1) !important;
   border-color: var(--accent) !important;
 }
-
-
+
+
+
+
 
 .kb-graph-stage--immersive {
   height: clamp(600px, 80vh, 900px);
@@ -740,7 +744,8 @@ input::placeholder { color: #8a9abb; }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-
+
+
 
 .list { display: grid; gap: 12px; }
 
@@ -822,7 +827,8 @@ input::placeholder { color: #8a9abb; }
 
 .filter-group:first-child { border-top: 0; padding-top: 0; }
 .filter-group h4 { margin: 0 0 8px; font-size: 14px; color: #314168; }
-
+
+
 
 .kpi {
   border: 1px solid #dfe4ec;
@@ -1016,9 +1022,12 @@ input::placeholder { color: #8a9abb; }
 .pill-ok { color: #2f6b57; border-color: #ccddd5; background: #eff6f2; }
 .pill-warn { color: #8a6300; border-color: #ffe1a0; background: #fff6dd; }
 .pill-danger { color: #a73c52; border-color: #ffc9d5; background: #fff0f4; }
-
-
-
+
+
+
+
+
+
 
 @media (max-width: 1024px) {
   .layout { grid-template-columns: 1fr; }
@@ -1131,7 +1140,8 @@ input::placeholder { color: #8a9abb; }
   .search-row, .grid-3, .grid-2, .kpis, .tutorial-item, .hero-split, .kb-grid {
     grid-template-columns: 1fr;
   }
-  .thumb { min-height: 140px; }
+  .thumb { min-height: 140px; }
+
   
   /* Overlay for mobile menu */
   .nav-overlay {
@@ -1468,7 +1478,8 @@ input::placeholder { color: #8a9abb; }
   margin: 0 auto;
   line-height: 1.6;
 }
-
+
+
 
 .kb-portal-soft-lede {
   margin-top: 16px;
@@ -1482,9 +1493,12 @@ input::placeholder { color: #8a9abb; }
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-
-
-
+
+
+
+
+
+
 
 .kb-feature {
   margin-top: 14px;
@@ -1497,7 +1511,8 @@ input::placeholder { color: #8a9abb; }
   grid-template-columns: 1.2fr 1fr;
   gap: 12px;
 }
-
+
+
 
 .kb-mini-btn {
   border: 1px solid #d6dceb;
@@ -1543,9 +1558,12 @@ input::placeholder { color: #8a9abb; }
   font-size: 12px;
   padding: 6px 10px;
 }
-
-
-
+
+
+
+
+
+
 
 .kb-about {
   margin-top: 18px;
@@ -1559,15 +1577,19 @@ input::placeholder { color: #8a9abb; }
   grid-template-columns: 1fr auto;
   align-items: center;
 }
-
 
-@media (max-width: 1080px) {
+
+
+@media (max-width: 1080px) {
+
 
   .kb-sidebar {
     position: static;
   }
-
-
+
+
+
+
 
   .kb-feature,
   .kb-about {
@@ -1603,7 +1625,8 @@ input::placeholder { color: #8a9abb; }
   gap: 10px;
   margin-bottom: 10px;
 }
-
+
+
 
 .kb-graph-stage--immersive.graph-wrapper-kb {
   position: relative;
@@ -1644,8 +1667,10 @@ input::placeholder { color: #8a9abb; }
   stroke-width: 3;
   stroke-dasharray: none;
 }
-
-
+
+
+
+
 
 .kb-sidebar-taxonomy-note {
   margin: -2px 0 10px !important;
@@ -1660,7 +1685,8 @@ input::placeholder { color: #8a9abb; }
   color: #1e293b;
   border-radius: 12px;
 }
-
+
+
 
 a.kb-domain-card {
   display: flex;
@@ -1674,8 +1700,10 @@ a.kb-domain-card {
 a.kb-domain-card:hover .kb-domain-card-cta {
   text-decoration: underline;
 }
-
-
+
+
+
+
 
 .kb-graph-head-inline .section-note {
   flex: 1 1 min(24rem, 100%);
@@ -1825,8 +1853,10 @@ a.kb-domain-card:hover .kb-domain-card-cta {
   color: #fecaca;
   z-index: 4;
 }
-
-
+
+
+
+
 
 .kb-info-panel {
   border: 1px solid #dfe4ec;
@@ -1853,7 +1883,8 @@ a.kb-domain-card:hover .kb-domain-card-cta {
   color: #4b5870;
   font-size: 13px;
 }
-
+
+
 
 .kb-tag {
   border: 1px solid #d7dde7;
@@ -1924,12 +1955,17 @@ a.kb-domain-card:hover .kb-domain-card-cta {
   font-size: 12px;
   color: #4f46e5;
 }
-
-
-
-
 
-@media (max-width: 780px) {
+
+
+
+
+
+
+
+
+@media (max-width: 780px) {
+
 
   .kb-info-panel {
     position: static;
@@ -1946,7 +1982,7 @@ a.kb-domain-card:hover .kb-domain-card-cta {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   :root {
     --bg: #07090f;
     --bg-soft: #101621;
@@ -1979,8 +2015,10 @@ a.kb-domain-card:hover .kb-domain-card-cta {
   .section-title,
   .panel-title,
   .card h3,
-  .kb-section-head h3,
-
+  .kb-section-head h3,
+
+
+
 
   .chip,
   .tag,
@@ -2029,7 +2067,8 @@ a.kb-domain-card:hover .kb-domain-card-cta {
     background: rgba(37, 99, 235, 0.22);
     box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.22);
   }
-
+
+
 
   /* Keep classic KB sidebar in bright reading mode (portal rail stays dark) */
   body[data-page="knowledge"] .kb-sidebar:not(.kb-sidebar--portal) {
@@ -2077,15 +2116,24 @@ a.kb-domain-card:hover .kb-domain-card-cta {
     background: #ffffff;
     border-color: #dfe4ec;
   }
-
-
-
-
-
-
-
-
-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   .hero.hero-premium::after {
     background: linear-gradient(180deg, transparent, rgba(7, 9, 15, 0.92));
@@ -2180,7 +2228,8 @@ body:not([data-page="knowledge"])::before {
     radial-gradient(circle at 22% 12%, rgba(37, 99, 235, 0.02), transparent 36%),
     radial-gradient(circle at 78% 8%, rgba(148, 163, 184, 0.02), transparent 34%);
 }
-
+
+
 
 .chip,
 .tag,
@@ -2240,16 +2289,19 @@ body:not([data-page="knowledge"])::before {
   border-color: #d9d1c6 !important;
   color: #334155 !important;
 }
-
+
+
 
 .section-title,
 .hero-title,
-.panel-title,
+.panel-title,
+
 
 .meta,
 .section-note,
 .hero-sub,
-.kb-sub,
+.kb-sub,
+
 
 /* Full-bleed dark hero (home + inner pages)—matches footer / brand gradient language */
 .hero.hero-premium {
@@ -3300,36 +3352,61 @@ a.kb-pdf-matrix-rowlink:hover {
 /* ------------------------------------------------------------------
    Learning paths — Duolingo-style unit row (nodes + spine)
 ------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .path-duo-node:hover:not(.path-duo-node--locked) {
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(29, 22, 12, 0.12);
 }
-
-
-
-
-
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 900px) {
   .kb-app {
@@ -3371,18 +3448,26 @@ a.kb-pdf-matrix-rowlink:hover {
 .disclaimer-card {
   border-left: 4px solid rgba(37, 99, 235, 0.35);
 }
-
-
-
-
-
+
+
+
+
+
+
+
+
+
+
 
 .vendor-docs-table tbody tr:nth-child(even) td {
   background: rgba(249, 250, 251, 0.7);
 }
-
-
-
+
+
+
+
+
+
 
 .vendor-docs-details {
   margin-bottom: 10px;
@@ -3414,7 +3499,8 @@ a.kb-pdf-matrix-rowlink:hover {
   font-weight: 600;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 920px) {
+
 }
 
 /* Homepage cookie notice (demo GDPR-style) */
@@ -3424,7 +3510,8 @@ a.kb-pdf-matrix-rowlink:hover {
 .contact-page-section {
   padding-bottom: 0;
 }
-
+
+
 
 .contact-page-split {
   display: grid;
@@ -3800,21 +3887,34 @@ a.kb-pdf-matrix-rowlink:hover {
   color: #4a4238;
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
 
-@media (min-width: 720px) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 720px) {
+
 }
-
-
+
+
+
+
 
 .kb-software-eco-table td:nth-child(3) {
   white-space: nowrap;
@@ -3865,8 +3965,10 @@ a.kb-pdf-matrix-rowlink:hover {
 .kb-graph-path-toggle {
   font-weight: 650;
 }
-
-
+
+
+
+
 
 a.kb-tag.kb-pill-link {
   text-decoration: none;
@@ -4427,7 +4529,9 @@ h3 { line-height: 1.25; }
   border: 1px dashed var(--ink-line-strong) !important;
 }
 .btn-premium-ghost:hover { border-style: solid; color: var(--ink-text) !important; }
-
+
+
+
 
 /* ---- Cards — bevelled, editorial ---- */
 .card, .card-glass, .kb-quick, .kb-feature, .panel, .kb-main, .tutorial-item, .news-curated-item, .kb-detail-card, .kb-people, .kb-person {
@@ -4588,7 +4692,11 @@ h3 { line-height: 1.25; }
 .kb-portal-tagline { color: var(--ink-text-soft) !important; font-size: 16px !important; }
 .kb-portal-soft-lede { color: var(--ink-text-muted) !important; }
 .kb-portal-soft-lede a { color: var(--ink-primary) !important; border-bottom: 1px dashed var(--ink-primary); }
-
+
+
+
+
+
 
 .kb-about { border-left: 3px solid var(--ink-primary); padding-left: 18px; background: var(--ink-primary-soft); border-radius: var(--ink-r-md); padding: 16px 20px; }
 
@@ -4687,7 +4795,10 @@ h3 { line-height: 1.25; }
   border-bottom: 1px solid var(--ink-rule);
   margin: 18px 0 28px;
 }
-.ink-byline strong { color: var(--ink-text); font-weight: 600; }
+.ink-byline strong { color: var(--ink-text); font-weight: 600; }
+
+
+
 .ink-source-list {
   list-style: none;
   padding: 0;
@@ -4716,7 +4827,7 @@ h3 { line-height: 1.25; }
 .kb-faq-breadcrumbs a:hover { color: var(--ink-primary) !important; border-bottom-color: var(--ink-primary); }
 
 /* ---- DARK MODE — Deep Ink ---- */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   :root {
     --ink-bg: #0A0F1A;
     --ink-bg-soft: #0E1422;
@@ -4784,7 +4895,9 @@ h3 { line-height: 1.25; }
   }
   .kb-portal-search { background: #0A1020 !important; color: var(--ink-text) !important; }
   .kb-index-box { background: rgba(232,234,242,0.03); border-color: var(--ink-line); }
-  .kb-index-link, .kb-side-link, .kb-subnav-link { color: var(--ink-text-soft) !important; }
+  .kb-index-link, .kb-side-link, .kb-subnav-link { color: var(--ink-text-soft) !important; }
+
+
 
   .kb-concept-detail { background: var(--ink-surface) !important; border-color: var(--ink-line) !important; }
   .kb-concept-detail p, .kb-concept-detail li { color: var(--ink-text-soft); }
@@ -4954,7 +5067,7 @@ body[data-page="knowledge"] .kb-subnav {
 }
 
 /* Dark mode: revert sidebar to deep-ink theme but keep correct contrast */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .kb-sidebar.kb-sidebar--portal,
   body[data-page="knowledge"] .kb-sidebar.kb-sidebar--portal {
     background: linear-gradient(180deg, #0E1422 0%, #08101F 100%) !important;
@@ -5119,8 +5232,10 @@ body[data-page="knowledge"] .kb-subnav {
 
   /* Software-profile two-column → one-column */
   .sw-grid, .sw-overview-grid, .sw-meta-grid, .vendor-grid,
-  .sw-profile-grid, .kb-software-grid,
-  .sw-at-a-glance dl,
+  .sw-profile-grid, .kb-software-grid,
+
+  .sw-at-a-glance dl,
+
 
   /* Knowledge graph: smaller stage, hide some heavy filters */
   .kb-graph-stage, .kb-graph-canvas, .kb-graph-wrap {
@@ -5131,16 +5246,19 @@ body[data-page="knowledge"] .kb-subnav {
     flex-direction: column !important;
     align-items: stretch !important;
     gap: 8px !important;
-  }
+  }
+
   svg.kb-graph-svg, .kb-graph-svg { width: 100% !important; height: 60vh !important; }
 
   /* Generic content layout overrides */
   .container { width: 94% !important; }
-  .grid-2, .grid-3, .grid-4, .grid-5,
+  .grid-2, .grid-3, .grid-4, .grid-5,
+
   .tutorial-item, .news-item, .card { padding: 16px !important; }
   .card h3, .tutorial-item h3, .news-item h3 { font-size: 1.05rem !important; }
 
-  /* Wide data tables: horizontal scroll. Key-value tables: stack labels */
+  /* Wide data tables: horizontal scroll. Key-value tables: stack labels */
+
   /* "At a glance" style key/value tables inside .kb-concept-section:
      stack the rows so the value column gets the full width. */
   .kb-concept-section table { width: 100% !important; font-size: 13.5px !important; }
@@ -5194,7 +5312,8 @@ body[data-page="knowledge"] .kb-subnav {
   .btn, .btn-primary, .btn-secondary, .btn-ghost,
   .hero-cta-row .btn { min-height: 44px; padding: 10px 18px; }
 
-  /* Stats / kpis */
+  /* Stats / kpis */
+
   .stats-row .stats-item { padding: 10px 12px; }
 
   /* Anchor hashlink scroll offset */
@@ -5214,7 +5333,8 @@ body[data-page="knowledge"] .kb-subnav {
   .hero-sub, .ink-hero-sub, .hero-page .hero-page-lead {
     font-size: 13.5px !important;
   }
-  .hero.hero-premium .hero-trust { grid-template-columns: 1fr !important; }
+  .hero.hero-premium .hero-trust { grid-template-columns: 1fr !important; }
+
   .kb-subnav-link { font-size: 0.78rem !important; padding: 5px 9px !important; }
   .kb-main { padding: 18px 12px !important; }
   .kb-main--portal { padding: 18px 10px 56px !important; }
@@ -5717,9 +5837,12 @@ body[data-page="knowledge"] .kb-software-card-tag {
 
 /* ------------------------------------------------------------------
    Modernized Vendor Gateways Table Upgrades
-   ------------------------------------------------------------------- */
-
-
+   ------------------------------------------------------------------- */
+
+
+
+
+
 
 body[data-page="knowledge"] .kb-table-row-hover:hover {
   background-color: rgba(244, 239, 233, 0.7) !important;
@@ -6105,8 +6228,10 @@ body[data-page="knowledge"] .kb-matchmaker-rec-item {
   gap: 6px;
   transition: all 0.2s ease;
 }
-
-
+
+
+
+
 
 .kb-matchmaker-action-btn-secondary {
   background: #f1f5f9;
@@ -6844,7 +6969,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* Dark mode overrides */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .kb-quiz-option-btn.correct {
     background: rgba(16, 185, 129, 0.15) !important;
     border-color: #34d399 !important;
@@ -6950,11 +7075,16 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   line-height: 1.5;
   margin: 0 0 10px 0;
 }
-
-
-
-
-
+
+
+
+
+
+
+
+
+
+
 
 /* Feedback Section styling */
 .feedback-btn:hover {
@@ -6963,8 +7093,14 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   transform: translateY(-1px);
 }
 
-/* 14-Day CAD Self-Study Pathway styles */
-@media (prefers-color-scheme: dark) {
+/* 14-Day CAD Self-Study Pathway styles */
+
+
+
+
+
+@media (prefers-color-scheme: dark-disabled) {
+
 }
 
 /* =================================================================*
@@ -7007,7 +7143,9 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   gap: 8px;
   font-weight: 700;
   font-size: 14px;
-}
+}
+
+
 .quiz-hud-hearts {
   display: flex;
   gap: 4px;
@@ -7143,7 +7281,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   border-top-color: #fecaca;
 }
 /* 暗色模式下的反馈栏 */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .quiz-feedback-bar.correct-bar {
     background: linear-gradient(180deg, rgba(6, 78, 59, 0.98), rgba(17, 27, 47, 0.98)) !important;
     border-top-color: #065f46 !important;
@@ -7461,7 +7599,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* 暗色模式支持 */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .backup-manager-card {
     border-color: rgba(255, 255, 255, 0.1);
   }
@@ -7479,7 +7617,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   text-shadow: none !important;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .quiz-body .hero-title {
     color: #ffffff !important;
   }
@@ -7553,7 +7691,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .placement-banner-card {
     background: linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(15, 23, 42, 0.9) 100%) !important;
     border-color: #ca8a04 !important;
@@ -7658,18 +7796,30 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* 暗色模式下微调 */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .lesson-portal-card.locked {
     background: rgba(255, 255, 255, 0.02);
     border-color: rgba(255, 255, 255, 0.05);
   }
 }
 
-/* --- Navigation Dropdown menu --- */
+/* --- Navigation Dropdown menu --- */
 
-/* --- Wiki Subnav Dropdown --- */
 
-@media (prefers-color-scheme: dark) {
+
+
+
+
+/* --- Wiki Subnav Dropdown --- */
+
+
+
+
+
+
+@media (prefers-color-scheme: dark-disabled) {
+
+
 }
 
 /* --- Roadmap Drawer Panel Upgrade --- */
@@ -7753,7 +7903,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* Dark mode enhancements */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .skill-inspector {
     background: #0f172a;
     border-left-color: #334155;
@@ -7892,7 +8042,7 @@ body[data-page="knowledge"] .kb-matchmaker-action-btn-secondary {
 }
 
 /* Dark mode adjustment */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark-disabled) {
   .quiz-dashboard-panel {
     background: #0f172a;
     border-color: #334155;
