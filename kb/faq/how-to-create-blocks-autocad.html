@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Create and Use Blocks in AutoCAD | Gstarcademy</title>
+    <meta name="description" content="Complete guide to AutoCAD blocks: creation, insertion, attributes, dynamic blocks, and block libraries for reusable content." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-create-blocks-autocad" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to Create and Use Blocks in AutoCAD" />
+    <meta property="og:description" content="Complete guide to AutoCAD blocks: creation, insertion, attributes, dynamic blocks, and block libraries for reusable content." />
+    <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-create-blocks-autocad" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I create a block in AutoCAD?","acceptedAnswer":{"@type":"Answer","text":"Use BLOCK command (B shortcut): name the block, select objects, pick an insertion base point, and choose whether to convert/retain/delete the original objects. The block is stored in the current drawing. Use WBLOCK to save as a separate .dwg file for use in other drawings."}},{"@type":"Question","name":"How do I add attributes to a block?","acceptedAnswer":{"@type":"Answer","text":"Before creating the block, use ATTDEF to place attribute definitions (tag, prompt, default value) alongside the geometry. When you create the block including these ATTDEF objects, they become fillable fields on insertion. Use EATTEXT or DATAEXTRACTION to export attribute data to tables."}},{"@type":"Question","name":"What are dynamic blocks?","acceptedAnswer":{"@type":"Answer","text":"Dynamic blocks contain parameters (distances, angles, flip states) and actions (stretch, rotate, array) that let users modify instances without exploding. Created in the Block Editor (BEDIT), they reduce library size dramatically — one dynamic door block replaces 50 fixed-size blocks."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Create and Use Blocks in AutoCAD","item":"https://gstarcademy.com/kb/faq/how-to-create-blocks-autocad"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../">Home</a> /
+        <a href="../../knowledge-base">Knowledge Base</a> /
+        <a href="./">FAQ</a> /
+        <span aria-current="page">AutoCAD</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">FAQ &middot; AutoCAD</span>
+          <h1 style="margin-top: 12px;">How to Create and Use Blocks in AutoCAD</h1>
+          <p class="hero-sub">Complete guide to AutoCAD blocks: creation, insertion, attributes, dynamic blocks, and block libraries for reusable content.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> Gstarcademy Editorial Team</span>
+          <span><strong>Updated</strong> <time datetime="2026-06-30">2026-06-30</time></span>
+        </div>
+
+        <section class="kb-concept-section">
+          
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">How do I create a block in AutoCAD?</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">Use BLOCK command (B shortcut): name the block, select objects, pick an insertion base point, and choose whether to convert/retain/delete the original objects. The block is stored in the current drawing. Use WBLOCK to save as a separate .dwg file for use in other drawings.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">How do I add attributes to a block?</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">Before creating the block, use ATTDEF to place attribute definitions (tag, prompt, default value) alongside the geometry. When you create the block including these ATTDEF objects, they become fillable fields on insertion. Use EATTEXT or DATAEXTRACTION to export attribute data to tables.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">What are dynamic blocks?</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">Dynamic blocks contain parameters (distances, angles, flip states) and actions (stretch, rotate, array) that let users modify instances without exploding. Created in the Block Editor (BEDIT), they reduce library size dramatically — one dynamic door block replaces 50 fixed-size blocks.</p>
+        </div>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 32px;">
+          <h2>Learn More</h2>
+          <p>For deeper coverage, explore our <a href="../software/autocad">AutoCAD knowledge base</a>, <a href="../learning-paths/">learning paths</a>, and <a href="../compare/">software comparisons</a>.</p>
+        </section>
+
+        <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Gstarcademy Editorial Team</p>
+          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Last updated: <time datetime="2026-06-30">2026-06-30</time></p>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy.</p></div>
+    </footer>
+    <script src="../../app.min.js" defer></script>
+  </body>
+</html>
