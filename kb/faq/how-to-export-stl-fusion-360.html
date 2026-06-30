@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Export STL from Fusion 360 for 3D Printing | Gstarcademy</title>
+    <meta name="description" content="Step-by-step guide to exporting STL files from Fusion 360 with optimal settings for FDM, SLA, and SLS 3D printing." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-export-stl-fusion-360" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to Export STL from Fusion 360 for 3D Printing" />
+    <meta property="og:description" content="Step-by-step guide to exporting STL files from Fusion 360 with optimal settings for FDM, SLA, and SLS 3D printing." />
+    <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-export-stl-fusion-360" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I export an STL in Fusion 360?","acceptedAnswer":{"@type":"Answer","text":"Right-click the body/component in the browser > Save As STL (or File > 3D Print). Set refinement: Low (fast, rough), Medium (balanced), High (smooth, larger file). Choose unit (mm recommended). Click OK and save to your desired location."}},{"@type":"Question","name":"What settings for FDM vs SLA printing?","acceptedAnswer":{"@type":"Answer","text":"FDM: Medium refinement is usually sufficient since layer lines dominate surface quality. SLA: Use High refinement — the printer can reproduce fine mesh detail. For both: ensure your model is watertight (no open surfaces or non-manifold edges)."}},{"@type":"Question","name":"How do I fix non-manifold errors?","acceptedAnswer":{"@type":"Answer","text":"In Fusion 360, run Inspect > Section Analysis to check for gaps. Use Repair Body (Mesh workspace) for imported meshes. For native bodies, ensure all surfaces form a closed solid — check the body icon shows 'Solid Body' not 'Surface Body' in the browser."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Export STL from Fusion 360 for 3D Printing","item":"https://gstarcademy.com/kb/faq/how-to-export-stl-fusion-360"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../">Home</a> /
+        <a href="../../knowledge-base">Knowledge Base</a> /
+        <a href="./">FAQ</a> /
+        <span aria-current="page">Fusion 360</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">FAQ &middot; Fusion 360</span>
+          <h1 style="margin-top: 12px;">How to Export STL from Fusion 360 for 3D Printing</h1>
+          <p class="hero-sub">Step-by-step guide to exporting STL files from Fusion 360 with optimal settings for FDM, SLA, and SLS 3D printing.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> Gstarcademy Editorial Team</span>
+          <span><strong>Updated</strong> <time datetime="2026-06-30">2026-06-30</time></span>
+        </div>
+
+        <section class="kb-concept-section">
+          
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">How do I export an STL in Fusion 360?</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">Right-click the body/component in the browser > Save As STL (or File > 3D Print). Set refinement: Low (fast, rough), Medium (balanced), High (smooth, larger file). Choose unit (mm recommended). Click OK and save to your desired location.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">What settings for FDM vs SLA printing?</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">FDM: Medium refinement is usually sufficient since layer lines dominate surface quality. SLA: Use High refinement — the printer can reproduce fine mesh detail. For both: ensure your model is watertight (no open surfaces or non-manifold edges).</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">How do I fix non-manifold errors?</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">In Fusion 360, run Inspect > Section Analysis to check for gaps. Use Repair Body (Mesh workspace) for imported meshes. For native bodies, ensure all surfaces form a closed solid — check the body icon shows 'Solid Body' not 'Surface Body' in the browser.</p>
+        </div>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 32px;">
+          <h2>Learn More</h2>
+          <p>For deeper coverage, explore our <a href="../software/fusion-360">Fusion 360 knowledge base</a>, <a href="../learning-paths/">learning paths</a>, and <a href="../compare/">software comparisons</a>.</p>
+        </section>
+
+        <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Gstarcademy Editorial Team</p>
+          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Last updated: <time datetime="2026-06-30">2026-06-30</time></p>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy.</p></div>
+    </footer>
+    <script src="../../app.min.js" defer></script>
+  </body>
+</html>
