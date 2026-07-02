@@ -95,37 +95,46 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>CATIA Assembly Design workbench for creating product structures, applying constraints, and managing large assemblies. This concept is fundamental to professional workflows in CATIA and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, Assembly Design addresses a specific challenge that CATIA users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage CATIA's built-in automation where possible. Advanced users often combine Assembly Design with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>CATIA's Assembly Design workbench manages product structures through a parent-child hierarchy: <strong>Product &gt; Sub-Products &gt; Parts</strong>. Components are positioned using <strong>constraints</strong>: Coincidence (planes/axes align), Contact (face-to-face), Offset (parametric distance), Angle, and Fix (lock in space). The constraint solver updates positions when parts are modified.</p>
+<p>Key operations: <code>Existing Component</code> (insert part), <code>New Component</code> (create in-context), <code>Replace Component</code> (swap variants), and <code>Product Structure</code> panel for reorganizing hierarchy. Multi-instantiation creates pattern copies sharing the same source geometry. CATIA supports flexible sub-assemblies where internal constraints can be overridden at higher levels.</p>
+<p>Large assembly management: <code>Design Mode</code> (full load) vs. <code>Visualization Mode</code> (CGR lightweight graphics) vs. <code>Design in Context</code> (load only active neighborhood). Product Load Mode settings control memory usage for assemblies with 10,000+ parts.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Assembly Design is a core capability within CATIA that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of Assembly Design often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of Assembly Design directly impacts productivity, output quality, and cross-discipline collaboration in CATIA projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with Assembly Design distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for Assembly Design configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate Assembly Design workflows with your broader quality assurance process</li>
+            <li>Use Coincidence constraints on planes/axes rather than face offsets &mdash; they survive face geometry changes during design iteration</li>
+            <li>Organize product structure by functional sub-systems (chassis, powertrain, body) for selective loading and team assignments</li>
+            <li>Use Design in Context mode to load only the relevant sub-assembly neighborhood, reducing memory usage by 80%+</li>
+            <li>Apply Fix constraints to the ground/base component first, then constrain all other parts relative to this datum</li>
+            <li>Use Clash/Fit Analysis (DMU Space Analysis workbench) before releasing assemblies to manufacturing</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>Circular constraint references (Part A constrained to Part B which is constrained back to Part A) cause update loops</li>
+            <li>In-context design links (copy-with-link) create hidden dependencies that break when reorganizing product structure</li>
+            <li>CGR visualization files become stale after part updates &mdash; regenerate CGRs before sending lightweight models to reviewers</li>
+            <li>Replacing components without matching constraint interface geometry causes instant constraint failure cascade</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.3ds.com/" target="_blank" rel="noopener noreferrer">https://help.3ds.com/</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 

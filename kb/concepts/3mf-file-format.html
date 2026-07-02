@@ -95,37 +95,47 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>The 3MF (3D Manufacturing Format) standard for 3D printing — an XML-based format with mesh, materials, and build info. This concept is fundamental to professional workflows in Multi-platform and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, 3MF File Format addresses a specific challenge that Multi-platform users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage Multi-platform's built-in automation where possible. Advanced users often combine 3MF File Format with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>3MF (3D Manufacturing Format) is an XML-based open standard developed by the 3MF Consortium (Microsoft, HP, Autodesk, Materialise, Stratasys) specifically for additive manufacturing. Unlike STL which stores only triangle meshes, 3MF encapsulates <strong>mesh geometry</strong>, <strong>materials and colors</strong>, <strong>texture maps</strong>, <strong>print tickets</strong> (orientation, supports, infill), and <strong>multi-part builds</strong> in a single ZIP-compressed package (.3mf).</p>
+<p>In Fusion 360, export to 3MF via <code>File &gt; 3D Print</code> or the Manufacturing workspace. The format preserves: per-triangle color/material assignments, build platform coordinates, beam lattice structures (for HP Multi Jet Fusion), and thumbnail previews. Slicers like Cura, PrusaSlicer, and Bambu Studio natively read 3MF with full print-setting preservation.</p>
+<p>Technical advantages over STL: no ambiguous normals (vertex ordering defines orientation), no gaps/non-manifold errors by schema validation, support for multiple objects in one file, and XML human-readability for debugging.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>3MF File Format is a core capability within Multi-platform that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of 3MF File Format often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of 3MF File Format directly impacts productivity, output quality, and cross-discipline collaboration in Autodesk Fusion 360 projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with 3MF File Format distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for 3MF File Format configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate 3MF File Format workflows with your broader quality assurance process</li>
+            <li>Prefer 3MF over STL for all FDM/SLA/SLS printing workflows &mdash; it preserves color, material, and build orientation metadata</li>
+            <li>Use Fusion 360's mesh repair on export to ensure watertight geometry (non-manifold edges are invalid in 3MF schema)</li>
+            <li>Embed print settings (layer height, infill, supports) in the 3MF print ticket so the slicer loads your intent automatically</li>
+            <li>Package multiple parts in a single 3MF with correct build-plate positioning to avoid re-arranging in the slicer</li>
+            <li>Validate exported files with the 3MF Consortium's <code>lib3mf</code> validator before sending to print services</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>Some older slicers only support 3MF geometry without reading embedded print tickets &mdash; verify your slicer version</li>
+            <li>Large texture-mapped 3MF files can be 10x the size of equivalent STL &mdash; use texture resolution appropriate for print DPI</li>
+            <li>Not all CAD software writes valid 3MF &mdash; always run schema validation if prints fail unexpectedly</li>
+            <li>Assuming 3MF handles NURBS &mdash; it's mesh-only; tessellation quality settings during export control accuracy</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://3mf.io/specification/" target="_blank" rel="noopener noreferrer">https://3mf.io/specification/</a></li>
+            <li><a href="https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-FC5E8BB3-E7F1-11E5-BCC0-06E0B8A1B690" target="_blank" rel="noopener noreferrer">https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-FC5E8BB3-E7F1-11E5-BCC0-06E0B8A1B690</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 

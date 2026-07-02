@@ -95,37 +95,46 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>GstarCAD's batch printing utilities for plotting multiple layouts and drawings in a single operation. This concept is fundamental to professional workflows in GstarCAD and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, Batch Printing & Plot Manager addresses a specific challenge that GstarCAD users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage GstarCAD's built-in automation where possible. Advanced users often combine Batch Printing & Plot Manager with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>GstarCAD's batch printing (Plot Manager) enables plotting multiple layouts or drawings in a single unattended operation. Access via <code>BATCHPLOT</code> or <code>PUBLISH</code> command. The system supports: multi-sheet publishing to PDF (single or multi-page), DWF/DWFx output, and direct-to-plotter batch printing.</p>
+<p>Key features: plot stamp (adds filename, date, scale to margins), sheet ordering (by layout tab order or custom sequence), plot style table (CTB/STB) application per sheet, and background processing for large batches. GstarCAD supports plot style override per layout, allowing different pen assignments for architectural vs. structural sheets in the same DWG file.</p>
+<p>Advanced workflow: use Sheet Set Manager to organize drawings across multiple DWG files into a project publication set. Define page setups (paper size, scale, plot area, plot style) once and apply consistently across all sheets. Publish directly to multipage PDF with bookmarks matching layout names.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Batch Printing & Plot Manager is a core capability within GstarCAD that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of Batch Printing & Plot Manager often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of Batch Printing & Plot Manager directly impacts productivity, output quality, and cross-discipline collaboration in GstarCAD projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with Batch Printing & Plot Manager distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for Batch Printing & Plot Manager configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate Batch Printing & Plot Manager workflows with your broader quality assurance process</li>
+            <li>Save named Page Setups for each standard output (A1 1:100, A3 1:50) to ensure consistency across batch operations</li>
+            <li>Use <code>PUBLISH</code> command's sheet list (.dsd) files to save and reuse batch configurations for recurring deliverables</li>
+            <li>Enable plot stamping to automatically add filename, date, and scale to every sheet for document control</li>
+            <li>Test one sheet from the batch with Preview before launching the full queue to catch page setup errors early</li>
+            <li>Use background plotting to free the UI during large batches (50+ sheets) &mdash; continue working while plotting runs</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>Missing CTB/STB plot style files when plotting on a different machine &mdash; include plot styles in the project handover package</li>
+            <li>Layout viewport scales not locked before batch print causes random zoom levels on output sheets</li>
+            <li>PDF bookmarks fail if layout tab names contain special characters (&amp;, &lt;, &gt;)</li>
+            <li>Batch plotting externally-referenced drawings without loading XREFs first produces blank plots where references should appear</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.gstarcad.net/help/" target="_blank" rel="noopener noreferrer">https://www.gstarcad.net/help/</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 

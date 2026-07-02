@@ -95,37 +95,46 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>ZWCAD's developer APIs: ZRX (C++ compatible with ARX), .NET API, and LISP for custom application development. This concept is fundamental to professional workflows in ZWCAD and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, ZRXSDK & API Development addresses a specific challenge that ZWCAD users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage ZWCAD's built-in automation where possible. Advanced users often combine ZRXSDK & API Development with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>ZWCAD provides three development APIs for customization and automation: <strong>ZRX (C++)</strong> compatible with AutoCAD's ObjectARX API, <strong>.NET API</strong> (C#/VB.NET) via ZwSoft.ZwCAD.* namespaces, and <strong>LISP</strong> (AutoLISP/Visual LISP compatible). The ZRX SDK enables deep kernel-level extensions: custom entities, reactor callbacks, context menus, and ribbon panel integration.</p>
+<p>The .NET API exposes the document model through familiar Autodesk-compatible patterns: <code>Database</code>, <code>Transaction</code>, <code>BlockTableRecord</code>, <code>Editor</code> for user interaction. Most AutoCAD .NET plugins require only namespace changes and recompilation to run on ZWCAD. LISP provides the fastest scripting path for command automation, batch processing, and simple dialog boxes (DCL).</p>
+<p>Deployment: ZRX modules load via <code>APPLOAD</code> or the startup suite. .NET DLLs use <code>NETLOAD</code>. CUI/CUIX customization files define ribbon tabs, tool palettes, and command aliases for plugin UI.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>ZRXSDK & API Development is a core capability within ZWCAD that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of ZRXSDK & API Development often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of ZRXSDK & API Development directly impacts productivity, output quality, and cross-discipline collaboration in ZWCAD projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with ZRXSDK & API Development distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for ZRXSDK & API Development configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate ZRXSDK & API Development workflows with your broader quality assurance process</li>
+            <li>Start with LISP for simple automation tasks (batch attribute editing, drawing cleanup) &mdash; no compilation needed</li>
+            <li>Use .NET for complex tools requiring UI, database operations, or external system integration (ERP, PDM)</li>
+            <li>Reserve ZRX (C++) for custom entity definitions or performance-critical operations on millions of entities</li>
+            <li>Test plugins against both ZWCAD and AutoCAD simultaneously if cross-platform compatibility is required</li>
+            <li>Use the Event/Reactor system (DocumentCreated, CommandEnded) for automatic workflows without user intervention</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>ARX/ZRX binary incompatibility between ZWCAD versions &mdash; recompile plugins for each major ZWCAD release</li>
+            <li>Not all AutoCAD API methods have ZWCAD equivalents &mdash; check the ZRX SDK compatibility matrix before porting</li>
+            <li>LISP performance degrades on large entity sets (10k+) &mdash; switch to .NET for batch operations on large drawings</li>
+            <li>DCL dialog definitions have limited widget types &mdash; use .NET WPF/WinForms for modern UI requirements</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.zwsoft.com/support/developer-center" target="_blank" rel="noopener noreferrer">https://www.zwsoft.com/support/developer-center</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 

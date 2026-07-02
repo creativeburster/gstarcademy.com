@@ -95,37 +95,46 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>Creating custom Revit annotation families for tags, symbols, detail components, and title block automation. This concept is fundamental to professional workflows in Revit and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, Annotation Families & Tags addresses a specific challenge that Revit users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage Revit's built-in automation where possible. Advanced users often combine Annotation Families & Tags with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>Annotation families in Revit are 2D view-specific elements that scale with the sheet rather than the model. They include <strong>tags</strong> (door tags, window tags, room tags), <strong>symbols</strong> (north arrows, section markers), <strong>detail components</strong> (steel sections, insulation hatching), and <strong>title blocks</strong>. Created in the Family Editor with dedicated annotation templates (.rft).</p>
+<p>Tags pull parameter values from model elements via label parameters: a door tag displays the door's Mark, Width, Height, and Fire Rating by referencing Shared Parameters. Custom annotation families support: visibility controls, conditional formatting (Yes/No parameter toggles), nested shared families, and formula-driven label text. Annotation scaling is automatic per view scale when using annotative behavior.</p>
+<p>Key concepts: label vs. text (labels link to parameters, text is static), masking regions (white-fill backgrounds), symbolic lines (view-dependent line work), and shared annotation families (usable in tags AND schedules).</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Annotation Families & Tags is a core capability within Revit that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of Annotation Families & Tags often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of Annotation Families & Tags directly impacts productivity, output quality, and cross-discipline collaboration in Autodesk Revit projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with Annotation Families & Tags distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for Annotation Families & Tags configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate Annotation Families & Tags workflows with your broader quality assurance process</li>
+            <li>Use Shared Parameters (not Project Parameters) in annotation families so values appear in both tags and schedules</li>
+            <li>Set annotation family category correctly (Generic Annotations, Detail Items, Tags) to control visibility filter behavior</li>
+            <li>Build tag families with multiple label types: create variants for plan, elevation, and enlarged plan display</li>
+            <li>Use Yes/No visibility parameters to create one family with optional detail levels instead of multiple separate families</li>
+            <li>Test annotation families at multiple view scales (1:50, 1:100, 1:200) to verify readability before deploying to templates</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>Creating text-only tags instead of label-based tags &mdash; text doesn't update when model parameter values change</li>
+            <li>Forgetting to load the Shared Parameter file before editing families that reference shared parameters</li>
+            <li>Annotation families placed in wrong category won't appear in correct subcategory visibility toggles</li>
+            <li>Nested annotation families lose their label connections if the host family's category doesn't support the nested category</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/RVT/2025/ENU/?guid=GUID-C0D103D6-E2EB-4C53-B5D3-42DC59B00F5F" target="_blank" rel="noopener noreferrer">https://help.autodesk.com/view/RVT/2025/ENU/?guid=GUID-C0D103D6-E2EB-4C53-B5D3-42DC59B00F5F</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 
