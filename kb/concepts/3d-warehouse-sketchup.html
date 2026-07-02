@@ -95,37 +95,46 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>SketchUp's 3D Warehouse — the largest free library of user-contributed 3D models for architecture and design. This concept is fundamental to professional workflows in SketchUp and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, 3D Warehouse addresses a specific challenge that SketchUp users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage SketchUp's built-in automation where possible. Advanced users often combine 3D Warehouse with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>The 3D Warehouse is SketchUp's cloud-based model library containing millions of user-contributed components: furniture, fixtures, vehicles, vegetation, building elements, and complete structures. Models are free to download and insert directly into SketchUp scenes via <strong>File &gt; 3D Warehouse</strong> or the web interface at <code>3dwarehouse.sketchup.com</code>.</p>
+<p>Content quality varies widely since models are community-contributed. High-polygon models from the Warehouse can severely impact SketchUp performance. Professional workflow: download the model, inspect its polygon count (Entity Info), and simplify with <code>CleanUp&sup3;</code> extension before embedding in production files. Manufacturers like Herman Miller, Kohler, and Velux publish official product libraries here.</p>
+<p>Key features: collections for organization, preview rendering, geo-location for placing buildings on Google Earth, and the ability to upload your own models with attribution metadata.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>3D Warehouse is a core capability within SketchUp that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of 3D Warehouse often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of 3D Warehouse directly impacts productivity, output quality, and cross-discipline collaboration in SketchUp projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with 3D Warehouse distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for 3D Warehouse configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate 3D Warehouse workflows with your broader quality assurance process</li>
+            <li>Always check model polygon count (Entity Info &gt; Edges/Faces) before inserting &mdash; keep components under 50k faces for smooth performance</li>
+            <li>Make downloaded components unique (<code>Make Unique</code>) before modifying to avoid affecting other instances</li>
+            <li>Use manufacturer-published models (marked with brand badges) for accurate product dimensions in interior design</li>
+            <li>Purge unused Warehouse downloads from the model via <code>Window &gt; Model Info &gt; Statistics &gt; Purge Unused</code></li>
+            <li>Create component collections for project-specific libraries and share them with your team via 3D Warehouse organizations</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>Inserting high-polygon entourage (trees, cars) without simplification &mdash; a single detailed tree can contain 500k+ faces</li>
+            <li>Assuming dimensional accuracy of community models without verifying with the tape measure tool</li>
+            <li>Not cleaning up hidden geometry and unused layers that come embedded in downloaded models</li>
+            <li>Downloading models with proprietary textures that are not licensed for commercial use in client renderings</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.sketchup.com/en/sketchup/getting-models-3d-warehouse" target="_blank" rel="noopener noreferrer">https://help.sketchup.com/en/sketchup/getting-models-3d-warehouse</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 

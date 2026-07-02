@@ -95,37 +95,46 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>The ACIS (SAT/SAB) 3D modeling kernel used by AutoCAD, BricsCAD, SpaceClaim, and other CAD platforms. This concept is fundamental to professional workflows in Multi-platform and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, ACIS Geometry Kernel addresses a specific challenge that Multi-platform users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage Multi-platform's built-in automation where possible. Advanced users often combine ACIS Geometry Kernel with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>ACIS (originally Alan, Charles, Ian's System) is a geometric modeling kernel developed by Spatial (Dassault Syst&egrave;mes subsidiary) that provides B-Rep (boundary representation) solid modeling capabilities to host CAD applications. AutoCAD, BricsCAD, SpaceClaim, and approximately 50 other products embed ACIS for solid/surface operations.</p>
+<p>The kernel supports: precise NURBS surfaces, analytic surfaces (planes, cylinders, cones, spheres, tori), Boolean operations, blending (fillets/chamfers), sweeps, lofts, shelling, and topology queries. Data is serialized in SAT (text) or SAB (binary) file formats. AutoCAD's <code>ACISOUT</code>/<code>ACISIN</code> commands export/import native kernel data.</p>
+<p>ACIS differs from Parasolid (used by SOLIDWORKS, NX) in its tolerance handling, healing algorithms, and surface intersection strategies. Translation between ACIS-based and Parasolid-based CAD often introduces tiny geometric mismatches at surface boundaries requiring healing operations.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>ACIS Geometry Kernel is a core capability within Multi-platform that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of ACIS Geometry Kernel often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of ACIS Geometry Kernel directly impacts productivity, output quality, and cross-discipline collaboration in AutoCAD projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with ACIS Geometry Kernel distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for ACIS Geometry Kernel configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate ACIS Geometry Kernel workflows with your broader quality assurance process</li>
+            <li>Use SAT format (text-based) for debugging geometry issues &mdash; open in any text editor to inspect entity topology</li>
+            <li>When exchanging between ACIS and Parasolid hosts, export via STEP AP214 to minimize kernel translation artifacts</li>
+            <li>Set appropriate tolerance values (typically 1e-6 for mechanical, 1e-4 for architectural) before Boolean operations</li>
+            <li>Validate solid topology after complex Boolean chains with <code>CHECKSOLID</code> or equivalent host commands</li>
+            <li>Prefer the binary SAB format for production file exchange &mdash; 3-5x smaller than SAT with faster parsing</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>ACIS version mismatches cause import failures &mdash; older hosts cannot read SAT files written by newer kernel versions</li>
+            <li>Slivers and micro-edges from imprecise Boolean operations accumulate and eventually crash downstream operations</li>
+            <li>ACIS does not natively support mesh/facet bodies &mdash; importing STL into ACIS-based CAD requires conversion to B-Rep</li>
+            <li>Stitching open surfaces into solids fails when edge gaps exceed the session tolerance &mdash; increase tolerance or heal edges first</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.spatial.com/products/3d-acis-modeling" target="_blank" rel="noopener noreferrer">https://www.spatial.com/products/3d-acis-modeling</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 

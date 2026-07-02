@@ -95,37 +95,46 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>Revit's analytical model for structural analysis export — nodes, members, loads, and boundary conditions linked to physical elements. This concept is fundamental to professional workflows in Revit and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, Analytical Model addresses a specific challenge that Revit users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage Revit's built-in automation where possible. Advanced users often combine Analytical Model with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>Revit's analytical model is a simplified geometric representation of structural elements used for export to analysis software (Robot Structural Analysis, ETABS, SAP2000, RISA). Physical columns become centerline stick elements; walls become shell elements; floors become plate elements. The analytical model carries <strong>load cases</strong>, <strong>boundary conditions</strong> (fixed, pinned, roller), <strong>member releases</strong>, and <strong>cross-section properties</strong>.</p>
+<p>Key workflow: enable Analytical Model visibility in View Visibility Graphics &gt; Analytical Model Categories. Adjust analytical representations using the Analytical Adjust tool to fix misaligned nodes, ensure member connectivity, and verify support conditions. The Analytical Consistency Check identifies disconnected members and unsupported nodes.</p>
+<p>Export paths: direct link to Robot Structural Analysis Professional (bi-directional), or generic export via IFC Structural Analysis View, CIS/2 (steel), or third-party plugins (ETABS Link, RISA Link). Revit 2024+ includes the new Analytical Model category with explicit node/member management.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Analytical Model is a core capability within Revit that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of Analytical Model often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of Analytical Model directly impacts productivity, output quality, and cross-discipline collaboration in Autodesk Revit projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with Analytical Model distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for Analytical Model configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate Analytical Model workflows with your broader quality assurance process</li>
+            <li>Run Analytical Consistency Check before every export to identify disconnected nodes and unsupported members</li>
+            <li>Adjust analytical alignment so beam endpoints meet column centerlines precisely &mdash; 1mm gaps cause disconnected models in FEA</li>
+            <li>Define load cases (dead, live, wind, seismic) and load combinations within Revit before transferring to analysis software</li>
+            <li>Use analytical links (Robot, ETABS) for bi-directional workflows: analyze &rarr; resize members &rarr; update back to physical model</li>
+            <li>Set correct boundary conditions at foundations (fixed) and expansion joints (roller) to reflect real structural behavior</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>Physical model modifications don't always propagate to analytical model &mdash; re-check analytical alignment after major edits</li>
+            <li>Curved beams have no analytical equivalent in most FEA links &mdash; they export as chord-approximated segments or are skipped</li>
+            <li>Load path discontinuities (floating beams, columns not reaching foundations) pass silently in Revit but cause solver failures in FEA</li>
+            <li>Exporting to Robot without checking unit consistency between Revit's project units and Robot's model units</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/RVT/2025/ENU/?guid=GUID-8E3F5BAB-5D89-4547-A7AB-B4484F09489C" target="_blank" rel="noopener noreferrer">https://help.autodesk.com/view/RVT/2025/ENU/?guid=GUID-8E3F5BAB-5D89-4547-A7AB-B4484F09489C</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 

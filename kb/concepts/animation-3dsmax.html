@@ -95,37 +95,46 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
-          <p>3ds Max animation tools: keyframes, controllers, constraints, character rigging, and the Biped system. This concept is fundamental to professional workflows in 3ds Max and understanding it deeply enables more efficient, error-free project execution.</p>
-<p>In professional practice, Animation & Rigging addresses a specific challenge that 3ds Max users encounter regularly: the need to balance precision, productivity, and collaboration within complex design projects. Whether you are working solo or coordinating with a multi-discipline team, mastering this capability significantly reduces rework and communication errors.</p>
-<p>The implementation details vary by project scale and industry standards, but the core principles remain consistent: establish clear conventions early, document your approach for team members, and leverage 3ds Max's built-in automation where possible. Advanced users often combine Animation & Rigging with scripting or API access to create firm-specific workflows that encode their best practices into repeatable processes.</p>
+          <p>3ds Max's animation system operates on a keyframe + controller architecture. Every animatable parameter (position, rotation, scale, material properties, modifier values) can be keyframed on the timeline. <strong>Controllers</strong> define interpolation between keys: Bezier (smooth), TCB (tension-continuity-bias), Linear, Noise, Spring, and scripted expressions via MaxScript.</p>
+<p><strong>Character rigging</strong> tools include the Biped system (pre-built humanoid skeleton with motion capture support), CAT (Character Animation Toolkit for custom rigs), and Bone objects with IK solvers (HI Solver, Limb Solver, Spline IK). Skin modifier binds mesh vertices to bones with envelope-based or per-vertex weight painting.</p>
+<p>Animation layers allow non-destructive pose corrections. The Dope Sheet provides keyframe timing control while the Curve Editor enables precise f-curve manipulation. Motion paths visualize trajectories in the viewport. Constraints (LookAt, Path, Position/Orientation) drive procedural animation without manual keying.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Animation & Rigging is a core capability within 3ds Max that directly impacts project deliverable quality, team coordination efficiency, and design iteration speed. Professionals who master this concept report significantly reduced rework rates and faster project turnaround compared to those relying on manual workarounds.</p>
-          <p>In competitive professional environments, the difference between adequate and expert-level command of Animation & Rigging often determines whether a firm can take on more complex projects, meet tighter deadlines, or reduce their error-correction overhead. It represents the kind of deep platform knowledge that distinguishes senior practitioners from novice users.</p>
+          <p>Mastery of Animation & Rigging directly impacts productivity, output quality, and cross-discipline collaboration in 3ds Max projects. Engineers and designers who command this feature reduce rework cycles, meet tighter deadlines with fewer errors, and produce deliverables that downstream consumers (fabricators, analysts, facility managers) can use without manual data reconstruction.</p>
+          <p>In competitive workflows where multiple stakeholders depend on model data quality, proficiency with Animation & Rigging distinguishes experienced practitioners who deliver right-first-time results from novice users who generate downstream coordination issues.</p>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Best Practices</h2>
           <ul>
-            <li>Establish project-level standards for Animation & Rigging configuration before starting detailed work</li>
-            <li>Document your approach in a project standards guide accessible to all team members</li>
-            <li>Leverage templates and libraries to avoid recreating configurations for each new project</li>
-            <li>Periodically audit your usage patterns and update workflows as the software adds new capabilities</li>
-            <li>Integrate Animation & Rigging workflows with your broader quality assurance process</li>
+            <li>Use Auto Key mode for pose-to-pose animation and Set Key mode for character acting with deliberate timing</li>
+            <li>Organize complex rigs with Selection Sets and Named Selection Sets for fast access to control objects</li>
+            <li>Bake procedural animations (constraints, expressions) to keyframes before export to game engines via FBX</li>
+            <li>Use animation layers for additive corrections (breathing, secondary motion) without modifying base performance</li>
+            <li>Set Biped motion capture import settings to match your mocap data's coordinate system and scale before loading BVH/FBX</li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
+                <section class="kb-concept-section">
           <h2>Common Pitfalls</h2>
           <ul>
-            <li>Ignoring established standards and creating ad-hoc configurations that confuse team members</li>
-            <li>Not leveraging automation features, resulting in repetitive manual work</li>
-            <li>Failing to test configurations before deploying to production projects</li>
-            <li>Over-complicating setups when simpler approaches would suffice for the project scope</li>
+            <li>Gimbal lock in Euler rotation &mdash; switch to Quaternion (TCB) controllers for character joints that rotate freely</li>
+            <li>Over-keyframing with Auto Key active causes unwanted keys on parameters you didn't intend to animate</li>
+            <li>Skin modifier weight painting becomes unstable with too many bone influences per vertex &mdash; limit to 4 for game assets</li>
+            <li>FBX export loses MaxScript-driven procedural animation &mdash; always bake to keys before exporting to Unreal/Unity</li>
+          </ul>
+        </section>
+
+        
+        <section class="kb-concept-section">
+          <h2>References &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/3DSMAX/2025/ENU/?guid=GUID-B02C71D7-E649-4400-AC6F-F6E1C8C1D01F" target="_blank" rel="noopener noreferrer">https://help.autodesk.com/view/3DSMAX/2025/ENU/?guid=GUID-B02C71D7-E649-4400-AC6F-F6E1C8C1D01F</a></li>
+            <li><a href="../../editorial-process">Gstarcademy Editorial Process</a></li>
           </ul>
         </section>
 
