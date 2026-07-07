@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>.NET/C# plugin development for AutoCAD, GstarCAD, BricsCAD: database access, UI customization, and command creation. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, .NET API for CAD Development represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of .NET API for CAD Development typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>The .NET API exposes CAD applications to managed code (C#, VB.NET) for deep customisation. In AutoCAD, <strong>ObjectARX/.NET</strong> gives access to the database (<code>Database</code>, <code>Transaction</code>, <code>BlockTableRecord</code>), editor, and events; Revit, Inventor, and SOLIDWORKS expose analogous .NET object models.</p>
+          <p>Compared with AutoLISP or VBA, .NET offers performance, modern language features, rich UI (WPF/WinForms), and access to the full object model — the professional choice for commercial plug-ins and enterprise automation.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>.NET is the platform for serious CAD add-ins: fast, maintainable, and fully featured. It powers most commercial plug-ins and bespoke enterprise tools.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Wrap database edits in a Transaction and commit/abort cleanly.</li>
+            <li>Use the correct API context (document lock) when modifying from events/palettes.</li>
+            <li>Target the API version matching the host application release.</li>
+            <li>Separate UI (WPF) from core logic for testable, maintainable add-ins.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Not disposing/committing transactions, leaking objects or corrupting state.</li>
+            <li>Editing the database without a document lock from a modeless context.</li>
+            <li>Referencing wrong-version interop assemblies, causing load failures.</li>
+            <li>Blocking the UI thread with long operations.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-net" target="_blank" rel="noopener nofollow">Autodesk — .NET developer guide</a></li>
+            <li><a href="https://aps.autodesk.com/developer/documentation" target="_blank" rel="noopener nofollow">Autodesk APS — Developer docs</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

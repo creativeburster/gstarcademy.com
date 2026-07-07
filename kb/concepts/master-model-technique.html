@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Master model methodology in NX and other MCAD: controlling downstream parts from a single reference geometry set. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Master Model Technique represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Master Model Technique typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>The master-model technique uses a single controlling model (often surfaces plus key datums) as the authoritative definition of shared geometry, from which multiple downstream models — detailed parts, mould tooling, CAM, analysis — are derived by reference. Updating the master updates every derivative.</p>
+          <p>It is a disciplined form of top-down design used heavily in consumer products and automotive, where the industrial-design surface must drive engineering, tooling, and analysis models consistently.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>A master model guarantees that styling, engineering, and tooling all share exactly the same surfaces — eliminating the drift that occurs when each discipline maintains its own copy.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Keep the master lean: shared surfaces, datums, and key parameters only.</li>
+            <li>Derive downstream models by reference so updates propagate.</li>
+            <li>Version and lock the master; communicate changes to all consumers.</li>
+            <li>Separate concerns — styling surface vs engineering features — cleanly.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Multiple divergent copies of the 'same' surface across teams.</li>
+            <li>A bloated master that mixes everything and is hard to change.</li>
+            <li>Uncontrolled updates that silently break downstream tooling.</li>
+            <li>Derivatives that copy rather than reference, losing the link.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://plm.sw.siemens.com/en-US/nx/" target="_blank" rel="noopener nofollow">Siemens NX — Master model</a></li>
+            <li><a href="https://www.ptc.com/en/products/creo" target="_blank" rel="noopener nofollow">PTC Creo — Master model technique</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

@@ -83,28 +83,44 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>FEA basics: meshing, boundary conditions, solver types, convergence, and result interpretation for structural analysis. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Finite Element Analysis (FEA) Fundamentals represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Finite Element Analysis (FEA) Fundamentals typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Finite Element Analysis (FEA) is a numerical method that subdivides a continuous body into a finite number of discrete <strong>elements</strong> connected at <strong>nodes</strong>, then solves the governing partial differential equations (equilibrium, heat balance) approximately across that mesh. In structural analysis the core equation is <code>[K]{u} = {F}</code> — the global stiffness matrix multiplied by the nodal displacement vector equals the applied load vector.</p>
+          <p>A complete FEA study has three stages: <strong>pre-processing</strong> (geometry cleanup, meshing, material assignment, boundary conditions and loads), <strong>solving</strong> (assembling and inverting the stiffness matrix — direct sparse solvers for small models, iterative PCG for large ones), and <strong>post-processing</strong> (von Mises stress, displacement, factor of safety, reaction forces). Common solvers include Nastran, Abaqus, ANSYS Mechanical, and the embedded solvers in SOLIDWORKS Simulation and Fusion.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>FEA lets engineers validate designs against yield, fatigue, buckling, and thermal limits before cutting metal, replacing expensive physical prototypes. Understanding element theory, mesh quality, and boundary-condition idealisation is what separates a trustworthy result from a colourful but meaningless stress plot.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Always run a <strong>mesh convergence study</strong>: refine the mesh until peak stress changes by less than ~5% between refinements, otherwise your result depends on element size.</li>
+            <li>Use second-order (parabolic) elements for stress analysis — linear tetrahedra are overly stiff and under-predict deflection.</li>
+            <li>Idealise boundary conditions to match reality: over-constraining introduces artificial stiffness and hides real deflection.</li>
+            <li>Check reaction forces sum to the applied load — a quick sanity check that constraints and loads balance.</li>
+            <li>Interpret stress at singularities (sharp re-entrant corners, point loads) with caution; use stress linearisation or add fillets rather than reading the infinite peak.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Reading peak stress at a geometric singularity (sharp corner) as a real value — it rises without bound as the mesh refines.</li>
+            <li>Applying loads or restraints to a single node/vertex, creating artificial stress concentrations.</li>
+            <li>Ignoring units — mixing mm and N with GPa vs MPa is the most common source of wildly wrong results.</li>
+            <li>Trusting a coarse single-run mesh with no convergence check.</li>
+            <li>Using linear-elastic assumptions where the material actually yields (needs a nonlinear plasticity model).</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.nafems.org/publications/knowledge_base/" target="_blank" rel="noopener nofollow">NAFEMS — Introduction to Finite Element Analysis</a></li>
+            <li><a href="https://www.autodesk.com/solutions/finite-element-analysis" target="_blank" rel="noopener nofollow">Autodesk — FEA fundamentals</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

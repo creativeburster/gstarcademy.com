@@ -83,28 +83,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Explicit dynamics for crash simulation: material failure, contact algorithms, airbag deployment, and occupant safety. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Crash & Impact Simulation represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Crash & Impact Simulation typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Crash simulation uses <strong>explicit dynamics</strong> finite-element solvers (LS-DYNA, Abaqus/Explicit, Radioss, PAM-CRASH) to model high-speed, highly nonlinear events — vehicle impact, drop test, blast — in milliseconds of physical time. Explicit time integration marches forward with tiny stable time steps governed by the <strong>Courant condition</strong> (element size / wave speed).</p>
+          <p>These models combine large deformation, material plasticity and failure, self-contact, and strain-rate-dependent material laws (e.g. Johnson–Cook). Occupant safety adds dummy models, airbags (control-volume or ALE), and seatbelt elements, validated against physical crash tests and rated by protocols such as Euro NCAP.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Virtual crash testing slashes the number of destroyed physical prototypes and lets safety engineers iterate structures and restraint systems quickly to meet regulatory and NCAP star ratings.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Respect the Courant stable time step; mass scaling can help but distorts inertia if overused.</li>
+            <li>Use strain-rate-dependent material models — metals are stronger at crash strain rates.</li>
+            <li>Define robust contact (self-contact for buckling folds) to prevent element penetration.</li>
+            <li>Check energy balance: hourglass and sliding energy should stay a small fraction of total.</li>
+            <li>Correlate against physical test pulses and deformation before trusting design studies.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Excessive mass scaling that adds non-physical inertia and hides real behaviour.</li>
+            <li>Reduced-integration elements without hourglass control, producing zero-energy modes.</li>
+            <li>Missing self-contact so folding structure passes through itself.</li>
+            <li>Rate-independent material data giving unrealistically weak response.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.ansys.com/products/structures/ansys-ls-dyna" target="_blank" rel="noopener nofollow">Ansys LS-DYNA</a></li>
+            <li><a href="https://www.euroncap.com/en/for-engineers/protocols/" target="_blank" rel="noopener nofollow">Euro NCAP — Test protocols</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

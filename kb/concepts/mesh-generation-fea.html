@@ -83,28 +83,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>FEA mesh generation: element types (tet/hex), mesh quality metrics, refinement strategies, and convergence studies. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Mesh Generation for FEA represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Mesh Generation for FEA typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Mesh generation is the discretisation of a CAD body into elements for FEA/CFD. The dominant 3-D element types are <strong>tetrahedra</strong> (fill arbitrary geometry automatically, ideal for solid stress), <strong>hexahedra</strong> (more accurate per DOF but hard to auto-generate on complex shapes), and <strong>prisms/pyramids</strong> used as transition and boundary-layer elements.</p>
+          <p>Mesh quality is measured by metrics such as <strong>aspect ratio</strong>, <strong>skewness</strong>, <strong>Jacobian</strong>, and <strong>orthogonal quality</strong>. Local controls — sizing, curvature refinement, inflation/boundary layers for CFD, and mapped meshing on prismatic regions — let the analyst put elements where gradients are steep and coarsen elsewhere to control solve time.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>The mesh is the single biggest driver of both accuracy and runtime in simulation. A poorly conditioned element (negative Jacobian, high skew) can stall the solver or produce garbage stresses, while an unnecessarily fine mesh wastes hours of compute — so mesh strategy is a core CAE skill.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Refine locally at fillets, holes, and load paths; coarsen in low-gradient bulk regions to keep the model affordable.</li>
+            <li>For CFD, add prism/inflation layers at walls and target the required <code>y+</code> for your turbulence model.</li>
+            <li>Use curvature-based sizing so curved surfaces are faceted finely enough to represent geometry.</li>
+            <li>Check element quality metrics (skewness &lt; 0.9, orthogonal quality &gt; 0.1) before solving.</li>
+            <li>Prefer hex or sweep meshes on prismatic/rotational bodies where they fit — fewer elements for the same accuracy.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Meshing dirty geometry (slivers, gaps, tiny faces) — always defeature and heal first.</li>
+            <li>One global element size that is fine everywhere, blowing up DOF count and solve time.</li>
+            <li>Ignoring the boundary layer in CFD, which ruins wall shear and heat-transfer predictions.</li>
+            <li>Leaving highly skewed or negative-Jacobian elements that cause solver divergence.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.ansys.com/products/meshing" target="_blank" rel="noopener nofollow">ANSYS — Meshing user guide</a></li>
+            <li><a href="https://www.nafems.org/publications/knowledge_base/" target="_blank" rel="noopener nofollow">NAFEMS — Why do meshes matter</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, PBR Materials for CAD Visualization represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of PBR Materials for CAD Visualization typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Physically Based Rendering (PBR) materials describe surfaces with parameters grounded in real optics: <strong>base color/albedo</strong>, <strong>metalness</strong>, <strong>roughness</strong>, <strong>normal</strong>, and often ambient occlusion, height, and emissive maps. The metal/rough workflow (used by most engines and glTF) makes materials behave consistently under any lighting.</p>
+          <p>PBR ensures a material looks correct whether it's lit by a sunny exterior or a dim interior, because it obeys energy conservation and Fresnel reflectance rather than baked-in lighting assumptions.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>PBR is the standard that makes materials portable and believable across engines and lighting conditions — the foundation of realistic, consistent visualization and real-time review.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Author with the metal/rough workflow and correct sRGB vs linear color spaces.</li>
+            <li>Use real-world texel density and tiling to keep detail consistent.</li>
+            <li>Keep albedo within physically plausible ranges (no pure black/white).</li>
+            <li>Combine maps (normal + roughness + AO) for surface realism.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Mixing color spaces (treating albedo as linear) producing wrong tones.</li>
+            <li>Baked lighting in the albedo map, breaking under new lighting.</li>
+            <li>Implausible albedo/roughness values that look CG.</li>
+            <li>Inconsistent texel density across a scene.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://substance3d.adobe.com/tutorials/" target="_blank" rel="noopener nofollow">Adobe Substance — PBR guide</a></li>
+            <li><a href="https://www.khronos.org/gltf/" target="_blank" rel="noopener nofollow">Khronos glTF — PBR</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

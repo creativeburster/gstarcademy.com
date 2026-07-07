@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>World vs User coordinate systems, coordinate input methods, and coordinate system management across CAD platforms. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Coordinate Systems in CAD represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Coordinate Systems in CAD typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Coordinate systems locate geometry in space. CAD uses a <strong>World Coordinate System (WCS)</strong> and movable <strong>User Coordinate Systems (UCS)</strong> for convenient construction on angled planes. Understanding origin, axes, and the right-hand rule is fundamental to 3-D modelling and drawing setup.</p>
+          <p>In assemblies and BIM, local part origins must relate to a shared project coordinate system; in civil/GIS work, model coordinates must tie to a real-world map projection (see coordinate reference systems).</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Consistent coordinate handling keeps parts, disciplines, and site data aligned. Mismatched origins are a leading cause of models that won't overlay or link correctly.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Set a sensible UCS for construction on angled faces, then return to WCS.</li>
+            <li>Agree a shared origin/base point for assemblies and linked models.</li>
+            <li>Keep part origins meaningful (on datums) for downstream reuse.</li>
+            <li>Document the coordinate convention for the team/project.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Modelling far from the origin, causing precision/graphics issues.</li>
+            <li>Inconsistent origins so linked models don't align.</li>
+            <li>Forgetting the active UCS and drawing in the wrong plane.</li>
+            <li>No agreed base point across disciplines.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/ACD/2024/ENU/" target="_blank" rel="noopener nofollow">Autodesk — UCS/WCS</a></li>
+            <li><a href="https://help.autodesk.com/view/RVT/2024/ENU/" target="_blank" rel="noopener nofollow">Autodesk — Shared coordinates</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

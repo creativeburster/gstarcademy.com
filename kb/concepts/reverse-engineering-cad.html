@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Reverse engineering workflows: 3D scanning, point cloud processing, surface reconstruction, and parametric re-modeling. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Reverse Engineering in CAD represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Reverse Engineering in CAD typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Reverse engineering converts a physical object into a CAD model. The pipeline is <strong>3-D scanning</strong> (structured-light, laser, or CT) → point cloud → mesh (STL) → surfacing. Two outcomes are common: a faithful <strong>as-scanned mesh</strong>, or a <strong>parametric CAD</strong> rebuild that captures design intent (prismatic features, analytic surfaces).</p>
+          <p>Tools include Geomagic Design X, Ansys SpaceClaim, Autodesk ReCap/Fusion Reverse, and PolyWorks. Alignment, decimation, and feature extraction turn noisy scan data into usable geometry.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Reverse engineering recreates legacy parts with no drawings, enables inspection against nominal, and captures organic/hand-crafted shapes into editable CAD — bridging the physical and digital worlds.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Choose scan resolution/method for the feature size and material (matte-spray shiny parts).</li>
+            <li>Clean, align, and decimate the point cloud/mesh before surfacing.</li>
+            <li>Rebuild with parametric features when future edits are needed, not just mesh-to-surface.</li>
+            <li>Verify the model against the scan with a deviation (color) map.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Surfacing directly on noisy, unaligned scan data.</li>
+            <li>Auto-surfacing an organic mesh when a parametric rebuild was actually needed.</li>
+            <li>Ignoring scanner accuracy limits and over-trusting fine detail.</li>
+            <li>No deviation check, so the model silently drifts from the real part.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.3dsystems.com/software/geomagic-design-x" target="_blank" rel="noopener nofollow">3D Systems — Geomagic Design X</a></li>
+            <li><a href="https://www.autodesk.com/" target="_blank" rel="noopener nofollow">Autodesk — Reverse engineering</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

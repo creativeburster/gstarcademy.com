@@ -83,28 +83,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>CFD fundamentals for engineers: mesh generation, turbulence models, boundary conditions, and flow visualization. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, CFD (Computational Fluid Dynamics) Basics represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of CFD (Computational Fluid Dynamics) Basics typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Computational Fluid Dynamics (CFD) numerically solves the <strong>Navier–Stokes equations</strong> (conservation of mass, momentum, and energy) over a discretised fluid domain using the finite-volume method. For most engineering flows the Reynolds-Averaged Navier–Stokes (<strong>RANS</strong>) approach is used with a turbulence closure model — k-ε, k-ω SST, or Spalart–Allmaras.</p>
+          <p>A CFD study requires a watertight flow volume, a mesh with resolved boundary layers, boundary conditions (inlet velocity/pressure, outlet, walls, symmetry), a fluid material model, and solver settings (steady vs transient, discretisation scheme). Convergence is judged by residuals plus monitored quantities such as drag, mass-flow imbalance, or outlet temperature.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>CFD predicts pressure drop, drag, lift, heat transfer, and mixing without wind-tunnel or flow-loop testing, informing everything from electronics cooling to aerodynamics. Because turbulence is modelled (not resolved) in RANS, understanding the assumptions behind each model is essential to trust the numbers.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Resolve the near-wall region correctly: use <code>y+</code> ≈ 1 with wall-resolved models, or 30–300 with wall functions.</li>
+            <li>Run a mesh-independence study on an integral quantity (drag, ΔP) before believing the result.</li>
+            <li>Choose the turbulence model for the physics: k-ω SST for adverse pressure gradients/separation, k-ε for free shear flows.</li>
+            <li>Monitor a physical quantity, not just residuals — residuals can flatline while the solution still drifts.</li>
+            <li>Check global mass and energy balance across the domain as a conservation sanity check.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Under-resolved boundary layers giving wrong wall shear stress and heat transfer.</li>
+            <li>Declaring convergence on residuals alone while monitored forces are still changing.</li>
+            <li>Using a steady solver on an inherently unsteady flow (vortex shedding, large separation).</li>
+            <li>Poor-quality cells at walls producing non-physical local velocities.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://turbmodels.larc.nasa.gov/" target="_blank" rel="noopener nofollow">NASA — Turbulence modeling resource</a></li>
+            <li><a href="https://www.simscale.com/docs/simulation-setup/" target="_blank" rel="noopener nofollow">SimScale — CFD fundamentals</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

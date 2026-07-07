@@ -83,28 +83,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Topology optimization algorithms that remove material from a design space while maintaining structural requirements. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Topology Optimization & Generative Design represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Topology Optimization & Generative Design typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Topology optimisation mathematically removes material from a design space to minimise an objective (usually compliance = maximise stiffness) subject to a mass or volume-fraction constraint. The dominant method is <strong>SIMP</strong> (Solid Isotropic Material with Penalisation), which treats each element's density as a design variable between 0 and 1 and penalises intermediate densities toward solid/void.</p>
+          <p>The optimiser iterates FEA + sensitivity analysis to grow load-bearing 'bone-like' structures. Outputs are organic and typically require <strong>geometry reconstruction</strong> (smoothing to a manufacturable solid or lattice) before verification FEA. Tools include Altair OptiStruct/Inspire, Ansys, nTop, Fusion Generative Design, and SOLIDWORKS Topology.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Topology optimisation delivers minimum-weight parts that meet stiffness/strength targets — critical for aerospace, motorsport, and additive manufacturing where every gram costs fuel or money.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Define the design and non-design (keep-out) regions carefully — interfaces and bearing surfaces must stay.</li>
+            <li>Include manufacturing constraints (minimum member size, draw direction, symmetry) so the result is producible.</li>
+            <li>Reconstruct and smooth the raw result, then run a verification FEA on the manufacturable geometry.</li>
+            <li>For AM, consider lattice infill and self-supporting angles in the optimisation.</li>
+            <li>Set realistic load cases and combine them; optimising for one load can fail another.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Treating the raw density field as the final part without manufacturable reconstruction.</li>
+            <li>Optimising a single load case and ignoring others (fatigue, secondary loads).</li>
+            <li>Omitting manufacturing constraints, producing shapes only AM can build.</li>
+            <li>Skipping the verification FEA on the smoothed geometry.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://altair.com/optistruct" target="_blank" rel="noopener nofollow">Altair — Topology optimization</a></li>
+            <li><a href="https://www.autodesk.com/solutions/generative-design" target="_blank" rel="noopener nofollow">Autodesk — Generative design</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

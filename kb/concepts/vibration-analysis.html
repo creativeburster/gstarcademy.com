@@ -83,28 +83,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Modal and harmonic analysis: natural frequencies, mode shapes, forced response, and vibration isolation design. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Vibration & Modal Analysis represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Vibration & Modal Analysis typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Vibration (dynamics) analysis studies a structure's response to time-varying loads. <strong>Modal analysis</strong> extracts natural frequencies and mode shapes by solving the eigenvalue problem <code>([K] − ω²[M]){φ} = 0</code>, revealing where and at what frequency the structure prefers to resonate.</p>
+          <p>Follow-on analyses include <strong>harmonic/frequency response</strong> (steady sinusoidal excitation), <strong>random vibration</strong> (PSD input, common for transport and aerospace qualification), and <strong>transient dynamics</strong> (shock, impact). Damping is modelled with modal, Rayleigh, or structural damping coefficients.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Resonance amplifies stresses many-fold and causes rapid fatigue or catastrophic failure. Knowing natural frequencies lets engineers keep operating and excitation frequencies away from modes, or add damping/stiffening where needed.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Run modal analysis first to understand the frequency landscape before any forced-response study.</li>
+            <li>Ensure the mode-extraction range covers all frequencies with significant energy in the excitation.</li>
+            <li>Represent mass distribution accurately — non-structural mass shifts frequencies.</li>
+            <li>Use realistic damping; too little damping over-predicts resonant peaks dramatically.</li>
+            <li>Separate operating/excitation frequencies from natural frequencies by an adequate margin.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Omitting non-structural mass, giving frequencies that are too high.</li>
+            <li>Assuming zero or arbitrary damping and mis-predicting resonant amplitude.</li>
+            <li>Too few modes captured, missing higher-order participation in random vibration.</li>
+            <li>Applying static intuition to a dynamic, frequency-dependent problem.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://plm.sw.siemens.com/en-US/simcenter/" target="_blank" rel="noopener nofollow">Siemens Simcenter — Structural dynamics</a></li>
+            <li><a href="https://www.nafems.org/publications/knowledge_base/" target="_blank" rel="noopener nofollow">NAFEMS — Dynamics</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

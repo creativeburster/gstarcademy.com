@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Core principles of parametric CAD: constraints, dimensions, feature history, and design intent capture. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Parametric Design Principles represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Parametric Design Principles typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Parametric design captures geometry as features driven by dimensions, constraints, and relations, so changing a parameter regenerates the model. The <strong>feature tree</strong> records design history; sketches are controlled by geometric constraints (coincident, parallel, tangent) and dimensional parameters, often linked by equations or a design table.</p>
+          <p>Robust parametric modelling follows <strong>design intent</strong> — building relationships so the model updates predictably. It contrasts with direct (history-free) modelling, which edits geometry without a feature tree.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Parametric models let engineers explore variants and respond to change without rebuilding from scratch — the foundation of configurable products, families of parts, and fast design iteration.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Fully constrain sketches so geometry can't drift unexpectedly.</li>
+            <li>Build features in a logical order that reflects design intent.</li>
+            <li>Use equations/global variables to link related dimensions.</li>
+            <li>Reference stable geometry, avoiding fragile references that break on edit.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Under-constrained sketches that move unpredictably when edited.</li>
+            <li>Fragile parent-child references causing rebuild errors ('feature failed').</li>
+            <li>Over-complex trees that are impossible to edit later.</li>
+            <li>Baking in numbers that should be driven parameters.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.solidworks.com/" target="_blank" rel="noopener nofollow">SOLIDWORKS — Design intent</a></li>
+            <li><a href="https://www.onshape.com/en/resource-center" target="_blank" rel="noopener nofollow">Onshape — Feature-based modeling</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

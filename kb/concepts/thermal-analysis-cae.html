@@ -83,28 +83,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Thermal simulation: steady-state and transient heat transfer, convection, radiation, and thermal-structural coupling. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Thermal Analysis in CAE represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Thermal Analysis in CAE typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Thermal analysis solves the heat-conduction equation to predict temperature distribution and heat flux, accounting for the three heat-transfer modes: <strong>conduction</strong> (Fourier's law, driven by thermal conductivity k), <strong>convection</strong> (Newton's law of cooling with film coefficient h), and <strong>radiation</strong> (Stefan–Boltzmann, ∝ emissivity × T⁴).</p>
+          <p>Studies are steady-state (final equilibrium temperatures) or transient (temperature vs time, needing specific heat and density). Results feed thermal-stress analysis, where temperature fields are mapped onto a structural model to compute thermal expansion stresses. Conjugate heat transfer (CHT) couples solid conduction with fluid convection in a single CFD solve.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Electronics, engines, LED luminaires, and building envelopes all fail thermally before they fail structurally. Predicting hot-spots and thermal cycling lets engineers size heat sinks, choose materials, and avoid solder-joint fatigue or warping.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Get film coefficients right — convection h is often the dominant uncertainty; use correlations or CHT rather than guessing.</li>
+            <li>Include radiation for high-temperature or vacuum problems where it dominates.</li>
+            <li>For transient runs, verify the time step resolves the thermal time constant of the smallest feature.</li>
+            <li>Map thermal results to a structural model to capture thermal-expansion stress in constrained assemblies.</li>
+            <li>Validate against a measured temperature or a hand calculation of total heat dissipated.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Neglecting radiation on hot bodies, badly under-predicting cooling.</li>
+            <li>Using a single guessed convection coefficient for a complex flow field.</li>
+            <li>Ignoring contact thermal resistance at bolted/pressed interfaces.</li>
+            <li>Steady-state assumptions on a duty cycle that never reaches equilibrium.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.autodesk.com/products/cfd/overview" target="_blank" rel="noopener nofollow">Autodesk — Thermal simulation</a></li>
+            <li><a href="https://plm.sw.siemens.com/en-US/simcenter/" target="_blank" rel="noopener nofollow">Siemens — Heat transfer simulation</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

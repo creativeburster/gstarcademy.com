@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>AWS A2.4 weld symbols in CAD drawings: joint types, groove geometry, weld sizing, and annotation standards. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Weld Symbols & Joint Design represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Weld Symbols & Joint Design typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Weld symbols are the standardised notation (per <strong>AWS A2.4</strong> in the US, <strong>ISO 2553</strong> internationally) that specify weld type, size, length, location, and process on drawings. The symbol's reference line, arrow, weld-type symbol (fillet, groove, plug), and dimensions communicate exactly what to weld and how.</p>
+          <p>In CAD/BIM, weldment environments (SOLIDWORKS Weldments, Inventor Frame Generator, Tekla) model weld beads and generate weld symbols and cut lists, coordinating with structural connection design.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Weld symbols precisely communicate joint requirements to fabricators. Misread or wrong symbols cause under/over-welding — affecting strength, cost, and distortion — so correct notation is safety-critical.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Use the governing standard (AWS A2.4 or ISO 2553) consistently.</li>
+            <li>Place weld-type symbols on the correct side of the reference line.</li>
+            <li>Specify size, length, and pitch (intermittent welds) explicitly.</li>
+            <li>Coordinate weld callouts with connection design and access.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Mixing AWS and ISO conventions (arrow/other-side differ).</li>
+            <li>Omitting weld size/length, leaving it to the fabricator to guess.</li>
+            <li>Over-specifying weld size, adding cost and distortion.</li>
+            <li>Symbols placed where the joint can't actually be welded.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.aws.org/standards" target="_blank" rel="noopener nofollow">AWS A2.4 — Welding symbols</a></li>
+            <li><a href="https://www.iso.org/standard/63665.html" target="_blank" rel="noopener nofollow">ISO 2553 — Welded joints symbols</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

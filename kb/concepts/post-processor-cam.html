@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>CAM post processors: translating toolpath data into machine-specific G-code for CNC controllers. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Post Processors for CNC represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Post Processors for CNC typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>A post-processor translates CAM's generic toolpath (CL data) into the exact G/M-code dialect a specific machine and control (Fanuc, Haas, Heidenhain, Siemens 840D) understands. It formats coordinates, spindle and coolant commands, tool changes, canned cycles, and machine-specific quirks.</p>
+          <p>Posts are configured per machine-control combination; a mismatched or generic post is a common source of crashes, wrong feeds, or unusable output. Vendors provide post libraries (e.g. Autodesk HSM/Fusion posts) that are tuned to the exact hardware.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>The post is the last, critical translation before metal is cut. A correct post means the program runs safely and predictably; a wrong one can crash the machine on the first line.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Use the post matched to your exact machine and control, not a generic one.</li>
+            <li>Validate new/edited posts on a dry run or with a backplot before real cutting.</li>
+            <li>Keep tool-change, work-offset, and safety blocks correct for the machine.</li>
+            <li>Version-control posts and document any custom edits.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Using a generic post that omits machine-specific safety/format needs.</li>
+            <li>Editing a post without testing, introducing subtle errors.</li>
+            <li>Wrong work-offset or plane selection causing crashes.</li>
+            <li>Assuming code that ran on one control works on another.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://cam.autodesk.com/hsmposts" target="_blank" rel="noopener nofollow">Autodesk — Post processors</a></li>
+            <li><a href="https://www.mastercam.com/" target="_blank" rel="noopener nofollow">Mastercam — Post processors</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">
