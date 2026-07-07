@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>Surface modeling in SOLIDWORKS creates zero-thickness NURBS surfaces that can later be trimmed, knitted, and thickened into solids. This approach is essential when solid features (extrude, loft) can't achieve the required shape complexity — think automotive body panels, consumer electronics housings, or ergonomic grips where curvature continuity (G2/G3) matters.</p>
-<p>Key surface tools: Lofted Surface (blend between profiles with guide curves), Boundary Surface (higher-quality version with tangency/curvature control at all edges), Filled Surface (patch holes in a surface quilt), Swept Surface (profile along a path), and Offset Surface. The workflow typically involves building a surface quilt from multiple patches, then using Knit Surface + Thicken to convert to a solid body.</p>
-<p>Quality analysis tools (Zebra stripes, Curvature combs, Deviation analysis) are critical for evaluating surface quality. G0 = positional continuity (touching), G1 = tangent (no crease), G2 = curvature (smooth reflections), G3 = rate-of-change (automotive A-Class). SOLIDWORKS excels at G2; for true G3 (Class-A), shops often use Rhino or CATIA ICEM Surf, then import the surface back for solid conversion.</p>
+          <p>Key surface tools: Lofted Surface (blend between profiles with guide curves), Boundary Surface (higher-quality version with tangency/curvature control at all edges), Filled Surface (patch holes in a surface quilt), Swept Surface (profile along a path), and Offset Surface. The workflow typically involves building a surface quilt from multiple patches, then using Knit Surface + Thicken to convert to a solid body.</p>
+          <p>Quality analysis tools (Zebra stripes, Curvature combs, Deviation analysis) are critical for evaluating surface quality. G0 = positional continuity (touching), G1 = tangent (no crease), G2 = curvature (smooth reflections), G3 = rate-of-change (automotive A-Class). SOLIDWORKS excels at G2; for true G3 (Class-A), shops often use Rhino or CATIA ICEM Surf, then import the surface back for solid conversion.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding Surface Modeling is essential for professionals working with SOLIDWORKS because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>SOLIDWORKS surfacing tools (boundary, loft, fill, sweep, and continuity control) build complex freeform and hybrid solid-surface geometry that prismatic feature modelling can't, essential for consumer products, ergonomic forms, and Class-A styling.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Control curvature continuity (tangent/curvature) for smooth, fair surfaces.</li>
+            <li>Check quality with zebra stripes and curvature combs.</li>
+            <li>Build clean, minimal boundary curves before lofting/blending.</li>
+            <li>Knit surfaces into a watertight body before thickening/solidifying.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Tangent-only continuity where reflections demand curvature (G2).</li>
+            <li>Messy input curves producing lumpy, un-fair surfaces.</li>
+            <li>Failed knits/thicken from gaps or overlaps.</li>
+            <li>Over-trimmed surface soup that breaks downstream operations.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.solidworks.com/" target="_blank" rel="noopener nofollow">SOLIDWORKS — Surfacing</a></li>
+            <li><a href="https://www.solidworks.com/" target="_blank" rel="noopener nofollow">Dassault SOLIDWORKS</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more SOLIDWORKS topics in our <a href="../software/solidworks">SOLIDWORKS knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

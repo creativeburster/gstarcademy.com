@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>Fusion 360 Electronics (formerly EAGLE integration) provides schematic capture and PCB layout directly within the Fusion environment, enabling seamless mechanical-electronic co-design. You design the circuit schematic, lay out the PCB, and the 3D board shape automatically appears in your mechanical assembly — including component heights for enclosure clearance checking.</p>
-<p>The workflow bridges the traditional gap between ECAD and MCAD: mechanical engineers define the board outline and component keep-out zones in the 3D assembly → electronics engineers route traces within those constraints → changes sync bidirectionally. No more exporting STEP files of board outlines back and forth between separate tools.</p>
-<p>Features include: multi-sheet schematic with hierarchical design, auto-router for PCB traces, design rule checking (DRC), extensive component libraries (with 3D models), copper pour, differential pair routing, and Gerber/ODB++ output for manufacturing. For complex high-speed designs, dedicated ECAD tools (Altium, KiCad, OrCAD) still dominate — but for IoT devices, consumer electronics prototypes, and maker projects, Fusion 360 Electronics eliminates tool-switching overhead.</p>
+          <p>The workflow bridges the traditional gap between ECAD and MCAD: mechanical engineers define the board outline and component keep-out zones in the 3D assembly → electronics engineers route traces within those constraints → changes sync bidirectionally. No more exporting STEP files of board outlines back and forth between separate tools.</p>
+          <p>Features include: multi-sheet schematic with hierarchical design, auto-router for PCB traces, design rule checking (DRC), extensive component libraries (with 3D models), copper pour, differential pair routing, and Gerber/ODB++ output for manufacturing. For complex high-speed designs, dedicated ECAD tools (Altium, KiCad, OrCAD) still dominate — but for IoT devices, consumer electronics prototypes, and maker projects, Fusion 360 Electronics eliminates tool-switching overhead.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding Electronics Design (PCB) is essential for professionals working with Fusion 360 because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>Fusion's integrated electronics (from EAGLE) unify schematic capture, PCB layout, and the mechanical model in one product, giving true ECAD-MCAD co-design — the board and its enclosure stay synchronized, catching fit issues early.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Keep schematic and PCB in sync using the push/back-annotate workflow.</li>
+            <li>Use the live ECAD-MCAD link to check board fit within the enclosure.</li>
+            <li>Manage libraries/parts consistently for reliable footprints.</li>
+            <li>Run DRC (design rule checks) before manufacturing output.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Layout changes not back-annotated to the schematic.</li>
+            <li>Component heights/connectors colliding with the enclosure.</li>
+            <li>Wrong or unverified footprints causing fabrication errors.</li>
+            <li>Skipping DRC before generating Gerbers.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.autodesk.com/products/fusion-360/" target="_blank" rel="noopener nofollow">Autodesk — Fusion electronics</a></li>
+            <li><a href="https://www.autodesk.com/products/eagle/" target="_blank" rel="noopener nofollow">Autodesk — EAGLE</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more Fusion 360 topics in our <a href="../software/fusion-360">Fusion 360 knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>BricsCAD integrates machine-learning and pattern-recognition algorithms directly into the modeling workflow. Key AI features: BLOCKIFY scans a drawing and identifies repeated geometry that should be blocks — it groups identical patterns, creates block definitions, and replaces instances automatically. This can convert a legacy drawing with 500 copy-pasted chair geometries into 500 instances of a single chair block in seconds.</p>
-<p>PROPAGATE watches your edits and applies similar changes throughout the model. If you modify one door opening (add a lintel, change the swing direction), BricsCAD identifies all similar door openings and offers to propagate the same modification — maintaining consistency without manual find-and-edit across a large floor plan.</p>
-<p>In BricsCAD BIM, AI extends to classification: the BIMIFY command analyzes solid geometry and classifies elements as walls, slabs, columns, roofs, etc. based on shape, position, and relationship heuristics. A simple extruded box at the base of a building might be classified as a foundation wall; a thin horizontal slab at storey height becomes a floor. This accelerates the conversion of non-BIM 3D models into IFC-ready BIM models without manual element-by-element classification.</p>
+          <p>PROPAGATE watches your edits and applies similar changes throughout the model. If you modify one door opening (add a lintel, change the swing direction), BricsCAD identifies all similar door openings and offers to propagate the same modification — maintaining consistency without manual find-and-edit across a large floor plan.</p>
+          <p>In BricsCAD BIM, AI extends to classification: the BIMIFY command analyzes solid geometry and classifies elements as walls, slabs, columns, roofs, etc. based on shape, position, and relationship heuristics. A simple extruded box at the base of a building might be classified as a foundation wall; a thin horizontal slab at storey height becomes a floor. This accelerates the conversion of non-BIM 3D models into IFC-ready BIM models without manual element-by-element classification.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding AI-Assisted Modeling is essential for professionals working with BricsCAD because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>BricsCAD's AI features (BLOCKIFY, automatic block/parametric recognition) automate the tedious cleanup and rationalization of legacy DWGs, reclaiming file size and editability that would take hours to fix manually — a genuine productivity differentiator among AutoCAD-compatible platforms.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Run BLOCKIFY on legacy drawings to convert repeated geometry into reusable blocks.</li>
+            <li>Review AI-proposed changes before accepting; treat suggestions as drafts.</li>
+            <li>Use parametric/propagate features to replicate patterns intelligently.</li>
+            <li>Combine AI cleanup with a purge/audit pass for maximum file-size savings.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Accepting AI groupings blindly without checking edge cases.</li>
+            <li>Assuming AI recognition is perfect on messy or exploded geometry.</li>
+            <li>Skipping a backup before large automated modifications.</li>
+            <li>Expecting identical behaviour to AutoCAD's (different feature set).</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.bricsys.com/" target="_blank" rel="noopener nofollow">Bricsys — BricsCAD</a></li>
+            <li><a href="https://help.bricsys.com/" target="_blank" rel="noopener nofollow">Bricsys — BLOCKIFY & AI tools</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more BricsCAD topics in our <a href="../software/bricscad">BricsCAD knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

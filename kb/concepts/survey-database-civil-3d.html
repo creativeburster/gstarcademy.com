@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>The Civil 3D Survey Database is a structured repository for field survey data — points (with coordinates, elevations, descriptions), figures (connected linework representing features like road edges, buildings, fences), observation data (angles, distances from total stations), and GPS observations. It separates raw field data from the design drawing, preventing accidental edits to survey control.</p>
-<p>Import workflows support multiple formats: raw data collectors (Trimble DC, Leica GSI), point files (PNEZD CSV), LandXML, and direct database links to survey processing software. Figure prefix libraries auto-create linework from coded descriptions — surveyor enters "EP" (edge of pavement) as a point code, and Civil 3D automatically connects EP points into a polyline figure.</p>
-<p>Survey network analysis performs least-squares adjustment on traverse observations, computing adjusted coordinates and reporting error ellipses. This validates field measurements before using them for design surfaces. The workflow: import raw observations → adjust network → generate adjusted points → create survey figures → build existing ground surface from points/figures → begin design on top of validated survey data.</p>
+          <p>Import workflows support multiple formats: raw data collectors (Trimble DC, Leica GSI), point files (PNEZD CSV), LandXML, and direct database links to survey processing software. Figure prefix libraries auto-create linework from coded descriptions — surveyor enters "EP" (edge of pavement) as a point code, and Civil 3D automatically connects EP points into a polyline figure.</p>
+          <p>Survey network analysis performs least-squares adjustment on traverse observations, computing adjusted coordinates and reporting error ellipses. This validates field measurements before using them for design surfaces. The workflow: import raw observations → adjust network → generate adjusted points → create survey figures → build existing ground surface from points/figures → begin design on top of validated survey data.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding Survey Database is essential for professionals working with Civil 3D because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>The Civil 3D survey database stores field survey data — points, figures, and setups — with survey-specific tools (traverse, adjustment, figure prefixes) that build surfaces and linework directly from surveyor observations, keeping survey data managed and auditable.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Use figure prefix libraries so field codes build linework automatically.</li>
+            <li>Perform traverse analysis/adjustment before building surfaces.</li>
+            <li>Keep the survey database as the managed source of raw field data.</li>
+            <li>Verify point/figure coding against the field book.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Importing raw points with no coding, losing automatic linework.</li>
+            <li>Skipping traverse adjustment, propagating field error.</li>
+            <li>Editing derived data instead of the survey source.</li>
+            <li>Coordinate/datum mismatches with the project.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/CIV3D/2024/ENU/?guid=GUID-survey" target="_blank" rel="noopener nofollow">Autodesk — Civil 3D survey</a></li>
+            <li><a href="https://www.autodesk.com/products/civil-3d/" target="_blank" rel="noopener nofollow">Autodesk Civil 3D</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more Civil 3D topics in our <a href="../software/civil-3d">Civil 3D knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

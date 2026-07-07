@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>Data Link creates a live connection between an AutoCAD table object and an external data source — typically an Excel spreadsheet (.xlsx) or CSV file. Changes in Excel automatically propagate to the drawing table on file open or manual refresh (DATALINKUPDATE). Optionally, edits made in AutoCAD can write back to Excel (bidirectional mode).</p>
-<p>This workflow is critical for construction documentation where equipment schedules, door/window schedules, and material lists are maintained in spreadsheets by non-CAD staff (procurement, PM) but must appear on drawings. Without Data Link, the drafter manually re-types changes — a major error source on large projects.</p>
-<p>Setup: DATALINK command defines the source file, range, and update direction. Then TABLE → From Data Link inserts it. Formatting (font, color, borders) can be controlled from either the Excel cell style or the AutoCAD table style — choose one authority to avoid conflicts. Network paths work but require all users to have read access. For cloud-hosted Excel (SharePoint/OneDrive), the local sync path must be used.</p>
+          <p>This workflow is critical for construction documentation where equipment schedules, door/window schedules, and material lists are maintained in spreadsheets by non-CAD staff (procurement, PM) but must appear on drawings. Without Data Link, the drafter manually re-types changes — a major error source on large projects.</p>
+          <p>Setup: DATALINK command defines the source file, range, and update direction. Then TABLE → From Data Link inserts it. Formatting (font, color, borders) can be controlled from either the Excel cell style or the AutoCAD table style — choose one authority to avoid conflicts. Network paths work but require all users to have read access. For cloud-hosted Excel (SharePoint/OneDrive), the local sync path must be used.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding Data Link is essential for professionals working with AutoCAD because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>Data links connect AutoCAD tables to live Excel spreadsheets, so schedules, BOMs, and quantity data update automatically when the source changes — eliminating error-prone manual re-typing between drawing and spreadsheet.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Link to a defined named range so the table maps predictably.</li>
+            <li>Set the update direction deliberately (Excel→table is the common case).</li>
+            <li>Keep the linked workbook in a stable, shared path to avoid broken links.</li>
+            <li>Use cell formatting/formulas in Excel and let AutoCAD reflect them.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Moving/renaming the source workbook and breaking the link.</li>
+            <li>Editing the AutoCAD table directly, causing conflicts on update.</li>
+            <li>Linking whole sheets instead of tidy named ranges.</li>
+            <li>Forgetting to update the link before plotting.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/ACD/2024/ENU/?guid=GUID-datalink" target="_blank" rel="noopener nofollow">Autodesk — Data links</a></li>
+            <li><a href="https://help.autodesk.com/view/ACD/2024/ENU/" target="_blank" rel="noopener nofollow">Autodesk — Tables</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more AutoCAD topics in our <a href="../software/autocad">AutoCAD knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>BlenderBIM (part of the IfcOpenShell project) transforms Blender into a fully-featured openBIM authoring tool capable of reading, writing, and editing IFC (Industry Foundation Classes) files directly. Unlike BIM tools that export to IFC as a secondary format, BlenderBIM works natively in IFC — every element you create has proper IFC classification, property sets, and relationships from the start.</p>
-<p>Capabilities: author walls, slabs, columns, beams, doors, windows with proper IFC semantics; assign property sets (Pset_WallCommon, etc.); define spatial structure (IfcSite → IfcBuilding → IfcBuildingStorey); create schedules and quantity takeoffs from IFC properties; perform 4D/5D simulation (construction sequencing with time); and generate 2D documentation from 3D IFC models.</p>
-<p>This is significant because it provides a completely free, open-source BIM workflow — no Revit or ArchiCAD license required. The trade-off: Blender's UI wasn't designed for BIM, so the workflow has a steeper learning curve for architectural professionals; fewer pre-built parametric families compared to commercial tools; and inter-firm collaboration typically still expects Revit RVT files. For openBIM-mandated projects (some Scandinavian countries, public sector), BlenderBIM is production-viable.</p>
+          <p>Capabilities: author walls, slabs, columns, beams, doors, windows with proper IFC semantics; assign property sets (Pset_WallCommon, etc.); define spatial structure (IfcSite → IfcBuilding → IfcBuildingStorey); create schedules and quantity takeoffs from IFC properties; perform 4D/5D simulation (construction sequencing with time); and generate 2D documentation from 3D IFC models.</p>
+          <p>This is significant because it provides a completely free, open-source BIM workflow — no Revit or ArchiCAD license required. The trade-off: Blender's UI wasn't designed for BIM, so the workflow has a steeper learning curve for architectural professionals; fewer pre-built parametric families compared to commercial tools; and inter-firm collaboration typically still expects Revit RVT files. For openBIM-mandated projects (some Scandinavian countries, public sector), BlenderBIM is production-viable.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding BlenderBIM Add-on is essential for professionals working with Blender because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>BlenderBIM (now Bonsai) brings native, standards-compliant IFC authoring to the free Blender platform, giving small practices and open-source advocates a genuine openBIM authoring tool without proprietary licensing — a notable expansion of accessible BIM.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Author directly to IFC (native IFC workflow) rather than exporting later.</li>
+            <li>Use IFC schema-valid classes so data exchanges cleanly with other tools.</li>
+            <li>Leverage Blender's geometry tools while keeping IFC data integrity.</li>
+            <li>Validate output with an IFC checker before issuing.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Treating it as a generic mesh tool and losing IFC semantic data.</li>
+            <li>Producing geometrically valid but schema-invalid IFC.</li>
+            <li>Expecting full parity with mature commercial BIM authoring tools.</li>
+            <li>Skipping IFC validation before handover.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://bonsaibim.org/" target="_blank" rel="noopener nofollow">Bonsai (BlenderBIM)</a></li>
+            <li><a href="https://www.buildingsmart.org/" target="_blank" rel="noopener nofollow">buildingSMART — IFC</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more Blender topics in our <a href="../software/blender">Blender knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

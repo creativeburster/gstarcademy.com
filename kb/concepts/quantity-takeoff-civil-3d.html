@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>Quantity Takeoff in Civil 3D computes material volumes and areas from corridor models, surfaces, and grading objects. The primary methods are: surface-to-surface volume comparison (cut/fill between existing ground and proposed design), corridor material volumes (computed from cross-section areas × station spacing using average-end-area or prismoidal methods), and grading volume tools (for pads and basins).</p>
-<p>For corridor-based earthwork: Civil 3D generates sample lines at user-defined intervals along the alignment, extracts cross-sections showing existing ground and design surfaces, then calculates cut and fill volumes between stations. The Mass Haul diagram visualizes where material is removed (cut zones) and where it's placed (fill zones), optimizing haul distances and identifying borrow/waste requirements.</p>
-<p>Pay item assignment connects quantities to cost codes: each material region (subgrade, base course, asphalt, topsoil) is tagged with a pay item number and unit rate. The Quantity Takeoff Report aggregates all pay items across the corridor for engineer's estimates and bid tabulations. For DOT projects, these reports directly feed into the contract documents specifying payment quantities for each work item.</p>
+          <p>For corridor-based earthwork: Civil 3D generates sample lines at user-defined intervals along the alignment, extracts cross-sections showing existing ground and design surfaces, then calculates cut and fill volumes between stations. The Mass Haul diagram visualizes where material is removed (cut zones) and where it's placed (fill zones), optimizing haul distances and identifying borrow/waste requirements.</p>
+          <p>Pay item assignment connects quantities to cost codes: each material region (subgrade, base course, asphalt, topsoil) is tagged with a pay item number and unit rate. The Quantity Takeoff Report aggregates all pay items across the corridor for engineer's estimates and bid tabulations. For DOT projects, these reports directly feed into the contract documents specifying payment quantities for each work item.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding Quantity Takeoff is essential for professionals working with Civil 3D because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>Civil 3D quantity takeoff derives material volumes and pay-item quantities directly from the design model (corridors, surfaces, pipe networks), keeping quantities live as the design changes — far more reliable than manual measurement for earthwork and construction estimating.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Define pay item lists and formulae mapped to model objects.</li>
+            <li>Compute earthwork from accurate existing/proposed surfaces.</li>
+            <li>Use material sections/corridors for quantity extraction by station.</li>
+            <li>Re-run takeoff as the design evolves for live quantities.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Quantities from inaccurate surfaces or incomplete corridors.</li>
+            <li>Ignoring shrink/swell factors in earthwork.</li>
+            <li>Manual measurement where model-based takeoff is available.</li>
+            <li>Not reconciling model quantities against pay-item definitions.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/CIV3D/2024/ENU/?guid=GUID-qto" target="_blank" rel="noopener nofollow">Autodesk — Civil 3D quantity takeoff</a></li>
+            <li><a href="https://www.autodesk.com/products/civil-3d/" target="_blank" rel="noopener nofollow">Autodesk Civil 3D</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more Civil 3D topics in our <a href="../software/civil-3d">Civil 3D knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

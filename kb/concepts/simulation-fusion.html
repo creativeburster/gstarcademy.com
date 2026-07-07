@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>Fusion 360's Simulation workspace provides cloud-computed Finite Element Analysis directly integrated with the design environment. Study types include: Static Stress (linear), Modal Frequencies (natural vibrations), Thermal (steady-state heat transfer), Thermal Stress (combined), Buckling (critical load factors), Nonlinear Static (large deformation, contact), and Event Simulation (drop test, impact).</p>
-<p>Workflow: define materials (from extensive library) → apply constraints (fixed, pin, frictionless, prescribed displacement) → apply loads (force, pressure, moment, bearing, gravity, thermal) → mesh (auto or manual refinement) → solve (cloud compute) → interpret results (von Mises stress, displacement, factor of safety). The cloud solver eliminates local hardware limitations — complex studies that would take hours locally can run on powerful cloud instances.</p>
-<p>Design validation approach: run simulation on your initial design → identify high-stress regions → modify geometry → re-run to verify improvement. Shape Optimization (topology/generative) goes further — you define keep/remove regions, loads, and constraints, then the solver generates an organic geometry that minimizes mass while meeting stress requirements. This result can be refined and manufactured via additive methods or used as a guide for traditional design.</p>
+          <p>Workflow: define materials (from extensive library) → apply constraints (fixed, pin, frictionless, prescribed displacement) → apply loads (force, pressure, moment, bearing, gravity, thermal) → mesh (auto or manual refinement) → solve (cloud compute) → interpret results (von Mises stress, displacement, factor of safety). The cloud solver eliminates local hardware limitations — complex studies that would take hours locally can run on powerful cloud instances.</p>
+          <p>Design validation approach: run simulation on your initial design → identify high-stress regions → modify geometry → re-run to verify improvement. Shape Optimization (topology/generative) goes further — you define keep/remove regions, loads, and constraints, then the solver generates an organic geometry that minimizes mass while meeting stress requirements. This result can be refined and manufactured via additive methods or used as a guide for traditional design.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding Simulation (FEA & Thermal) is essential for professionals working with Fusion 360 because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>Fusion Simulation brings integrated FEA (static stress, modal, thermal, buckling) and generative studies into the same environment as the CAD model, letting designers validate parts against loads without exporting to a separate solver.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Simplify geometry (remove tiny fillets/holes) before meshing where valid.</li>
+            <li>Apply realistic constraints and loads; check reactions balance.</li>
+            <li>Refine the mesh (convergence) at high-stress regions.</li>
+            <li>Interpret singularities at sharp corners with caution.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Trusting a single coarse mesh with no convergence check.</li>
+            <li>Over-constraining, hiding real deflection.</li>
+            <li>Reading peak stress at geometric singularities as real.</li>
+            <li>Wrong material/units producing meaningless results.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/fusion360/ENU/?guid=SIM" target="_blank" rel="noopener nofollow">Autodesk — Fusion simulation</a></li>
+            <li><a href="https://www.autodesk.com/products/fusion-360/" target="_blank" rel="noopener nofollow">Autodesk Fusion</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more Fusion 360 topics in our <a href="../software/fusion-360">Fusion 360 knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">
