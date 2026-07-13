@@ -140,6 +140,8 @@ def main() -> int:
 
     # Write sitemap
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    # Keep the XSL stylesheet so the sitemap renders as a readable table in-browser.
+    lines.append('<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>')
     lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
     for url, lastmod, priority, changefreq in entries:
         lines.append("  <url>")
