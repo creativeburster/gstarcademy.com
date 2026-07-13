@@ -116,6 +116,15 @@ def is_excluded(url_path: str) -> bool:
     return False
 
 
+def is_noindex(filepath: str | None) -> bool:
+    if not filepath:
+        return False
+    p = REPO / filepath
+    if not p.exists():
+        return False
+    return 'content="noindex' in p.read_text(encoding="utf-8")
+
+
 def main() -> int:
     # Read existing sitemap to get all URLs
     content = SITEMAP.read_text(encoding="utf-8")
@@ -129,6 +138,8 @@ def main() -> int:
             continue
 
         filepath = url_to_filepath(url)
+        if is_noindex(filepath):
+            continue
         lastmod = git_lastmod(filepath) if filepath else datetime.now().strftime("%Y-%m-%d")
         priority, changefreq = get_priority_changefreq(url_path)
 
