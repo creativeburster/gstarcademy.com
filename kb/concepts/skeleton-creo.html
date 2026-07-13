@@ -54,10 +54,6 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Skeleton Modelling (Creo)","description":"PTC's top-down design pattern — a master skeleton part contains datums, sketches, and references that downstream parts inherit via Copy Geometry.","url":"https://gstarcademy.com/kb/concepts/skeleton-creo","datePublished":"2026-05-24","dateModified":"2026-06-30","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Gstarcademy","url":"https://gstarcademy.com"},"mainEntityOfPage":"https://gstarcademy.com/kb/concepts/skeleton-creo","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Skeleton Modelling (Creo)","description":"PTC's top-down design pattern — a master skeleton part contains datums, sketches, and references that downstream parts inherit via Copy Geometry.","url":"https://gstarcademy.com/kb/concepts/skeleton-creo","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Skeleton Modelling (Creo)","item":"https://gstarcademy.com/kb/concepts/skeleton-creo"}]}</script>
-  
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Skeleton Modelling (Creo)?", "acceptedAnswer": {"@type": "Answer", "text": "A skeleton model is a special .prt holding reference geometry (datums, sketches, axes, curves, surfaces) that defines the assembly's design intent. Other parts in the assembly use Copy Geometry features to bring skeleton references into their own files. Editing the skeleton propagates to all dependent parts. Master skeleton modelling is the recommended pattern for medium-to-large assemblies."}}, {"@type": "Question", "name": "Why does Skeleton Modelling (Creo) matter in professional workflows?", "acceptedAnswer": {"@type": "Answer", "text": "Skeleton modelling is the canonical Creo approach to top-down design. It centralises design intent and isolates parts from each other's internals — significantly more proven than ad-hoc inter-part references."}}, {"@type": "Question", "name": "What are common mistakes when working with Skeleton Modelling (Creo)?", "acceptedAnswer": {"@type": "Answer", "text": "Skeleton with too much detail — becomes a large, slow file that takes minutes to regenerate. Copy Geometry features that reference too many skeleton entities — every skeleton edit cascades widely. Inconsistent skeleton naming across projects — knowledge transfer suffers."}}]}</script>
-  
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to implement Skeleton Modelling (Creo)", "step": [{"@type": "HowToStep", "position": 1, "text": "Set Up the Part/Assembly Template: Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch."}, {"@type": "HowToStep", "position": 2, "text": "Apply Parametric Constraints Methodically: When building Skeleton Modelling (Creo), constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references)."}, {"@type": "HowToStep", "position": 3, "text": "Enrich Metadata for Manufacturing: Populate custom properties (material, finish, heat treatment, part number) in the model's iProperties, custom attributes, or parameters. These feed directly into BOMs, PDM systems, and ERP integrations."}, {"@type": "HowToStep", "position": 4, "text": "Validate and Release: Run interference detection on assemblies, verify mass properties, and check for rebuild errors or suppressed features. Pass the model through your PDM/PLM check-in workflow with appropriate revision and lifecycle state updates."}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-concepts">
     <div class="header-stack">
@@ -144,51 +140,6 @@
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
           <p>Skeleton modelling is the canonical Creo approach to <a href="./top-down-creo"><a href="./top-down-creo" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">top-down design</a></a>. It centralises design intent and isolates parts from each other's internals — significantly more proven than ad-hoc inter-part references.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p>Surface modeling operations in <strong>Skeleton Modelling (Creo)</strong> create open-body geometry (surfaces without enclosed volume) using NURBS mathematics. Each surface is defined by a control-point grid, knot vectors in U and V directions, and a polynomial degree. The surface passes near (not through) the control points, with the degree determining how smoothly the surface responds to control-point adjustments. Higher-degree surfaces (degree 5 or above) offer more curvature continuity but increase computational cost for intersection and projection operations.</p>
-        <p>When Skeleton Modelling (Creo) involves trimming a surface against another (e.g., creating a fillet between two faces), the kernel computes the intersection curve—a computationally expensive operation that involves solving systems of polynomial equations. The resulting trim curve divides each surface into "used" and "unused" regions. Trim-curve accuracy affects downstream operations: poor trim tolerances cause gap or overlap errors at face boundaries, which become visible as "stitching" failures when attempting to convert open surfaces into a closed solid for Skeleton Modelling (Creo) downstream operations like shelling or Boolean subtraction.</p>
-
-        </section>
-        <section class="kb-concept-section">
-          <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Skeleton Modelling (Creo)</strong> in a mechanical or product-design production pipeline requires proven modeling discipline and data management:</p>
-    <ol>
-      <li><strong>Set Up the Part/Assembly Template:</strong> Start from a company-standard template that pre-configures units, material libraries, default tolerances, and drawing sheet formats. Ensure the design intent is captured through a clean feature tree from the first sketch.</li>
-      <li><strong>Apply <a href="./constraints-autocad" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">Parametric Constraints</a> Methodically:</strong> When building <strong>Skeleton Modelling (Creo)</strong>, constrain sketches fully before extruding. Reference stable datum planes and origin geometry rather than edge references that may shift during design changes (avoiding dangling references).</li>
-      <li><strong>Enrich Metadata for Manufacturing:</strong> Populate custom properties (material, finish, heat treatment, part number) in the model's iProperties, custom attributes, or parameters. These feed directly into BOMs, PDM systems, and ERP integrations.</li>
-      <li><strong>Validate and Release:</strong> Run interference detection on assemblies, verify mass properties, and check for rebuild errors or suppressed features. Pass the model through your PDM/PLM check-in workflow with appropriate revision and lifecycle state updates.</li>
-    </ol>
-    
-        </section>
-        <section class="kb-concept-section">
-          <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
-          
-        
-
-        <p>Resolution guide for common <strong>Skeleton Modelling (Creo)</strong> issues in parametric modeling environments:</p>
-        <ul>
-          <li><strong>Rebuild errors after feature reorder:</strong> Moving a feature earlier in the tree causes Skeleton Modelling (Creo) to fail with "dangling reference" errors. <em>Resolution:</em> Before reordering, inspect the feature's parent-child relationships (right-click > Parent/Child). Ensure that all referenced geometry (faces, edges, planes) exists at the new position in the tree. Use origin planes and datum features as references instead of model faces to reduce reorder sensitivity.</li>
-          <li><strong>Fillet or chamfer failure on complex geometry:</strong> Applying a fillet to edges created by Skeleton Modelling (Creo) produces "failed to create fillet" errors. <em>Resolution:</em> Check for tangent edges, very short edges, or edges where the fillet radius exceeds the available face width. Try reducing the radius or splitting the fillet into multiple smaller operations. Some kernels handle variable-radius fillets more robustly than constant-radius fillets for complex edge chains.</li>
-          <li><strong>Assembly interference not detected:</strong> Components overlap but the interference check reports no conflicts. <em>Resolution:</em> Verify that all components are fully resolved (not lightweight or suppressed). Check that the interference check settings include the correct component pairs. Surface bodies and reference geometry are typically excluded from interference checks—ensure the overlapping bodies are solid bodies.</li>
-        </ul>
-
-        </section>
-        <section class="kb-concept-section">
-          <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-
-    <p>In multi-discipline product development, <strong>Skeleton Modelling (Creo)</strong> must integrate smoothly with downstream manufacturing, simulation, and documentation workflows:</p>
-    <ul>
-      <li><strong>Neutral Format Exchange:</strong> Export to STEP AP214/AP242 for maximum fidelity when sharing with partners who use different CAD platforms. Validate that feature topology, PMI (tolerances, datums, surface finish), and assembly structure survive the translation. Avoid relying on native formats for external suppliers.</li>
-      <li><strong>PDM/PLM Integration:</strong> Check in models through the product data management system with complete metadata (revision, lifecycle state, effectivity). Ensure that the BOM structure visible in the PLM matches the CAD assembly hierarchy, and that released parts are locked from unauthorized edits.</li>
-      <li><strong>Simulation and Manufacturing Handoff:</strong> Provide defeatured geometry to FEA analysts (remove cosmetic rounds, simplify internal cavities) and manufacturing-ready geometry to CAM programmers (with GD&T annotations). Coordinate on material specifications and tolerance stack-ups across the design-to-production chain.</li>
-    </ul>
-    
         </section>
         <section class="kb-concept-section">
           <h2>Common pitfalls</h2>
@@ -401,19 +352,6 @@
         </div>
       </div>
     </section>
-    
-
-        
-        <section class="kb-concept-section">
-        <h2>Practical Workflow Tips</h2>
-        <p>Field-tested practices for Skeleton Modelling (Creo) in mechanical design workflows:</p>
-        <ul>
-          <li><strong>Establish assembly structure before detailing:</strong> Lay out the top-level assembly structure before detailing individual parts. A top-down approach where assembly context informs part geometry prevents fit-up surprises.</li>
-          <li><strong>Use pack-and-go for file sharing:</strong> When sharing Skeleton Modelling (Creo) models externally, use pack-and-go rather than manually copying files to capture all referenced files.</li>
-          <li><strong>Check interference before release:</strong> Run an interference check as the final step before releasing to manufacturing. Physical interference is the most expensive class of error to fix after parts are cut.</li>
-          <li><strong>Maintain a shared material library:</strong> Store material properties in a shared library rather than per-part. This ensures consistent mass calculations and BOM descriptions across all components.</li>
-        </ul>
-        </section>
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Sources &amp; further reading</h2>
           <ul class="ink-source-list"><li><a href="https://www.ptc.com/en/support" rel="noopener noreferrer nofollow" target="_blank">PTC Support Portal and Help Reference Center</a> · <span class="meta">PTC Inc.</span></li></ul>
@@ -454,7 +392,7 @@
       <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
         <div style="flex: 1; min-width: 200px;">
           <p style="font-size: 12px; font-weight: 600; color: var(--ink-text); margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
-          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Technically reviewed by domain specialists. Content follows our <a href="../../editorial-process" style="color: var(--accent); text-decoration: underline;">editorial guidelines</a>.</p>
+          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">AI-assisted draft, editorially reviewed for accuracy. Content follows our <a href="../../editorial-process" style="color: var(--accent); text-decoration: underline;">editorial guidelines</a>.</p>
         </div>
         <div style="text-align: right; min-width: 140px;">
           <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Last updated</p>

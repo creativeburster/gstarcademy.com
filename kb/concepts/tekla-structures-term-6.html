@@ -54,10 +54,6 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Drawing List (Tekla Structures)","description":"Central organization dashboard for structural sheet packages.","url":"https://gstarcademy.com/kb/concepts/tekla-structures-term-6","datePublished":"2026-05-28","dateModified":"2026-06-30","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Gstarcademy","url":"https://gstarcademy.com"},"mainEntityOfPage":"https://gstarcademy.com/kb/concepts/tekla-structures-term-6","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Drawing List (Tekla Structures)","description":"Central organization dashboard for structural sheet packages.","url":"https://gstarcademy.com/kb/concepts/tekla-structures-term-6","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Drawing List (Tekla Structures)","item":"https://gstarcademy.com/kb/concepts/tekla-structures-term-6"}]}</script>
-  
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Drawing List (Tekla Structures)?", "acceptedAnswer": {"@type": "Answer", "text": "In Tekla Structures, Drawing List represents a core architectural mechanism. The administrative panel managing assembly, erection, and single-part drawings, tracking active revisions and sheet releases. By establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks."}}, {"@type": "Question", "name": "Why does Drawing List (Tekla Structures) matter in professional workflows?", "acceptedAnswer": {"@type": "Answer", "text": "Understanding Drawing List thoroughly avoids the common pitfalls that lead to project delays and rework. Ensures professional-grade drawing delivery, keeping fabricator shop drawings synchronized with active 3D model changes. Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies."}}, {"@type": "Question", "name": "What are common mistakes when working with Drawing List (Tekla Structures)?", "acceptedAnswer": {"@type": "Answer", "text": "Manually editing drawing texts in layouts, breaking the associative model link. Duplicate sheet numbering schemes."}}]}</script>
-  
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to implement Drawing List (Tekla Structures)", "step": [{"@type": "HowToStep", "position": 1, "text": "Initialize from the BIM Execution Plan (BEP): Bind the model to the project template that defines levels, grids, shared coordinates, and workset structure. Confirm that the BEP's LOD requirements match the current design phase."}, {"@type": "HowToStep", "position": 2, "text": "Model Element Placement with Proper Classification: When configuring Drawing List (Tekla Structures), assign correct IFC classifications (e.g., IfcWall, IfcSlab, IfcBeam) and ensure that type/instance parameters carry the required COBie or Uniclass data for downstream handoff."}, {"@type": "HowToStep", "position": 3, "text": "Coordination and Clash Resolution: Federate the model regularly with structural, MEP, and architectural disciplines. Run interference checks to identify spatial conflicts, and log resolution actions in a BCF-compatible issue tracker."}, {"@type": "HowToStep", "position": 4, "text": "Model Health Validation: Run model audit tools to detect warnings such as duplicate instances, room-bounding errors, or unjoined elements. Verify that schedules and quantity takeoffs reflect accurate, current model data before milestone submissions."}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-concepts">
     <div class="header-stack">
@@ -139,57 +135,10 @@
     <section class="kb-concept-section">
           <h2>Definition</h2>
           <p>In <a href="../software/tekla-structures">Tekla Structures</a>, Drawing List represents a core architectural mechanism. The administrative panel managing assembly, erection, and single-part <a href="./drawings-fusion"><a href="./drawings-fusion" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">drawings</a></a>, tracking active revisions and sheet releases.</p>
-<p>By establishing precise standards early in the project setup, engineers can drastically reduce down-stream regeneration errors and optimize viewport refreshing frame rates during heavy multi-discipline coordination tasks.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Why it matters</h2>
           <p>Understanding Drawing List thoroughly avoids the common pitfalls that lead to project delays and rework. Ensures professional-grade drawing delivery, keeping fabricator shop drawings synchronized with active 3D model changes.</p>
-<p>Without it, downstream fabrication or cross-discipline model federation will face geometric conversion anomalies, topological reference losses, and data transfer discrepancies.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p><strong>Drawing List (Tekla Structures)</strong> interacts with the model's <a href="./phasing-revit" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">phasing</a> system, which assigns every element a "created in phase" and optionally a "demolished in phase" attribute. Views filter elements through phase filters that combine these phase assignments with graphic override rules (show as new, show as existing, show as demolished, or hide). This mechanism allows a single model to represent the building at multiple points in its lifecycle—existing conditions, demolition, new construction—without duplicating geometry.</p>
-        <p>The workset mechanism controls editing access to Drawing List (Tekla Structures) in multi-user environments. When a team member takes ownership of a workset, the elements within it become editable only on that user's local copy until synchronized back to the central model. Conflicts arise when Drawing List (Tekla Structures) references elements owned by different users—for example, a wall in one workset hosting a door in another—requiring careful workset organization to minimize synchronization conflicts and reduce the frequency of failed-to-save errors.</p>
-
-        </section>
-        <section class="kb-concept-section">
-          <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>Drawing List (Tekla Structures)</strong> in a BIM production environment requires careful coordination of model integrity and data standards:</p>
-    <ol>
-      <li><strong>Initialize from the BIM Execution Plan (BEP):</strong> Bind the model to the project template that defines levels, grids, <a href="./shared-coordinates-revit" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">shared coordinates</a>, and workset structure. Confirm that the BEP's LOD requirements match the current design phase.</li>
-      <li><strong>Model Element Placement with Proper Classification:</strong> When configuring <strong>Drawing List (Tekla Structures)</strong>, assign correct IFC classifications (e.g., IfcWall, IfcSlab, IfcBeam) and ensure that type/instance parameters carry the required COBie or Uniclass data for downstream handoff.</li>
-      <li><strong>Coordination and Clash Resolution:</strong> Federate the model regularly with structural, MEP, and architectural disciplines. Run interference checks to identify spatial conflicts, and log resolution actions in a BCF-compatible issue tracker.</li>
-      <li><strong>Model Health Validation:</strong> Run model audit tools to detect warnings such as duplicate instances, room-bounding errors, or unjoined elements. Verify that <a href="./schedules-revit" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">schedules</a> and quantity takeoffs reflect accurate, current model data before milestone submissions.</li>
-    </ol>
-    
-        </section>
-        <section class="kb-concept-section">
-          <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
-          
-        
-
-        <p>Troubleshooting <strong>Drawing List (Tekla Structures)</strong> in multi-user BIM coordination workflows:</p>
-        <ul>
-          <li><strong>Synchronization failures with central model:</strong> Attempting to sync Drawing List (Tekla Structures) changes produces "Can't find central model" or element ownership conflicts. <em>Resolution:</em> Verify network connectivity to the central file location. Check if another user holds editing permission on the affected workset. If the file server is unreachable, save the local changes as a backup before attempting to reconnect.</li>
-          <li><strong>IFC export produces generic proxy objects:</strong> Drawing List (Tekla Structures) elements export to IFC as IfcBuildingElementProxy instead of their correct IFC class. <em>Resolution:</em> Review the IFC export mapping table and verify that Drawing List (Tekla Structures)'s category maps to the appropriate IFC entity. Custom families may need their IFC Class parameter explicitly set in the family editor. Re-run the export after correcting the mapping.</li>
-          <li><strong>Linked model positions shift after reload:</strong> After updating a linked model, Drawing List (Tekla Structures) elements in the link appear offset from their expected positions. <em>Resolution:</em> Verify that both the host and <a href="./linked-models-revit" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">linked models</a> use the same shared coordinate system. Check the link's positioning method (Auto - Origin to Origin vs. Auto - By Shared Coordinates). If coordinates were recently acquired or published, the link may need to be removed and reloaded with the updated coordinates.</li>
-        </ul>
-
-        </section>
-        <section class="kb-concept-section">
-          <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-
-    <p>In federated BIM projects, <strong>Drawing List (Tekla Structures)</strong> is an active element in multi-discipline model exchanges. During inter-platform handoff (for example, exporting to IFC for clash detection or converting native models for coordination):</p>
-    <ul>
-      <li><strong>IFC Classification Mapping:</strong> Verify that <strong>Drawing List (Tekla Structures)</strong> elements export with the correct IFC entity type and property sets. Unmapped or generic proxy exports lose their semantic identity, reducing the value of coordination reviews and quantity takeoffs.</li>
-      <li><strong>Shared Coordinates and Georeferencing:</strong> Confirm that all discipline models share the same project base point, survey point, and true north orientation. Misaligned shared coordinates produce multi-meter offsets in the federated environment, creating false clash results.</li>
-      <li><strong>Version and Phase Management:</strong> Stamp model exchanges with phase, revision, and LOD metadata. Coordinate on a common data environment (CDE) platform with clear status codes (work-in-progress, shared, published) to prevent teams from basing decisions on superseded model snapshots.</li>
-    </ul>
-    
         </section>
         <section class="kb-concept-section">
           <h2>Common pitfalls</h2>
@@ -384,19 +333,6 @@ Without it, downstream fabrication or cross-discipline model federation will fac
         </div>
       </div>
     </section>
-    
-
-        
-        <section class="kb-concept-section">
-        <h2>Practical Workflow Tips</h2>
-        <p>Hard-won lessons from BIM projects involving Drawing List (Tekla Structures):</p>
-        <ul>
-          <li><strong>Build a project-specific parameter catalog early:</strong> Define all shared parameters at the project start, including naming conventions and data types. Attempting to standardize parameters for Drawing List (Tekla Structures) after multiple team members have created variants leads to duplicates that never fully consolidate.</li>
-          <li><strong>Use phases consistently:</strong> Set up phasing (existing, demolition, new construction) before any elements are placed. Retroactively assigning phases to Drawing List (Tekla Structures) elements is tedious, especially in renovation projects.</li>
-          <li><strong>Validate room boundaries floor by floor:</strong> After major model edits involving Drawing List (Tekla Structures), run a room/area check on each floor. Unenclosed rooms produce incorrect area calculations that flow into schedules.</li>
-          <li><strong>Establish a design option strategy:</strong> If Drawing List (Tekla Structures) will involve design alternatives, create design option sets at the project start rather than mid-project.</li>
-        </ul>
-        </section>
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Sources &amp; further reading</h2>
           <ul class="ink-source-list"><li><a href="https://teklastructures.support.tekla.com/" rel="noopener noreferrer nofollow" target="_blank">Tekla Structures Support & Documentation — Trimble</a> · <span class="meta">Trimble</span></li><li><a href="https://www.tekla.com/resources" rel="noopener noreferrer nofollow" target="_blank">Tekla Resources Library & Learning Center</a> · <span class="meta">Trimble</span></li></ul>
@@ -437,7 +373,7 @@ Without it, downstream fabrication or cross-discipline model federation will fac
       <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
         <div style="flex: 1; min-width: 200px;">
           <p style="font-size: 12px; font-weight: 600; color: var(--ink-text); margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
-          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Technically reviewed by domain specialists. Content follows our <a href="../../editorial-process" style="color: var(--accent); text-decoration: underline;">editorial guidelines</a>.</p>
+          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">AI-assisted draft, editorially reviewed for accuracy. Content follows our <a href="../../editorial-process" style="color: var(--accent); text-decoration: underline;">editorial guidelines</a>.</p>
         </div>
         <div style="text-align: right; min-width: 140px;">
           <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Last updated</p>
