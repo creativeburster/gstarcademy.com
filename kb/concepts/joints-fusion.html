@@ -29,7 +29,7 @@
     <title>Joints (Fusion 360) | Gstarcademy</title>
     <meta name="description" content="New user guide to Joints features in Fusion 360." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/joints-fusion" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -149,7 +149,23 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Joint types and the motion they allow</h2>
+          <p>Fusion joints define both position and permitted motion between two components: <strong>Rigid</strong> (0 DOF), <strong>Revolute</strong> (1 rotational), <strong>Slider</strong> (1 translational), <strong>Cylindrical</strong> (rotate + slide on one axis), <strong>Pin-Slot</strong> (rotate + translate), <strong>Planar</strong>, and <strong>Ball</strong> (spherical). You locate a joint by picking joint origins (face/edge/point snaps) on each component.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>As-built joints, motion links, and limits</h2>
+          <p>Use a normal <em>Joint</em> to snap parts together, or an <em>As-Built Joint</em> to add motion to components already in their final position (common for imported assemblies). Add <em>Joint Limits</em> to bound travel/rotation, <em>Motion Link</em> to couple two joints (e.g. gear ratios), and <em>Contact Sets</em> so parts collide instead of passing through during motion study.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/fusion360/ENU/" target="_blank" rel="nofollow noopener">Autodesk Fusion Help — Joints</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

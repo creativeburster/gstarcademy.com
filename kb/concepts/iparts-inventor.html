@@ -29,7 +29,7 @@
     <title>iParts / iAssemblies (Inventor) | Gstarcademy</title>
     <meta name="description" content="Inventor for newbies: iParts / iAssemblies made simple." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/iparts-inventor" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -148,7 +148,23 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Table-driven part and assembly families</h2>
+          <p>An iPart turns one part into a factory: an embedded table where each row is a member with its own dimensions, feature suppression, iProperties, and file name. iAssemblies do the same for assemblies, additionally controlling component inclusion. Placing an iPart prompts for the member row and generates the corresponding concrete file.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Authoring clean factories</h2>
+          <p>Rename parameters before building the table so columns are legible, mark key columns as <em>keys</em> to drive the placement dialog, and keep member counts sane — very large tables are better served by Content Center or iLogic. Use custom (versus standard) member behaviour when each placement must be an independently-numbered file.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/INVNTOR/2024/ENU/" target="_blank" rel="nofollow noopener">Autodesk Inventor Help — iParts and iAssemblies</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

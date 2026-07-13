@@ -29,7 +29,7 @@
     <title>Model-Based Definition (MBD, SOLIDWORKS) | SOLIDWORKS | Gstarcademy</title>
     <meta name="description" content="Model-Based Definition walkthrough for MBD, SOLIDWORKS first-timers." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/model-based-definition-solidworks" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -148,7 +148,24 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>PMI as the authority, not the drawing</h2>
+          <p>Model-Based Definition (MBD) attaches Product and Manufacturing Information — dimensions, GD&amp;T, datums, surface finish, notes — directly to the 3D model as annotations organised on <em>3D Views</em>. The 3D dataset becomes the authority, reducing or eliminating the 2D drawing. GD&amp;T here follows <strong>ASME Y14.5</strong> (2009/2018) or the ISO GPS system (e.g. <strong>ISO 1101</strong>), and MBD practice is codified in <strong>ASME Y14.41</strong> and <strong>ISO 16792</strong>.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Publishing a consumable package</h2>
+          <p>SOLIDWORKS MBD publishes to <strong>3D PDF</strong> (with rotatable views and a parts list) and to <strong>STEP AP242</strong>, which — unlike AP203/AP214 — carries semantic PMI that downstream CMM and CAM tools can read programmatically. Validate that datums, tolerances, and surface finish survive the export before releasing, and organise 3D Views so each captures a coherent set of features for inspection.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://www.solidworks.com/" target="_blank" rel="nofollow noopener">SOLIDWORKS MBD product page</a></li>
+            <li><a href="https://www.iso.org/" target="_blank" rel="nofollow noopener">ISO 16792 — Technical product documentation (ISO catalogue)</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

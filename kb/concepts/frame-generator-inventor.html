@@ -29,7 +29,7 @@
     <title>Frame Generator (Inventor) | Gstarcademy</title>
     <meta name="description" content="How Frame Generator works in Inventor — beginner tutorial." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/frame-generator-inventor" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -148,7 +148,23 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Skeleton-driven framing</h2>
+          <p>Frame Generator places standard structural shapes (ISO/AISC/DIN angle, channel, HSS, I-beam) along the edges of a <em>skeleton</em> sketch or existing geometry. Each member is inserted as its own part in a dedicated frame subassembly and linked back to the skeleton, so moving a skeleton line updates the framing. End treatments — <em>Miter</em>, <em>Trim/Extend</em>, <em>Notch</em>, <em>Lengthen/Shorten</em> — resolve how members meet at joints.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>From frame to BOM</h2>
+          <p>Because every member is a real part with a category and size, the assembly BOM and structured parts list report cut lengths and quantities directly. Reuse authored members by publishing custom profiles into the Content Center, and drive repeated frames from the skeleton so a single sketch edit re-cuts the whole structure.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/INVNTOR/2024/ENU/" target="_blank" rel="nofollow noopener">Autodesk Inventor Help — Frame Generator</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>
