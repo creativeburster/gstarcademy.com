@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Highway geometric design standards: design speed, sight distance, horizontal/vertical curves, and cross-section elements. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Road Design Standards (AASHTO/Eurocode) represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Road Design Standards (AASHTO/Eurocode) typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Road/highway geometric design follows standards such as <strong>AASHTO</strong> (US 'Green Book'), <strong>Austroads</strong>, and national design manuals. They govern design speed, horizontal alignment (curve radii, superelevation), vertical alignment (grades, K-values for crest/sag curves and sight distance), cross-section, and clearances.</p>
+          <p>Civil tools (Civil 3D, OpenRoads, 12d) build alignments, profiles, and corridor models that check these criteria and generate cross-sections, quantities, and machine-control surfaces.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Standards ensure roads are safe (sight distance, superelevation) and comfortable at design speed. Corridor modelling automates compliance checking and downstream deliverables.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Design horizontal/vertical geometry to the governing standard for the design speed.</li>
+            <li>Verify sight distance via K-values on crest/sag curves.</li>
+            <li>Apply superelevation and transitions per the standard.</li>
+            <li>Use corridor models to generate compliant sections and quantities.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Curve radii/grades that violate design-speed criteria.</li>
+            <li>Inadequate sight distance from wrong K-values.</li>
+            <li>Superelevation transitions not meeting the standard.</li>
+            <li>Manual sections that drift from the alignment/profile.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.transportation.org/" target="_blank" rel="noopener nofollow">AASHTO — Geometric Design (Green Book)</a></li>
+            <li><a href="https://www.bentley.com/software/openroads-designer/" target="_blank" rel="noopener nofollow">Bentley OpenRoads</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Hardware recommendations for CAD workstations: CPU selection, RAM sizing, GPU certification, and storage architecture. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Workstation Hardware for CAD represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Workstation Hardware for CAD typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>CAD/BIM workstation performance depends on matching hardware to workload. Most modelling is <strong>single-thread-bound</strong> (high clock CPU wins), while rendering, simulation, and meshing are multi-threaded (more cores win). A <strong>professional GPU</strong> (NVIDIA RTX/Quadro, AMD Radeon Pro) with certified drivers drives viewport performance; ample <strong>RAM</strong> (32–128 GB) and fast <strong>NVMe SSD</strong> handle large datasets.</p>
+          <p>ISV certification (e.g. SOLIDWORKS, CATIA, Revit) validates specific GPU/driver combinations for stability, which matters more than raw gaming benchmarks.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>The right workstation removes the daily friction of laggy viewports and slow rebuilds. Knowing which tasks are single- vs multi-threaded prevents overspending on cores that modelling can't use.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Prioritise high single-thread CPU clock for interactive modelling.</li>
+            <li>Use ISV-certified professional GPUs and drivers for stability.</li>
+            <li>Fit RAM to dataset size (32 GB min, 64–128 GB for large assemblies/BIM).</li>
+            <li>Use NVMe SSD for project data and scratch.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Buying many-core CPUs for workflows that are single-thread-bound.</li>
+            <li>Gaming GPUs/drivers that aren't ISV-certified, causing glitches.</li>
+            <li>Too little RAM, forcing paging on large models.</li>
+            <li>Slow spinning disks bottlenecking large-file I/O.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.solidworks.com/support/hardware-certification" target="_blank" rel="noopener nofollow">SOLIDWORKS — Hardware certification</a></li>
+            <li><a href="https://www.autodesk.com/support/technical/article/caas/sfdcarticles/" target="_blank" rel="noopener nofollow">Autodesk — System requirements</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

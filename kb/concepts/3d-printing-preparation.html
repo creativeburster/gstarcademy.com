@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Preparing CAD models for additive manufacturing: STL export, mesh repair, support structures, and build orientation. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, 3D Print Preparation in CAD represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of 3D Print Preparation in CAD typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Preparing a CAD model for additive manufacturing involves exporting a watertight mesh (<strong>STL</strong> or the richer <strong>3MF</strong>), repairing defects, choosing <strong>build orientation</strong>, generating <strong>support structures</strong>, and slicing into layers with print parameters. Slicers/preparation tools include Ultimaker Cura, PrusaSlicer, Materialise Magics, and Netfabb.</p>
+          <p>Orientation affects strength (anisotropy along layers), surface finish, support volume, and print time. Mesh quality (no holes, non-manifold edges, flipped normals) is critical because printers need a closed solid.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Print preparation determines whether a part prints successfully, how strong it is, and how much post-processing it needs. Good orientation and support strategy save material, time, and finishing effort.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Export a watertight mesh at adequate resolution (or use 3MF for units/color).</li>
+            <li>Orient for strength across load paths and to minimise supports on cosmetic faces.</li>
+            <li>Repair non-manifold/flipped geometry before slicing.</li>
+            <li>Tune layer height, infill, and supports to the part's function.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Exporting non-watertight or low-resolution STLs that slice badly.</li>
+            <li>Ignoring layer-direction anisotropy in load-bearing parts.</li>
+            <li>Excessive supports on visible surfaces, ruining finish.</li>
+            <li>Wrong units/scale from a careless STL export.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://ultimaker.com/software/ultimaker-cura/" target="_blank" rel="noopener nofollow">UltiMaker Cura</a></li>
+            <li><a href="https://www.materialise.com/en/industrial/software" target="_blank" rel="noopener nofollow">Materialise — 3D print prep</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

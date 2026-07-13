@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>AutoLISP/Visual LISP programming for CAD automation: syntax, functions, entity access, and dialog boxes. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, LISP Programming for CAD represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of LISP Programming for CAD typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>AutoLISP is the Lisp dialect embedded in AutoCAD (and compatibles such as GstarCAD, BricsCAD, ZWCAD) for automating drafting tasks. Programs define custom commands with <code>(defun c:MyCmd ...)</code>, manipulate entities via the DXF group-code model, and prompt for user input — all interpreted at runtime with no compiler.</p>
+          <p>Visual LISP (VLIDE) adds an IDE, ActiveX (vla-) access, and debugging. AutoLISP excels at batch edits, custom commands, and drawing automation without the overhead of the .NET or ObjectARX APIs.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>AutoLISP lets drafters automate repetitive tasks and encode office standards without compiling, delivering large productivity gains for a modest learning curve on the world's most common CAD platform.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Wrap reusable routines as named commands and load them via a startup suite/acaddoc.lsp.</li>
+            <li>Handle user cancellation and errors with an error handler to restore state.</li>
+            <li>Use ActiveX (vla-*) for object properties beyond basic entity access.</li>
+            <li>Localise system-variable changes and reset them when the command ends.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Leaving system variables (osnap, cmdecho) changed after the routine ends.</li>
+            <li>No error handling, so a cancel leaves the drawing in a bad state.</li>
+            <li>Hard-coded paths/layer names that break across machines.</li>
+            <li>Assuming vanilla AutoLISP behaves identically on every clone.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-lisp" target="_blank" rel="noopener nofollow">Autodesk — AutoLISP developer guide</a></li>
+            <li><a href="https://www.afralisp.net/" target="_blank" rel="noopener nofollow">AfraLISP — AutoLISP tutorials</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

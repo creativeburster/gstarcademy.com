@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>IFC (Industry Foundation Classes, ISO 16739) is the open international standard for describing building and construction data. Unlike DWG or RVT, IFC is vendor-neutral — any BIM software can import and export IFC files for cross-platform coordination. The standard defines entity types (IfcWall, IfcSlab, IfcDoor, IfcSpace), property sets (Pset_WallCommon, Pset_DoorCommon), and relationships (containment, connection, decomposition).</p>
-<p>IFC versions: IFC2x3 is still the most widely deployed (supported by all major BIM tools); IFC4 adds improved geometry kernels, property templates, and infrastructure entities; IFC4.3 extends to rail, road, bridge, and tunnel infrastructure. The buildingSMART alliance maintains the standard and certification program (IFC export/import conformance testing).</p>
-<p>Practical considerations: IFC export quality varies wildly between authoring tools — some produce clean, well-classified models while others export geometrically correct but semantically poor data. Use Model View Definitions (MVDs) to specify which data should be included (Coordination View for clash detection, Design Transfer View for full model exchange). IFC files can be validated using tools like Solibri, BIMcollab, or the open-source IfcOpenShell library. For many public-sector projects globally, IFC delivery is now contractually required.</p>
+          <p>IFC versions: IFC2x3 is still the most widely deployed (supported by all major BIM tools); IFC4 adds improved geometry kernels, property templates, and infrastructure entities; IFC4.3 extends to rail, road, bridge, and tunnel infrastructure. The buildingSMART alliance maintains the standard and certification program (IFC export/import conformance testing).</p>
+          <p>Practical considerations: IFC export quality varies wildly between authoring tools — some produce clean, well-classified models while others export geometrically correct but semantically poor data. Use Model View Definitions (MVDs) to specify which data should be included (Coordination View for clash detection, Design Transfer View for full model exchange). IFC files can be validated using tools like Solibri, BIMcollab, or the open-source IfcOpenShell library. For many public-sector projects globally, IFC delivery is now contractually required.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding IFC (Industry Foundation Classes) is essential for professionals working with Multi-platform because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>IFC (Industry Foundation Classes) is the ISO 16739 open, vendor-neutral data model that lets BIM tools exchange building information, making it the cornerstone of openBIM and a requirement in many national BIM mandates.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Agree the IFC version (IFC4/IFC2x3) and Model View Definition (MVD) for exchange.</li>
+            <li>Map elements to correct IFC classes and property sets before export.</li>
+            <li>Validate exports with an IFC checker (e.g. Solibri, IfcOpenShell) and IDS.</li>
+            <li>Use IFC for coordination/handover, keeping native files for authoring.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Exporting to the wrong IFC version/MVD for the recipient.</li>
+            <li>Mis-classified elements (walls exported as generic proxies).</li>
+            <li>Assuming round-trip IFC editing is lossless.</li>
+            <li>Skipping validation, so bad data reaches partners.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/" target="_blank" rel="noopener nofollow">buildingSMART — IFC</a></li>
+            <li><a href="https://www.iso.org/standard/70303.html" target="_blank" rel="noopener nofollow">ISO 16739</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more Multi-platform topics in our <a href="../software/revit">Multi-platform knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

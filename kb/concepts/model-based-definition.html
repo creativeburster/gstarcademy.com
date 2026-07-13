@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>MBD approach: embedding PMI (Product Manufacturing Information) in 3D models to replace traditional 2D drawings. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Model-Based Definition (MBD) represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Model-Based Definition (MBD) typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Model-Based Definition (MBD) makes the annotated 3-D model — not a 2-D drawing — the authoritative product definition. GD&amp;T, dimensions, notes, and PMI (Product and Manufacturing Information) are embedded directly on the model per <strong>ASME Y14.41</strong> / <strong>ISO 16792</strong>.</p>
+          <p>PMI flows downstream to CAM, CMM inspection, and suppliers via formats such as 3D PDF, STEP AP242, or JT — enabling a drawingless workflow where a single source of truth drives manufacturing and quality.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>MBD removes the error-prone step of maintaining a separate 2-D drawing, speeds downstream reuse (CAM/CMM read PMI directly), and is increasingly mandated in aerospace and defence supply chains.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Author semantic (machine-readable) PMI, not just graphical annotations.</li>
+            <li>Use STEP AP242 or 3D PDF to carry PMI to suppliers and inspection.</li>
+            <li>Organise PMI on model views/saved states so consumers see the right info.</li>
+            <li>Agree the MBD standard (Y14.41) and data format with the supply chain.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Adding only graphical PMI that downstream tools can't consume automatically.</li>
+            <li>Maintaining both a drawing and MBD, defeating the purpose.</li>
+            <li>Exporting to a format that strips PMI (plain STEP AP203).</li>
+            <li>Cluttered, unorganised annotations with no view management.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.asme.org/codes-standards" target="_blank" rel="noopener nofollow">ASME Y14.41</a></li>
+            <li><a href="https://www.ap242.org/" target="_blank" rel="noopener nofollow">STEP AP242 — MBD</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

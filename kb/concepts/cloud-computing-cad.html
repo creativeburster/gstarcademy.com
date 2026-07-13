@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Cloud-native CAD platforms and cloud-compute rendering: benefits, limitations, and security considerations for engineering. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Cloud Computing for CAD/BIM represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Cloud Computing for CAD/BIM typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Cloud computing in CAD spans <strong>cloud-native CAD</strong> (Onshape runs entirely in the browser), <strong>cloud collaboration/CDE</strong> (Autodesk Construction Cloud, Trimble Connect), and <strong>burst compute</strong> for rendering and simulation (cloud render farms, on-demand FEA/CFD). Data lives centrally with browser or thin-client access.</p>
+          <p>Benefits include anywhere access, elastic compute for heavy jobs, automatic versioning, and simplified IT; concerns include connectivity dependence, data residency, and subscription cost.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>The cloud removes local hardware limits for heavy jobs and enables real-time multi-user collaboration, reshaping how distributed teams design and review — provided connectivity and data governance are handled.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Use cloud burst for rendering/simulation peaks instead of buying idle hardware.</li>
+            <li>Rely on the platform's versioning and access control for collaboration.</li>
+            <li>Check data residency/security requirements before uploading IP.</li>
+            <li>Plan for offline/low-bandwidth scenarios where needed.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Assuming constant high-bandwidth connectivity everywhere.</li>
+            <li>Ignoring data-residency/IP requirements when uploading models.</li>
+            <li>Uncontrolled cloud compute cost from unmanaged jobs.</li>
+            <li>No local fallback when the service or link is down.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.onshape.com/" target="_blank" rel="noopener nofollow">Onshape — Cloud CAD</a></li>
+            <li><a href="https://construction.autodesk.com/" target="_blank" rel="noopener nofollow">Autodesk Construction Cloud</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

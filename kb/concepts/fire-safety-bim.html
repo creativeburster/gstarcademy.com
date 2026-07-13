@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>BIM for fire engineering: egress analysis, fire compartmentation, smoke control modeling, and code compliance verification. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Fire Safety Design in BIM represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Fire Safety Design in BIM typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Fire safety in BIM coordinates life-safety design: egress and travel-distance analysis, fire compartmentation and ratings, sprinkler/detection layouts, smoke control, and code compliance (IBC, NFPA, local codes). Model data (fire ratings, occupancy, exit widths) supports checking and documentation.</p>
+          <p>Performance-based design may use egress simulation (Pathfinder) and fire/smoke CFD (FDS, PyroSim) for complex buildings, coordinated with architecture and MEP in the model.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Fire safety is life-critical and heavily code-regulated. Model-based checking of egress, compartmentation, and systems reduces the risk of non-compliance and coordination gaps that cost lives and approvals.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Model fire ratings, compartments, and egress paths as checkable data.</li>
+            <li>Verify travel distances, exit widths, and occupancy loads to code.</li>
+            <li>Coordinate sprinkler/detection/smoke-control with other MEP and structure.</li>
+            <li>Use egress/fire simulation for performance-based cases.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Egress and compartmentation treated as annotation, not checkable data.</li>
+            <li>Travel distances/exit capacities not verified against occupancy.</li>
+            <li>Fire-protection systems uncoordinated with structure/MEP.</li>
+            <li>Assuming prescriptive rules where performance-based analysis is needed.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.nfpa.org/" target="_blank" rel="noopener nofollow">NFPA — Codes & standards</a></li>
+            <li><a href="https://www.thunderheadeng.com/" target="_blank" rel="noopener nofollow">Thunderhead — Pathfinder/PyroSim</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

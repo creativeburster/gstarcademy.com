@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>PDM systems for version control, file check-in/out, BOM management, and engineering release workflows. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, PDM (Product Data Management) represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of PDM (Product Data Management) typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Product Data Management (PDM) is a vault system that controls CAD files and their metadata: <strong>check-in/check-out</strong> locking, revision and version history, where-used and BOM references, and lifecycle states (WIP → Released). SOLIDWORKS PDM, Autodesk Vault, and PTC Windchill are common examples.</p>
+          <p>PDM prevents the classic multi-user problems of overwritten files and broken references by managing assemblies, drawings, and their links as a connected dataset with an audit trail.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>PDM is the foundation of controlled engineering data — it stops people overwriting each other, preserves history, and keeps assembly references intact, which is impossible with shared network folders.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Enforce check-in/check-out so only one person edits a file at a time.</li>
+            <li>Use lifecycle states and revision control rather than filename suffixes.</li>
+            <li>Let PDM manage references so renames/moves don't break assemblies.</li>
+            <li>Define metadata/data cards for searchability and BOM integration.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Working on copies outside the vault, breaking references.</li>
+            <li>Encoding revisions in filenames instead of using revision control.</li>
+            <li>Renaming/moving files in the OS, orphaning references.</li>
+            <li>No lifecycle gates, so unreleased data reaches manufacturing.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.solidworks.com/product/solidworks-pdm" target="_blank" rel="noopener nofollow">SOLIDWORKS PDM</a></li>
+            <li><a href="https://www.autodesk.com/products/vault/" target="_blank" rel="noopener nofollow">Autodesk Vault</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

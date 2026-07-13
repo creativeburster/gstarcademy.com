@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Visual Basic for Applications (VBA) macro development for AutoCAD and other CAD platforms with ActiveX automation. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, VBA Macros in CAD represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of VBA Macros in CAD typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>VBA (Visual Basic for Applications) is the legacy in-application scripting environment in AutoCAD, SOLIDWORKS, Inventor, and Excel. Macros automate repetitive steps, drive the application's COM object model, and integrate with Office (e.g. pushing BOM data to Excel).</p>
+          <p>VBA is easy to record and edit but is being deprecated in favour of .NET in several products; it remains widespread for quick automation and spreadsheet-driven workflows.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>VBA offers the lowest barrier to automation — record, tweak, run — making it a practical productivity tool, especially where CAD meets Excel-based data.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Record a macro as a starting point, then generalise and add error handling.</li>
+            <li>Use the object model rather than simulating keystrokes for reliability.</li>
+            <li>Keep macros in a shared, version-controlled location for the team.</li>
+            <li>Plan migration to .NET where the host is deprecating VBA.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Keystroke-based macros that break with UI changes.</li>
+            <li>No error handling, leaving the app in an odd state on failure.</li>
+            <li>Relying on VBA for new work in products that are removing it.</li>
+            <li>Scattered personal macros with no sharing or versioning.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.autodesk.com/support/technical/article/caas/downloads/" target="_blank" rel="noopener nofollow">Autodesk — AutoCAD VBA</a></li>
+            <li><a href="https://help.solidworks.com/" target="_blank" rel="noopener nofollow">SOLIDWORKS API — VBA</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

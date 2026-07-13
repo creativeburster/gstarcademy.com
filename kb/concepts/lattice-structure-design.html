@@ -17,9 +17,56 @@
       <article class="kb-concept-detail">
         <header class="kb-concept-header" style="margin-bottom:28px;"><span class="chip pill-warn">Industry Application</span><h1 style="margin-top:12px;">Lattice Structure Design</h1><p class="hero-sub">Professional guide to lattice structure design in CAD/BIM engineering workflows.</p></header>
         <div class="ink-byline" role="contentinfo"><span><strong>By</strong> Gstarcademy Editorial Team</span><span><strong>Updated</strong> <time datetime="2026-06-30">2026-06-30</time></span></div>
-        <section class="kb-concept-section"><h2>Overview</h2><p>Lattice Structure Design represents a specialized application of CAD/BIM technology in modern engineering practice. This domain combines geometric modeling, simulation, and digital fabrication principles to solve complex real-world challenges across multiple industries.</p><p>Engineers working in this area must balance design precision, manufacturing constraints, regulatory compliance, and cost optimization. Modern parametric tools enable rapid iteration and design exploration that was impossible with traditional manual methods.</p><p>The integration of lattice structure design with cloud computing, AI-assisted design, and digital twin technologies is creating new possibilities for optimization, predictive maintenance, and cross-disciplinary collaboration.</p></section>
-        <section class="kb-concept-section"><h2>Key Tools &amp; Workflows</h2><ul><li>Select appropriate software based on geometric complexity and analysis requirements</li><li>Establish standardized templates and workflows for team consistency</li><li>Integrate simulation early in the design process for validation</li><li>Maintain version control and documentation for regulatory compliance</li><li>Leverage automation for repetitive tasks and parametric variations</li></ul></section>
-        <section class="kb-concept-section"><h2>Learn More</h2><p>Explore related topics in our <a href="../../kb-terms">terminology index</a> and <a href="../learning-paths/">learning paths</a>.</p></section>
+
+        <section class="kb-concept-section">
+          <h2>Definition &amp; Context</h2>
+          <p>Lattice structure design creates repeating cellular geometry — strut-based (BCC, FCC, octet) or surface-based (TPMS: gyroid, Schwarz) — to achieve tailored stiffness, energy absorption, weight, and heat/flow properties. Lattices are computationally generated and graded, and are enabled by additive manufacturing.</p>
+          <p>Tools like nTopology generate and conform lattices to a volume with graded density, and homogenised/FEA methods predict effective properties for structural, thermal, or biomedical (bone in-growth) uses.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Lattices give lightweight, tunable performance — impact absorption, lightweighting, implants — unachievable with solid material, and are a signature capability of AM design.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Tools &amp; Software</h2>
+          <ul>
+            <li>nTopology</li>
+            <li>Autodesk Within/Fusion</li>
+            <li>FEA (homogenisation)</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Choose cell type (strut vs TPMS) for the target property.</li>
+            <li>Grade density to place material where loads/functions require.</li>
+            <li>Ensure minimum strut/wall size is printable and self-draining.</li>
+            <li>Predict effective properties with homogenisation/FEA.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Lattices below printable feature size or trapping powder.</li>
+            <li>Uniform lattices where grading would perform better.</li>
+            <li>Assuming lattice properties without analysis.</li>
+            <li>Stress concentrations at lattice-to-solid transitions.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Standards &amp; Interoperability</h2>
+          <ul>
+            <li>TPMS / lattice design methods</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.ntop.com/" target="_blank" rel="noopener nofollow">nTopology</a></li>
+            <li><a href="https://www.astm.org/committee-f42" target="_blank" rel="noopener nofollow">ASTM F42 — AM</a></li>
+          </ul>
+        </section>
+
         <aside style="margin-top:32px;padding:20px 24px;background:var(--ink-surface-2);border:1px solid var(--ink-line);border-radius:14px;"><p style="font-size:12px;font-weight:600;margin:0;">Gstarcademy Editorial Team &middot; 2026-06-30</p></aside>
       </article>
     </main>

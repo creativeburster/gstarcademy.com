@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Rendering Fundamentals for CAD represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Rendering Fundamentals for CAD typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Rendering converts 3-D geometry, materials, lights, and a camera into a 2-D image. Modern engines use <strong>physically based rendering (PBR)</strong> and <strong>ray/path tracing</strong> to simulate how light bounces, reflects, and refracts. Key concepts include global illumination (GI), sampling/noise, and denoising.</p>
+          <p>Renderers split into <strong>offline</strong> (V-Ray, Corona, Arnold, Cycles — photoreal, slower) and <strong>real-time</strong> (Enscape, Twinmotion, Unreal, Lumion — instant feedback). Output quality depends on materials, lighting, sampling settings, and post-processing.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>Rendering is how design intent is communicated and sold — to clients, marketing, and stakeholders. Understanding light, materials, and sampling is what turns flat geometry into a convincing image.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Get lighting right first (exposure, key/fill, GI) before tweaking materials.</li>
+            <li>Use PBR materials with correct roughness/metalness and real-world scale.</li>
+            <li>Balance samples vs denoising to control noise without over-smoothing.</li>
+            <li>Do color management and post (exposure, white balance) deliberately.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Over-bright/blown-out images from ignoring exposure and tone mapping.</li>
+            <li>Non-PBR or wrongly-scaled materials looking fake.</li>
+            <li>Excessive samples wasting hours, or too few leaving noise.</li>
+            <li>Skipping color management, producing inconsistent output.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.chaos.com/learn" target="_blank" rel="noopener nofollow">Chaos V-Ray — learning</a></li>
+            <li><a href="https://docs.blender.org/manual/en/latest/render/cycles/" target="_blank" rel="noopener nofollow">Blender — Cycles rendering</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

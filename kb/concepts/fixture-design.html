@@ -83,28 +83,42 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Overview</h2>
-          <p>Workholding fixture design principles in CAD: locating, clamping, supporting, and manufacturing accuracy. This concept is fundamental to modern engineering workflows and understanding it enables more efficient, higher-quality design output across projects of all scales.</p>
-<p>In professional practice, Fixture & Jig Design represents a critical competency that bridges theoretical knowledge with practical application. Whether working in Multi-platform or other platforms, the underlying principles remain consistent — making this knowledge transferable across your career.</p>
-<p>Mastery of Fixture & Jig Design typically distinguishes intermediate practitioners from advanced users. Organizations that invest in developing this capability across their teams report measurable improvements in design quality, reduced revision cycles, and better cross-disciplinary coordination.</p>
-        </section>
 
         <section class="kb-concept-section">
-          <h2>Key Considerations</h2>
+          <h2>Definition &amp; Context</h2>
+          <p>Fixture design creates the tooling that locates and holds a workpiece during machining, welding, inspection, or assembly. Core principles are the <strong>3-2-1 locating scheme</strong> (constraining all six degrees of freedom), repeatable datums, adequate clamping without distortion, and clear tool/chip access.</p>
+          <p>Modern fixtures use modular systems, standard clamps, and CAD/CAM integration; inspection fixtures reference the part's GD&amp;T datum reference frame so measurement matches design.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Why It Matters</h2>
+          <p>A good fixture guarantees part-to-part repeatability and correct datums. A poor one distorts the part, blocks tooling, or locates inconsistently — scrapping parts and confusing inspection.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
           <ul>
-            <li>Understand the fundamental principles before diving into software-specific implementations</li>
-            <li>Evaluate how this concept integrates with your existing workflows and team standards</li>
-            <li>Consider scalability — approaches that work for small projects may not suit enterprise requirements</li>
-            <li>Stay current with industry best practices as software capabilities evolve rapidly</li>
-            <li>Document your implementation decisions for team knowledge sharing and onboarding</li>
+            <li>Locate on the part's functional datums using a 3-2-1 scheme.</li>
+            <li>Clamp near supports to hold securely without bending the part.</li>
+            <li>Ensure tool, chip, and load/unload access; mistake-proof orientation.</li>
+            <li>Reference the GD&amp;T datum frame in inspection fixtures.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Over-constraining (redundant locators) that fights the part and induces stress.</li>
+            <li>Clamping unsupported spans, distorting the workpiece.</li>
+            <li>Locators not matching design datums, so parts measure wrong.</li>
+            <li>No chip/tool clearance, causing collisions or poor finish.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.carrlane.com/" target="_blank" rel="noopener nofollow">Carr Lane — Fixture design</a></li>
+            <li><a href="https://www.asme.org/codes-standards" target="_blank" rel="noopener nofollow">ASME Y14.5 — Datums</a></li>
           </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Learn More</h2>
-          <p>Explore related topics in our <a href="../../kb-terms">terminology index</a>, or find structured learning in our <a href="../learning-paths/">learning paths</a>. For software-specific guidance, visit the relevant <a href="../software/">software profiles</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

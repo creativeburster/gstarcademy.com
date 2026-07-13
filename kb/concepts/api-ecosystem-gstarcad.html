@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>GstarCAD provides three primary development APIs: GRX (C++ SDK compatible with AutoCAD's ObjectARX/ARX — allows direct porting of many ARX plugins), .NET API (C#/VB.NET access to the drawing database, UI customization, and command registration), and AutoLISP/Visual LISP (direct compatibility with AutoCAD LISP routines including DCL dialogs).</p>
-<p>The GRX SDK is the differentiating factor — most alternative CAD platforms only offer .NET or proprietary APIs, meaning AutoCAD C++ plugins need complete rewrites. GstarCAD's GRX maintains similar class hierarchies (AcDb → GcDb, AcRx → GcRx) enabling mechanical porting of ObjectARX applications. This dramatically reduces the cost for vertical developers (electrical, structural, civil) to support GstarCAD alongside AutoCAD.</p>
-<p>The plugin ecosystem includes vertical solutions for architecture (floor plans, elevations, BOM generation), mechanical design (parametric standard parts, tolerance analysis), civil engineering (road profiles, pipe networks), and surveying (point import, traverse calculation). Third-party developers publish through GstarCAD's extension center. For custom firm-specific automation, .NET with Visual Studio remains the most productive path — full access to the drawing database, ribbon UI, palettes, and Windows Forms/WPF for custom dialogs.</p>
+          <p>The GRX SDK is the differentiating factor — most alternative CAD platforms only offer .NET or proprietary APIs, meaning AutoCAD C++ plugins need complete rewrites. GstarCAD's GRX maintains similar class hierarchies (AcDb → GcDb, AcRx → GcRx) enabling mechanical porting of ObjectARX applications. This dramatically reduces the cost for vertical developers (electrical, structural, civil) to support GstarCAD alongside AutoCAD.</p>
+          <p>The plugin ecosystem includes vertical solutions for architecture (floor plans, elevations, BOM generation), mechanical design (parametric standard parts, tolerance analysis), civil engineering (road profiles, pipe networks), and surveying (point import, traverse calculation). Third-party developers publish through GstarCAD's extension center. For custom firm-specific automation, .NET with Visual Studio remains the most productive path — full access to the drawing database, ribbon UI, palettes, and Windows Forms/WPF for custom dialogs.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding API & Plugin Ecosystem is essential for professionals working with GstarCAD because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>GstarCAD's triple-API stack (GRX, .NET, LISP) lets organisations port existing AutoCAD customization — ARX plug-ins, .NET add-ins, and LISP routines — onto a lower-cost platform, which is the decisive factor for many when migrating away from AutoCAD.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Assess which APIs your existing tools use before planning a migration.</li>
+            <li>Port GRX/ARX plug-ins where source is available for near-native performance.</li>
+            <li>Reuse LISP/DCL routines directly to minimise migration effort.</li>
+            <li>Target the correct API version matching the GstarCAD release.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Assuming 100% ARX/.NET compatibility without testing your specific plug-ins.</li>
+            <li>Ignoring API-version differences between releases.</li>
+            <li>Porting only code and forgetting DCL dialogs and support files.</li>
+            <li>No regression testing of migrated tools on real drawings.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.gstarcad.net/" target="_blank" rel="noopener nofollow">GstarCAD — Developer resources</a></li>
+            <li><a href="https://aps.autodesk.com/" target="_blank" rel="noopener nofollow">Autodesk — ObjectARX</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more GstarCAD topics in our <a href="../software/gstarcad">GstarCAD knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">

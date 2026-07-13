@@ -95,22 +95,43 @@
           <span><a href="../../editorial-process">Editorial process</a></span>
         </div>
 
+
         <section class="kb-concept-section">
           <h2>Definition &amp; Context</h2>
           <p>STEP (Standard for the Exchange of Product model data, ISO 10303) is the most widely used neutral 3D CAD exchange format. Unlike proprietary formats (SLDPRT, CATPART, PRT), STEP files can be opened by virtually any professional CAD system. The two most common Application Protocols are AP203 (configuration-controlled 3D design) and AP214 (automotive design with colors and layers).</p>
-<p>What STEP preserves: exact B-rep geometry (NURBS surfaces, trimming curves), solid body topology, assembly structure (component hierarchy), basic color/material assignments (AP214), and geometric tolerances (AP242). What it loses: parametric feature history (sketch constraints, extrude depths), in-context assembly references, proprietary features (sheet metal bend tables, routing), and simulation setups.</p>
-<p>Best practices for exchange: export as AP214 (includes visual properties) or AP242 (adds PMI/GD&T); verify the export by reimporting into your own system and checking geometry integrity; for assemblies, maintain the component structure rather than exporting as a single solid; and include a PDF drawing as a visual reference since STEP has no guaranteed visual fidelity across importers. The receiving system should import STEP bodies as "dumb solids" and remodel critical features parametrically if future edits are needed.</p>
+          <p>What STEP preserves: exact B-rep geometry (NURBS surfaces, trimming curves), solid body topology, assembly structure (component hierarchy), basic color/material assignments (AP214), and geometric tolerances (AP242). What it loses: parametric feature history (sketch constraints, extrude depths), in-context assembly references, proprietary features (sheet metal bend tables, routing), and simulation setups.</p>
+          <p>Best practices for exchange: export as AP214 (includes visual properties) or AP242 (adds PMI/GD&T); verify the export by reimporting into your own system and checking geometry integrity; for assemblies, maintain the component structure rather than exporting as a single solid; and include a PDF drawing as a visual reference since STEP has no guaranteed visual fidelity across importers. The receiving system should import STEP bodies as "dumb solids" and remodel critical features parametrically if future edits are needed.</p>
         </section>
-
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
-          <p>Understanding STEP File Format (AP203/AP214) is essential for professionals working with Multi-platform because it directly impacts productivity, design quality, and team collaboration. Mastering this concept enables more efficient use of the software's capabilities and reduces common errors in professional workflows.</p>
+          <p>STEP (ISO 10303) is the dominant neutral CAD exchange format for solid/BRep geometry between MCAD systems; the modern AP242 protocol also carries PMI/MBD data, making it the backbone of multi-tool mechanical interoperability.</p>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Use AP242 when you need PMI/MBD; AP203/AP214 for geometry only.</li>
+            <li>Export solids (not surfaces) where downstream tools need solids.</li>
+            <li>Validate the imported model (geometry checks, healing) after translation.</li>
+            <li>Agree the STEP AP and version with partners before exchange.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Using AP203 when PMI/MBD data was required (needs AP242).</li>
+            <li>Assuming STEP round-trips features — it transfers dumb solids.</li>
+            <li>Skipping validation/healing of imported geometry.</li>
+            <li>Exporting surfaces where solids were expected.</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.ap242.org/" target="_blank" rel="noopener nofollow">STEP AP242</a></li>
+            <li><a href="https://www.iso.org/standard/63141.html" target="_blank" rel="noopener nofollow">ISO 10303</a></li>
+          </ul>
         </section>
 
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <p>Explore more Multi-platform topics in our <a href="../software/solidworks">Multi-platform knowledge base</a>, or browse the full <a href="../../kb-terms">terminology index</a>.</p>
-        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
           <div style="flex: 1; min-width: 200px;">
