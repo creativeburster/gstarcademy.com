@@ -29,7 +29,7 @@
     <title>Rebuild Errors (SOLIDWORKS) | Gstarcademy</title>
     <meta name="description" content="Learning Rebuild Errors in SOLIDWORKS? Start with this overview." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/rebuild-errors-solidworks" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -148,7 +148,23 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Why the feature tree breaks</h2>
+          <p>Most rebuild errors are <strong>dangling references</strong>: a sketch relation or feature pointed at an edge/face that no longer exists after an upstream change, so the reference turns dangling (shown with a red/yellow overlay). Common triggers are deleting a parent face, reordering features past their parents, or importing dumb geometry and then editing it. The tree evaluates top-down, so a single early break cascades into many downstream warnings.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>A repeatable triage</h2>
+          <p>1) Read the first error, not the last — fixing the topmost usually clears the rest. 2) Right-click the feature &gt; <em>What's Wrong</em> for the full diagnostic list. 3) Use <em>Display/Delete Relations</em> to find and repair dangling sketch relations. 4) Force a full rebuild with <kbd>Ctrl+Q</kbd> (vs <kbd>Ctrl+B</kbd> which only rebuilds changed features) to confirm the fix is stable. 5) Prevent recurrence by referencing planes and datums instead of transient faces.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.solidworks.com/" target="_blank" rel="nofollow noopener">SOLIDWORKS Web Help — Rebuild and errors</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

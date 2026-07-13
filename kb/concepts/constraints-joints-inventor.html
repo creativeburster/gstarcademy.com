@@ -29,7 +29,7 @@
     <title>Constraints &amp; Joints (Inventor) | Gstarcademy</title>
     <meta name="description" content="Constraints &amp; Joints walkthrough for Inventor first-timers." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/constraints-joints-inventor" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -148,7 +148,23 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Two ways to assemble the same DOF</h2>
+          <p>Classic <strong>assembly constraints</strong> (Mate, Flush, Angle, Tangent, Insert, Symmetry) each remove specific degrees of freedom and often require several to define one connection. The newer <strong>Joint</strong> command expresses the connection directly — Rigid, Rotational, Slider, Cylindrical, Planar, Ball — usually with a single placement, and shows remaining motion immediately. Both can coexist in one assembly.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Choosing constraints vs. joints</h2>
+          <p>Use joints for mechanisms where motion is the point (a hinge, a slider) — they are faster to place and clearer to read. Use constraints for precise, incremental positioning and legacy compatibility. In either case reference origin work features rather than transient faces so the assembly rebuilds predictably, and grounding the first component removes its six DOF as the fixed datum.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/INVNTOR/2024/ENU/" target="_blank" rel="nofollow noopener">Autodesk Inventor Help — Assemble (constraints and joints)</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

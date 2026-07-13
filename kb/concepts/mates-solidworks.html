@@ -29,7 +29,7 @@
     <title>Mates (SOLIDWORKS) | Gstarcademy</title>
     <meta name="description" content="Demystifying Mates in SOLIDWORKS for learners." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/mates-solidworks" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -150,7 +150,24 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>How the mate solver removes degrees of freedom</h2>
+          <p>Each unconstrained rigid body in an assembly has six degrees of freedom (DOF): three translational, three rotational. Every mate you add is an equation the solver must satisfy simultaneously at rebuild. A concentric mate removes two translational and two rotational DOF; a coincident face-to-face mate removes one translational and two rotational DOF. When the remaining DOF reach zero the component is <em>fully defined</em>; add one more consistent mate and it is over-defined but valid; add a contradictory one and SOLIDWORKS reports <code>Mate cannot be satisfied</code> and marks the mate with a red error.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Picking a mate scheme that survives edits</h2>
+          <p>Reference stable, permanent geometry — origin planes, axes, and published reference geometry — rather than model edges or faces that regenerate. For kinematics, prefer <strong>mechanical mates</strong> (gear, cam, rack-and-pinion, screw, hinge) over stacks of angle/limit mates: they express intent directly and rebuild faster. Group rigidly-moving parts into a subassembly and set it to <em>Rigid</em> so the top level only solves the moving interfaces. Use <code>View &gt; Hide/Show &gt; Mates</code> and the <em>Mate</em> folder's <em>View Mates</em> to audit what actually constrains a part.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.solidworks.com/" target="_blank" rel="nofollow noopener">SOLIDWORKS Web Help — Mates</a></li>
+            <li><a href="https://www.solidworks.com/" target="_blank" rel="nofollow noopener">Dassault Systèmes SOLIDWORKS product site</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

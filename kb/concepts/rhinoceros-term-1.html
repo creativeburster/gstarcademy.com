@@ -29,7 +29,7 @@
     <title>NURBS Geometry (Rhinoceros) | Gstarcademy</title>
     <meta name="description" content="Plain-English guide to NURBS Geometry in Rhinoceros." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/rhinoceros-term-1" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -147,7 +147,24 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>What defines a NURBS surface</h2>
+          <p>NURBS (Non-Uniform Rational B-Splines) represent curves and surfaces exactly from a few parameters: a grid of <strong>control points</strong>, a <strong>degree</strong> (degree 3 is the common smooth default), <strong>knots</strong> (the non-uniform parameter spacing), and per-point <strong>weights</strong> (the rational part, which lets NURBS capture conics like true circles and ellipses). The curve/surface passes near — not through — its control points, and editing a point produces predictable local change.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Continuity and clean geometry</h2>
+          <p>Adjacent surfaces meet with a defined continuity: <strong>G0</strong> (touching), <strong>G1</strong> (tangent), or <strong>G2</strong> (curvature-continuous, required for class-A reflections). Keep degree and point counts as low as the shape allows — over-heavy control grids cause waviness and heavy downstream trims. See <a href="./rhinoceros-term-4">Mesh vs. NURBS</a> for when a polygon mesh is the better representation.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://docs.mcneel.com/rhino/8/help/en-us/" target="_blank" rel="nofollow noopener">Rhino Help — What are NURBS?</a></li>
+            <li><a href="https://www.rhino3d.com/" target="_blank" rel="nofollow noopener">McNeel Rhinoceros product site</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

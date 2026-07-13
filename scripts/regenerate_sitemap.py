@@ -125,11 +125,32 @@ def is_noindex(filepath: str | None) -> bool:
     return 'content="noindex' in p.read_text(encoding="utf-8")
 
 
+def discover_concept_urls() -> list[str]:
+    """Canonical URLs of all kb/concepts pages present on disk.
+
+    Ensures pages that were re-indexed (noindex -> index) re-enter the sitemap,
+    even if a previous run dropped them. noindex pages are filtered later.
+    """
+    found = []
+    for p in sorted((REPO / "kb" / "concepts").glob("*.html")):
+        m = re.search(r'<link rel="canonical" href="([^"]+)"', p.read_text(encoding="utf-8"))
+        if m:
+            found.append(m.group(1))
+    return found
+
+
 def main() -> int:
     # Read existing sitemap to get all URLs
     content = SITEMAP.read_text(encoding="utf-8")
     url_pattern = re.compile(r"<loc>([^<]+)</loc>")
     urls = url_pattern.findall(content)
+
+    # Merge in any concept pages found on disk (dedup, preserve order).
+    seen = set(urls)
+    for u in discover_concept_urls():
+        if u not in seen:
+            seen.add(u)
+            urls.append(u)
 
     entries = []
     for url in urls:

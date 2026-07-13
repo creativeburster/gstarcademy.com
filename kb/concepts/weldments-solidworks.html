@@ -29,7 +29,7 @@
     <title>Weldments (SOLIDWORKS) | Gstarcademy</title>
     <meta name="description" content="Explore Weldments in SOLIDWORKS: entry-level explanation." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/weldments-solidworks" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -148,7 +148,23 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Structural members, trim, and the cut list</h2>
+          <p>Weldments build a frame from a single multibody part: sketch the skeleton, then <em>Insert &gt; Weldments &gt; Structural Member</em> sweeps a library profile (ISO/ANSI/DIN sections) along each segment. <em>Trim/Extend</em> resolves corner conditions (end-miter, butt). Each member becomes a solid body, and SOLIDWORKS auto-populates a <strong>Cut List</strong> that groups identical bodies with lengths and quantities — the basis of a cut-length BOM.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Gussets, end caps, and weld beads</h2>
+          <p>Add <em>Gusset</em> and <em>End Cap</em> features for real fabrication detail, and <em>Weld Bead</em> features to document fillet/groove welds; weld beads carry size and length data into the cut list and drawing weld symbols. Create custom profiles by saving a sketch as a <em>Library Feature Part</em> (.sldlfp) under the weldment profiles folder so they appear in the Structural Member picker.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.solidworks.com/" target="_blank" rel="nofollow noopener">SOLIDWORKS Web Help — Weldments</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

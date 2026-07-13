@@ -29,7 +29,7 @@
     <title>Configurations (SOLIDWORKS) | Gstarcademy</title>
     <meta name="description" content="Crash course: Configurations fundamentals in SOLIDWORKS." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/configurations-solidworks" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -149,7 +149,23 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>What a configuration actually stores</h2>
+          <p>A configuration is a named variation of the <em>same</em> document. It can suppress/unsuppress features and components, override dimension and equation values, change custom properties, and switch mate states — all without a second file. Configurations are stored inside the part/assembly and surfaced through the ConfigurationManager tab. Derived configurations inherit from a parent so shared changes propagate automatically.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Driving configurations at scale</h2>
+          <p>For a handful of variants, right-click in the ConfigurationManager and edit values manually. For a family (fasteners, fittings, standard frames), drive them from a <a href="./design-tables-solidworks">Design Table</a> so an Excel grid owns every parameter. Keep a lightweight <em>as-machined</em> vs <em>as-cast</em> split with derived configurations, and expose only the properties downstream drawings and BOMs need via configuration-specific custom properties.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.solidworks.com/" target="_blank" rel="nofollow noopener">SOLIDWORKS Web Help — Configurations</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>

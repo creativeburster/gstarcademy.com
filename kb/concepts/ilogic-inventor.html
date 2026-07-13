@@ -29,7 +29,7 @@
     <title>iLogic (Inventor) | Gstarcademy</title>
     <meta name="description" content="Inventor feature spotlight: iLogic for new users." />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/ilogic-inventor" />
-    <meta name="robots" content="noindex, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -148,7 +148,23 @@
         </section>
 
         
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+            <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Rules, parameters, and triggers</h2>
+          <p>iLogic embeds design logic in Inventor documents as <strong>rules</strong> written in a VB.NET-based language. Rules read and write model <em>parameters</em> (<code>Length = 120</code>), suppress features, drive iProperties, swap components, and control configurations. Rules fire on events — <em>After Open Document</em>, parameter change, or manual run — so a model can reconfigure itself when an input changes.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>Building maintainable automation</h2>
+          <p>Expose user inputs through a <em>form</em> so non-authors drive the model without editing code, and centralise shared logic in an external rule stored in the project so many documents reuse it. Prefer <code>Parameter("name")</code> and the iLogic snippet library over hard-coded strings, guard against missing references, and keep rule execution order explicit to avoid circular triggering.</p>
+        </section>
+        <section class="kb-concept-section" data-enriched="sample20">
+          <h2>References</h2>
+          <p>Primary and vendor documentation used while writing this page (external links, not republished):</p>
+          <ul>
+            <li><a href="https://help.autodesk.com/view/INVNTOR/2024/ENU/" target="_blank" rel="nofollow noopener">Autodesk Inventor Help — iLogic</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
       <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 20px;">🛡️</span>
