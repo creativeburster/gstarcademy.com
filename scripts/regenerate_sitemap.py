@@ -39,25 +39,16 @@ def git_lastmod(filepath: str) -> str:
     return datetime.now().strftime("%Y-%m-%d")
 
 
-def url_to_filepath(url: str) -> str | None:
-    """Convert sitemap URL to local file path."""
-    path = url.replace(SITE, "").lstrip("/")
-    if path == "":
-        return "index.html"
-    # Try .html extension
-    if not path.endswith(".html"):
-        html_path = f"{path}.html"
-        if (REPO / html_path).exists():
-            return html_path
-        # Try as directory index
-        index_path = f"{path}/index.html"
-        if (REPO / index_path).exists():
-            return index_path
-        # Try without extension (cleanUrls)
-        if (REPO / path).exists():
-            return path
-        return f"{path}.html"
-    return path
+def filepath_to_url(path: Path) -> str:
+    """Convert local Path object to sitemap URL format."""
+    rel = path.relative_to(REPO).as_posix()
+    if rel.endswith(".html"):
+        rel = rel[:-5]
+    if rel == "index":
+        return SITE + "/"
+    if rel.endswith("/index"):
+        rel = rel[:-6]
+    return f"{SITE}/{rel}"
 
 
 def get_priority_changefreq(url_path: str) -> tuple[str, str]:
@@ -122,46 +113,44 @@ def is_noindex(filepath: str | None) -> bool:
     p = REPO / filepath
     if not p.exists():
         return False
-    return 'content="noindex' in p.read_text(encoding="utf-8")
-
-
-def discover_concept_urls() -> list[str]:
-    """Canonical URLs of all kb/concepts pages present on disk.
-
-    Ensures pages that were re-indexed (noindex -> index) re-enter the sitemap,
-    even if a previous run dropped them. noindex pages are filtered later.
-    """
-    found = []
-    for p in sorted((REPO / "kb" / "concepts").glob("*.html")):
-        m = re.search(r'<link rel="canonical" href="([^"]+)"', p.read_text(encoding="utf-8"))
-        if m:
-            found.append(m.group(1))
-    return found
+    try:
+        content = p.read_text(encoding="utf-8")
+    except Exception:
+        content = p.read_text(encoding="utf-8-sig")
+    return 'content="noindex' in content
 
 
 def main() -> int:
-    # Read existing sitemap to get all URLs
-    content = SITEMAP.read_text(encoding="utf-8")
-    url_pattern = re.compile(r"<loc>([^<]+)</loc>")
-    urls = url_pattern.findall(content)
-
-    # Merge in any concept pages found on disk (dedup, preserve order).
-    seen = set(urls)
-    for u in discover_concept_urls():
-        if u not in seen:
-            seen.add(u)
-            urls.append(u)
+    print("Scanning repository for static HTML files to build a fresh sitemap...")
+    
+    # 1. Scan physical files
+    html_files = []
+    # Root level
+    for p in REPO.glob("*.html"):
+        html_files.append(p)
+    # Sub directories
+    sub_dirs = ["kb/concepts", "kb/software", "kb/vendors", "kb/guides", "kb/learning-paths"]
+    for sd in sub_dirs:
+        folder = REPO / sd
+        if folder.exists():
+            for p in folder.glob("*.html"):
+                html_files.append(p)
 
     entries = []
-    for url in urls:
+    for path in html_files:
+        url = filepath_to_url(path)
         url_path = url.replace(SITE, "")
+        
+        # Skip index.html under subdirectories if generated, or excluded patterns
+        if path.name == "index.html" and path.parent != REPO:
+            continue
         if is_excluded(url_path):
             continue
 
-        filepath = url_to_filepath(url)
+        filepath = path.relative_to(REPO).as_posix()
         if is_noindex(filepath):
             continue
-        lastmod = git_lastmod(filepath) if filepath else datetime.now().strftime("%Y-%m-%d")
+        lastmod = git_lastmod(filepath)
         priority, changefreq = get_priority_changefreq(url_path)
 
         entries.append((url, lastmod, priority, changefreq))
@@ -172,8 +161,6 @@ def main() -> int:
 
     # Write sitemap
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
-    # Keep the XSL stylesheet so the sitemap renders as a readable table in-browser.
-    lines.append('<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>')
     lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
     for url, lastmod, priority, changefreq in entries:
         lines.append("  <url>")
@@ -186,7 +173,7 @@ def main() -> int:
     lines.append("")
 
     SITEMAP.write_text("\n".join(lines), encoding="utf-8")
-    print(f"Sitemap regenerated: {len(entries)} URLs")
+    print(f"Sitemap regenerated from physical files: {len(entries)} URLs")
     return 0
 
 
