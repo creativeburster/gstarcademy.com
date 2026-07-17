@@ -1,0 +1,146 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Gstarcademy CAD Knowledge Base APIs",
+    "description": "API documentation for accessing machine-readable static datasets on Gstarcademy. Enables AI agents to read, query, and integrate CAD terminology, tutorials, FAQs, and industry news.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://gstarcademy.com"
+    }
+  ],
+  "paths": {
+    "/data/terms_entries.json": {
+      "get": {
+        "summary": "Retrieve all CAD terminology entries",
+        "description": "Returns a full JSON list containing over 250+ CAD terminology entries, definitions, category tags, and context recommendations.",
+        "responses": {
+          "200": {
+            "description": "List of CAD terms retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": { "type": "string" },
+                      "desc": { "type": "string" },
+                      "tags": { "type": "string" },
+                      "extra": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/faq_entries.json": {
+      "get": {
+        "summary": "Retrieve CAD collapsible FAQs",
+        "description": "Returns a comprehensive list of high-frequency CAD technical questions and solutions categorized by CAD/BIM software platforms.",
+        "responses": {
+          "200": {
+            "description": "List of CAD FAQs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "category": { "type": "string" },
+                      "question": { "type": "string" },
+                      "answer": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/news.json": {
+      "get": {
+        "summary": "Retrieve curated AEC/MFG news",
+        "description": "Returns a time-series list of curated CAD industry news headlines, editorial summaries, and source outbound links.",
+        "responses": {
+          "200": {
+            "description": "AEC/MFG news index retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": { "type": "string" },
+                      "date": { "type": "string" },
+                      "source": { "type": "string" },
+                      "link": { "type": "string" },
+                      "desc": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/tutorials_premium.json": {
+      "get": {
+        "summary": "Retrieve premium curated tutorials",
+        "description": "Returns a list of premium structured roadmaps, learning sequences, and recommended CAD classes.",
+        "responses": {
+          "200": {
+            "description": "Premium tutorials dataset retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": { "type": "string" },
+                      "source": { "type": "string" },
+                      "type": { "type": "string" },
+                      "level": { "type": "string" },
+                      "desc": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kb-terms": {
+      "get": {
+        "summary": "Search CAD Terminology Portal",
+        "description": "Interactive search query on the Terminology Index page. Queries the clientside database using a fuzzy search.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Fuzzy text search query (e.g. 'xref', '3D modeling')",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search interface HTML page rendered successfully"
+          }
+        }
+      }
+    }
+  }
+}

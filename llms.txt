@@ -1,0 +1,44 @@
+# Gstarcademy
+
+> Structured CAD/BIM knowledge base, tutorial navigation, and AEC/MFG industry news curated for architects, mechanical designers, and engineering professionals.
+
+## Essential Information
+
+- **Site Type**: Static portal with dynamic search/graph. No paywalls or scraping gates.
+- **Root URL**: `https://gstarcademy.com`
+- **Main Goal**: Guide users to external tutorial sources (YouTube, MOOCs, vendor docs) and explain relations between CAD/BIM concepts.
+- **LLMs Full Index**: For complete term indexes and summaries, see [llms-full.txt](https://gstarcademy.com/llms-full.txt).
+- **API Spec**: For machine-readable static data sources, see [openapi.json](https://gstarcademy.com/openapi.json).
+
+---
+
+## Core Pillars & IA
+
+### 1. Knowledge Base (Wiki)
+Structured literacy on 40+ CAD terms and 21 software packages. Articles are authored by editors and reviewed by Gstarsoft Co., Ltd.
+- [Knowledge Base Hub](https://gstarcademy.com/knowledge-base): The central overview and navigation portal.
+- [Terminology Index](https://gstarcademy.com/kb-terms): Alphabetical listing and fuzzy search of CAD atomic concepts.
+- [Software Map](https://gstarcademy.com/kb-software): Detailed profiles of 21 CAD/BIM engines and packages.
+- [FAQs Library](https://gstarcademy.com/kb-faq): High-frequency Q&A collapsible list grouped by software.
+- [Concept Graph Visualizer](https://gstarcademy.com/kb-graph): Interactive force-directed map showing relations (e.g., pre-requisites).
+- [Vendor Directory](https://gstarcademy.com/kb-vendors): Gateway to official CAD software vendor documentation.
+
+### 2. Tutorials Index
+Navigation and aggregation pointing to external tutorials. Paid sources are marked with `💳`.
+- [Tutorial Library](https://gstarcademy.com/tutorials): Advanced multi-dimensional filtering by software, task, level, and host.
+
+### 3. News Center
+Industry curation with links to AEC/MFG publications and vendor blogs.
+- [News Hub](https://gstarcademy.com/news): Time-series headlines and summaries.
+
+---
+
+## Developer / AI APIs
+
+AI Agents can fetch complete data payloads via the following static JSON feeds:
+- [CAD Terminology API](https://gstarcademy.com/data/terms_entries.json): Full dump of definitions, relationships, and meta.
+- [Software Profiles API](https://gstarcademy.com/data/kb_software.json): Metadata on all 21 CAD software engines.
+- [FAQs Dataset](https://gstarcademy.com/data/faq_entries.json): Structured questions and answers by software.
+- [News Dataset](https://gstarcademy.com/data/news.json): AEC/MFG news index.
+- [Premium Tutorials Feed](https://gstarcademy.com/data/tutorials_premium.json): Curated CAD roadmaps and premium paths.
+- [YouTube Tutorials Feed](https://gstarcademy.com/data/tutorials_youtube.json): YouTube curated indexing.
