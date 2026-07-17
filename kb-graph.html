@@ -27,6 +27,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CAD Knowledge Graph – Interactive Concept Map | Gstarcademy</title>
+    <meta name="author" content="Gstarcademy Editorial Team" />
+    <meta name="publisher" content="Gstarcademy" />
+    <link rel="service" type="application/openapi+json" href="/openapi.json" />
+    <link rel="mcp" type="application/json" href="/mcp.json" />
     <meta
       name="description"
       content="Explore connections between CAD concepts, vendor ecosystems, and product nodes via an interactive force-directed graph. Filter by tags and share deep links."
@@ -45,13 +49,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Knowledge Graph · CAD Knowledge Base" />
     <meta name="twitter:description" content="Explore connections between CAD concepts, vendor ecosystems, and product nodes via an interactive force-directed graph. Filter by tags and share deep links." />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="preload" href="./styles.min.css" as="style" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/styles.min.css" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="./styles.min.css" />
+    <link rel="stylesheet" href="/styles.min.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,8 +65,8 @@
         "description": "Interactive knowledge graph connecting concepts, file formats, vendors, and product nodes."
       }
     </script>
-      <link rel="manifest" href="./manifest.json" />
-    <script src="./search.min.js" defer></script>
+      <link rel="manifest" href="/manifest.json" />
+    <script src="/search.min.js" defer></script>
   </head>
   <body data-page="knowledge" class="page-kb-graph">
     <div class="header-stack">
@@ -75,7 +79,7 @@
         <div class="site-notice-inner container">
           <p class="site-notice-text">
             Tip: open the
-            <a class="site-notice-link" href="./tutorials">tutorial library</a>
+            <a class="site-notice-link" href="/tutorials">tutorial library</a>
             to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
@@ -85,7 +89,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="./">
+          <a class="brand" href="/">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -100,11 +104,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="./">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="./knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="./tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="./news">News</a>
-            <a class="nav-link" data-nav="about" href="./about">About</a>
+            <a class="nav-link" data-nav="home" href="/">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="/news">News</a>
+            <a class="nav-link" data-nav="about" href="/about">About</a>
             <!-- Streak Fire Badge -->
             <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak Days">
               🔥 <span id="global-streak-count">0</span> Days
@@ -145,27 +149,27 @@
               <p class="meta kb-sidebar-taxonomy-note">
                 Mirrors the top strip—taxonomy view of the same routes (expect overlap).
               </p>
-              <a class="kb-index-link" href="./knowledge-base">Overview</a>
-              <a class="kb-index-link" href="./kb-software">Vendors</a>
-              <a class="kb-index-link" href="./kb-software">Software</a>
-              <a class="kb-index-link" href="./kb-terms">Terms</a>
-              <a class="kb-index-link" href="./kb-faq">FAQ</a>
-              <a class="kb-index-link" href="./kb-graph">Graph</a>
+              <a class="kb-index-link" href="/knowledge-base">Overview</a>
+              <a class="kb-index-link" href="/kb-software">Vendors</a>
+              <a class="kb-index-link" href="/kb-software">Software</a>
+              <a class="kb-index-link" href="/kb-terms">Terms</a>
+              <a class="kb-index-link" href="/kb-faq">FAQ</a>
+              <a class="kb-index-link" href="/kb-graph">Graph</a>
               <a class="kb-index-link" href="./kb/software/">Software profiles</a>
             </div>
 
             <div class="kb-nav-group">
               <button class="kb-nav-toggle" aria-expanded="true">Drill down</button>
               <div class="kb-nav-links">
-                <a class="kb-side-link" href="./tutorials">Tutorial library</a>
-                <a class="kb-side-link" href="./kb-terms">Term glossary (cards)</a>
+                <a class="kb-side-link" href="/tutorials">Tutorial library</a>
+                <a class="kb-side-link" href="/kb-terms">Term glossary (cards)</a>
               </div>
             </div>
             <div class="kb-nav-group">
               <button class="kb-nav-toggle" aria-expanded="true">Topics</button>
               <div class="kb-nav-links">
-                <a class="kb-side-link" href="./knowledge-base">Hub overview</a>
-                <a class="kb-side-link" href="./news">CAD news</a>
+                <a class="kb-side-link" href="/knowledge-base">Hub overview</a>
+                <a class="kb-side-link" href="/news">CAD news</a>
               </div>
             </div>
             <div class="kb-nav-group">
@@ -178,20 +182,20 @@
 
       <div class="kb-stage">
                         <nav class="kb-subnav" aria-label="Knowledge base sections">
-          <a class="kb-subnav-link" href="./knowledge-base">Overview</a>
-          <a class="kb-subnav-link" href="./kb-software">Vendors</a>
-          <a class="kb-subnav-link" href="./kb-software">Software</a>
-          <a class="kb-subnav-link" href="./kb-terms">Terms</a>
-          <a class="kb-subnav-link" href="./kb-faq">FAQ</a>
-          <a class="kb-subnav-link active" href="./kb-graph">Graph</a>
+          <a class="kb-subnav-link" href="/knowledge-base">Overview</a>
+          <a class="kb-subnav-link" href="/kb-software">Vendors</a>
+          <a class="kb-subnav-link" href="/kb-software">Software</a>
+          <a class="kb-subnav-link" href="/kb-terms">Terms</a>
+          <a class="kb-subnav-link" href="/kb-faq">FAQ</a>
+          <a class="kb-subnav-link active" href="/kb-graph">Graph</a>
         </nav>
         <div class="kb-stage-scroll">
           <div class="kb-main kb-main--portal">
             <div id="kb-graph" class="kb-section kb-anchor-target kb-portal-landing kb-graph-landing">
               <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-                <a href="./">Home</a>
+                <a href="/">Home</a>
                 <span aria-hidden="true"> / </span>
-                <a href="./knowledge-base">Wiki</a>
+                <a href="/knowledge-base">Wiki</a>
                 <span aria-hidden="true"> / </span>
                 <span aria-current="page">Graph</span>
               </nav>
@@ -325,7 +329,7 @@
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="./kb-terms">2D Drafting</a></li>
+            <li><a href="/kb-terms">2D Drafting</a></li>
             <li><a href="./kb/concepts/bim-workbench">BIM Coordination</a></li>
             <li><a href="./kb/concepts/constraints-fusion">Parametrics</a></li>
             <li><a href="./kb/concepts/dynamic-input">Command Line</a></li>
@@ -340,23 +344,23 @@
           <ul class="site-footer-links">
             <li><a href="./knowledge-domains">Domain Map</a></li>
             <li><a href="./knowledge-roadmap">Interactive Map</a></li>
-            <li><a href="./quiz">Quiz Challenge</a></li>
-            <li><a href="./tutorials">Tutorial Library</a></li>
-            <li><a href="./knowledge-base">Knowledge Center</a></li>
-            <li><a href="./kb-graph">Interactive Graph</a></li>
-            <li><a href="./kb-software">Software Index</a></li>
-            <li><a href="./kb-terms">CAD Glossary</a></li>
-            <li><a href="./kb-faq">Technical FAQ</a></li>
+            <li><a href="/quiz">Quiz Challenge</a></li>
+            <li><a href="/tutorials">Tutorial Library</a></li>
+            <li><a href="/knowledge-base">Knowledge Center</a></li>
+            <li><a href="/kb-graph">Interactive Graph</a></li>
+            <li><a href="/kb-software">Software Index</a></li>
+            <li><a href="/kb-terms">CAD Glossary</a></li>
+            <li><a href="/kb-faq">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="./about">About Project</a></li>
-            <li><a href="./contact">Contact Us</a></li>
-            <li><a href="./privacy">Privacy Policy</a></li>
-            <li><a href="./terms">Terms of Use</a></li>
-            <li><a href="./legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="/about">About Project</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/legal">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
@@ -373,7 +377,7 @@
             
     </footer>
     <script src="./d3.min.js" defer></script>
-    <script src="./app.min.js" defer></script>
-    <script src="./knowledge.min.js" defer></script>
+    <script src="/app.min.js" defer></script>
+    <script src="/knowledge.min.js" defer></script>
   </body>
 </html>

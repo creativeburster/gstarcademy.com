@@ -1,0 +1,38 @@
+{
+  "mcpVersion": "2024-11-05",
+  "info": {
+    "name": "Gstarcademy WebMCP Server",
+    "version": "1.0.0",
+    "description": "Exposes CAD/BIM terminology, tutorials, FAQs, and industry news for Model Context Protocol (MCP) clients."
+  },
+  "resources": [
+    {
+      "uri": "https://gstarcademy.com/data/terms_entries.json",
+      "name": "CAD Terminology Glossary",
+      "mimeType": "application/json",
+      "description": "Full dictionary of CAD concepts and vendor-specific features."
+    },
+    {
+      "uri": "https://gstarcademy.com/data/faq_entries.json",
+      "name": "CAD Collapsible FAQs",
+      "mimeType": "application/json",
+      "description": "Technical solutions and Q&A grouped by CAD software engines."
+    }
+  ],
+  "tools": [
+    {
+      "name": "search_terms",
+      "description": "Search the CAD glossary index on Gstarcademy.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query (e.g., 'xref', 'annotative scaling')."
+          }
+        },
+        "required": ["query"]
+      }
+    }
+  ]
+}

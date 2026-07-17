@@ -20,10 +20,6 @@ def patch_file(file_path: Path) -> bool:
             
     modified = False
     
-    # 1. Check if we already patched it
-    if 'property="og:image:width"' in content and 'name="twitter:image"' in content:
-        return False
-        
     # 2. Extract title and description
     title_match = re.search(r"<title>(.*?)</title>", content, re.IGNORECASE)
     title = title_match.group(1).strip() if title_match else "Gstarcademy"
@@ -40,27 +36,41 @@ def patch_file(file_path: Path) -> bool:
     esc_desc = escape_html_attr(desc)
     
     # 3. Inject og:image:width, og:image:height, twitter:image
-    og_image_pattern = r'(<meta\s+property="og:image"\s+content="https://gstarcademy.com/images/og-default.webp"\s*/>)'
-    if re.search(og_image_pattern, content):
-        replace_with = (
-            '\\1\n    <meta property="og:image:width" content="1200" />\n'
-            '    <meta property="og:image:height" content="630" />\n'
-            '    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />'
-        )
-        content, count = re.subn(og_image_pattern, replace_with, content, flags=re.IGNORECASE)
-        if count > 0:
-            modified = True
+    if 'property="og:image:width"' not in content:
+        og_image_pattern = r'(<meta\s+property="og:image"\s+content="https://gstarcademy.com/images/og-default.webp"\s*/>)'
+        if re.search(og_image_pattern, content):
+            replace_with = (
+                '\\1\n    <meta property="og:image:width" content="1200" />\n'
+                '    <meta property="og:image:height" content="630" />\n'
+                '    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />'
+            )
+            content, count = re.subn(og_image_pattern, replace_with, content, flags=re.IGNORECASE)
+            if count > 0:
+                modified = True
             
     # 4. Inject twitter:title and twitter:description after twitter:card
-    twitter_card_pattern = r'(<meta\s+name="twitter:card"\s+content="summary_large_image"\s*/>)'
-    if re.search(twitter_card_pattern, content):
-        replace_with = (
-            f'\\1\n    <meta name="twitter:title" content="{esc_title}" />\n'
-            f'    <meta name="twitter:description" content="{esc_desc}" />'
-        )
-        content, count = re.subn(twitter_card_pattern, replace_with, content, flags=re.IGNORECASE)
-        if count > 0:
-            modified = True
+    if 'name="twitter:title"' not in content:
+        twitter_card_pattern = r'(<meta\s+name="twitter:card"\s+content="summary_large_image"\s*/>)'
+        if re.search(twitter_card_pattern, content):
+            replace_with = (
+                f'\\1\n    <meta name="twitter:title" content="{esc_title}" />\n'
+                f'    <meta name="twitter:description" content="{esc_desc}" />'
+            )
+            content, count = re.subn(twitter_card_pattern, replace_with, content, flags=re.IGNORECASE)
+            if count > 0:
+                modified = True
+                
+    # 5. Inject author and publisher metadata
+    if 'name="author"' not in content:
+        viewport_pattern = r'(<meta\s+name="viewport"\s+content="width=device-width, initial-scale=1.0"\s*/>)'
+        if re.search(viewport_pattern, content):
+            replace_with = (
+                '\\1\n    <meta name="author" content="Gstarcademy Editorial Team" />\n'
+                '    <meta name="publisher" content="Gstarcademy" />'
+            )
+            content, count = re.subn(viewport_pattern, replace_with, content, flags=re.IGNORECASE)
+            if count > 0:
+                modified = True
             
     if modified:
         file_path.write_text(content, encoding="utf-8")

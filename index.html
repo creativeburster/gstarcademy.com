@@ -27,6 +27,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gstarcademy | Free CAD Tutorials, Knowledge Base &amp; Quiz</title>
+    <meta name="author" content="Gstarcademy Editorial Team" />
+    <meta name="publisher" content="Gstarcademy" />
+    <link rel="service" type="application/openapi+json" href="/openapi.json" />
+    <link rel="mcp" type="application/json" href="/mcp.json" />
     <meta
       name="description"
       content="Discover CAD tutorials by software, task, and level. Browse a curated tutorial library and a CAD knowledge base with curated outbound links."
@@ -45,15 +49,15 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Gstarcademy · CAD tutorials &amp; knowledge base" />
     <meta name="twitter:description" content="Discover CAD tutorials by software, task, and level. Browse a curated tutorial library and a CAD knowledge base with curated outbound links." />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="manifest" href="./manifest.json" />
-    <script src="./search.min.js" defer></script>
-    <link rel="preload" href="./styles.min.css" as="style" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <script src="/search.min.js" defer></script>
+    <link rel="preload" href="/styles.min.css" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="./styles.min.css" />
+    <link rel="stylesheet" href="/styles.min.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -69,6 +73,38 @@
       }
     </script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"description":"Gstarcademy is a structured CAD knowledge base and tutorial navigation site for AEC, MFG, and Civil Engineering professionals. Articles are written by Gstarcademy editors and technically reviewed by Gstarsoft Co., Ltd before publication.","sameAs":["https://gstarcademy.com/about","https://gstarcademy.com/editorial-process"]}</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Gstarcademy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gstarcademy is a structured CAD and BIM knowledge center offering concept glossaries, interactive learning roadmaps, and curated external tutorial navigation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I find specific CAD software tutorials?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can use our Tutorial Library to filter outbound links by software (AutoCAD, Revit, GstarCAD, SOLIDWORKS), level, task, and source platform."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the tutorials on Gstarcademy free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Gstarcademy is a free navigation service. Paid online courses from third-party platforms are marked with a credit card icon (💳) for transparency."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body data-page="home">
     
@@ -82,7 +118,7 @@
         <div class="site-notice-inner container">
           <p class="site-notice-text">
             Tip: open the
-            <a class="site-notice-link" href="./tutorials">tutorial library</a>
+            <a class="site-notice-link" href="/tutorials">tutorial library</a>
             to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
@@ -92,7 +128,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="./">
+          <a class="brand" href="/">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -107,11 +143,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link active" data-nav="home" href="./">Home</a>
-            <a class="nav-link" data-nav="knowledge" href="./knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="./tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="./news">News</a>
-            <a class="nav-link" data-nav="about" href="./about">About</a>
+            <a class="nav-link active" data-nav="home" href="/">Home</a>
+            <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="/news">News</a>
+            <a class="nav-link" data-nav="about" href="/about">About</a>
             <!-- Streak Fire Badge -->
             <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak Days">
               🔥 <span id="global-streak-count">0</span> Days
@@ -145,8 +181,8 @@
           </div>
         </div>
         <div class="hero-cta-row">
-          <a class="btn btn-premium-secondary" href="./knowledge-base">Knowledge Center</a>
-          <a class="btn btn-premium-ghost" href="./tutorials">Browse Library</a>
+          <a class="btn btn-premium-secondary" href="/knowledge-base">Knowledge Center</a>
+          <a class="btn btn-premium-ghost" href="/tutorials">Browse Library</a>
         </div>
       </div>
     </section>
@@ -159,22 +195,22 @@
           <span class="section-note">Master the map before you study the app — our four core pillars</span>
         </div>
         <div class="grid grid-3">
-          <a class="card card-glass" href="./kb-software">
+          <a class="card card-glass" href="/kb-software">
             <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">🧰</span>
             <h3>Software Landscape Highlights</h3>
             <p class="meta">Explore detailed profiles of 21 CAD/BIM packages (AutoCAD, Revit, GstarCAD, SOLIDWORKS) and official vendor gateways.</p>
           </a>
-          <a class="card card-glass" href="./kb-terms">
+          <a class="card card-glass" href="/kb-terms">
             <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">📇</span>
             <h3>Atomic Terms &amp; Concepts</h3>
             <p class="meta">Review 40+ structured conceptual units—such as Parametric Constraints and Intelligent Objects—linked across domains.</p>
           </a>
-          <a class="card card-glass" href="./kb-faq">
+          <a class="card card-glass" href="/kb-faq">
             <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">❓</span>
             <h3>Collapsible Q&amp;A FAQ</h3>
             <p class="meta">Get direct answers to high-frequency technical questions regarding CAD differences, engine memory optimization, and more.</p>
           </a>
-          <a class="card card-glass" href="./kb-graph" style="grid-column: span 3; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; text-align: left;">
+          <a class="card card-glass" href="/kb-graph" style="grid-column: span 3; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; text-align: left;">
             <div style="font-size: 2.2rem; flex-shrink: 0;" aria-hidden="true">🕸️</div>
             <div style="flex: 1; min-width: 220px;">
               <h3 style="margin-bottom: 4px;">Interactive D3 Concept Graph Hub</h3>
@@ -188,7 +224,7 @@
       <section class="section">
         <div class="section-head">
           <h2 class="section-title">Aggregated Tutorials &amp; Learning Paths</h2>
-          <a class="section-note" href="./tutorials">View full library</a>
+          <a class="section-note" href="/tutorials">View full library</a>
         </div>
         <div class="list">
           <article class="tutorial-item">
@@ -197,7 +233,7 @@
               <h3>Starter Sequence: CAD General Literacy in 14 Days</h3>
               <p class="meta">Source: Gstarcademy · Type: Structured roadmap · Focus: software landscapes, atomic terms, and command line foundations.</p>
               <div class="item-tags"><span class="tag">Beginner</span><span class="tag">Literacy</span><span class="tag">Roadmap</span></div>
-              <div class="actions"><a class="btn btn-primary" href="./tutorials">Start Sequence &rarr;</a></div>
+              <div class="actions"><a class="btn btn-primary" href="/tutorials">Start Sequence &rarr;</a></div>
             </div>
           </article>
           <article class="tutorial-item">
@@ -216,26 +252,26 @@
       <section class="section">
         <div class="section-head">
           <h2 class="section-title">Curated Industry News Highlights</h2>
-          <a class="section-note" href="./news">View news timeline</a>
+          <a class="section-note" href="/news">View news timeline</a>
         </div>
         <div class="grid grid-3">
           <article class="card card-glass">
             <span class="eyebrow" style="margin-bottom: 8px;">IFC Interop</span>
             <h3>Open BIM &amp; IFC Specification Updates</h3>
             <p class="meta">buildingSMART continues coordinating open specifications. Check standard cadence updates before deploying complex pipelines.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news">Read summary &rarr;</a></div>
+            <div class="actions" style="margin-top: 12px;"><a class="btn" href="/news">Read summary &rarr;</a></div>
           </article>
           <article class="card card-glass">
             <span class="eyebrow" style="margin-bottom: 8px;">AEC Tech</span>
             <h3>Construction Tech &amp; BIM Practice – Autodesk Blog</h3>
             <p class="meta">Curated articles tracking site coordination, field operations, and cloud sync frameworks that sit alongside CAD modeling.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news">Read summary &rarr;</a></div>
+            <div class="actions" style="margin-top: 12px;"><a class="btn" href="/news">Read summary &rarr;</a></div>
           </article>
           <article class="card card-glass">
             <span class="eyebrow" style="margin-bottom: 8px;">Releases</span>
             <h3>Rhino &amp; Grasshopper Cadence Updates</h3>
             <p class="meta">McNeel's news hub release updates, perfect for verifying team rollout dates and Grasshopper script compatibility.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="./news">Read summary &rarr;</a></div>
+            <div class="actions" style="margin-top: 12px;"><a class="btn" href="/news">Read summary &rarr;</a></div>
           </article>
         </div>
       </section>
@@ -244,7 +280,7 @@
       <section class="section" style="margin-bottom: 40px;">
         <div class="section-head" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
           <h2 class="section-title" style="margin: 0;">📖 Popular Concepts — Quick Access</h2>
-          <a href="./kb-terms" style="font-size: 0.8rem; color: #2563eb; font-weight: 700; text-decoration: none;">View All 440+ Terms &rarr;</a>
+          <a href="/kb-terms" style="font-size: 0.8rem; color: #2563eb; font-weight: 700; text-decoration: none;">View All 440+ Terms &rarr;</a>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 16px;">
           <a href="./kb/concepts/alibre-design-term-1" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
@@ -334,6 +370,43 @@
           </div>
         </article>
       </section>
+
+      <!-- Section 5: Frequently Asked Questions (FAQ) -->
+      <section class="section faq-section" id="home-faq" style="margin-bottom: 40px;">
+        <div class="section-head">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <span class="section-note">Direct answers to core questions about our service</span>
+        </div>
+        <div class="faq-accordion" style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
+          <details style="background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; padding: 16px; cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.05rem; color: var(--ink-text, #0f172a); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              <span>What is Gstarcademy?</span>
+              <span class="faq-icon">▼</span>
+            </summary>
+            <p style="margin-top: 10px; color: var(--ink-text-soft, #475569); line-height: 1.6; font-size: 0.95rem;">
+              Gstarcademy is a structured CAD and BIM knowledge center offering concept glossaries, interactive learning roadmaps, and curated external tutorial navigation.
+            </p>
+          </details>
+          <details style="background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; padding: 16px; cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.05rem; color: var(--ink-text, #0f172a); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              <span>How can I find specific CAD software tutorials?</span>
+              <span class="faq-icon">▼</span>
+            </summary>
+            <p style="margin-top: 10px; color: var(--ink-text-soft, #475569); line-height: 1.6; font-size: 0.95rem;">
+              You can use our Tutorial Library to filter outbound links by software (AutoCAD, Revit, GstarCAD, SOLIDWORKS), level, task, and source platform.
+            </p>
+          </details>
+          <details style="background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; padding: 16px; cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.05rem; color: var(--ink-text, #0f172a); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              <span>Are the tutorials on Gstarcademy free?</span>
+              <span class="faq-icon">▼</span>
+            </summary>
+            <p style="margin-top: 10px; color: var(--ink-text-soft, #475569); line-height: 1.6; font-size: 0.95rem;">
+              Yes, Gstarcademy is a free navigation service. Paid online courses from third-party platforms are marked with a credit card icon (💳) for transparency.
+            </p>
+          </details>
+        </div>
+      </section>
     </main>
 
     <footer class="footer site-footer">
@@ -358,7 +431,7 @@
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="./kb-terms">2D Drafting</a></li>
+            <li><a href="/kb-terms">2D Drafting</a></li>
             <li><a href="./kb/concepts/bim-workbench">BIM Coordination</a></li>
             <li><a href="./kb/concepts/constraints-fusion">Parametrics</a></li>
             <li><a href="./kb/concepts/dynamic-input">Command Line</a></li>
@@ -373,23 +446,23 @@
           <ul class="site-footer-links">
             <li><a href="./knowledge-domains">Domain Map</a></li>
             <li><a href="./knowledge-roadmap">Interactive Map</a></li>
-            <li><a href="./quiz">Quiz Challenge</a></li>
-            <li><a href="./tutorials">Tutorial Library</a></li>
-            <li><a href="./knowledge-base">Knowledge Center</a></li>
-            <li><a href="./kb-graph">Interactive Graph</a></li>
-            <li><a href="./kb-software">Software Index</a></li>
-            <li><a href="./kb-terms">CAD Glossary</a></li>
-            <li><a href="./kb-faq">Technical FAQ</a></li>
+            <li><a href="/quiz">Quiz Challenge</a></li>
+            <li><a href="/tutorials">Tutorial Library</a></li>
+            <li><a href="/knowledge-base">Knowledge Center</a></li>
+            <li><a href="/kb-graph">Interactive Graph</a></li>
+            <li><a href="/kb-software">Software Index</a></li>
+            <li><a href="/kb-terms">CAD Glossary</a></li>
+            <li><a href="/kb-faq">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
           <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="./about">About Project</a></li>
-            <li><a href="./contact">Contact Us</a></li>
-            <li><a href="./privacy">Privacy Policy</a></li>
-            <li><a href="./terms">Terms of Use</a></li>
-            <li><a href="./legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="/about">About Project</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/legal">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
@@ -413,7 +486,7 @@
       <div class="cookie-consent-inner">
         <p class="cookie-consent-text">
           We use optional cookies for basic analytics. See our
-          <a href="./privacy">privacy policy</a> for details.
+          <a href="/privacy">privacy policy</a> for details.
         </p>
         <div class="cookie-consent-actions">
           <button type="button" class="btn-cookie-outline">Deny</button>
@@ -423,6 +496,6 @@
       </div>
     </div>
 
-    <script src="./app.min.js" defer></script>
+    <script src="/app.min.js" defer></script>
   </body>
 </html>
