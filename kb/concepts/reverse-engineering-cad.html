@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>Reverse engineering recreates legacy parts with no drawings, enables inspection against nominal, and captures organic/hand-crafted shapes into editable CAD — bridging the physical and digital worlds.</p>
+          <p>The critical decision is the target: an <em>as-scanned</em> mesh is fast and faithful for visualisation, 3D printing, or a one-off copy, but it carries no design intent, so edits are painful. A <em>parametric rebuild</em> costs more effort but yields feature-based geometry (datums, prismatic features, analytic surfaces) that can be dimensioned, tolerance-checked, and modified &mdash; the right choice when the part must be re-manufactured or improved. Either way, scanner accuracy sets the ceiling: no downstream step recovers detail the scan never captured.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -119,10 +120,27 @@
           </ul>
         </section>
         <section class="kb-concept-section">
+          <h2>Standards &amp; Interoperability</h2>
+          <ul>
+            <li>Scan/mesh data exchanges as <strong>STL</strong>, <strong>OBJ</strong>, or <strong>PLY</strong>; solid rebuilds hand off to CAD via <strong>STEP</strong> (AP242) or <strong>IGES</strong></li>
+            <li>Inspect the model against the scan with a <strong>deviation (colour-map)</strong> report to quantify fit</li>
+            <li>Mind scanner metrology limits (resolution, accuracy) and matte-spray shiny/translucent surfaces before capture</li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
           <h2>Sources &amp; Further Reading</h2>
           <ul>
             <li><a href="https://www.3dsystems.com/software/geomagic-design-x" target="_blank" rel="noopener nofollow">3D Systems — Geomagic Design X</a></li>
             <li><a href="https://www.autodesk.com/" target="_blank" rel="noopener nofollow">Autodesk — Reverse engineering</a></li>
+          </ul>
+        </section>
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="lidar-scanning-cad">LiDAR Scanning for CAD</a> &mdash; laser-based 3D capture</li>
+            <li><a href="photogrammetry-cad">Photogrammetry in CAD</a> &mdash; image-based 3D capture</li>
+            <li><a href="point-cloud-to-bim">Point Cloud to BIM (Scan-to-BIM)</a> &mdash; the building-scale counterpart</li>
+            <li><a href="3d-printing-preparation">3D Print Preparation in CAD</a> &mdash; using the recovered mesh for additive</li>
           </ul>
         </section>
 
