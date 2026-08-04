@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>Topology optimisation delivers minimum-weight parts that meet stiffness/strength targets — critical for aerospace, motorsport, and additive manufacturing where every gram costs fuel or money.</p>
+          <p>The result is only a starting point, not a finished part: the raw SIMP output is a rough density field that must be reconstructed into clean, manufacturable geometry and then re-verified with a fresh FEA, because the smoothing step changes stiffness and stress. Results also depend heavily on the setup &mdash; the design space, retained (frozen) regions, load cases, and the volume-fraction target &mdash; and the organic shapes it produces usually assume additive manufacturing or casting; forcing them into a machined part often erases the weight savings, which is why manufacturing constraints (minimum member size, symmetry, draw/overhang direction) belong in the optimisation itself.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -127,6 +128,15 @@
           </ul>
         </section>
 
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="finite-element-analysis">Finite Element Analysis</a> &mdash; the solver inside the optimisation loop</li>
+            <li><a href="topology-optimization-am">Topology Optimization for AM</a> &mdash; additive-manufacturing-driven results</li>
+            <li><a href="mesh-generation-fea">Mesh Generation</a> &mdash; verification meshing of the reconstructed part</li>
+          </ul>
+        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

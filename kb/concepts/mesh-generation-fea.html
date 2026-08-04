@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>The mesh is the single biggest driver of both accuracy and runtime in simulation. A poorly conditioned element (negative Jacobian, high skew) can stall the solver or produce garbage stresses, while an unnecessarily fine mesh wastes hours of compute — so mesh strategy is a core CAE skill.</p>
+          <p>The efficient approach is a graded mesh, not a uniformly fine one: refine locally where gradients are steep (fillets, contacts, stress raisers) and coarsen in bulk regions, using element order deliberately &mdash; second-order (parabolic) elements capture bending far better per node, so linear tetrahedra should be avoided for stress. CFD adds its own requirement: near-wall <strong>inflation/boundary-layer</strong> layers sized to the target <strong>y+</strong> for the chosen turbulence model, because the wall treatment, not the core mesh, usually decides whether drag and heat-transfer predictions are believable.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -127,6 +128,16 @@
           </ul>
         </section>
 
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="finite-element-analysis">Finite Element Analysis</a> &mdash; what the structural mesh feeds</li>
+            <li><a href="cfd-fundamentals">CFD Fundamentals</a> &mdash; where boundary-layer meshing is critical</li>
+            <li><a href="contact-analysis-fea">Contact Analysis</a> &mdash; mesh matching at contact interfaces</li>
+            <li><a href="thermal-analysis-cae">Thermal Analysis</a> &mdash; meshing for conduction/CHT</li>
+          </ul>
+        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">
