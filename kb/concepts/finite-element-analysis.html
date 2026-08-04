@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>FEA lets engineers validate designs against yield, fatigue, buckling, and thermal limits before cutting metal, replacing expensive physical prototypes. Understanding element theory, mesh quality, and boundary-condition idealisation is what separates a trustworthy result from a colourful but meaningless stress plot.</p>
+          <p>The discipline that makes FEA trustworthy is verification and validation: a <strong>mesh-convergence study</strong> (refining until the quantity of interest stops changing) confirms the result is solver-accurate, while comparison to a hand calculation or test confirms the model represents reality. The most common errors are not in the solver but in idealisation &mdash; over-constrained supports that create artificial stiffness, point loads/restraints that produce meaningless singular stresses at re-entrant corners, and assuming linear-elastic behaviour where contact, large deflection, or plasticity actually govern.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -128,6 +129,17 @@
           </ul>
         </section>
 
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="mesh-generation-fea">Mesh Generation (FEA)</a> &mdash; the discretisation FEA depends on</li>
+            <li><a href="contact-analysis-fea">Contact Analysis</a> &mdash; a common nonlinear extension</li>
+            <li><a href="fatigue-analysis">Fatigue Analysis</a> &mdash; life prediction from FEA stress results</li>
+            <li><a href="vibration-analysis">Vibration Analysis</a> &mdash; modal/dynamic FEA</li>
+            <li><a href="thermal-analysis-cae">Thermal Analysis</a> &mdash; thermal loads feeding structural FEA</li>
+          </ul>
+        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

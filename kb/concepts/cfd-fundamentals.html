@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>CFD predicts pressure drop, drag, lift, heat transfer, and mixing without wind-tunnel or flow-loop testing, informing everything from electronics cooling to aerodynamics. Because turbulence is modelled (not resolved) in RANS, understanding the assumptions behind each model is essential to trust the numbers.</p>
+          <p>Trustworthy CFD is mostly about matching model choices to the physics: <strong>k-&omega; SST</strong> resolves adverse-pressure-gradient and separated flows better than <strong>k-&epsilon;</strong>, but only if the near-wall mesh meets the y+ that model assumes. A converged solution is necessary but not sufficient &mdash; residuals can flatten on a steady solve of a flow that is genuinely transient, so monitored quantities (drag, mass-flow imbalance, outlet temperature) and, where needed, a transient or scale-resolving (LES/DES) run are what separate a plausible picture from a validated prediction.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -127,6 +128,15 @@
           </ul>
         </section>
 
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="mesh-generation-fea">Mesh Generation</a> &mdash; boundary-layer meshing and y+</li>
+            <li><a href="thermal-analysis-cae">Thermal Analysis</a> &mdash; conjugate heat transfer couples CFD and conduction</li>
+            <li><a href="finite-element-analysis">Finite Element Analysis</a> &mdash; the structural counterpart</li>
+          </ul>
+        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">
