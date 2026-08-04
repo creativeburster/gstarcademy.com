@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>GPU acceleration turns hours-long CPU renders into minutes and keeps huge models interactive — but only if VRAM and driver certification match the workload.</p>
+          <p>The hard limit is VRAM, not raw speed: a scene or assembly that exceeds the card's memory either falls back to slower out-of-core paths or fails outright, so memory capacity often matters more than core count for large models. The compute backend also dictates compatibility &mdash; NVIDIA CUDA/OptiX is the most widely supported in renderers and GPU solvers, while AMD relies on OpenCL/HIP, so tool support should be checked before buying hardware. For professional CAD, certified (workstation-class) drivers trade peak gaming performance for viewport stability in the specific applications the vendor validates.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -126,6 +127,16 @@
           </ul>
         </section>
 
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="rendering-fundamentals">Rendering Fundamentals</a> &mdash; GPU vs CPU rendering paths</li>
+            <li><a href="multi-core-rendering">Multi-core Rendering</a> &mdash; the CPU-side counterpart</li>
+            <li><a href="product-visualization">Product Visualization</a> &mdash; a GPU-render-heavy workflow</li>
+            <li><a href="enscape-realtime">Enscape (real-time)</a> &mdash; GPU-driven real-time viz</li>
+          </ul>
+        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">
