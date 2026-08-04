@@ -8,6 +8,7 @@ IndexNow 提交工具
   python indexnow_submit.py --dry-run      # 预览，不实际提交（可与上面任意组合）
 """
 
+import os
 import sys
 import json
 import time
