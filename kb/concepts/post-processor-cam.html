@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>The post is the last, critical translation before metal is cut. A correct post means the program runs safely and predictably; a wrong one can crash the machine on the first line.</p>
+          <p>Because the post is specific to the machine-and-control pairing, the same toolpath produces different G-code for a Haas, a Fanuc, or a Heidenhain machine &mdash; and a &ldquo;close enough&rdquo; generic post is a classic cause of wrong work-offset handling, missed canned cycles, or rapid moves through the part. Common customisations include tool-change and probing routines, high-speed look-ahead settings, and multi-axis TCP output; the safe workflow is to start from the vendor's validated post for that exact control, then verify output on the machine with single-block and dry runs before trusting it.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -126,6 +127,16 @@
           </ul>
         </section>
 
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="cam-toolpath-fundamentals">CAM Toolpath Fundamentals</a> &mdash; the CL data the post translates</li>
+            <li><a href="post-processor-fusion">Post-Processor (Fusion)</a> &mdash; a specific post-library ecosystem</li>
+            <li><a href="5-axis-machining">5-Axis Machining</a> &mdash; where TCP/RTCP posts are essential</li>
+            <li><a href="cam-nx">CAM in NX</a> &mdash; posting from NX CAM</li>
+          </ul>
+        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

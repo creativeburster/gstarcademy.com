@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>Toolpath choice governs cycle time, tool life, and surface finish — the core economics of machining. Good CAM balances aggressive material removal with tool protection and required tolerances.</p>
+          <p>The programmer's real skill is matching strategy to stock and material: adaptive/trochoidal clearing keeps radial engagement constant so the tool runs cooler and can take deeper axial cuts (raising material-removal rate without breaking tools), while finishing stepover is chosen from the required scallop height, not guessed. Because feeds and speeds must suit the material and tooling, a program that is fast in aluminium can destroy tools in titanium &mdash; which is why toolpaths are verified with simulation and, ideally, cutting data from the tool vendor before the first cut.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -126,6 +127,16 @@
           </ul>
         </section>
 
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="5-axis-machining">5-Axis Machining</a> &mdash; toolpaths with tool-axis control</li>
+            <li><a href="post-processor-cam">Post-Processor (CAM)</a> &mdash; turning toolpaths into machine G-code</li>
+            <li><a href="setup-cam-fusion">CAM Setup (Fusion)</a> &mdash; work coordinate system and stock definition</li>
+            <li><a href="cnc-fixture-automation">CNC Fixture Automation</a> &mdash; holding the part for the toolpath</li>
+          </ul>
+        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

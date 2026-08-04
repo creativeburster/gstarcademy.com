@@ -99,6 +99,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>5-axis cuts setups and enables geometry impossible on 3-axis machines, improving accuracy and finish. It is essential for aerospace, mould, and turbomachinery work.</p>
+          <p>The two modes serve different goals and shouldn't be confused: <strong>3+2 positional</strong> machining is really 3-axis cutting from a tilted, locked orientation &mdash; simpler to program and often enough to reach several faces in one setup &mdash; whereas <strong>simultaneous 5-axis</strong> is needed only for truly contoured surfaces and to keep a constant tool contact angle. Simultaneous work demands a kinematics-accurate post with TCP/RTCP so the control compensates for the rotary geometry, plus full machine simulation, because collisions now involve the head, table, and fixtures moving at once.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Best Practices</h2>
@@ -126,6 +127,16 @@
           </ul>
         </section>
 
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="cam-toolpath-fundamentals">CAM Toolpath Fundamentals</a> &mdash; the strategies 5-axis extends</li>
+            <li><a href="post-processor-cam">Post-Processor (CAM)</a> &mdash; kinematics-aware posts with TCP/RTCP</li>
+            <li><a href="machining-catia">Machining in CATIA</a> &mdash; a common 5-axis platform</li>
+            <li><a href="cam-nx">CAM in NX</a> &mdash; multi-axis programming in NX</li>
+          </ul>
+        </section>
 
         <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">

@@ -4,28 +4,28 @@
     <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Gstarcademy Editorial Team" />
     <meta name="publisher" content="Gstarcademy" />
-    <title>Laser Cutting Cad | Gstarcademy</title>
-    <meta name="description" content="Simple guide: Laser Cutting Cad for absolute CAD beginners." />
+    <title>Laser Cutting for CAD/CAM | Gstarcademy</title>
+    <meta name="description" content="Preparing CAD geometry for laser cutting: clean vectors, kerf compensation, lead-ins, and nesting for efficient sheet cutting." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/laser-cutting-cad" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Laser Cutting Cad" />
-    <meta property="og:description" content="Simple guide: Laser Cutting Cad for absolute CAD beginners." />
+    <meta property="og:title" content="Laser Cutting for CAD/CAM" />
+    <meta property="og:description" content="Preparing CAD geometry for laser cutting: clean vectors, kerf compensation, lead-ins, and nesting for efficient sheet cutting." />
     <meta property="og:url" content="https://gstarcademy.com/kb/concepts/laser-cutting-cad" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Laser Cutting Cad" />
-    <meta name="twitter:description" content="Simple guide: Laser Cutting Cad for absolute CAD beginners." />
+    <meta name="twitter:title" content="Laser Cutting for CAD/CAM" />
+    <meta name="twitter:description" content="Preparing CAD geometry for laser cutting: clean vectors, kerf compensation, lead-ins, and nesting for efficient sheet cutting." />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Laser Cutting Cad","url":"https://gstarcademy.com/kb/concepts/laser-cutting-cad","datePublished":"2026-06-30","author":{"@type":"Organization","name":"Gstarcademy Editorial Team"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Laser Cutting for CAD/CAM","url":"https://gstarcademy.com/kb/concepts/laser-cutting-cad","datePublished":"2026-06-30","author":{"@type":"Organization","name":"Gstarcademy Editorial Team"}}</script>
   </head>
   <body>
     <div class="page-shell"><header class="topbar"><div class="container topbar-inner"><a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a><nav class="nav"><a class="nav-link" href="../../">Home</a><a class="nav-link active" href="../../knowledge-base">Wiki</a><a class="nav-link" href="../../tutorials">Tutorials</a><a class="nav-link" href="../../news">News</a><a class="nav-link" href="../../about">About</a></nav></div></header></div>
     <main class="container" style="margin-top:32px;max-width:920px;">
-      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../../knowledge-base">Knowledge Base</a> / <a href="../../kb-terms">Terms</a> / <span aria-current="page">Laser Cutting Cad</span></nav>
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../../knowledge-base">Knowledge Base</a> / <a href="../../kb-terms">Terms</a> / <span aria-current="page">Laser Cutting for CAD/CAM</span></nav>
       <article class="kb-concept-detail">
-        <header class="kb-concept-header" style="margin-bottom:28px;"><span class="chip pill-warn">Industry Application</span><h1 style="margin-top:12px;">Laser Cutting Cad</h1><p class="hero-sub">Professional guide to laser cutting cad in CAD/BIM engineering workflows.</p></header>
+        <header class="kb-concept-header" style="margin-bottom:28px;"><span class="chip pill-warn">Industry Application</span><h1 style="margin-top:12px;">Laser Cutting for CAD/CAM</h1><p class="hero-sub">Preparing CAD geometry for laser (and plasma/waterjet) cutting: clean closed vectors, kerf compensation, lead-ins/tabs, and nesting.</p></header>
         <div class="ink-byline" role="contentinfo"><span><strong>By</strong> Gstarcademy Editorial Team</span><span><strong>Updated</strong> <time datetime="2026-06-30">2026-06-30</time></span></div>
 
         <section class="kb-concept-section">
@@ -36,6 +36,7 @@
         <section class="kb-concept-section">
           <h2>Why It Matters</h2>
           <p>Laser cutting is fast and precise but material and edge quality depend on clean geometry, kerf compensation, and smart nesting. Good preparation cuts scrap and rework dramatically.</p>
+          <p>Most quality problems originate in the CAD/CAM prep, not the machine: open or duplicated vectors confuse the cutter, geometry at the wrong scale or units yields undersized parts, and omitting kerf compensation (the material the beam removes, typically a few tenths of a millimetre) makes every profile the wrong size. Nesting and cut sequencing then trade off material yield against heat build-up &mdash; common-line cutting and micro-tabs save material and stop small parts tipping into the beam, while a good pierce/lead-in strategy protects edge quality on the finished part.</p>
         </section>
         <section class="kb-concept-section">
           <h2>Tools &amp; Software</h2>
@@ -66,7 +67,9 @@
         <section class="kb-concept-section">
           <h2>Standards &amp; Interoperability</h2>
           <ul>
-            <li>sheet-cutting/nesting practice</li>
+            <li><strong>DXF</strong> is the de facto 2-D exchange format handed to nesting/CAM; export closed polylines at 1:1 scale in known units</li>
+            <li>Cut-edge quality grades follow <strong>ISO 9013</strong> (thermal cutting) for tolerance and squareness classes</li>
+            <li>Set <strong>kerf offset</strong> and lead-in/out per material and thickness; keep geometry on layers the CAM can map</li>
           </ul>
         </section>
         <section class="kb-concept-section">
@@ -74,6 +77,15 @@
           <ul>
             <li><a href="https://www.sigmanest.com/" target="_blank" rel="noopener nofollow">SigmaTEK — SigmaNEST</a></li>
             <li><a href="https://www.lantek.com/" target="_blank" rel="noopener nofollow">Lantek</a></li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul>
+            <li><a href="sheet-metal-design-principles">Sheet Metal Design Principles</a> &mdash; designing parts for cutting and forming</li>
+            <li><a href="cam-toolpath-fundamentals">CAM Toolpath Fundamentals</a> &mdash; the CAM side of profile cutting</li>
+            <li><a href="robotic-welding-paths">Robotic Welding Paths</a> &mdash; a downstream fabrication step</li>
           </ul>
         </section>
 
