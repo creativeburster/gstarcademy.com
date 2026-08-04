@@ -32,9 +32,11 @@ jobs:
           sleep 90
 
       - name: 验证 key 文件可访问
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: |
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-            "https://gstarcademy.com/971d09674aa0434e8e9a4a0b62165f2e.txt")
+            "https://gstarcademy.com/${INDEXNOW_KEY}.txt")
           echo "Key 文件 HTTP 状态: $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "❌ key 文件不可访问（HTTP $STATUS），请确认已部署到生产环境"
@@ -43,4 +45,6 @@ jobs:
           echo "✅ key 文件验证通过"
 
       - name: 提交变动 URL 至 IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: python scripts/indexnow_submit.py --changed-only

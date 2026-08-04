@@ -22,7 +22,8 @@ from pathlib import Path
 # =========================================================
 SITE_HOST    = "gstarcademy.com"
 SITE_URL     = f"https://{SITE_HOST}"
-INDEXNOW_KEY = "971d09674aa0434e8e9a4a0b62165f2e"
+# 优先从 GitHub Actions Secret（环境变量）读取，本地回退到硬编码
+INDEXNOW_KEY = os.environ.get("INDEXNOW_KEY", "971d09674aa0434e8e9a4a0b62165f2e")
 KEY_LOCATION = f"{SITE_URL}/{INDEXNOW_KEY}.txt"
 API_ENDPOINT = "https://api.indexnow.org/IndexNow"
 BATCH_SIZE   = 100   # 每批上限（IndexNow 支持最多 10,000）
