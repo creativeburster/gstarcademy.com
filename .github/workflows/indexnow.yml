@@ -1,0 +1,46 @@
+name: 🔍 IndexNow 自动提交
+
+on:
+  push:
+    branches:
+      - main
+    # 只在以下文件变动时才触发（排除纯脚本/配置变更）
+    paths:
+      - "**.html"
+      - "sitemap.xml"
+      - "knowledge.js"
+      - "app.js"
+      - "news.html"
+      - "tutorials.html"
+      - "kb/**"
+
+jobs:
+  indexnow:
+    name: 提交变动 URL 至 IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout（含 diff 历史）
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # 需要 HEAD~1 做 diff
+
+      - name: 等待 Cloudflare Pages 部署完成
+        run: |
+          echo "⏳ 等待 90 秒，确保 Cloudflare Pages 部署完毕..."
+          sleep 90
+
+      - name: 验证 key 文件可访问
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://gstarcademy.com/971d09674aa0434e8e9a4a0b62165f2e.txt")
+          echo "Key 文件 HTTP 状态: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "❌ key 文件不可访问（HTTP $STATUS），请确认已部署到生产环境"
+            exit 1
+          fi
+          echo "✅ key 文件验证通过"
+
+      - name: 提交变动 URL 至 IndexNow
+        run: python scripts/indexnow_submit.py --changed-only
