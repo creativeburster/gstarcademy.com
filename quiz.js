@@ -106,9 +106,25 @@
                 "COBie (Construction Operations Building Information Exchange) for facility asset handovers",
                 "NWD (Navisworks Document) proprietary review files"
               ],
-              correctIndices: [0, 1, 2],
+               correctIndices: [0, 1, 2],
               why: "IFC, BCF, and COBie are buildingSMART certified open standards. NWD is a proprietary Autodesk format.",
               pitfall: "Always specify the required IFC Schema (e.g., IFC4 Reference View) in the BEP, as wrong export configurations will strip custom parameters."
+            },
+            {
+              type: "single",
+              nodeId: "interop",
+              slug: "cad-file-formats-interoperability",
+              difficulty: "intermediate",
+              question: "In openBIM coordination, what is the primary technical breakthrough introduced in the IFC 4.3 (ISO 16739-1:2024) schema compared to legacy IFC2x3?",
+              options: [
+                "Extending openBIM data exchange to linear infrastructure (Roads, Railways, Bridges, Ports, and Tunnels).",
+                "Compressing 3D geometry into flat 2D raster PNG images.",
+                "Mandating all structural consultants to use identical CAD software licenses.",
+                "Removing parametric parameters to prevent file editing."
+              ],
+              correctIdx: 0,
+              why: "IFC 4.3 expands openBIM from buildings to civil infrastructure, establishing standardized alignments, bridge elements, and earthworks metadata.",
+              pitfall: "Ensure downstream model viewers support IFC4.3 Schema import; fallback to IFC2x3 Coordination View 2.0 if working with legacy BIM tools."
             }
           ]
         },
@@ -1705,6 +1721,54 @@
                 correctIdx: 0,
                 why: "Datums A|B|C lock the six degrees of freedom (3-2-1 principle), giving inspection a repeatable reference frame so tolerances mean the same thing every time.",
                 pitfall: "Choosing functional datums that match how the part is actually located in assembly is critical; arbitrary datum choice yields parts that pass CMM but don't fit."
+              },
+              {
+                type: "single",
+                nodeId: "gdt",
+                slug: "gdt-geometric-tolerancing",
+                difficulty: "advanced",
+                question: "When Maximum Material Condition (MMC - Ⓜ) modifier is applied to a hole's position tolerance, what happens to the allowable position tolerance as the produced hole size increases toward its Upper Specification Limit (USL)?",
+                options: [
+                  "The allowable position tolerance expands by the amount the hole departs from its smallest allowed size (Bonus Tolerance).",
+                  "The position tolerance shrinks to zero to preserve structural rigidity.",
+                  "The position tolerance remains strictly locked to the base value regardless of hole size.",
+                  "The hole feature is converted into a secondary datum plane."
+                ],
+                correctIdx: 0,
+                why: "At MMC, a hole is at its smallest allowable size. As the hole becomes larger (departing from MMC), extra clearance is gained, granting a 'bonus tolerance' equal to the size departure.",
+                pitfall: "Do not apply MMC modifiers to features where tight alignment or location is mandatory regardless of pin/hole clearance."
+              },
+              {
+                type: "single",
+                nodeId: "tolerance",
+                slug: "tolerance-stackup-analysis",
+                difficulty: "advanced",
+                question: "In tolerance stackup analysis for high-volume precision assemblies, how does Root Sum Squares (RSS) statistical tolerancing differ from Worst-Case (WC) analysis?",
+                options: [
+                  "RSS assumes independent Gaussian distributions of component variations, resulting in a tighter calculated stackup limit than Worst-Case arithmetic summation.",
+                  "RSS multiplies all individual upper tolerance limits together linearly.",
+                  "RSS requires every component in the stackup to be manufactured at 100% nominal zero variance.",
+                  "Worst-Case method predicts a narrower assembly envelope than RSS."
+                ],
+                correctIdx: 0,
+                why: "Worst-Case assumes all parts are at extreme limits simultaneously (arithmetic sum). RSS relies on probability theory (square root of sum of squared tolerances), enabling wider component tolerances without raising assembly failure rates.",
+                pitfall: "RSS is invalid if component processes are not in statistical control (Cpk < 1.33) or if sample sizes are small."
+              },
+              {
+                type: "single",
+                nodeId: "gdt",
+                slug: "gdt-geometric-tolerancing",
+                difficulty: "intermediate",
+                question: "Which geometric characteristic symbol in ASME Y14.5 / ISO 1101 controls the form of a cylindrical feature surface without requiring a reference datum?",
+                options: [
+                  "Cylindricity (⌭)",
+                  "Position (⌖)",
+                  "Perpendicularity (⟂)",
+                  "Total Runout (⌫)"
+                ],
+                correctIdx: 0,
+                why: "Cylindricity is an un-referenced form control that bounds 3D circularity and straightness simultaneously within two concentric cylinders.",
+                pitfall: "Do not attach a datum reference to form controls (Cylindricity, Flatness, Straightness, Circularity); form controls are independent of datum frames."
               }
           ]
         }
@@ -2542,7 +2606,7 @@
     draft: {
       trackTitle: "2D Drafting Specialist",
       trackBadge: "📐 2D Draft",
-      nodesToMaster: ["layers", "xrefs", "pgp", "annotative", "viewport", "purge", "draft-lisp", "draft-plot", "draft-std", "draft-ssm", "draft-attr", "draft-dynblk"],
+      nodesToMaster: ["layers", "xrefs", "pgp", "annotative", "viewport", "purge", "draft-lisp", "draft-plot", "draft-std", "draft-ssm", "draft-attr", "draft-dynblk", "constraints", "gdt"],
       lessons: [
         {
           id: 1,
@@ -3379,6 +3443,38 @@
                 correctIdx: 0,
                 why: "Regular PURGE + AUDIT keeps files lean and healthy, reducing bloat from imported blocks and repairing minor corruption before it worsens.",
                 pitfall: "Run PURGE more than once (nested items) and back up before aggressive purging of shared files, since regapps/zero-length geometry may need extra passes."
+              },
+              {
+                type: "single",
+                nodeId: "constraints",
+                slug: "constraints-autocad",
+                difficulty: "intermediate",
+                question: "In 2D parametric drafting (e.g. AutoCAD/GstarCAD Parametric tab), what is the difference between Geometric Constraints and Dimensional Constraints?",
+                options: [
+                  "Geometric constraints control relationships like Tangent, Coincident, and Parallel; Dimensional constraints lock distance, angle, or radius values using parametric equations.",
+                  "Geometric constraints convert 2D lines to 3D meshes; Dimensional constraints control layer plot styles.",
+                  "Geometric constraints only apply to lines; Dimensional constraints only apply to circles.",
+                  "Geometric constraints are temporary visual guides that disappear on save."
+                ],
+                correctIdx: 0,
+                why: "Geometric constraints enforce shape rules (e.g. two lines stay perpendicular), while Dimensional constraints specify exact scalar values or mathematical relationships (e.g. d2 = d1 * 2).",
+                pitfall: "Over-constraining 2D geometry with conflicting geometric and dimensional rules causes constraint solver errors."
+              },
+              {
+                type: "single",
+                nodeId: "constraints",
+                slug: "parametric-constraints-autocad",
+                difficulty: "intermediate",
+                question: "How do Dimensional Constraints behave when linked to Dynamic Block parameters or the Parameters Manager?",
+                options: [
+                  "They allow user formulas and variables to drive block geometry dynamically based on user input or project parameters.",
+                  "They automatically export 2D geometry to 3D STL files for printing.",
+                  "They prevent users from copying or exploding the block.",
+                  "They force all dimensions to render in imperial inches."
+                ],
+                correctIdx: 0,
+                why: "Linking dimensional constraints to the Parameters Manager allows parametric formulas (e.g. Length = Width * 1.5) to resize geometry dynamically when variables change.",
+                pitfall: "Ensure parameter variable names do not contain spaces or special characters that break mathematical evaluation formulas."
               }
           ]
         }
@@ -3388,13 +3484,29 @@
     sim: {
       trackTitle: "Simulation / CAE Analyst",
       trackBadge: "🔬 CAE",
-      nodesToMaster: ["fea-basics", "meshing", "cfd", "thermal", "optimization"],
+      nodesToMaster: ["fea-basics", "meshing", "cfd", "thermal", "optimization", "ai"],
       lessons: [
         {
           id: 1,
           title: "Lesson 1: FEA Fundamentals",
           desc: "Finite Element Method, Element Types, & Boundary Conditions",
           questions: [
+            {
+              type: "single",
+              nodeId: "ai",
+              slug: "ai-in-cad-generative-design",
+              difficulty: "intermediate",
+              question: "How does AI-driven Generative Design differ from traditional structural optimization algorithms in CAD/CAE?",
+              options: [
+                "Generative Design synthesizes multiple manufacturing-ready candidate shapes simultaneously based on performance load cases, materials, and cost parameters, rather than merely shaving mass off a predefined CAD body.",
+                "Generative Design converts 3D meshes into 2D drafting layers automatically.",
+                "Generative Design eliminates the need for boundary condition definition.",
+                "Generative Design only generates rectangular beam elements."
+              ],
+              correctIdx: 0,
+              why: "Generative Design uses cloud AI solvers to explore the complete design space and create organic, manufacturable geometry variants from functional constraints.",
+              pitfall: "Define preserve geometries and obstacle/keep-out zones carefully, otherwise generated bodies may obstruct fastener tool access."
+            },
             {
               type: "single",
               nodeId: "fea-basics",

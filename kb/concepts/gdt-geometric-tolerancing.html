@@ -119,6 +119,37 @@
           </ul>
         </section>
         <section class="kb-concept-section">
+          <h2>Industry Standards Comparison: ASME Y14.5 vs. ISO 1101</h2>
+          <p>While both <strong>ASME Y14.5</strong> (predominant in North America) and <strong>ISO 1101 / ISO GPS</strong> (predominant in Europe and Asia) define geometric tolerancing, critical differences exist in default rules:</p>
+          <ul>
+            <li><strong>Rule #1 (Envelope Principle):</strong> ASME Y14.5 defaults to Rule #1, where a feature of size's surface cannot extend beyond its Maximum Material Condition (MMC) boundary. ISO 1101 defaults to independence principle (ISO 8015), requiring explicit Envelope symbol (Ⓔ) if boundary restriction is intended.</li>
+            <li><strong>Datum References:</strong> ASME uses primary, secondary, and tertiary datums with physical simulator contact. ISO GPS relies on geometrical operations (associated features) to establish datum reference frames.</li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px;">
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="tolerance-stackup-analysis" style="font-weight: 600; text-decoration: none;">Tolerance Stackup Analysis</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">Worst-case and RSS statistical methods for accumulated manufacturing variations.</p>
+            </li>
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="tolerance-analysis-inventor" style="font-weight: 600; text-decoration: none;">Tolerance Analysis in Inventor</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">3D CAD-integrated ASME Y14.5 geometric tolerance stackup solver.</p>
+            </li>
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="smart-dimensions-solidworks" style="font-weight: 600; text-decoration: none;">SOLIDWORKS Smart Dimensions</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">Parametric dimensioning and DimXpert 3D GD&T annotation workflow.</p>
+            </li>
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="constraints-autocad" style="font-weight: 600; text-decoration: none;">AutoCAD Geometric Constraints</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">2D parametric constraints for geometric alignments and dimensional rules.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section">
           <h2>Sources &amp; Further Reading</h2>
           <ul>
             <li><a href="https://www.asme.org/codes-standards/find-codes-standards/y14-5-dimensioning-tolerancing" target="_blank" rel="noopener nofollow">ASME Y14.5</a></li>

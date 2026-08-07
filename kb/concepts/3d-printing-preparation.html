@@ -119,6 +119,34 @@
           </ul>
         </section>
         <section class="kb-concept-section">
+          <h2>Mesh Quality &amp; Slicer Inspection Rules</h2>
+          <p>Before sending geometry to slicers (e.g. PrusaSlicer, Cura, Bambu Studio), meshes must meet strict mathematical criteria:</p>
+          <ul>
+            <li><strong>Watertight Topology (Manifold Solid):</strong> Every edge must be shared by exactly two triangles. Zero non-manifold edges or self-intersecting faces.</li>
+            <li><strong>Consistent Normal Vectors:</strong> All polygon normal vectors must point outward from the enclosed volume.</li>
+            <li><strong>Wall Thickness Boundaries:</strong> Ensure minimal wall thicknesses exceed nozzle diameter (e.g., &gt;0.8mm for a standard 0.4mm nozzle).</li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px;">
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="cad-file-formats-interoperability" style="font-weight: 600; text-decoration: none;">CAD File Formats &amp; Interoperability</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">STL, 3MF, STEP AP242, and Parasolid translation pipelines.</p>
+            </li>
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="ai-in-cad-generative-design" style="font-weight: 600; text-decoration: none;">AI in CAD &amp; Generative Design</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">Lightweighted topology optimization for metal 3D printing.</p>
+            </li>
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="boolean-operations" style="font-weight: 600; text-decoration: none;">Boolean Operations</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">Solid body unions, subtractions, and CSG mesh stitching.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section">
           <h2>Sources &amp; Further Reading</h2>
           <ul>
             <li><a href="https://ultimaker.com/software/ultimaker-cura/" target="_blank" rel="noopener nofollow">UltiMaker Cura</a></li>

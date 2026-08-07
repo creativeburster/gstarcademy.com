@@ -120,7 +120,7 @@ def process_file(src_path, dest_path, file_type):
     print(f"Size: {orig_size} B -> {mini_size} B ({reduction:.1f}% reduction)")
 
 if __name__ == '__main__':
-    base_dir = 'f:/CAD-tutorial'
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
     # 1. 压缩 styles.css
     process_file(f"{base_dir}/styles.css", f"{base_dir}/styles.min.css", 'css')

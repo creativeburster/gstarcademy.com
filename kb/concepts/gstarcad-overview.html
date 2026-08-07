@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gstarcademy Editorial Team" />
+    <meta name="publisher" content="Gstarcademy" />
+    <title>GstarCAD Platform Overview & Architecture | Gstarcademy</title>
+    <meta name="description" content="Comprehensive overview of GstarCAD: high-performance native DWG CAD engine, GRX/ZRX API extension architecture, multi-core acceleration, and AEC/MCAD solutions." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/concepts/gstarcad-overview" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="GstarCAD Platform Overview & Architecture" />
+    <meta property="og:description" content="Comprehensive overview of GstarCAD: high-performance native DWG CAD engine, GRX/ZRX API extension architecture, multi-core acceleration, and AEC/MCAD solutions." />
+    <meta property="og:url" content="https://gstarcademy.com/kb/concepts/gstarcad-overview" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GstarCAD Platform Overview & Architecture" />
+    <meta name="twitter:description" content="Comprehensive overview of GstarCAD: high-performance native DWG CAD engine, GRX/ZRX API extension architecture, multi-core acceleration, and AEC/MCAD solutions." />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GstarCAD Platform Overview & Architecture","description":"Comprehensive technical overview of GstarCAD 2D/3D CAD platform, native DWG engine, and developer API ecosystem.","url":"https://gstarcademy.com/kb/concepts/gstarcad-overview","datePublished":"2026-08-07","dateModified":"2026-08-07","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"GstarCAD Platform Overview","description":"Commercial native DWG 2D/3D CAD software platform developed by Gstarsoft for AEC and Mechanical engineering.","url":"https://gstarcademy.com/kb/concepts/gstarcad-overview","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"GstarCAD Platform Overview","item":"https://gstarcademy.com/kb/concepts/gstarcad-overview"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../">Home</a> /
+        <a href="../../knowledge-base">Knowledge Base</a> /
+        <a href="../../kb-terms">Terms</a> /
+        <span aria-current="page">GstarCAD Platform Overview</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">Core Platform &middot; GstarCAD</span>
+          <h1 style="margin-top: 12px;">GstarCAD Platform Overview &amp; Technical Architecture</h1>
+          <p class="hero-sub">High-performance native DWG CAD engine with multi-core parallel processing and C++/LISP extension frameworks.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> Gstarcademy Editorial Team</span>
+          <span><strong>Updated</strong> <time datetime="2026-08-07">2026-08-07</time></span>
+          <span><a href="../../editorial-process">Editorial process</a></span>
+        </div>
+
+        <section class="kb-concept-section">
+          <h2>Definition &amp; Core Positioning</h2>
+          <p><strong>GstarCAD</strong> is an industry-leading 2D/3D Computer-Aided Design (CAD) platform developed by Gstarsoft. Built upon an optimized native DWG/DXF graphics engine, it provides full operational compatibility with standard CAD command syntax, layer structures, block attributes, and custom extension APIs.</p>
+          <p>It is widely adopted in AEC (Architecture, Engineering, Construction), Mechanical Design, Electrical Schematics, and Manufacturing as a cost-effective, high-speed perpetual alternative to traditional desktop drafting tools.</p>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>Key Technological Pillars</h2>
+          <ul>
+            <li><strong>Multi-Core Parallel Computing:</strong> GstarCAD leverages multi-threaded CPU processing for memory management, drawing regeneration, file loading, and layout viewport rendering, providing fast response times on large DWG files (100MB+).</li>
+            <li><strong>Native DWG Compatibility:</strong> Native binary support for DWG versions ranging from R14 to recent formats without loss of object attributes or dynamic blocks.</li>
+            <li><strong>Developer API Suite:</strong> Offers deep C++ (GRX), .NET, LISP/VLISP, and VBA application programming interfaces compatible with ObjectARX code structures, enabling seamless porting of custom engineering plugins.</li>
+            <li><strong>Cloud &amp; Mobile Integration:</strong> Synchronizes DWG annotations across desktop seats and GstarCAD MC (mobile/web) cloud environments.</li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Utilize <strong>Batch Plot</strong> (SMARTPLOT) for multi-sheet layout printing directly from model space coordinates.</li>
+            <li>Port existing AutoCAD LISP scripts into GstarCAD without modification; for C++ plugins, recompile against the GRX SDK headers.</li>
+            <li>Enable hardware graphics acceleration in Options to boost pan and zoom frame rates in complex 3D visual styles.</li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>Related Concepts</h2>
+          <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px;">
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="cad-file-formats-interoperability" style="font-weight: 600; text-decoration: none;">CAD File Formats &amp; Interoperability</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">DWG, DXF, STEP, IFC, and Parasolid translation pipelines.</p>
+            </li>
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="gdt-geometric-tolerancing" style="font-weight: 600; text-decoration: none;">GD&T Geometric Tolerancing</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">Mechanical drafting symbols, feature frames, and datums.</p>
+            </li>
+            <li style="padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px;">
+              <a href="constraints-autocad" style="font-weight: 600; text-decoration: none;">Geometric &amp; Parametric Constraints</a>
+              <p style="font-size: 12px; color: var(--ink-text-soft); margin: 4px 0 0;">Applying 2D parametric rules and dimension drivers in DWG files.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>Sources &amp; Further Reading</h2>
+          <ul>
+            <li><a href="https://www.gstarcad.net/" target="_blank" rel="noopener nofollow">GstarCAD Official Portal</a></li>
+            <li><a href="https://www.opendesign.com/" target="_blank" rel="noopener nofollow">Open Design Alliance (ODA) — DWG Specifications</a></li>
+          </ul>
+        </section>
+
+        <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 200px;">
+            <p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
+            <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;"><a href="../../editorial-process" style="color: var(--accent);">Editorial guidelines</a></p>
+          </div>
+          <div style="text-align: right; min-width: 140px;">
+            <time datetime="2026-08-07" style="font-size: 12px; font-weight: 600;">2026-08-07</time>
+          </div>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy.</p></div>
+    </footer>
+    <script src="../../app.min.js" defer></script>
+  </body>
+</html>
