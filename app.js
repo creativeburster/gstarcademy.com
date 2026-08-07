@@ -152,14 +152,14 @@ document.addEventListener("keydown", (ev) => {
   }
 
   /* ── button references ───────────────────────────────── */
-  const buttons = banner.querySelectorAll(".cookie-consent-actions button");
-  const btnDeny      = buttons[0]; // "Deny"
-  const btnCustomize = buttons[1]; // "Customize"
-  const btnAccept    = buttons[2]; // "Accept"
+  const btnAccept    = banner.querySelector('[data-action="accept"]') || Array.from(banner.querySelectorAll("button")).find(b => b.textContent.trim().toLowerCase() === "accept");
+  const btnDeny      = banner.querySelector('[data-action="deny"]') || Array.from(banner.querySelectorAll("button")).find(b => b.textContent.trim().toLowerCase() === "deny");
+  const btnCustomize = banner.querySelector('[data-action="customize"]') || Array.from(banner.querySelectorAll("button")).find(b => b.textContent.trim().toLowerCase() === "customize");
 
   /* ── Accept All ──────────────────────────────────────── */
   btnAccept?.addEventListener("click", (e) => {
     e.preventDefault();
+    e.stopPropagation();
     const prefs = { analytics: true, functional: true };
     savePrefs(prefs);
     applyPrefs(prefs);
@@ -169,6 +169,7 @@ document.addEventListener("keydown", (ev) => {
   /* ── Deny All ────────────────────────────────────────── */
   btnDeny?.addEventListener("click", (e) => {
     e.preventDefault();
+    e.stopPropagation();
     const prefs = { analytics: false, functional: false };
     savePrefs(prefs);
     applyPrefs(prefs);
@@ -205,6 +206,7 @@ document.addEventListener("keydown", (ev) => {
     /* Save button */
     panel.querySelector(".cookie-save-prefs")?.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation();
       const prefs = {
         analytics:  panel.querySelector('[data-pref="analytics"]').checked,
         functional: panel.querySelector('[data-pref="functional"]').checked
@@ -217,6 +219,7 @@ document.addEventListener("keydown", (ev) => {
 
   btnCustomize?.addEventListener("click", (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (!panel) buildPanel();
     const isOpen = panel.classList.toggle("is-open");
     btnCustomize.classList.toggle("is-active", isOpen);
