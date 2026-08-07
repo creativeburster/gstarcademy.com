@@ -120,27 +120,116 @@ document.addEventListener("keydown", (ev) => {
 (function initCookieConsent() {
   const banner = document.querySelector("[data-cookie-banner]");
   if (!banner) return;
-  const key = "learncad-cookie-consent-v1";
-  try {
-    if (localStorage.getItem(key) === "1") {
-      banner.classList.add("is-dismissed");
-      return;
-    }
-  } catch {
-    /* ignore */
-  }
-  const handleAccept = (e) => {
-    if (e) e.preventDefault();
-    banner.classList.add("is-dismissed");
-    try {
-      localStorage.setItem(key, "1");
-    } catch { /* ignore */ }
-  };
+  const PREFS_KEY = "learncad-cookie-prefs-v2";
+  const GA_ID = "G-ZV3YR72933";
 
-  banner.querySelectorAll(".cookie-consent-actions button")?.forEach(btn => {
-    btn.addEventListener("click", handleAccept);
+  /* ── helpers ─────────────────────────────────────────── */
+  function getPrefs() {
+    try {
+      const raw = localStorage.getItem(PREFS_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch { return null; }
+  }
+  function savePrefs(prefs) {
+    try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch { /* ignore */ }
+  }
+  function applyPrefs(prefs) {
+    if (!prefs) return;
+    if (!prefs.analytics) {
+      window["ga-disable-" + GA_ID] = true;
+    }
+  }
+  function dismiss() {
+    banner.classList.add("is-dismissed");
+  }
+
+  /* ── check existing prefs ────────────────────────────── */
+  const existing = getPrefs();
+  if (existing) {
+    applyPrefs(existing);
+    dismiss();
+    return;
+  }
+
+  /* ── button references ───────────────────────────────── */
+  const buttons = banner.querySelectorAll(".cookie-consent-actions button");
+  const btnDeny      = buttons[0]; // "Deny"
+  const btnCustomize = buttons[1]; // "Customize"
+  const btnAccept    = buttons[2]; // "Accept"
+
+  /* ── Accept All ──────────────────────────────────────── */
+  btnAccept?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const prefs = { analytics: true, functional: true };
+    savePrefs(prefs);
+    applyPrefs(prefs);
+    dismiss();
   });
-  banner.querySelector(".cookie-consent-close")?.addEventListener("click", handleAccept);
+
+  /* ── Deny All ────────────────────────────────────────── */
+  btnDeny?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const prefs = { analytics: false, functional: false };
+    savePrefs(prefs);
+    applyPrefs(prefs);
+    dismiss();
+  });
+
+  /* ── Customize panel (dynamic) ───────────────────────── */
+  let panel = null;
+
+  function buildPanel() {
+    panel = document.createElement("div");
+    panel.className = "cookie-prefs-panel";
+    panel.innerHTML =
+      '<div class="cookie-pref-row">' +
+        '<span class="cookie-pref-label">Analytics Cookies</span>' +
+        '<label class="cookie-toggle">' +
+          '<input type="checkbox" checked data-pref="analytics">' +
+          '<span class="cookie-toggle-slider"></span>' +
+        '</label>' +
+      '</div>' +
+      '<div class="cookie-pref-row">' +
+        '<span class="cookie-pref-label">Functional Cookies</span>' +
+        '<label class="cookie-toggle">' +
+          '<input type="checkbox" checked data-pref="functional">' +
+          '<span class="cookie-toggle-slider"></span>' +
+        '</label>' +
+      '</div>' +
+      '<button type="button" class="btn-cookie-primary cookie-save-prefs">Save Preferences</button>';
+
+    /* insert after .cookie-consent-actions */
+    const inner = banner.querySelector(".cookie-consent-inner");
+    if (inner) inner.appendChild(panel);
+
+    /* Save button */
+    panel.querySelector(".cookie-save-prefs")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const prefs = {
+        analytics:  panel.querySelector('[data-pref="analytics"]').checked,
+        functional: panel.querySelector('[data-pref="functional"]').checked
+      };
+      savePrefs(prefs);
+      applyPrefs(prefs);
+      dismiss();
+    });
+  }
+
+  btnCustomize?.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!panel) buildPanel();
+    const isOpen = panel.classList.toggle("is-open");
+    btnCustomize.classList.toggle("is-active", isOpen);
+  });
+
+  /* ── Close (×) = Deny ────────────────────────────────── */
+  banner.querySelector(".cookie-consent-close")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const prefs = { analytics: false, functional: false };
+    savePrefs(prefs);
+    applyPrefs(prefs);
+    dismiss();
+  });
 })();
 
 (function initContactFormDemo() {

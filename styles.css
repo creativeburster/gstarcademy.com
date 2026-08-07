@@ -248,6 +248,113 @@ a { color: inherit; text-decoration: none; }
   background: rgba(255, 255, 255, 0.1) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
+
+/* Customize button active state */
+.btn-cookie-outline.is-active {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #93c5fd !important;
+}
+
+/* ── Cookie Preferences Panel ─────────────────────────── */
+.cookie-prefs-panel {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  border-top: none !important;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s ease,
+              margin-top 0.35s ease,
+              padding 0.35s ease !important;
+}
+
+.cookie-prefs-panel.is-open {
+  max-height: 300px !important;
+  opacity: 1 !important;
+  margin-top: 16px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.cookie-pref-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 0 !important;
+}
+
+.cookie-pref-label {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #cbd5e1 !important;
+}
+
+/* ── iOS-style Toggle Switch ──────────────────────────── */
+.cookie-toggle {
+  position: relative !important;
+  display: inline-block !important;
+  width: 44px !important;
+  height: 24px !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+}
+
+.cookie-toggle input {
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+}
+
+.cookie-toggle-slider {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 24px !important;
+  transition: background 0.25s ease !important;
+}
+
+.cookie-toggle-slider::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 3px !important;
+  top: 3px !important;
+  width: 18px !important;
+  height: 18px !important;
+  background: #f1f5f9 !important;
+  border-radius: 50% !important;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+.cookie-toggle input:checked + .cookie-toggle-slider {
+  background: #3b82f6 !important;
+}
+
+.cookie-toggle input:checked + .cookie-toggle-slider::before {
+  transform: translateX(20px) !important;
+}
+
+.cookie-toggle input:focus-visible + .cookie-toggle-slider {
+  outline: 2px solid #93c5fd !important;
+  outline-offset: 2px !important;
+}
+
+/* Save Preferences button inside panel */
+.cookie-save-prefs {
+  width: 100% !important;
+  margin-top: 12px !important;
+  padding: 10px 12px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  border: none !important;
+  text-align: center !important;
+}
+
 .site-notice-close {
   position: absolute !important;
   bottom: 8px !important;
