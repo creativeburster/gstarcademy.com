@@ -58,6 +58,21 @@ body::before {
 a { color: inherit; text-decoration: none; }
 .container { width: min(1800px, 96%); margin: 0 auto; }
 
+/* Modern Rendering Optimization: Content-Visibility for non-hero sections */
+.section-deferred,
+.faq-section,
+.site-footer,
+.tutorials-list,
+.tutorial-grid,
+.news-grid,
+.kb-grid,
+.kb-terms-grid,
+.kb-faq-list,
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
+}
+
 
 .header-stack {
   position: sticky;
