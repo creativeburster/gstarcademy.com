@@ -8,21 +8,29 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      window.addEventListener('load', function() {
-        const initGtag = () => {
+      (function() {
+        let loaded = false;
+        function initGtag() {
+          if (loaded) return;
+          loaded = true;
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        };
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(initGtag);
-        } else {
-          setTimeout(initGtag, 1);
         }
-      });
+        if ('requestIdleCallback' in window) {
+          window.addEventListener('load', function() {
+            requestIdleCallback(initGtag, { timeout: 3000 });
+          }, { passive: true });
+        } else {
+          setTimeout(initGtag, 2500);
+        }
+        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, initGtag, { once: true, passive: true });
+        });
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,7 +59,11 @@
     <link rel="preload" href="../../styles.min.css" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    </noscript>
     <link rel="stylesheet" href="../../styles.min.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Direct Edit (NX)","description":"NX's set of direct-modelling operations — Resize Body, Resize Face, Modify with Rules, Replace Face, on geometry without history.","url":"https://gstarcademy.com/kb/concepts/direct-edit-nx","datePublished":"2026-05-24","dateModified":"2026-07-28","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Gstarcademy","url":"https://gstarcademy.com"},"mainEntityOfPage":"https://gstarcademy.com/kb/concepts/direct-edit-nx","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Direct Edit (NX)","description":"NX's set of direct-modelling operations — Resize Body, Resize Face, Modify with Rules, Replace Face, on geometry without history.","url":"https://gstarcademy.com/kb/concepts/direct-edit-nx","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
@@ -412,7 +424,7 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h4 class="site-footer-heading">Software Hubs</h4>
+          <h3 class="site-footer-heading">Software Hubs</h3>
           <ul class="site-footer-links">
             <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
             <li><a href="../../kb/software/revit">Revit Guide</a></li>
@@ -425,7 +437,7 @@
           </ul>
         </div>
         <div class="site-footer-col">
-          <h4 class="site-footer-heading">Technical Core</h4>
+          <h3 class="site-footer-heading">Technical Core</h3>
           <ul class="site-footer-links">
             <li><a href="../../kb-terms">2D Drafting</a></li>
             <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
@@ -438,7 +450,7 @@
           </ul>
         </div>
         <div class="site-footer-col">
-          <h4 class="site-footer-heading">Structured Learn</h4>
+          <h3 class="site-footer-heading">Structured Learn</h3>
           <ul class="site-footer-links">
             <li><a href="../../tutorials">Tutorial Library</a></li>
             <li><a href="../../knowledge-base">Knowledge Center</a></li>
@@ -450,7 +462,7 @@
           </ul>
         </div>
         <div class="site-footer-col">
-          <h4 class="site-footer-heading">Company &amp; Legal</h4>
+          <h3 class="site-footer-heading">Company &amp; Legal</h3>
           <ul class="site-footer-links">
             <li><a href="../../about">About Project</a></li>
             <li><a href="../../contact">Contact Us</a></li>

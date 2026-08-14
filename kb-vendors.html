@@ -8,21 +8,29 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      window.addEventListener('load', function() {
-        const initGtag = () => {
+      (function() {
+        let loaded = false;
+        function initGtag() {
+          if (loaded) return;
+          loaded = true;
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        };
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(initGtag);
-        } else {
-          setTimeout(initGtag, 1);
         }
-      });
+        if ('requestIdleCallback' in window) {
+          window.addEventListener('load', function() {
+            requestIdleCallback(initGtag, { timeout: 3000 });
+          }, { passive: true });
+        } else {
+          setTimeout(initGtag, 2500);
+        }
+        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, initGtag, { once: true, passive: true });
+        });
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

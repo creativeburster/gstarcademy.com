@@ -150,29 +150,51 @@ a { color: inherit; text-decoration: none; }
   z-index: 10;
 }
 
-/* Cookie / Consent Banner - Premium Modern */
+/* Cookie / Consent Banner - Zero-CLS Premium */
 #cookie-consent, .cookie-consent {
   position: fixed !important;
   bottom: 24px !important;
   left: 24px !important;
   width: 340px !important;
-  background: rgba(15, 23, 42, 0.9) !important; /* Slate 900 with opacity */
+  max-width: calc(100vw - 32px) !important;
+  background: rgba(15, 23, 42, 0.95) !important; /* Slate 900 with opacity */
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   color: #f1f5f9 !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   border-radius: 16px !important;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
-  padding: 24px !important;
+  padding: 20px !important;
   z-index: 10000 !important;
   font-size: 14px !important;
-  transition: transform 0.3s ease, opacity 0.3s ease !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(20px) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+}
+
+#cookie-consent.is-visible, .cookie-consent.is-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
 }
 
 #cookie-consent.is-dismissed, .cookie-consent.is-dismissed {
   opacity: 0 !important;
   pointer-events: none !important;
   transform: translateY(20px) !important;
+  display: none !important;
+}
+
+@media (max-width: 480px) {
+  #cookie-consent, .cookie-consent {
+    bottom: 16px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    max-width: none !important;
+    padding: 16px !important;
+  }
 }
 
 .cookie-consent-text {
@@ -182,7 +204,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .cookie-consent-text a {
-  color: #3b82f6 !important;
+  color: #60a5fa !important;
   text-decoration: underline !important;
 }
 
@@ -229,12 +251,12 @@ a { color: inherit; text-decoration: none; }
 }
 
 .btn-cookie-primary {
-  background: #3b82f6 !important;
+  background: #1d4ed8 !important;
   color: #ffffff !important;
 }
 
 .btn-cookie-primary:hover {
-  background: #2563eb !important;
+  background: #1e40af !important;
   transform: translateY(-1px) !important;
 }
 

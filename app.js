@@ -140,16 +140,28 @@ document.addEventListener("keydown", (ev) => {
     }
   }
   function dismiss() {
+    banner.classList.remove("is-visible");
     banner.classList.add("is-dismissed");
+    setTimeout(() => {
+      banner.style.display = "none";
+    }, 300);
   }
 
   /* ── check existing prefs ────────────────────────────── */
   const existing = getPrefs();
   if (existing) {
     applyPrefs(existing);
-    dismiss();
+    banner.style.display = "none";
     return;
   }
+
+  // Show banner smoothly without triggering document layout shift
+  requestAnimationFrame(() => {
+    banner.style.display = "block";
+    requestAnimationFrame(() => {
+      banner.classList.add("is-visible");
+    });
+  });
 
   /* ── button references ───────────────────────────────── */
   const btnAccept    = banner.querySelector('[data-action="accept"]') || Array.from(banner.querySelectorAll("button")).find(b => b.textContent.trim().toLowerCase() === "accept");

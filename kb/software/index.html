@@ -8,21 +8,29 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      window.addEventListener('load', function() {
-        const initGtag = () => {
+      (function() {
+        let loaded = false;
+        function initGtag() {
+          if (loaded) return;
+          loaded = true;
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        };
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(initGtag);
-        } else {
-          setTimeout(initGtag, 1);
         }
-      });
+        if ('requestIdleCallback' in window) {
+          window.addEventListener('load', function() {
+            requestIdleCallback(initGtag, { timeout: 3000 });
+          }, { passive: true });
+        } else {
+          setTimeout(initGtag, 2500);
+        }
+        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, initGtag, { once: true, passive: true });
+        });
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -296,7 +304,7 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to original sources and do not host third-party videos.</p>
         </div>
         <div class="site-footer-col">
-          <h4 class="site-footer-heading">Learn</h4>
+          <h3 class="site-footer-heading">Learn</h3>
           <ul class="site-footer-links">
             <li><a href="../../tutorials">Tutorials</a></li>
             <li><a href="../../knowledge-base">Knowledge base</a></li>
@@ -305,14 +313,14 @@
           </ul>
         </div>
         <div class="site-footer-col">
-          <h4 class="site-footer-heading">Site</h4>
+          <h3 class="site-footer-heading">Site</h3>
           <ul class="site-footer-links">
             <li><a href="../../about">About</a></li>
             <li><a href="../../contact">Contact</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h4 class="site-footer-heading">Legal</h4>
+          <h3 class="site-footer-heading">Legal</h3>
           <ul class="site-footer-links">
             <li><a href="../../privacy">Privacy policy</a></li>
             <li><a href="../../terms">Terms of use</a></li>
