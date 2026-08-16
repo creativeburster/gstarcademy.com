@@ -1,13 +1,14 @@
-"""Regenerate sitemap.xml with:
-1. Real lastmod dates from git log per file
+"""Regenerate sitemap.xml with high performance git log caching:
+1. Batch fetch git lastmod dates in a single git invocation
 2. Priority and changefreq based on URL patterns
-3. Sorted by priority (homepage first, then major sections, then content)
+3. Complete coverage of all 900+ valid content pages
+4. Sorted by priority (homepage first, then major sections, then content)
 
 Usage: python scripts/regenerate_sitemap.py
 """
 from __future__ import annotations
 import subprocess
-import re
+import os
 from pathlib import Path
 from datetime import datetime
 
@@ -23,20 +24,32 @@ EXCLUDE_PATTERNS = [
     "topic",
 ]
 
-
-def git_lastmod(filepath: str) -> str:
-    """Get last git commit date for a file as YYYY-MM-DD."""
+def build_git_lastmod_cache() -> dict[str, str]:
+    """Fast batch fetch of last modified date for all files."""
+    cache = {}
+    today_str = datetime.now().strftime("%Y-%m-%d")
     try:
-        result = subprocess.run(
-            ["git", "log", "-1", "--format=%cI", "--", filepath],
-            capture_output=True, text=True, cwd=str(REPO),
-        )
-        if result.returncode == 0 and result.stdout.strip():
-            dt = datetime.fromisoformat(result.stdout.strip())
-            return dt.strftime("%Y-%m-%d")
-    except Exception:
-        pass
-    return datetime.now().strftime("%Y-%m-%d")
+        cmd = ["git", "log", "--name-only", "--format=COMMIT:%cI"]
+        res = subprocess.run(cmd, capture_output=True, text=True, cwd=str(REPO), encoding="utf-8")
+        if res.returncode == 0:
+            current_date = None
+            for line in res.stdout.splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                if line.startswith("COMMIT:"):
+                    try:
+                        raw_date = line.replace("COMMIT:", "").strip()
+                        current_date = datetime.fromisoformat(raw_date).strftime("%Y-%m-%d")
+                    except Exception:
+                        current_date = today_str
+                else:
+                    norm_path = line.replace("\\", "/")
+                    if norm_path not in cache and current_date:
+                        cache[norm_path] = current_date
+    except Exception as e:
+        print("Git log batch error:", e)
+    return cache
 
 
 def filepath_to_url(path: Path) -> str:
@@ -75,24 +88,32 @@ def get_priority_changefreq(url_path: str) -> tuple[str, str]:
     if path in knowledge_sections:
         return "0.8", "weekly"
 
-    # KB software index
-    if path == "kb/software/":
+    # KB FAQ individual pages
+    if path.startswith("kb/faq"):
         return "0.8", "weekly"
 
-    # KB vendor pages
-    if path.startswith("kb/vendors/"):
-        return "0.6", "monthly"
+    # KB guides
+    if path.startswith("kb/guides"):
+        return "0.8", "weekly"
 
-    # KB software profile pages
-    if path.startswith("kb/software/"):
-        return "0.7", "monthly"
+    # KB learning paths
+    if path.startswith("kb/learning-paths"):
+        return "0.8", "weekly"
+
+    # KB software index & profile pages
+    if path.startswith("kb/software"):
+        return "0.8", "weekly"
 
     # KB concept pages
-    if path.startswith("kb/concepts/"):
+    if path.startswith("kb/concepts"):
         return "0.7", "monthly"
 
+    # KB vendor pages
+    if path.startswith("kb/vendors"):
+        return "0.6", "monthly"
+
     # Legal/policy pages
-    legal_pages = ["legal", "privacy", "terms", "editorial-process"]
+    legal_pages = ["legal", "privacy", "terms", "editorial-process", "authors"]
     if path in legal_pages:
         return "0.3", "yearly"
 
@@ -121,15 +142,17 @@ def is_noindex(filepath: str | None) -> bool:
 
 
 def main() -> int:
-    print("Scanning repository for static HTML files to build a fresh sitemap...")
-    
-    # 1. Scan physical files
+    print("Building Git lastmod cache...")
+    git_cache = build_git_lastmod_cache()
+    today_str = datetime.now().strftime("%Y-%m-%d")
+
+    print("Scanning repository for all HTML files...")
     html_files = []
     # Root level
     for p in REPO.glob("*.html"):
         html_files.append(p)
     # Sub directories
-    sub_dirs = ["kb/concepts", "kb/software", "kb/vendors", "kb/guides", "kb/learning-paths"]
+    sub_dirs = ["kb/concepts", "kb/software", "kb/vendors", "kb/guides", "kb/learning-paths", "kb/faq"]
     for sd in sub_dirs:
         folder = REPO / sd
         if folder.exists():
@@ -137,22 +160,23 @@ def main() -> int:
                 html_files.append(p)
 
     entries = []
+    seen_urls = set()
     for path in html_files:
         url = filepath_to_url(path)
         url_path = url.replace(SITE, "")
         
-        # Skip index.html under subdirectories if generated, or excluded patterns
-        if path.name == "index.html" and path.parent != REPO:
-            continue
-        if is_excluded(url_path):
+        # Skip duplicate URLs or excluded patterns
+        if url in seen_urls or is_excluded(url_path):
             continue
 
         filepath = path.relative_to(REPO).as_posix()
         if is_noindex(filepath):
             continue
-        lastmod = git_lastmod(filepath)
+            
+        lastmod = git_cache.get(filepath, today_str)
         priority, changefreq = get_priority_changefreq(url_path)
 
+        seen_urls.add(url)
         entries.append((url, lastmod, priority, changefreq))
 
     # Sort by priority descending, then by URL
@@ -173,7 +197,7 @@ def main() -> int:
     lines.append("")
 
     SITEMAP.write_text("\n".join(lines), encoding="utf-8")
-    print(f"Sitemap regenerated from physical files: {len(entries)} URLs")
+    print(f"Sitemap regenerated successfully! Total URLs in sitemap.xml: {len(entries)}")
     return 0
 
 

@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
@@ -23,141 +24,132 @@
         }
       });
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>PBR Materials for CAD Visualization | Gstarcademy</title>
-    <meta name="description" content="Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization. Physically Based Rendering…" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://gstarcademy.com/kb/concepts/pbr-materials" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="PBR Materials for CAD Visualization" />
-    <meta property="og:description" content="Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization. Physically Based Rendering…" />
-    <meta property="og:url" content="https://gstarcademy.com/kb/concepts/pbr-materials" />
-    <meta property="og:site_name" content="Gstarcademy" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="PBR Materials for CAD Visualization" />
-    <meta name="twitter:description" content="Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization. Physically Based Rendering…" />
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-    <link rel="preload" href="../../styles.min.css" as="style" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PBR Materials for CAD Visualization","description":"Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization.","url":"https://gstarcademy.com/kb/concepts/pbr-materials","datePublished":"2026-06-30","dateModified":"2026-07-28","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"PBR Materials for CAD Visualization","description":"Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization.","url":"https://gstarcademy.com/kb/concepts/pbr-materials","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"PBR Materials for CAD Visualization","item":"https://gstarcademy.com/kb/concepts/pbr-materials"}]}</script>
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="topbar">
-        <div class="container topbar-inner">
-          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
-          <nav class="nav">
-            <a class="nav-link" href="../../">Home</a>
-            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" href="../../news">News</a>
-            <a class="nav-link" href="../../about">About</a>
-          </nav>
-        </div>
-      </header>
-    </div>
-
-    <main class="container" style="margin-top: 32px; max-width: 920px;">
-      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gstarcademy Editorial Team" name="author"/>
+<meta content="Gstarcademy" name="publisher"/>
+<title>PBR Materials for CAD Visualization | Gstarcademy</title>
+<meta content="Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization. Physically Based Rendering…" name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/concepts/pbr-materials" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" name="twitter:image"/>
+<meta content="article" property="og:type"/>
+<meta content="PBR Materials for CAD Visualization" property="og:title"/>
+<meta content="Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization. Physically Based Rendering…" property="og:description"/>
+<meta content="https://gstarcademy.com/kb/concepts/pbr-materials" property="og:url"/>
+<meta content="Gstarcademy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="PBR Materials for CAD Visualization" name="twitter:title"/>
+<meta content="Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization. Physically Based Rendering…" name="twitter:description"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="style" href="../../styles.min.css" rel="preload"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<noscript>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="stylesheet"/>
+</noscript>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PBR Materials for CAD Visualization","description":"Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization.","url":"https://gstarcademy.com/kb/concepts/pbr-materials","datePublished":"2026-06-30","dateModified":"2026-07-28","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"PBR Materials for CAD Visualization","description":"Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization.","url":"https://gstarcademy.com/kb/concepts/pbr-materials","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"PBR Materials for CAD Visualization","item":"https://gstarcademy.com/kb/concepts/pbr-materials"}]}</script>
+</head>
+<body>
+<div class="page-shell">
+<header class="topbar">
+<div class="container topbar-inner">
+<a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+<nav class="nav">
+<a class="nav-link" href="../../">Home</a>
+<a class="nav-link active" href="../../knowledge-base">Wiki</a>
+<a class="nav-link" href="../../tutorials">Tutorials</a>
+<a class="nav-link" href="../../news">News</a>
+<a class="nav-link" href="../../about">About</a>
+</nav>
+</div>
+</header>
+</div>
+<main class="container" style="margin-top: 32px; max-width: 920px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="../../">Home</a> /
         <a href="../../knowledge-base">Knowledge Base</a> /
         <a href="../../kb-terms">Terms</a> /
         <span aria-current="page">PBR Materials for CAD Visualization</span>
-      </nav>
-
-      <article class="kb-concept-detail">
-        <header class="kb-concept-header" style="margin-bottom: 28px;">
-          <span class="chip pill-warn">Knowledge &middot; Multi-platform</span>
-          <h1 style="margin-top: 12px;">PBR Materials for CAD Visualization</h1>
-          <p class="hero-sub">Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization.</p>
-        </header>
-
-        <div class="ink-byline" role="contentinfo">
-          <span><strong>By</strong> Gstarcademy Editorial Team</span>
-          <span><strong>Updated</strong> <time datetime="2026-07-28">2026-07-28</time></span>
-          <span><a href="../../editorial-process">Editorial process</a></span>
-        </div>
-
-
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Context</h2>
-          <p>Physically Based Rendering (PBR) materials describe surfaces with parameters grounded in real optics: <strong>base color/albedo</strong>, <strong>metalness</strong>, <strong>roughness</strong>, <strong>normal</strong>, and often ambient occlusion, height, and emissive maps. The metal/rough workflow (used by most engines and glTF) makes materials behave consistently under any lighting.</p>
-          <p>PBR ensures a material looks correct whether it's lit by a sunny exterior or a dim interior, because it obeys energy conservation and Fresnel reflectance rather than baked-in lighting assumptions.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Why It Matters</h2>
-          <p>PBR is the standard that makes materials portable and believable across engines and lighting conditions — the foundation of realistic, consistent visualization and real-time review.</p>
-          <p>Two workflow variants exist and should not be mixed: <strong>metallic/roughness</strong> (the glTF/Enscape/most-engine default) and <strong>specular/glossiness</strong> (still seen in some pipelines). Getting the maps right matters more than the renderer &mdash; albedo must exclude baked lighting/shadows, and normal-map handedness (OpenGL vs DirectX green channel) is a frequent cause of surfaces that look subtly inverted. Because PBR is data-driven, a correct material library transfers cleanly between CAD, real-time, and offline tools, which is the whole point.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Best Practices</h2>
-          <ul>
-            <li>Author with the metal/rough workflow and correct sRGB vs linear color spaces.</li>
-            <li>Use real-world texel density and tiling to keep detail consistent.</li>
-            <li>Keep albedo within physically plausible ranges (no pure black/white).</li>
-            <li>Combine maps (normal + roughness + AO) for surface realism.</li>
-          </ul>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Common Pitfalls</h2>
-          <ul>
-            <li>Mixing color spaces (treating albedo as linear) producing wrong tones.</li>
-            <li>Baked lighting in the albedo map, breaking under new lighting.</li>
-            <li>Implausible albedo/roughness values that look CG.</li>
-            <li>Inconsistent texel density across a scene.</li>
-          </ul>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Sources &amp; Further Reading</h2>
-          <ul>
-            <li><a href="https://substance3d.adobe.com/tutorials/" target="_blank" rel="noopener nofollow">Adobe Substance — PBR guide</a></li>
-            <li><a href="https://www.khronos.org/gltf/" target="_blank" rel="noopener nofollow">Khronos glTF — PBR</a></li>
-          </ul>
-        </section>
-
-
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <ul>
-            <li><a href="rendering-fundamentals">Rendering Fundamentals</a> &mdash; how PBR materials are lit and sampled</li>
-            <li><a href="hdri-lighting-cad">HDRI Lighting</a> &mdash; the lighting PBR is designed to respond to</li>
-            <li><a href="product-visualization">Product Visualization</a> &mdash; where accurate PBR materials matter most</li>
-            <li><a href="gpu-acceleration-cad">GPU Acceleration</a> &mdash; real-time PBR preview</li>
-          </ul>
-        </section>
-
-        <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 200px;">
-            <p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
-            <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;"><a href="../../editorial-process" style="color: var(--accent);">Editorial guidelines</a></p>
-          </div>
-          <div style="text-align: right; min-width: 140px;">
-            <time datetime="2026-06-30" style="font-size: 12px; font-weight: 600;">2026-06-30</time>
-          </div>
-        </aside>
-      </article>
-    </main>
-
-    <footer class="footer site-footer">
-      <div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
-      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy.</p></div>
-    </footer>
-    <script src="../../app.min.js" defer></script>
-  </body>
+</nav>
+<article class="kb-concept-detail">
+<header class="kb-concept-header" style="margin-bottom: 28px;">
+<span class="chip pill-warn">Knowledge · Multi-platform</span>
+<h1 style="margin-top: 12px;">PBR Materials for CAD Visualization</h1>
+<p class="hero-sub">Physically-Based Rendering materials: roughness, metalness, normal maps, and material libraries for realistic CAD visualization.</p>
+</header>
+<div class="ink-byline" role="contentinfo">
+<span><strong>By</strong> Gstarcademy Editorial Team</span>
+<span><strong>Updated</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+<span><a href="../../editorial-process">Editorial process</a></span>
+</div>
+<section class="kb-concept-section">
+<h2>Definition &amp; Context</h2>
+<p>Physically Based Rendering (PBR) materials describe surfaces with parameters grounded in real optics: <strong>base color/albedo</strong>, <strong>metalness</strong>, <strong>roughness</strong>, <strong>normal</strong>, and often ambient occlusion, height, and emissive maps. The metal/rough workflow (used by most engines and glTF) makes materials behave consistently under any lighting.</p>
+<p>PBR ensures a material looks correct whether it's lit by a sunny exterior or a dim interior, because it obeys energy conservation and Fresnel reflectance rather than baked-in lighting assumptions.</p>
+<p>In contemporary engineering practice, PBR Materials for CAD Visualization represents a critical interdisciplinary methodology. By replacing manual heuristics with rigorous digital simulation and parametric constraints, engineering teams establish an unbroken digital thread from initial concept through detailed physical realization.</p><p>Achieving high-quality results in PBR Materials for CAD Visualization requires a thorough understanding of geometric tolerances, material behavior, and coordinate governance. Digital models serve not merely as graphical representations, but as authoritative engineering databases driving downstream analysis, procurement, and robotic fabrication.</p></section>
+<section class="kb-concept-section">
+<h2>Why It Matters</h2>
+<p>PBR is the standard that makes materials portable and believable across engines and lighting conditions — the foundation of realistic, consistent visualization and real-time review.</p>
+<p>Two workflow variants exist and should not be mixed: <strong>metallic/roughness</strong> (the glTF/Enscape/most-engine default) and <strong>specular/glossiness</strong> (still seen in some pipelines). Getting the maps right matters more than the renderer — albedo must exclude baked lighting/shadows, and normal-map handedness (OpenGL vs DirectX green channel) is a frequent cause of surfaces that look subtly inverted. Because PBR is data-driven, a correct material library transfers cleanly between CAD, real-time, and offline tools, which is the whole point.</p>
+</section>
+<section class="kb-concept-section">
+<h2>Best Practices</h2>
+<ul>
+<li>Author with the metal/rough workflow and correct sRGB vs linear color spaces.</li>
+<li>Use real-world texel density and tiling to keep detail consistent.</li>
+<li>Keep albedo within physically plausible ranges (no pure black/white).</li>
+<li>Combine maps (normal + roughness + AO) for surface realism.</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Common Pitfalls</h2>
+<ul>
+<li>Mixing color spaces (treating albedo as linear) producing wrong tones.</li>
+<li>Baked lighting in the albedo map, breaking under new lighting.</li>
+<li>Implausible albedo/roughness values that look CG.</li>
+<li>Inconsistent texel density across a scene.</li>
+</ul>
+</section>
+<section class="kb-concept-section" style="margin-top: 32px;"><h2>Core Commands &amp; Practical System Operations</h2><p>Executing PBR Materials for CAD Visualization effectively relies on specialized CAD/BIM command workflows and system variable configurations: AutoCAD/Civil 3D commands: <code>ALIGNMENT</code>, <code>SURFACE</code>, <code>CORRIDOR</code>, <code>MAPIMPORT</code>, <code>GRADING</code>. System variables: <code>MEASUREMENT=1</code>, <code>SURFTYPE=6</code>, <code>GEOLATLONGFORMAT=1</code>.</p><p>Engineers must ensure system precision tolerances are calibrated prior to modeling. Utilizing geometric constraints, structured layer naming, and associative dimensions guarantees that subsequent modifications propagate cleanly throughout the entire assembly tree without geometric failure.</p></section><section class="kb-concept-section" style="margin-top: 32px;"><h2>Standard Engineering Workflow for PBR Materials for CAD Visualization</h2><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">1. Terrain Model &amp; Coordinate Setup</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Import aerial survey LiDAR point clouds or total-station LandXML data. Establish global georeferencing (UTM/EPSG grid) to align site datum across disciplines.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">2. Geometric Alignment &amp; Profile Design</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Lay out horizontal tangents and spiral transitions following AASHTO / Eurocode minimum curve radii, coupled with vertical slope crest/sag parabolic curves.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">3. Corridor Modeling &amp; Drainage Grading</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Assemble multi-layer cross sections (subbase, binder, surface wear course), integrate roadside daylight catch slopes, and size culvert drainage catchments.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">4. Earthwork Takeoff &amp; Machine Control Export</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Compute cut/fill earthwork balance volumes via composite surfaces and export LandXML / 3D DGN files directly for GPS-guided machine grading.</p></div></section><section class="kb-concept-section" style="margin-top: 32px;"><h2>Common Failure Scenarios &amp; Troubleshooting</h2><div style="overflow-x: auto; margin-top: 14px;"><table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); font-size: 13.5px;"><thead><tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line); text-align: left;"><th style="padding: 10px 14px; font-weight: 700; width: 35%;">Failure / Geometric Issue</th><th style="padding: 10px 14px; font-weight: 700;">Root Cause &amp; Mitigation Strategy</th></tr></thead><tbody><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Surface triangulation bridges across steep ravines incorrectly</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Add linear Breaklines along tops/toes of slopes or specify 'Maximum Triangle Length' under Surface Build Properties.</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Horizontal curve radius triggers AASHTO violation flags</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Adjust minimum transition spiral length or increase curve radius to meet minimum design speed superelevation criteria.</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Coordinates offset by several meters after CAD/GIS import</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Verify projection datum and false easting/northing parameters in MAPCSASSIGN before importing geospatial shapefiles.</td></tr></tbody></table></div></section><section class="kb-concept-section" style="margin-top: 32px;"><h2>Industry Standards &amp; Compliance Codes</h2><ul><li>AASHTO Geometric Design Guidelines (Green Book)</li><li>Eurocode 7 (Geotechnical Design - EN 1997)</li><li>ISO 19650 (BIM for Civil Infrastructure)</li><li>FHWA Hydraulic Engineering Circulars</li></ul></section><section class="kb-concept-section">
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+<li><a href="https://substance3d.adobe.com/tutorials/" rel="noopener nofollow" target="_blank">Adobe Substance — PBR guide</a></li>
+<li><a href="https://www.khronos.org/gltf/" rel="noopener nofollow" target="_blank">Khronos glTF — PBR</a></li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Related Concepts</h2>
+<ul>
+<li><a href="rendering-fundamentals">Rendering Fundamentals</a> — how PBR materials are lit and sampled</li>
+<li><a href="hdri-lighting-cad">HDRI Lighting</a> — the lighting PBR is designed to respond to</li>
+<li><a href="product-visualization">Product Visualization</a> — where accurate PBR materials matter most</li>
+<li><a href="gpu-acceleration-cad">GPU Acceleration</a> — real-time PBR preview</li>
+</ul>
+</section>
+<aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 200px;">
+<p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
+<p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;"><a href="../../editorial-process" style="color: var(--accent);">Editorial guidelines</a></p>
+</div>
+<div style="text-align: right; min-width: 140px;">
+<time datetime="2026-06-30" style="font-size: 12px; font-weight: 600;">2026-06-30</time>
+</div>
+</aside>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
+<div class="container site-footer-bottom"><p>© <span id="footer-year"></span> Gstarcademy.</p></div>
+</footer>
+<script defer="" src="../../app.min.js"></script>
+</body>
 </html>

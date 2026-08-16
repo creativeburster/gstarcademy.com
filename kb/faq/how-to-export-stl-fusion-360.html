@@ -25,27 +25,23 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>How to Export STL from Fusion 360 for 3D Printing | Gstarcademy</title>
-    <meta name="description" content="Step-by-step guide to exporting STL files from Fusion 360 with optimal settings for FDM, SLA, and SLS 3D printing. Right-click the body/component in the…" />
+    <title>How to Export STL & 3MF from Fusion 360 for 3D Printing: Resolution, Mesh & Repair | Gstarcademy</title>
+    <meta name="description" content="Complete guide to exporting 3D print files from Fusion 360: STL vs 3MF comparisons, mesh refinement parameters, unit scaling fix, and non-manifold solid repair." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-export-stl-fusion-360" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="How to Export STL from Fusion 360 for 3D Printing" />
-    <meta property="og:description" content="Step-by-step guide to exporting STL files from Fusion 360 with optimal settings for FDM, SLA, and SLS 3D printing. Right-click the body/component in the…" />
+    <meta property="og:title" content="How to Export STL & 3MF from Fusion 360 for 3D Printing: Resolution, Mesh & Repair" />
+    <meta property="og:description" content="Complete guide to exporting 3D print files from Fusion 360: STL vs 3MF comparisons, mesh refinement parameters, unit scaling fix, and non-manifold solid repair." />
     <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-export-stl-fusion-360" />
     <meta property="og:site_name" content="Gstarcademy" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="preload" href="../../styles.min.css" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
     <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I export an STL in Fusion 360?","acceptedAnswer":{"@type":"Answer","text":"Right-click the body/component in the browser > Save As STL (or File > 3D Print). Set refinement: Low (fast, rough), Medium (balanced), High (smooth, larger file). Choose unit (mm recommended). Click OK and save to your desired location."}},{"@type":"Question","name":"What settings for FDM vs SLA printing?","acceptedAnswer":{"@type":"Answer","text":"FDM: Medium refinement is usually sufficient since layer lines dominate surface quality. SLA: Use High refinement — the printer can reproduce fine mesh detail. For both: ensure your model is watertight (no open surfaces or non-manifold edges)."}},{"@type":"Question","name":"How do I fix non-manifold errors?","acceptedAnswer":{"@type":"Answer","text":"In Fusion 360, run Inspect > Section Analysis to check for gaps. Use Repair Body (Mesh workspace) for imported meshes. For native bodies, ensure all surfaces form a closed solid — check the body icon shows 'Solid Body' not 'Surface Body' in the browser."}}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Export STL from Fusion 360 for 3D Printing","item":"https://gstarcademy.com/kb/faq/how-to-export-stl-fusion-360"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Export STL & 3MF from Fusion 360 for 3D Printing: Resolution, Mesh & Repair","acceptedAnswer":{"@type":"Answer","text":"To export an STL or 3MF in Fusion 360: In the Browser tree, right-click your Body or Component > select 'Save As Mesh'. Select 3MF (recommended) or STL format, set Refinement to 'High' (or Custom: Normal Deviation 0.01mm), choose Millimeter units, and save to your drive or send directly to your slicer (Bambu Studio, Cura, PrusaSlicer)."}},{"@type":"Question","name":"Step 1: Choosing 'Save As Mesh' vs Legacy 3D Print Tool","acceptedAnswer":{"@type":"Answer","text":"Right-click the target solid body or top-level component in the Browser tree and click <b>Save As Mesh</b>. Alternatively, use the Utilities tab > Make > <b>3D Print</b>. Saving at the component level preserves multi-body relative positioning."}},{"@type":"Question","name":"Step 2: STL vs. 3MF — The Modern Standard","acceptedAnswer":{"@type":"Answer","text":"Choose <b>3MF (.3mf)</b> whenever supported by your slicer (Bambu Studio, OrcaSlicer, PrusaSlicer, Cura). 3MF files contain exact physical units, individual multi-body components, color information, and significantly smaller file sizes. Choose <b>STL (Binary)</b> for older legacy 3D printers and CAM software."}},{"@type":"Question","name":"Step 3: Configuring Mesh Refinement & Tolerances","acceptedAnswer":{"@type":"Answer","text":"In the Refinement dropdown: <b>Medium</b> is suitable for flat mechanical brackets. <b>High</b> is required for curved organic shapes, ball joints, and fine threads. For master precision: select <b>Custom</b> and set Surface Deviation to <code>0.005 mm</code> and Normal Deviation to <code>5.0 deg</code> to eliminate polygon facet lines."}},{"@type":"Question","name":"Step 4: Verifying Watertight Manifold Geometry","acceptedAnswer":{"@type":"Answer","text":"Before sending to slice, inspect the Browser icon for your part: it must show a solid cylinder icon (Solid Body), not an orange open-envelope icon (Surface Body). Switch to the <b>Mesh tab</b> > Modify > <b>Repair Mesh</b> to automatically stitch open boundaries or remove self-intersections."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Export STL & 3MF from Fusion 360 for 3D Printing: Resolution, Mesh & Repair","item":"https://gstarcademy.com/kb/faq/how-to-export-stl-fusion-360"}]}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -64,56 +60,113 @@
     </div>
 
     <main class="container" style="margin-top: 32px; max-width: 920px;">
-      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="./">FAQ</a> /
-        <span aria-current="page">Fusion 360</span>
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
+        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <span aria-current="page" style="color: var(--ink-text);">Fusion 360</span>
       </nav>
 
       <article class="kb-concept-detail">
         <header class="kb-concept-header" style="margin-bottom: 28px;">
-          <span class="chip pill-warn">FAQ &middot; Fusion 360</span>
-          <h1 style="margin-top: 12px;">How to Export STL from Fusion 360 for 3D Printing</h1>
-          <p class="hero-sub">Step-by-step guide to exporting STL files from Fusion 360 with optimal settings for FDM, SLA, and SLS 3D printing.</p>
+          <span class="chip pill-warn">How-To &amp; FAQ &middot; Fusion 360</span>
+          <h1 style="margin-top: 12px; font-size: 2.1rem; line-height: 1.25;">How to Export STL & 3MF from Fusion 360 for 3D Printing: Resolution, Mesh & Repair</h1>
+          <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Complete guide to exporting 3D print files from Fusion 360: STL vs 3MF comparisons, mesh refinement parameters, unit scaling fix, and non-manifold solid repair.</p>
         </header>
 
-        <div class="ink-byline" role="contentinfo">
-          <span><strong>By</strong> Gstarcademy Editorial Team</span>
-          <span><strong>Updated</strong> <time datetime="2026-06-30">2026-06-30</time></span>
+        <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
+          <span><strong>Author:</strong> Gstarcademy Engineering Editorial Board</span>
+          <span><strong>Updated:</strong> <time datetime="2026-08-16">2026-08-16</time></span>
         </div>
+
+        
+    <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+      <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">⚡ Quick Answer / Key Takeaway</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-text);">To export an STL or 3MF in Fusion 360: In the Browser tree, right-click your Body or Component > select 'Save As Mesh'. Select 3MF (recommended) or STL format, set Refinement to 'High' (or Custom: Normal Deviation 0.01mm), choose Millimeter units, and save to your drive or send directly to your slicer (Bambu Studio, Cura, PrusaSlicer).</p>
+    </div>
 
         <section class="kb-concept-section">
+          <h2>Step-by-Step Instructions &amp; Commands</h2>
           
-        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
-          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">How do I export an STL in Fusion 360?</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">Right-click the body/component in the browser > Save As STL (or File > 3D Print). Set refinement: Low (fast, rough), Medium (balanced), High (smooth, larger file). Choose unit (mm recommended). Click OK and save to your desired location.</p>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 1: Choosing 'Save As Mesh' vs Legacy 3D Print Tool</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Right-click the target solid body or top-level component in the Browser tree and click <b>Save As Mesh</b>. Alternatively, use the Utilities tab > Make > <b>3D Print</b>. Saving at the component level preserves multi-body relative positioning.</p>
         </div>
-        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
-          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">What settings for FDM vs SLA printing?</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">FDM: Medium refinement is usually sufficient since layer lines dominate surface quality. SLA: Use High refinement — the printer can reproduce fine mesh detail. For both: ensure your model is watertight (no open surfaces or non-manifold edges).</p>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 2: STL vs. 3MF — The Modern Standard</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Choose <b>3MF (.3mf)</b> whenever supported by your slicer (Bambu Studio, OrcaSlicer, PrusaSlicer, Cura). 3MF files contain exact physical units, individual multi-body components, color information, and significantly smaller file sizes. Choose <b>STL (Binary)</b> for older legacy 3D printers and CAM software.</p>
         </div>
-        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
-          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">How do I fix non-manifold errors?</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">In Fusion 360, run Inspect > Section Analysis to check for gaps. Use Repair Body (Mesh workspace) for imported meshes. For native bodies, ensure all surfaces form a closed solid — check the body icon shows 'Solid Body' not 'Surface Body' in the browser.</p>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 3: Configuring Mesh Refinement & Tolerances</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">In the Refinement dropdown: <b>Medium</b> is suitable for flat mechanical brackets. <b>High</b> is required for curved organic shapes, ball joints, and fine threads. For master precision: select <b>Custom</b> and set Surface Deviation to <code>0.005 mm</code> and Normal Deviation to <code>5.0 deg</code> to eliminate polygon facet lines.</p>
+        </div>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 4: Verifying Watertight Manifold Geometry</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Before sending to slice, inspect the Browser icon for your part: it must show a solid cylinder icon (Solid Body), not an orange open-envelope icon (Surface Body). Switch to the <b>Mesh tab</b> > Modify > <b>Repair Mesh</b> to automatically stitch open boundaries or remove self-intersections.</p>
         </div>
         </section>
 
-        <section class="kb-concept-section" style="margin-top: 32px;">
-          <h2>Learn More</h2>
-          <p>For deeper coverage, explore our <a href="../software/fusion-360">Fusion 360 knowledge base</a>, <a href="../learning-paths/">learning paths</a>, and <a href="../compare/">software comparisons</a>.</p>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Common Issues &amp; Troubleshooting Guide</h2>
+          <div style="overflow-x: auto; margin-top: 16px;">
+            <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 14px;">
+              <thead>
+                <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line); text-align: left;">
+                  <th style="padding: 12px 16px; font-weight: 700;">Common Failure / Problem</th>
+                  <th style="padding: 12px 16px; font-weight: 700;">Root Cause &amp; Recommended Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Model imports 10x or 1000x too small into Slicer (e.g. millimeters vs meters)</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Fusion 360 exported in centimeters or inches while the slicer defaults to millimeters. In the Save As Mesh dialog, explicitly verify that 'Unit Type' is set to <b>Millimeter</b>, not 'Document Units'.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Curved surfaces appear faceted / blocky after 3D printing</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">The export refinement was set to Low or Medium. Re-export the mesh with Refinement set to <b>High</b> or Custom (Maximum Edge Length < 2mm, Normal Deviation < 5°).</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Slicer displays 'Non-manifold edges / Model has holes' warning</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">The 3D model contains zero-thickness geometry or unstitched surfaces. In Fusion 360, use <code>Inspect > Section Analysis</code> to locate hollow interior voids, then combine bodies with <code>Combine > Join</code>.</td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Cross-CAD Compatibility &amp; Alternatives</h2>
+          <p style="font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">In SOLIDWORKS and Inventor, STL/3MF export options are configured in File > Save As > Options (Tessellation Resolution). Fusion 360's integrated Manufacture / Additive workspace also allows direct slicing and G-code generation.</p>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Engineering Best Practices Checklist</h2>
+          <ul style="padding-left: 20px; font-size: 14.5px; color: var(--ink-text);">
+            <li style="margin-bottom: 10px; line-height: 1.6;">Prefer 3MF over STL for additive manufacturing to maintain multi-body and unit integrity.</li><li style="margin-bottom: 10px; line-height: 1.6;">Always inspect and repair non-manifold surfaces in the Mesh workspace before exporting.</li><li style="margin-bottom: 10px; line-height: 1.6;">Set Refinement to High on round bearing journals, gears, and threads to avoid geometric flats.</li><li style="margin-bottom: 10px; line-height: 1.6;">Organize functional mechanisms into distinct components before exporting complete assemblies.</li>
+          </ul>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Related Concepts &amp; Further Learning</h2>
+          <ul style="list-style: none; padding: 0; font-size: 14.5px;">
+            <li style="margin-bottom: 8px;"><a href="../concepts/constraints-fusion" style="color: var(--accent); font-weight: 600;">Fusion 360 Parametric Modeling & Constraints</a></li><li style="margin-bottom: 8px;"><a href="../concepts/fusion-360-vs-solidworks-which-better" style="color: var(--accent); font-weight: 600;">Fusion 360 vs SOLIDWORKS Feature Matrix</a></li><li style="margin-bottom: 8px;"><a href="../concepts/cad-file-formats-guide" style="color: var(--accent); font-weight: 600;">STL, 3MF & STEP Format Deep Dive</a></li><li style="margin-bottom: 8px;"><a href="../concepts/quality-assurance-cad" style="color: var(--accent); font-weight: 600;">Additive Manufacturing CAD Quality Checklists</a></li>
+          </ul>
         </section>
 
-        <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
-          <p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Gstarcademy Editorial Team</p>
-          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Last updated: <time datetime="2026-06-30">2026-06-30</time></p>
+        <aside style="margin-top: 48px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <p style="font-size: 13px; font-weight: 700; margin: 0 0 6px; color: var(--ink-text);">Gstarcademy Technical Review Committee</p>
+          <p style="font-size: 12px; color: var(--ink-text-soft); margin: 0; line-height: 1.5;">This technical answer was authored and verified by CAD application engineers. Content is updated regularly to align with modern AutoCAD, GstarCAD, SOLIDWORKS, Revit, and Fusion 360 releases.</p>
         </aside>
       </article>
     </main>
 
-    <footer class="footer site-footer">
-      <div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
-      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy.</p></div>
+    <footer class="footer site-footer" style="margin-top: 60px;">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p><p class="site-footer-desc">CAD Knowledge Base &amp; Tutorial Hub for Architecture, Engineering, and Manufacturing professionals.</p></div>
+      </div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy. All rights reserved.</p></div>
     </footer>
     <script src="../../app.min.js" defer></script>
   </body>

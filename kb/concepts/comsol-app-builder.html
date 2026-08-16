@@ -1,10 +1,11 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+<head>
+<!-- Google tag (gtag.js) - Performance Optimized Loading -->
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
@@ -32,479 +33,426 @@
         });
       })();
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>COMSOL Application Builder (COMSOL) | COMSOL Multiphysics | Gstarcademy</title>
-    <meta name="description" content="Tip: open the tutorial library to filter by software, task, level, and source—then follow outbound links to the originals. GUI builder that converts models…" />
-    <link rel="canonical" href="https://gstarcademy.com/kb/concepts/comsol-app-builder" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-    <link rel="manifest" href="../../manifest.json" />
-    <script src="../../search.min.js" defer></script>
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="COMSOL Application Builder (COMSOL)" />
-    <meta property="og:description" content="Tip: open the tutorial library to filter by software, task, level, and source—then follow outbound links to the originals. GUI builder that converts models…" />
-    <meta property="og:url" content="https://gstarcademy.com/kb/concepts/comsol-app-builder" />
-    <meta property="og:site_name" content="Gstarcademy" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="COMSOL Application Builder (COMSOL)" />
-    <meta name="twitter:description" content="Tip: open the tutorial library to filter by software, task, level, and source—then follow outbound links to the originals. GUI builder that converts models…" />
-
-    <link rel="preload" href="../../styles.min.css" as="style" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"COMSOL Application Builder (COMSOL)","description":"GUI builder that converts models into simple standalone apps.","url":"https://gstarcademy.com/kb/concepts/comsol-app-builder","datePublished":"2026-05-28","dateModified":"2026-06-30","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Gstarcademy","url":"https://gstarcademy.com"},"mainEntityOfPage":"https://gstarcademy.com/kb/concepts/comsol-app-builder","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"COMSOL Application Builder (COMSOL)","description":"GUI builder that converts models into simple standalone apps.","url":"https://gstarcademy.com/kb/concepts/comsol-app-builder","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"COMSOL Application Builder (COMSOL)","item":"https://gstarcademy.com/kb/concepts/comsol-app-builder"}]}</script>
-  
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is COMSOL Application Builder (COMSOL)?", "acceptedAnswer": {"@type": "Answer", "text": "In COMSOL, the Application Builder represents an enterprise accessibility tool. It wraps complex simulation files inside simplified web interfaces or local desktop executables with custom input buttons. By publishing simplified models as COMSOL Apps, simulation experts allow sales and test engineers to run clear parametric scans without seeing FEA mesh equations."}}, {"@type": "Question", "name": "Why does COMSOL Application Builder (COMSOL) matter in professional workflows?", "acceptedAnswer": {"@type": "Answer", "text": "Democratizes finite element analysis across the manufacturing supply chain, protecting intellectual property and reducing simulation backlogs. Without it, expert analysts will spend excessive time running trivial parameter adjustments for customers."}}, {"@type": "Question", "name": "What are common mistakes when working with COMSOL Application Builder (COMSOL)?", "acceptedAnswer": {"@type": "Answer", "text": "Hardcoding strict input bounds that lock valid design scans Forgetting to bundle required solver dependencies."}}]}</script>
-  
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to implement COMSOL Application Builder (COMSOL)", "step": [{"@type": "HowToStep", "position": 1, "text": "Prepare and Idealize the Geometry: Import CAD geometry and simplify it for analysis by removing cosmetic features (fillets, chamfers, logos) that do not affect structural behavior. Define mid-surfaces for thin-walled parts and partition complex regions for mesh control."}, {"@type": "HowToStep", "position": 2, "text": "Define Materials, Loads, and Boundary Conditions: When setting up COMSOL Application Builder (COMSOL), assign material properties from validated libraries (elastic modulus, Poisson ratio, yield strength). Apply realistic boundary conditions and load cases that represent the service environment, incl"}, {"@type": "HowToStep", "position": 3, "text": "Mesh with Convergence in Mind: Generate the mesh with appropriate element types (hex vs. tet, linear vs. quadratic). Perform a mesh convergence study on critical stress/displacement regions to ensure results are mesh-independent before running the final solve."}, {"@type": "HowToStep", "position": 4, "text": "Post-Process and Validate Results: Review contour plots for stress concentrations, displacement maxima, and safety factors. Compare results against hand calculations or experimental data. Document assumptions, mesh statistics, and convergence metrics in the analysis report."}]}</script>
-  </head>
-  <body data-page="knowledge" class="page-kb-concepts">
-    <div class="header-stack">
-      <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
-        <div class="site-notice-inner container">
-          <p class="site-notice-text">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gstarcademy Editorial Team" name="author"/>
+<meta content="Gstarcademy" name="publisher"/>
+<title>COMSOL Application Builder (COMSOL) | COMSOL Multiphysics | Gstarcademy</title>
+<meta content="GUI builder that converts models into simple standalone apps." name="description"/>
+<link href="https://gstarcademy.com/kb/concepts/comsol-app-builder" rel="canonical"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" name="twitter:image"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../manifest.json" rel="manifest"/>
+<script defer="" src="../../search.min.js"></script>
+<meta content="article" property="og:type"/>
+<meta content="COMSOL Application Builder (COMSOL)" property="og:title"/>
+<meta content="GUI builder that converts models into simple standalone apps." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/concepts/comsol-app-builder" property="og:url"/>
+<meta content="Gstarcademy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="COMSOL Application Builder (COMSOL)" name="twitter:title"/>
+<meta content="GUI builder that converts models into simple standalone apps." name="twitter:description"/>
+<link as="style" href="../../styles.min.css" rel="preload"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<noscript>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="stylesheet"/>
+</noscript>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"COMSOL Application Builder (COMSOL)","description":"GUI builder that converts models into simple standalone apps.","url":"https://gstarcademy.com/kb/concepts/comsol-app-builder","datePublished":"2026-05-28","dateModified":"2026-06-30","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Gstarcademy","url":"https://gstarcademy.com"},"mainEntityOfPage":"https://gstarcademy.com/kb/concepts/comsol-app-builder","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"COMSOL Application Builder (COMSOL)","description":"GUI builder that converts models into simple standalone apps.","url":"https://gstarcademy.com/kb/concepts/comsol-app-builder","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"COMSOL Application Builder (COMSOL)","item":"https://gstarcademy.com/kb/concepts/comsol-app-builder"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is COMSOL Application Builder (COMSOL)?", "acceptedAnswer": {"@type": "Answer", "text": "In COMSOL, the Application Builder represents an enterprise accessibility tool. It wraps complex simulation files inside simplified web interfaces or local desktop executables with custom input buttons. By publishing simplified models as COMSOL Apps, simulation experts allow sales and test engineers to run clear parametric scans without seeing FEA mesh equations."}}, {"@type": "Question", "name": "Why does COMSOL Application Builder (COMSOL) matter in professional workflows?", "acceptedAnswer": {"@type": "Answer", "text": "Democratizes finite element analysis across the manufacturing supply chain, protecting intellectual property and reducing simulation backlogs. Without it, expert analysts will spend excessive time running trivial parameter adjustments for customers."}}, {"@type": "Question", "name": "What are common mistakes when working with COMSOL Application Builder (COMSOL)?", "acceptedAnswer": {"@type": "Answer", "text": "Hardcoding strict input bounds that lock valid design scans Forgetting to bundle required solver dependencies."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to implement COMSOL Application Builder (COMSOL)", "step": [{"@type": "HowToStep", "position": 1, "text": "Prepare and Idealize the Geometry: Import CAD geometry and simplify it for analysis by removing cosmetic features (fillets, chamfers, logos) that do not affect structural behavior. Define mid-surfaces for thin-walled parts and partition complex regions for mesh control."}, {"@type": "HowToStep", "position": 2, "text": "Define Materials, Loads, and Boundary Conditions: When setting up COMSOL Application Builder (COMSOL), assign material properties from validated libraries (elastic modulus, Poisson ratio, yield strength). Apply realistic boundary conditions and load cases that represent the service environment, incl"}, {"@type": "HowToStep", "position": 3, "text": "Mesh with Convergence in Mind: Generate the mesh with appropriate element types (hex vs. tet, linear vs. quadratic). Perform a mesh convergence study on critical stress/displacement regions to ensure results are mesh-independent before running the final solve."}, {"@type": "HowToStep", "position": 4, "text": "Post-Process and Validate Results: Review contour plots for stress concentrations, displacement maxima, and safety factors. Compare results against hand calculations or experimental data. Document assumptions, mesh statistics, and convergence metrics in the analysis report."}]}</script>
+</head>
+<body class="page-kb-concepts" data-page="knowledge">
+<div class="header-stack">
+<aside aria-label="Announcement" class="site-notice" data-notice-id="global-v2" id="site-notice">
+<div class="site-notice-inner container">
+<p class="site-notice-text">
             Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
-          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </aside>
-      <header class="topbar">
-        <div class="container topbar-inner">
-          <a class="brand" href="../../">
-            <span class="brand-badge">GC</span>
-            <span>Gstarcademy</span>
-          </a>
-          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
-          <nav class="nav">
-            <div class="nav-header">
-              <button class="nav-close" aria-label="Close navigation menu">
-                <span class="nav-close-icon">×</span>
-              </button>
-            </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
-          </nav>
-        </div>
-        <div class="nav-overlay" aria-hidden="true"></div>
-      </header>
-    </div>
-
-    <main class="container" style="margin-top: 32px; max-width: 920px;">
-      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
+<button aria-label="Dismiss announcement" class="site-notice-close" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+</aside>
+<header class="topbar">
+<div class="container topbar-inner">
+<a class="brand" href="../../">
+<span class="brand-badge">GC</span>
+<span>Gstarcademy</span>
+</a>
+<button aria-expanded="false" aria-label="Toggle navigation menu" class="hamburger">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+<nav class="nav">
+<div class="nav-header">
+<button aria-label="Close navigation menu" class="nav-close">
+<span class="nav-close-icon">×</span>
+</button>
+</div>
+<a class="nav-link" data-nav="home" href="../../">Home</a>
+<a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
+<a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
+<a class="nav-link" data-nav="news" href="../../news">News</a>
+<a class="nav-link" data-nav="about" href="../../about">About</a>
+</nav>
+</div>
+<div aria-hidden="true" class="nav-overlay"></div>
+</header>
+</div>
+<main class="container" style="margin-top: 32px; max-width: 920px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="../../">Home</a> /
         <a href="../../knowledge-base">Knowledge Base</a> /
         <a href="../../kb-terms">Terms</a> /
         <a href="../software/comsol">COMSOL Multiphysics</a> /
         <span aria-current="page">COMSOL Application Builder (COMSOL)</span>
-      </nav>
-
-      <article class="kb-concept-detail">
-        <header class="kb-concept-header" style="margin-bottom: 28px;">
-          <span class="chip pill-warn">Atomic Knowledge · COMSOL Multiphysics</span>
-          <h1 style="margin-top: 12px;">COMSOL Application Builder (COMSOL)</h1>
-          <p class="hero-sub">GUI builder that converts models into simple standalone apps.</p>
-        </header>
-
-        <div class="ink-byline" role="contentinfo">
-          <span><strong>By</strong> Gstarcademy Editorial Team</span>
-          <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-          <span><a href="../../about#editorial-process">Editorial process</a></span>
-        </div>
-
-        
-        
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
-      <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 12px;">🔗 Related Concepts</h2>
-      <p style="font-size: 14px; color: var(--ink-text-soft); margin-bottom: 16px;">Deepen your understanding with these related topics:</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
-        <a href="./comsol-multiphysics-coupling" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Fully Coupled Multiphysics Solvers</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">COMSOL</span></a>
-        <a href="./abaqus-explicit-dynamics" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Abaqus Explicit Dynamics</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">Abaqus</span></a>
-        <a href="./ai-tools-gstarcad" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>AI-Assisted Commands</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">GstarCAD 2024+</span></a>
-        <a href="./alibre-design-term-11" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Catalog Features</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">Alibre Design</span></a>
-        <a href="./alibre-design-term-13" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Thread Creator</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">Alibre Design</span></a>
-        <a href="./alibre-design-term-3" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Feature History Tree</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">Alibre Design</span></a>
-      </div>
-    </section>
-
-    <section class="kb-concept-section">
-          <h2>Definition</h2>
-          <p>In COMSOL, the Application Builder represents an enterprise accessibility tool. It wraps complex simulation files inside simplified web interfaces or local desktop executables with custom input buttons.</p>
+</nav>
+<article class="kb-concept-detail">
+<header class="kb-concept-header" style="margin-bottom: 28px;">
+<span class="chip pill-warn">Atomic Knowledge · COMSOL Multiphysics</span>
+<h1 style="margin-top: 12px;">COMSOL Application Builder (COMSOL)</h1>
+<p class="hero-sub">GUI builder that converts models into simple standalone apps.</p>
+</header>
+<div class="ink-byline" role="contentinfo">
+<span><strong>By</strong> Gstarcademy Editorial Team</span>
+<span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
+<span><a href="../../about#editorial-process">Editorial process</a></span>
+</div>
+<section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+<h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 12px;">🔗 Related Concepts</h2>
+<p style="font-size: 14px; color: var(--ink-text-soft); margin-bottom: 16px;">Deepen your understanding with these related topics:</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+<a href="./comsol-multiphysics-coupling" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Fully Coupled Multiphysics Solvers</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">COMSOL</span></a>
+<a href="./abaqus-explicit-dynamics" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Abaqus Explicit Dynamics</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">Abaqus</span></a>
+<a href="./ai-tools-gstarcad" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>AI-Assisted Commands</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">GstarCAD 2024+</span></a>
+<a href="./alibre-design-term-11" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Catalog Features</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">Alibre Design</span></a>
+<a href="./alibre-design-term-13" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Thread Creator</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">Alibre Design</span></a>
+<a href="./alibre-design-term-3" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px; text-decoration: none; color: var(--ink-text); font-weight: 500; font-size: 14px; transition: border-color 0.2s;"><span>Feature History Tree</span><span style="font-size: 11px; color: var(--ink-text-soft); font-weight: 400;">Alibre Design</span></a>
+</div>
+</section>
+<section class="kb-concept-section">
+<h2>Definition</h2>
+<p>In COMSOL, the Application Builder represents an enterprise accessibility tool. It wraps complex simulation files inside simplified web interfaces or local desktop executables with custom input buttons.</p>
 <p>By publishing simplified models as COMSOL Apps, simulation experts allow sales and test engineers to run clear parametric scans without seeing FEA mesh equations.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Why it matters</h2>
-          <p>Democratizes finite element analysis across the manufacturing supply chain, protecting intellectual property and reducing simulation backlogs. Without it, expert analysts will spend excessive time running trivial parameter adjustments for customers.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Technical Deep Dive &amp; Core Mechanics</h2>
-          
-        
-
-        <p><strong>COMSOL Application Builder (COMSOL)</strong> requires specification of constitutive models that relate stress to strain (structural), or pressure to velocity (fluid). Linear elastic models assume proportional stress-strain response, which is valid only below the material's yield point. For problems involving plasticity, creep, hyperelasticity, or damage, COMSOL Application Builder (COMSOL) must use nonlinear constitutive models that require iterative solution methods (Newton-Raphson) at each load increment. The iterative solver attempts to find an equilibrium configuration where internal forces balance external loads, and convergence failure typically indicates either an inappropriate constitutive model or load increments that are too large.</p>
-        <p>Contact modeling in COMSOL Application Builder (COMSOL) adds another layer of nonlinearity. Contact pairs define <a href="./surfaces-civil-3d" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">surfaces</a> that may come into contact during deformation, and the solver must detect when contact occurs, apply normal pressure to prevent penetration, and optionally apply tangential friction forces. The penalty method (applying a spring-like stiffness at contact points) is computationally efficient but allows small penetration; the Lagrange multiplier method enforces zero penetration exactly but adds equations to the system. The choice affects both accuracy and convergence stability of COMSOL Application Builder (COMSOL) results.</p>
-
-        </section>
-        <section class="kb-concept-section">
-          <h2>Step-by-Step Professional Implementation</h2>
-
-    <p>Deploying <strong>COMSOL Application Builder (COMSOL)</strong> in a simulation and analysis pipeline requires careful model simplification, mesh control, and result validation:</p>
-    <ol>
-      <li><strong>Prepare and Idealize the Geometry:</strong> Import CAD geometry and simplify it for analysis by removing cosmetic <a href="./features-nx" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">features</a> (fillets, chamfers, logos) that do not affect structural behavior. Define mid-surfaces for thin-walled parts and partition complex regions for mesh control.</li>
-      <li><strong>Define Materials, Loads, and Boundary Conditions:</strong> When setting up <strong>COMSOL Application Builder (COMSOL)</strong>, assign material properties from validated libraries (elastic modulus, Poisson ratio, yield strength). Apply realistic boundary conditions and load cases that represent the service environment, including safety factors per applicable codes.</li>
-      <li><strong>Mesh with Convergence in Mind:</strong> Generate the mesh with appropriate element types (hex vs. tet, linear vs. quadratic). Perform a mesh convergence study on critical stress/displacement regions to ensure results are mesh-independent before running the final solve.</li>
-      <li><strong>Post-Process and Validate Results:</strong> Review contour plots for stress concentrations, displacement maxima, and safety factors. Compare results against hand calculations or experimental data. Document assumptions, mesh statistics, and convergence metrics in the analysis report.</li>
-    </ol>
-    
-        </section>
-        <section class="kb-concept-section">
-          <h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
-          
-        
-
-        <p>Analysis troubleshooting for <strong>COMSOL Application Builder (COMSOL)</strong> in simulation environments:</p>
-        <ul>
-          <li><strong>Solver convergence failure:</strong> The nonlinear solver fails to converge after multiple iterations at a particular load step. <em>Resolution:</em> Reduce the load step size (increase the number of substeps). Check for overconstrained boundary conditions that conflict with the deformation pattern. Review the contact definitions for sudden status changes (open/closed) that create discontinuities. Enable line search and/or increase the maximum number of equilibrium iterations.</li>
-          <li><strong>Stress singularity at point loads or sharp corners:</strong> Stress values for COMSOL Application Builder (COMSOL) increase without bound as the mesh is refined near concentrated loads or re-entrant corners. <em>Resolution:</em> Stress singularities are a mathematical artifact, not physical reality. Use the stress a small distance away from the singularity (St. Venant's principle), replace point loads with distributed pressure, or add physical fillets to re-entrant corners. Report the stress at a distance of at least 2-3 element lengths from the singularity.</li>
-          <li><strong>Mesh quality errors in imported geometry:</strong> Meshing COMSOL Application Builder (COMSOL) geometry fails with "bad element quality" or "unmeshable region" errors. <em>Resolution:</em> Run geometry cleanup to remove sliver faces, short edges, and gaps/overlaps. Increase the mesh size in the problematic region, or apply local mesh controls (sizing, mapped meshing) to guide the mesher around difficult features. For persistent failures, defeature the local geometry by removing small fillets or chamfers that serve no structural purpose.</li>
-        </ul>
-
-        </section>
-        <section class="kb-concept-section">
-          <h2>Cross-Discipline Collaboration &amp; Handoff</h2>
-
-    <p>Simulation models built around <strong>COMSOL Application Builder (COMSOL)</strong> depend on reliable upstream geometry and feed into critical downstream design decisions:</p>
-    <ul>
-      <li><strong>CAD-to-CAE Geometry Transfer:</strong> Receive geometry from the design team in a neutral format (STEP, Parasolid) and communicate any geometry simplification requirements back. Maintain a version log linking each analysis run to the specific CAD revision it was based on to ensure traceability.</li>
-      <li><strong>Load Case Coordination:</strong> Collaborate with systems engineers and test teams to define realistic load cases, boundary conditions, and material allowables. Cross-reference load assumptions with physical test data where available, and document any deviations in the analysis report.</li>
-      <li><strong>Results Communication:</strong> Present simulation outcomes (stress margins, displacement maps, safety factors) in formats accessible to non-analyst stakeholders — annotated screenshots, summary tables, and pass/fail criteria mapped to design requirements. Feed critical findings back into the design review cycle for iterative optimization.</li>
-    </ul>
-    
-        </section>
-        <section class="kb-concept-section">
-          <h2>Common pitfalls</h2>
-          <ul><li>Hardcoding strict input bounds that lock valid design scans</li>
+</section>
+<section class="kb-concept-section">
+<h2>Why it matters</h2>
+<p>Democratizes finite element analysis across the manufacturing supply chain, protecting intellectual property and reducing simulation backlogs. Without it, expert analysts will spend excessive time running trivial parameter adjustments for customers.</p>
+</section>
+<section class="kb-concept-section">
+<h2>Technical Deep Dive &amp; Core Mechanics</h2>
+<p><strong>COMSOL Application Builder (COMSOL)</strong> requires specification of constitutive models that relate stress to strain (structural), or pressure to velocity (fluid). Linear elastic models assume proportional stress-strain response, which is valid only below the material's yield point. For problems involving plasticity, creep, hyperelasticity, or damage, COMSOL Application Builder (COMSOL) must use nonlinear constitutive models that require iterative solution methods (Newton-Raphson) at each load increment. The iterative solver attempts to find an equilibrium configuration where internal forces balance external loads, and convergence failure typically indicates either an inappropriate constitutive model or load increments that are too large.</p>
+<p>Contact modeling in COMSOL Application Builder (COMSOL) adds another layer of nonlinearity. Contact pairs define <a href="./surfaces-civil-3d" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">surfaces</a> that may come into contact during deformation, and the solver must detect when contact occurs, apply normal pressure to prevent penetration, and optionally apply tangential friction forces. The penalty method (applying a spring-like stiffness at contact points) is computationally efficient but allows small penetration; the Lagrange multiplier method enforces zero penetration exactly but adds equations to the system. The choice affects both accuracy and convergence stability of COMSOL Application Builder (COMSOL) results.</p>
+</section>
+<section class="kb-concept-section">
+<h2>Step-by-Step Professional Implementation</h2>
+<p>Deploying <strong>COMSOL Application Builder (COMSOL)</strong> in a simulation and analysis pipeline requires careful model simplification, mesh control, and result validation:</p>
+<ol>
+<li><strong>Prepare and Idealize the Geometry:</strong> Import CAD geometry and simplify it for analysis by removing cosmetic <a href="./features-nx" style="color: var(--accent); text-decoration: underline; text-decoration-style: dotted;">features</a> (fillets, chamfers, logos) that do not affect structural behavior. Define mid-surfaces for thin-walled parts and partition complex regions for mesh control.</li>
+<li><strong>Define Materials, Loads, and Boundary Conditions:</strong> When setting up <strong>COMSOL Application Builder (COMSOL)</strong>, assign material properties from validated libraries (elastic modulus, Poisson ratio, yield strength). Apply realistic boundary conditions and load cases that represent the service environment, including safety factors per applicable codes.</li>
+<li><strong>Mesh with Convergence in Mind:</strong> Generate the mesh with appropriate element types (hex vs. tet, linear vs. quadratic). Perform a mesh convergence study on critical stress/displacement regions to ensure results are mesh-independent before running the final solve.</li>
+<li><strong>Post-Process and Validate Results:</strong> Review contour plots for stress concentrations, displacement maxima, and safety factors. Compare results against hand calculations or experimental data. Document assumptions, mesh statistics, and convergence metrics in the analysis report.</li>
+</ol>
+</section>
+<section class="kb-concept-section">
+<h2>Advanced Troubleshooting &amp; Error Diagnostics</h2>
+<p>Analysis troubleshooting for <strong>COMSOL Application Builder (COMSOL)</strong> in simulation environments:</p>
+<ul>
+<li><strong>Solver convergence failure:</strong> The nonlinear solver fails to converge after multiple iterations at a particular load step. <em>Resolution:</em> Reduce the load step size (increase the number of substeps). Check for overconstrained boundary conditions that conflict with the deformation pattern. Review the contact definitions for sudden status changes (open/closed) that create discontinuities. Enable line search and/or increase the maximum number of equilibrium iterations.</li>
+<li><strong>Stress singularity at point loads or sharp corners:</strong> Stress values for COMSOL Application Builder (COMSOL) increase without bound as the mesh is refined near concentrated loads or re-entrant corners. <em>Resolution:</em> Stress singularities are a mathematical artifact, not physical reality. Use the stress a small distance away from the singularity (St. Venant's principle), replace point loads with distributed pressure, or add physical fillets to re-entrant corners. Report the stress at a distance of at least 2-3 element lengths from the singularity.</li>
+<li><strong>Mesh quality errors in imported geometry:</strong> Meshing COMSOL Application Builder (COMSOL) geometry fails with "bad element quality" or "unmeshable region" errors. <em>Resolution:</em> Run geometry cleanup to remove sliver faces, short edges, and gaps/overlaps. Increase the mesh size in the problematic region, or apply local mesh controls (sizing, mapped meshing) to guide the mesher around difficult features. For persistent failures, defeature the local geometry by removing small fillets or chamfers that serve no structural purpose.</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Cross-Discipline Collaboration &amp; Handoff</h2>
+<p>Simulation models built around <strong>COMSOL Application Builder (COMSOL)</strong> depend on reliable upstream geometry and feed into critical downstream design decisions:</p>
+<ul>
+<li><strong>CAD-to-CAE Geometry Transfer:</strong> Receive geometry from the design team in a neutral format (STEP, Parasolid) and communicate any geometry simplification requirements back. Maintain a version log linking each analysis run to the specific CAD revision it was based on to ensure traceability.</li>
+<li><strong>Load Case Coordination:</strong> Collaborate with systems engineers and test teams to define realistic load cases, boundary conditions, and material allowables. Cross-reference load assumptions with physical test data where available, and document any deviations in the analysis report.</li>
+<li><strong>Results Communication:</strong> Present simulation outcomes (stress margins, displacement maps, safety factors) in formats accessible to non-analyst stakeholders — annotated screenshots, summary tables, and pass/fail criteria mapped to design requirements. Feed critical findings back into the design review cycle for iterative optimization.</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Common pitfalls</h2>
+<ul><li>Hardcoding strict input bounds that lock valid design scans</li>
 <li>Forgetting to bundle required solver dependencies.</li></ul>
-        </section>
-
-        
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
-      <div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 20px;">🛡️</span>
-          <h3 style="margin: 0; font-size: 1.25rem; color: var(--ink-text); font-weight: 700;">COMSOL Multiphysics Ecosystem Context</h3>
-        </div>
-        <p style="margin: 0; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+</section>
+<section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+<div class="kb-spotlight-card" style="background: linear-gradient(135deg, var(--ink-surface-2) 0%, var(--ink-surface-1) 100%); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
+<div style="display: flex; align-items: center; gap: 8px;">
+<span style="font-size: 20px;">🛡️</span>
+<h3 style="margin: 0; font-size: 1.25rem; color: var(--ink-text); font-weight: 700;">COMSOL Multiphysics Ecosystem Context</h3>
+</div>
+<p style="margin: 0; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
           This concept is a core structural element of the <strong>COMSOL Multiphysics</strong> drafting and engineering environment developed by <strong>COMSOL</strong>. A powerful cross-disciplinary FEA platform specializing in coupled multiphysics simulations and custom application building. 
         </p>
-        <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
-          <a href="../software/comsol" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: border-color 0.2s ease;">
+<div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
+<a href="../software/comsol" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: border-color 0.2s ease;">
             Explore COMSOL Multiphysics Profile ›
           </a>
-          <a href="../vendors/comsol-inc" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: border-color 0.2s ease;">
+<a href="../vendors/comsol-inc" style="background: transparent; color: var(--ink-text); border: 1px solid var(--ink-line); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13.5px; transition: border-color 0.2s ease;">
             About COMSOL ›
           </a>
-        </div>
-      </div>
-    </section>
-    
-
-        
-    <section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
-      <h2 style="font-size: 1.5rem; color: var(--ink-text); margin-bottom: 12px;">Relevant COMSOL Multiphysics FAQs</h2>
-      <p class="meta" style="margin-bottom: 18px;">Direct answers from our technical editorial desk concerning related workflows.</p>
-      
-        <details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
-          <summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
-            <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> How do I resolve singular matrix solver errors in COMSOL?
-          </summary>
-          <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>Check that all boundaries have sufficient boundary conditions (prevent rigid body motion), verify that material properties are defined for all domains, scale coupled variables so their magnitudes are close, and use a direct solver (MUMPS) instead of iterative solvers.</p>
-          </div>
-        </details>
-        
-        <details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
-          <summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
-            <span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the difference between Fully Coupled and Segregated solvers?
-          </summary>
-          <div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
-            <p>Fully Coupled solvers assemble all physical equations into a single giant matrix and solve it simultaneously, which is accurate but memory-intensive. Segregated solvers solve each physics sequentially, updating shared variables iteratively, saving substantial memory.</p>
-          </div>
-        </details>
-        
-    </section>
-    
-
-        <section class="kb-concept-section kb-quiz-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
-  <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">⚡ Concept Self-Test</h2>
-  <p style="font-size: 14.5px; color: var(--ink-text-soft); margin-bottom: 20px;">Test your understanding of this concept to lock in your memory. Completing this quiz will automatically sync to your career learning progress.</p>
-  <div class="kb-quiz-card" data-quiz-container data-term-slug="comsol-app-builder" data-correct-idx="0" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); position: relative; overflow: hidden; margin-bottom: 16px;">
-    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: #818cf8; letter-spacing: 0.05em; margin-bottom: 12px;">Question 1</div>
-    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--ink-text); margin: 0 0 16px 0; line-height: 1.4;">When working with COMSOL Application Builder (COMSOL), which of the following represents a common technical pitfall?</h3>
-    <div class="kb-quiz-options" style="display: grid; gap: 10px; margin-bottom: 16px;">
-      <button class="kb-quiz-option-btn" data-option-idx="0" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
-        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">A</span>
-        <span>Hardcoding strict input bounds that lock valid design scans.</span>
-      </button>
-      <button class="kb-quiz-option-btn" data-option-idx="1" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
-        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">B</span>
-        <span>Dropping shapes onto active faces without aligning their anchor reference points.</span>
-      </button>
-      <button class="kb-quiz-option-btn" data-option-idx="2" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
-        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">C</span>
-        <span>Modelling as a solid then trying to convert — non-uniform thickness produces sheet-metal errors.</span>
-      </button>
-      <button class="kb-quiz-option-btn" data-option-idx="3" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
-        <span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">D</span>
-        <span>Neglecting tangency constraints at fillet junctions, leading to G0 continuity sharp edges.</span>
-      </button>
-    </div>
-    <div class="kb-quiz-feedback-box" data-explanation-box style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
-      <div style="font-weight: 700; margin-bottom: 6px;" data-feedback-title>Feedback</div>
-      <div data-feedback-text>Correct. A common pitfall is 'Hardcoding strict input bounds that lock valid design scans.' As the editorial review notes: 'Democratizes finite element analysis across the manufacturing supply chain, protecting intellectual property and reducing simulation backlogs. Without it, expert analysts will spend excessive time running trivial parameter adjustments for customers.'</div>
-    </div>
-  </div>
+</div>
+</div>
 </section>
-
-        
-
-        
-    <section class="kb-concept-section" style="margin-top: 48px; border-top: 1px solid var(--ink-line); padding-top: 40px;">
-      <div class="kb-semantic-crossroads" style="background: linear-gradient(135deg, var(--ink-surface-1) 0%, rgba(240, 234, 225, 0.2) 100%); border: 1px solid var(--ink-line); border-radius: 20px; padding: 32px; box-shadow: 0 12px 30px -10px rgba(90, 74, 58, 0.05);">
-        
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border-bottom: 1px solid var(--ink-line); padding-bottom: 16px;">
-          <h3 style="margin: 0; font-size: 1.35rem; color: var(--ink-text); display: flex; align-items: center; gap: 10px; font-weight: 800;">
-            <span style="font-size: 24px;">🌳</span> Semantic Crossroads &amp; Navigation Pathways
+<section class="kb-concept-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+<h2 style="font-size: 1.5rem; color: var(--ink-text); margin-bottom: 12px;">Relevant COMSOL Multiphysics FAQs</h2>
+<p class="meta" style="margin-bottom: 18px;">Direct answers from our technical editorial desk concerning related workflows.</p>
+<details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
+<summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
+<span style="color: var(--ink-focus); margin-right: 8px;">❓</span> How do I resolve singular matrix solver errors in COMSOL?
+          </summary>
+<div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+<p>Check that all boundaries have sufficient boundary conditions (prevent rigid body motion), verify that material properties are defined for all domains, scale coupled variables so their magnitudes are close, and use a direct solver (MUMPS) instead of iterative solvers.</p>
+</div>
+</details>
+<details class="kb-concept-faq-item" style="margin: 12px 0; padding: 16px 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; transition: border-color 0.2s ease;">
+<summary style="cursor:pointer; font-weight:600; color: var(--ink-text); outline: none; list-style: none;">
+<span style="color: var(--ink-focus); margin-right: 8px;">❓</span> What is the difference between Fully Coupled and Segregated solvers?
+          </summary>
+<div style="margin-top: 12px; color: var(--ink-text-soft); line-height: 1.6; font-size: 14.5px;">
+<p>Fully Coupled solvers assemble all physical equations into a single giant matrix and solve it simultaneously, which is accurate but memory-intensive. Segregated solvers solve each physics sequentially, updating shared variables iteratively, saving substantial memory.</p>
+</div>
+</details>
+</section>
+<section class="kb-concept-section kb-quiz-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
+<h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">⚡ Concept Self-Test</h2>
+<p style="font-size: 14.5px; color: var(--ink-text-soft); margin-bottom: 20px;">Test your understanding of this concept to lock in your memory. Completing this quiz will automatically sync to your career learning progress.</p>
+<div class="kb-quiz-card" data-correct-idx="0" data-quiz-container="" data-term-slug="comsol-app-builder" style="background: var(--ink-surface-1); border: 1px solid var(--ink-line); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); position: relative; overflow: hidden; margin-bottom: 16px;">
+<div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: #818cf8; letter-spacing: 0.05em; margin-bottom: 12px;">Question 1</div>
+<h3 style="font-size: 1.15rem; font-weight: 700; color: var(--ink-text); margin: 0 0 16px 0; line-height: 1.4;">When working with COMSOL Application Builder (COMSOL), which of the following represents a common technical pitfall?</h3>
+<div class="kb-quiz-options" style="display: grid; gap: 10px; margin-bottom: 16px;">
+<button class="kb-quiz-option-btn" data-option-idx="0" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
+<span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">A</span>
+<span>Hardcoding strict input bounds that lock valid design scans.</span>
+</button>
+<button class="kb-quiz-option-btn" data-option-idx="1" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
+<span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">B</span>
+<span>Dropping shapes onto active faces without aligning their anchor reference points.</span>
+</button>
+<button class="kb-quiz-option-btn" data-option-idx="2" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
+<span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">C</span>
+<span>Modelling as a solid then trying to convert — non-uniform thickness produces sheet-metal errors.</span>
+</button>
+<button class="kb-quiz-option-btn" data-option-idx="3" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); color: var(--ink-text); text-align: left; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;">
+<span class="kb-quiz-option-indicator" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-line); font-size: 11px; color: var(--ink-text-soft); font-weight: 700; flex-shrink: 0;">D</span>
+<span>Neglecting tangency constraints at fillet junctions, leading to G0 continuity sharp edges.</span>
+</button>
+</div>
+<div class="kb-quiz-feedback-box" data-explanation-box="" style="display: none; padding: 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.12); margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-text);">
+<div data-feedback-title="" style="font-weight: 700; margin-bottom: 6px;">Feedback</div>
+<div data-feedback-text="">Correct. A common pitfall is 'Hardcoding strict input bounds that lock valid design scans.' As the editorial review notes: 'Democratizes finite element analysis across the manufacturing supply chain, protecting intellectual property and reducing simulation backlogs. Without it, expert analysts will spend excessive time running trivial parameter adjustments for customers.'</div>
+</div>
+</div>
+</section>
+<section class="kb-concept-section" style="margin-top: 48px; border-top: 1px solid var(--ink-line); padding-top: 40px;">
+<div class="kb-semantic-crossroads" style="background: linear-gradient(135deg, var(--ink-surface-1) 0%, rgba(240, 234, 225, 0.2) 100%); border: 1px solid var(--ink-line); border-radius: 20px; padding: 32px; box-shadow: 0 12px 30px -10px rgba(90, 74, 58, 0.05);">
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border-bottom: 1px solid var(--ink-line); padding-bottom: 16px;">
+<h3 style="margin: 0; font-size: 1.35rem; color: var(--ink-text); display: flex; align-items: center; gap: 10px; font-weight: 800;">
+<span style="font-size: 24px;">🌳</span> Semantic Crossroads &amp; Navigation Pathways
           </h3>
-          <span style="font-size: 12px; color: var(--ink-text-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(90, 74, 58, 0.06); padding: 4px 10px; border-radius: 6px;">Trunk-Branch-Leaf Model</span>
-        </div>
-
-        <p style="font-size: 14.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0 0 28px 0; max-width: 780px;">
+<span style="font-size: 12px; color: var(--ink-text-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(90, 74, 58, 0.06); padding: 4px 10px; border-radius: 6px;">Trunk-Branch-Leaf Model</span>
+</div>
+<p style="font-size: 14.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0 0 28px 0; max-width: 780px;">
           Explore cross-referenced learning lanes. Connect this specific method back to macro CAD coordinate foundations, parent software environments, and sibling parameters in our shared taxonomy map.
         </p>
-
-        <div class="grid grid-3" style="gap: 20px; align-items: stretch;">
-          
-          <!-- Card 1: Trunk -->
-          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
-            <div>
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                <span style="background: rgba(99, 102, 241, 0.1); color: #6366f1; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Trunk</span>
-                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Global Foundations</h4>
-              </div>
-              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+<div class="grid grid-3" style="gap: 20px; align-items: stretch;">
+<!-- Card 1: Trunk -->
+<div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+<div>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="background: rgba(99, 102, 241, 0.1); color: #6366f1; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Trunk</span>
+<h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Global Foundations</h4>
+</div>
+<p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
                 Core glossary, interactive graph, and domain-wide concept index.
               </p>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
-              <a href="../../knowledge-base" class="kb-crossroad-card-btn">Wiki Overview Portal ›</a>
-              <a href="../../kb-terms" class="kb-crossroad-card-btn">General Glossary Index ›</a>
-              <a href="../../kb-graph" class="kb-crossroad-card-btn">Interactive Concept Graph ›</a>
-            </div>
-          </div>
-
-          <!-- Card 2: Branch -->
-          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
-            <div>
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                <span style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Branch</span>
-                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Ecosystem Integration</h4>
-              </div>
-              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+<a class="kb-crossroad-card-btn" href="../../knowledge-base">Wiki Overview Portal ›</a>
+<a class="kb-crossroad-card-btn" href="../../kb-terms">General Glossary Index ›</a>
+<a class="kb-crossroad-card-btn" href="../../kb-graph">Interactive Concept Graph ›</a>
+</div>
+</div>
+<!-- Card 2: Branch -->
+<div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+<div>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Branch</span>
+<h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Ecosystem Integration</h4>
+</div>
+<p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
                 Parent design environments and platforms implementing this method natively.
               </p>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
-              <a href="../software/comsol" class="kb-crossroad-card-btn" style="background: var(--ink-text); color: var(--ink-bg); border-color: var(--ink-text); font-weight:700;">COMSOL Multiphysics Full Profile ›</a>
-              <a href="../vendors/comsol-inc" class="kb-crossroad-card-btn">COMSOL Organization ›</a>
-            </div>
-          </div>
-
-          <!-- Card 3: Leaf -->
-          <div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); grid-column: span 1;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                <span style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Leaf</span>
-                <h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Active Context &amp; Neighbors</h4>
-              </div>
-              <p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+<a class="kb-crossroad-card-btn" href="../software/comsol" style="background: var(--ink-text); color: var(--ink-bg); border-color: var(--ink-text); font-weight:700;">COMSOL Multiphysics Full Profile ›</a>
+<a class="kb-crossroad-card-btn" href="../vendors/comsol-inc">COMSOL Organization ›</a>
+</div>
+</div>
+<!-- Card 3: Leaf -->
+<div class="kb-crossroad-card" style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); grid-column: span 1;">
+<div>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Leaf</span>
+<h4 style="margin: 0; font-size: 1rem; color: var(--ink-text); font-weight: 700;">Active Context &amp; Neighbors</h4>
+</div>
+<p style="font-size: 13px; color: var(--ink-text-soft); line-height: 1.55; margin: 0 0 16px 0;">
                 Current active term and close sibling concepts:
               </p>
-            </div>
-            <div style="margin-bottom: 12px;">
-              <span style="background: var(--ink-surface-2); color: var(--ink-text); padding: 4px 10px; border-radius: 8px; font-weight: 700; border: 1px solid var(--ink-line); font-size: 12.5px; display: inline-block; margin-bottom: 10px;">
+</div>
+<div style="margin-bottom: 12px;">
+<span style="background: var(--ink-surface-2); color: var(--ink-text); padding: 4px 10px; border-radius: 8px; font-weight: 700; border: 1px solid var(--ink-line); font-size: 12.5px; display: inline-block; margin-bottom: 10px;">
                 🍃 Active: COMSOL Application Builder (COMSOL)
               </span>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; max-height: 110px; overflow-y: auto; padding-right: 4px;">
-              <span style="color: var(--ink-text-soft); font-style: italic;">Detailed sibling terms defined on the <a href="../software/comsol" style="color: var(--ink-text); font-weight:600;">COMSOL Multiphysics software page</a>.</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Discover More — cross-pillar navigation -->
-        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--ink-line);">
-          <h4 style="margin: 0 0 14px 0; font-size: 13px; color: var(--ink-text-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">Discover More</h4>
-          <div class="grid grid-4" style="gap: 12px;">
-            <a href="../../tutorials" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
-              <span style="font-size: 18px;">🎓</span> Tutorial Library
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; max-height: 110px; overflow-y: auto; padding-right: 4px;">
+<span style="color: var(--ink-text-soft); font-style: italic;">Detailed sibling terms defined on the <a href="../software/comsol" style="color: var(--ink-text); font-weight:600;">COMSOL Multiphysics software page</a>.</span>
+</div>
+</div>
+</div>
+<!-- Discover More — cross-pillar navigation -->
+<div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--ink-line);">
+<h4 style="margin: 0 0 14px 0; font-size: 13px; color: var(--ink-text-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">Discover More</h4>
+<div class="grid grid-4" style="gap: 12px;">
+<a href="../../tutorials" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+<span style="font-size: 18px;">🎓</span> Tutorial Library
             </a>
-            <a href="../../kb-faq" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
-              <span style="font-size: 18px;">❓</span> Technical FAQ
+<a href="../../kb-faq" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+<span style="font-size: 18px;">❓</span> Technical FAQ
             </a>
-            <a href="../../knowledge-domains" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
-              <span style="font-size: 18px;">🏗️</span> Domain Map
+<a href="../../knowledge-domains" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+<span style="font-size: 18px;">🏗️</span> Domain Map
             </a>
-            <a href="../../kb-software" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
-              <span style="font-size: 18px;">🧰</span> Software Landscape
+<a href="../../kb-software" style="display: flex; align-items: center; gap: 10px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--ink-text); font-size: 13.5px; font-weight: 600; transition: border-color 0.2s ease;">
+<span style="font-size: 18px;">🧰</span> Software Landscape
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-        
-        <section class="kb-concept-section">
-        <h2>Practical Workflow Tips</h2>
-        <p>Lessons from production simulation work involving COMSOL Application Builder (COMSOL):</p>
-        <ul>
-          <li><strong>Start with a coarse mesh:</strong> Begin every analysis with the coarsest mesh that captures the geometry adequately. A coarse model validates boundary conditions and material properties before investing hours in a fine-mesh run.</li>
-          <li><strong>Document assumptions and simplifications:</strong> Record every simplification: removed fillets, symmetry conditions, linearized materials. This enables anyone to understand what the model represents months later.</li>
-          <li><strong>Compare with hand calculations:</strong> For at least one load case, compare results against a simplified analytical solution. Discrepancies greater than 10-15% usually reveal a modeling error.</li>
-          <li><strong>Save intermediate results:</strong> For nonlinear analyses that take hours, enable intermediate result saving. If the solver fails at 80%, intermediate results reveal the failure mechanism.</li>
-        </ul>
-        </section>
-        <section class="kb-concept-section" style="margin-top: 36px;">
-          <h2>Sources &amp; further reading</h2>
-          <ul class="ink-source-list"><li><a href="https://www.comsol.com/documentation" rel="noopener noreferrer nofollow" target="_blank">COMSOL Multiphysics Documentation & Reference Manual</a> · <span class="meta">COMSOL</span></li><li><a href="https://www.comsol.com/learning-center" rel="noopener noreferrer nofollow" target="_blank">COMSOL Learning Center & Tutorials</a> · <span class="meta">COMSOL</span></li></ul>
-        </section>
-
-        
-        <section class="kb-feedback-section" data-feedback-container data-term-slug="comsol-app-builder" style="margin-top: 32px; padding: 20px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--line); text-align: center;">
-          <div data-feedback-prompt style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-            <span style="font-size: 14px; font-weight: 600; color: var(--text);">Was this conceptual reference clear and helpful?</span>
-            <div style="display: flex; gap: 12px; justify-content: center;">
-              <button class="btn feedback-btn" data-feedback-type="yes" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+</div>
+</div>
+</div>
+</section>
+<section class="kb-concept-section">
+<h2>Practical Workflow Tips</h2>
+<p>Lessons from production simulation work involving COMSOL Application Builder (COMSOL):</p>
+<ul>
+<li><strong>Start with a coarse mesh:</strong> Begin every analysis with the coarsest mesh that captures the geometry adequately. A coarse model validates boundary conditions and material properties before investing hours in a fine-mesh run.</li>
+<li><strong>Document assumptions and simplifications:</strong> Record every simplification: removed fillets, symmetry conditions, linearized materials. This enables anyone to understand what the model represents months later.</li>
+<li><strong>Compare with hand calculations:</strong> For at least one load case, compare results against a simplified analytical solution. Discrepancies greater than 10-15% usually reveal a modeling error.</li>
+<li><strong>Save intermediate results:</strong> For nonlinear analyses that take hours, enable intermediate result saving. If the solver fails at 80%, intermediate results reveal the failure mechanism.</li>
+</ul>
+</section>
+<section class="kb-concept-section" style="margin-top: 36px;">
+<h2>Sources &amp; further reading</h2>
+<ul class="ink-source-list"><li><a href="https://www.comsol.com/documentation" rel="noopener noreferrer nofollow" target="_blank">COMSOL Multiphysics Documentation &amp; Reference Manual</a> · <span class="meta">COMSOL</span></li><li><a href="https://www.comsol.com/learning-center" rel="noopener noreferrer nofollow" target="_blank">COMSOL Learning Center &amp; Tutorials</a> · <span class="meta">COMSOL</span></li></ul>
+</section>
+<section class="kb-feedback-section" data-feedback-container="" data-term-slug="comsol-app-builder" style="margin-top: 32px; padding: 20px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--line); text-align: center;">
+<div data-feedback-prompt="" style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+<span style="font-size: 14px; font-weight: 600; color: var(--text);">Was this conceptual reference clear and helpful?</span>
+<div style="display: flex; gap: 12px; justify-content: center;">
+<button class="btn feedback-btn" data-feedback-type="yes" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
                 👍 Yes
               </button>
-              <button class="btn feedback-btn" data-feedback-type="no" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+<button class="btn feedback-btn" data-feedback-type="no" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
                 👎 Needs Improvement
               </button>
-            </div>
-          </div>
-          <div data-feedback-thankyou style="display: none; font-size: 13px; font-weight: 500; color: #10b981;">
+</div>
+</div>
+<div data-feedback-thankyou="" style="display: none; font-size: 13px; font-weight: 500; color: #10b981;">
             ✓ Thank you for your feedback! Your input helps shape the CAD curriculum.
           </div>
-        </section>
-
-      <section style="margin-top: 32px; padding: 24px; background: linear-gradient(135deg, rgba(37,99,235,0.03), rgba(37,99,235,0.06)); border: 1px solid rgba(37,99,235,0.1); border-radius: 16px;">
-        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--ink-text); margin-bottom: 12px;">📚 More in COMSOL</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          <a href="./comsol-multiphysics-coupling" style="display: inline-block; padding: 8px 14px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px; text-decoration: none; color: var(--ink-text); font-size: 13px; font-weight: 500; transition: border-color 0.2s;">Fully Coupled Multiphysics Solvers</a>
-        </div>
-      </section>
-
-      <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;" aria-label="Editorial information">
-        <div style="flex: 1; min-width: 200px;">
-          <p style="font-size: 12px; font-weight: 600; color: var(--ink-text); margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
-          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">AI-assisted draft, editorially reviewed for accuracy. Content follows our <a href="../../editorial-process" style="color: var(--accent); text-decoration: underline;">editorial guidelines</a>.</p>
-        </div>
-        <div style="text-align: right; min-width: 140px;">
-          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Last updated</p>
-          <time datetime="2026-06-30" style="font-size: 12px; font-weight: 600; color: var(--ink-text);">2026-06-30</time>
-        </div>
-      </aside>
-
-        <p class="meta" style="margin-top: 36px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
-      </article>
-    </main>
-
-    <footer class="footer site-footer">
-      <div class="container site-footer-inner">
-        <div class="site-footer-brand">
-          <p class="site-footer-tagline">Gstarcademy</p>
-          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
-          <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
-          <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
-          <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
-          <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
-      </div>
-    </footer>
-    <script src="../../d3.min.js?v=v15_subnav_dropdown" defer></script>
-    <script src="../../app.min.js" defer></script>
-    <script src="../../knowledge.min.js" defer></script>
-  </body>
+</section>
+<section style="margin-top: 32px; padding: 24px; background: linear-gradient(135deg, rgba(37,99,235,0.03), rgba(37,99,235,0.06)); border: 1px solid rgba(37,99,235,0.1); border-radius: 16px;">
+<h3 style="font-size: 1.1rem; font-weight: 700; color: var(--ink-text); margin-bottom: 12px;">📚 More in COMSOL</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+<a href="./comsol-multiphysics-coupling" style="display: inline-block; padding: 8px 14px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 8px; text-decoration: none; color: var(--ink-text); font-size: 13px; font-weight: 500; transition: border-color 0.2s;">Fully Coupled Multiphysics Solvers</a>
+</div>
+</section>
+<aside aria-label="Editorial information" style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 200px;">
+<p style="font-size: 12px; font-weight: 600; color: var(--ink-text); margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
+<p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">AI-assisted draft, editorially reviewed for accuracy. Content follows our <a href="../../editorial-process" style="color: var(--accent); text-decoration: underline;">editorial guidelines</a>.</p>
+</div>
+<div style="text-align: right; min-width: 140px;">
+<p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Last updated</p>
+<time datetime="2026-06-30" style="font-size: 12px; font-weight: 600; color: var(--ink-text);">2026-06-30</time>
+</div>
+</aside>
+<p class="meta" style="margin-top: 36px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-inner">
+<div class="site-footer-brand">
+<p class="site-footer-tagline">Gstarcademy</p>
+<p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Software Hubs</h3>
+<ul class="site-footer-links">
+<li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
+<li><a href="../../kb/software/revit">Revit Guide</a></li>
+<li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
+<li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
+<li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
+<li><a href="../../kb/software/catia">CATIA Guide</a></li>
+<li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
+<li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Technical Core</h3>
+<ul class="site-footer-links">
+<li><a href="../../kb-terms">2D Drafting</a></li>
+<li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
+<li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
+<li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
+<li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
+<li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
+<li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
+<li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Structured Learn</h3>
+<ul class="site-footer-links">
+<li><a href="../../tutorials">Tutorial Library</a></li>
+<li><a href="../../knowledge-base">Knowledge Center</a></li>
+<li><a href="../../kb-graph">Interactive Graph</a></li>
+<li><a href="../../knowledge-domains">Domain Map</a></li>
+<li><a href="../../kb-software">Software Index</a></li>
+<li><a href="../../kb-terms">CAD Glossary</a></li>
+<li><a href="../../kb-faq">Technical FAQ</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Company &amp; Legal</h3>
+<ul class="site-footer-links">
+<li><a href="../../about">About Project</a></li>
+<li><a href="../../contact">Contact Us</a></li>
+<li><a href="../../privacy">Privacy Policy</a></li>
+<li><a href="../../terms">Terms of Use</a></li>
+<li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+</ul>
+</div>
+</div>
+<div class="container site-footer-bottom">
+<p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+</div>
+</footer>
+<script defer="" src="../../d3.min.js?v=v15_subnav_dropdown"></script>
+<script defer="" src="../../app.min.js"></script>
+<script defer="" src="../../knowledge.min.js"></script>
+</body>
 </html>

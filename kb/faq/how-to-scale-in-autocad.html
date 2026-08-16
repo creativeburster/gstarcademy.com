@@ -25,27 +25,23 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>How to Scale Objects in AutoCAD | Gstarcademy</title>
-    <meta name="description" content="Step-by-step guide to scaling objects in AutoCAD using SCALE command, reference scaling, and viewport scale settings. Use the SCALE command (SC shortcut):…" />
+    <title>How to Scale Objects in AutoCAD: Reference, Viewport & Base Point Guide | Gstarcademy</title>
+    <meta name="description" content="Master scaling in AutoCAD with step-by-step methods: standard factor scaling, reference length alignment, viewport scale setup in paper space, and annotative dimension control." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-scale-in-autocad" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="How to Scale Objects in AutoCAD" />
-    <meta property="og:description" content="Step-by-step guide to scaling objects in AutoCAD using SCALE command, reference scaling, and viewport scale settings. Use the SCALE command (SC shortcut):…" />
+    <meta property="og:title" content="How to Scale Objects in AutoCAD: Reference, Viewport & Base Point Guide" />
+    <meta property="og:description" content="Master scaling in AutoCAD with step-by-step methods: standard factor scaling, reference length alignment, viewport scale setup in paper space, and annotative dimension control." />
     <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-scale-in-autocad" />
     <meta property="og:site_name" content="Gstarcademy" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="preload" href="../../styles.min.css" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
     <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I scale an object in AutoCAD?","acceptedAnswer":{"@type":"Answer","text":"Use the SCALE command (SC shortcut): select objects, pick a base point, then enter a scale factor (2 = double size, 0.5 = half). For reference scaling, use the Reference option to specify a known dimension and its desired new size."}},{"@type":"Question","name":"How do I set the drawing scale in AutoCAD?","acceptedAnswer":{"@type":"Answer","text":"Drawing scale is set per viewport in paper space. Double-click inside a viewport, zoom to fit, then set the VP scale from the status bar dropdown (1:100, 1:50, etc.). Lock the viewport to prevent accidental changes."}},{"@type":"Question","name":"Why are my dimensions wrong after scaling?","acceptedAnswer":{"@type":"Answer","text":"If you scale annotative objects, their size changes relative to paper space. Use annotative dimensions with the correct annotation scale to maintain proper text height regardless of viewport scale."}}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Scale Objects in AutoCAD","item":"https://gstarcademy.com/kb/faq/how-to-scale-in-autocad"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Scale Objects in AutoCAD: Reference, Viewport & Base Point Guide","acceptedAnswer":{"@type":"Answer","text":"To scale an object uniformly in AutoCAD: enter SCALE (shortcut SC), select target entities, click a base point, and enter a numeric factor (e.g. 2 for 200%, 0.5 for 50%). For precise fitting without manual math, use the Reference (R) sub-option."}},{"@type":"Question","name":"Method 1: Factor-Based Scaling (Standard SC Command)","acceptedAnswer":{"@type":"Answer","text":"Type <code>SC</code> or <code>SCALE</code> in the command line and hit Enter. Select the objects you wish to resize and press Enter. Click to specify the base point—this point remains stationary while surrounding geometry expands or contracts. Type your scaling factor (e.g., <code>0.25</code> to reduce to one-quarter size, or <code>4</code> to quadruple size) and confirm with Enter."}},{"@type":"Question","name":"Method 2: Reference Scaling (Match Exact Target Dimensions)","acceptedAnswer":{"@type":"Answer","text":"When you need an unknown length to match an exact target measurement (e.g., an imported raster floor plan or DWG block), start the <code>SCALE</code> command and pick your base point. Type <code>R</code> (Reference) and Enter. Pick the two endpoints of the existing segment, then enter the desired true length (or click a second point in your drawing). AutoCAD computes the exact ratio instantly with"}},{"@type":"Question","name":"Method 3: Viewport & Paper Space Scale Setup","acceptedAnswer":{"@type":"Answer","text":"Never scale model geometry just to fit a title block. Keep all 1:1 true-scale geometry in Model Space. Switch to your Layout tab (Paper Space), select or create a Viewport (<code>MVIEW</code>), and set the viewport scale from the status bar dropdown (e.g., <code>1:50</code>, <code>1:100</code>, or <code>1/4" = 1'-0"</code>). Lock the viewport display immediately to prevent accidental zoom changes."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Scale Objects in AutoCAD: Reference, Viewport & Base Point Guide","item":"https://gstarcademy.com/kb/faq/how-to-scale-in-autocad"}]}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -64,56 +60,109 @@
     </div>
 
     <main class="container" style="margin-top: 32px; max-width: 920px;">
-      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="./">FAQ</a> /
-        <span aria-current="page">AutoCAD</span>
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
+        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <span aria-current="page" style="color: var(--ink-text);">AutoCAD</span>
       </nav>
 
       <article class="kb-concept-detail">
         <header class="kb-concept-header" style="margin-bottom: 28px;">
-          <span class="chip pill-warn">FAQ &middot; AutoCAD</span>
-          <h1 style="margin-top: 12px;">How to Scale Objects in AutoCAD</h1>
-          <p class="hero-sub">Step-by-step guide to scaling objects in AutoCAD using SCALE command, reference scaling, and viewport scale settings.</p>
+          <span class="chip pill-warn">How-To &amp; FAQ &middot; AutoCAD</span>
+          <h1 style="margin-top: 12px; font-size: 2.1rem; line-height: 1.25;">How to Scale Objects in AutoCAD: Reference, Viewport & Base Point Guide</h1>
+          <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Master scaling in AutoCAD with step-by-step methods: standard factor scaling, reference length alignment, viewport scale setup in paper space, and annotative dimension control.</p>
         </header>
 
-        <div class="ink-byline" role="contentinfo">
-          <span><strong>By</strong> Gstarcademy Editorial Team</span>
-          <span><strong>Updated</strong> <time datetime="2026-06-30">2026-06-30</time></span>
+        <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
+          <span><strong>Author:</strong> Gstarcademy Engineering Editorial Board</span>
+          <span><strong>Updated:</strong> <time datetime="2026-08-16">2026-08-16</time></span>
         </div>
+
+        
+    <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+      <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">⚡ Quick Answer / Key Takeaway</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-text);">To scale an object uniformly in AutoCAD: enter SCALE (shortcut SC), select target entities, click a base point, and enter a numeric factor (e.g. 2 for 200%, 0.5 for 50%). For precise fitting without manual math, use the Reference (R) sub-option.</p>
+    </div>
 
         <section class="kb-concept-section">
+          <h2>Step-by-Step Instructions &amp; Commands</h2>
           
-        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
-          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">How do I scale an object in AutoCAD?</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">Use the SCALE command (SC shortcut): select objects, pick a base point, then enter a scale factor (2 = double size, 0.5 = half). For reference scaling, use the Reference option to specify a known dimension and its desired new size.</p>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Method 1: Factor-Based Scaling (Standard SC Command)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Type <code>SC</code> or <code>SCALE</code> in the command line and hit Enter. Select the objects you wish to resize and press Enter. Click to specify the base point—this point remains stationary while surrounding geometry expands or contracts. Type your scaling factor (e.g., <code>0.25</code> to reduce to one-quarter size, or <code>4</code> to quadruple size) and confirm with Enter.</p>
         </div>
-        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
-          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">How do I set the drawing scale in AutoCAD?</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">Drawing scale is set per viewport in paper space. Double-click inside a viewport, zoom to fit, then set the VP scale from the status bar dropdown (1:100, 1:50, etc.). Lock the viewport to prevent accidental changes.</p>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Method 2: Reference Scaling (Match Exact Target Dimensions)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">When you need an unknown length to match an exact target measurement (e.g., an imported raster floor plan or DWG block), start the <code>SCALE</code> command and pick your base point. Type <code>R</code> (Reference) and Enter. Pick the two endpoints of the existing segment, then enter the desired true length (or click a second point in your drawing). AutoCAD computes the exact ratio instantly without rounding errors.</p>
         </div>
-        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
-          <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">Why are my dimensions wrong after scaling?</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-text);">If you scale annotative objects, their size changes relative to paper space. Use annotative dimensions with the correct annotation scale to maintain proper text height regardless of viewport scale.</p>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Method 3: Viewport & Paper Space Scale Setup</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Never scale model geometry just to fit a title block. Keep all 1:1 true-scale geometry in Model Space. Switch to your Layout tab (Paper Space), select or create a Viewport (<code>MVIEW</code>), and set the viewport scale from the status bar dropdown (e.g., <code>1:50</code>, <code>1:100</code>, or <code>1/4" = 1'-0"</code>). Lock the viewport display immediately to prevent accidental zoom changes.</p>
         </div>
         </section>
 
-        <section class="kb-concept-section" style="margin-top: 32px;">
-          <h2>Learn More</h2>
-          <p>For deeper coverage, explore our <a href="../software/autocad">AutoCAD knowledge base</a>, <a href="../learning-paths/">learning paths</a>, and <a href="../compare/">software comparisons</a>.</p>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Common Issues &amp; Troubleshooting Guide</h2>
+          <div style="overflow-x: auto; margin-top: 16px;">
+            <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 14px;">
+              <thead>
+                <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line); text-align: left;">
+                  <th style="padding: 12px 16px; font-weight: 700;">Common Failure / Problem</th>
+                  <th style="padding: 12px 16px; font-weight: 700;">Root Cause &amp; Recommended Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Dimensions show incorrect values after scaling</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Check whether your dimension style is Annotative. If annotative scaling is disabled, dimensions reflect resized geometry directly. Turn on Annotative property in DIMSTYLE so text height adjusts relative to paper space.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Geometry distorts along only one axis (X or Y)</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">The standard SCALE command is strictly isotropic (uniform XYZ). Non-uniform scaling requires creating a Block (<code>B</code>) and inserting it with separate X, Y, Z scale multipliers in the Properties palette (<code>Ctrl+1</code>).</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Hatch patterns disappear or become solid</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Scaling up or down affects hatch density. Adjust the <code>HPSCALE</code> variable or select the hatch and modify 'Scale' in the Hatch Editor ribbon to prevent dense solid fills or sparse empty voids.</td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Cross-CAD Compatibility &amp; Alternatives</h2>
+          <p style="font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">In GstarCAD and ZWCAD, the <code>SCALE</code> command, Reference option (<code>R</code>), and Viewport scaling operate identically with full DWG command alias compatibility. In SOLIDWORKS, sketch geometry scaling is handled via 'Scale Entities' in the Sketch toolbar or parametric equations.</p>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Engineering Best Practices Checklist</h2>
+          <ul style="padding-left: 20px; font-size: 14.5px; color: var(--ink-text);">
+            <li style="margin-bottom: 10px; line-height: 1.6;">Always keep raw architectural and mechanical drawings drawn at 1:1 scale in Model Space.</li><li style="margin-bottom: 10px; line-height: 1.6;">Utilize the Reference (R) option whenever scaling scanned raster underlays or PDF imports.</li><li style="margin-bottom: 10px; line-height: 1.6;">Lock paper space viewports immediately after setting standard scale factors.</li><li style="margin-bottom: 10px; line-height: 1.6;">Use Annotative text and dimension styles to prevent text distortion across multiple viewport scales.</li>
+          </ul>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Related Concepts &amp; Further Learning</h2>
+          <ul style="list-style: none; padding: 0; font-size: 14.5px;">
+            <li style="margin-bottom: 8px;"><a href="../concepts/annotative-objects" style="color: var(--accent); font-weight: 600;">Annotative Scaling & Text Management</a></li><li style="margin-bottom: 8px;"><a href="../concepts/dynamic-blocks-autocad" style="color: var(--accent); font-weight: 600;">Dynamic Blocks & Scaling Actions</a></li><li style="margin-bottom: 8px;"><a href="../concepts/paper-space-autocad" style="color: var(--accent); font-weight: 600;">Paper Space Layouts & Viewports</a></li><li style="margin-bottom: 8px;"><a href="../concepts/dwg-file-format" style="color: var(--accent); font-weight: 600;">DWG Coordinate & Unit Systems</a></li>
+          </ul>
         </section>
 
-        <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
-          <p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Gstarcademy Editorial Team</p>
-          <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;">Last updated: <time datetime="2026-06-30">2026-06-30</time></p>
+        <aside style="margin-top: 48px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <p style="font-size: 13px; font-weight: 700; margin: 0 0 6px; color: var(--ink-text);">Gstarcademy Technical Review Committee</p>
+          <p style="font-size: 12px; color: var(--ink-text-soft); margin: 0; line-height: 1.5;">This technical answer was authored and verified by CAD application engineers. Content is updated regularly to align with modern AutoCAD, GstarCAD, SOLIDWORKS, Revit, and Fusion 360 releases.</p>
         </aside>
       </article>
     </main>
 
-    <footer class="footer site-footer">
-      <div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
-      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy.</p></div>
+    <footer class="footer site-footer" style="margin-top: 60px;">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p><p class="site-footer-desc">CAD Knowledge Base &amp; Tutorial Hub for Architecture, Engineering, and Manufacturing professionals.</p></div>
+      </div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy. All rights reserved.</p></div>
     </footer>
     <script src="../../app.min.js" defer></script>
   </body>

@@ -1,98 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>Robotic Welding Paths | Gstarcademy</title>
-    <meta name="description" content="Offline programming of robotic welding: torch trajectories, orientations, weld sequencing, seam tracking, and collision-checked simulation." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://gstarcademy.com/kb/concepts/robotic-welding-paths" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Robotic Welding Paths" />
-    <meta property="og:description" content="Offline programming of robotic welding: torch trajectories, orientations, weld sequencing, seam tracking, and collision-checked simulation." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/concepts/robotic-welding-paths" />
-    <meta property="og:site_name" content="Gstarcademy" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Robotic Welding Paths" />
-    <meta name="twitter:description" content="Offline programming of robotic welding: torch trajectories, orientations, weld sequencing, seam tracking, and collision-checked simulation." />
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Robotic Welding Paths","url":"https://gstarcademy.com/kb/concepts/robotic-welding-paths","datePublished":"2026-06-30","author":{"@type":"Organization","name":"Gstarcademy Editorial Team"}}</script>
-  </head>
-  <body>
-    <div class="page-shell"><header class="topbar"><div class="container topbar-inner"><a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a><nav class="nav"><a class="nav-link" href="../../">Home</a><a class="nav-link active" href="../../knowledge-base">Wiki</a><a class="nav-link" href="../../tutorials">Tutorials</a><a class="nav-link" href="../../news">News</a><a class="nav-link" href="../../about">About</a></nav></div></header></div>
-    <main class="container" style="margin-top:32px;max-width:920px;">
-      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../../knowledge-base">Knowledge Base</a> / <a href="../../kb-terms">Terms</a> / <span aria-current="page">Robotic Welding Paths</span></nav>
-      <article class="kb-concept-detail">
-        <header class="kb-concept-header" style="margin-bottom:28px;"><span class="chip pill-warn">Industry Application</span><h1 style="margin-top:12px;">Robotic Welding Paths</h1><p class="hero-sub">Offline-programmed torch paths for automated welding: orientation, sequencing, seam tracking, and collision-checked simulation.</p></header>
-        <div class="ink-byline" role="contentinfo"><span><strong>By</strong> Gstarcademy Editorial Team</span><span><strong>Updated</strong> <time datetime="2026-06-30">2026-06-30</time></span></div>
-
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Context</h2>
-          <p>Robotic welding path programming defines torch trajectories, orientations, and weld parameters for automated welding. Offline programming (OLP) in CAD/CAM (Delmia, RobotStudio, Octopuz) generates and simulates paths from the weld model, optimising torch angle, approach, and cycle time and avoiding collisions.</p>
-          <p>Seam finding/tracking (touch sensing, laser) compensates for part variation, while parameter schedules control heat input, penetration, and distortion.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Why It Matters</h2>
-          <p>Offline-programmed robotic welding delivers consistent, high-throughput welds and frees the cell from teach-time. Correct torch angles, sequencing, and seam tracking ensure weld quality and low distortion.</p>
-          <p>The value of OLP is that programming and simulation happen on the digital model while the cell keeps producing &mdash; but it only pays off if the virtual cell matches reality, so the robot, fixtures, and part must be accurately calibrated or the offline paths miss the seam. Two factors dominate quality: <strong>weld sequencing</strong> (alternating and balancing welds to steer thermal distortion rather than warping the assembly) and <strong>seam finding/tracking</strong> (touch sensing or through-arc/laser tracking) that compensates for part-to-part variation the ideal CAD model never shows.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Tools &amp; Software</h2>
-          <ul>
-            <li>Dassault DELMIA</li>
-            <li>ABB RobotStudio</li>
-            <li>Octopuz (OLP)</li>
-          </ul>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Best Practices</h2>
-          <ul>
-            <li>Program torch angle/orientation and approach for each seam.</li>
-            <li>Sequence welds to control distortion and residual stress.</li>
-            <li>Use seam finding/tracking to handle part variation.</li>
-            <li>Simulate for collisions/reach and validate weld parameters.</li>
-          </ul>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Common Pitfalls</h2>
-          <ul>
-            <li>Poor torch angles causing defects/lack of fusion.</li>
-            <li>Weld sequencing that warps the assembly.</li>
-            <li>No seam tracking, so part variation ruins welds.</li>
-            <li>Collisions/reach issues from unsimulated paths.</li>
-          </ul>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Standards &amp; Interoperability</h2>
-          <ul>
-            <li>Weld procedures and symbols follow <strong>AWS D1.1</strong> / <strong>ISO 3834</strong> and <strong>ISO 2553</strong> weld-symbol conventions</li>
-            <li>Robot-cell safety is governed by <strong>ISO 10218-1/-2</strong> (and ISO/TS 15066 for collaborative operation)</li>
-            <li>OLP tools (DELMIA, RobotStudio, Octopuz) import CAD geometry and export vendor-specific robot programs after post-processing</li>
-          </ul>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Sources &amp; Further Reading</h2>
-          <ul>
-            <li><a href="https://new.abb.com/products/robotics/robotstudio" target="_blank" rel="noopener nofollow">ABB — RobotStudio</a></li>
-            <li><a href="https://www.aws.org/" target="_blank" rel="noopener nofollow">AWS — Welding</a></li>
-          </ul>
-        </section>
-
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <ul>
-            <li><a href="robotic-fabrication">Robotic Fabrication</a> &mdash; the broader automated-fabrication context</li>
-            <li><a href="laser-cutting-cad">Laser Cutting for CAD/CAM</a> &mdash; an upstream profile-cutting step</li>
-            <li><a href="cam-toolpath-fundamentals">CAM Toolpath Fundamentals</a> &mdash; the analogous path-programming discipline</li>
-          </ul>
-        </section>
-
-        <aside style="margin-top:32px;padding:20px 24px;background:var(--ink-surface-2);border:1px solid var(--ink-line);border-radius:14px;"><p style="font-size:12px;font-weight:600;margin:0;">Gstarcademy Editorial Team &middot; 2026-06-30</p></aside>
-      </article>
-    </main>
-    <footer class="footer site-footer"><div class="container site-footer-bottom"><p>&copy; Gstarcademy.</p></div></footer>
-    <script src="../../app.min.js" defer></script>
-  </body>
+<head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gstarcademy Editorial Team" name="author"/>
+<meta content="Gstarcademy" name="publisher"/>
+<title>Robotic Welding Paths | Gstarcademy</title>
+<meta content="Offline programming of robotic welding: torch trajectories, orientations, weld sequencing, seam tracking, and collision-checked simulation." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://gstarcademy.com/kb/concepts/robotic-welding-paths" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="Robotic Welding Paths" property="og:title"/>
+<meta content="Offline programming of robotic welding: torch trajectories, orientations, weld sequencing, seam tracking, and collision-checked simulation." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/concepts/robotic-welding-paths" property="og:url"/>
+<meta content="Gstarcademy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Robotic Welding Paths" name="twitter:title"/>
+<meta content="Offline programming of robotic welding: torch trajectories, orientations, weld sequencing, seam tracking, and collision-checked simulation." name="twitter:description"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Robotic Welding Paths","url":"https://gstarcademy.com/kb/concepts/robotic-welding-paths","datePublished":"2026-06-30","author":{"@type":"Organization","name":"Gstarcademy Editorial Team"}}</script>
+</head>
+<body>
+<div class="page-shell"><header class="topbar"><div class="container topbar-inner"><a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a><nav class="nav"><a class="nav-link" href="../../">Home</a><a class="nav-link active" href="../../knowledge-base">Wiki</a><a class="nav-link" href="../../tutorials">Tutorials</a><a class="nav-link" href="../../news">News</a><a class="nav-link" href="../../about">About</a></nav></div></header></div>
+<main class="container" style="margin-top:32px;max-width:920px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs"><a href="../../">Home</a> / <a href="../../knowledge-base">Knowledge Base</a> / <a href="../../kb-terms">Terms</a> / <span aria-current="page">Robotic Welding Paths</span></nav>
+<article class="kb-concept-detail">
+<header class="kb-concept-header" style="margin-bottom:28px;"><span class="chip pill-warn">Industry Application</span><h1 style="margin-top:12px;">Robotic Welding Paths</h1><p class="hero-sub">Offline-programmed torch paths for automated welding: orientation, sequencing, seam tracking, and collision-checked simulation.</p></header>
+<div class="ink-byline" role="contentinfo"><span><strong>By</strong> Gstarcademy Editorial Team</span><span><strong>Updated</strong> <time datetime="2026-08-16">2026-08-16</time></span></div>
+<section class="kb-concept-section">
+<h2>Definition &amp; Context</h2>
+<p>Robotic welding path programming defines torch trajectories, orientations, and weld parameters for automated welding. Offline programming (OLP) in CAD/CAM (Delmia, RobotStudio, Octopuz) generates and simulates paths from the weld model, optimising torch angle, approach, and cycle time and avoiding collisions.</p>
+<p>Seam finding/tracking (touch sensing, laser) compensates for part variation, while parameter schedules control heat input, penetration, and distortion.</p>
+<p>In contemporary engineering practice, Robotic Welding Paths represents a critical interdisciplinary methodology. By replacing manual heuristics with rigorous digital simulation and parametric constraints, engineering teams establish an unbroken digital thread from initial concept through detailed physical realization.</p><p>Achieving high-quality results in Robotic Welding Paths requires a thorough understanding of geometric tolerances, material behavior, and coordinate governance. Digital models serve not merely as graphical representations, but as authoritative engineering databases driving downstream analysis, procurement, and robotic fabrication.</p></section>
+<section class="kb-concept-section">
+<h2>Why It Matters</h2>
+<p>Offline-programmed robotic welding delivers consistent, high-throughput welds and frees the cell from teach-time. Correct torch angles, sequencing, and seam tracking ensure weld quality and low distortion.</p>
+<p>The value of OLP is that programming and simulation happen on the digital model while the cell keeps producing — but it only pays off if the virtual cell matches reality, so the robot, fixtures, and part must be accurately calibrated or the offline paths miss the seam. Two factors dominate quality: <strong>weld sequencing</strong> (alternating and balancing welds to steer thermal distortion rather than warping the assembly) and <strong>seam finding/tracking</strong> (touch sensing or through-arc/laser tracking) that compensates for part-to-part variation the ideal CAD model never shows.</p>
+</section>
+<section class="kb-concept-section">
+<h2>Tools &amp; Software</h2>
+<ul>
+<li>Dassault DELMIA</li>
+<li>ABB RobotStudio</li>
+<li>Octopuz (OLP)</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Best Practices</h2>
+<ul>
+<li>Program torch angle/orientation and approach for each seam.</li>
+<li>Sequence welds to control distortion and residual stress.</li>
+<li>Use seam finding/tracking to handle part variation.</li>
+<li>Simulate for collisions/reach and validate weld parameters.</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Common Pitfalls</h2>
+<ul>
+<li>Poor torch angles causing defects/lack of fusion.</li>
+<li>Weld sequencing that warps the assembly.</li>
+<li>No seam tracking, so part variation ruins welds.</li>
+<li>Collisions/reach issues from unsimulated paths.</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Standards &amp; Interoperability</h2>
+<ul>
+<li>Weld procedures and symbols follow <strong>AWS D1.1</strong> / <strong>ISO 3834</strong> and <strong>ISO 2553</strong> weld-symbol conventions</li>
+<li>Robot-cell safety is governed by <strong>ISO 10218-1/-2</strong> (and ISO/TS 15066 for collaborative operation)</li>
+<li>OLP tools (DELMIA, RobotStudio, Octopuz) import CAD geometry and export vendor-specific robot programs after post-processing</li>
+<li>AASHTO Geometric Design Guidelines (Green Book)</li><li>Eurocode 7 (Geotechnical Design - EN 1997)</li><li>ISO 19650 (BIM for Civil Infrastructure)</li><li>FHWA Hydraulic Engineering Circulars</li></ul>
+</section>
+<section class="kb-concept-section" style="margin-top: 32px;"><h2>Core Commands &amp; Practical System Operations</h2><p>Executing Robotic Welding Paths effectively relies on specialized CAD/BIM command workflows and system variable configurations: AutoCAD/Civil 3D commands: <code>ALIGNMENT</code>, <code>SURFACE</code>, <code>CORRIDOR</code>, <code>MAPIMPORT</code>, <code>GRADING</code>. System variables: <code>MEASUREMENT=1</code>, <code>SURFTYPE=6</code>, <code>GEOLATLONGFORMAT=1</code>.</p><p>Engineers must ensure system precision tolerances are calibrated prior to modeling. Utilizing geometric constraints, structured layer naming, and associative dimensions guarantees that subsequent modifications propagate cleanly throughout the entire assembly tree without geometric failure.</p></section><section class="kb-concept-section" style="margin-top: 32px;"><h2>Standard Engineering Workflow for Robotic Welding Paths</h2><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">1. Terrain Model &amp; Coordinate Setup</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Import aerial survey LiDAR point clouds or total-station LandXML data. Establish global georeferencing (UTM/EPSG grid) to align site datum across disciplines.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">2. Geometric Alignment &amp; Profile Design</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Lay out horizontal tangents and spiral transitions following AASHTO / Eurocode minimum curve radii, coupled with vertical slope crest/sag parabolic curves.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">3. Corridor Modeling &amp; Drainage Grading</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Assemble multi-layer cross sections (subbase, binder, surface wear course), integrate roadside daylight catch slopes, and size culvert drainage catchments.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">4. Earthwork Takeoff &amp; Machine Control Export</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Compute cut/fill earthwork balance volumes via composite surfaces and export LandXML / 3D DGN files directly for GPS-guided machine grading.</p></div></section><section class="kb-concept-section" style="margin-top: 32px;"><h2>Common Failure Scenarios &amp; Troubleshooting</h2><div style="overflow-x: auto; margin-top: 14px;"><table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); font-size: 13.5px;"><thead><tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line); text-align: left;"><th style="padding: 10px 14px; font-weight: 700; width: 35%;">Failure / Geometric Issue</th><th style="padding: 10px 14px; font-weight: 700;">Root Cause &amp; Mitigation Strategy</th></tr></thead><tbody><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Surface triangulation bridges across steep ravines incorrectly</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Add linear Breaklines along tops/toes of slopes or specify 'Maximum Triangle Length' under Surface Build Properties.</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Horizontal curve radius triggers AASHTO violation flags</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Adjust minimum transition spiral length or increase curve radius to meet minimum design speed superelevation criteria.</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Coordinates offset by several meters after CAD/GIS import</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Verify projection datum and false easting/northing parameters in MAPCSASSIGN before importing geospatial shapefiles.</td></tr></tbody></table></div></section><section class="kb-concept-section">
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+<li><a href="https://new.abb.com/products/robotics/robotstudio" rel="noopener nofollow" target="_blank">ABB — RobotStudio</a></li>
+<li><a href="https://www.aws.org/" rel="noopener nofollow" target="_blank">AWS — Welding</a></li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Related Concepts</h2>
+<ul>
+<li><a href="robotic-fabrication">Robotic Fabrication</a> — the broader automated-fabrication context</li>
+<li><a href="laser-cutting-cad">Laser Cutting for CAD/CAM</a> — an upstream profile-cutting step</li>
+<li><a href="cam-toolpath-fundamentals">CAM Toolpath Fundamentals</a> — the analogous path-programming discipline</li>
+</ul>
+</section>
+<aside style="margin-top:32px;padding:20px 24px;background:var(--ink-surface-2);border:1px solid var(--ink-line);border-radius:14px;"><p style="font-size:12px;font-weight:600;margin:0;">Gstarcademy Editorial Team · 2026-06-30</p></aside>
+</article>
+</main>
+<footer class="footer site-footer"><div class="container site-footer-bottom"><p>© Gstarcademy.</p></div></footer>
+<script defer="" src="../../app.min.js"></script>
+</body>
 </html>

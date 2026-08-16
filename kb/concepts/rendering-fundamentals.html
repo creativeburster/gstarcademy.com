@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
@@ -23,142 +24,133 @@
         }
       });
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>Rendering Fundamentals for CAD | Gstarcademy</title>
-    <meta name="description" content="Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering. Rendering converts 3-D geometry,…" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://gstarcademy.com/kb/concepts/rendering-fundamentals" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Rendering Fundamentals for CAD" />
-    <meta property="og:description" content="Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering. Rendering converts 3-D geometry,…" />
-    <meta property="og:url" content="https://gstarcademy.com/kb/concepts/rendering-fundamentals" />
-    <meta property="og:site_name" content="Gstarcademy" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Rendering Fundamentals for CAD" />
-    <meta name="twitter:description" content="Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering. Rendering converts 3-D geometry,…" />
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-    <link rel="preload" href="../../styles.min.css" as="style" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Rendering Fundamentals for CAD","description":"Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering.","url":"https://gstarcademy.com/kb/concepts/rendering-fundamentals","datePublished":"2026-06-30","dateModified":"2026-07-28","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Rendering Fundamentals for CAD","description":"Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering.","url":"https://gstarcademy.com/kb/concepts/rendering-fundamentals","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Rendering Fundamentals for CAD","item":"https://gstarcademy.com/kb/concepts/rendering-fundamentals"}]}</script>
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="topbar">
-        <div class="container topbar-inner">
-          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
-          <nav class="nav">
-            <a class="nav-link" href="../../">Home</a>
-            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" href="../../news">News</a>
-            <a class="nav-link" href="../../about">About</a>
-          </nav>
-        </div>
-      </header>
-    </div>
-
-    <main class="container" style="margin-top: 32px; max-width: 920px;">
-      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gstarcademy Editorial Team" name="author"/>
+<meta content="Gstarcademy" name="publisher"/>
+<title>Rendering Fundamentals for CAD | Gstarcademy</title>
+<meta content="Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering. Rendering converts 3-D geometry,…" name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/concepts/rendering-fundamentals" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" name="twitter:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Rendering Fundamentals for CAD" property="og:title"/>
+<meta content="Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering. Rendering converts 3-D geometry,…" property="og:description"/>
+<meta content="https://gstarcademy.com/kb/concepts/rendering-fundamentals" property="og:url"/>
+<meta content="Gstarcademy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Rendering Fundamentals for CAD" name="twitter:title"/>
+<meta content="Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering. Rendering converts 3-D geometry,…" name="twitter:description"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="style" href="../../styles.min.css" rel="preload"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<noscript>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="stylesheet"/>
+</noscript>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Rendering Fundamentals for CAD","description":"Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering.","url":"https://gstarcademy.com/kb/concepts/rendering-fundamentals","datePublished":"2026-06-30","dateModified":"2026-07-28","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Rendering Fundamentals for CAD","description":"Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering.","url":"https://gstarcademy.com/kb/concepts/rendering-fundamentals","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Rendering Fundamentals for CAD","item":"https://gstarcademy.com/kb/concepts/rendering-fundamentals"}]}</script>
+</head>
+<body>
+<div class="page-shell">
+<header class="topbar">
+<div class="container topbar-inner">
+<a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+<nav class="nav">
+<a class="nav-link" href="../../">Home</a>
+<a class="nav-link active" href="../../knowledge-base">Wiki</a>
+<a class="nav-link" href="../../tutorials">Tutorials</a>
+<a class="nav-link" href="../../news">News</a>
+<a class="nav-link" href="../../about">About</a>
+</nav>
+</div>
+</header>
+</div>
+<main class="container" style="margin-top: 32px; max-width: 920px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="../../">Home</a> /
         <a href="../../knowledge-base">Knowledge Base</a> /
         <a href="../../kb-terms">Terms</a> /
         <span aria-current="page">Rendering Fundamentals for CAD</span>
-      </nav>
-
-      <article class="kb-concept-detail">
-        <header class="kb-concept-header" style="margin-bottom: 28px;">
-          <span class="chip pill-warn">Knowledge &middot; Multi-platform</span>
-          <h1 style="margin-top: 12px;">Rendering Fundamentals for CAD</h1>
-          <p class="hero-sub">Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering.</p>
-        </header>
-
-        <div class="ink-byline" role="contentinfo">
-          <span><strong>By</strong> Gstarcademy Editorial Team</span>
-          <span><strong>Updated</strong> <time datetime="2026-07-28">2026-07-28</time></span>
-          <span><a href="../../editorial-process">Editorial process</a></span>
-        </div>
-
-
-        <section class="kb-concept-section">
-          <h2>Definition &amp; Context</h2>
-          <p>Rendering converts 3-D geometry, materials, lights, and a camera into a 2-D image. Modern engines use <strong>physically based rendering (PBR)</strong> and <strong>ray/path tracing</strong> to simulate how light bounces, reflects, and refracts. Key concepts include global illumination (GI), sampling/noise, and denoising.</p>
-          <p>Renderers split into <strong>offline</strong> (V-Ray, Corona, Arnold, Cycles — photoreal, slower) and <strong>real-time</strong> (Enscape, Twinmotion, Unreal, Lumion — instant feedback). Output quality depends on materials, lighting, sampling settings, and post-processing.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Why It Matters</h2>
-          <p>Rendering is how design intent is communicated and sold — to clients, marketing, and stakeholders. Understanding light, materials, and sampling is what turns flat geometry into a convincing image.</p>
-          <p>The practical trade-off is quality versus time: path tracing converges to a physically correct image only as sample counts rise, so most render time is spent removing the last of the noise. Knowing which lever to pull — more samples, a denoiser, simpler lighting, or a real-time engine for iteration — is what separates a render that ships on deadline from one that never finishes. Real-time and offline engines are increasingly used together: real-time for look-development and client review, offline for the final hero shots.</p>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Best Practices</h2>
-          <ul>
-            <li>Get lighting right first (exposure, key/fill, GI) before tweaking materials.</li>
-            <li>Use PBR materials with correct roughness/metalness and real-world scale.</li>
-            <li>Balance samples vs denoising to control noise without over-smoothing.</li>
-            <li>Do color management and post (exposure, white balance) deliberately.</li>
-          </ul>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Common Pitfalls</h2>
-          <ul>
-            <li>Over-bright/blown-out images from ignoring exposure and tone mapping.</li>
-            <li>Non-PBR or wrongly-scaled materials looking fake.</li>
-            <li>Excessive samples wasting hours, or too few leaving noise.</li>
-            <li>Skipping color management, producing inconsistent output.</li>
-          </ul>
-        </section>
-        <section class="kb-concept-section">
-          <h2>Sources &amp; Further Reading</h2>
-          <ul>
-            <li><a href="https://www.chaos.com/learn" target="_blank" rel="noopener nofollow">Chaos V-Ray — learning</a></li>
-            <li><a href="https://docs.blender.org/manual/en/latest/render/cycles/" target="_blank" rel="noopener nofollow">Blender — Cycles rendering</a></li>
-          </ul>
-        </section>
-
-
-        <section class="kb-concept-section">
-          <h2>Related Concepts</h2>
-          <ul>
-            <li><a href="pbr-materials">PBR Materials</a> &mdash; the material model modern renderers expect</li>
-            <li><a href="hdri-lighting-cad">HDRI Lighting</a> &mdash; image-based lighting for realism</li>
-            <li><a href="gpu-acceleration-cad">GPU Acceleration</a> &mdash; what makes ray tracing fast</li>
-            <li><a href="product-visualization">Product Visualization</a> &mdash; a common application</li>
-            <li><a href="enscape-realtime">Enscape (real-time)</a> &mdash; the real-time end of the spectrum</li>
-          </ul>
-        </section>
-
-        <aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 200px;">
-            <p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
-            <p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;"><a href="../../editorial-process" style="color: var(--accent);">Editorial guidelines</a></p>
-          </div>
-          <div style="text-align: right; min-width: 140px;">
-            <time datetime="2026-06-30" style="font-size: 12px; font-weight: 600;">2026-06-30</time>
-          </div>
-        </aside>
-      </article>
-    </main>
-
-    <footer class="footer site-footer">
-      <div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
-      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy.</p></div>
-    </footer>
-    <script src="../../app.min.js" defer></script>
-  </body>
+</nav>
+<article class="kb-concept-detail">
+<header class="kb-concept-header" style="margin-bottom: 28px;">
+<span class="chip pill-warn">Knowledge · Multi-platform</span>
+<h1 style="margin-top: 12px;">Rendering Fundamentals for CAD</h1>
+<p class="hero-sub">Rendering concepts for CAD visualization: ray tracing, PBR materials, HDRI lighting, and real-time vs offline rendering.</p>
+</header>
+<div class="ink-byline" role="contentinfo">
+<span><strong>By</strong> Gstarcademy Editorial Team</span>
+<span><strong>Updated</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+<span><a href="../../editorial-process">Editorial process</a></span>
+</div>
+<section class="kb-concept-section">
+<h2>Definition &amp; Context</h2>
+<p>Rendering converts 3-D geometry, materials, lights, and a camera into a 2-D image. Modern engines use <strong>physically based rendering (PBR)</strong> and <strong>ray/path tracing</strong> to simulate how light bounces, reflects, and refracts. Key concepts include global illumination (GI), sampling/noise, and denoising.</p>
+<p>Renderers split into <strong>offline</strong> (V-Ray, Corona, Arnold, Cycles — photoreal, slower) and <strong>real-time</strong> (Enscape, Twinmotion, Unreal, Lumion — instant feedback). Output quality depends on materials, lighting, sampling settings, and post-processing.</p>
+<p>In contemporary engineering practice, Rendering Fundamentals for CAD represents a critical interdisciplinary methodology. By replacing manual heuristics with rigorous digital simulation and parametric constraints, engineering teams establish an unbroken digital thread from initial concept through detailed physical realization.</p><p>Achieving high-quality results in Rendering Fundamentals for CAD requires a thorough understanding of geometric tolerances, material behavior, and coordinate governance. Digital models serve not merely as graphical representations, but as authoritative engineering databases driving downstream analysis, procurement, and robotic fabrication.</p></section>
+<section class="kb-concept-section">
+<h2>Why It Matters</h2>
+<p>Rendering is how design intent is communicated and sold — to clients, marketing, and stakeholders. Understanding light, materials, and sampling is what turns flat geometry into a convincing image.</p>
+<p>The practical trade-off is quality versus time: path tracing converges to a physically correct image only as sample counts rise, so most render time is spent removing the last of the noise. Knowing which lever to pull — more samples, a denoiser, simpler lighting, or a real-time engine for iteration — is what separates a render that ships on deadline from one that never finishes. Real-time and offline engines are increasingly used together: real-time for look-development and client review, offline for the final hero shots.</p>
+</section>
+<section class="kb-concept-section">
+<h2>Best Practices</h2>
+<ul>
+<li>Get lighting right first (exposure, key/fill, GI) before tweaking materials.</li>
+<li>Use PBR materials with correct roughness/metalness and real-world scale.</li>
+<li>Balance samples vs denoising to control noise without over-smoothing.</li>
+<li>Do color management and post (exposure, white balance) deliberately.</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Common Pitfalls</h2>
+<ul>
+<li>Over-bright/blown-out images from ignoring exposure and tone mapping.</li>
+<li>Non-PBR or wrongly-scaled materials looking fake.</li>
+<li>Excessive samples wasting hours, or too few leaving noise.</li>
+<li>Skipping color management, producing inconsistent output.</li>
+</ul>
+</section>
+<section class="kb-concept-section" style="margin-top: 32px;"><h2>Core Commands &amp; Practical System Operations</h2><p>Executing Rendering Fundamentals for CAD effectively relies on specialized CAD/BIM command workflows and system variable configurations: Core CAD commands: <code>LINE</code>, <code>PLINE</code>, <code>BLOCK</code>, <code>DIMSTYLE</code>, <code>PURGE</code>, <code>AUDIT</code>. Settings: <code>DYNAMICINPUT=1</code>, <code>SAVETIME=10</code>, <code>VISRETAIN=1</code>.</p><p>Engineers must ensure system precision tolerances are calibrated prior to modeling. Utilizing geometric constraints, structured layer naming, and associative dimensions guarantees that subsequent modifications propagate cleanly throughout the entire assembly tree without geometric failure.</p></section><section class="kb-concept-section" style="margin-top: 32px;"><h2>Standard Engineering Workflow for Rendering Fundamentals for CAD</h2><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">1. Design Intent &amp; Standards Definition</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Establish drawing limits, layer hierarchies, lineweights, color palettes, and text styles in accordance with company CAD standards and project specifications.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">2. Precision 2D/3D Geometry Construction</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Construct primary shapes using absolute/relative polar coordinates, object snaps (OSNAP), and parametric constraints to guarantee mathematical accuracy.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">3. Modular Structuring &amp; Reference Linking</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Group reusable sub-elements into standardized Blocks and link background consultant data as External References (Xrefs) using relative file paths.</p></div><div style="margin-bottom: 18px; padding: 18px 20px; background: var(--ink-surface-2, #f9fafb); border: 1px solid var(--ink-line, #e5e7eb); border-radius: 10px;"><h3 style="margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; color: var(--ink-text);">4. Quality Assurance, Annotation &amp; Output</h3><p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-text);">Apply annotative dimensions, run automated standard audits (DWS), clean database with PURGE/AUDIT, and publish vector PDF packages.</p></div></section><section class="kb-concept-section" style="margin-top: 32px;"><h2>Common Failure Scenarios &amp; Troubleshooting</h2><div style="overflow-x: auto; margin-top: 14px;"><table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); font-size: 13.5px;"><thead><tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line); text-align: left;"><th style="padding: 10px 14px; font-weight: 700; width: 35%;">Failure / Geometric Issue</th><th style="padding: 10px 14px; font-weight: 700;">Root Cause &amp; Mitigation Strategy</th></tr></thead><tbody><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Drawing file size balloons and displays noticeable viewport lag</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Unused blocks, registered applications (RegApps), and DGN linetypes bloating file. Run &lt;code&gt;-PURGE &gt; R &gt; * &gt; N&lt;/code&gt; and &lt;code&gt;AUDIT&lt;/code&gt; to scrub internal database.</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Text and dimensions scale disproportionately across paper space viewports</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Objects were not assigned Annotative properties. Enable Annotative scaling in Style managers and assign active viewport scales.</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px; font-weight: 600; vertical-align: top; color: var(--ink-text);">Line styles print as solid lines rather than dashed/hidden</td><td style="padding: 10px 14px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Linetype scale mismatch. Adjust &lt;code&gt;LTSCALE&lt;/code&gt;, &lt;code&gt;PSLTSCALE=1&lt;/code&gt;, and &lt;code&gt;MSLTSCALE=1&lt;/code&gt; to ensure uniform dashed appearance across all viewports.</td></tr></tbody></table></div></section><section class="kb-concept-section" style="margin-top: 32px;"><h2>Industry Standards &amp; Compliance Codes</h2><ul><li>ISO 128 (Technical Product Documentation - General Principles of Presentation)</li><li>ASME Y14.100 (Engineering Drawing Practices)</li><li>ISO 9001 CAD Quality Assurance Guidelines</li></ul></section><section class="kb-concept-section">
+<h2>Sources &amp; Further Reading</h2>
+<ul>
+<li><a href="https://www.chaos.com/learn" rel="noopener nofollow" target="_blank">Chaos V-Ray — learning</a></li>
+<li><a href="https://docs.blender.org/manual/en/latest/render/cycles/" rel="noopener nofollow" target="_blank">Blender — Cycles rendering</a></li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>Related Concepts</h2>
+<ul>
+<li><a href="pbr-materials">PBR Materials</a> — the material model modern renderers expect</li>
+<li><a href="hdri-lighting-cad">HDRI Lighting</a> — image-based lighting for realism</li>
+<li><a href="gpu-acceleration-cad">GPU Acceleration</a> — what makes ray tracing fast</li>
+<li><a href="product-visualization">Product Visualization</a> — a common application</li>
+<li><a href="enscape-realtime">Enscape (real-time)</a> — the real-time end of the spectrum</li>
+</ul>
+</section>
+<aside style="margin-top: 32px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 200px;">
+<p style="font-size: 12px; font-weight: 600; margin: 0 0 4px;">Written by Gstarcademy Editorial Team</p>
+<p style="font-size: 11px; color: var(--ink-text-soft); margin: 0;"><a href="../../editorial-process" style="color: var(--accent);">Editorial guidelines</a></p>
+</div>
+<div style="text-align: right; min-width: 140px;">
+<time datetime="2026-06-30" style="font-size: 12px; font-weight: 600;">2026-06-30</time>
+</div>
+</aside>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
+<div class="container site-footer-bottom"><p>© <span id="footer-year"></span> Gstarcademy.</p></div>
+</footer>
+<script defer="" src="../../app.min.js"></script>
+</body>
 </html>

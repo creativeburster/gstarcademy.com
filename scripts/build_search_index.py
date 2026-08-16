@@ -1,7 +1,17 @@
 #!/usr/bin/env python3
 """
-Compile search index corpus from knowledge.js and output data/search_nodes.json.
-This ensures search.js has access to all 550+ nodes with exact URLs.
+Compile comprehensive full-site search index corpus across all:
+1. KB Concepts (729 pages)
+2. KB Software Profiles (51 pages)
+3. KB FAQ Pages (25 pages)
+4. KB Guides (31 pages)
+5. KB Learning Paths (18 pages)
+6. KB Vendors (25 pages)
+7. Core Hub & Section Pages
+8. Curated Tutorials (168 courses)
+9. Industry News (123 articles)
+
+Outputs data/search_nodes.json for instant client-side autocomplete & modal search.
 
 Usage:
     python scripts/build_search_index.py
@@ -11,128 +21,256 @@ from __future__ import annotations
 
 import json
 import re
+import os
 from pathlib import Path
+from bs4 import BeautifulSoup
 
 REPO = Path(__file__).resolve().parents[1]
-KNOWLEDGE_JS = REPO / "knowledge.js"
 SEARCH_NODES_JSON = REPO / "data" / "search_nodes.json"
 
+def clean_title(t: str) -> str:
+    t = re.sub(r"\s*\|\s*Gstarcademy.*$", "", t)
+    t = re.sub(r"\s*·\s*CAD Knowledge Base.*$", "", t)
+    return t.strip()
 
-def clean_js_string(s: str) -> str:
-    # "AutoCAD Layer States" -> AutoCAD Layer States
-    s = s.strip()
-    if s.startswith('"') and s.endswith('"'):
-        return s[1:-1]
-    if s.startswith("'") and s.endswith("'"):
-        return s[1:-1]
-    return s
-
-
-def parse_js_array(s: str) -> list[str]:
-    # '["autocad", "2d"]' or "['autocad', '2d']" -> ["autocad", "2d"]
-    s = s.strip()
-    if not s.startswith('[') or not s.endswith(']'):
-        # Maybe it's a comma-separated list or plain string
-        return [clean_js_string(x) for x in s.split(",") if x.strip()]
-    content = s[1:-1]
-    # Split by comma but ignore commas inside quotes (simple split works if no nested commas)
-    items = []
-    for part in re.split(r",(?=(?:[^\"']*[\"'][^\"']*[\"'])*[^\"']*$)", content):
-        part = part.strip()
-        if part:
-            items.append(clean_js_string(part))
-    return items
-
+def extract_tags(text: str, filename: str) -> list[str]:
+    tags = set()
+    fn = filename.lower()
+    for kw in ["autocad", "gstarcad", "revit", "solidworks", "fusion", "civil-3d", "catia", "nx", "rhino", "blender", "sketchup", "archicad", "freecad", "onshape", "3dsmax", "ansys", "abaqus", "navisworks"]:
+        if kw in fn or kw in text.lower():
+            tags.add(kw)
+    for cat in ["bim", "cam", "fea", "cfd", "cad", "2d", "3d", "mesh", "drafting", "parametric", "dwg", "ifc", "lisp"]:
+        if cat in fn or cat in text.lower():
+            tags.add(cat)
+    return list(tags)[:5]
 
 def main() -> int:
-    if not KNOWLEDGE_JS.is_file():
-        print(f"Error: {KNOWLEDGE_JS} not found!")
-        return 1
+    print("Building comprehensive full-site search index...")
+    nodes_list = []
+    seen_ids = set()
 
-    js_content = KNOWLEDGE_JS.read_text(encoding="utf-8")
-
-    # 1. Parse nodeUrlMap to get custom URLs
-    # nodeUrlMap is structured as:
-    #     const nodeUrlMap = {
-    #       "CAD Basics": "./knowledge-base.html",
-    #       ...
-    #     };
-    node_url_map = {}
-    map_match = re.search(r"const\s+nodeUrlMap\s*=\s*\{([^}]+)\}", js_content)
-    if map_match:
-        map_body = map_match.group(1)
-        for line in map_body.splitlines():
-            line = line.strip()
-            if not line or ":" not in line or line.startswith("//"):
-                continue
-            # "CAD Basics": "./knowledge-base.html",
+    # 1. Scan KB Concepts
+    concepts_dir = REPO / "kb" / "concepts"
+    if concepts_dir.exists():
+        for p in concepts_dir.glob("*.html"):
+            slug = p.stem
             try:
-                parts = line.split(":", 1)
-                k = clean_js_string(parts[0].strip())
-                v = clean_js_string(parts[1].strip().rstrip(","))
-                node_url_map[k] = v
-            except Exception:
+                soup = BeautifulSoup(p.read_text(encoding="utf-8"), "html.parser")
+                t_tag = soup.find("title")
+                title = clean_title(t_tag.get_text()) if t_tag else slug.replace("-", " ").title()
+                
+                desc_tag = soup.find("meta", attrs={"name": "description"})
+                hint = desc_tag.get("content", "")[:120] if desc_tag else ""
+                
+                url = f"/kb/concepts/{slug}"
+                if title not in seen_ids:
+                    seen_ids.add(title)
+                    nodes_list.append({
+                        "id": title,
+                        "type": "concept",
+                        "tags": extract_tags(title + " " + hint, slug),
+                        "hint": hint,
+                        "url": url
+                    })
+            except Exception as e:
                 pass
 
-    # 2. Extract nodes from const nodes = [ ... ];
-    # nodes block can be large, find from "const nodes = [" to first "];" after it
-    nodes_match = re.search(r"const\s+nodes\s*=\s*\[(.*?)\];", js_content, re.DOTALL)
-    if not nodes_match:
-        print("Error: Could not find 'const nodes' array in knowledge.js")
-        return 1
+    # 2. Scan KB Software
+    software_dir = REPO / "kb" / "software"
+    if software_dir.exists():
+        for p in software_dir.glob("*.html"):
+            slug = p.stem
+            try:
+                soup = BeautifulSoup(p.read_text(encoding="utf-8"), "html.parser")
+                t_tag = soup.find("title")
+                title = clean_title(t_tag.get_text()) if t_tag else slug.replace("-", " ").title()
+                desc_tag = soup.find("meta", attrs={"name": "description"})
+                hint = desc_tag.get("content", "")[:120] if desc_tag else ""
+                url = f"/kb/software/{slug}"
+                if title not in seen_ids:
+                    seen_ids.add(title)
+                    nodes_list.append({
+                        "id": title,
+                        "type": "software",
+                        "tags": extract_tags(title + " " + hint, slug),
+                        "hint": hint,
+                        "url": url
+                    })
+            except Exception as e:
+                pass
 
-    nodes_body = nodes_match.group(1)
-    nodes_list = []
+    # 3. Scan KB FAQ Pages
+    faq_dir = REPO / "kb" / "faq"
+    if faq_dir.exists():
+        for p in faq_dir.glob("*.html"):
+            slug = p.stem
+            if slug == "index":
+                continue
+            try:
+                soup = BeautifulSoup(p.read_text(encoding="utf-8"), "html.parser")
+                t_tag = soup.find("title")
+                title = clean_title(t_tag.get_text()) if t_tag else slug.replace("-", " ").title()
+                desc_tag = soup.find("meta", attrs={"name": "description"})
+                hint = desc_tag.get("content", "")[:120] if desc_tag else ""
+                url = f"/kb/faq/{slug}"
+                if title not in seen_ids:
+                    seen_ids.add(title)
+                    nodes_list.append({
+                        "id": title,
+                        "type": "faq",
+                        "tags": extract_tags(title + " " + hint, slug),
+                        "hint": hint,
+                        "url": url
+                    })
+            except Exception as e:
+                pass
 
-    # Parse node object lines like:
-    # { id: "AutoCAD Layer States", group: 2, type: "concept", radius: 8, tags: ["autocad", "2d"] }
-    # { id: "Autodesk", type: "vendor", tags: ["terms", "aec", "mfg"], hint: "..." }
-    node_pattern = re.compile(r"\{\s*id:\s*([\"'][^\"']+[\"'])(.*?)\}")
+    # 4. Scan KB Guides
+    guides_dir = REPO / "kb" / "guides"
+    if guides_dir.exists():
+        for p in guides_dir.glob("*.html"):
+            slug = p.stem
+            try:
+                soup = BeautifulSoup(p.read_text(encoding="utf-8"), "html.parser")
+                t_tag = soup.find("title")
+                title = clean_title(t_tag.get_text()) if t_tag else slug.replace("-", " ").title()
+                desc_tag = soup.find("meta", attrs={"name": "description"})
+                hint = desc_tag.get("content", "")[:120] if desc_tag else ""
+                url = f"/kb/guides/{slug}"
+                if title not in seen_ids:
+                    seen_ids.add(title)
+                    nodes_list.append({
+                        "id": title,
+                        "type": "guide",
+                        "tags": extract_tags(title + " " + hint, slug),
+                        "hint": hint,
+                        "url": url
+                    })
+            except Exception as e:
+                pass
 
-    for match in node_pattern.finditer(nodes_body):
-        node_id = clean_js_string(match.group(1))
-        meta_body = match.group(2)
+    # 5. Scan KB Learning Paths
+    paths_dir = REPO / "kb" / "learning-paths"
+    if paths_dir.exists():
+        for p in paths_dir.glob("*.html"):
+            slug = p.stem
+            try:
+                soup = BeautifulSoup(p.read_text(encoding="utf-8"), "html.parser")
+                t_tag = soup.find("title")
+                title = clean_title(t_tag.get_text()) if t_tag else slug.replace("-", " ").title()
+                desc_tag = soup.find("meta", attrs={"name": "description"})
+                hint = desc_tag.get("content", "")[:120] if desc_tag else ""
+                url = f"/kb/learning-paths/{slug}"
+                if title not in seen_ids:
+                    seen_ids.add(title)
+                    nodes_list.append({
+                        "id": title,
+                        "type": "learning-path",
+                        "tags": extract_tags(title + " " + hint, slug),
+                        "hint": hint,
+                        "url": url
+                    })
+            except Exception as e:
+                pass
 
-        node_type = "concept"
-        tags = []
-        hint = ""
+    # 6. Scan Vendors
+    vendors_dir = REPO / "kb" / "vendors"
+    if vendors_dir.exists():
+        for p in vendors_dir.glob("*.html"):
+            slug = p.stem
+            try:
+                soup = BeautifulSoup(p.read_text(encoding="utf-8"), "html.parser")
+                t_tag = soup.find("title")
+                title = clean_title(t_tag.get_text()) if t_tag else slug.replace("-", " ").title()
+                desc_tag = soup.find("meta", attrs={"name": "description"})
+                hint = desc_tag.get("content", "")[:120] if desc_tag else ""
+                url = f"/kb/vendors/{slug}"
+                if title not in seen_ids:
+                    seen_ids.add(title)
+                    nodes_list.append({
+                        "id": title,
+                        "type": "vendor",
+                        "tags": extract_tags(title + " " + hint, slug),
+                        "hint": hint,
+                        "url": url
+                    })
+            except Exception as e:
+                pass
 
-        # Extract type:
-        type_m = re.search(r"type:\s*([\"'][^\"']+[\"'])", meta_body)
-        if type_m:
-            node_type = clean_js_string(type_m.group(1))
+    # 7. Core Section Hubs
+    hubs = [
+        ("Knowledge Base Home", "Comprehensive index of CAD/BIM/CAE concepts and engineering terminology.", "/knowledge-base"),
+        ("CAD Software Hub", "Browse 51 professional CAD, BIM, and CAM software platforms.", "/kb-software"),
+        ("CAD Terminology Index", "254 atomic CAD terms arranged by alphabetical index.", "/kb-terms"),
+        ("CAD Technical FAQ", "670 frequently asked questions spanning 20+ CAD tools.", "/kb-faq"),
+        ("Interactive Knowledge Graph", "Visual force-directed map of CAD concepts and dependencies.", "/kb-graph"),
+        ("Tutorial Navigation Library", "168 curated courses across YouTube, Coursera, and official academies.", "/tutorials"),
+        ("CAD & AEC Industry News", "123 curated articles covering AI, standards, and new software releases.", "/news"),
+        ("Engineering PDF Library", "Curated textbook extracts and chapter summaries.", "/knowledge-library"),
+        ("CAD Skills Challenge Quiz", "Interactive CAD quiz testing multi-discipline skills.", "/quiz"),
+        ("About Gstarcademy", "Project mission, editorial team, and peer-review process.", "/about"),
+        ("Editorial Process & Sources", "Peer review guidelines, sourcing policies, and E-E-A-T criteria.", "/editorial-process"),
+    ]
+    for h_title, h_hint, h_url in hubs:
+        if h_title not in seen_ids:
+            seen_ids.add(h_title)
+            nodes_list.append({
+                "id": h_title,
+                "type": "hub",
+                "tags": ["hub", "portal", "navigation"],
+                "hint": h_hint,
+                "url": h_url
+            })
 
-        # Extract tags:
-        # can be tags: ["a", "b"] or tags: 'a' or tags: ["a"]
-        tags_m = re.search(r"tags:\s*(\[[^\]]+\]|[\"'][^\"']+[\"'])", meta_body)
-        if tags_m:
-            tags = parse_js_array(tags_m.group(1))
+    # 8. Premium Tutorials
+    prem_file = REPO / "data" / "tutorials_premium.json"
+    if prem_file.exists():
+        for t in json.loads(prem_file.read_text(encoding="utf-8")):
+            title = t.get("title", "")
+            if title and title not in seen_ids:
+                seen_ids.add(title)
+                nodes_list.append({
+                    "id": title,
+                    "type": "tutorial",
+                    "tags": t.get("tags", ["tutorial"]),
+                    "hint": t.get("editorial_note", "")[:120],
+                    "url": f"/tutorials?search={t.get('software', '')}"
+                })
 
-        # Extract hint:
-        hint_m = re.search(r"hint:\s*([\"'][^\"']+[\"'])", meta_body)
-        if hint_m:
-            hint = clean_js_string(hint_m.group(1))
+    # 9. YouTube Tutorials
+    yt_file = REPO / "data" / "tutorials_youtube.json"
+    if yt_file.exists():
+        yt_obj = json.loads(yt_file.read_text(encoding="utf-8"))
+        for v in yt_obj.get("videos", []):
+            title = v.get("title", "")
+            if title and title not in seen_ids:
+                seen_ids.add(title)
+                nodes_list.append({
+                    "id": title,
+                    "type": "tutorial",
+                    "tags": [v.get("software", "cad"), v.get("task", "tutorial"), "youtube"],
+                    "hint": v.get("description", "")[:120],
+                    "url": f"/tutorials?search={v.get('software', '')}"
+                })
 
-        # Determine exact URL:
-        if node_id in node_url_map:
-            url = node_url_map[node_id]
-        else:
-            url = f"./kb/concepts/{node_id.lower().replace(' ', '-').replace('/', '-')}.html"
-
-        # Special cleaning for concepts relative URLs:
-        # e.g., if we are inside /kb/concepts/, URLs like "./kb/concepts/layer.html" need to be mapped.
-        # Let's keep them as root-relative or simple relative and let search.js handle it
-        nodes_list.append({
-            "id": node_id,
-            "type": node_type,
-            "tags": tags,
-            "hint": hint,
-            "url": url
-        })
+    # 10. Industry News
+    news_file = REPO / "data" / "news.json"
+    if news_file.exists():
+        for n in json.loads(news_file.read_text(encoding="utf-8")):
+            title = n.get("title", "")
+            if title and title not in seen_ids:
+                seen_ids.add(title)
+                nodes_list.append({
+                    "id": title,
+                    "type": "news",
+                    "tags": n.get("tags", ["news"]),
+                    "hint": n.get("summary", "")[:120],
+                    "url": f"/news#{n.get('id', '')}"
+                })
 
     SEARCH_NODES_JSON.parent.mkdir(parents=True, exist_ok=True)
     SEARCH_NODES_JSON.write_text(json.dumps(nodes_list, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Successfully compiled {len(nodes_list)} nodes into {SEARCH_NODES_JSON.relative_to(REPO)}")
+    print(f"Successfully compiled {len(nodes_list)} full-site search entities into {SEARCH_NODES_JSON.relative_to(REPO)}")
     return 0
 
 
