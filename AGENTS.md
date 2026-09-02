@@ -17,6 +17,16 @@ User journey to preserve: **understand (KB) → find (tutorials) → stay update
 - KB split generator (needs monolith backup before re-run): `scripts/split_knowledge_pages.py`
 - PDF index tooling: `scripts/extract_pdf_snippets.py` → `data/pdf_extract_index.json`
 - KB behavior: `knowledge.js`
+- Quiz behavior regression (run before committing quiz changes): `node tests/engine-harness.js`
+
+## Quiz engine (quiz.html + quiz.js → quiz.min.js)
+
+- Structure: **6 career tracks × 7 lessons** (`bim`/`mcad`/`civil`/`draft`/`sim`/`viz`, ~247 questions) + `placement` (draws 12 of 15, gate = 10 correct). Lesson ids are **contiguous 1..7** — never insert gaps; the unlock chain is `progress includes (lessonId - 1)`.
+- Progress keys (localStorage, prefix `gstarcademy_`): `lessons_progress`, `roadmap_progress` (per-track `nodesToMaster` ids, 40 nodes total), `concept_mastery` (question slugs), `mistakes` (slugs), `total_xp`, `streak_v1`. The mistake book and concept mastery are **slug-keyed**; two questions may share a slug only when they test the same concept (7 intentional pairs as of 2026-08).
+- XP: +10 per correct, lesson pass +20 (final lesson of a track +30 and lights its nodes), mistake review pass +20 (flat), placement pass +150 (lights all 6 tracks).
+- The browser executes **`*.min.js`, not the sources**. Rebuild with esbuild after any source change:
+  `npx esbuild quiz.js --minify --target=es2018 --outfile=quiz.min.js` (same for app/search/knowledge). A previous minifier stripped spaces *inside strings* ("Question 1of 3") — do not reintroduce it. CI (`.github/workflows/quiz-regression.yml`) fails if min files are stale or behavior regresses.
+- Quiz copy promises must match engine constants (XP amounts, node totals, pass gates) — these drifted apart once; check both sides.
 
 ## Implementation discipline
 

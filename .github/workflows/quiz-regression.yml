@@ -1,0 +1,59 @@
+name: 🧪 Quiz 行为级回归
+
+# 防止两类事故再次发生：
+# 1. 改了 quiz.js 源码但忘记重建 quiz.min.js（线上跑的是 min 文件）
+# 2. quiz 玩法逻辑回归（错题本/解锁链/XP/结算等）
+
+on:
+  pull_request:
+    paths:
+      - "quiz.js"
+      - "quiz.min.js"
+      - "app.js"
+      - "app.min.js"
+      - "search.js"
+      - "search.min.js"
+      - "knowledge.js"
+      - "knowledge.min.js"
+      - "tests/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "quiz.js"
+      - "quiz.min.js"
+      - "app.js"
+      - "app.min.js"
+      - "search.js"
+      - "search.min.js"
+      - "knowledge.js"
+      - "knowledge.min.js"
+      - "tests/**"
+
+jobs:
+  regression:
+    name: 行为回归 + min 同步检查
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 行为级回归（真实加载 quiz.min.js 驱动引擎）
+        run: node tests/engine-harness.js
+
+      - name: 校验 min 产物与源码同步
+        run: |
+          for f in quiz app search knowledge; do
+            npx -y esbuild@0.24.2 "$f.js" --minify --target=es2018 --outfile="$f.min.js"
+          done
+          git diff --exit-code -- '*.min.js' || {
+            echo "::error::min 文件与源码不同步——请用 esbuild 重新构建后提交";
+            exit 1;
+          }

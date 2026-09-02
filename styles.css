@@ -1177,6 +1177,39 @@ input::placeholder { color: #8a9abb; }
   .grid-3, .kpis, .hero-split { grid-template-columns: repeat(2, 1fr); }
 }
 
+.kb-app {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 64px);
+  background: var(--bg-app-shell);
+  position: relative;
+}
+
+.kb-rail {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid var(--line-light);
+  overflow-y: auto;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  padding: 24px 16px;
+  transition: all 0.3s ease;
+}
+
+.kb-stage {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: transparent;
+}
+
+.kb-stage-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+}
+
 @media (max-width: 780px) {
   .topbar-inner {
     align-items: center;
@@ -1281,7 +1314,7 @@ input::placeholder { color: #8a9abb; }
   }
   .hero { padding-top: 24px; }
   .search-row, .grid-3, .grid-2, .kpis, .tutorial-item, .hero-split, .kb-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important; /* guarantee single-column on phones */
   }
   .thumb { min-height: 140px; }
 
@@ -1408,39 +1441,6 @@ input::placeholder { color: #8a9abb; }
   .site-notice-text {
     font-size: 0.85rem;
   }
-}
-
-.kb-app {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  min-height: calc(100vh - 64px);
-  background: var(--bg-app-shell);
-  position: relative;
-}
-
-.kb-rail {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  border-right: 1px solid var(--line-light);
-  overflow-y: auto;
-  position: sticky;
-  top: 64px;
-  height: calc(100vh - 64px);
-  padding: 24px 16px;
-  transition: all 0.3s ease;
-}
-
-.kb-stage {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  background: transparent;
-}
-
-.kb-stage-scroll {
-  flex: 1;
-  overflow-y: auto;
-  padding: 32px;
 }
 
 .kb-sidebar-taxonomy-note {
@@ -7898,4 +7898,16 @@ body[data-page="knowledge"] {
   color: #0E1422 !important;
 }
 
-
+/* KB portal shell: stack sidebar above content on small screens
+   (the portal redesign switched .kb-app from grid to flex but never
+   added a mobile stacking rule, so phones got a side-by-side layout
+   with horizontal overflow) */
+@media (max-width: 780px) {
+  .kb-app {
+    flex-direction: column;
+  }
+  .kb-app > .kb-sidebar.kb-sidebar--portal {
+    width: 100%;
+    max-width: 100%;
+  }
+}
