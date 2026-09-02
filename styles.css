@@ -7911,3 +7911,15 @@ body[data-page="knowledge"] {
     max-width: 100%;
   }
 }
+
+/* Generic grids: guarantee single-column stacking on phones.
+   The portal redesign + base-rule ordering left these mobile overrides
+   losing the cascade; anchor them with !important and content-safe tracks. */
+@media (max-width: 780px) {
+  .search-row, .grid-3, .grid-2, .kpis, .hero-split, .kb-grid, .grid-4, .grid-5 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .grid > * {
+    min-width: 0;
+  }
+}
