@@ -21,7 +21,7 @@ User journey to preserve: **understand (KB) → find (tutorials) → stay update
 
 ## Quiz engine (quiz.html + quiz.js → quiz.min.js)
 
-- Structure: **6 career tracks × 7 lessons** (`bim`/`mcad`/`civil`/`draft`/`sim`/`viz`, ~247 questions) + `placement` (draws 12 of 15, gate = 10 correct). Lesson ids are **contiguous 1..7** — never insert gaps; the unlock chain is `progress includes (lessonId - 1)`.
+- Structure: **6 career tracks × 7 lessons** (`bim`/`mcad`/`civil`/`draft`/`sim`/`viz`, ~289 questions) + `placement` (draws 12 of 15, gate = 10 correct). Lesson ids are **contiguous 1..7** — never insert gaps; the unlock chain is `progress includes (lessonId - 1)`.
 - Progress keys (localStorage, prefix `gstarcademy_`): `lessons_progress`, `roadmap_progress` (per-track `nodesToMaster` ids, 40 nodes total), `concept_mastery` (question slugs), `mistakes` (slugs), `total_xp`, `streak_v1`. The mistake book and concept mastery are **slug-keyed**; two questions may share a slug only when they test the same concept (7 intentional pairs as of 2026-08).
 - XP: +10 per correct, lesson pass +20 (final lesson of a track +30 and lights its nodes), mistake review pass +20 (flat), placement pass +150 (lights all 6 tracks).
 - The browser executes **`*.min.js`, not the sources**. Rebuild with esbuild after any source change:

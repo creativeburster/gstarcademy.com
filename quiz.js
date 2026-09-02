@@ -126,7 +126,23 @@
               why: "IFC 4.3 expands openBIM from buildings to civil infrastructure, establishing standardized alignments, bridge elements, and earthworks metadata.",
               pitfall: "Ensure downstream model viewers support IFC4.3 Schema import; fallback to IFC2x3 Coordination View 2.0 if working with legacy BIM tools."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "bim",
+              slug: "bim-l1-lod350-extensions",
+              difficulty: "intermediate",
+              question: "What does LOD 350 add beyond LOD 300 for coordination of means and methods?",
+              options: [
+                "Element interrelations such as connections, supports, and attachments so trades can coordinate fabrication-adjacent detail",
+                "Photorealistic material textures for client presentation renders",
+                "A cloud-hosted copy of the model for remote viewing",
+                "Conversion of all model elements to 2D polylines for plotting",
+              ],
+              correctIdx: 0,
+              why: "LOD 350 extends elements with shop-adjacent detail (supports, connections) so structural and MEP trades coordinate means and methods before fabrication.",
+              pitfall: "Do not jump to LOD 400 fabrication detail contract-wide; 350 is the coordination milestone, 400 is procurement and installation."
+            }]
         },
         {
           id: 2,
@@ -213,7 +229,23 @@
               why: "Acquire, Publish, and Specify Coordinates are Revit's coordinate control tools. Manual shifts create misalignment errors.",
               pitfall: "Avoid manually dragging survey coordinate points after coordinates have been established; this shifts coordinate systems."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "revit",
+              slug: "bim-l2-type-vs-instance",
+              difficulty: "beginner",
+              question: "In Revit, how does a type parameter differ from an instance parameter?",
+              options: [
+                "A type parameter change updates every occurrence of that family type, while an instance parameter affects only the selected element",
+                "Type parameters live in the cloud and instance parameters live on the local drive",
+                "Type parameters can only be numeric while instance parameters are always text",
+                "There is no difference; the terms describe the same property at different zoom levels",
+              ],
+              correctIdx: 0,
+              why: "Understanding the type/instance split prevents accidental global edits — changing a type property silently updates dozens of placed elements.",
+              pitfall: "Promoting an instance parameter to type-level (or the reverse) in the family editor changes project behavior everywhere the family is used."
+            }]
         },
         {
           id: 3,
@@ -300,7 +332,23 @@
               why: "Coordination View 2.0, Reference View, and Design Transfer View are buildingSMART certified MVDs. JPG views are rendering standards, not BIM IFC standards.",
               pitfall: "Always test IFC exports with model checkers before project handoffs to ensure the MVD did not drop custom metadata parameters."
             }
-          ]
+          ,
+            {
+              type: "multiple",
+              nodeId: "clash",
+              slug: "bim-l3-4d-linkage",
+              difficulty: "intermediate",
+              question: "Which ingredients must be linked for a working 4D BIM construction simulation? (Select all correct)",
+              options: [
+                "Model element sets or selection rules mapped to the build",
+                "Schedule activities with dates from the construction programme",
+                "Sequence logic that defines which activities drive which elements",
+                "Photorealistic material libraries for every element",
+              ],
+              correctIndices: [0,1,2],
+              why: "4D = 3D federation + time: elements map to activities, and the programme's sequence drives the simulation. Materials are presentation only.",
+              pitfall: "Unclean element breakdown (one giant object per trade) makes meaningful 4D mapping impossible — plan model segmentation for schedule granularity."
+            }]
         }
 ,
         {
@@ -388,7 +436,23 @@
                 why: "Digital Twins combine the as-built BIM (static geometry/data), live IoT feeds (dynamic state), and maintenance records (operational history) for facility optimization.",
                 pitfall: "A Digital Twin without live data connections is just a 3D viewer. Ensure IoT infrastructure and API integrations are specified in the BEP from design phase."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "bim",
+                slug: "bim-l4-twin-vs-asbuilt",
+                difficulty: "intermediate",
+                question: "What distinguishes an operational digital twin from a static as-built model at handover?",
+                options: [
+                  "A twin keeps a live data link to sensors, systems, or workflows so the model reflects the asset's current state",
+                  "A twin is simply the as-built model saved in a newer file format",
+                  "A twin always contains photorealistic textures for every element",
+                  "An as-built model contains more geometry detail than a twin",
+                ],
+                correctIdx: 0,
+                why: "The twin's value is its data currency — geometry alone is a record, not a management tool. Structured handover data (COBie, tags, sensor bindings) makes the twin actionable.",
+                pitfall: "Accepting handover models without verified property data produces a pretty twin that lies — validate data drops against the asset register."
+              }]
         },
         {
           id: 5,
@@ -475,7 +539,23 @@
                 why: "Surveyed targets (checkerboards/spheres) with known XYZ coordinates tie the point cloud to the project datum. Without targets, scans align to each other but may drift from true coordinates.",
                 pitfall: "Place registration targets with clear sight lines from multiple scan positions. Targets visible from only one scan position cannot contribute to registration accuracy."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "bim",
+                slug: "bim-l5-bcf-benefit",
+                difficulty: "beginner",
+                question: "What does BCF (BIM Collaboration Format) add over screenshots and spreadsheets for coordination issues?",
+                options: [
+                  "Machine-readable issue exchange carrying camera viewpoint, element GUIDs, comments, and status between different tools",
+                  "A lossless way to merge two discipline models into one file",
+                  "Automatic clash resolution without engineer input",
+                  "Encrypted storage of the federated model",
+                ],
+                correctIdx: 0,
+                why: "Because BCF references elements by GUID and stores the viewpoint, the receiver opens the exact issue context in their own tool — no model transfer, no re-navigation.",
+                pitfall: "BCF round-trips lose fidelity if GUIDs change between exports; freeze exports during an active issue cycle or the thread references dead elements."
+              }]
         },
         
         
@@ -586,7 +666,23 @@
                 why: "BIM walls auto-join at corners, merging layers of compatible structure so the junction cleans up in plan without manual line editing.",
                 pitfall: "Dissimilar wall types may not clean up automatically; use 'disallow/allow join' and matching layer structure to control corner behavior."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "bim",
+                slug: "bim-l6-soft-clash-scenario",
+                difficulty: "intermediate",
+                question: "During federation review, a designer flags a duct that passes 25 mm from a beam with no physical overlap, because insulation and installation access were not modeled. Which coordination concept does this illustrate?",
+                options: [
+                  "Soft clash (proximity/clearance) checking beyond simple geometric intersection",
+                  "Workset ownership conflict",
+                  "Level-of-detail reduction for background display",
+                  "View range clipping in a floor plan",
+                ],
+                correctIdx: 0,
+                why: "Hard clash finds intersection; soft (clearance/workspace) clash catches unmodeled insulation, access, and maintenance zones — the most expensive clashes to fix on site.",
+                pitfall: "Tolerance zones must be agreed per trade; blanket 25 mm rules bury real issues in noise while insulation zones can need 50-100 mm."
+              }]
         },
         {
           id: 7,
@@ -689,7 +785,23 @@
                 why: "Level of Information Need scopes information to what each purpose/milestone requires, preventing both under- and over-modeling.",
                 pitfall: "Requesting maximum detail globally wastes effort modeling elements not yet needed and bloats models; scope information to actual decisions being made."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "bim",
+                slug: "bim-l7-guid-diff",
+                difficulty: "advanced",
+                question: "In openBIM delivery, why are IFC element GUIDs critical when comparing successive model drops?",
+                options: [
+                  "They let downstream tools detect added, changed, and deleted elements between deliveries instead of treating every export as new work",
+                  "They compress the IFC file for faster transfer",
+                  "They encrypt authorship information inside the model",
+                  "They guarantee the geometry has no modeling errors",
+                ],
+                correctIdx: 0,
+                why: "GUID-stable exports enable delta comparison — receivers audit scope change, keep issue threads alive, and version asset data against the same identities.",
+                pitfall: "Re-authoring or exploding elements between exports regenerates GUIDs, wiping the change history that downstream QA depends on."
+              }]
         }
       ]
     },
@@ -799,7 +911,23 @@
               why: "Design Tables provide a spreadsheet interface to create and manage large families of configurations (e.g., bolt sizes M4 through M20) efficiently.",
               pitfall: "Column headers in Design Tables must exactly match dimension names including the feature reference (e.g., 'D1@Boss-Extrude1'). Typos silently fail."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "parametrics",
+              slug: "mcad-l1-driven-dims",
+              difficulty: "beginner",
+              question: "What happens to a driven (reference) dimension in SOLIDWORKS when its driving geometry changes?",
+              options: [
+                "It updates to report the newly measured value but cannot itself drive a change",
+                "It locks the geometry to its previous value",
+                "It converts into a driving dimension automatically",
+                "It is deleted to avoid conflicting constraints",
+              ],
+              correctIdx: 0,
+              why: "Driven dimensions document measured values without adding constraints — mixing driving and driven dimensions is how you inspect a sketch without over-constraining it.",
+              pitfall: "Confusing the two causes under- or fully-constrained sketches; check sketch status (under/fully/over) before blaming the solver."
+            }]
         },
         {
           id: 2,
@@ -886,7 +1014,23 @@
               why: "B-Rep topology (faces, edges, vertices) references NURBS surface equations for exact geometry. The topology defines how surfaces connect; NURBS defines their shape.",
               pitfall: "Importing STEP files with trimmed NURBS surfaces can introduce gap tolerances. Always run a geometry heal check after import."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "mbd",
+              slug: "mcad-l2-brep-exact",
+              difficulty: "intermediate",
+              question: "What does exact B-Rep surface storage mean for imported STEP geometry compared with tessellated meshes?",
+              options: [
+                "Analytic and NURBS surfaces store exact mathematics, so Booleans and edits do not accumulate faceting error",
+                "B-Rep files are always smaller than mesh files",
+                "B-Rep guarantees the importing CAD system has the same feature tree",
+                "Meshes cannot represent prismatic parts at all",
+              ],
+              correctIdx: 0,
+              why: "Exact surfaces preserve true curvature and intersections — fillets, shelling, and CAM toolpaths on faceted meshes chase tolerance triangles instead of real geometry.",
+              pitfall: "Tessellated STEP (mesh) imports often need reverse engineering or surface healing before parametric work is practical."
+            }]
         },
         {
           id: 3,
@@ -973,7 +1117,23 @@
               why: "The neutral axis shifts during bending. K-factor (0 to 1) locates it within the material thickness, directly affecting the Bend Allowance calculation for flat patterns.",
               pitfall: "K-factor varies by material, thickness, and bend radius. Using a generic K-factor for all materials produces inaccurate flat patterns and fabrication rejects."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "assembly",
+              slug: "mcad-l3-tolerance-stack",
+              difficulty: "intermediate",
+              question: "What does a tolerance stack-up analysis verify across an assembly chain?",
+              options: [
+                "Whether accumulated part-level tolerances still meet assembly-level fit or function limits in worst-case or statistical combinations",
+                "Whether each part's tolerance matches its supplier's certificate",
+                "Whether the CAD models have identical units",
+                "Whether surface roughness values sum to a target average",
+              ],
+              correctIdx: 0,
+              why: "Individual tolerances can each be 'in spec' while the chain of gaps and shifts breaks assembly function — stack-up analysis is the design-stage guard.",
+              pitfall: "Worst-case stacks over-conservative designs when tolerances are statistically independent; RSS methods reduce predicted variation but need process data."
+            }]
         }
 ,
         {
@@ -1061,7 +1221,23 @@
                 why: "Global Variables create single-source-of-truth parameters. Link cavity depth, wall thickness, and draft angle to variables so changing 'Material_Thickness' updates everything.",
                 pitfall: "Circular references (Variable A depends on B which depends on A) cause solver failures. Map your equation dependency graph before building complex linked dimensions."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "solidworks",
+                slug: "mcad-l4-kfactor-why",
+                difficulty: "intermediate",
+                question: "Why does sheet metal design need a K-factor, bend table, or bend deduction to create a flat pattern?",
+                options: [
+                  "Material stretches and compresses through the bend, so the neutral axis shifts and the developed blank differs from the summed flange lengths",
+                  "Flat patterns are exported at half scale by convention",
+                  "The software cannot measure flange lengths without it",
+                  "K-factor controls the color of bend lines in the drawing",
+                ],
+                correctIdx: 0,
+                why: "The K-factor locates the neutral axis between compression (inside) and tension (outside) faces, letting CAD compute an accurate developed blank for cutting.",
+                pitfall: "K-factor is material, thickness, and tooling dependent — using a catalog default without press-brake validation produces blanks that miss finished dimensions."
+              }]
         },
         {
           id: 5,
@@ -1148,7 +1324,23 @@
                 why: "Design Studies automate what-if analysis: define parameters (wall thickness, rib height), constraints (max stress, max deflection), and goals (minimize mass). The solver finds the optimum.",
                 pitfall: "Design studies with too many variables (>10) and wide ranges require excessive computation. Start with sensitivity studies to identify the 3-4 most influential parameters first."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "solidworks",
+                slug: "mcad-l5-sn-lowcycle",
+                difficulty: "advanced",
+                question: "Why is a stress-life (S-N) fatigue curve unsuitable for low-cycle fatigue assessment?",
+                options: [
+                  "At high strain amplitudes the material deforms plastically, so strain-life (ε-N) methods represent the physics instead of stress-based curves",
+                  "S-N curves only exist for aluminum alloys",
+                  "Low-cycle fatigue is always governed by corrosion, which S-N curves exclude",
+                  "S-N curves are only valid above the yield strength by definition",
+                ],
+                correctIdx: 0,
+                why: "Below roughly 10³-10⁴ reversals, plastic strains dominate and the strain-life approach (Coffin-Manson) captures initiation life where stress-based S-N data collapses.",
+                pitfall: "Using an infinite-life S-N safety factor on a low-cycle, high-strain load case dramatically over-predicts life — check which regime the duty cycle occupies."
+              }]
         },
         
         
@@ -1259,7 +1451,23 @@
                 why: "Shell removes selected faces and offsets the remaining faces inward (or outward) to a uniform thickness — essential for plastic and cast parts.",
                 pitfall: "Apply shell before adding fillets where possible; shelling after large fillets can create thin slivers or fail."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "parametrics",
+                slug: "mcad-l6-direct-edit-id",
+                difficulty: "beginner",
+                question: "You drag the face of an imported block outward and a co-axial hole follows, preserving its relationship to the moved face — no feature tree edits required. Which editing paradigm does this demonstrate?",
+                options: [
+                  "Direct (history-free) editing with recognized design intent",
+                  "Ordered feature-tree replay from the bottom up",
+                  "Constraint-based sketch solving at the 2D profile level",
+                  "Surface repair via heal operations",
+                ],
+                correctIdx: 0,
+                why: "Direct modeling engines recognize faces and relationships on geometry without a feature history — the standard workflow for editing imported neutral-format CAD.",
+                pitfall: "Direct edits without captured intent can silently break downstream dependencies; lock or dimension relationships you want preserved."
+              }]
         },
         {
           id: 7,
@@ -1426,7 +1634,23 @@
                 why: "Cylindricity is an un-referenced form control that bounds 3D circularity and straightness simultaneously within two concentric cylinders.",
                 pitfall: "Do not attach a datum reference to form controls (Cylindricity, Flatness, Straightness, Circularity); form controls are independent of datum frames."
               }
-          ]
+          ,
+              {
+                type: "multiple",
+                nodeId: "assembly",
+                slug: "mcad-l7-config-vary",
+                difficulty: "intermediate",
+                question: "What can SOLIDWORKS configurations vary within a single part file? (Select all correct)",
+                options: [
+                  "Dimension values driving sketch and feature geometry",
+                  "Feature suppression states",
+                  "Custom properties and material assignments",
+                  "The network folder where the file is saved",
+                ],
+                correctIndices: [0,1,2],
+                why: "Configurations are a design table-driven family-of-parts mechanism — one model serves many sizes and variants without duplicate file maintenance.",
+                pitfall: "Configuration-specific geometry bloats files and slows rebuilds; if variants diverge structurally, separate models (or derived parts) are cleaner."
+              }]
         }
       ]
     },
@@ -1520,7 +1744,23 @@
               why: "Superelevation tilts the road surface on curves so gravity and friction together counteract centrifugal force, reducing skidding risk at design speed.",
               pitfall: "Transition lengths between normal crown and full superelevation must be gradual. Abrupt superelevation changes cause driver discomfort and drainage pooling."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "terrain",
+              slug: "civil-l1-breaklines",
+              difficulty: "beginner",
+              question: "What do breaklines do when building a TIN surface?",
+              options: [
+                "Force triangle edges to follow linear features like curbs, centerlines, and ditch lines so grade breaks are honored",
+                "Automatically color contour lines by elevation range",
+                "Convert raster imagery into 3D points",
+                "Round all elevations to the nearest survey centimeter",
+              ],
+              correctIdx: 0,
+              why: "Without breaklines the Delaunay triangulation interpolates across curbs and channels, smoothing away exactly the grade breaks the design depends on.",
+              pitfall: "Breakline data must be non-crossing; survey crossing shots create surface errors that surface style defaults can hide."
+            }]
         },
         {
           id: 2,
@@ -1607,7 +1847,23 @@
               why: "Parts Lists tie pipe networks to standard catalogs (e.g., HDPE 300mm, concrete manholes). Pipe sizes and structure dimensions come from the catalog, not manual entry.",
               pitfall: "Ensure the Parts List matches local municipal standards before design. Using a mismatched catalog means redesigning the entire network at review."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "corridor",
+              slug: "civil-l2-assembly-def",
+              difficulty: "beginner",
+              question: "In corridor modeling, what does an assembly represent?",
+              options: [
+                "A reusable cross-section of lanes, shoulders, curbs, and side slopes inserted at the baseline and swept along the alignment",
+                "The vertical elevation data of the existing ground",
+                "A construction equipment mobilization plan",
+                "The final stamped plan set page layout",
+              ],
+              correctIdx: 0,
+              why: "Corridors = alignment (X-Y) + profile (Z) + assembly (cross-section) + targets; the assembly is the template the corridor sweeps to build the 3D model.",
+              pitfall: "Assembly subassemblies carry their own target parameters — forgetting to map an offset or elevation target leaves slopes daylighting at default widths."
+            }]
         },
         {
           id: 3,
@@ -1694,7 +1950,23 @@
               why: "Volume between two TIN surfaces (existing vs. proposed) is calculated using computational geometry methods, giving accurate cut and fill quantities for each station range.",
               pitfall: "Always define a boundary for volume calculations. Without boundaries, the engine computes volumes over the entire surface extents, including areas outside the project limits."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "grading",
+              slug: "civil-l3-landxml-why",
+              difficulty: "intermediate",
+              question: "Why is LandXML preferred over plain DWG exchange for civil design data?",
+              options: [
+                "It carries object-level data (alignments, profiles, surfaces, pipe networks) as parsed geometry and metadata rather than flat lines and text",
+                "It supports AutoLISP automation on the receiving side",
+                "It compresses large surfaces better than DWG",
+                "It is the only format Autodesk officially supports",
+              ],
+              correctIdx: 0,
+              why: "DWG exchange reduces designs to graphics; LandXML preserves design intent (PI stations, curve definitions, pipe inverts) so the receiving package rebuilds intelligent objects.",
+              pitfall: "LandXML units and coordinate systems must match the receiver's settings — unitless files are a classic source of 1000× scale accidents."
+            }]
         }
 ,
         {
@@ -1782,7 +2054,23 @@
                 why: "Development increases impervious area (roofs, roads), accelerating runoff peaks. Detention ponds attenuate the peak by temporarily storing volume and releasing it slowly through an orifice.",
                 pitfall: "Size detention for multiple storm return periods (2yr, 10yr, 100yr). A pond sized only for the 10-year storm may be inadequate during extreme events, causing downstream flooding."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "grading",
+                slug: "civil-l4-invert-drivers",
+                difficulty: "intermediate",
+                question: "What primarily drives invert elevation selection in gravity pipe network design?",
+                options: [
+                  "Maintaining minimum cover at high points and a continuous downhill slope toward the outfall within depth limits",
+                  "Matching the pipe crown to the road centerline elevation",
+                  "Equalizing all structures to a single common invert",
+                  "Maximizing pipe diameter to fill the trench width",
+                ],
+                correctIdx: 0,
+                why: "Gravity systems live and die by slope and cover: inverts step down along the run while respecting minimum cover, utility crossings, and maximum depth constraints.",
+                pitfall: "Designing inverts structure-by-structure without checking the whole run produces mid-run cover violations that surface only in profile view."
+              }]
         },
         {
           id: 5,
@@ -1869,7 +2157,23 @@
                 why: "Staking reports translate design geometry into field-usable data: station numbers, offsets from centerline, and excavation/fill depths relative to survey benchmarks.",
                 pitfall: "Verify the report coordinate system matches field survey equipment settings. Datum mismatches between design coordinates and field instruments cause systematic elevation errors."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "landxml",
+                slug: "civil-l5-machine-control",
+                difficulty: "beginner",
+                question: "What does a 3D machine control model add over traditional 2D staking for earthworks?",
+                options: [
+                  "Real-time blade-level grade guidance from the design surface, eliminating most stakeout and reducing rework",
+                  "Automatic compaction testing documentation",
+                  "Guaranteed conformance to stormwater permits",
+                  "Wireless transfer of the legal property boundary",
+                ],
+                correctIdx: 0,
+                why: "GNSS or total-station guided machines compare the blade position to the design surface live, cutting stakeout cycles and giving operators immediate feedback.",
+                pitfall: "Machine models must be simplified and validated for the control system — full design surfaces with dense data can overwhelm onboard processors."
+              }]
         },
         
         
@@ -1980,7 +2284,23 @@
                 why: "Cut (excavation) and fill (embankment) areas between surfaces drive earthwork volume takeoff and haul/balance planning.",
                 pitfall: "Apply shrinkage/swell factors to raw cut and fill volumes; treating in-situ and compacted volumes as equal underestimates material needs."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "civil3d",
+                slug: "civil-l6-contour-id",
+                difficulty: "beginner",
+                question: "A surface plan shows smooth closed and open lines labeled 100.0, 100.5, and 101.0 across the site. What do these represent?",
+                options: [
+                  "Surface elevation contours drawn at a 0.5 m interval",
+                  "Utility trench centerlines at 0.5 m offsets",
+                  "As-built settlement markers",
+                  "Sight-line sight triangles for intersection design",
+                ],
+                correctIdx: 0,
+                why: "Contour interval identification is the most basic surface-reading skill — spacing and closure tell you steepness, high points, and drainage direction at a glance.",
+                pitfall: "Contours close or pair at surface boundaries; misreading a contour as a breakline (or vice versa) inverts your interpretation of flow direction."
+              }]
         },
         {
           id: 7,
@@ -2083,7 +2403,23 @@
                 why: "Feature lines carry elevation and grade so grading objects project slopes to targets, building a dynamic finished-ground surface for earthwork.",
                 pitfall: "Feature lines that aren't connected to a target surface won't compute daylight/earthwork correctly; establish the reference surface first."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "civil3d",
+                slug: "civil-l7-survey-figures",
+                difficulty: "advanced",
+                question: "What is the advantage of coded survey figure processing over importing raw points only?",
+                options: [
+                  "Field codes classify linework into breaklines and features automatically, keeping surfaces traceable to the field procedure",
+                  "It converts imperial survey control to metric automatically",
+                  "It removes the need for Traverse adjustment entirely",
+                  "It stores points as raster images for archival",
+                ],
+                correctIdx: 0,
+                why: "Coded figures (edge of asphalt, fence, toe of slope) drive linework and surface definition rules — the surface regenerates from codes instead of manual redrawing.",
+                pitfall: "Field coding standards only work if crews follow them; uncoded or mistyped shots become silent breakline gaps."
+              }]
         }
       ]
     },
@@ -2177,7 +2513,23 @@
               why: "In production drawings with 200+ layers, filters (e.g., show only layers starting with 'M-' for mechanical) make layer management practical.",
               pitfall: "Name-based filters only work if layer naming follows a consistent convention. Inconsistent naming renders filters useless."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "xrefs",
+              slug: "draft-l1-pgp-standards",
+              difficulty: "beginner",
+              question: "Why do CAD managers standardize PGP command aliases across a drafting team?",
+              options: [
+                "Shared aliases keep keyboard muscle memory transferable between workstations and make custom documentation consistent",
+                "Aliases reduce DWG file size",
+                "Standard aliases are required for external reference attachments",
+                "Aliases determine which layers print in CTB styles",
+              ],
+              correctIdx: 0,
+              why: "One-key commands are speed-critical muscle memory; a shared PGP means training, macros, and custom routines behave identically on every seat.",
+              pitfall: "Editing the stock PGP in-place gets overwritten by reinstalls — manage overrides through a deployed customization file."
+            }]
         },
         {
           id: 2,
@@ -2264,7 +2616,23 @@
               why: "DWG Compare overlays two drawing versions and color-codes additions, deletions, and modifications, making revision review systematic rather than visual guesswork.",
               pitfall: "Ensure both DWG files use the same coordinate system and units before comparing; misaligned origins will flag every entity as 'changed'."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "viewport",
+              slug: "draft-l2-audit-vs-recover",
+              difficulty: "beginner",
+              question: "What is the difference between the AUDIT and RECOVER commands?",
+              options: [
+                "AUDIT scans an already-open drawing database for errors and optionally fixes them; RECOVER opens a damaged file and repairs it during load",
+                "AUDIT repairs layer standards while RECOVER repairs plot styles",
+                "RECOVER checks reference files and AUDIT checks the current file only",
+                "They are aliases for the same command in different releases",
+              ],
+              correctIdx: 0,
+              why: "Choosing correctly matters: AUDIT cannot open a corrupt file at all — badly damaged drawings need RECOVER (or the Drawing Recovery Manager) first.",
+              pitfall: "Run AUDIT after RECOVER on any recovered file; recovery salvages the file but does not certify its database integrity."
+            }]
         },
         {
           id: 3,
@@ -2351,7 +2719,23 @@
               why: "RECOVER reads the raw DWG database and rebuilds corrupted structures. AUDIT fixes logical errors. Together they salvage most data from damaged files.",
               pitfall: "Always work on a copy when recovering. If RECOVER fails, try inserting the corrupted file as a block into a new drawing to extract salvageable geometry."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "purge",
+              slug: "draft-l3-purge-regapps",
+              difficulty: "beginner",
+              question: "What does PURGE with the 'Regapps' option remove that a standard purge pass misses?",
+              options: [
+                "Unused registered application (regapp) records embedded by third-party applications and custom tools",
+                "Locked layers referenced by external references",
+                "Nested block definitions still inserted in the drawing",
+                "Plot style tables attached to layouts",
+              ],
+              correctIdx: 0,
+              why: "Regapp records accumulate invisibly from vertical tools and can bloat files or trip downstream applications; only the regapps purge option targets them.",
+              pitfall: "Regapps cannot be purged while objects still reference them — some records survive and must be removed with a dedicated cleanup routine."
+            }]
         }
 ,
         {
@@ -2439,7 +2823,23 @@
                 why: "Templates eliminate setup repetition and enforce standards from the first keystroke. Without templates, each drafter creates different layer names and dimension styles.",
                 pitfall: "Version-control your DWT files. When standards change (new layer naming, updated title block), distribute the updated template AND communicate changes to all team members."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "draft-lisp",
+                slug: "draft-l4-defun-command",
+                difficulty: "intermediate",
+                question: "What does the AutoLISP syntax (defun C:MYCOMMAND () ...) accomplish?",
+                options: [
+                  "Registers MYCOMMAND as a command typed at the command line, executing the routine body when invoked",
+                  "Defines a variable named MYCOMMAND that holds the drawing database",
+                  "Creates a toolbar button automatically on the ribbon",
+                  "Marks the routine to run automatically every time a drawing opens",
+                ],
+                correctIdx: 0,
+                why: "The C: prefix is the AutoLISP command-register convention — users type MYCOMMAND directly instead of calling (MYCOMMAND) as a function.",
+                pitfall: "Command names with spaces or reserved characters break the C: convention; keep custom commands one word and uppercase in documentation."
+              }]
         },
         {
           id: 5,
@@ -2526,7 +2926,23 @@
                 why: "Fields pull live data from the drawing database: %<\AcVar Filename>% shows the current filename, %<\AcVar Date>% shows today's date. They update on save, plot, or regeneration.",
                 pitfall: "Fields display '####' or stale values if the background update setting (FIELDEVAL) is disabled. Ensure FIELDEVAL includes 'on plot' for title blocks to show current data when printing."
               }
-          ]
+          ,
+              {
+                type: "multiple",
+                nodeId: "draft-dynblk",
+                slug: "draft-l5-data-out-tools",
+                difficulty: "intermediate",
+                question: "Which tools pull data OUT of drawings for schedules and tables? (Select all correct)",
+                options: [
+                  "The Data Extraction (EEXTRACT) wizard over block attributes and object properties",
+                  "Fields linked to objects, attributes, or system variables",
+                  "Legacy attribute extraction templates for schedule generation",
+                  "Dynamic block visibility state selectors",
+                ],
+                correctIndices: [0,1,2],
+                why: "Extraction, Fields, and legacy attribute extraction read drawing data outward; visibility states are geometry switching, not data output.",
+                pitfall: "Extraction tables do not auto-update — rerun the extraction (or use a linked table) after attribute edits or the schedule silently lies."
+              }]
         },
         
         
@@ -2637,7 +3053,23 @@
                 why: "MIRROR reflects objects across a defined line; MIRRTEXT controls whether text is also reversed. Ideal for symmetric parts and layouts.",
                 pitfall: "Leave MIRRTEXT=0 so mirrored text stays readable; a value of 1 flips text backwards, which is rarely wanted on drawings."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "editing",
+                slug: "draft-l6-grip-cycle-id",
+                difficulty: "beginner",
+                question: "You select a circle, click a blue grip, and press Ctrl to cycle its behavior between stretching the radius, moving the circle, and arraying copies along a path. Which feature is this?",
+                options: [
+                  "Grip editing with grip mode cycling",
+                  "The Action Recorder replaying macros",
+                  "Parametric constraint-driven dimensional editing",
+                  "Quick Measure's contextual measurement modes",
+                ],
+                correctIdx: 0,
+                why: "Grip modes (stretch/move/rotate/scale/mirror plus Ctrl-cycled object-specific modes) are the fastest in-canvas editing path for simple adjustments.",
+                pitfall: "Grip edits bypass command prompts and defaults — for precision-critical edits, command-line input with object snaps remains safer."
+              }]
         },
         {
           id: 7,
@@ -2788,7 +3220,23 @@
                 why: "Linking dimensional constraints to the Parameters Manager allows parametric formulas (e.g. Length = Width * 1.5) to resize geometry dynamically when variables change.",
                 pitfall: "Ensure parameter variable names do not contain spaces or special characters that break mathematical evaluation formulas."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "output",
+                slug: "draft-l7-dataextraction-out",
+                difficulty: "intermediate",
+                question: "What does the Data Extraction workflow produce from block attributes and drawing properties?",
+                options: [
+                  "Tables inside the drawing or external XLS/CSV files — for example door and window schedules — refreshed by rerunning the extraction",
+                  "A rendered 3D preview of all attributed blocks",
+                  "A DWG standards audit report filed with the plot set",
+                  "Layer translation mappings exported to other offices",
+                ],
+                correctIdx: 0,
+                why: "Data Extraction turns drawing data into documentation — schedules, BOMs, and property tables — driven by the model instead of retyped by hand.",
+                pitfall: "Extraction definitions store the drawing list; adding sheets to a Sheet Set requires updating the extraction or the schedule misses the new layouts."
+              }]
         }
       ]
     },
@@ -2899,7 +3347,23 @@
               why: "Linear static, modal, and nonlinear analyses are core structural FEA capabilities. Vehicle navigation is a robotics/AI problem, not structural simulation.",
               pitfall: "Start with linear static analysis. Only add nonlinear effects (contact, large deformation, plasticity) when the linear results indicate they are necessary."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "fea-basics",
+              slug: "sim-l1-hex-locking",
+              difficulty: "advanced",
+              question: "Why do fully integrated first-order hexahedral elements over-stiffen bending behavior?",
+              options: [
+                "Their integration points cannot represent linear bending strain fields, producing shear and volumetric locking",
+                "Hexahedral elements cannot model steel materials",
+                "They always use a single Gaussian point that falls outside the element",
+                "They only support temperature loading, not mechanical loads",
+              ],
+              correctIdx: 0,
+              why: "Full integration evaluates stiffness at fixed points that cannot reproduce bending kinematics, adding fictitious shear stiffness — reduced integration or incompatible modes fix it.",
+              pitfall: "Reduced-integration elements need hourglass control: check artificial (hourglass) energy is a small fraction of internal energy before trusting results."
+            }]
         },
         {
           id: 2,
@@ -2986,7 +3450,23 @@
               why: "Residual convergence, conservation checks, and mesh independence are standard validation practices. Visual aesthetics alone do not indicate numerical accuracy.",
               pitfall: "Converged residuals alone do not guarantee accurate results. Always check physical conservation balances and compare against experimental data when available."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "cfd",
+              slug: "sim-l2-kepsilon-meaning",
+              difficulty: "beginner",
+              question: "In the k-epsilon turbulence model, what does the transported 'epsilon' quantity represent?",
+              options: [
+                "The turbulent dissipation rate — how fast turbulent kinetic energy converts into heat",
+                "The wall-normal distance of the first mesh cell",
+                "The molecular viscosity of the fluid",
+                "The ratio of pressure forces to viscous forces",
+              ],
+              correctIdx: 0,
+              why: "k (turbulent kinetic energy) and ε (its dissipation rate) close the RANS equations, defining effective viscosity and the turbulence length scale.",
+              pitfall: "k-epsilon is a free-shear, fully turbulent model — it misrepresents low-Re near-wall behavior unless paired with wall functions or damping treatments."
+            }]
         },
         {
           id: 3,
@@ -3073,7 +3553,23 @@
               why: "Symmetry, submodeling, and geometry simplification are standard efficiency techniques. Ignoring critical load cases compromises the entire analysis purpose.",
               pitfall: "When using symmetry, verify the loading and boundary conditions are truly symmetric. Asymmetric loads on a symmetric geometry still require a full model."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "optimization",
+              slug: "sim-l3-sweep-purpose",
+              difficulty: "beginner",
+              question: "What does a parameter sweep in a design study accomplish before formal optimization?",
+              options: [
+                "It varies dimensions or loads systematically across runs to map performance trends and locate promising regions",
+                "It replaces the need for any engineering judgment about bounds",
+                "It proves the design meets certification requirements",
+                "It converts a nonlinear study into a linear one",
+              ],
+              correctIdx: 0,
+              why: "Sweeps build the response landscape — revealing sensitivity, interactions, and near-optimal regions — so an optimization starts from informed bounds instead of guesses.",
+              pitfall: "Coarse sweeps can miss narrow optima; treat sweep results as trend maps, not optima, and refine around the best region."
+            }]
         }
 ,
         {
@@ -3161,7 +3657,23 @@
                 why: "Without mesh independence, results may be mesh-dependent — refining could change the answer significantly. Three mesh levels (coarse, medium, fine) with consistent results confirm grid independence.",
                 pitfall: "Only compare results at identical monitoring locations. Global averages can appear converged while local values (peak stress, recirculation zone size) still change with refinement."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "sim-cfd",
+                slug: "sim-l4-cht-definition",
+                difficulty: "intermediate",
+                question: "What defines a conjugate heat transfer (CHT) analysis?",
+                options: [
+                  "Coupled solution of solid conduction and fluid convection across shared walls, solving temperatures on both sides simultaneously",
+                  "Convection with constant wall temperature assumed instead of computed",
+                  "Radiation-only heat exchange between separated surfaces",
+                  "Heat transfer measured experimentally and imposed as boundary data",
+                ],
+                correctIdx: 0,
+                why: "CHT captures the two-way thermal coupling where fluid and solid influence each other's temperatures — essential for electronics cooling, engine jackets, and heat exchangers.",
+                pitfall: "Interface thermal contact resistance and solid material conductivity dominate CHT accuracy — guessing these quietly invalidates the coupled solution."
+              }]
         },
         {
           id: 5,
@@ -3248,7 +3760,23 @@
                 why: "DOE minimizes the number of expensive simulations needed to understand parameter sensitivity. A 5-parameter study with 3 levels per parameter needs 243 runs with full factorial but only ~25 with Latin Hypercube.",
                 pitfall: "DOE results are only valid within the sampled range. Extrapolating surrogate models beyond the DOE bounds can predict physically impossible (negative thickness) or catastrophically wrong results."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "sim-modal",
+                slug: "sim-l5-modal-explicit-dt",
+                difficulty: "advanced",
+                question: "Why do modal analysis results matter for setting explicit dynamics time steps?",
+                options: [
+                  "The highest natural frequency determines the stable explicit time increment via the Courant condition",
+                  "Modal results define the material's fatigue life directly",
+                  "Mode shapes determine the mesh element order requirement",
+                  "They do not — explicit solvers choose time steps from load curves only",
+                ],
+                correctIdx: 0,
+                why: "Explicit integration is stable only below the smallest element's characteristic transit time — the highest structural frequency sets the allowable dt.",
+                pitfall: "Adding a few stiff connectors can crash the time step; spot-welds and rigid links often control dt more than the visible mesh does."
+              }]
         },
         
         
@@ -3359,7 +3887,23 @@
                 why: "Plotting the deformed shape (usually scaled) confirms the model deflects in a physically sensible way under the applied loads and constraints.",
                 pitfall: "Deformation is shown with an exaggerated scale factor for visibility; don't read the on-screen displacement as the true magnitude — check the legend value."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "fea",
+                slug: "sim-l6-singularity-id",
+                difficulty: "intermediate",
+                question: "A stress fringe plot concentrates at a re-entrant corner of a bracket, and the peak keeps rising with every mesh refinement without stabilizing. What does this indicate?",
+                options: [
+                  "A geometric stress singularity — a sharp corner where idealized elasticity predicts infinite stress",
+                  "Excessively accurate meshing that has converged on the true stress",
+                  "A material model missing temperature dependence",
+                  "Contact friction coefficients that were set too high",
+                ],
+                correctIdx: 0,
+                why: "Sharp re-entrant corners are mathematical singularities in linear elasticity — the peak is mesh-dependent fiction; assess nominal stress or add the real fillet radius.",
+                pitfall: "Reporting the raw singular peak (or its 'convergence trend') is a classic simulation error — decide the evaluation basis before meshing."
+              }]
         },
         {
           id: 7,
@@ -3462,7 +4006,23 @@
                 why: "Solvers do arithmetic on raw numbers; length, force, mass, and stress units must form a consistent system or forces/stresses come out grossly wrong.",
                 pitfall: "A very common blunder is modeling in mm but entering modulus in Pa instead of MPa, giving displacements 1000× off; fix the unit system up front."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "fea",
+                slug: "sim-l7-verif-vs-valid",
+                difficulty: "intermediate",
+                question: "What is the difference between verification and validation in simulation practice?",
+                options: [
+                  "Verification asks whether the equations are solved right (mesh and iteration convergence); validation asks whether the right equations were solved (comparison against experiments)",
+                  "Verification is done by regulators; validation is done by analysts",
+                  "Verification uses experiment data; validation uses benchmark meshes",
+                  "They are two names for the same convergence study",
+                ],
+                correctIdx: 0,
+                why: "Separating the two structures credibility: verification builds numerical confidence, validation builds physical confidence — a model can pass one and fail the other.",
+                pitfall: "A finely converged model of the wrong physics is 'verified garbage' — validation data (tests, field measurements) must anchor the model's intended use."
+              }]
         }
       ]
     },
@@ -3557,7 +4117,23 @@
               why: "Base Color, Roughness, and Normal maps are core PBR texture channels. Room temperature is a physical property unrelated to material rendering.",
               pitfall: "Ensure Base Color maps do not contain baked lighting or shadows. PBR relies on the renderer calculating lighting; pre-baked shadows create incorrect double-lighting."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "materials",
+              slug: "viz-l1-texels-density",
+              difficulty: "beginner",
+              question: "Why does consistent texture texel density matter across an asset library?",
+              options: [
+                "Matching pixels-per-meter keeps detail levels uniform when assets share a scene — mismatched densities read as blurry neighbors next to sharp ones",
+                "Higher texel density always renders faster",
+                "Engines only import textures at exactly 1024 pixels",
+                "Texel density controls the UV seam placement automatically",
+              ],
+              correctIdx: 0,
+              why: "A scene reads as coherent when every surface samples detail at a similar rate — mixed densities instantly break realism regardless of texture quality.",
+              pitfall: "Packing UVs beyond 0-1 (UDIM/tiling) changes effective density; audit texel density per material, not per file resolution."
+            }]
         },
         {
           id: 2,
@@ -3644,7 +4220,23 @@
               why: "Path Tracing, Irradiance Cache, and Photon Mapping are GI techniques for computing indirect light bounces. Gouraud shading is a real-time display technique, not a GI algorithm.",
               pitfall: "Path tracing produces the most accurate results but requires many samples to reduce noise. Use denoising algorithms to achieve clean results at practical sample counts."
             }
-          ]
+          ,
+            {
+              type: "single",
+              nodeId: "lighting",
+              slug: "viz-l2-focal-role",
+              difficulty: "beginner",
+              question: "What does camera focal length control in architectural composition?",
+              options: [
+                "Field of view and perspective compression — longer lenses compress space for elevation-like shots, wider lenses exaggerate interior depth",
+                "The brightness of the exposure after rendering",
+                "How many light bounces the renderer computes",
+                "The physical size of the camera aperture opening",
+              ],
+              correctIdx: 0,
+              why: "Focal length is a compositional decision: exteriors often use longer lenses for calm, rectilinear elevation reads; interiors trade distortion for coverage with wides.",
+              pitfall: "Correcting wide-lens verticals with shift/keystone controls beats cropping — perspective distortion is a camera position problem first, a lens problem second."
+            }]
         },
         {
           id: 3,
@@ -3731,7 +4323,23 @@
               why: "GPUs excel at parallel computation (speed). CPUs handle larger scenes (more RAM). Hybrid rendering leverages both. Accuracy depends on the algorithm, not the processor type.",
               pitfall: "GPU rendering is limited by VRAM. Scenes exceeding available VRAM either fail or fall back to slower out-of-core rendering. Monitor VRAM usage during test renders."
             }
-          ]
+          ,
+            {
+              type: undefined,
+              nodeId: "rendering",
+              slug: "viz-l3-aov-passes",
+              difficulty: "intermediate",
+              question: "Which layers are typically rendered as separate AOVs (passes) for post-production compositing? (Select all correct)",
+              options: [
+                "Diffuse color and lighting",
+                "Reflections and specular highlights",
+                "Z-depth for fog and depth-of-field effects",
+                "Polygon count statistics of the scene",
+              ],
+              correctIdx: 0,
+              why: "AOVs split the render into controllable components — grading reflections, adding atmosphere, or blurring by depth happens in seconds without re-rendering.",
+              pitfall: "Denoising or tone-mapping before separating passes contaminates the components — keep passes in linear space until the composite is finished."
+            }]
         }
 ,
         {
@@ -3819,7 +4427,23 @@
                 why: "Sun studies visualize solar access for daylighting, identify overshadowing of neighbors, validate shading device effectiveness, and inform passive solar design decisions.",
                 pitfall: "Set correct geographic coordinates and true north orientation. A 10-degree north error dramatically changes shadow patterns, especially at high latitudes or during winter months."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "lighting",
+                slug: "viz-l4-interior-portals",
+                difficulty: "intermediate",
+                question: "Why do interior renders with small windows often need light portals or higher-resolution HDRI environments?",
+                options: [
+                  "Small openings sample the environment coarsely, producing noise — portals guide sampling and sharper HDRIs resolve visible exterior detail",
+                  "Portals increase the physical size of the windows in the render",
+                  "HDRIs below 8K resolution are rejected by render engines",
+                  "Portals convert sunlight into artificial light sources automatically",
+                ],
+                correctIdx: 0,
+                why: "Through a small window the environment map is sampled by few rays — portals bias importance sampling toward the opening, cutting noise dramatically.",
+                pitfall: "Portals must fully cover the opening and face inward; misplaced portals degrade sampling instead of improving it."
+              }]
         },
         {
           id: 5,
@@ -3906,7 +4530,23 @@
                 why: "Equirectangular projection maps the full sphere onto a flat rectangle (like a world map). VR viewers inverse-project this back onto a sphere surrounding the viewer for immersive 360 viewing.",
                 pitfall: "Render equirectangular panoramas at 8K+ resolution (8192x4096 minimum). Each viewer direction only samples a small region of the image, so visible resolution per eye is much lower than total pixel count."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "post-process",
+                slug: "viz-l5-aces-workflow",
+                difficulty: "intermediate",
+                question: "What does adopting an ACES color workflow change about render output?",
+                options: [
+                  "It standardizes scene-linear encoding and display transforms so renders, textures, and composites intercut consistently across tools and displays",
+                  "It renders images at exactly 16-bit PNG precision",
+                  "It removes the need for any white balance decision",
+                  "It doubles the render sample count automatically",
+                ],
+                correctIdx: 0,
+                why: "ACES defines how scene-linear data maps to displays — highlights roll off consistently and assets graded in one package match in every other.",
+                pitfall: "Mixing sRGB textures into an ACES pipeline without correct input transforms shifts colors — tag every input, not just the output."
+              }]
         },
         
         
@@ -4017,7 +4657,23 @@
                 why: "Ambient occlusion approximates how ambient light is blocked in crevices and contact points, adding soft grounding shadows that improve depth perception.",
                 pitfall: "AO is an approximation, not physically accurate global illumination; cranking AO too dark produces dirty-looking corners that read as smudges."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "rendering",
+                slug: "viz-l6-gi-bleed-id",
+                difficulty: "beginner",
+                question: "A render shows soft red color bleeding from a brick wall onto a white ceiling. Which lighting phenomenon does this demonstrate?",
+                options: [
+                  "Global illumination — diffuse interreflection carrying color between surfaces",
+                  "Chromatic aberration in the virtual lens",
+                  "Subsurface scattering inside the ceiling material",
+                  "A misassigned reflection pass in compositing",
+                ],
+                correctIdx: 0,
+                why: "Color bleeding is the visible signature of diffuse interreflection — proof that global illumination is contributing light bounces to the scene.",
+                pitfall: "Excessive bleeding usually means albedo values are far above physically plausible ranges — keep diffuse albedos below roughly 0.5-0.7 for believable GI."
+              }]
         },
         {
           id: 7,
@@ -4120,7 +4776,23 @@
                 why: "Physical camera exposure maps scene luminance to image tones; setting it deliberately (like a photographer) gives consistent, controllable brightness.",
                 pitfall: "Fixing a too-dark/bright render by scaling light intensities instead of exposure breaks physical light ratios; adjust exposure/tone-mapping first."
               }
-          ]
+          ,
+              {
+                type: "single",
+                nodeId: "rendering",
+                slug: "viz-l7-denoise-risk",
+                difficulty: "intermediate",
+                question: "What is the main quality risk of rendering with very few samples and a strong denoiser?",
+                options: [
+                  "The denoiser can smooth away fine detail, hallucinate surfaces, and shift colors — errors invisible until zoomed or animated",
+                  "Denoising increases the file size beyond usable limits",
+                  "The renderer refuses to apply post-processing effects afterward",
+                  "Denoised frames cannot be color managed",
+                ],
+                correctIdx: 0,
+                why: "Machine-learning denoisers infer detail from limited data — under-sampled input produces plausible-looking but invented results that animation reveals as shimmering.",
+                pitfall: "Always compare a denoised frame against a longer-sample reference before committing a look or delivering finals."
+              }]
         }
       ]
     },

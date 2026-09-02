@@ -1,0 +1,438 @@
+{
+  "bim": [
+    { "lesson": 1, "type": "single", "difficulty": "intermediate", "slug": "bim-l1-lod350-extensions",
+      "question": "What does LOD 350 add beyond LOD 300 for coordination of means and methods?",
+      "options": [
+        "Element interrelations such as connections, supports, and attachments so trades can coordinate fabrication-adjacent detail",
+        "Photorealistic material textures for client presentation renders",
+        "A cloud-hosted copy of the model for remote viewing",
+        "Conversion of all model elements to 2D polylines for plotting"
+      ],
+      "why": "LOD 350 extends elements with shop-adjacent detail (supports, connections) so structural and MEP trades coordinate means and methods before fabrication.",
+      "pitfall": "Do not jump to LOD 400 fabrication detail contract-wide; 350 is the coordination milestone, 400 is procurement and installation." },
+    { "lesson": 2, "type": "single", "difficulty": "beginner", "slug": "bim-l2-type-vs-instance",
+      "question": "In Revit, how does a type parameter differ from an instance parameter?",
+      "options": [
+        "A type parameter change updates every occurrence of that family type, while an instance parameter affects only the selected element",
+        "Type parameters live in the cloud and instance parameters live on the local drive",
+        "Type parameters can only be numeric while instance parameters are always text",
+        "There is no difference; the terms describe the same property at different zoom levels"
+      ],
+      "why": "Understanding the type/instance split prevents accidental global edits — changing a type property silently updates dozens of placed elements.",
+      "pitfall": "Promoting an instance parameter to type-level (or the reverse) in the family editor changes project behavior everywhere the family is used." },
+    { "lesson": 3, "type": "multiple", "difficulty": "intermediate", "slug": "bim-l3-4d-linkage",
+      "question": "Which ingredients must be linked for a working 4D BIM construction simulation? (Select all correct)",
+      "options": [
+        "Model element sets or selection rules mapped to the build",
+        "Schedule activities with dates from the construction programme",
+        "Sequence logic that defines which activities drive which elements",
+        "Photorealistic material libraries for every element"
+      ],
+      "correctIndices": [0, 1, 2],
+      "why": "4D = 3D federation + time: elements map to activities, and the programme's sequence drives the simulation. Materials are presentation only.",
+      "pitfall": "Unclean element breakdown (one giant object per trade) makes meaningful 4D mapping impossible — plan model segmentation for schedule granularity." },
+    { "lesson": 4, "type": "single", "difficulty": "intermediate", "slug": "bim-l4-twin-vs-asbuilt",
+      "question": "What distinguishes an operational digital twin from a static as-built model at handover?",
+      "options": [
+        "A twin keeps a live data link to sensors, systems, or workflows so the model reflects the asset's current state",
+        "A twin is simply the as-built model saved in a newer file format",
+        "A twin always contains photorealistic textures for every element",
+        "An as-built model contains more geometry detail than a twin"
+      ],
+      "why": "The twin's value is its data currency — geometry alone is a record, not a management tool. Structured handover data (COBie, tags, sensor bindings) makes the twin actionable.",
+      "pitfall": "Accepting handover models without verified property data produces a pretty twin that lies — validate data drops against the asset register." },
+    { "lesson": 5, "type": "single", "difficulty": "beginner", "slug": "bim-l5-bcf-benefit",
+      "question": "What does BCF (BIM Collaboration Format) add over screenshots and spreadsheets for coordination issues?",
+      "options": [
+        "Machine-readable issue exchange carrying camera viewpoint, element GUIDs, comments, and status between different tools",
+        "A lossless way to merge two discipline models into one file",
+        "Automatic clash resolution without engineer input",
+        "Encrypted storage of the federated model"
+      ],
+      "why": "Because BCF references elements by GUID and stores the viewpoint, the receiver opens the exact issue context in their own tool — no model transfer, no re-navigation.",
+      "pitfall": "BCF round-trips lose fidelity if GUIDs change between exports; freeze exports during an active issue cycle or the thread references dead elements." },
+    { "lesson": 6, "type": "single", "difficulty": "intermediate", "slug": "bim-l6-soft-clash-scenario",
+      "question": "During federation review, a designer flags a duct that passes 25 mm from a beam with no physical overlap, because insulation and installation access were not modeled. Which coordination concept does this illustrate?",
+      "options": [
+        "Soft clash (proximity/clearance) checking beyond simple geometric intersection",
+        "Workset ownership conflict",
+        "Level-of-detail reduction for background display",
+        "View range clipping in a floor plan"
+      ],
+      "why": "Hard clash finds intersection; soft (clearance/workspace) clash catches unmodeled insulation, access, and maintenance zones — the most expensive clashes to fix on site.",
+      "pitfall": "Tolerance zones must be agreed per trade; blanket 25 mm rules bury real issues in noise while insulation zones can need 50-100 mm." },
+    { "lesson": 7, "type": "single", "difficulty": "advanced", "slug": "bim-l7-guid-diff",
+      "question": "In openBIM delivery, why are IFC element GUIDs critical when comparing successive model drops?",
+      "options": [
+        "They let downstream tools detect added, changed, and deleted elements between deliveries instead of treating every export as new work",
+        "They compress the IFC file for faster transfer",
+        "They encrypt authorship information inside the model",
+        "They guarantee the geometry has no modeling errors"
+      ],
+      "why": "GUID-stable exports enable delta comparison — receivers audit scope change, keep issue threads alive, and version asset data against the same identities.",
+      "pitfall": "Re-authoring or exploding elements between exports regenerates GUIDs, wiping the change history that downstream QA depends on." }
+  ],
+  "mcad": [
+    { "lesson": 1, "type": "single", "difficulty": "beginner", "slug": "mcad-l1-driven-dims",
+      "question": "What happens to a driven (reference) dimension in SOLIDWORKS when its driving geometry changes?",
+      "options": [
+        "It updates to report the newly measured value but cannot itself drive a change",
+        "It locks the geometry to its previous value",
+        "It converts into a driving dimension automatically",
+        "It is deleted to avoid conflicting constraints"
+      ],
+      "why": "Driven dimensions document measured values without adding constraints — mixing driving and driven dimensions is how you inspect a sketch without over-constraining it.",
+      "pitfall": "Confusing the two causes under- or fully-constrained sketches; check sketch status (under/fully/over) before blaming the solver." },
+    { "lesson": 2, "type": "single", "difficulty": "intermediate", "slug": "mcad-l2-brep-exact",
+      "question": "What does exact B-Rep surface storage mean for imported STEP geometry compared with tessellated meshes?",
+      "options": [
+        "Analytic and NURBS surfaces store exact mathematics, so Booleans and edits do not accumulate faceting error",
+        "B-Rep files are always smaller than mesh files",
+        "B-Rep guarantees the importing CAD system has the same feature tree",
+        "Meshes cannot represent prismatic parts at all"
+      ],
+      "why": "Exact surfaces preserve true curvature and intersections — fillets, shelling, and CAM toolpaths on faceted meshes chase tolerance triangles instead of real geometry.",
+      "pitfall": "Tessellated STEP (mesh) imports often need reverse engineering or surface healing before parametric work is practical." },
+    { "lesson": 3, "type": "single", "difficulty": "intermediate", "slug": "mcad-l3-tolerance-stack",
+      "question": "What does a tolerance stack-up analysis verify across an assembly chain?",
+      "options": [
+        "Whether accumulated part-level tolerances still meet assembly-level fit or function limits in worst-case or statistical combinations",
+        "Whether each part's tolerance matches its supplier's certificate",
+        "Whether the CAD models have identical units",
+        "Whether surface roughness values sum to a target average"
+      ],
+      "why": "Individual tolerances can each be 'in spec' while the chain of gaps and shifts breaks assembly function — stack-up analysis is the design-stage guard.",
+      "pitfall": "Worst-case stacks over-conservative designs when tolerances are statistically independent; RSS methods reduce predicted variation but need process data." },
+    { "lesson": 4, "type": "single", "difficulty": "intermediate", "slug": "mcad-l4-kfactor-why",
+      "question": "Why does sheet metal design need a K-factor, bend table, or bend deduction to create a flat pattern?",
+      "options": [
+        "Material stretches and compresses through the bend, so the neutral axis shifts and the developed blank differs from the summed flange lengths",
+        "Flat patterns are exported at half scale by convention",
+        "The software cannot measure flange lengths without it",
+        "K-factor controls the color of bend lines in the drawing"
+      ],
+      "why": "The K-factor locates the neutral axis between compression (inside) and tension (outside) faces, letting CAD compute an accurate developed blank for cutting.",
+      "pitfall": "K-factor is material, thickness, and tooling dependent — using a catalog default without press-brake validation produces blanks that miss finished dimensions." },
+    { "lesson": 5, "type": "single", "difficulty": "advanced", "slug": "mcad-l5-sn-lowcycle",
+      "question": "Why is a stress-life (S-N) fatigue curve unsuitable for low-cycle fatigue assessment?",
+      "options": [
+        "At high strain amplitudes the material deforms plastically, so strain-life (ε-N) methods represent the physics instead of stress-based curves",
+        "S-N curves only exist for aluminum alloys",
+        "Low-cycle fatigue is always governed by corrosion, which S-N curves exclude",
+        "S-N curves are only valid above the yield strength by definition"
+      ],
+      "why": "Below roughly 10³-10⁴ reversals, plastic strains dominate and the strain-life approach (Coffin-Manson) captures initiation life where stress-based S-N data collapses.",
+      "pitfall": "Using an infinite-life S-N safety factor on a low-cycle, high-strain load case dramatically over-predicts life — check which regime the duty cycle occupies." },
+    { "lesson": 6, "type": "single", "difficulty": "beginner", "slug": "mcad-l6-direct-edit-id",
+      "question": "You drag the face of an imported block outward and a co-axial hole follows, preserving its relationship to the moved face — no feature tree edits required. Which editing paradigm does this demonstrate?",
+      "options": [
+        "Direct (history-free) editing with recognized design intent",
+        "Ordered feature-tree replay from the bottom up",
+        "Constraint-based sketch solving at the 2D profile level",
+        "Surface repair via heal operations"
+      ],
+      "why": "Direct modeling engines recognize faces and relationships on geometry without a feature history — the standard workflow for editing imported neutral-format CAD.",
+      "pitfall": "Direct edits without captured intent can silently break downstream dependencies; lock or dimension relationships you want preserved." },
+    { "lesson": 7, "type": "multiple", "difficulty": "intermediate", "slug": "mcad-l7-config-vary",
+      "question": "What can SOLIDWORKS configurations vary within a single part file? (Select all correct)",
+      "options": [
+        "Dimension values driving sketch and feature geometry",
+        "Feature suppression states",
+        "Custom properties and material assignments",
+        "The network folder where the file is saved"
+      ],
+      "correctIndices": [0, 1, 2],
+      "why": "Configurations are a design table-driven family-of-parts mechanism — one model serves many sizes and variants without duplicate file maintenance.",
+      "pitfall": "Configuration-specific geometry bloats files and slows rebuilds; if variants diverge structurally, separate models (or derived parts) are cleaner." }
+  ],
+  "civil": [
+    { "lesson": 1, "type": "single", "difficulty": "beginner", "slug": "civil-l1-breaklines",
+      "question": "What do breaklines do when building a TIN surface?",
+      "options": [
+        "Force triangle edges to follow linear features like curbs, centerlines, and ditch lines so grade breaks are honored",
+        "Automatically color contour lines by elevation range",
+        "Convert raster imagery into 3D points",
+        "Round all elevations to the nearest survey centimeter"
+      ],
+      "why": "Without breaklines the Delaunay triangulation interpolates across curbs and channels, smoothing away exactly the grade breaks the design depends on.",
+      "pitfall": "Breakline data must be non-crossing; survey crossing shots create surface errors that surface style defaults can hide." },
+    { "lesson": 2, "type": "single", "difficulty": "beginner", "slug": "civil-l2-assembly-def",
+      "question": "In corridor modeling, what does an assembly represent?",
+      "options": [
+        "A reusable cross-section of lanes, shoulders, curbs, and side slopes inserted at the baseline and swept along the alignment",
+        "The vertical elevation data of the existing ground",
+        "A construction equipment mobilization plan",
+        "The final stamped plan set page layout"
+      ],
+      "why": "Corridors = alignment (X-Y) + profile (Z) + assembly (cross-section) + targets; the assembly is the template the corridor sweeps to build the 3D model.",
+      "pitfall": "Assembly subassemblies carry their own target parameters — forgetting to map an offset or elevation target leaves slopes daylighting at default widths." },
+    { "lesson": 3, "type": "single", "difficulty": "intermediate", "slug": "civil-l3-landxml-why",
+      "question": "Why is LandXML preferred over plain DWG exchange for civil design data?",
+      "options": [
+        "It carries object-level data (alignments, profiles, surfaces, pipe networks) as parsed geometry and metadata rather than flat lines and text",
+        "It supports AutoLISP automation on the receiving side",
+        "It compresses large surfaces better than DWG",
+        "It is the only format Autodesk officially supports"
+      ],
+      "why": "DWG exchange reduces designs to graphics; LandXML preserves design intent (PI stations, curve definitions, pipe inverts) so the receiving package rebuilds intelligent objects.",
+      "pitfall": "LandXML units and coordinate systems must match the receiver's settings — unitless files are a classic source of 1000× scale accidents." },
+    { "lesson": 4, "type": "single", "difficulty": "intermediate", "slug": "civil-l4-invert-drivers",
+      "question": "What primarily drives invert elevation selection in gravity pipe network design?",
+      "options": [
+        "Maintaining minimum cover at high points and a continuous downhill slope toward the outfall within depth limits",
+        "Matching the pipe crown to the road centerline elevation",
+        "Equalizing all structures to a single common invert",
+        "Maximizing pipe diameter to fill the trench width"
+      ],
+      "why": "Gravity systems live and die by slope and cover: inverts step down along the run while respecting minimum cover, utility crossings, and maximum depth constraints.",
+      "pitfall": "Designing inverts structure-by-structure without checking the whole run produces mid-run cover violations that surface only in profile view." },
+    { "lesson": 5, "type": "single", "difficulty": "beginner", "slug": "civil-l5-machine-control",
+      "question": "What does a 3D machine control model add over traditional 2D staking for earthworks?",
+      "options": [
+        "Real-time blade-level grade guidance from the design surface, eliminating most stakeout and reducing rework",
+        "Automatic compaction testing documentation",
+        "Guaranteed conformance to stormwater permits",
+        "Wireless transfer of the legal property boundary"
+      ],
+      "why": "GNSS or total-station guided machines compare the blade position to the design surface live, cutting stakeout cycles and giving operators immediate feedback.",
+      "pitfall": "Machine models must be simplified and validated for the control system — full design surfaces with dense data can overwhelm onboard processors." },
+    { "lesson": 6, "type": "single", "difficulty": "beginner", "slug": "civil-l6-contour-id",
+      "question": "A surface plan shows smooth closed and open lines labeled 100.0, 100.5, and 101.0 across the site. What do these represent?",
+      "options": [
+        "Surface elevation contours drawn at a 0.5 m interval",
+        "Utility trench centerlines at 0.5 m offsets",
+        "As-built settlement markers",
+        "Sight-line sight triangles for intersection design"
+      ],
+      "why": "Contour interval identification is the most basic surface-reading skill — spacing and closure tell you steepness, high points, and drainage direction at a glance.",
+      "pitfall": "Contours close or pair at surface boundaries; misreading a contour as a breakline (or vice versa) inverts your interpretation of flow direction." },
+    { "lesson": 7, "type": "single", "difficulty": "advanced", "slug": "civil-l7-survey-figures",
+      "question": "What is the advantage of coded survey figure processing over importing raw points only?",
+      "options": [
+        "Field codes classify linework into breaklines and features automatically, keeping surfaces traceable to the field procedure",
+        "It converts imperial survey control to metric automatically",
+        "It removes the need for Traverse adjustment entirely",
+        "It stores points as raster images for archival"
+      ],
+      "why": "Coded figures (edge of asphalt, fence, toe of slope) drive linework and surface definition rules — the surface regenerates from codes instead of manual redrawing.",
+      "pitfall": "Field coding standards only work if crews follow them; uncoded or mistyped shots become silent breakline gaps." }
+  ],
+  "draft": [
+    { "lesson": 1, "type": "single", "difficulty": "beginner", "slug": "draft-l1-pgp-standards",
+      "question": "Why do CAD managers standardize PGP command aliases across a drafting team?",
+      "options": [
+        "Shared aliases keep keyboard muscle memory transferable between workstations and make custom documentation consistent",
+        "Aliases reduce DWG file size",
+        "Standard aliases are required for external reference attachments",
+        "Aliases determine which layers print in CTB styles"
+      ],
+      "why": "One-key commands are speed-critical muscle memory; a shared PGP means training, macros, and custom routines behave identically on every seat.",
+      "pitfall": "Editing the stock PGP in-place gets overwritten by reinstalls — manage overrides through a deployed customization file." },
+    { "lesson": 2, "type": "single", "difficulty": "beginner", "slug": "draft-l2-audit-vs-recover",
+      "question": "What is the difference between the AUDIT and RECOVER commands?",
+      "options": [
+        "AUDIT scans an already-open drawing database for errors and optionally fixes them; RECOVER opens a damaged file and repairs it during load",
+        "AUDIT repairs layer standards while RECOVER repairs plot styles",
+        "RECOVER checks reference files and AUDIT checks the current file only",
+        "They are aliases for the same command in different releases"
+      ],
+      "why": "Choosing correctly matters: AUDIT cannot open a corrupt file at all — badly damaged drawings need RECOVER (or the Drawing Recovery Manager) first.",
+      "pitfall": "Run AUDIT after RECOVER on any recovered file; recovery salvages the file but does not certify its database integrity." },
+    { "lesson": 3, "type": "single", "difficulty": "beginner", "slug": "draft-l3-purge-regapps",
+      "question": "What does PURGE with the 'Regapps' option remove that a standard purge pass misses?",
+      "options": [
+        "Unused registered application (regapp) records embedded by third-party applications and custom tools",
+        "Locked layers referenced by external references",
+        "Nested block definitions still inserted in the drawing",
+        "Plot style tables attached to layouts"
+      ],
+      "why": "Regapp records accumulate invisibly from vertical tools and can bloat files or trip downstream applications; only the regapps purge option targets them.",
+      "pitfall": "Regapps cannot be purged while objects still reference them — some records survive and must be removed with a dedicated cleanup routine." },
+    { "lesson": 4, "type": "single", "difficulty": "intermediate", "slug": "draft-l4-defun-command",
+      "question": "What does the AutoLISP syntax (defun C:MYCOMMAND () ...) accomplish?",
+      "options": [
+        "Registers MYCOMMAND as a command typed at the command line, executing the routine body when invoked",
+        "Defines a variable named MYCOMMAND that holds the drawing database",
+        "Creates a toolbar button automatically on the ribbon",
+        "Marks the routine to run automatically every time a drawing opens"
+      ],
+      "why": "The C: prefix is the AutoLISP command-register convention — users type MYCOMMAND directly instead of calling (MYCOMMAND) as a function.",
+      "pitfall": "Command names with spaces or reserved characters break the C: convention; keep custom commands one word and uppercase in documentation." },
+    { "lesson": 5, "multiple": true, "type": "multiple", "difficulty": "intermediate", "slug": "draft-l5-data-out-tools",
+      "question": "Which tools pull data OUT of drawings for schedules and tables? (Select all correct)",
+      "options": [
+        "The Data Extraction (EEXTRACT) wizard over block attributes and object properties",
+        "Fields linked to objects, attributes, or system variables",
+        "Legacy attribute extraction templates for schedule generation",
+        "Dynamic block visibility state selectors"
+      ],
+      "correctIndices": [0, 1, 2],
+      "why": "Extraction, Fields, and legacy attribute extraction read drawing data outward; visibility states are geometry switching, not data output.",
+      "pitfall": "Extraction tables do not auto-update — rerun the extraction (or use a linked table) after attribute edits or the schedule silently lies." },
+    { "lesson": 6, "type": "single", "difficulty": "beginner", "slug": "draft-l6-grip-cycle-id",
+      "question": "You select a circle, click a blue grip, and press Ctrl to cycle its behavior between stretching the radius, moving the circle, and arraying copies along a path. Which feature is this?",
+      "options": [
+        "Grip editing with grip mode cycling",
+        "The Action Recorder replaying macros",
+        "Parametric constraint-driven dimensional editing",
+        "Quick Measure's contextual measurement modes"
+      ],
+      "why": "Grip modes (stretch/move/rotate/scale/mirror plus Ctrl-cycled object-specific modes) are the fastest in-canvas editing path for simple adjustments.",
+      "pitfall": "Grip edits bypass command prompts and defaults — for precision-critical edits, command-line input with object snaps remains safer." },
+    { "lesson": 7, "type": "single", "difficulty": "intermediate", "slug": "draft-l7-dataextraction-out",
+      "question": "What does the Data Extraction workflow produce from block attributes and drawing properties?",
+      "options": [
+        "Tables inside the drawing or external XLS/CSV files — for example door and window schedules — refreshed by rerunning the extraction",
+        "A rendered 3D preview of all attributed blocks",
+        "A DWG standards audit report filed with the plot set",
+        "Layer translation mappings exported to other offices"
+      ],
+      "why": "Data Extraction turns drawing data into documentation — schedules, BOMs, and property tables — driven by the model instead of retyped by hand.",
+      "pitfall": "Extraction definitions store the drawing list; adding sheets to a Sheet Set requires updating the extraction or the schedule misses the new layouts." }
+  ],
+  "sim": [
+    { "lesson": 1, "type": "single", "difficulty": "advanced", "slug": "sim-l1-hex-locking",
+      "question": "Why do fully integrated first-order hexahedral elements over-stiffen bending behavior?",
+      "options": [
+        "Their integration points cannot represent linear bending strain fields, producing shear and volumetric locking",
+        "Hexahedral elements cannot model steel materials",
+        "They always use a single Gaussian point that falls outside the element",
+        "They only support temperature loading, not mechanical loads"
+      ],
+      "why": "Full integration evaluates stiffness at fixed points that cannot reproduce bending kinematics, adding fictitious shear stiffness — reduced integration or incompatible modes fix it.",
+      "pitfall": "Reduced-integration elements need hourglass control: check artificial (hourglass) energy is a small fraction of internal energy before trusting results." },
+    { "lesson": 2, "type": "single", "difficulty": "beginner", "slug": "sim-l2-kepsilon-meaning",
+      "question": "In the k-epsilon turbulence model, what does the transported 'epsilon' quantity represent?",
+      "options": [
+        "The turbulent dissipation rate — how fast turbulent kinetic energy converts into heat",
+        "The wall-normal distance of the first mesh cell",
+        "The molecular viscosity of the fluid",
+        "The ratio of pressure forces to viscous forces"
+      ],
+      "why": "k (turbulent kinetic energy) and ε (its dissipation rate) close the RANS equations, defining effective viscosity and the turbulence length scale.",
+      "pitfall": "k-epsilon is a free-shear, fully turbulent model — it misrepresents low-Re near-wall behavior unless paired with wall functions or damping treatments." },
+    { "lesson": 3, "type": "single", "difficulty": "beginner", "slug": "sim-l3-sweep-purpose",
+      "question": "What does a parameter sweep in a design study accomplish before formal optimization?",
+      "options": [
+        "It varies dimensions or loads systematically across runs to map performance trends and locate promising regions",
+        "It replaces the need for any engineering judgment about bounds",
+        "It proves the design meets certification requirements",
+        "It converts a nonlinear study into a linear one"
+      ],
+      "why": "Sweeps build the response landscape — revealing sensitivity, interactions, and near-optimal regions — so an optimization starts from informed bounds instead of guesses.",
+      "pitfall": "Coarse sweeps can miss narrow optima; treat sweep results as trend maps, not optima, and refine around the best region." },
+    { "lesson": 4, "type": "single", "difficulty": "intermediate", "slug": "sim-l4-cht-definition",
+      "question": "What defines a conjugate heat transfer (CHT) analysis?",
+      "options": [
+        "Coupled solution of solid conduction and fluid convection across shared walls, solving temperatures on both sides simultaneously",
+        "Convection with constant wall temperature assumed instead of computed",
+        "Radiation-only heat exchange between separated surfaces",
+        "Heat transfer measured experimentally and imposed as boundary data"
+      ],
+      "why": "CHT captures the two-way thermal coupling where fluid and solid influence each other's temperatures — essential for electronics cooling, engine jackets, and heat exchangers.",
+      "pitfall": "Interface thermal contact resistance and solid material conductivity dominate CHT accuracy — guessing these quietly invalidates the coupled solution." },
+    { "lesson": 5, "type": "single", "difficulty": "advanced", "slug": "sim-l5-modal-explicit-dt",
+      "question": "Why do modal analysis results matter for setting explicit dynamics time steps?",
+      "options": [
+        "The highest natural frequency determines the stable explicit time increment via the Courant condition",
+        "Modal results define the material's fatigue life directly",
+        "Mode shapes determine the mesh element order requirement",
+        "They do not — explicit solvers choose time steps from load curves only"
+      ],
+      "why": "Explicit integration is stable only below the smallest element's characteristic transit time — the highest structural frequency sets the allowable dt.",
+      "pitfall": "Adding a few stiff connectors can crash the time step; spot-welds and rigid links often control dt more than the visible mesh does." },
+    { "lesson": 6, "type": "single", "difficulty": "intermediate", "slug": "sim-l6-singularity-id",
+      "question": "A stress fringe plot concentrates at a re-entrant corner of a bracket, and the peak keeps rising with every mesh refinement without stabilizing. What does this indicate?",
+      "options": [
+        "A geometric stress singularity — a sharp corner where idealized elasticity predicts infinite stress",
+        "Excessively accurate meshing that has converged on the true stress",
+        "A material model missing temperature dependence",
+        "Contact friction coefficients that were set too high"
+      ],
+      "why": "Sharp re-entrant corners are mathematical singularities in linear elasticity — the peak is mesh-dependent fiction; assess nominal stress or add the real fillet radius.",
+      "pitfall": "Reporting the raw singular peak (or its 'convergence trend') is a classic simulation error — decide the evaluation basis before meshing." },
+    { "lesson": 7, "type": "single", "difficulty": "intermediate", "slug": "sim-l7-verif-vs-valid",
+      "question": "What is the difference between verification and validation in simulation practice?",
+      "options": [
+        "Verification asks whether the equations are solved right (mesh and iteration convergence); validation asks whether the right equations were solved (comparison against experiments)",
+        "Verification is done by regulators; validation is done by analysts",
+        "Verification uses experiment data; validation uses benchmark meshes",
+        "They are two names for the same convergence study"
+      ],
+      "why": "Separating the two structures credibility: verification builds numerical confidence, validation builds physical confidence — a model can pass one and fail the other.",
+      "pitfall": "A finely converged model of the wrong physics is 'verified garbage' — validation data (tests, field measurements) must anchor the model's intended use." }
+  ],
+  "viz": [
+    { "lesson": 1, "type": "single", "difficulty": "beginner", "slug": "viz-l1-texels-density",
+      "question": "Why does consistent texture texel density matter across an asset library?",
+      "options": [
+        "Matching pixels-per-meter keeps detail levels uniform when assets share a scene — mismatched densities read as blurry neighbors next to sharp ones",
+        "Higher texel density always renders faster",
+        "Engines only import textures at exactly 1024 pixels",
+        "Texel density controls the UV seam placement automatically"
+      ],
+      "why": "A scene reads as coherent when every surface samples detail at a similar rate — mixed densities instantly break realism regardless of texture quality.",
+      "pitfall": "Packing UVs beyond 0-1 (UDIM/tiling) changes effective density; audit texel density per material, not per file resolution." },
+    { "lesson": 2, "type": "single", "difficulty": "beginner", "slug": "viz-l2-focal-role",
+      "question": "What does camera focal length control in architectural composition?",
+      "options": [
+        "Field of view and perspective compression — longer lenses compress space for elevation-like shots, wider lenses exaggerate interior depth",
+        "The brightness of the exposure after rendering",
+        "How many light bounces the renderer computes",
+        "The physical size of the camera aperture opening"
+      ],
+      "why": "Focal length is a compositional decision: exteriors often use longer lenses for calm, rectilinear elevation reads; interiors trade distortion for coverage with wides.",
+      "pitfall": "Correcting wide-lens verticals with shift/keystone controls beats cropping — perspective distortion is a camera position problem first, a lens problem second." },
+    { "lesson": 3, "multiple": true, "difficulty": "intermediate", "slug": "viz-l3-aov-passes",
+      "question": "Which layers are typically rendered as separate AOVs (passes) for post-production compositing? (Select all correct)",
+      "options": [
+        "Diffuse color and lighting",
+        "Reflections and specular highlights",
+        "Z-depth for fog and depth-of-field effects",
+        "Polygon count statistics of the scene"
+      ],
+      "correctIndices": [0, 1, 2],
+      "why": "AOVs split the render into controllable components — grading reflections, adding atmosphere, or blurring by depth happens in seconds without re-rendering.",
+      "pitfall": "Denoising or tone-mapping before separating passes contaminates the components — keep passes in linear space until the composite is finished." },
+    { "lesson": 4, "type": "single", "difficulty": "intermediate", "slug": "viz-l4-interior-portals",
+      "question": "Why do interior renders with small windows often need light portals or higher-resolution HDRI environments?",
+      "options": [
+        "Small openings sample the environment coarsely, producing noise — portals guide sampling and sharper HDRIs resolve visible exterior detail",
+        "Portals increase the physical size of the windows in the render",
+        "HDRIs below 8K resolution are rejected by render engines",
+        "Portals convert sunlight into artificial light sources automatically"
+      ],
+      "why": "Through a small window the environment map is sampled by few rays — portals bias importance sampling toward the opening, cutting noise dramatically.",
+      "pitfall": "Portals must fully cover the opening and face inward; misplaced portals degrade sampling instead of improving it." },
+    { "lesson": 5, "type": "single", "difficulty": "intermediate", "slug": "viz-l5-aces-workflow",
+      "question": "What does adopting an ACES color workflow change about render output?",
+      "options": [
+        "It standardizes scene-linear encoding and display transforms so renders, textures, and composites intercut consistently across tools and displays",
+        "It renders images at exactly 16-bit PNG precision",
+        "It removes the need for any white balance decision",
+        "It doubles the render sample count automatically"
+      ],
+      "why": "ACES defines how scene-linear data maps to displays — highlights roll off consistently and assets graded in one package match in every other.",
+      "pitfall": "Mixing sRGB textures into an ACES pipeline without correct input transforms shifts colors — tag every input, not just the output." },
+    { "lesson": 6, "type": "single", "difficulty": "beginner", "slug": "viz-l6-gi-bleed-id",
+      "question": "A render shows soft red color bleeding from a brick wall onto a white ceiling. Which lighting phenomenon does this demonstrate?",
+      "options": [
+        "Global illumination — diffuse interreflection carrying color between surfaces",
+        "Chromatic aberration in the virtual lens",
+        "Subsurface scattering inside the ceiling material",
+        "A misassigned reflection pass in compositing"
+      ],
+      "why": "Color bleeding is the visible signature of diffuse interreflection — proof that global illumination is contributing light bounces to the scene.",
+      "pitfall": "Excessive bleeding usually means albedo values are far above physically plausible ranges — keep diffuse albedos below roughly 0.5-0.7 for believable GI." },
+    { "lesson": 7, "type": "single", "difficulty": "intermediate", "slug": "viz-l7-denoise-risk",
+      "question": "What is the main quality risk of rendering with very few samples and a strong denoiser?",
+      "options": [
+        "The denoiser can smooth away fine detail, hallucinate surfaces, and shift colors — errors invisible until zoomed or animated",
+        "Denoising increases the file size beyond usable limits",
+        "The renderer refuses to apply post-processing effects afterward",
+        "Denoised frames cannot be color managed"
+      ],
+      "why": "Machine-learning denoisers infer detail from limited data — under-sampled input produces plausible-looking but invented results that animation reveals as shimmering.",
+      "pitfall": "Always compare a denoised frame against a longer-sample reference before committing a look or delivering finals." }
+  ]
+}

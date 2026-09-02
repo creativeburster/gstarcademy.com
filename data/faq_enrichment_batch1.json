@@ -1,0 +1,236 @@
+[
+ {
+  "t": "3dsmax",
+  "q": "What is the difference between Render Setup engine choices in 3ds Max — Arnold, ART, and Scanline?",
+  "s": "Source · Autodesk 3ds Max Documentation",
+  "a": "Arnold is the default production ray tracer supporting GPU/CPU hybrid rendering with modern materials; ART (Autodesk Raytracer) is a fast physically based engine for design visualization; Scanline is the legacy engine retained for old scenes. New work should start with Arnold."
+ },
+ {
+  "t": "3dsmax",
+  "q": "How do I fix missing textures when moving a 3ds Max scene to another machine?",
+  "s": "Source · Autodesk 3ds Max Documentation",
+  "a": "Use Asset Tracking (Shift+T) to repath missing bitmaps, or run the Resource Collector (via the File > Archive workflow) to gather all maps into one folder alongside the MAX file before transfer. Relative paths in Configure User Paths prevent recurrence."
+ },
+ {
+  "t": "3dsmax",
+  "q": "Why should arch-viz artists model with real-world scale and system units in 3ds Max?",
+  "s": "Source · Autodesk 3ds Max Documentation",
+  "a": "3ds Max treats one unit as one system unit for lighting falloff, photometric exposure, and import compatibility. Mixing display units with a wrong system unit breaks photometric lights, FBX round-trips to Revit/Unreal, and modifiers like Shell that depend on real measurements."
+ },
+ {
+  "t": "abaqus",
+  "q": "What is the difference between shell and solid elements in Abaqus, and when is each appropriate?",
+  "s": "Source · SIMULIA Abaqus Documentation",
+  "a": "Shell elements (S4R, S8R) model thin-walled structures whose thickness is small relative to span (rule of thumb span/thickness > 10) and are far cheaper; solid elements (C3D8R, C3D10) capture through-thickness stress states. Use continuum shells (SC8R) as a middle ground for layered composites."
+ },
+ {
+  "t": "abaqus",
+  "q": "How do I choose between Abaqus/Standard and Abaqus/Explicit for a contact-heavy problem?",
+  "s": "Source · SIMULIA Abaqus Documentation",
+  "a": "Prefer Standard (implicit) when the event duration is long compared to wave transit time and quasi-static equilibrium holds; switch to Explicit when contact changes discontinuously, buckling/snapping occurs, or implicit convergence fails. Explicit results must be checked against the artificial (bulk viscosity) energy to confirm the event is not being accelerated."
+ },
+ {
+  "t": "abaqus",
+  "q": "What does the Abaqus warning 'The ratio of deformation speed to wave speed' indicate?",
+  "s": "Source · SIMULIA Abaqus Documentation",
+  "a": "In Explicit analyses this warning signals that elements are distorting faster than stress waves can propagate, meaning the loading rate may be too fast for a quasi-static intent. Compare kinetic energy to internal energy (keep kinetic energy below 5-10 percent of internal energy) or reduce loading speed / increase step time."
+ },
+ {
+  "t": "altium-designer",
+  "q": "What is the difference between Altium 365 and a traditional Altium Content Vault?",
+  "s": "Source · Altium Documentation",
+  "a": "Altium 365 is the cloud platform for design collaboration, data management, and supply-chain insight built around Workspace connections, while the legacy Content Vault (now part of Altium 365) focused on versioned component storage. New projects should connect to an Altium 365 Workspace for managed components and release workflows."
+ },
+ {
+  "t": "altium-designer",
+  "q": "How do I create a PCB split plane (multiple voltage regions) in Altium Designer?",
+  "s": "Source · Altium Documentation",
+  "a": "Place a solid region or polygon pour on the target layer, then assign a distinct net to each region and use the Place > Solid Region command with cutouts, or split an existing pour by drawing lines and re-pouring. Verify isolation clearances in the High Voltage rules and run DRC with the split-plane aware rule set."
+ },
+ {
+  "t": "altium-designer",
+  "q": "What is Altium Designer's ActiveRoute used for?",
+  "s": "Source · Altium Documentation",
+  "a": "ActiveRoute automates high-speed trace routing: select the pads or differential pairs you want connected, run ActiveRoute, and it computes clean single-net routes honoring your design rules (width, clearance, impedance). It is not an autorouter for the whole board — it routes only what you select, keeping the engineer in control."
+ },
+ {
+  "t": "ansys-fluent",
+  "q": "What is the difference between pressure-based and density-based solvers in Ansys Fluent?",
+  "s": "Source · Ansys Fluent Documentation",
+  "a": "The pressure-based solver (now coupled by default) targets incompressible and mildly compressible flows and converges robustly for most industrial cases; the density-based solver targets strongly compressible, high-Mach flows with shocks. For subsonic external aero or internal flows, start pressure-based coupled."
+ },
+ {
+  "t": "ansys-fluent",
+  "q": "What do y+ wall treatment requirements mean for my mesh in Ansys Fluent?",
+  "s": "Source · Ansys Fluent Documentation",
+  "a": "With enhanced wall treatments, keep the first-cell y+ around 1 to resolve the viscous sublayer; with wall functions, target y+ between 30 and 300 and avoid values near 1 or in the buffer layer. Build boundary-layer inflation so at least 10-15 cells resolve the boundary layer, and keep growth ratios under 1.2."
+ },
+ {
+  "t": "ansys-fluent",
+  "q": "When is a steady-state RANS solution acceptable instead of a transient (URANS/LES) simulation in Fluent?",
+  "s": "Source · Ansys Fluent Documentation",
+  "a": "Steady RANS is acceptable when time-averaged quantities are the goal and unsteadiness is weak or statistical; unsteady methods are required for vortex shedding, large separation, acoustic sources, or when residuals and monitors will not converge. Judge by monitoring integrated quantities for persistent oscillation rather than residuals alone."
+ },
+ {
+  "t": "ansys-mechanical",
+  "q": "What is the difference between force-controlled and displacement-controlled loading in Ansys Mechanical, and why does it matter for post-buckling?",
+  "s": "Source · Ansys Mechanical Documentation",
+  "a": "Force (load) control loses stability at limit points, so an eigenvalue or geometrically nonlinear buckling analysis under load control terminates at the critical load. Displacement or arc-length control can continue past the limit point and trace the post-buckling path, which is why nonlinear buckling studies displace a remote point instead of applying a force."
+ },
+ {
+  "t": "ansys-mechanical",
+  "q": "How do contact detection methods (node-to-surface vs surface-to-surface) affect results in Ansys Mechanical?",
+  "s": "Source · Ansys Mechanical Documentation",
+  "a": "Node-to-surface detects penetration at nodes and handles large relative sliding with lower cost but can leave contact pressure patchy; surface-to-surface (the default) integrates over projected areas for smoother pressure distribution and better accuracy for bonded/frictional faces. For bolted or gasketed faces, prefer surface-to-surface with relevant correction."
+ },
+ {
+  "t": "ansys-mechanical",
+  "q": "What does 'weak springs' do in an Ansys Mechanical static structural analysis, and what is the safer alternative?",
+  "s": "Source · Ansys Mechanical Documentation",
+  "a": "Weak springs add very soft ground springs to stabilize rigid-body motion of an insufficiently constrained model. They can mask modeling errors and add phantom stiffness, so the safer practice is to verify that the model is properly constrained (or use inertia relief) and only use weak springs as a diagnostic, never in the reported load path."
+ },
+ {
+  "t": "blender",
+  "q": "What is the difference between Blender's Eevee and Cycles render engines for architectural visualization?",
+  "s": "Source · Blender Manual",
+  "a": "Eevee is a real-time raster engine with screen-space reflections — fast and ideal for look development and animations on capable GPUs, but it cannot trace true global illumination. Cycles is a path tracer producing physically accurate light bounces, caustics-free GI and motion blur, at a much higher per-frame cost. Use Eevee for drafting and Cycles for finals."
+ },
+ {
+  "t": "blender",
+  "q": "How do I import DWG or IFC geometry into Blender for arch-viz?",
+  "s": "Source · Blender Manual",
+  "a": "Blender has no native DWG importer: convert DWG to DXF first, then use the bundled DXF importer, or route through Blender BIM/IFC add-on for native IFC import with building storeys and element types preserved. For visualizations, many artists export DAE/FBX/OBJ from the CAD tool to keep materials and scale simpler."
+ },
+ {
+  "t": "blender",
+  "q": "What is the Blender Geometry Nodes workflow for parametric arrays like façade mullions?",
+  "s": "Source · Blender Manual",
+  "a": "Geometry Nodes lets you build node-based modifiers: feed a mesh or curve into Grid/Plane primitives, instance a mullion or panel object on points with Instance on Points, and drive spacing/count with Math nodes or user sliders exposed in the modifier. Changes to the base curve regenerate the whole façade non-destructively."
+ },
+ {
+  "t": "comsol",
+  "q": "What is the difference between COMSOL physics interfaces and equation-based modeling?",
+  "s": "Source · COMSOL Documentation",
+  "a": "Physics interfaces (Heat Transfer, Solid Mechanics, Laminar Flow) provide ready PDE discretizations, materials, and boundary conditions; equation-based modeling (Coefficient Form PDE, Weak Form) lets you add custom physics. Both coexist in one model, so you can couple a custom reaction term into a standard heat transfer interface."
+ },
+ {
+  "t": "comsol",
+  "q": "Why does COMSOL recommend starting 3D multiphysics studies in 2D?",
+  "s": "Source · COMSOL Documentation",
+  "a": "A 2D or 2D-axisymmetric cut of the geometry solves in seconds instead of hours, letting you verify material models, couplings, and meshing before committing to a 3D parametric sweep. Start 2D, understand convergence behavior, then extrude the working setup to 3D for final numbers."
+ },
+ {
+  "t": "comsol",
+  "q": "What is the COMSOL Application Builder used for?",
+  "s": "Source · COMSOL Documentation",
+  "a": "The Application Builder turns a working model into a tailored simulation app with a custom UI — chosen parameters, plots, and buttons — that colleagues can run without touching the model tree. Apps can be shared via COMSOL Server so non-experts run verified analyses inside controlled limits."
+ },
+ {
+  "t": "onshape",
+  "q": "How does Onshape versioning differ from file-based CAD versioning?",
+  "s": "Source · Onshape Documentation",
+  "a": "Onshape stores documents as a database with an immutable version tree: every change creates a new version or tab, branching and merging work like Git, and there are no files to copy or overwrite. Any teammate can open an exact historical version in a browser, eliminating 'final_v2_REALLY_FINAL.part' workflows."
+ },
+ {
+  "t": "onshape",
+  "q": "What is Onshape's FeatureScript used for?",
+  "s": "Source · Onshape Documentation",
+  "a": "FeatureScript is Onshape's programming language for writing custom features (custom threads, keyways, company-specific standards) that appear in the feature tree like native features. Custom features run server-side, regenerate parametrically, and can be shared publicly or privately across teams."
+ },
+ {
+  "t": "onshape",
+  "q": "How do Onshape assembly mates differ from desktop CAD mates?",
+  "s": "Source · Onshape Documentation",
+  "a": "Onshape replaces the mate hierarchy with implicit and explicit mate connectors: each part carries mate connectors (points/frames), and mates snap connector to connector. Because everything is cloud-native, mates are evaluated server-side without local regeneration, and large assemblies stream only needed geometry."
+ },
+ {
+  "t": "openfoam",
+  "q": "What is the difference between the simpleFoam and pimpleFoam solvers in OpenFOAM?",
+  "s": "Source · OpenFOAM Documentation",
+  "a": "simpleFoam is a steady-state incompressible solver using the SIMPLE pressure-velocity loop; pimpleFoam is its transient extension merging PISO with outer correctors (PIMPLE) for large time steps. Choose simpleFoam for converged steady statistics and pimpleFoam when time-accurate dynamics matter."
+ },
+ {
+  "t": "openfoam",
+  "q": "How do I define custom boundary conditions in OpenFOAM case files?",
+  "s": "Source · OpenFOAM Documentation",
+  "a": "Boundary conditions live in the 0/ time directory as field files: each patch entry names a BC type (fixedValue, zeroGradient, inletOutlet...) with its parameters. For coded values, the codedFixedValue type embeds C++ snippets evaluated at runtime, or you can code a dedicated BC as a dynamic library loaded via the libs entry in controlDict."
+ },
+ {
+  "t": "openfoam",
+  "q": "What are the essential OpenFOAM utility commands for checking a case before running?",
+  "s": "Source · OpenFOAM Documentation",
+  "a": "Run blockMesh/checkMesh first — checkMesh reports non-orthogonality, skewness, and boundary connectivity that predict stability issues. Use foamCloneCase to copy cases safely, potentialFoam to initialize a sensible velocity field, and decomposePar/reconstructPar to parallelize and recombine runs."
+ },
+ {
+  "t": "openroads",
+  "q": "What is the difference between civil fixtures and templates in OpenRoads Designer?",
+  "s": "Source · Bentley OpenRoads Documentation",
+  "a": "Templates define the cross-section assembly — points, components, and their parametric constraints that build the corridor; civil fixtures (like End Condition Objects) place standardized features such as guardrails or ditch shapes. Templates drive geometry generation along the corridor, while fixtures attach design-standard objects to it."
+ },
+ {
+  "t": "openroads",
+  "q": "How do parametric constraints differ from point controls in OpenRoads corridors?",
+  "s": "Source · Bentley OpenRoads Documentation",
+  "a": "Parametric constraints vary template parameters (lane width, slope) along the corridor by station ranges; point controls move or lock individual template points to horizontal/vertical elements or 3D geometry. Use constraints for uniform design variations and point controls when a template point must follow surveyed features."
+ },
+ {
+  "t": "openroads",
+  "q": "What is the purpose of terrain models in OpenRoads Designer?",
+  "s": "Source · Bentley OpenRoads Documentation",
+  "a": "Terrain models aggregate survey points, breaklines, and filters into a smart surface that supports contours, drainage queries, and volume calculations. Because terrains are feature-based rather than triangulated black boxes, edits to source data regenerate the surface, and multiple terrains (existing, proposed) support cut/fill analysis."
+ },
+ {
+  "t": "solibri",
+  "q": "What is the difference between Solibri Model Checker's Ruleset Manager and Rule Set Editor?",
+  "s": "Source · Solibri Documentation",
+  "a": "The Ruleset Manager organizes and runs prebuilt testing rulesets (clash detection, code checking, BIM validation); the Ruleset Editor creates or modifies rulesets by combining individual rules with parameters. Standard practice: start from a shipped ruleset, tune thresholds in the editor, then save a firm-specific version."
+ },
+ {
+  "t": "solibri",
+  "q": "How does Solibri's ITO (Information Takeoff) differ from a quantity takeoff in cost software?",
+  "s": "Source · Solibri Documentation",
+  "a": "ITO extracts component information — counts, areas, lengths, and property values grouped by classification — directly from the federated IFC/SMC model for design verification. It is not a cost estimate: quantities feed downstream cost tools, and the value is auditing that model data (types, counts, levels) is correct before issuance."
+ },
+ {
+  "t": "solibri",
+  "q": "What is Solibri's role in a BIM coordination workflow compared to Navisworks?",
+  "s": "Source · Solibri Documentation",
+  "a": "Both federate models for clash and issue detection, but Solibri emphasizes rule-based quality assurance — building code checking, space validation, and information completeness — with a roles-based issue workflow. Many firms federate in IFC via Solibri for governance reviews while using Navisworks for construction-stage clash_pings."
+ },
+ {
+  "t": "solid-edge",
+  "q": "What is Siemens Synchronous Technology in Solid Edge?",
+  "s": "Source · Siemens Solid Edge Documentation",
+  "a": "Synchronous Technology combines direct (history-free) editing with parametric design intent: you can push-pull faces on imported STEP geometry while recognized relationships (concentric, symmetric, tangent) keep design rules. It coexists with the ordered (history-based) mode inside one model, letting teams mix both styles."
+ },
+ {
+  "t": "solid-edge",
+  "q": "What is the difference between Solid Edge's Ordered and Synchronous sheet metal environments?",
+  "s": "Source · Siemens Solid Edge Documentation",
+  "a": "Ordered sheet metal builds a feature history (flange, contour flange, dimple) that regenerates top-down; Synchronous sheet metal edits faces directly with machine-recognized bends remaining associative. Both produce flat patterns with the same bend tables — choose Ordered for design-intent-heavy parts and Synchronous for imported or concept work."
+ },
+ {
+  "t": "solid-edge",
+  "q": "How does Solid Edge manage standard parts in assemblies?",
+  "s": "Source · Siemens Solid Edge Documentation",
+  "a": "Solid Edge ships a Standard Parts database (bolts, bearings) with family-of-parts configurations that display simplified/spoolable representations for large assemblies. Occurrence properties let you switch between detailed and simplified display per assembly role, keeping heavyweight frames responsive."
+ },
+ {
+  "t": "staad-pro",
+  "q": "What is the difference between STAAD.Pro's STAAD space and STAAD plane model types?",
+  "s": "Source · STAAD.Pro Documentation",
+  "a": "STAAD space defines a 3D structure with all six degrees of freedom at nodes (frames in any direction); STAAD plane restricts a 2D frame in one plane. Use space for real 3D frames, plane only for idealized 2D portal or truss checks where out-of-plane actions are intentionally excluded."
+ },
+ {
+  "t": "staad-pro",
+  "q": "How do STAAD.Pro load combinations differ from repeat load cases?",
+  "s": "Source · STAAD.Pro Documentation",
+  "a": "Load combinations algebraically sum ANALYSIS results (valid for linear elastic cases), while REPEAT LOAD cases create a new load case by referencing prior case loads and re-run analysis effects — required when nonlinearity (tension-only members, supports, cables) makes superposition invalid. Choose repeat loads whenever any nonlinearity is present."
+ },
+ {
+  "t": "staad-pro",
+  "q": "What does STAAD.Pro's DIRECT vs STAAD design method mean in steel design parameters?",
+  "s": "Source · STAAD.Pro Documentation",
+  "a": "In AISC 360 parameters, DIRECT invokes the Direct Analysis Method (reduced stiffness, notional loads, K=1) for stability-sensitive frames; the alternative ASD/LRFD interaction methods rely on calculated K factors from alignment charts. Direct analysis is the modern default when capturing second-order effects honestly."
+ }
+]
