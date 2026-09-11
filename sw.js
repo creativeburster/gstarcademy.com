@@ -1,6 +1,6 @@
 // CAD Learn Hub — PWA Service Worker (sw.js)
-const CACHE_NAME = "gstarcademy-shell-v21";
-const DYNAMIC_CACHE = "gstarcademy-content-v21";
+const CACHE_NAME = "gstarcademy-shell-v22";
+const DYNAMIC_CACHE = "gstarcademy-content-v22";
 
 // Core App Shell Assets (Pre-cached for instant loading and 100% offline baseline)
 const ASSETS_TO_PRECACHE = [
@@ -66,8 +66,31 @@ self.addEventListener("fetch", (event) => {
     return url.pathname.endsWith(cleanAsset) || (cleanAsset === "/" && url.pathname === "/");
   });
 
+  const isHtmlNavigation = event.request.mode === "navigate" || 
+    (event.request.headers.get("accept") && event.request.headers.get("accept").includes("text/html"));
+
+  if (isHtmlNavigation) {
+    // Network-First for HTML navigation to ensure users always see freshest page updates
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const copy = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          return caches.match(event.request).then((cached) => {
+            return cached || caches.match("./offline") || caches.match("/offline");
+          });
+        })
+    );
+    return;
+  }
+
   if (isPrecached) {
-    // 1. Cache-First Strategy for static app shell to guarantee instantaneous loading
+    // 1. Cache-First Strategy for static assets (css, js, images) to guarantee instantaneous loading
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
         if (cachedResponse) {
