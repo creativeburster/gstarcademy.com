@@ -265,9 +265,10 @@ document.addEventListener("keydown", (ev) => {
 })();
 
 (function initContactForm() {
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("contact-form-status");
-  if (!form || !status) return;
+  const form = document.getElementById("site-contact-form") || document.getElementById("contact-form");
+  const status = document.getElementById("site-contact-form-status") || document.getElementById("contact-form-status");
+  if (!form || !status || form.dataset.bound === "1") return;
+  form.dataset.bound = "1";
 
   const submitBtn = form.querySelector('button[type="submit"]');
 

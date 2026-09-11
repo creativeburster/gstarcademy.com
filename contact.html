@@ -139,7 +139,7 @@
             <article class="card contact-form-card">
               <h2 class="contact-form-heading">Send us a message</h2>
               <p class="meta">Fill out the form below to reach our team. We aim to respond within 2 business days.</p>
-              <form id="contact-form" class="contact-form" action="https://formsubmit.co/591611431@qq.com" method="post" novalidate>
+              <form id="site-contact-form" class="contact-form" action="https://formsubmit.co/591611431@qq.com" method="post" novalidate>
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
                 <div class="contact-form-field">
@@ -171,10 +171,90 @@
                   ></textarea>
                 </div>
                 <div class="contact-form-actions">
-                  <button type="submit" class="btn btn-primary">Send Message</button>
+                  <button type="submit" class="btn btn-primary" id="site-contact-submit-btn">Send Message</button>
                 </div>
-                <p id="contact-form-status" class="contact-form-status" role="status" aria-live="polite" hidden></p>
+                <p id="site-contact-form-status" class="contact-form-status" role="status" aria-live="polite" hidden></p>
               </form>
+              <script>
+                (function() {
+                  var form = document.getElementById("site-contact-form");
+                  var status = document.getElementById("site-contact-form-status");
+                  var submitBtn = document.getElementById("site-contact-submit-btn");
+                  if (!form || !status) return;
+                  form.dataset.bound = "1";
+
+                  form.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    var name = (document.getElementById("contact-name") || {}).value || "";
+                    var email = (document.getElementById("contact-email") || {}).value || "";
+                    var topic = (document.getElementById("contact-topic") || {}).value || "general";
+                    var message = (document.getElementById("contact-message") || {}).value || "";
+
+                    name = name.trim();
+                    email = email.trim();
+                    message = message.trim();
+
+                    if (!name || !email || !message) {
+                      status.hidden = false;
+                      status.style.color = "#dc2626";
+                      status.textContent = "Please fill in all required fields (Name, Email, and Message).";
+                      return;
+                    }
+
+                    if (submitBtn) {
+                      submitBtn.disabled = true;
+                      submitBtn.textContent = "Sending...";
+                    }
+                    status.hidden = false;
+                    status.style.color = "var(--ink-text-soft)";
+                    status.textContent = "Sending your message...";
+
+                    fetch("https://formsubmit.co/ajax/591611431@qq.com", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                      },
+                      body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        topic: topic,
+                        message: message,
+                        _subject: "[Gstarcademy Contact] New message from " + name + " (" + topic + ")",
+                        _template: "table",
+                        _captcha: "false"
+                      })
+                    })
+                    .then(function(res) { return res.json(); })
+                    .then(function(data) {
+                      status.hidden = false;
+                      if (data.success === "true" || data.success === true) {
+                        status.style.color = "#16a34a";
+                        status.textContent = "✓ Thank you! Your message has been sent successfully. We will get back to you shortly.";
+                        form.reset();
+                      } else if (data.message && data.message.indexOf("Activation") !== -1) {
+                        status.style.color = "#d97706";
+                        status.textContent = "✓ FormSubmit requires one-time activation. A confirmation email has been sent to 591611431@qq.com. Please click the link inside it.";
+                        form.reset();
+                      } else {
+                        throw new Error(data.message || "Submission error");
+                      }
+                    })
+                    .catch(function(err) {
+                      console.error("[Form Submit Error]", err);
+                      status.hidden = false;
+                      status.style.color = "#dc2626";
+                      status.textContent = "Unable to send message automatically. Please write to will@blog.dwgfastview.com.";
+                    })
+                    .finally(function() {
+                      if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = "Send Message";
+                      }
+                    });
+                  });
+                })();
+              </script>
             </article>
           </div>
           <div class="contact-page-aside-col">
@@ -287,6 +367,6 @@
         <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
       </div>
     </footer>
-    <script src="/app.min.js?v=20260827" defer></script>
+    <script src="/app.min.js?v=20260911_v3" defer></script>
   </body>
 </html>
