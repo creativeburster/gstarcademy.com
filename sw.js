@@ -1,36 +1,35 @@
 // CAD Learn Hub — PWA Service Worker (sw.js)
-const CACHE_NAME = "gstarcademy-shell-v22";
-const DYNAMIC_CACHE = "gstarcademy-content-v22";
+const CACHE_NAME = "gstarcademy-shell-v23";
+const DYNAMIC_CACHE = "gstarcademy-content-v23";
 
 // Core App Shell Assets (Pre-cached for instant loading and 100% offline baseline)
+// Streamlined to essential core assets to avoid install aborts on large dynamic pages
 const ASSETS_TO_PRECACHE = [
   "./",
   "./styles.min.css",
   "./app.min.js",
   "./search.min.js",
-  "./knowledge.js",
-  "./d3.min.js",
   "./favicon.svg",
   "./manifest.json",
-  "./knowledge-base",
-  "./tutorials",
-  "./news",
-  "./kb-terms",
-  "./kb-faq",
-  "./kb-software",
-  "./about",
-  "./quiz",
-  "./offline",
-  "./data/search_nodes.json",
-  "./data/faq_entries.json"
+  "./offline"
 ];
 
-// Install Event: Pre-cache static shell resources
+// Install Event: Fault-tolerant pre-cache static shell resources
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("[Service Worker] Pre-caching Core Shell...");
-      return cache.addAll(ASSETS_TO_PRECACHE);
+      console.log("[Service Worker v23] Pre-caching Core Shell...");
+      return Promise.allSettled(
+        ASSETS_TO_PRECACHE.map((url) =>
+          fetch(url, { cache: "reload" })
+            .then((res) => {
+              if (res.ok) {
+                return cache.put(url, res);
+              }
+            })
+            .catch((err) => console.warn("[SW] Precache skipped for " + url, err))
+        )
+      );
     }).then(() => self.skipWaiting())
   );
 });
@@ -42,13 +41,20 @@ self.addEventListener("activate", (event) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME && key !== DYNAMIC_CACHE) {
-            console.log("[Service Worker] Removing legacy cache: ", key);
+            console.log("[Service Worker v23] Removing legacy cache: ", key);
             return caches.delete(key);
           }
         })
       );
     }).then(() => self.clients.claim())
   );
+});
+
+// Listen for SKIP_WAITING message
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
 // Fetch Event: Implement Cache-First for static shell, Stale-While-Revalidate for dynamic pages

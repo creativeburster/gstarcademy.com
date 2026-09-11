@@ -7,7 +7,24 @@ if ("serviceWorker" in navigator) {
     
     navigator.serviceWorker
       .register(swPath)
-      .then((reg) => console.log("[PWA] ServiceWorker registered with scope: ", reg.scope))
+      .then((reg) => {
+        console.log("[PWA] ServiceWorker registered with scope: ", reg.scope);
+        // Active check for updates
+        reg.update().catch(() => {});
+        if (reg.waiting) {
+          reg.waiting.postMessage({ type: "SKIP_WAITING" });
+        }
+        reg.addEventListener("updatefound", () => {
+          const newWorker = reg.installing;
+          if (newWorker) {
+            newWorker.addEventListener("statechange", () => {
+              if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+                newWorker.postMessage({ type: "SKIP_WAITING" });
+              }
+            });
+          }
+        });
+      })
       .catch((err) => console.error("[PWA] ServiceWorker registration failed: ", err));
   });
 }
