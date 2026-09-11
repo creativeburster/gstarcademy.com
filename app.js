@@ -264,15 +264,78 @@ document.addEventListener("keydown", (ev) => {
   });
 })();
 
-(function initContactFormDemo() {
+(function initContactForm() {
   const form = document.getElementById("contact-form");
   const status = document.getElementById("contact-form-status");
   if (!form || !status) return;
-  form.addEventListener("submit", (e) => {
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const nameInput = document.getElementById("contact-name");
+    const emailInput = document.getElementById("contact-email");
+    const topicInput = document.getElementById("contact-topic");
+    const messageInput = document.getElementById("contact-message");
+
+    const name = nameInput ? nameInput.value.trim() : "";
+    const email = emailInput ? emailInput.value.trim() : "";
+    const topic = topicInput ? topicInput.value : "general";
+    const message = messageInput ? messageInput.value.trim() : "";
+
+    if (!name || !email || !message) {
+      status.hidden = false;
+      status.style.color = "#dc2626";
+      status.textContent = "Please fill in all required fields (Name, Email, and Message).";
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+    }
     status.hidden = false;
-    status.textContent =
-      "Demo only: nothing was transmitted. For real inquiries, use the mailbox links on this page.";
+    status.style.color = "var(--ink-text-soft)";
+    status.textContent = "Sending your message...";
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/591611431@qq.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          topic: topic,
+          message: message,
+          _subject: `[Gstarcademy Contact] New message from ${name} (${topic})`,
+          _template: "table",
+          _captcha: "false"
+        })
+      });
+
+      const data = await response.json();
+      if (response.ok && (data.success === "true" || data.success === true || data.message)) {
+        status.hidden = false;
+        status.style.color = "#16a34a";
+        status.textContent = "✓ Thank you! Your message has been sent successfully. We will get back to you shortly.";
+        form.reset();
+      } else {
+        throw new Error(data.message || "Failed to send message");
+      }
+    } catch (err) {
+      console.error("[Contact Form Error]", err);
+      status.hidden = false;
+      status.style.color = "#dc2626";
+      status.textContent = "Failed to send message online. Please email us directly at will@blog.dwgfastview.com.";
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+      }
+    }
   });
 })();(function initTutorialFilters() {
   if (document.body.getAttribute("data-page") !== "tutorials") return;
