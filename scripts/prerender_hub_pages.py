@@ -36,14 +36,19 @@ def prerender_terms():
             card = soup.new_tag("div", attrs={"class": "kb-term-card", "style": "padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;"})
             
             # Tag badge
-            tag_val = item.get("tags", ["General CAD"])[0] if item.get("tags") else "General CAD"
+            raw_tags = item.get("tags", "")
+            if isinstance(raw_tags, list):
+                raw_tags = " ".join(raw_tags)
+            tag_tokens = [t.strip().upper() for t in str(raw_tags).split() if t.strip() and t.strip().lower() != "terms"]
+            tag_label = " / ".join(tag_tokens[:2]) if tag_tokens else "CAD CONCEPT"
             tag_span = soup.new_tag("span", attrs={"class": "chip pill-warn", "style": "font-size: 11px; margin-bottom: 8px; display: inline-block;"})
-            tag_span.string = tag_val
+            tag_span.string = tag_label
             card.append(tag_span)
             
             # Title
+            title_text = item.get("title", "")
             t_h3 = soup.new_tag("h3", attrs={"style": "margin: 6px 0 8px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);"})
-            t_h3.string = item.get("title", "")
+            t_h3.string = title_text
             card.append(t_h3)
             
             # Desc
@@ -52,7 +57,15 @@ def prerender_terms():
             card.append(p_desc)
             
             # Link to concept
-            concept_slug = re_slug(item.get("title", ""))
+            concept_slug = item.get("slug") or re_slug(title_text)
+            starter_slug_map = {
+                "constraint": "constraints-autocad",
+                "dwg-compatibility-mode": "dwg-file-format",
+                "command-alias-pgp": "cui-autocad",
+                "point-cloud-scan": "point-cloud-autocad",
+            }
+            if concept_slug in starter_slug_map:
+                concept_slug = starter_slug_map[concept_slug]
             a_link = soup.new_tag("a", href=f"/kb/concepts/{concept_slug}", attrs={"style": "font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none;"})
             a_link.string = "Explore Concept & Graph Node →"
             card.append(a_link)
@@ -83,11 +96,27 @@ def prerender_terms():
             ul = soup.new_tag("ul", attrs={"style": "list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px;"})
             for term in terms_list:
                 li = soup.new_tag("li")
-                slug = term.get("slug", re_slug(term.get("name", "")))
-                name = term.get("name", "")
-                t_link = soup.new_tag("a", href=f"/kb/concepts/{slug}", attrs={"style": "color: var(--ink-text); text-decoration: none; font-size: 14px; font-weight: 500;"})
-                t_link.string = name
+                raw_href = term.get("href", "")
+                if raw_href.startswith("./"):
+                    href = "/" + raw_href[2:]
+                elif not raw_href.startswith("/"):
+                    href = "/" + raw_href
+                else:
+                    href = raw_href
+                title = term.get("title", "").replace("&amp;", "&")
+                meta = term.get("meta", "")
+                
+                t_link = soup.new_tag("a", href=href, attrs={"style": "color: var(--ink-text); text-decoration: none; font-size: 14px; font-weight: 500;"})
+                strong = soup.new_tag("strong")
+                strong.string = title
+                t_link.append(strong)
                 li.append(t_link)
+                
+                if meta:
+                    meta_span = soup.new_tag("span", attrs={"class": "meta", "style": "font-size: 12px; color: var(--ink-text-soft); margin-left: 6px;"})
+                    meta_span.string = meta
+                    li.append(meta_span)
+                
                 ul.append(li)
             group_div.append(ul)
             idx_container.append(group_div)

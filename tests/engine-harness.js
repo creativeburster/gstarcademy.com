@@ -116,6 +116,7 @@ const heartsBroken = () => byId("quiz-hearts-container").children.filter((c) => 
 const stripTags = (s) => s.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim().replace(/^[A-D] /, "");
 
 const ORACLE = {
+  "how does a type parameter differ": { c: ["A type parameter change updates every occurrence"], multi: false },
   "structural role of a 'Family'": { c: ["A reusable component containing parametric"], multi: false },
   "Shared Coordinates' critical": { c: ["It aligns independent architectural"], multi: false },
   "Scan-to-BIM workflows": { c: ["It registers the point cloud"], multi: false },
