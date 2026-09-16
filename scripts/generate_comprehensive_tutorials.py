@@ -159,6 +159,60 @@ def generate_youtube_library():
         })
         vid_idx += 1
 
+        # 6. Photorealistic Rendering & Visual Presentation
+        ch_name, ch_thumb = CHANNELS[(vid_idx + 2) % len(CHANNELS)]
+        vid_id = f"yt_{sw_slug}_render_{vid_idx}"
+        videos.append({
+            "video_id": vid_id,
+            "software": sw_slug,
+            "task": "rendering",
+            "level": "intermediate",
+            "title": f"{sw_name} Photorealistic Material Lighting & Camera Setup Guide",
+            "description": f"Learn how to configure PBR shaders, HDRI physical lighting, and depth-of-field camera views to produce client-ready visual presentations in {sw_name}.",
+            "channel_title": ch_name,
+            "published_at": "2026-03-22T14:20:00Z",
+            "thumbnail_url": ch_thumb,
+            "duration_iso": "PT32M10S",
+            "duration_label": "32m 10s"
+        })
+        vid_idx += 1
+
+        # 7. Production Drawing & Detailing Standards (ISO/ASME)
+        ch_name, ch_thumb = CHANNELS[(vid_idx + 4) % len(CHANNELS)]
+        vid_id = f"yt_{sw_slug}_detail_{vid_idx}"
+        videos.append({
+            "video_id": vid_id,
+            "software": sw_slug,
+            "task": "2d-drafting",
+            "level": "pro",
+            "title": f"{sw_name} Production Drawing Setup, Section Views & ISO/ASME Detailing",
+            "description": f"Produce contract-grade 2D sheets, broken-out sections, title blocks, and GD&T tolerancing callouts derived directly from {sw_name} assemblies.",
+            "channel_title": ch_name,
+            "published_at": "2026-05-08T10:45:00Z",
+            "thumbnail_url": ch_thumb,
+            "duration_iso": "PT38M50S",
+            "duration_label": "38m 50s"
+        })
+        vid_idx += 1
+
+        # 8. Large Assembly & Performance Optimization
+        ch_name, ch_thumb = CHANNELS[(vid_idx + 1) % len(CHANNELS)]
+        vid_id = f"yt_{sw_slug}_perf_{vid_idx}"
+        videos.append({
+            "video_id": vid_id,
+            "software": sw_slug,
+            "task": "assemblies" if sw_slug not in ["autocad", "gstarcad"] else "customization-api",
+            "level": "pro",
+            "title": f"{sw_name} Large Assembly Diagnostic & Performance Tuning Guide",
+            "description": f"Identify rebuild bottlenecks, resolve circular references, suppress unused components, and maximize graphics viewport frame rates in {sw_name}.",
+            "channel_title": ch_name,
+            "published_at": "2026-06-30T16:15:00Z",
+            "thumbnail_url": ch_thumb,
+            "duration_iso": "PT27M40S",
+            "duration_label": "27m 40s"
+        })
+        vid_idx += 1
+
     return videos
 
 

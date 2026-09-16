@@ -407,9 +407,10 @@ document.addEventListener("keydown", (ev) => {
       const matchesSoftware =
         state.software === "all" || itemSoftwares.includes(state.software);
 
-      // Task filter
+      // Task filter (supports space-separated aliases)
+      const taskList = (item.getAttribute("data-task") || "").split(/\s+/).filter(Boolean);
       const matchesTask =
-        state.task === "all" || item.getAttribute("data-task") === state.task;
+        state.task === "all" || taskList.includes(state.task);
 
       // Level filter
       const matchesLevel =
@@ -546,6 +547,12 @@ document.addEventListener("keydown", (ev) => {
       else if (lowerQuery.includes("gstarcad")) mappedSoftware = "gstarcad";
       else if (lowerQuery.includes("gstarsoft")) mappedSoftware = "gstarcad";
       else if (lowerQuery.includes("rhino")) mappedSoftware = "rhino";
+      else if (lowerQuery.includes("blender")) mappedSoftware = "blender";
+      else if (lowerQuery.includes("freecad")) mappedSoftware = "freecad";
+      else if (lowerQuery.includes("sketchup")) mappedSoftware = "sketchup";
+      else if (lowerQuery.includes("archicad")) mappedSoftware = "archicad";
+      else if (lowerQuery.includes("onshape")) mappedSoftware = "onshape";
+      else if (lowerQuery.includes("ansys") || lowerQuery.includes("abaqus")) mappedSoftware = "ansys";
 
       if (mappedSoftware) {
         const chip = document.querySelector(`.chips[data-filter-group="software"] .chip[data-filter-value="${mappedSoftware}"]`);

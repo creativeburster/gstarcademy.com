@@ -179,19 +179,21 @@ def merge_editorial(videos: list[dict[str, Any]], editorial: dict[str, Any]) -> 
         ed = editorial.get(vid) if isinstance(editorial, dict) else None
         if not isinstance(ed, dict):
             ed = {}
-        v["editorial_note"] = str(ed.get("editorial_note") or "").strip() or (
+        v["editorial_note"] = str(ed.get("editorial_note") or "").strip() or v.get("editorial_note") or (
             "Indexed from public YouTube metadata; opens the original watch page on YouTube."
         )
-        v["software"] = str(ed.get("software") or "").strip() or "—"
-        v["task"] = str(ed.get("task") or "").strip() or "—"
-        v["difficulty"] = str(ed.get("difficulty") or "").strip() or "—"
-        v["price"] = "free"
-        v["platform"] = "YouTube"
-        v["rating"] = float(ed.get("rating") or 4.6)
-        v["prerequisites"] = str(ed.get("prerequisites") or "").strip()
+        v["software"] = str(ed.get("software") or "").strip() or v.get("software") or "—"
+        v["task"] = str(ed.get("task") or "").strip() or v.get("task") or "—"
+        v["difficulty"] = str(ed.get("difficulty") or "").strip() or v.get("level") or v.get("difficulty") or "—"
+        v["price"] = str(ed.get("price") or "").strip() or v.get("price") or "free"
+        v["platform"] = str(ed.get("platform") or "").strip() or v.get("platform") or "YouTube"
+        v["rating"] = float(ed.get("rating") or v.get("rating") or 4.6)
+        v["prerequisites"] = str(ed.get("prerequisites") or "").strip() or v.get("prerequisites") or ""
         tags = ed.get("tags")
         if isinstance(tags, list) and tags:
             v["tags"] = [str(t) for t in tags if str(t).strip()]
+        elif v.get("tags"):
+            v["tags"] = [str(t) for t in v["tags"] if str(t).strip()]
         else:
             v["tags"] = ["YouTube", "Video"]
 
@@ -272,8 +274,50 @@ def render_youtube_html(
             prereq = html.escape(str(v.get("prerequisites") or "").strip())
             prereq_attr = f' data-prerequisites="{prereq}"' if prereq else ''
 
+            # Software alias mapping
+            soft_lower = soft.lower()
+            soft_aliases = [soft_lower]
+            if soft_lower in ["fusion-360", "fusion"]:
+                soft_aliases.extend(["fusion", "fusion-360"])
+            elif soft_lower in ["civil-3d", "civil3d"]:
+                soft_aliases.extend(["civil", "civil3d", "civil-3d"])
+            elif soft_lower in ["siemens-nx", "nx"]:
+                soft_aliases.extend(["nx", "siemens", "siemens-nx"])
+            elif soft_lower in ["rhino", "rhinoceros"]:
+                soft_aliases.extend(["rhino", "rhinoceros"])
+            elif soft_lower in ["ansys-mechanical", "ansys-fluent", "ansys"]:
+                soft_aliases.extend(["ansys", "fea", "cfd"])
+            elif soft_lower == "solidworks":
+                soft_aliases.append("sw")
+            elif soft_lower == "gstarcad":
+                soft_aliases.append("gstarsoft")
+            soft_attr = " ".join(dict.fromkeys(soft_aliases))
+
+            # Task alias mapping
+            task_lower = task.lower()
+            task_aliases = [task_lower]
+            if "bim" in task_lower:
+                task_aliases.extend(["bim", "bim-coordination"])
+            if "drafting" in task_lower or "2d" in task_lower:
+                task_aliases.extend(["2d-drafting", "drafting"])
+            if "modeling" in task_lower or "3d" in task_lower:
+                task_aliases.extend(["3d-modeling", "modeling"])
+            if "assembly" in task_lower or "assemblies" in task_lower:
+                task_aliases.extend(["assemblies", "3d-modeling"])
+            if "cam" in task_lower or "cnc" in task_lower:
+                task_aliases.extend(["cam-cnc", "manufacturing"])
+            if "simulation" in task_lower or "fea" in task_lower or "cfd" in task_lower:
+                task_aliases.extend(["simulation-fea", "simulation"])
+            if "render" in task_lower:
+                task_aliases.extend(["rendering", "viz"])
+            if "getting-started" in task_lower or "beginner" in task_lower:
+                task_aliases.extend(["getting-started", "fundamentals"])
+            if "api" in task_lower or "lisp" in task_lower or "script" in task_lower or "custom" in task_lower:
+                task_aliases.extend(["customization-api", "api"])
+            task_attr = " ".join(dict.fromkeys(task_aliases))
+
             item_class = "tutorial-item tutorial-item--youtube" if platform == "YouTube" else "tutorial-item"
-            lines.append(f'            <article class="{item_class}" data-software="{soft.lower()}" data-task="{task.lower()}" data-level="{diff.lower()}" data-price="{price.lower()}" data-duration="{dur_secs}" data-rating="{rating}" data-published="{published}"{prereq_attr}>')
+            lines.append(f'            <article class="{item_class}" data-software="{soft_attr}" data-task="{task_attr}" data-level="{diff.lower()}" data-price="{price.lower()}" data-duration="{dur_secs}" data-rating="{rating}" data-published="{published}"{prereq_attr}>')
             
             if v.get("thumbnail_url"):
                 thumb = html.escape(v["thumbnail_url"], quote=True)

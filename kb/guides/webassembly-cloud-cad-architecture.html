@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};window.gtag=gtag;window.addEventListener('load',function(){const i=()=>{const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config','G-ZV3YR72933');};'requestIdleCallback' in window?requestIdleCallback(i):setTimeout(i,1);});</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gstarcademy Editorial Team" />
+    <meta name="publisher" content="Gstarcademy" />
+    <title>WebAssembly &amp; WebGPU Cloud CAD Architecture | Gstarcademy</title>
+    <meta name="description" content="Technical deep-dive into modern browser-based CAD engines: WebAssembly C++ execution, WebGPU graphics pipelines, CRDT real-time multi-user collaboration, and streaming." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/guides/webassembly-cloud-cad-architecture" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta property="og:type" content="article" />
+    <meta content="WebAssembly &amp; WebGPU Cloud CAD Architecture" property="og:title" />
+    <meta content="Technical deep-dive into modern browser-based CAD engines: WebAssembly C++ execution, WebGPU graphics pipelines, CRDT real-time multi-user collaboration, and streaming." property="og:description" />
+    <meta content="https://gstarcademy.com/kb/guides/webassembly-cloud-cad-architecture" property="og:url" />
+    <meta content="Gstarcademy" property="og:site_name" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"WebAssembly & WebGPU Cloud CAD Architecture","description":"Architectural exploration of how modern CAD platforms like Onshape, AutoCAD Web, and GstarCAD 365 run high-performance geometry kernels in web browsers.","url":"https://gstarcademy.com/kb/guides/webassembly-cloud-cad-architecture","datePublished":"2026-09-16","dateModified":"2026-09-16","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Guides","item":"https://gstarcademy.com/kb/guides/"},{"@type":"ListItem","position":4,"name":"Cloud CAD Architecture","item":"https://gstarcademy.com/kb/guides/webassembly-cloud-cad-architecture"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top:32px;max-width:920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../">Home</a> /
+        <a href="../../knowledge-base">Knowledge Base</a> /
+        <a href="./">Guides</a> /
+        <span aria-current="page">Cloud CAD Architecture</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom:28px;">
+          <span class="chip pill-ok">Software Architecture &middot; Cloud Engineering</span>
+          <h1 style="margin-top:12px;">WebAssembly &amp; WebGPU Cloud CAD Architecture</h1>
+          <p class="hero-sub">How modern engineering platforms execute millions of lines of legacy C++ drafting code and render massive 3D BIM models inside standard web browsers without desktop installations.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> Gstarcademy Editorial Team</span>
+          <span><strong>Updated</strong> <time datetime="2026-09-16">2026-09-16</time></span>
+          <span><a href="../../editorial-process">Editorial process</a></span>
+        </div>
+
+        <section class="kb-concept-section">
+          <h2>1. The Historical Barrier to Web-Based CAD</h2>
+          <p>For decades, Computer-Aided Design remained anchored to heavyweight Windows desktop workstations. CAD engines require near-zero latency for geometry computation, complex B-Rep surface boundary math, and direct memory access to manipulate millions of coordinate vertices. JavaScript was simply too slow and lacked predictable garbage-collection behavior for engineering workloads.</p>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>2. The Modern Cloud CAD Technology Stack</h2>
+          <div style="display: grid; gap: 16px; margin-top: 16px;">
+            <div style="background: var(--ink-surface-2); padding: 20px; border-radius: 12px; border: 1px solid var(--ink-line);">
+              <h3 style="margin: 0 0 8px 0; font-size: 1.15rem; color: var(--accent);">WebAssembly (Wasm) Engine Execution</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-text-soft);">
+                Using LLVM compilers (like Emscripten), vendors can compile 30-year-old C and C++ drawing algorithms directly into compact, sandboxed WebAssembly binaries. Wasm executes at near-native CPU speeds (within 1.2x of native C++), enabling client-side spatial indexing (R-Trees), snap calculations, and binary DWG parsing directly inside Chrome or Safari.
+              </p>
+            </div>
+            <div style="background: var(--ink-surface-2); padding: 20px; border-radius: 12px; border: 1px solid var(--ink-line);">
+              <h3 style="margin: 0 0 8px 0; font-size: 1.15rem; color: var(--accent);">WebGPU: Direct Hardware Acceleration</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-text-soft);">
+                WebGPU replaces the aging WebGL API, giving web applications direct low-overhead access to modern GPU compute shaders and modern graphics pipelines (DirectX 12, Metal, Vulkan). Cloud CAD viewers can issue indirect draw calls to render 100,000 architectural building elements at 60 FPS without overloading the browser's main JavaScript thread.
+              </p>
+            </div>
+            <div style="background: var(--ink-surface-2); padding: 20px; border-radius: 12px; border: 1px solid var(--ink-line);">
+              <h3 style="margin: 0 0 8px 0; font-size: 1.15rem; color: var(--accent);">CRDTs &amp; Real-Time Multi-User Collaboration</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-text-soft);">
+                Traditional CAD files lock when one user opens them. Cloud platforms (such as Onshape and GstarCAD 365) replace file-based locks with database-driven transaction logs using Conflict-free Replicated Data Types (CRDTs). Multiple engineers can model different parts of the same assembly concurrently with Google Docs-style live presence and instantaneous branch-merge history.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>3. Hybrid Client-Server Architecture</h2>
+          <p>Not all CAD math runs in the client browser. Heavy operations—such as multi-million element Finite Element Analysis (FEA), non-manifold boolean cutouts, and generative design iterations—are offloaded to elastic cloud worker clusters running on Linux servers. The server transmits lightweight render meshes or streamable 3D tiles back to the client's WebGPU viewport, maximizing mobile battery life.</p>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 32px;">
+          <h2>Learn More</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a class="btn" href="../software/onshape">Onshape Architecture</a>
+            <a class="btn" href="../software/gstarcad-365">GstarCAD 365 Cloud</a>
+            <a class="btn" href="./cloud-cad-vs-desktop">Cloud vs Desktop Guide</a>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer class="footer site-footer" style="margin-top: 48px;">
+      <div class="container site-footer-bottom"><p>&copy; 2026 Gstarcademy. All rights reserved.</p></div>
+    </footer>
+  </body>
+</html>
