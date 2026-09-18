@@ -210,14 +210,18 @@ def main() -> int:
         ("CAD Skills Challenge Quiz", "Interactive CAD quiz testing multi-discipline skills.", "/quiz"),
         ("About Gstarcademy", "Project mission, editorial team, and peer-review process.", "/about"),
         ("Editorial Process & Sources", "Peer review guidelines, sourcing policies, and E-E-A-T criteria.", "/editorial-process"),
+        ("CADGuide.tools Engineering Toolbox & Comparison", "560+ client-side engineering calculators (gears, hydraulics, beams, Ohm's law) and independent CAD/BIM software comparisons.", "/cadguide-tools"),
     ]
     for h_title, h_hint, h_url in hubs:
         if h_title not in seen_ids:
             seen_ids.add(h_title)
+            tags = ["hub", "portal", "navigation"]
+            if "cadguide" in h_url:
+                tags = ["cadguide", "tools", "toolbox", "calculator", "compare", "matchmaker"]
             nodes_list.append({
                 "id": h_title,
                 "type": "hub",
-                "tags": ["hub", "portal", "navigation"],
+                "tags": tags,
                 "hint": h_hint,
                 "url": h_url
             })
