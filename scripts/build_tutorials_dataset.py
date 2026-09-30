@@ -1,0 +1,701 @@
+import json
+
+# Comprehensive rewritten tutorial dataset based on official GstarCAD & DWG FastView sources
+tutorials = [
+  # ── SECTION 1: GstarCAD 2027 & Core Drafting (7 lessons) ──
+  {
+    "id": "gcad-core-101",
+    "software": "gstarcad",
+    "product": "GstarCAD 2027 Pro",
+    "task": "2d-drafting",
+    "level": "beginner",
+    "title": "GstarCAD 2027 Quick Start: 2D Drafting Fundamentals & Modern Workspace",
+    "meta_info": "Official GstarCAD Academy · Level: Beginner · Duration: 45 min · Rating: ★ 4.98",
+    "editorial_note": "Get started with GstarCAD 2027's newly optimized multi-core graphics engine. Master the ribbon interface, dynamic input, precision object snaps (OSNAP), and basic drawing commands (Line, Polyline, Circle, Rectangle, Arc).",
+    "tags": ["GstarCAD 2027", "2D Drafting", "Beginner", "Official"],
+    "url": "https://www.gstarcad.net/video/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.98,
+    "duration_minutes": 45,
+    "key_steps": [
+      "Familiarize with the modern Ribbon tabs and Classic CAD workspace in GstarCAD 2027",
+      "Configure drawing units, limits, and grid display with multi-core acceleration",
+      "Master Dynamic Input and relative coordinate entry (@X,Y)",
+      "Use Object Snaps (Endpoint, Midpoint, Center, Intersection) for geometric accuracy",
+      "Save drawings in native DWG 2018/2024/2027 format with absolute fidelity"
+    ]
+  },
+  {
+    "id": "gcad-core-102",
+    "software": "gstarcad",
+    "product": "GstarCAD 2027 Pro",
+    "task": "2d-drafting",
+    "level": "beginner",
+    "title": "Layer Management & Industry Standard Drawing Organization",
+    "meta_info": "Official GstarCAD Academy · Level: Beginner · Duration: 30 min · Rating: ★ 4.92",
+    "editorial_note": "A deep dive into professional layer strategies, ByLayer property overrides, line weights, color coding, and saving/restoring Layer States for architectural and mechanical drawings.",
+    "tags": ["GstarCAD", "Layers", "CAD Standards", "Best Practices"],
+    "url": "https://www.gstarcad.net/video/",
+    "thumbnail_url": "./images/tutorials/cad_roadmap_starter.webp",
+    "rating": 4.92,
+    "duration_minutes": 30,
+    "key_steps": [
+      "Create disciplined layers following ISO 13567 / AIA standards",
+      "Configure Lineweight, Linetype, and Color properties to ByLayer",
+      "Use Layer Isolate (LAYISO) and Layer Walk (LAYWALK) for complex inspections",
+      "Save Layer States to switch between architectural, structural, and MEP views",
+      "Freeze and thaw layers per layout viewport"
+    ]
+  },
+  {
+    "id": "gcad-core-103",
+    "software": "gstarcad",
+    "product": "GstarCAD 2027 Pro",
+    "task": "productivity",
+    "level": "intermediate",
+    "title": "Dynamic Blocks & Attribute Extraction in GstarCAD",
+    "meta_info": "Official GstarCAD Academy · Level: Intermediate · Duration: 40 min · Rating: ★ 4.94",
+    "editorial_note": "Learn to author parametric Dynamic Blocks with stretch, visibility, and alignment grips. Extract block attributes automatically into tabular schedules and spreadsheets.",
+    "tags": ["GstarCAD", "Dynamic Blocks", "Attributes", "Productivity"],
+    "url": "https://www.gstarcad.net/video/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.94,
+    "duration_minutes": 40,
+    "key_steps": [
+      "Open the Block Editor (BEDIT) and define parameters and actions",
+      "Add Visibility States for multi-symbol single block components",
+      "Define Stretch and Flip grips for doors, windows, and mechanical valves",
+      "Insert Attribute Definitions (ATTDEF) for tag numbers and part specs",
+      "Execute EATTEXT (Attribute Extraction) to export tabular schedules to Excel"
+    ]
+  },
+  {
+    "id": "gcad-core-104",
+    "software": "gstarcad",
+    "product": "GstarCAD 2027 Pro",
+    "task": "productivity",
+    "level": "intermediate",
+    "title": "GstarCAD Exclusive Productivity: Magnifier, Barcode & Drawing Compare",
+    "meta_info": "Official GstarCAD Academy · Level: Intermediate · Duration: 35 min · Rating: ★ 4.98",
+    "editorial_note": "Leverage GstarCAD's unique patented features: Magnifier for micro-inspections without zooming viewports, automatic QR Code / Barcode generation, and visual DWG Drawing Compare (CMP).",
+    "tags": ["GstarCAD Exclusive", "Magnifier", "Drawing Compare", "QR Code"],
+    "url": "https://www.gstarcad.net/video/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.98,
+    "duration_minutes": 35,
+    "key_steps": [
+      "Activate the interactive Magnifier tool to inspect dense drawings without zooming the viewport",
+      "Generate dynamic QR codes and Barcodes linked to drawing titles and revisions",
+      "Run CMP (Drawing Compare) to visually spot differences between two DWG versions in contrasting colors",
+      "Use Area Table to automatically calculate closed boundary areas and export to tables"
+    ]
+  },
+  {
+    "id": "gcad-core-105",
+    "software": "gstarcad",
+    "product": "GstarCAD 2027 Pro",
+    "task": "3d-modeling",
+    "level": "intermediate",
+    "title": "3D Solid Modeling & Boolean Editing in GstarCAD Pro",
+    "meta_info": "Official GstarCAD Academy · Level: Intermediate · Duration: 50 min · Rating: ★ 4.89",
+    "editorial_note": "Create parametric 3D solid bodies using Extrude, Revolve, Sweep, and Loft. Perform Union, Subtract, and Intersect operations with dynamic UCS coordinate alignment.",
+    "tags": ["GstarCAD", "3D Solids", "Boolean", "UCS"],
+    "url": "https://www.gstarcad.net/video/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.89,
+    "duration_minutes": 50,
+    "key_steps": [
+      "Switch to 3D Modeling workspace and configure Visual Styles (Shaded, Conceptual)",
+      "Set dynamic UCS alignment onto 3D model faces",
+      "Perform solid extrusions and sweeps from closed 2D profiles",
+      "Execute Boolean Union, Subtract, and Intersect operations",
+      "Generate 2D drafting views from 3D models using FLATSHOT and SECTIONPLANE"
+    ]
+  },
+  {
+    "id": "gcad-core-106",
+    "software": "migration",
+    "product": "GstarCAD Migration",
+    "task": "migration",
+    "level": "all-levels",
+    "title": "AutoCAD to GstarCAD Transition: Templates, Fonts & LISP Migration",
+    "meta_info": "Official GstarCAD Academy · Level: All Levels · Duration: 30 min · Rating: ★ 4.97",
+    "editorial_note": "Step-by-step corporate migration guide: importing .DWT templates, .CTB plot styles, SHX CAD fonts, and verifying AutoLISP compatibility for an effortless AutoCAD replacement.",
+    "tags": ["Migration", "AutoCAD", "LISP", "CTB", "Templates"],
+    "url": "/migration",
+    "thumbnail_url": "./images/tutorials/cad_roadmap_starter.webp",
+    "rating": 4.97,
+    "duration_minutes": 30,
+    "key_steps": [
+      "Copy existing .DWT templates to GstarCAD template folder",
+      "Map corporate plot style tables (.CTB / .STB) into the Plotters directory",
+      "Copy proprietary SHX and TrueType fonts to prevent missing font dialogs",
+      "Test AutoLISP and Visual LISP routines via APPLOAD and add to Startup Suite",
+      "Verify command alias custom mappings in gcad.pgp"
+    ]
+  },
+  {
+    "id": "gcad-core-107",
+    "software": "gstarcad",
+    "product": "GstarCAD Cloud & 365",
+    "task": "mobile-cloud",
+    "level": "intermediate",
+    "title": "GstarCAD 365: Cloud Collaboration, Version Control & Team Workspaces",
+    "meta_info": "Official GstarCAD Academy · Level: Intermediate · Duration: 35 min · Rating: ★ 4.94",
+    "editorial_note": "Discover GstarCAD 365's cloud-native collaboration engine. Synchronize drawing repositories, manage multi-user permissions, lock drawings during check-outs, and review version histories.",
+    "tags": ["GstarCAD 365", "Cloud CAD", "Collaboration", "Version Control"],
+    "url": "https://enweb.gstarcad.net/gstarcad365/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.94,
+    "duration_minutes": 35,
+    "key_steps": [
+      "Establish enterprise cloud projects and allocate granular role-based permissions",
+      "Sync local DWG folders to GstarCAD 365 Cloud with automatic change detection",
+      "Utilize drawing check-in/check-out locks to eliminate editing conflicts in concurrent teams",
+      "Audit chronological drawing revisions and revert changes with a single click",
+      "Share password-protected view-only links with external contractors and clients"
+    ]
+  },
+
+  # ── SECTION 2: GstarRender AI & Advanced Solutions (2 lessons) ──
+  {
+    "id": "gcad-ai-108",
+    "software": "gstarcad",
+    "product": "GstarRender AI",
+    "task": "rendering",
+    "level": "intermediate",
+    "title": "GstarRender AI: Generating Photorealistic Architectural Visualizations from CAD",
+    "meta_info": "Official GstarCAD Academy · Level: Intermediate · Duration: 25 min · Rating: ★ 4.96",
+    "editorial_note": "Transform 2D architectural plans and 3D line drawings into photorealistic interior and exterior renderings using GstarRender's built-in generative AI design engine.",
+    "tags": ["GstarRender", "AI Rendering", "Architecture", "Visualization"],
+    "url": "https://enweb.gstarcad.net/ai/render/?clientType=Gs_PC&fromEvent=nav",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.96,
+    "duration_minutes": 25,
+    "key_steps": [
+      "Export CAD wireframes, floor plans, or massing models directly to GstarRender AI",
+      "Select architectural aesthetic presets (Scandinavian, Modern Minimalist, Industrial, Luxury)",
+      "Define atmospheric lighting parameters: daylight, golden hour, dusk, and interior spotlights",
+      "Generate multiple high-resolution concept iterations in under 30 seconds",
+      "Export ultra-HD renders for client pitches and marketing brochures"
+    ]
+  },
+  {
+    "id": "gcad-bim-109",
+    "software": "architecture",
+    "product": "GstarBIM & Houseplan 2.0",
+    "task": "3d-modeling",
+    "level": "intermediate",
+    "title": "Houseplan 2.0 & GstarBIM: Rapid 3D Floor Planning to OpenBIM IFC Export",
+    "meta_info": "Official GstarCAD Academy · Level: Intermediate · Duration: 40 min · Rating: ★ 4.93",
+    "editorial_note": "Create fast 3D residential models with Houseplan 2.0. Generate instant wall layouts, parametric furniture arrangements, and federate architectural models into GstarBIM via IFC.",
+    "tags": ["Houseplan 2.0", "GstarBIM", "OpenBIM", "IFC Export"],
+    "url": "https://www.gstarcad.net/houseplan/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.93,
+    "duration_minutes": 40,
+    "key_steps": [
+      "Trace 2D DWG sketches into intelligent 3D rooms using Houseplan 2.0's wall builder",
+      "Populate spaces with extensive parametric libraries for cabinetry, doors, windows, and MEP",
+      "Simulate real-time sun angles and shadow trajectories for daylight analysis",
+      "Export models seamlessly to standard IFC 2x3 / IFC 4 formats",
+      "Integrate building components into GstarBIM for clash detection and quantity takeoffs"
+    ]
+  },
+
+  # ── SECTION 3: DWG FastView Field Workflows & Tutorials (11 lessons) ──
+  {
+    "id": "gcad-fv-201",
+    "software": "fastview",
+    "product": "DWG FastView Mobile",
+    "task": "mobile-cloud",
+    "level": "beginner",
+    "title": "DWG FastView Mobile: Fast DWG Viewing & Navigation on iOS & Android",
+    "meta_info": "Official DWG FastView · Level: Beginner · Duration: 20 min · Rating: ★ 4.96",
+    "editorial_note": "Open 100MB+ DWG drawings in seconds on mobile devices. Master multi-touch pinch-to-zoom, 3D orbit navigation, and offline drawing caching on job sites.",
+    "tags": ["DWG FastView", "Mobile", "iOS", "Android", "Viewer"],
+    "url": "/tutorial-fastview",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.96,
+    "duration_minutes": 20,
+    "key_steps": [
+      "Import DWG files via cloud storage (Google Drive, Dropbox, OneDrive) or local storage",
+      "Navigate large drawings smoothly with multi-touch pinch and two-finger pan",
+      "Switch between Model space and multiple Layout viewports",
+      "Control layer visibility, lock states, and color overrides on mobile",
+      "Enable offline mode for remote construction site inspection without cellular signal"
+    ]
+  },
+  {
+    "id": "gcad-fv-202",
+    "software": "fastview",
+    "product": "DWG FastView Mobile",
+    "task": "mobile-cloud",
+    "level": "intermediate",
+    "title": "Precision Field Measurement: Continuous Distance, Perimeters & Polygon Areas",
+    "meta_info": "Official DWG FastView · Level: Intermediate · Duration: 25 min · Rating: ★ 4.95",
+    "editorial_note": "Perform millimeter-accurate measurements on job sites. Use the optical magnifying loupe to snap to geometry, measure polyline paths, and calculate cumulative lengths and boundary areas.",
+    "tags": ["DWG FastView", "Measurement", "Field Work", "Mobile Accuracy"],
+    "url": "/tutorial-fastview#measure",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.95,
+    "duration_minutes": 25,
+    "key_steps": [
+      "Snap precisely to endpoints, midpoints, and intersections using the optical magnifying lens",
+      "Measure linear point-to-point distances and slope dimensions",
+      "Calculate continuous polyline perimeters and cumulative lengths without resetting",
+      "Calculate irregular closed boundary surface areas and volume estimations",
+      "Auto-record measurement histories and export tabular dimension logs to CSV"
+    ]
+  },
+  {
+    "id": "gcad-fv-203",
+    "software": "fastview",
+    "product": "DWG FastView Mobile",
+    "task": "mobile-cloud",
+    "level": "intermediate",
+    "title": "Advanced Measuring Techniques: Slope, Point-to-Line Distance & Radius",
+    "meta_info": "Official DWG FastView · Level: Intermediate · Duration: 25 min · Rating: ★ 4.97",
+    "editorial_note": "Master specialized surveying measurements on mobile: measuring ramp slopes and grading percentages, perpendicular distances from a point to a line, and circular radius extraction.",
+    "tags": ["DWG FastView", "Slope Measurement", "Radius", "Perpendicular Distance"],
+    "url": "/tutorial-fastview#measure",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.97,
+    "duration_minutes": 25,
+    "key_steps": [
+      "Select two elevation points to automatically calculate vertical drop, horizontal run, and percentage slope",
+      "Calculate true perpendicular offset distance from an isolated point to any straight boundary segment",
+      "Extract true radius and diameter of arc segments and round fillets with a single tap",
+      "Configure dimension units (mm, cm, m, inch, ft) and precision tolerances in app settings",
+      "Lock measurement anchors to prevent accidental touches during field movement"
+    ]
+  },
+  {
+    "id": "gcad-fv-204",
+    "software": "fastview",
+    "product": "DWG FastView Mobile",
+    "task": "mobile-cloud",
+    "level": "intermediate",
+    "title": "Video Annotation: Pin Real-World Video Clips Directly to CAD Drawings",
+    "meta_info": "Official DWG FastView · Level: Intermediate · Duration: 20 min · Rating: ★ 4.99",
+    "editorial_note": "A breakthrough field inspection workflow: record on-site video clips and anchor them as interactive markers onto specific drawing coordinates. Say goodbye to confusing text memos!",
+    "tags": ["DWG FastView", "Video Annotation", "Site Inspection", "Quality Assurance"],
+    "url": "/tutorial-fastview#markups",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.99,
+    "duration_minutes": 20,
+    "key_steps": [
+      "Tap the Annotation menu and select the 'Video Annotation' tool",
+      "Position the target pin on the drawing where a construction defect or clash exists",
+      "Record an in-app video capturing real-world site conditions, piping leaks, or structural issues",
+      "Attach contextual voice narration describing remedial action required",
+      "Sync drawing with embedded video markers to the cloud for office engineers to review instantly"
+    ]
+  },
+  {
+    "id": "gcad-fv-205",
+    "software": "fastview",
+    "product": "DWG FastView Mobile",
+    "task": "mobile-cloud",
+    "level": "intermediate",
+    "title": "Field Markups Masterclass: Revision Clouds, Leaders & Multi-Photo Pins",
+    "meta_info": "Official DWG FastView · Level: Intermediate · Duration: 25 min · Rating: ★ 4.96",
+    "editorial_note": "Report job site issues in real time. Create text leaders, revision clouds, freehand sketches, attach site photos, and record audio memos linked directly to drawing objects.",
+    "tags": ["DWG FastView", "Markups", "Revision Cloud", "Photo Attachment"],
+    "url": "/tutorial-fastview#markups",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.96,
+    "duration_minutes": 25,
+    "key_steps": [
+      "Draw revision clouds and highlighter callouts around construction defects",
+      "Insert text leader annotations indicating structural or MEP modifications",
+      "Take on-site high-resolution photos and attach them directly to specific drawing coordinates",
+      "Record voice notes linked to drawing pins for comprehensive field briefings",
+      "Export marked-up DWG or PDF summaries to project managers via WhatsApp, WeChat or Email"
+    ]
+  },
+  {
+    "id": "gcad-fv-206",
+    "software": "fastview",
+    "product": "DWG FastView Mobile",
+    "task": "productivity",
+    "level": "beginner",
+    "title": "Mobile Hatch Tool: Applying Standard Hatches & Boundary Fills on Mobile",
+    "meta_info": "Official DWG FastView · Level: Beginner · Duration: 15 min · Rating: ★ 4.92",
+    "editorial_note": "The highly anticipated Hatch tool is now 100% free on DWG FastView Mobile! Learn to fill closed profiles with concrete, earth, brick, ANSI31, and solid gradient hatches on the go.",
+    "tags": ["DWG FastView", "Hatch Tool", "Mobile CAD", "Boundary Fill"],
+    "url": "/tutorial-fastview",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.92,
+    "duration_minutes": 15,
+    "key_steps": [
+      "Activate the Hatch command from the mobile drawing tool pallet",
+      "Tap inside any closed polygon or boundary zone to detect islands automatically",
+      "Choose from standard patterns: Solid, ANSI31, Concrete, Brick, Sand, or Honeycomb",
+      "Adjust pattern scale and rotation angle dynamically using touch sliders",
+      "Assign hatch entities to specific layers with color and transparency overrides"
+    ]
+  },
+  {
+    "id": "gcad-fv-207",
+    "software": "fastview",
+    "product": "DWG FastView Cloud & Web",
+    "task": "mobile-cloud",
+    "level": "intermediate",
+    "title": "DWG FastView Web: Multi-User Cloud Collaboration & Instant QR Scan Login",
+    "meta_info": "Official DWG FastView · Level: Intermediate · Duration: 30 min · Rating: ★ 4.94",
+    "editorial_note": "Collaborate in real time without software installation. Use mobile QR code scanning for one-tap web login, manage team permissions, and compare revisions in your browser.",
+    "tags": ["DWG FastView", "Web CAD", "Cloud Sync", "Collaboration", "QR Login"],
+    "url": "/tutorial-fastview#cloud",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.94,
+    "duration_minutes": 30,
+    "key_steps": [
+      "Scan web login QR code with DWG FastView mobile app for instant passwordless sign-in",
+      "Open and edit DWG files directly inside Google Chrome, Edge, or Safari without plugins",
+      "Create team workspaces and configure member read/write/share permissions",
+      "Synchronize field mobile markups seamlessly with the office desktop team",
+      "Run cloud-based Revision Compare to review client change orders in contrasting color highlights"
+    ]
+  },
+  {
+    "id": "gcad-fv-208",
+    "software": "fastview",
+    "product": "DWG FastView Troubleshooting",
+    "task": "productivity",
+    "level": "beginner",
+    "title": "Fixing Missing Font '???' Question Marks: Cloud Fonts & SHX Library Sync",
+    "meta_info": "Official DWG FastView · Level: Beginner · Duration: 20 min · Rating: ★ 4.98",
+    "editorial_note": "Permanently solve the frustrating CAD drawing issue where text displays as '???'. Learn how DWG FastView Cloud Fonts automatically download missing SHX and bigfonts.",
+    "tags": ["DWG FastView", "Font Replacement", "SHX", "Question Marks", "Troubleshooting"],
+    "url": "/tutorial-fastview",
+    "thumbnail_url": "./images/tutorials/cad_roadmap_starter.webp",
+    "rating": 4.98,
+    "duration_minutes": 20,
+    "key_steps": [
+      "Understand why missing SHX compiled shape fonts and Asian Bigfonts trigger question marks",
+      "Enable 'Automatic Cloud Font Retrieval' in DWG FastView to fetch missing fonts on open",
+      "Manually upload proprietary corporate SHX and TTF fonts to personal Cloud Font Storage",
+      "Configure fallback substitute fonts (e.g. gbcbig.shx or simplex.shx) when proprietary fonts are unavailable",
+      "Verify text clarity, dimension values, and title block legibility across all layouts"
+    ]
+  },
+  {
+    "id": "gcad-fv-209",
+    "software": "fastview",
+    "product": "DWG FastView Productivity",
+    "task": "productivity",
+    "level": "intermediate",
+    "title": "CAD Table to Excel: Converting Drawing Schedules to Editable Spreadsheets",
+    "meta_info": "Official DWG FastView · Level: Intermediate · Duration: 25 min · Rating: ★ 4.97",
+    "editorial_note": "Extract CAD table lines and text into genuine Microsoft Excel (.xlsx) files with one click. Ideal for door/window schedules, bills of materials, and rebar takeoffs.",
+    "tags": ["DWG FastView", "Table to Excel", "Data Extraction", "BOM", "Productivity"],
+    "url": "/tutorial-fastview",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.97,
+    "duration_minutes": 25,
+    "key_steps": [
+      "Select the 'CAD to Excel' tool from the FastView Toolbox or right-click menu",
+      "Frame-select the tabular area containing lines, text, and numbers on the drawing",
+      "FastView automatically reconstructs cell rows, columns, and text alignment",
+      "Preview parsed table data and correct split column boundaries if needed",
+      "Export directly to standard .xlsx format for immediate formula calculations in Excel"
+    ]
+  },
+  {
+    "id": "gcad-fv-210",
+    "software": "fastview",
+    "product": "DWG FastView Format Converter",
+    "task": "productivity",
+    "level": "intermediate",
+    "title": "Multi-Page PDF Export & High-Precision CAD Format Conversion",
+    "meta_info": "Official DWG FastView · Level: Intermediate · Duration: 25 min · Rating: ★ 4.95",
+    "editorial_note": "Export different drawing areas into a single organized multi-page PDF document. Master conversions between DWG, DXF, DWF, DGN (MicroStation), and Shapefiles (SHP).",
+    "tags": ["DWG FastView", "PDF Export", "Multi-page PDF", "DGN to DWG", "Format Converter"],
+    "url": "/tutorial-fastview",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.95,
+    "duration_minutes": 25,
+    "key_steps": [
+      "Select multiple print window boundaries across Model and Layout spaces",
+      "Sequence pages and configure PDF paper sizes (A0, A1, A2, A3, A4)",
+      "Set monochrome, grayscale, or true-color CTB line weight rendering",
+      "Convert legacy MicroStation DGN files and Autodesk DWF/DWFx into native DWG format",
+      "Convert GIS Shapefile (.shp) boundary maps directly into editable CAD vector lines"
+    ]
+  },
+  {
+    "id": "gcad-fv-211",
+    "software": "fastview",
+    "product": "DWG FastView 3D Hub",
+    "task": "3d-modeling",
+    "level": "intermediate",
+    "title": "14+ 3D Formats in Your Pocket: SolidWorks, CATIA, Revit & Rhino Viewing",
+    "meta_info": "Official DWG FastView · Level: Intermediate · Duration: 30 min · Rating: ★ 4.96",
+    "editorial_note": "Inspect 3D CAD files on mobile and web without installing expensive desktop modeling software. Supports SolidWorks (SLDPRT/SLDASM), CATIA, Revit (RVT 2025), Rhino (3DM), STEP, and STL.",
+    "tags": ["DWG FastView", "3D Viewer", "SolidWorks", "Revit", "CATIA", "STEP"],
+    "url": "/tutorial-fastview",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.96,
+    "duration_minutes": 30,
+    "key_steps": [
+      "Upload complex 3D assemblies (SolidWorks, CATIA, Revit RVT 2025) to FastView Cloud",
+      "Experience high-framerate 3D orbit, smooth pan, zoom, and perspective view changes",
+      "Perform cross-section clipping planes (X, Y, Z axes) to inspect internal component cavities",
+      "Isolate, hide, and inspect individual parts in multi-level assembly feature trees",
+      "Execute 3D point-to-point and edge distance measurements directly on mobile"
+    ]
+  },
+
+  # ── SECTION 4: GstarCAD Mechanical Engineering (4 lessons) ──
+  {
+    "id": "gcad-mech-301",
+    "software": "mechanical",
+    "product": "GstarCAD Mechanical",
+    "task": "mechanical-design",
+    "level": "beginner",
+    "title": "Mechanical Standard Drafting Environment & Title Block Setup",
+    "meta_info": "Official GstarCAD Mechanical · Level: Beginner · Duration: 35 min · Rating: ★ 4.94",
+    "editorial_note": "Configure GstarCAD Mechanical drawing standards (ISO, ANSI, DIN, JIS, GB). Set up standard drawing frames, scales, and automatic title blocks for manufacturing.",
+    "tags": ["GstarCAD Mechanical", "Standards", "ISO", "ANSI", "Title Block"],
+    "url": "https://www.gstarcad.net/mechanical/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.94,
+    "duration_minutes": 35,
+    "key_steps": [
+      "Select and customize the active drafting standard (ISO 128 / ANSI Y14)",
+      "Insert parametric drawing borders and title blocks with automatic scale adjustment",
+      "Configure standard mechanical text styles, hatch patterns, and line types",
+      "Set up drawing attributes that automatically populate title block metadata"
+    ]
+  },
+  {
+    "id": "gcad-mech-302",
+    "software": "mechanical",
+    "product": "GstarCAD Mechanical",
+    "task": "mechanical-design",
+    "level": "intermediate",
+    "title": "Intelligent Mechanical Dimensioning, GD&T & Surface Symbols",
+    "meta_info": "Official GstarCAD Mechanical · Level: Intermediate · Duration: 40 min · Rating: ★ 4.96",
+    "editorial_note": "Apply standardized surface texture symbols, GD&T feature control frames, welding annotations, hole charts, and chamfer dimensions per ASME Y14.5 and ISO standards.",
+    "tags": ["GstarCAD Mechanical", "GD&T", "Surface Finish", "Welding"],
+    "url": "https://www.gstarcad.net/mechanical/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.96,
+    "duration_minutes": 40,
+    "key_steps": [
+      "Add standardized Surface Roughness symbols per ISO 1302 with dynamic grip placement",
+      "Create GD&T Feature Control Frames and datum reference letters per ASME Y14.5",
+      "Insert comprehensive Welding symbols (fillet, groove, weld-all-around, field weld)",
+      "Use Power Dimensioning to automatically detect geometry type (linear, radial, angular)",
+      "Generate automated Hole Dimensioning tables and coordinate charts"
+    ]
+  },
+  {
+    "id": "gcad-mech-303",
+    "software": "mechanical",
+    "product": "GstarCAD Mechanical",
+    "task": "mechanical-design",
+    "level": "intermediate",
+    "title": "Parametric Standard Parts Library & Assembly Generation",
+    "meta_info": "Official GstarCAD Mechanical · Level: Intermediate · Duration: 45 min · Rating: ★ 4.97",
+    "editorial_note": "Access thousands of pre-modeled international standard parts: screws, bolts, nuts, washers, bearings, gears, keys, and steel structural profiles.",
+    "tags": ["GstarCAD Mechanical", "Standard Parts", "Fasteners", "Bearings"],
+    "url": "https://www.gstarcad.net/mechanical/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.97,
+    "duration_minutes": 45,
+    "key_steps": [
+      "Browse the parametric standard parts catalog across ISO, ANSI, DIN, and JIS standards",
+      "Assemble bolt-nut-washer fastener connections with automated hole clearance drilling",
+      "Insert ball bearings and roller bearings with automatic shaft fitting dimensions",
+      "Generate spur gears, helical gears, and shaft profiles using built-in design calculators",
+      "Modify existing inserted standard parts dynamically through contextual double-clicks"
+    ]
+  },
+  {
+    "id": "gcad-mech-304",
+    "software": "mechanical",
+    "product": "GstarCAD Mechanical",
+    "task": "mechanical-design",
+    "level": "advanced",
+    "title": "Automated Part Ballooning & Dynamic BOM Extraction to Excel",
+    "meta_info": "Official GstarCAD Mechanical · Level: Advanced · Duration: 40 min · Rating: ★ 4.99",
+    "editorial_note": "Automatically generate part reference balloons linked to assembly items. Synchronize Bill of Materials (BOM) in real time and export structured data to ERP/Excel.",
+    "tags": ["GstarCAD Mechanical", "BOM", "Balloons", "Bill of Materials", "Excel"],
+    "url": "https://www.gstarcad.net/mechanical/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.99,
+    "duration_minutes": 40,
+    "key_steps": [
+      "Attach part references to mechanical components with material and supplier attributes",
+      "Execute Auto-Ballooning to place sequential item numbers with leader lines",
+      "Insert dynamic BOM tables onto the drawing that automatically update on part changes",
+      "Re-sequence balloon numbers automatically after adding or removing components",
+      "Export structured Bill of Materials directly to Microsoft Excel and ERP CSV formats"
+    ]
+  },
+
+  # ── SECTION 5: GstarCAD Architecture AEC (3 lessons) ──
+  {
+    "id": "gcad-arch-401",
+    "software": "architecture",
+    "product": "GstarCAD Architecture",
+    "task": "architectural-design",
+    "level": "beginner",
+    "title": "Architectural Grid Systems & Intelligent Parametric Wall Design",
+    "meta_info": "Official GstarCAD Architecture · Level: Beginner · Duration: 40 min · Rating: ★ 4.92",
+    "editorial_note": "Generate orthographic and radial axis grids with dual-direction dimensioning. Draw intelligent parametric walls with automatic corner healing and mitering.",
+    "tags": ["GstarCAD Architecture", "Grids", "Parametric Walls", "AEC"],
+    "url": "https://www.gstarcad.net/architecture/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.92,
+    "duration_minutes": 40,
+    "key_steps": [
+      "Generate rectangular and curved axis grids with automatic numerical/alphabetical bubbles",
+      "Draw intelligent architectural walls with specified core thicknesses and material hatches",
+      "Observe automatic wall T-junction and L-corner healing and mitering",
+      "Insert structural columns that automatically break and integrate with wall intersections",
+      "Use baseline alignment to easily modify internal and external architectural offsets"
+    ]
+  },
+  {
+    "id": "gcad-arch-402",
+    "software": "architecture",
+    "product": "GstarCAD Architecture",
+    "task": "architectural-design",
+    "level": "intermediate",
+    "title": "Intelligent Doors & Windows, Openings & Automated Schedules",
+    "meta_info": "Official GstarCAD Architecture · Level: Intermediate · Duration: 45 min · Rating: ★ 4.95",
+    "editorial_note": "Insert parametric doors and windows anywhere along walls. Openings are created automatically. Flip opening swings and extract door/window schedules with one click.",
+    "tags": ["GstarCAD Architecture", "Doors & Windows", "Schedules", "BIM Objects"],
+    "url": "https://www.gstarcad.net/architecture/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.95,
+    "duration_minutes": 45,
+    "key_steps": [
+      "Choose from single, double, sliding, and bay window parametric styles",
+      "Place doors and windows into walls; openings cut automatically and heal when moved",
+      "Toggle door swing angles and flip opening directions with simple grip clicks",
+      "Execute automatic dimensioning for wall openings and piers",
+      "Generate complete door and window quantity schedules with a single command"
+    ]
+  },
+  {
+    "id": "gcad-arch-403",
+    "software": "architecture",
+    "product": "GstarCAD Architecture",
+    "task": "architectural-design",
+    "level": "advanced",
+    "title": "Instant Elevation & Section Generation with Synchronized 3D Views",
+    "meta_info": "Official GstarCAD Architecture · Level: Advanced · Duration: 45 min · Rating: ★ 4.96",
+    "editorial_note": "Transform 2D floor plans into full building elevations and cross-sections instantly. Synchronize 2D architectural drawings with 3D architectural perspectives.",
+    "tags": ["GstarCAD Architecture", "Elevations", "Sections", "3D Building"],
+    "url": "https://www.gstarcad.net/architecture/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.96,
+    "duration_minutes": 45,
+    "key_steps": [
+      "Use Floor Manager to define multi-story floor heights and assemble buildings",
+      "Insert cutting plane indicators to generate accurate architectural building sections",
+      "Project exterior building elevations automatically from 2D floor plan geometry",
+      "Add floor level elevation tags and automatic architectural dimension chains",
+      "Switch to 3D view to inspect the synchronized BIM-like architectural model"
+    ]
+  },
+
+  # ── SECTION 6: Developers & API SDK (5 lessons) ──
+  {
+    "id": "gcad-dev-501",
+    "software": "developers",
+    "product": "GstarCAD Developers",
+    "task": "customization-api",
+    "level": "intermediate",
+    "title": "AutoLISP & Visual LISP Scripting for Drafting Automation",
+    "meta_info": "Official Developer Hub · Level: Intermediate · Duration: 45 min · Rating: ★ 4.93",
+    "editorial_note": "Automate repetitive drafting tasks using AutoLISP. Learn entity selection, DXF group code modification, and DCL dialog interface design for corporate automation.",
+    "tags": ["Developers", "AutoLISP", "Visual LISP", "Automation", "DCL"],
+    "url": "/developers",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.93,
+    "duration_minutes": 45,
+    "key_steps": [
+      "Write AutoLISP functions using built-in command handlers and `defun c:` syntax",
+      "Query and modify entity DXF group codes using `entget` and `entmod`",
+      "Develop interactive dialogs with DCL (Dialog Control Language)",
+      "Debug routines using the integrated Visual LISP IDE",
+      "Deploy custom .lsp packages company-wide via APPLOAD Startup Suite"
+    ]
+  },
+  {
+    "id": "gcad-dev-502",
+    "software": "developers",
+    "product": "GstarCAD Developers",
+    "task": "customization-api",
+    "level": "pro",
+    "title": "C++ GRX SDK: Porting AutoCAD ObjectARX Applications to GstarCAD",
+    "meta_info": "Official Developer Hub · Level: Pro · Duration: 60 min · Rating: ★ 4.98",
+    "editorial_note": "Deep dive into the GRX C++ API. Configure Visual Studio, map ObjectARX headers to GRX, compile custom entity plugins, and handle DWG serialization seamlessly.",
+    "tags": ["Developers", "GRX", "ObjectARX", "C++", "ISV Porting"],
+    "url": "/developers",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.98,
+    "duration_minutes": 60,
+    "key_steps": [
+      "Set up Visual Studio project configurations linking with GstarCAD GRX SDK libraries",
+      "Perform automated string replacement: replace `Ac*` class prefixes with `Gc*`",
+      "Implement custom entities inheriting from `GcDbEntity` with `dwgInFields` and `dwgOutFields`",
+      "Register custom commands with `GcedRegCmds`",
+      "Compile and load the resulting `.grx` module directly into GstarCAD"
+    ]
+  },
+  {
+    "id": "gcad-dev-503",
+    "software": "developers",
+    "product": "DWG FastView Web SDK",
+    "task": "customization-api",
+    "level": "advanced",
+    "title": "DWG FastView Web SDK: HTML5 Web CAD API Integration & Drawing Viewer Embedding",
+    "meta_info": "Official Developer Hub · Level: Advanced · Duration: 40 min · Rating: ★ 4.95",
+    "editorial_note": "Embed high-performance 2D/3D CAD viewing into enterprise web portals and SaaS platforms using the DWG FastView HTML5 Web SDK. Learn API initialization and entity event hooks.",
+    "tags": ["Web SDK", "HTML5 CAD", "API Integration", "JavaScript", "SaaS"],
+    "url": "https://blog.dwgfastview.com/dwg-fastview-web-sdk/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.95,
+    "duration_minutes": 40,
+    "key_steps": [
+      "Include the FastView Web SDK JavaScript bundle in modern web frontends (Vue, React, Angular)",
+      "Initialize the WebGL-accelerated canvas container with custom UI toolbars",
+      "Load remote DWG/DXF files via authenticated presigned URLs",
+      "Listen for drawing events: element clicks, layer toggles, and coordinate coordinates",
+      "Inject custom markup layers and export annotated vector snapshots back to enterprise databases"
+    ]
+  },
+  {
+    "id": "gcad-dev-504",
+    "software": "developers",
+    "product": "DWG FastView Mobile SDK",
+    "task": "customization-api",
+    "level": "advanced",
+    "title": "DWG FastView Mobile SDK: Integrating CAD Capabilities into Android & iOS Apps",
+    "meta_info": "Official Developer Hub · Level: Advanced · Duration: 45 min · Rating: ★ 4.94",
+    "editorial_note": "Equip enterprise native mobile apps with high-speed DWG viewing, redlining, and offline caching using the FastView Mobile SDK for iOS and Android.",
+    "tags": ["Mobile SDK", "Android", "iOS", "Native App", "Offline CAD"],
+    "url": "https://blog.dwgfastview.com/mobile-sdk/",
+    "thumbnail_url": "./images/tutorials/gstarcad_academy.webp",
+    "rating": 4.94,
+    "duration_minutes": 45,
+    "key_steps": [
+      "Integrate FastView SDK framework into Xcode (Swift/ObjC) and Android Studio (Kotlin/Java)",
+      "Instantiate native drawing view components with full multi-touch gesture support",
+      "Implement local cache encryption for sensitive corporate blueprint data",
+      "Customize measurement toolbars and field markup palettes for custom mobile workflows",
+      "Synchronize field annotations directly with internal enterprise ERP and Project Management systems"
+    ]
+  }
+]
+
+with open("f:/gstarcademy/data/tutorials_gstarcad.json", "w", encoding="utf-8") as f:
+    json.dump(tutorials, f, indent=2, ensure_ascii=False)
+
+print(f"Successfully generated {len(tutorials)} official tutorials in data/tutorials_gstarcad.json!")

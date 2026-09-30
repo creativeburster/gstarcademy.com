@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      (function() {
+        let loaded = false;
+        function initGtag() {
+          if (loaded) return;
+          loaded = true;
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        }
+        if ('requestIdleCallback' in window) {
+          window.addEventListener('load', function() {
+            requestIdleCallback(initGtag, { timeout: 3000 });
+          }, { passive: true });
+        } else {
+          setTimeout(initGtag, 2500);
+        }
+        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, initGtag, { once: true, passive: true });
+        });
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DWG FastView Masterclass: Mobile, Cloud &amp; Field Collaboration | GstarCAD Academy</title>
+    <meta name="author" content="GstarCAD Academy FastView Team" />
+    <meta name="publisher" content="Gstarsoft Co., Ltd." />
+    <meta
+      name="description"
+      content="Comprehensive tutorial for DWG FastView across iOS, Android, Web &amp; Windows. Learn high-speed mobile viewing, precision job-site measurements, cloud markups, and revision compare."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/tutorial-fastview" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="DWG FastView Complete Tutorial &amp; Field Guide" />
+    <meta property="og:description" content="Master mobile CAD viewing, job-site measurement tools, photo markups, and multi-user cloud collaboration." />
+    <meta property="og:url" content="https://gstarcademy.com/tutorial-fastview" />
+    <meta property="og:site_name" content="GstarCAD Academy" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <script src="/search.min.js?v=20260827" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    </noscript>
+    <link rel="preload" href="/styles.min.css?v=20260901z" as="style" />
+    <link rel="stylesheet" href="/styles.min.css?v=20260901z" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "DWG FastView Masterclass: Mobile, Cloud & Field Collaboration Guide",
+        "description": "Step-by-step training for DWG FastView mobile app, web collaboration, and desktop converters.",
+        "author": {
+          "@type": "Organization",
+          "name": "GstarCAD Academy FastView Team",
+          "url": "https://gstarcademy.com/about"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Gstarsoft Co., Ltd.",
+          "url": "https://www.dwgfastview.com/"
+        }
+      }
+    </script>
+  </head>
+  <body data-page="tutorial-fastview">
+    <div class="header-stack">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="/">
+            <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+            <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+            <a class="nav-link" data-nav="home" href="/">Home</a>
+            <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+            <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+            <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+            <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+            <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+            <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+            <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+          </nav>
+        </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero hero-premium" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%); text-align: left; padding: 64px 24px;">
+      <div class="container" style="max-width: 1200px;">
+        <span class="eyebrow" style="background: rgba(255,255,255,0.15); color: #c7d2fe; padding: 4px 14px; border-radius: 99px; font-weight: 600; font-size: 13px;">Official FastView Academy</span>
+        <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin: 16px 0;">
+          DWG FastView Masterclass:<br>Mobile, Cloud &amp; Field Engineering
+        </h1>
+        <p style="font-size: 1.15rem; color: #e0e7ff; max-width: 820px; line-height: 1.6; margin-bottom: 28px;">
+          Trusted by over <strong>50+ million engineers and contractors worldwide</strong>. Learn how to open massive 100MB+ DWG drawings instantly on smartphones, perform millimeter-accurate on-site measurements, attach field photos to drawing coordinates, and collaborate in real-time on the cloud.
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="https://www.dwgfastview.com/" target="_blank" rel="noopener noreferrer" style="background: #6366f1; font-weight: 700; padding: 12px 24px; font-size: 15px;">Launch DWG FastView Web ↗</a>
+          <a class="btn" href="#part-measurement" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.25); font-weight: 600; padding: 12px 24px; font-size: 15px;">Field Measurement Guide ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="container" style="max-width: 1100px; padding: 48px 16px;">
+      <!-- Module 1: Mobile App Setup & Navigation -->
+      <section class="section" id="part-mobile" style="padding-top: 0;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="tag" style="background: #e0e7ff; color: #3730a3; font-weight: 700;">Part 1</span>
+            <h2 class="section-title" style="margin: 0;">Mobile App Fast Start &amp; Navigation (iOS &amp; Android)</h2>
+          </div>
+          <span class="section-note">Experience lightning-fast loading of complex structural, MEP, and civil drawings on job sites</span>
+        </div>
+        <div class="card card-glass" style="padding: 28px; border-radius: 16px; border-left: 4px solid #6366f1; margin-bottom: 32px;">
+          <h3 style="font-size: 1.25rem; margin-top: 0;">1. Opening Large Drawings &amp; Offline Caching</h3>
+          <p style="color: var(--ink-text-soft); font-size: 15px; line-height: 1.7;">
+            DWG FastView utilizes an independently developed multi-core mobile rendering engine that opens complex 100MB+ DWG sheets in under 3 seconds. Before traveling to remote construction sites where cellular reception is weak, tap <strong>Save Offline</strong> on any drawing from your cloud drive (Dropbox, Google Drive, OneDrive, or FastView Cloud).
+          </p>
+          <div style="background: #f8fafc; padding: 16px 20px; border-radius: 10px; border: 1px solid #e2e8f0; margin-top: 16px;">
+            <strong style="color: #1e1b4b; font-size: 14px;">💡 Pro-Tips for Fast Navigation:</strong>
+            <ul style="margin: 8px 0 0; padding-left: 20px; font-size: 13.5px; color: var(--ink-text-soft); line-height: 1.6;">
+              <li><strong>Model &amp; Layout Switching:</strong> Tap the bottom bar to instantly switch between infinite Model Space and production title-block Sheet Layouts without reload delays.</li>
+              <li><strong>Layer Management &amp; Isolation:</strong> Tap the Layer icon to freeze or hide heavy background layers (like contour lines, furniture, or hatch blocks) to instantly accelerate rendering speed on low-memory mobile devices.</li>
+              <li><strong>Text Search &amp; Quick Jump:</strong> Use the global Text Search tool to immediately highlight and jump to specific column grid references (e.g. Axis A-5), room numbers, or equipment tags.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 2: Precision Field Measurements -->
+      <section class="section" id="part-measurement" style="margin-top: 24px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="tag" style="background: #d1fae5; color: #065f46; font-weight: 700;">Part 2</span>
+            <h2 class="section-title" style="margin: 0;">Precision Field Measurement Suite</h2>
+          </div>
+          <span class="section-note">Never carry paper blueprints and scale rulers to the field again</span>
+        </div>
+        <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <article class="card card-glass" style="padding: 24px; border-radius: 14px; border-top: 3px solid #10b981;">
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">📏</div>
+            <h3 style="margin-top: 0; font-size: 1.15rem;">Linear &amp; Continuous Distance</h3>
+            <p style="color: var(--ink-text-soft); font-size: 14px; line-height: 1.6;">
+              Activate the <strong>Distance</strong> tool. An optical magnifying loupe appears under your finger, snapping automatically to exact endpoints and intersections. For curved piping or corridor paths, use <strong>Continuous Measurement</strong> to view segment lengths and cumulative totals without resetting.
+            </p>
+          </article>
+
+          <article class="card card-glass" style="padding: 24px; border-radius: 14px; border-top: 3px solid #10b981;">
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">📐</div>
+            <h3 style="margin-top: 0; font-size: 1.15rem;">Polygon Area &amp; Perimeter</h3>
+            <p style="color: var(--ink-text-soft); font-size: 14px; line-height: 1.6;">
+              Select the <strong>Area</strong> tool and tap consecutive corner vertices of any room, floor slab, or paving boundary. DWG FastView dynamically shades the interior polygon in translucent green and reports exact surface area (m² or ft²) and boundary perimeter.
+            </p>
+          </article>
+
+          <article class="card card-glass" style="padding: 24px; border-radius: 14px; border-top: 3px solid #10b981;">
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">📐</div>
+            <h3 style="margin-top: 0; font-size: 1.15rem;">Ramp Slope &amp; Point-to-Line Distance</h3>
+            <p style="color: var(--ink-text-soft); font-size: 14px; line-height: 1.6;">
+              Use the <strong>Slope</strong> tool to calculate ramp percentages and vertical drops across two elevations. Use <strong>Point-to-Line</strong> to determine the true perpendicular offset from an isolated structural pile to any site boundary line.
+            </p>
+          </article>
+
+          <article class="card card-glass" style="padding: 24px; border-radius: 14px; border-top: 3px solid #10b981;">
+            <div style="font-size: 1.8rem; margin-bottom: 8px;">⭕</div>
+            <h3 style="margin-top: 0; font-size: 1.15rem;">Radius &amp; Auto-Recorded History</h3>
+            <p style="color: var(--ink-text-soft); font-size: 14px; line-height: 1.6;">
+              Tap any three points along a circular curve or fillet to display exact radius and arc length. All measurement values are automatically logged in the <strong>Measurement Record Book</strong> and can be exported as a structured CSV spreadsheet.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Module 3: Field Markups & Video Annotation -->
+      <section class="section" id="part-markups" style="margin-top: 40px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="tag" style="background: #fef3c7; color: #92400e; font-weight: 700;">Part 3</span>
+            <h2 class="section-title" style="margin: 0;">Next-Gen Field Markups: Video, Photo &amp; Voice Pins</h2>
+          </div>
+          <span class="section-note">Document discrepancies and site defects with rich multimedia pinned to exact DWG coordinates</span>
+        </div>
+        <div class="card card-glass" style="padding: 28px; border-radius: 16px; border-left: 4px solid #f59e0b; margin-bottom: 24px;">
+          <h3 style="font-size: 1.25rem; margin-top: 0;">🎥 Revolutionary Video Annotation (In-App Video Pins)</h3>
+          <p style="color: var(--ink-text-soft); font-size: 15px; line-height: 1.7;">
+            Stop trying to explain complicated on-site piping leaks, structural cracks, or clearance conflicts with static text messages. With DWG FastView's exclusive <strong>Video Annotation</strong>:
+          </p>
+          <ol style="color: var(--ink-text-soft); font-size: 14px; line-height: 1.7; padding-left: 20px;">
+            <li>Select <strong>Video Annotation</strong> from the markup toolbar.</li>
+            <li>Tap the exact spatial location on the drawing where the construction issue is situated.</li>
+            <li>Record up to 30 seconds of high-definition video directly within the app, demonstrating the dynamic issue and walking around the physical obstacle.</li>
+            <li>The video is converted into an interactive camera pin anchored onto the DWG entity. When design engineers open the file in the office, clicking the pin plays the exact site clip.</li>
+          </ol>
+        </div>
+
+        <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <div class="card card-glass" style="padding: 24px; border-radius: 14px;">
+            <h4 style="margin-top: 0; font-size: 1.1rem; color: #b45309;">📸 Photo Pins &amp; Audio Voice Memos</h4>
+            <p style="color: var(--ink-text-soft); font-size: 14px; line-height: 1.6;">
+              Attach high-resolution photos taken on your smartphone camera directly to drawing pins. Record contextual voice audio briefings for colleagues without typing tedious field logs.
+            </p>
+          </div>
+          <div class="card card-glass" style="padding: 24px; border-radius: 14px;">
+            <h4 style="margin-top: 0; font-size: 1.1rem; color: #b45309;">🎨 Free Mobile Hatch Tool &amp; Revision Clouds</h4>
+            <p style="color: var(--ink-text-soft); font-size: 14px; line-height: 1.6;">
+              Draw standard revision clouds around defect zones. Utilize the newly released <strong>100% Free Mobile Hatch Tool</strong> to apply ANSI, concrete, and solid fills to any closed boundary on the go.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 4: Missing Font "???" Fix & Data Extraction -->
+      <section class="section" id="part-troubleshooting" style="margin-top: 40px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="tag" style="background: #fee2e2; color: #991b1b; font-weight: 700;">Part 4</span>
+            <h2 class="section-title" style="margin: 0;">Troubleshooting &amp; Data Extraction Tools</h2>
+          </div>
+          <span class="section-note">Fix missing SHX fonts, extract CAD tables to Excel, and export multi-page PDFs</span>
+        </div>
+
+        <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <div class="card card-glass" style="padding: 24px; border-radius: 14px; border-top: 3px solid #ef4444;">
+            <h3 style="margin-top: 0; font-size: 1.15rem; color: #991b1b;">🔤 Fix Missing Font "???"</h3>
+            <p style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6;">
+              When drawings display unreadable question marks (<code>???</code>), it is caused by missing CAD shape fonts (.SHX) or Asian bigfonts. Enable <strong>Automatic Cloud Font Retrieval</strong> in DWG FastView settings, or upload your proprietary fonts to Cloud Font Storage to restore perfect legibility across all devices.
+            </p>
+          </div>
+
+          <div class="card card-glass" style="padding: 24px; border-radius: 14px; border-top: 3px solid #10b981;">
+            <h3 style="margin-top: 0; font-size: 1.15rem; color: #065f46;">📊 CAD Table to Excel</h3>
+            <p style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6;">
+              Tired of re-typing drawing schedules? Select the <strong>Table to Excel</strong> tool, drag a window around door/window tables, rebar schedules, or BOMs on your drawing, and FastView automatically reconstructs cell rows, columns, and numbers into an editable <code>.xlsx</code> spreadsheet.
+            </p>
+          </div>
+
+          <div class="card card-glass" style="padding: 24px; border-radius: 14px; border-top: 3px solid #2563eb;">
+            <h3 style="margin-top: 0; font-size: 1.15rem; color: #1e40af;">📄 Multi-Page PDF Export</h3>
+            <p style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6;">
+              Batch convert multiple sheet layouts or custom window crops into a single combined multi-page PDF document. Configure paper sizes (A0–A4), monochrome CTB plot styles, and high-DPI vector precision for client submittals.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 5: 14+ 3D Formats & Cross-Platform Collaboration -->
+      <section class="section" id="part-cloud" style="margin-top: 40px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="tag" style="background: #ede9fe; color: #5b21b6; font-weight: 700;">Part 5</span>
+            <h2 class="section-title" style="margin: 0;">14+ 3D Formats &amp; Web Cloud Collaboration</h2>
+          </div>
+          <span class="section-note">Inspect SolidWorks, Revit, and CATIA models on mobile, and collaborate via web without plugins</span>
+        </div>
+        <div class="card card-glass" style="padding: 28px; border-radius: 16px; border-left: 4px solid #8b5cf6;">
+          <h3 style="font-size: 1.25rem; margin-top: 0;">Pocket 3D Viewer: SolidWorks, CATIA, Revit &amp; Rhino</h3>
+          <p style="color: var(--ink-text-soft); font-size: 15px; line-height: 1.7;">
+            DWG FastView has upgraded its 3D graphics pipeline to support over <strong>14+ industrial 3D formats</strong>. View assemblies and parts directly on mobile or web without buying expensive workstation licenses:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 16px;">
+            <span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">SolidWorks (.SLDPRT, .SLDASM)</span>
+            <span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">Autodesk Revit (.RVT 2025)</span>
+            <span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">CATIA (.CATPart, .CATProduct)</span>
+            <span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">Rhino (.3DM)</span>
+            <span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">STEP / STP</span>
+            <span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">IGES / IGS</span>
+            <span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">STL / OBJ</span>
+            <span class="tag" style="background:#e0e7ff; color:#3730a3; font-weight:700;">OpenBIM (.IFC)</span>
+          </div>
+          <ul style="color: var(--ink-text-soft); font-size: 14px; line-height: 1.7; padding-left: 20px;">
+            <li><strong>3D Dynamic Sectioning:</strong> Cut dynamic clipping planes along X, Y, and Z axes to inspect hidden internal components in complex mechanical machinery.</li>
+            <li><strong>One-Tap QR Scan Login:</strong> Use the DWG FastView mobile app to scan the web login QR code on any computer to sign in immediately without remembering passwords.</li>
+            <li><strong>Automated Revision Compare:</strong> Upload two drawing revisions; newly added geometry is rendered in bright Green and deleted geometry in Red.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Bottom Action Banner -->
+      <section class="section" style="margin-top: 48px; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); border-radius: 20px; padding: 40px 24px; text-align: center; color: #fff;">
+        <h2 style="font-size: 2rem; font-weight: 800; margin: 0 0 12px; color: #fff;">Start Using DWG FastView Today</h2>
+        <p style="font-size: 1.05rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 28px; line-height: 1.6;">
+          Join over 50 million designers, contractors, and project managers worldwide. Available on iOS, Android, Windows, and modern Web Browsers.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="https://www.dwgfastview.com/" target="_blank" rel="noopener noreferrer" style="background: #6366f1; font-weight: 700; padding: 12px 24px;">
+            Open DWG FastView Web ↗
+          </a>
+          <a class="btn" href="https://en.dwgfastview.com/cloud/download/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.25); font-weight: 600; padding: 12px 24px;">
+            Download Mobile &amp; PC Apps ↗
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">GstarCAD Academy</p>
+          <p class="site-footer-desc">The official global learning, certification, and migration resource hub for GstarCAD, GstarCAD Mechanical, Architecture &amp; DWG FastView. Powered by Gstarsoft Co., Ltd. (SSE: 688657).</p>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Migration &amp; Products</h3>
+          <ul class="site-footer-links">
+            <li><a href="/migration">AutoCAD Migration Hub</a></li>
+            <li><a href="https://www.gstarcad.net/cad-software/" target="_blank" rel="noopener">GstarCAD Professional ↗</a></li>
+            <li><a href="https://www.gstarcad.net/mechanical/" target="_blank" rel="noopener">GstarCAD Mechanical ↗</a></li>
+            <li><a href="https://www.gstarcad.net/architecture/" target="_blank" rel="noopener">GstarCAD Architecture ↗</a></li>
+            <li><a href="https://www.dwgfastview.com/" target="_blank" rel="noopener">DWG FastView Cloud &amp; Mobile ↗</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Learning &amp; Support</h3>
+          <ul class="site-footer-links">
+            <li><a href="/tutorials">Tutorials &amp; Courses</a></li>
+            <li><a href="/tutorial-fastview">DWG FastView Guide</a></li>
+            <li><a href="/quiz">Skill Certification</a></li>
+            <li><a href="/knowledge-base">Technical Knowledge Base</a></li>
+            <li><a href="/developers">GRX Developer Hub</a></li>
+            <li><a href="/download">Download Free Trial</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Company &amp; Network</h3>
+          <ul class="site-footer-links">
+            <li><a href="/about">About Gstarsoft</a></li>
+            <li><a href="https://www.gstarcad.net/distributor/" target="_blank" rel="noopener">Global Distributor Network ↗</a></li>
+            <li><a href="/contact">Contact Support</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> GstarCAD Academy · Gstarsoft Co., Ltd. All rights reserved. AutoCAD® is a registered trademark of Autodesk, Inc.</p>
+      </div>
+    </footer>
+    <script src="/app.min.js?v=20260827" defer></script>
+  </body>
+</html>

@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      (function() {
+        let loaded = false;
+        function initGtag() {
+          if (loaded) return;
+          loaded = true;
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        }
+        if ('requestIdleCallback' in window) {
+          window.addEventListener('load', function() {
+            requestIdleCallback(initGtag, { timeout: 3000 });
+          }, { passive: true });
+        } else {
+          setTimeout(initGtag, 2500);
+        }
+        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, initGtag, { once: true, passive: true });
+        });
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoCAD to GstarCAD Migration Guide – 100% DWG Compatibility &amp; TCO Comparison | GstarCAD Academy</title>
+    <meta name="author" content="GstarCAD Academy Engineering Team" />
+    <meta name="publisher" content="Gstarsoft Co., Ltd." />
+    <meta
+      name="description"
+      content="Comprehensive AutoCAD® to GstarCAD migration guide. Discover 100% native DWG compatibility, identical shortcuts, direct LISP execution, and save up to 75% on licensing."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/migration" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AutoCAD to GstarCAD Migration Hub – Seamless Transition &amp; Cost Savings" />
+    <meta property="og:description" content="Switch to GstarCAD with zero retraining. Native DWG support, same command hotkeys, perpetual licensing freedom, and 70%+ TCO reduction." />
+    <meta property="og:url" content="https://gstarcademy.com/migration" />
+    <meta property="og:site_name" content="GstarCAD Academy" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AutoCAD to GstarCAD Migration Hub" />
+    <meta name="twitter:description" content="Switch to GstarCAD with zero retraining. Native DWG support, same command hotkeys, perpetual licensing freedom, and 70%+ TCO reduction." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <script src="/search.min.js?v=20260827" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    </noscript>
+    <link rel="preload" href="/styles.min.css?v=20260901z" as="style" />
+    <link rel="stylesheet" href="/styles.min.css?v=20260901z" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Switching from AutoCAD to GstarCAD: Full Migration & Compatibility Guide",
+        "description": "How design engineering teams seamlessly migrate from AutoCAD to GstarCAD without retraining, maintaining full DWG and LISP workflow compatibility while slashing software costs.",
+        "author": {
+          "@type": "Organization",
+          "name": "GstarCAD Academy Engineering Team",
+          "url": "https://gstarcademy.com/about"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Gstarsoft Co., Ltd.",
+          "url": "https://www.gstarcad.net/"
+        }
+      }
+    </script>
+  </head>
+  <body data-page="migration">
+    <div class="header-stack">
+      <aside class="site-notice" id="site-notice" data-notice-id="migration-v1" aria-label="Announcement">
+        <div class="site-notice-inner container">
+          <p class="site-notice-text">
+            🚀 <strong>Ready for perpetual freedom?</strong> Download GstarCAD 2025/2026 full-featured 30-day free trial and experience instant DWG loading.
+            <a class="site-notice-link" href="/download">Download Free Trial &rarr;</a>
+          </p>
+          <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </aside>
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="/">
+            <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+            <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+            <a class="nav-link" data-nav="home" href="/">Home</a>
+            <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+            <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+            <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+            <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+            <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+            <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+          </nav>
+        </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero hero-premium" style="background: linear-gradient(135deg, #0b1329 0%, #1e3a8a 100%); text-align: left; padding: 64px 24px;">
+      <div class="container" style="max-width: 1200px;">
+        <span class="eyebrow" style="background: rgba(255,255,255,0.15); color: #93c5fd; padding: 4px 12px; border-radius: 99px; font-weight: 600; font-size: 13px;">Enterprise AutoCAD® Alternative</span>
+        <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin: 16px 0;">
+          Switch from AutoCAD® to GstarCAD.<br>
+          Zero Retraining. 100% Compatibility.
+        </h1>
+        <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 820px; line-height: 1.6; margin-bottom: 28px;">
+          Facing skyrocketing annual subscription fees and restrictive licensing audits? GstarCAD delivers an identical user interface, native DWG file handling, direct LISP execution, and flexible <strong>perpetual licensing</strong> that saves up to 75% of your software budget.
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="/download" style="background: #2563eb; font-weight: 700; padding: 12px 24px; font-size: 15px;">Download 30-Day Free Trial &rarr;</a>
+          <a class="btn" href="#tco-calculator" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); font-weight: 600; padding: 12px 24px; font-size: 15px;">Compare TCO Savings</a>
+          <a class="btn" href="#compatibility-matrix" style="background: transparent; color: #93c5fd; font-weight: 600; padding: 12px 18px; font-size: 15px;">View Compatibility Matrix ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="container" style="max-width: 1200px; padding: 40px 16px;">
+      <!-- 4 Pillars of Effortless Migration -->
+      <section class="section" style="padding-top: 0;">
+        <div class="section-head" style="text-align: center; margin-bottom: 36px;">
+          <h2 class="section-title" style="font-size: 2rem;">Why Global Engineering Teams Choose GstarCAD</h2>
+          <span class="section-note">Seamless replacement without sacrificing speed, workflows, or project continuity</span>
+        </div>
+        <div class="grid grid-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+          <article class="card card-glass" style="padding: 24px; border-radius: 16px; border-top: 4px solid #2563eb;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">📁</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">100% Native DWG/DXF</h3>
+            <p class="meta" style="color: var(--ink-text-soft); line-height: 1.6; font-size: 14px;">
+              Open, edit, and save DWG/DXF files from AutoCAD 2.5 up to 2024/2026. Drawings, layers, linetypes, layouts, and external references remain perfectly intact with zero data translation loss.
+            </p>
+          </article>
+          <article class="card card-glass" style="padding: 24px; border-radius: 16px; border-top: 4px solid #10b981;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">⌨️</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Zero Learning Curve</h3>
+            <p class="meta" style="color: var(--ink-text-soft); line-height: 1.6; font-size: 14px;">
+              Draftspersons don't need a single hour of retraining. Identical ribbon tabs, classic workspace, dynamic command input, properties palettes, and familiar shortcut aliases (L, C, REC, M, TR, EX, F).
+            </p>
+          </article>
+          <article class="card card-glass" style="padding: 24px; border-radius: 16px; border-top: 4px solid #f59e0b;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">⚙️</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Direct LISP &amp; GRX API</h3>
+            <p class="meta" style="color: var(--ink-text-soft); line-height: 1.6; font-size: 14px;">
+              Load and run your custom AutoLISP, Visual LISP, and DCL dialog routines out of the box without code modifications. C++ ObjectARX plugins migrate effortlessly via GstarCAD's robust GRX SDK.
+            </p>
+          </article>
+          <article class="card card-glass" style="padding: 24px; border-radius: 16px; border-top: 4px solid #8b5cf6;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🛡️</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Perpetual Freedom</h3>
+            <p class="meta" style="color: var(--ink-text-soft); line-height: 1.6; font-size: 14px;">
+              Pay once and own your license forever. Available in Standalone USB/Software dongles and Network Floating licenses. Upgrades are optional, leaving your enterprise in complete control of capital expenditures.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Head-to-Head Feature Comparison Matrix -->
+      <section class="section" id="compatibility-matrix" style="margin-top: 40px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <h2 class="section-title">Head-to-Head Comparison: AutoCAD® vs GstarCAD</h2>
+          <span class="section-note">Feature-by-feature verified compatibility and engineering performance metrics</span>
+        </div>
+        <div style="overflow-x: auto; background: var(--ink-surface-2, #fff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 16px; box-shadow: var(--shadow-sm);">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;">
+            <thead>
+              <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0;">
+                <th style="padding: 16px 20px; font-weight: 700; width: 30%;">Feature / Capability</th>
+                <th style="padding: 16px 20px; font-weight: 700; width: 35%; color: #2563eb;">GstarCAD Professional</th>
+                <th style="padding: 16px 20px; font-weight: 700; width: 35%; color: #475569;">AutoCAD®</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px; font-weight: 600;">File Format Compatibility</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ Native DWG/DXF (R2.5 - 2024/2026)</td>
+                <td style="padding: 14px 20px;">✓ Native DWG/DXF</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+                <td style="padding: 14px 20px; font-weight: 600;">Licensing Options</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ Perpetual (Buy once, own forever) + Optional Subscription</td>
+                <td style="padding: 14px 20px; color: #b91c1c;">✗ Forced Recurring Subscription Only</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px; font-weight: 600;">Network Floating Licenses</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ Supported (LAN / WAN flex servers)</td>
+                <td style="padding: 14px 20px; color: #b91c1c;">✗ Phased out (Named user subscriptions only)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+                <td style="padding: 14px 20px; font-weight: 600;">Command &amp; Shortcut Parity</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ 99%+ identical aliases, commands &amp; prompts</td>
+                <td style="padding: 14px 20px;">Standard standard baseline</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px; font-weight: 600;">Dynamic Blocks &amp; Tables</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ Full display, edit, grip manipulation &amp; data extraction</td>
+                <td style="padding: 14px 20px;">✓ Full support</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+                <td style="padding: 14px 20px; font-weight: 600;">LISP / VLISP / DCL Automation</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ Direct execution without code rewrite</td>
+                <td style="padding: 14px 20px;">✓ Full support</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px; font-weight: 600;">Multi-Core Display Acceleration</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ Native multi-core kernel engine (ultra-fast pan/zoom)</td>
+                <td style="padding: 14px 20px;">Limited multi-threading</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+                <td style="padding: 14px 20px; font-weight: 600;">Hardware Footprint &amp; Startup Time</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ Lightweight (~400MB installer, 3-5 sec launch)</td>
+                <td style="padding: 14px 20px; color: #b91c1c;">Heavy (~3-4GB installer, 15-30 sec launch)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px; font-weight: 600;">Built-in Productivity Innovations</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ Magnifier, QR Code / Barcode, Drawing Compare, Cloud Markups</td>
+                <td style="padding: 14px 20px;">Standard tools</td>
+              </tr>
+              <tr style="background: #fafafa;">
+                <td style="padding: 14px 20px; font-weight: 600;">Mobile &amp; Cloud Collaboration</td>
+                <td style="padding: 14px 20px; color: #15803d; font-weight: 600;">✓ DWG FastView (iOS, Android, Web &amp; Windows)</td>
+                <td style="padding: 14px 20px;">AutoCAD Web / Mobile App (Subscription required)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TCO Cost Breakdown Calculator -->
+      <section class="section" id="tco-calculator" style="margin-top: 40px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <h2 class="section-title">Total Cost of Ownership (TCO) Comparison</h2>
+          <span class="section-note">Estimated 5-Year Enterprise Expense for a 10-Seat Drafting Team</span>
+        </div>
+        <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <!-- AutoCAD Cost Card -->
+          <div class="card" style="padding: 28px; border: 1px solid #fed7aa; background: #fffaf0; border-radius: 16px;">
+            <span style="font-size: 13px; font-weight: 700; color: #c2410c; text-transform: uppercase;">AutoCAD® Annual Subscription</span>
+            <h3 style="font-size: 1.8rem; margin: 8px 0; color: #9a3412;">~$1,975 <span style="font-size: 1rem; font-weight: 400; color: #78350f;">/ seat / year</span></h3>
+            <p style="font-size: 14px; color: #78350f; line-height: 1.6;">
+              Annual recurring recurring expense with zero residual asset value. If you stop paying, access is immediately revoked.
+            </p>
+            <hr style="border: 0; border-top: 1px solid #ffedd5; margin: 16px 0;" />
+            <ul style="list-style: none; padding: 0; font-size: 14px; color: #78350f; display: flex; flex-direction: column; gap: 8px;">
+              <li>• Year 1 (10 seats): <strong>$19,750</strong></li>
+              <li>• Year 3 Total: <strong>$59,250</strong></li>
+              <li>• <strong>5-Year Total Investment: ~$98,750</strong></li>
+            </ul>
+          </div>
+
+          <!-- GstarCAD Cost Card -->
+          <div class="card" style="padding: 28px; border: 2px solid #2563eb; background: #eff6ff; border-radius: 16px; position: relative;">
+            <div style="position: absolute; top: 16px; right: 16px; background: #2563eb; color: #fff; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 700;">SAVE ~75%</div>
+            <span style="font-size: 13px; font-weight: 700; color: #1d4ed8; text-transform: uppercase;">GstarCAD Perpetual License</span>
+            <h3 style="font-size: 1.8rem; margin: 8px 0; color: #1e3a8a;">Pay Once, Own Forever</h3>
+            <p style="font-size: 14px; color: #1e40af; line-height: 1.6;">
+              Permanent enterprise asset. Standalone and network floating options. Optional maintenance upgrades only when you need new releases.
+            </p>
+            <hr style="border: 0; border-top: 1px solid #dbeafe; margin: 16px 0;" />
+            <ul style="list-style: none; padding: 0; font-size: 14px; color: #1e40af; display: flex; flex-direction: column; gap: 8px;">
+              <li>• Initial Purchase (10 seats): <strong>~$6,000 - $8,000</strong></li>
+              <li>• Year 3 Total (with optional maintenance): <strong>~$10,500</strong></li>
+              <li>• <strong>5-Year Total Investment: ~$14,000</strong></li>
+            </ul>
+            <div style="margin-top: 20px; padding: 12px 16px; background: #fff; border-radius: 8px; border: 1px dashed #2563eb; text-align: center;">
+              <strong style="color: #16a34a; font-size: 15px;">💰 Net 5-Year Capital Saved: ~$84,000+ USD</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5-Step Enterprise Migration Checklist -->
+      <section class="section" style="margin-top: 40px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <h2 class="section-title">5-Step Seamless Rollout Checklist</h2>
+          <span class="section-note">Proven deployment protocol tested across thousands of architectural and manufacturing firms</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; gap: 18px; background: var(--ink-surface-2, #fff); padding: 20px; border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px;">
+            <div style="width: 36px; height: 36px; background: #2563eb; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 16px;">Import Corporate Templates (.DWT) &amp; Plot Styles (.CTB / .STB)</h4>
+              <p style="margin: 0; font-size: 14px; color: var(--ink-text-soft); line-height: 1.6;">
+                Copy your existing corporate title blocks, standard layers, custom fonts (SHX/TTF), and pen table plotters (.ctb) directly into GstarCAD's Support and Plotters directory. Everything renders pixel-for-pixel identically.
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 18px; background: var(--ink-surface-2, #fff); padding: 20px; border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px;">
+            <div style="width: 36px; height: 36px; background: #2563eb; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 16px;">Load Custom AutoLISP &amp; Automation Scripts (.LSP, .DCL)</h4>
+              <p style="margin: 0; font-size: 14px; color: var(--ink-text-soft); line-height: 1.6;">
+                Use the <code>APPLOAD</code> command to load existing AutoLISP routines. Add high-frequency routines into the Startup Suite. GstarCAD's robust LISP engine natively handles Visual LISP activeX extensions and DCL interfaces.
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 18px; background: var(--ink-surface-2, #fff); padding: 20px; border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px;">
+            <div style="width: 36px; height: 36px; background: #2563eb; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 16px;">Set Up Network Floating License Server (Optional)</h4>
+              <p style="margin: 0; font-size: 14px; color: var(--ink-text-soft); line-height: 1.6;">
+                For multi-user firms, install the GstarCAD Network License Manager on your local server. Dynamically distribute concurrent licenses across your team, maximizing license utilization without paying per user.
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 18px; background: var(--ink-surface-2, #fff); padding: 20px; border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px;">
+            <div style="width: 36px; height: 36px; background: #2563eb; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">4</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 16px;">Parallel Pilot Testing</h4>
+              <p style="margin: 0; font-size: 14px; color: var(--ink-text-soft); line-height: 1.6;">
+                Have a pilot team of 2-3 senior designers run real-world production projects on GstarCAD for two weeks. Verify drawing interchange with external consultants and contractors.
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 18px; background: var(--ink-surface-2, #fff); padding: 20px; border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px;">
+            <div style="width: 36px; height: 36px; background: #2563eb; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">5</div>
+            <div>
+              <h4 style="margin: 0 0 6px; font-size: 16px;">Full Production Deployment &amp; License Liberation</h4>
+              <p style="margin: 0; font-size: 14px; color: var(--ink-text-soft); line-height: 1.6;">
+                Roll out GstarCAD firm-wide. Terminate costly recurring subscriptions, gain complete license legal compliance, and enjoy uninterrupted CAD productivity for years to come.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Call To Action -->
+      <section class="section" style="margin-top: 48px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 20px; padding: 48px 32px; text-align: center; color: #fff;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; margin: 0 0 16px; color: #fff;">
+          Ready to Modernize Your CAD Workflow?
+        </h2>
+        <p style="font-size: 1.1rem; color: #cbd5e1; max-width: 680px; margin: 0 auto 32px; line-height: 1.6;">
+          Download the full-featured 30-day evaluation. No credit card required. Experience why over 500,000+ businesses worldwide trust GstarCAD for mission-critical designs.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="/download" style="background: #2563eb; font-weight: 700; padding: 14px 28px; font-size: 16px;">Download Free 30-Day Trial &rarr;</a>
+          <a class="btn" href="https://www.gstarcad.net/contact/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); font-weight: 600; padding: 14px 24px; font-size: 16px;">Request Enterprise Quote ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer site-footer">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">GstarCAD Academy</p>
+          <p class="site-footer-desc">The official global learning, certification, and migration resource hub for GstarCAD, GstarCAD Mechanical, Architecture &amp; DWG FastView. Powered by Gstarsoft Co., Ltd. (SSE: 688657).</p>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Migration &amp; Products</h3>
+          <ul class="site-footer-links">
+            <li><a href="/migration">AutoCAD Migration Hub</a></li>
+            <li><a href="https://www.gstarcad.net/cad-software/" target="_blank" rel="noopener">GstarCAD Professional ↗</a></li>
+            <li><a href="https://www.gstarcad.net/mechanical/" target="_blank" rel="noopener">GstarCAD Mechanical ↗</a></li>
+            <li><a href="https://www.gstarcad.net/architecture/" target="_blank" rel="noopener">GstarCAD Architecture ↗</a></li>
+            <li><a href="https://www.dwgfastview.com/" target="_blank" rel="noopener">DWG FastView Cloud &amp; Mobile ↗</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Learning &amp; Support</h3>
+          <ul class="site-footer-links">
+            <li><a href="/tutorials">Tutorials &amp; Courses</a></li>
+            <li><a href="/quiz">Skill Certification</a></li>
+            <li><a href="/knowledge-base">Technical Knowledge Base</a></li>
+            <li><a href="/developers">GRX Developer Hub</a></li>
+            <li><a href="/download">Download Free Trial</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Company &amp; Network</h3>
+          <ul class="site-footer-links">
+            <li><a href="/about">About Gstarsoft</a></li>
+            <li><a href="https://www.gstarcad.net/distributor/" target="_blank" rel="noopener">Global Distributor Network ↗</a></li>
+            <li><a href="/contact">Contact Support</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>© <span id="footer-year"></span> GstarCAD Academy · Gstarsoft Co., Ltd. All rights reserved. AutoCAD® is a registered trademark of Autodesk, Inc.</p>
+      </div>
+    </footer>
+    <script src="/app.min.js?v=20260827" defer></script>
+  </body>
+</html>

@@ -529,30 +529,15 @@ document.addEventListener("keydown", (ev) => {
     if (query) {
       const lowerQuery = query.toLowerCase();
 
-      // Check if query directly maps to one of our software values
+      // Check if query directly maps to one of our official GstarCAD faculties
       let mappedSoftware = null;
-      if (lowerQuery.includes("autocad")) mappedSoftware = "autocad";
-      else if (lowerQuery.includes("autodesk")) mappedSoftware = "autocad"; // fallback to AutoCAD
-      else if (lowerQuery.includes("revit")) mappedSoftware = "revit";
-      else if (lowerQuery.includes("fusion")) mappedSoftware = "fusion";
-      else if (lowerQuery.includes("solidworks")) mappedSoftware = "solidworks";
-      else if (lowerQuery.includes("catia")) mappedSoftware = "catia";
-      else if (lowerQuery.includes("dassault")) mappedSoftware = "solidworks";
-      else if (lowerQuery.includes("inventor")) mappedSoftware = "inventor";
-      else if (lowerQuery.includes("civil")) mappedSoftware = "civil3d";
-      else if (lowerQuery.includes("creo")) mappedSoftware = "creo";
-      else if (lowerQuery.includes("ptc")) mappedSoftware = "creo";
-      else if (lowerQuery.includes("siemens")) mappedSoftware = "nx";
-      else if (lowerQuery.includes("nx")) mappedSoftware = "nx";
-      else if (lowerQuery.includes("gstarcad")) mappedSoftware = "gstarcad";
-      else if (lowerQuery.includes("gstarsoft")) mappedSoftware = "gstarcad";
-      else if (lowerQuery.includes("rhino")) mappedSoftware = "rhino";
-      else if (lowerQuery.includes("blender")) mappedSoftware = "blender";
-      else if (lowerQuery.includes("freecad")) mappedSoftware = "freecad";
-      else if (lowerQuery.includes("sketchup")) mappedSoftware = "sketchup";
-      else if (lowerQuery.includes("archicad")) mappedSoftware = "archicad";
-      else if (lowerQuery.includes("onshape")) mappedSoftware = "onshape";
-      else if (lowerQuery.includes("ansys") || lowerQuery.includes("abaqus")) mappedSoftware = "ansys";
+      if (lowerQuery.includes("fastview") || lowerQuery.includes("dwgfastview") || lowerQuery.includes("mobile")) mappedSoftware = "fastview";
+      else if (lowerQuery.includes("mechanical") || lowerQuery.includes("gcad-mech") || lowerQuery.includes("bom") || lowerQuery.includes("solidworks") || lowerQuery.includes("inventor") || lowerQuery.includes("catia") || lowerQuery.includes("creo")) mappedSoftware = "mechanical";
+      else if (lowerQuery.includes("architecture") || lowerQuery.includes("gcad-arch") || lowerQuery.includes("revit") || lowerQuery.includes("bim") || lowerQuery.includes("archicad")) mappedSoftware = "architecture";
+      else if (lowerQuery.includes("developer") || lowerQuery.includes("grx") || lowerQuery.includes("lisp") || lowerQuery.includes("sdk") || lowerQuery.includes("api")) mappedSoftware = "developers";
+      else if (lowerQuery.includes("migration") || lowerQuery.includes("migrate") || lowerQuery.includes("autocad") || lowerQuery.includes("autodesk") || lowerQuery.includes("switch")) mappedSoftware = "migration";
+      else if (lowerQuery.includes("gstarrender") || lowerQuery.includes("render")) mappedSoftware = "gstarrender";
+      else if (lowerQuery.includes("gstarcad") || lowerQuery.includes("gstarsoft") || lowerQuery.includes("drafting")) mappedSoftware = "gstarcad";
 
       if (mappedSoftware) {
         const chip = document.querySelector(`.chips[data-filter-group="software"] .chip[data-filter-value="${mappedSoftware}"]`);

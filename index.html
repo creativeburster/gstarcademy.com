@@ -34,14 +34,14 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gstarcademy | Free CAD Tutorials, Knowledge Base &amp; Quiz</title>
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
+    <title>GstarCAD Global Academy | Official Online University for GstarCAD Engineering &amp; Certification</title>
+    <meta name="author" content="GstarCAD Academy Academic Board" />
+    <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
     <link rel="service" type="application/openapi+json" href="/openapi.json" />
     <link rel="mcp" type="application/json" href="/mcp.json" />
     <meta
       name="description"
-      content="Discover CAD tutorials by software, task, and level. Browse a curated tutorial library and a CAD knowledge base with curated outbound links."
+      content="The official accredited online university for GstarCAD, GstarCAD Mechanical, Architecture, DWG FastView, and AutoCAD migration. Master engineering design, enroll in 6 academic faculties, and earn verified digital credentials."
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://gstarcademy.com/" />
@@ -50,13 +50,13 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Gstarcademy · CAD tutorials &amp; knowledge base" />
-    <meta property="og:description" content="Discover CAD tutorials by software, task, and level. Browse a curated tutorial library and a CAD knowledge base with curated outbound links." />
+    <meta property="og:title" content="GstarCAD Global Academy · Official Online University &amp; Certification" />
+    <meta property="og:description" content="Master GstarCAD with official curriculum, AutoCAD migration training, verified credentials, and free 30-day student workstations." />
     <meta property="og:url" content="https://gstarcademy.com/" />
-    <meta property="og:site_name" content="Gstarcademy" />
+    <meta property="og:site_name" content="GstarCAD Academy" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Gstarcademy · CAD tutorials &amp; knowledge base" />
-    <meta name="twitter:description" content="Discover CAD tutorials by software, task, and level. Browse a curated tutorial library and a CAD knowledge base with curated outbound links." />
+    <meta name="twitter:title" content="GstarCAD Global Academy · Official Online University &amp; Certification" />
+    <meta name="twitter:description" content="Master GstarCAD with official curriculum, AutoCAD migration training, verified credentials, and free 30-day student workstations." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
     <script src="/search.min.js?v=20260827" defer></script>
@@ -70,81 +70,48 @@
     <link rel="preload" href="/styles.min.css?v=20260901z" as="style" />
     <link rel="stylesheet" href="/styles.min.css?v=20260901z" />
     <style>
-      /* Critical Above-The-Fold Styles for Instant LCP/FCP */
       :root{--ink-text:#0f172a;--ink-text-soft:#475569;--accent:#2563eb;--ink-surface:#ffffff;}
       body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;color:var(--ink-text);background:#fff;-webkit-font-smoothing:antialiased;}
       .container{width:min(1800px,96%);margin:0 auto;}
       .header-stack{position:sticky;top:0;z-index:100;}
       .site-notice{background:#1e3a8a;color:#fff;min-height:42px;display:flex;align-items:center;}
       .topbar{background:rgba(255,255,255,0.95);min-height:64px;display:flex;align-items:center;border-bottom:1px solid #cbd5e1;}
-      .hero{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;border-radius:24px;padding:48px 24px 56px;margin:16px auto 32px;text-align:center;}
-      .hero-title{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.03em;color:#fff;margin:0 0 16px;}
-      .hero-sub{font-size:1.1rem;color:#cbd5e1;line-height:1.6;margin:0 0 24px;}
+      .academy-hero{background:radial-gradient(circle at 80% 20%, rgba(37,99,235,0.25) 0%, rgba(15,23,42,0) 60%), linear-gradient(135deg,#070d1e 0%,#0f172a 50%,#1e3a8a 100%);color:#fff;border-radius:28px;padding:60px 32px 70px;margin:16px auto 36px;text-align:center;box-shadow:0 20px 40px rgba(15,23,42,0.25);position:relative;overflow:hidden;}
+      .academy-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);background-size:24px 24px;pointer-events:none;}
+      .academy-title{font-size:clamp(2.3rem,5vw,3.8rem);font-weight:800;line-height:1.15;letter-spacing:-0.035em;color:#fff;margin:0 0 16px;}
+      .academy-sub{font-size:1.18rem;color:#cbd5e1;line-height:1.65;margin:0 0 32px;max-width:880px;margin-left:auto;margin-right:auto;}
+      .stats-badge-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:16px;max-width:960px;margin:32px auto 0;}
+      .stat-pill{background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);padding:14px 18px;border-radius:14px;text-align:left;}
+      .stat-pill-num{font-size:1.6rem;font-weight:800;color:#93c5fd;display:block;line-height:1.2;}
+      .stat-pill-label{font-size:12px;color:#cbd5e1;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;}
+      .faculty-card{padding:28px;border-radius:20px;display:flex;flex-direction:column;justify-content:space-between;transition:transform 0.25s ease, box-shadow 0.25s ease;border:1px solid var(--border, #e2e8f0);background:var(--ink-surface,#fff);}
+      .faculty-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(15,23,42,0.08);border-color:#2563eb;}
+      .faculty-badge{font-size:11px;font-weight:800;padding:4px 10px;border-radius:99px;display:inline-block;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;}
       .section-deferred{content-visibility:auto;contain-intrinsic-size:1px 450px;}
-      #cookie-consent{display:none;position:fixed;bottom:24px;left:24px;z-index:10000;}
     </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Gstarcademy",
+        "@type": "EducationalOrganization",
+        "name": "GstarCAD Global Academy",
         "url": "https://gstarcademy.com/",
-        "description": "CAD tutorial navigation, curated external sources, and a beginner knowledge base.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": { "@type": "EntryPoint", "urlTemplate": "https://gstarcademy.com/kb-terms?q={search_term_string}" },
-          "query-input": "required name=search_term_string"
+        "description": "Official online university and professional credentialing portal for GstarCAD engineering, manufacturing, AEC architecture, DWG FastView, and enterprise AutoCAD migration.",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Suzhou Gstarsoft Co., Ltd.",
+          "tickerSymbol": "SSE: 688657",
+          "url": "https://www.gstarcad.net/"
         }
-      }
-    </script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"description":"Gstarcademy is a structured CAD knowledge base and tutorial navigation site for AEC, MFG, and Civil Engineering professionals. Articles are written by Gstarcademy editors and technically reviewed by Gstarsoft Co., Ltd before publication.","sameAs":["https://gstarcademy.com/about","https://gstarcademy.com/editorial-process"]}</script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is Gstarcademy?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Gstarcademy is a structured CAD and BIM knowledge center offering concept glossaries, interactive learning roadmaps, and curated external tutorial navigation."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can I find specific CAD software tutorials?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can use our Tutorial Library to filter outbound links by software (AutoCAD, Revit, GstarCAD, SOLIDWORKS), level, task, and source platform."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are the tutorials on Gstarcademy free?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Gstarcademy is a free navigation service. Paid online courses from third-party platforms are marked with a credit card icon (💳) for transparency."
-            }
-          }
-        ]
       }
     </script>
   </head>
   <body data-page="home">
-    
     <div class="header-stack">
-      <aside
-        class="site-notice"
-        id="site-notice"
-        data-notice-id="global-v2"
-        aria-label="Announcement"
-      >
+      <aside class="site-notice" id="site-notice" data-notice-id="global-v3" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the
-            <a class="site-notice-link" href="/tutorials">tutorial library</a>
-            to filter by software, task, level, and source—then follow outbound links to the originals.
+            🎓 <strong>Welcome to GstarCAD Global Academy:</strong> Enroll in 6 accredited academic faculties, access 31 official courses, and earn verified industry credentials.
+            <a class="site-notice-link" href="/tutorials">Explore Faculty Curriculum &rarr;</a>
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -154,8 +121,8 @@
       <header class="topbar">
         <div class="container topbar-inner">
           <a class="brand" href="/">
-            <span class="brand-badge">GC</span>
-            <span>Gstarcademy</span>
+            <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+            <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
           </a>
           <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span class="hamburger-line"></span>
@@ -168,372 +135,478 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link active" data-nav="home" href="/">Home</a>
-            <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="/tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="/news">News</a>
-            <a class="nav-link" data-nav="about" href="/about">About</a>
+            <a class="nav-link active" data-nav="home" href="/">Academy Home</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Course Catalog</a>
+            <a class="nav-link" data-nav="migration" href="/migration">AutoCAD Migration</a>
+            <a class="nav-link" data-nav="quiz" href="/quiz">Certification &amp; Exams</a>
+            <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+            <a class="nav-link" data-nav="developers" href="/developers">GRX Developers</a>
+            <a class="nav-link" data-nav="about" href="/about">Faculty &amp; Gstarsoft</a>
+            <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Workstation</a>
             <!-- Streak Fire Badge -->
             <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak Days">
               🔥 <span id="global-streak-count">0</span> Days
             </div>
           </nav>
         </div>
-      
-        <div class="nav-overlay" aria-hidden="true"></div></header>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
     </div>
 
-    <section class="hero hero-premium hero-premium--home" aria-label="Site introduction">
-      <div class="hero-inner container">
-        <span class="eyebrow hero-eyebrow-premium">Tutorial navigation &amp; aggregation</span>
-        <div class="hero-title-wrap">
-          <h1 class="hero-title hero-title-premium">
-            Find the right CAD tutorial <br> in minutes.
-          </h1>
-        </div>
-        <p class="hero-sub hero-sub-premium">
-          Search by software, task, and level—then open the best <br> 
-          external source for your goal.
+    <!-- Academy Hero Banner -->
+    <section class="academy-hero container" aria-label="GstarCAD Academy Portal">
+      <div style="position:relative; z-index:1;">
+        <span style="background: rgba(37,99,235,0.3); border: 1px solid rgba(147,197,253,0.35); color: #93c5fd; padding: 6px 20px; border-radius: 99px; font-weight: 700; font-size: 13px; display:inline-block; margin-bottom:18px; text-transform:uppercase; letter-spacing:0.08em;">
+          🏛️ The Global University for GstarCAD Engineering &amp; Innovation
+        </span>
+        <h1 class="academy-title">
+          Master GstarCAD.<br>Empower Engineering Without Boundaries.
+        </h1>
+        <p class="academy-sub">
+          The official global academic learning, professional credentialing, and enterprise migration university for <strong>GstarCAD</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Powered by Suzhou Gstarsoft Co., Ltd. (SSE: 688657).
         </p>
-        <div class="hero-search-shell">
-          <div class="search-row hero-search-premium">
+        <div style="max-width: 640px; margin: 0 auto;">
+          <div class="search-row" style="background:#fff; border-radius:14px; padding:4px 6px; display:flex; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
             <input
               type="text"
-              placeholder="Try: blueprint reading · AutoCAD 2D beginner · Revit MEP intro"
-              aria-label="Search learning topics"
+              placeholder="Search faculty courses, BOM tools, LISP porting, FastView workflows..."
+              aria-label="Search GstarCAD Academy courses"
+              style="flex:1; border:none; padding:12px 18px; font-size:15px; outline:none; border-radius:10px;"
             />
-            <button type="button" class="btn btn-primary btn-premium-primary">Search</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='/tutorials'" style="background:#2563eb; padding:0 24px; font-weight:700; border-radius:10px;">Search</button>
           </div>
         </div>
-        <div class="hero-cta-row">
-          <a class="btn btn-premium-secondary" href="/knowledge-base">Knowledge Center</a>
-          <a class="btn btn-premium-ghost" href="/tutorials">Browse Library</a>
+        
+        <div class="hero-cta-row" style="margin-top: 26px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="/tutorials" style="background: #2563eb; color: #fff; font-weight: 700; padding: 12px 24px; font-size: 15px; border-radius: 12px;">Browse Course Catalog &rarr;</a>
+          <a class="btn" href="/quiz" style="background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25); font-weight: 600; padding: 12px 24px; font-size: 15px; border-radius: 12px;">Skill Certification &amp; Exams</a>
+          <a class="btn" href="/migration" style="background: rgba(16,185,129,0.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); font-weight: 600; padding: 12px 24px; font-size: 15px; border-radius: 12px;">AutoCAD Migration Hub</a>
+          <a class="btn" href="/download" style="background: rgba(245,158,11,0.15); color: #fde68a; border: 1px solid rgba(245,158,11,0.3); font-weight: 600; padding: 12px 24px; font-size: 15px; border-radius: 12px;">Free 30-Day Workstation</a>
+        </div>
+
+        <!-- Academic Stats Grid -->
+        <div class="stats-badge-grid">
+          <div class="stat-pill">
+            <span class="stat-pill-num">6</span>
+            <span class="stat-pill-label">Academic Faculties</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">31</span>
+            <span class="stat-pill-label">Official Syllabi Modules</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">430+</span>
+            <span class="stat-pill-label">Certification Benchmarks</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">100%</span>
+            <span class="stat-pill-label">Native DWG Compatibility</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">50M+</span>
+            <span class="stat-pill-label">FastView Global Learners</span>
+          </div>
         </div>
       </div>
     </section>
 
     <main class="container">
-      <!-- Section 1: Knowledge Base Highlights -->
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">Foundations: Knowledge Base Highlights</h2>
-          <span class="section-note">Master the map before you study the app — our four core pillars</span>
+      <!-- Section 1: The 6 Academic Faculties of GstarCAD -->
+      <section class="section" style="padding-top: 10px;">
+        <div class="section-head" style="text-align: center; margin-bottom: 36px;">
+          <span class="tag" style="background: #e0f2fe; color: #0284c7; font-weight: 800; margin-bottom: 8px;">Academic Department Structure</span>
+          <h2 class="section-title" style="font-size: 2.2rem;">The 6 Academic Faculties of GstarCAD Academy</h2>
+          <p class="section-note" style="max-width: 720px; margin: 8px auto 0; font-size: 15px;">
+            Structured learning paths designed by Gstarsoft chief system architects to take you from foundational drafting to specialized enterprise engineering.
+          </p>
         </div>
-        <div class="grid grid-3">
-          <a class="card card-glass" href="/kb-software">
-            <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">🧰</span>
-            <h3>Software Landscape Highlights</h3>
-            <p class="meta">Explore detailed profiles of 21 CAD/BIM packages (AutoCAD, Revit, GstarCAD, SOLIDWORKS) and official vendor gateways.</p>
-          </a>
-          <a class="card card-glass" href="/kb-terms">
-            <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">📇</span>
-            <h3>Atomic Terms &amp; Concepts</h3>
-            <p class="meta">Review 40+ structured conceptual units—such as Parametric Constraints and Intelligent Objects—linked across domains.</p>
-          </a>
-          <a class="card card-glass" href="/kb-faq">
-            <span style="font-size: 1.6rem; display: block; margin-bottom: 8px;" aria-hidden="true">❓</span>
-            <h3>Collapsible Q&amp;A FAQ</h3>
-            <p class="meta">Get direct answers to high-frequency technical questions regarding CAD differences, engine memory optimization, and more.</p>
-          </a>
-          <a class="card card-glass" href="/kb-graph" style="grid-column: span 3; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; text-align: left;">
-            <div style="font-size: 2.2rem; flex-shrink: 0;" aria-hidden="true">🕸️</div>
-            <div style="flex: 1; min-width: 220px;">
-              <h3 style="margin-bottom: 4px;">Interactive D3 Concept Graph Hub</h3>
-              <p class="meta" style="margin: 0;">Visualize how complex blocks, Xrefs, and drawing merges connect in an active, interactive D3 force-directed visualizer map.</p>
-            </div>
-          </a>
-          <a class="card card-glass" href="/cadguide-tools" style="grid-column: span 3; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; text-align: left; border-left: 4px solid #2563eb; background: linear-gradient(135deg, rgba(37,99,235,0.04) 0%, rgba(16,185,129,0.04) 100%);">
-            <div style="font-size: 2.2rem; flex-shrink: 0;" aria-hidden="true">🧮</div>
-            <div style="flex: 1; min-width: 220px;">
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
-                <h3 style="margin: 0;">Partner Resource: CADGuide.tools Toolbox &amp; Matchmaker</h3>
-                <span class="tag" style="background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 700;">560+ Calculators</span>
-              </div>
-              <p class="meta" style="margin: 0;">Instant client-side engineering calculators (gears, hydraulic forces, beam deflection, Ohm's law) and independent CAD/BIM software comparison matrices.</p>
-            </div>
-            <span style="font-weight: 600; color: var(--accent); font-size: 14px; white-space: nowrap;">Explore Tools &rarr;</span>
-          </a>
-        </div>
-      </section>
 
-      <!-- Section 2: Tutorials & Learning Paths -->
-      <section class="section section-deferred">
-        <div class="section-head">
-          <h2 class="section-title">Aggregated Tutorials &amp; Learning Paths</h2>
-          <a class="section-note" href="/tutorials">View full library</a>
-        </div>
-        <div class="list">
-          <article class="tutorial-item">
-            <div class="thumb thumb--cover" style="background-image: url('./images/tutorials/cad_roadmap_starter.webp')" role="img" aria-label="CAD learning roadmap illustration"></div>
-            <div class="item-body">
-              <h3>Starter Sequence: CAD General Literacy in 14 Days</h3>
-              <p class="meta">Source: Gstarcademy · Type: Structured roadmap · Focus: software landscapes, atomic terms, and command line foundations.</p>
-              <div class="item-tags"><span class="tag">Beginner</span><span class="tag">Literacy</span><span class="tag">Roadmap</span></div>
-              <div class="actions"><a class="btn btn-primary" href="/tutorials">Start Sequence &rarr;</a></div>
-            </div>
-          </article>
-          <article class="tutorial-item">
-            <div class="thumb thumb--cover" style="background-image: url('./images/tutorials/autocad_drafting_beginner.webp')" role="img" aria-label="AutoCAD drafting workspace illustration"></div>
-            <div class="item-body">
-              <h3>AutoCAD Command Detailing &amp; Quiz Path</h3>
-              <p class="meta">Source: myCADsite · Type: Free tutorials · Focus: step-by-step drafting layout rules and instant quiz reinforcement.</p>
-              <div class="item-tags"><span class="tag">Beginner</span><span class="tag">AutoCAD</span><span class="tag">Quiz</span></div>
-              <div class="actions"><a class="btn" href="https://www.mycadsite.com/" target="_blank" rel="noopener noreferrer">Open Source ↗</a></div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Section 3: Curated Industry News Highlights -->
-      <section class="section section-deferred">
-        <div class="section-head">
-          <h2 class="section-title">Curated Industry News Highlights</h2>
-          <a class="section-note" href="/news">View news timeline</a>
-        </div>
-        <div class="grid grid-3">
-          <article class="card card-glass">
-            <span class="eyebrow" style="margin-bottom: 8px;">IFC Interop</span>
-            <h3>Open BIM &amp; IFC Specification Updates</h3>
-            <p class="meta">buildingSMART continues coordinating open specifications. Check standard cadence updates before deploying complex pipelines.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="/news">Read summary &rarr;</a></div>
-          </article>
-          <article class="card card-glass">
-            <span class="eyebrow" style="margin-bottom: 8px;">AEC Tech</span>
-            <h3>Construction Tech &amp; BIM Practice – Autodesk Blog</h3>
-            <p class="meta">Curated articles tracking site coordination, field operations, and cloud sync frameworks that sit alongside CAD modeling.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="/news">Read summary &rarr;</a></div>
-          </article>
-          <article class="card card-glass">
-            <span class="eyebrow" style="margin-bottom: 8px;">Releases</span>
-            <h3>Rhino &amp; Grasshopper Cadence Updates</h3>
-            <p class="meta">McNeel's news hub release updates, perfect for verifying team rollout dates and Grasshopper script compatibility.</p>
-            <div class="actions" style="margin-top: 12px;"><a class="btn" href="/news">Read summary &rarr;</a></div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Popular Concepts Quick Access -->
-      <section class="section section-deferred" style="margin-bottom: 40px;">
-        <div class="section-head" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-          <h2 class="section-title" style="margin: 0;">📖 Popular Concepts — Quick Access</h2>
-          <a href="/kb-terms" style="font-size: 0.8rem; color: #2563eb; font-weight: 700; text-decoration: none;">View All 440+ Terms &rarr;</a>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 16px;">
-          <a href="./kb/concepts/alibre-design-term-1" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
-            <strong style="font-size: 0.88rem; color: var(--ink-text, #0f172a);">Parametric Dimension Driver</strong>
-            <span style="font-size: 0.75rem; color: var(--ink-text-soft, #64748b);">Alibre Design</span>
-          </a>
-          <a href="./kb/concepts/rhinoceros-term-1" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
-            <strong style="font-size: 0.88rem; color: var(--ink-text, #0f172a);">NURBS Geometry</strong>
-            <span style="font-size: 0.75rem; color: var(--ink-text-soft, #64748b);">Rhinoceros</span>
-          </a>
-          <a href="./kb/concepts/rhinoceros-term-2" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
-            <strong style="font-size: 0.88rem; color: var(--ink-text, #0f172a);">Grasshopper</strong>
-            <span style="font-size: 0.75rem; color: var(--ink-text-soft, #64748b);">Rhinoceros</span>
-          </a>
-          <a href="./kb/concepts/tekla-structures-term-1" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
-            <strong style="font-size: 0.88rem; color: var(--ink-text, #0f172a);">Steel Detailing</strong>
-            <span style="font-size: 0.75rem; color: var(--ink-text-soft, #64748b);">Tekla Structures</span>
-          </a>
-          <a href="./kb/concepts/allplan-term-3" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
-            <strong style="font-size: 0.88rem; color: var(--ink-text, #0f172a);">Allplan Bridge</strong>
-            <span style="font-size: 0.75rem; color: var(--ink-text-soft, #64748b);">Allplan</span>
-          </a>
-          <a href="./kb/concepts/3d-operations-gstarcad" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
-            <strong style="font-size: 0.88rem; color: var(--ink-text, #0f172a);">3D Operations</strong>
-            <span style="font-size: 0.75rem; color: var(--ink-text-soft, #64748b);">GstarCAD</span>
-          </a>
-          <a href="./kb/concepts/bricscad-term-3" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
-            <strong style="font-size: 0.88rem; color: var(--ink-text, #0f172a);">Parametric Blocks (BLADE)</strong>
-            <span style="font-size: 0.75rem; color: var(--ink-text-soft, #64748b);">BricsCAD</span>
-          </a>
-          <a href="./kb/concepts/dynamic-blocks-autocad" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; text-decoration: none;">
-            <strong style="font-size: 0.88rem; color: var(--ink-text, #0f172a);">Dynamic Blocks</strong>
-            <span style="font-size: 0.75rem; color: var(--ink-text-soft, #64748b);">AutoCAD</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Section 4: Gstarcademy Philosophy -->
-      <section class="section section-deferred" style="margin-bottom: 40px;">
-        <div class="section-head" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-          <h2 class="section-title" style="margin: 0;">Our Philosophy: Structured Literacy</h2>
-          <span class="section-note" style="background: rgba(37,99,235,0.06); color: var(--accent); padding: 6px 14px; border-radius: 99px; font-weight: 600; font-size: 13px;">
-            Why we prioritize the map before the app
-          </span>
-        </div>
-        <article class="card card-glass" style="padding: 32px; box-shadow: var(--shadow-lg); border-color: rgba(37,99,235,0.12); border-radius: 24px;">
-          <div style="display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 40px; align-items: center; flex-wrap: wrap;">
-            <!-- Left Side: Editorial Content -->
-            <div style="position: relative;">
-              <p class="meta" style="font-size: 1.05rem; line-height: 1.75; color: var(--muted); margin: 0; padding-top: 10px; position: relative; z-index: 2;">
-                Inspired by the <strong>Structured Literacy</strong> approach, Gstarcademy operates under the vision that a CAD learner does not fail because drafting is hard, but because the learning order is unclear. Instead of pushing users directly into linear drawing tutorials, we prioritize establishing a permanent mental framework. 
-                <br><br>
-                By extracting <strong>atomic units of knowledge</strong>—underlying concepts like parametric constraints, intelligent objects, layers, and blocks—we provide structural models that persist even when drafting software packages change. Under this system, the concept graph establishes the "map," the news feed tracks "industry advances," and the aggregated library helps you find "actionable tutorials."
+        <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px;">
+          
+          <!-- Faculty 1: Core Drafting & Platform Engine -->
+          <div class="faculty-card" style="border-top: 4px solid #2563eb;">
+            <div>
+              <span class="faculty-badge" style="background: #eff6ff; color: #2563eb;">Faculty 01 · Core Platform</span>
+              <div style="font-size: 2rem; margin-bottom: 8px;">🏛️</div>
+              <h3 style="font-size: 1.35rem; margin: 0 0 10px; color: var(--ink-text);">School of 2D Drafting &amp; Core CAD</h3>
+              <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6; margin-bottom: 16px;">
+                Master GstarCAD 2027 Pro's new multi-core graphics pipeline. Comprehensive training on precision coordinate geometry, dynamic input, layer governance, dynamic blocks with action parameters, and high-speed handling of 100MB+ DWG drawings.
               </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 12.5px; color: #475569; display: flex; flex-direction: column; gap: 6px;">
+                <li>✓ <strong>Key Tools:</strong> Dynamic Blocks, Magnifier, Drawing Compare (CMP)</li>
+                <li>✓ <strong>Curriculum:</strong> 6 In-Depth Modules · 4.5 Hours Content</li>
+                <li>✓ <strong>Qualification:</strong> Certified Associate in 2D Drafting</li>
+              </ul>
             </div>
-            
-            <!-- Right Side: Structured Highlights Dashboard -->
-            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line-soft); padding: 24px; border-radius: 16px; display: flex; flex-direction: column; gap: 16px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.01);">
-              <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--line-soft); padding-bottom: 10px; display: flex; align-items: center; gap: 8px;">
-                <span>🛠️</span> 3 Core System Pillars
-              </h3>
-              
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <div style="background: rgba(37,99,235,0.1); color: #2563eb; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0;">1</div>
-                <div>
-                  <strong style="display: block; font-size: 13px; color: var(--text);">Concept Graph ("The Map")</strong>
-                  <span style="font-size: 12px; color: var(--muted); line-height: 1.4; display: block;">Visualizing atomic relations to build a resilient mental framework.</span>
-                </div>
-              </div>
+            <div style="margin-top: 16px; display: flex; gap: 10px;">
+              <a class="btn btn-primary" href="/tutorials?software=gstarcad" style="flex: 1; text-align: center; font-size: 13px; padding: 8px;">Enter Faculty &rarr;</a>
+              <a class="btn" href="/download" style="font-size: 13px; padding: 8px;">Workstation</a>
+            </div>
+          </div>
 
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <div style="background: rgba(16,185,129,0.1); color: #10b981; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0;">2</div>
-                <div>
-                  <strong style="display: block; font-size: 13px; color: var(--text);">News Curation ("Industry Advances")</strong>
-                  <span style="font-size: 12px; color: var(--muted); line-height: 1.4; display: block;">Cadence-driven feeds tracking structural BIM and MCAD updates.</span>
-                </div>
-              </div>
+          <!-- Faculty 2: Mechanical & Smart Manufacturing -->
+          <div class="faculty-card" style="border-top: 4px solid #10b981;">
+            <div>
+              <span class="faculty-badge" style="background: #ecfdf5; color: #059669;">Faculty 02 · Manufacturing</span>
+              <div style="font-size: 2rem; margin-bottom: 8px;">⚙️</div>
+              <h3 style="font-size: 1.35rem; margin: 0 0 10px; color: var(--ink-text);">School of Mechanical CAD &amp; BOM</h3>
+              <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6; margin-bottom: 16px;">
+                Specialized in mechanical component modeling, tooling fixtures, and automated production drawings. Harness international standard parts (ISO, ANSI, DIN, JIS), automated ballooning, surface texture symbols, and dynamic two-way Excel BOM synchronization.
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 12.5px; color: #475569; display: flex; flex-direction: column; gap: 6px;">
+                <li>✓ <strong>Key Tools:</strong> Standard Parts Library, Auto Balloon, Dynamic BOM Sync</li>
+                <li>✓ <strong>Curriculum:</strong> 5 Manufacturing Modules · 4 Hours Content</li>
+                <li>✓ <strong>Qualification:</strong> Certified MCAD Specialist</li>
+              </ul>
+            </div>
+            <div style="margin-top: 16px; display: flex; gap: 10px;">
+              <a class="btn btn-primary" href="/tutorials?software=mechanical" style="flex: 1; text-align: center; font-size: 13px; padding: 8px; background: #10b981; border-color: #10b981;">Enter Faculty &rarr;</a>
+              <a class="btn" href="https://www.gstarcad.net/mechanical/" target="_blank" rel="noopener" style="font-size: 13px; padding: 8px;">Product ↗</a>
+            </div>
+          </div>
 
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <div style="background: rgba(139,92,246,0.1); color: #8b5cf6; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0;">3</div>
-                <div>
-                  <strong style="display: block; font-size: 13px; color: var(--text);">Aggregated Library ("Actionable Tutorials")</strong>
-                  <span style="font-size: 12px; color: var(--muted); line-height: 1.4; display: block;">Vetted public resources tagged by software, task, and pricing.</span>
-                </div>
+          <!-- Faculty 3: Architecture & AEC -->
+          <div class="faculty-card" style="border-top: 4px solid #f59e0b;">
+            <div>
+              <span class="faculty-badge" style="background: #fffbeb; color: #d97706;">Faculty 03 · AEC &amp; Building</span>
+              <div style="font-size: 2rem; margin-bottom: 8px;">🏢</div>
+              <h3 style="font-size: 1.35rem; margin: 0 0 10px; color: var(--ink-text);">School of Architecture &amp; AEC</h3>
+              <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6; margin-bottom: 16px;">
+                Intelligent parametric building modeling for architects and civil engineers. Generate walls, doors, windows, and stairs with live dimensional constraints, coordinate multi-story elevations and cross-sections, and automatically synthesize 3D BIM models from 2D plans.
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 12.5px; color: #475569; display: flex; flex-direction: column; gap: 6px;">
+                <li>✓ <strong>Key Tools:</strong> Parametric Walls/Apertures, Multi-Storey Manager, IFC Sync</li>
+                <li>✓ <strong>Curriculum:</strong> 5 AEC Modules · 3.5 Hours Content</li>
+                <li>✓ <strong>Qualification:</strong> Certified AEC Architect</li>
+              </ul>
+            </div>
+            <div style="margin-top: 16px; display: flex; gap: 10px;">
+              <a class="btn btn-primary" href="/tutorials?software=architecture" style="flex: 1; text-align: center; font-size: 13px; padding: 8px; background: #f59e0b; border-color: #f59e0b;">Enter Faculty &rarr;</a>
+              <a class="btn" href="https://www.gstarcad.net/architecture/" target="_blank" rel="noopener" style="font-size: 13px; padding: 8px;">Product ↗</a>
+            </div>
+          </div>
+
+          <!-- Faculty 4: DWG FastView Mobile & Cloud -->
+          <div class="faculty-card" style="border-top: 4px solid #6366f1;">
+            <div>
+              <span class="faculty-badge" style="background: #eef2ff; color: #4f46e5;">Faculty 04 · Mobile &amp; Cloud</span>
+              <div style="font-size: 2rem; margin-bottom: 8px;">📱</div>
+              <h3 style="font-size: 1.35rem; margin: 0 0 10px; color: var(--ink-text);">School of Mobile &amp; Field FastView</h3>
+              <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6; margin-bottom: 16px;">
+                Equipping 50M+ global engineers with modern job-site workflows. Master sub-millimeter optical lens measuring on tablet/phone, real-time photo and voice defect pinpoints, cloud revision comparison, and multi-user cross-platform synchronization.
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 12.5px; color: #475569; display: flex; flex-direction: column; gap: 6px;">
+                <li>✓ <strong>Key Tools:</strong> Optical Magnifier Lens, Cloud Markups, 14+ 3D Format Viewer</li>
+                <li>✓ <strong>Curriculum:</strong> 5 Field Coordination Modules · 3.5 Hours Content</li>
+                <li>✓ <strong>Qualification:</strong> Certified FastView Field Engineer</li>
+              </ul>
+            </div>
+            <div style="margin-top: 16px; display: flex; gap: 10px;">
+              <a class="btn btn-primary" href="/tutorials?software=fastview" style="flex: 1; text-align: center; font-size: 13px; padding: 8px; background: #6366f1; border-color: #6366f1;">Enter Faculty &rarr;</a>
+              <a class="btn" href="/tutorial-fastview" style="font-size: 13px; padding: 8px;">Field Guide</a>
+            </div>
+          </div>
+
+          <!-- Faculty 5: Enterprise AutoCAD Migration -->
+          <div class="faculty-card" style="border-top: 4px solid #8b5cf6;">
+            <div>
+              <span class="faculty-badge" style="background: #f5f3ff; color: #7c3aed;">Faculty 05 · Migration Camp</span>
+              <div style="font-size: 2rem; margin-bottom: 8px;">🔄</div>
+              <h3 style="font-size: 1.35rem; margin: 0 0 10px; color: var(--ink-text);">AutoCAD Migration Institute</h3>
+              <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6; margin-bottom: 16px;">
+                The enterprise gateway for switching to GstarCAD with zero downtime. Discover 100% native DWG bidirectional compatibility, exact hotkey/command parity, batch font and .SHX conversion, .CTB plot style migration, and direct un-modified AutoLISP execution.
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 12.5px; color: #475569; display: flex; flex-direction: column; gap: 6px;">
+                <li>✓ <strong>Key Tools:</strong> Direct AutoLISP APPLOAD, Font Substitutor, TCO Calculator</li>
+                <li>✓ <strong>Curriculum:</strong> 5 Migration Modules · 3.5 Hours Content</li>
+                <li>✓ <strong>Qualification:</strong> Enterprise CAD Migration Specialist</li>
+              </ul>
+            </div>
+            <div style="margin-top: 16px; display: flex; gap: 10px;">
+              <a class="btn btn-primary" href="/migration" style="flex: 1; text-align: center; font-size: 13px; padding: 8px; background: #8b5cf6; border-color: #8b5cf6;">Enter Migration Hub &rarr;</a>
+              <a class="btn" href="/migration#tco-calculator" style="font-size: 13px; padding: 8px;">TCO Calc</a>
+            </div>
+          </div>
+
+          <!-- Faculty 6: Developer GRX SDK & LISP -->
+          <div class="faculty-card" style="border-top: 4px solid #0284c7;">
+            <div>
+              <span class="faculty-badge" style="background: #f0f9ff; color: #0284c7;">Faculty 06 · Developer SDK</span>
+              <div style="font-size: 2rem; margin-bottom: 8px;">💻</div>
+              <h3 style="font-size: 1.35rem; margin: 0 0 10px; color: var(--ink-text);">School of Developer &amp; GRX SDK</h3>
+              <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6; margin-bottom: 16px;">
+                Empowering ISVs and solution developers worldwide. Learn ObjectARX-to-GRX C++ migration, .NET WPF plugin architecture, AutoLISP / VLISP automated tool authoring, and DWG FastView Cloud JavaScript / Mobile SDK integration.
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 12.5px; color: #475569; display: flex; flex-direction: column; gap: 6px;">
+                <li>✓ <strong>Key Tools:</strong> GRX C++ SDK, .NET API, AutoLISP Debugger, Cloud Web SDK</li>
+                <li>✓ <strong>Curriculum:</strong> 5 Developer Modules · 4 Hours Content</li>
+                <li>✓ <strong>Qualification:</strong> Certified GstarCAD Application Developer</li>
+              </ul>
+            </div>
+            <div style="margin-top: 16px; display: flex; gap: 10px;">
+              <a class="btn btn-primary" href="/developers" style="flex: 1; text-align: center; font-size: 13px; padding: 8px; background: #0284c7; border-color: #0284c7;">Enter Developer Hub &rarr;</a>
+              <a class="btn" href="/tutorials?software=developers" style="font-size: 13px; padding: 8px;">Courses</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 2: Official Skill Certification & Digital Credentials -->
+      <section class="section" style="margin-top: 40px;">
+        <div class="card card-glass" style="padding: 40px; border-radius: 24px; background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #fff; box-shadow: 0 16px 36px rgba(15,23,42,0.18);">
+          <div style="display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 36px; align-items: center; flex-wrap: wrap;">
+            <div>
+              <span class="tag" style="background: #2563eb; color: #fff; font-weight: 800; letter-spacing: 0.05em;">GstarCAD Official Credentialing</span>
+              <h2 style="font-size: 2.2rem; margin: 14px 0 10px; color: #fff;">Official CAD Skill Certification &amp; Benchmarks</h2>
+              <p style="color: #cbd5e1; font-size: 15.5px; line-height: 1.7; margin-bottom: 24px;">
+                Validate your real-world engineering mastery across <strong>6 career tracks</strong> with <strong>430+ verified assessment questions</strong>. Receive a cryptographically verifiable official <strong>GstarCAD Certified Engineer Certificate</strong> with permanent verification hash and seal.
+              </p>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                <a class="btn btn-primary" href="/quiz" style="padding: 14px 28px; font-weight: 700; font-size: 15px; background: #2563eb; border-radius: 10px;">Take Certification Exam &rarr;</a>
+                <a class="btn" href="/quiz?track=placement" style="padding: 14px 24px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #fff; font-size: 15px; border-radius: 10px;">🏆 Fast-Track Placement Test</a>
+              </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.18); padding: 28px; border-radius: 18px;">
+              <h4 style="margin: 0 0 16px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: #93c5fd;">Certification Levels &amp; Credentials</h4>
+              <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; display: flex; flex-direction: column; gap: 14px; color: #e2e8f0;">
+                <li style="display: flex; align-items: flex-start; gap: 10px;">
+                  <span style="color: #60a5fa; font-weight: 800; font-size: 16px;">01.</span>
+                  <div>
+                    <strong>GCA (Certified Associate):</strong> Level 1-3. Precision geometry, OSNAP, layer organization and standard annotation.
+                  </div>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 10px;">
+                  <span style="color: #34d399; font-weight: 800; font-size: 16px;">02.</span>
+                  <div>
+                    <strong>GCP (Certified Professional):</strong> Level 4-5. Dynamic blocks, external references (Xrefs), layout plotting and 3D modeling.
+                  </div>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 10px;">
+                  <span style="color: #fbbf24; font-weight: 800; font-size: 16px;">03.</span>
+                  <div>
+                    <strong>GCEA (Enterprise Architect):</strong> Level 6-7. Mechanical BOM automation, parametric AEC, and GRX/LISP scripting.
+                  </div>
+                </li>
+              </ul>
+              <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; font-size: 12.5px; color: #94a3b8;">
+                <span>✓ High-Res Digital Seal</span>
+                <span>✓ Print &amp; LinkedIn Ready</span>
               </div>
             </div>
           </div>
-        </article>
+        </div>
       </section>
 
-      <!-- Section 5: Frequently Asked Questions (FAQ) -->
-      <section class="section faq-section" id="home-faq" style="margin-bottom: 40px;">
-        <div class="section-head">
-          <h2 class="section-title">Frequently Asked Questions</h2>
-          <span class="section-note">Direct answers to core questions about our service</span>
+      <!-- Section 3: Featured Curriculum Modules (31 Syllabi) -->
+      <section class="section section-deferred" style="margin-top: 40px;">
+        <div class="section-head" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+          <div>
+            <span class="tag" style="background: #e0f2fe; color: #0284c7; font-weight: 800;">Curriculum Highlight</span>
+            <h2 class="section-title" style="font-size: 2rem; margin-top: 6px;">Featured Masterclasses &amp; Syllabi</h2>
+          </div>
+          <a class="btn" href="/tutorials" style="border: 1px solid #cbd5e1; background: #fff; font-size: 13.5px; font-weight: 600;">View All 31 Academy Courses &rarr;</a>
         </div>
-        <div class="faq-accordion" style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
-          <details style="background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; padding: 16px; cursor: pointer;">
-            <summary style="font-weight: 600; font-size: 1.05rem; color: var(--ink-text, #0f172a); list-style: none; display: flex; justify-content: space-between; align-items: center;">
-              <span>What is Gstarcademy?</span>
-              <span class="faq-icon">▼</span>
-            </summary>
-            <p style="margin-top: 10px; color: var(--ink-text-soft, #475569); line-height: 1.6; font-size: 0.95rem;">
-              Gstarcademy is a structured CAD and BIM knowledge center offering concept glossaries, interactive learning roadmaps, and curated external tutorial navigation.
+
+        <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px;">
+          
+          <!-- Syllabus 1: GstarCAD Pro 2027 Core -->
+          <article class="card card-glass" style="display: flex; flex-direction: column; border-radius: 18px; overflow: hidden; padding: 0;">
+            <div class="thumb thumb--cover" style="background-image: url('./images/tutorials/gstarcad_academy.webp'); height: 180px;" role="img" aria-label="GstarCAD Quick Start Workspace"></div>
+            <div style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+              <div>
+                <span class="tag" style="background: #2563eb; color: #fff; font-weight: 700; font-size: 11px;">GstarCAD 2027 Pro</span>
+                <h3 style="margin: 10px 0 8px; font-size: 1.25rem;">GstarCAD 2027 Quick Start: 2D Drafting Fundamentals &amp; Modern Workspace</h3>
+                <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6;">
+                  Get started with GstarCAD 2027's multi-core graphics engine. Master the ribbon interface, dynamic input, precision object snaps (OSNAP), and core drawing commands.
+                </p>
+                <div class="item-tags" style="margin: 12px 0;"><span class="tag">2D Drafting</span><span class="tag">Multi-Core Engine</span><span class="tag">Official Syllabus</span></div>
+              </div>
+              <div class="actions" style="margin-top: 14px;"><a class="btn btn-primary" href="/tutorials?software=gstarcad" style="width: 100%; text-align: center; box-sizing: border-box;">Start Course Module &rarr;</a></div>
+            </div>
+          </article>
+
+          <!-- Syllabus 2: Mechanical BOM -->
+          <article class="card card-glass" style="display: flex; flex-direction: column; border-radius: 18px; overflow: hidden; padding: 0;">
+            <div class="thumb thumb--cover" style="background-image: url('./images/tutorials/cad_roadmap_starter.webp'); height: 180px; filter: hue-rotate(90deg);" role="img" aria-label="GstarCAD Mechanical Assemblies"></div>
+            <div style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+              <div>
+                <span class="tag" style="background: #10b981; color: #fff; font-weight: 700; font-size: 11px;">GstarCAD Mechanical</span>
+                <h3 style="margin: 10px 0 8px; font-size: 1.25rem;">Intelligent MCAD: Standard Parts, GD&amp;T &amp; Dynamic BOM Extraction</h3>
+                <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6;">
+                  Accelerate mechanical manufacturing drawings. Leverage parametric ISO/ANSI fasteners, surface finish callouts, auto ballooning, and real-time Excel BOM sync.
+                </p>
+                <div class="item-tags" style="margin: 12px 0;"><span class="tag">Mechanical BOM</span><span class="tag">Standard Parts</span><span class="tag">GD&amp;T</span></div>
+              </div>
+              <div class="actions" style="margin-top: 14px;"><a class="btn" href="/tutorials?software=mechanical" style="width: 100%; text-align: center; box-sizing: border-box; background: #10b981; color: #fff;">Start MCAD Module &rarr;</a></div>
+            </div>
+          </article>
+
+          <!-- Syllabus 3: Architecture Parametric AEC -->
+          <article class="card card-glass" style="display: flex; flex-direction: column; border-radius: 18px; overflow: hidden; padding: 0;">
+            <div class="thumb thumb--cover" style="background-image: url('./images/tutorials/gstarcad_academy.webp'); height: 180px; filter: hue-rotate(45deg);" role="img" aria-label="GstarCAD Architecture Parametric Modeling"></div>
+            <div style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+              <div>
+                <span class="tag" style="background: #f59e0b; color: #fff; font-weight: 700; font-size: 11px;">GstarCAD Architecture</span>
+                <h3 style="margin: 10px 0 8px; font-size: 1.25rem;">Parametric Architecture: Wall Generation, Apertures &amp; Multi-Story Management</h3>
+                <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6;">
+                  Harness custom AEC objects. Create parametric walls with automatic T/L intersections, insert intelligent windows/doors, and generate sections and 3D perspectives on the fly.
+                </p>
+                <div class="item-tags" style="margin: 12px 0;"><span class="tag">Parametric AEC</span><span class="tag">Door/Window Sync</span><span class="tag">Multi-Story</span></div>
+              </div>
+              <div class="actions" style="margin-top: 14px;"><a class="btn" href="/tutorials?software=architecture" style="width: 100%; text-align: center; box-sizing: border-box; background: #f59e0b; color: #fff;">Start AEC Module &rarr;</a></div>
+            </div>
+          </article>
+
+          <!-- Syllabus 4: DWG FastView Precision Field -->
+          <article class="card card-glass" style="display: flex; flex-direction: column; border-radius: 18px; overflow: hidden; padding: 0;">
+            <div class="thumb thumb--cover" style="background-image: url('./images/tutorials/gstarcad_academy.webp'); height: 180px; filter: hue-rotate(240deg);" role="img" aria-label="DWG FastView Mobile Field Coordination"></div>
+            <div style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+              <div>
+                <span class="tag" style="background: #6366f1; color: #fff; font-weight: 700; font-size: 11px;">DWG FastView Ecosystem</span>
+                <h3 style="margin: 10px 0 8px; font-size: 1.25rem;">DWG FastView Field Workflows: Optical Measuring, Cloud Markups &amp; 3D Formats</h3>
+                <p class="meta" style="color: var(--ink-text-soft); font-size: 13.5px; line-height: 1.6;">
+                  Field workflows for construction and surveying. Millimeter-accurate optical lens measuring, revision clouds, photo pins, 14+ 3D file viewing (STEP/IGES/SolidWorks), and live sync.
+                </p>
+                <div class="item-tags" style="margin: 12px 0;"><span class="tag">Mobile Job-Site</span><span class="tag">Optical Lens</span><span class="tag">Cloud Collab</span></div>
+              </div>
+              <div class="actions" style="margin-top: 14px;"><a class="btn" href="/tutorials?software=fastview" style="width: 100%; text-align: center; box-sizing: border-box; background: #6366f1; color: #fff;">Start FastView Module &rarr;</a></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Section 4: Academic Faculty & Suzhou Gstarsoft Authority -->
+      <section class="section section-deferred" style="margin-top: 40px; margin-bottom: 40px;">
+        <div class="card card-glass" style="padding: 36px; border-radius: 24px; border-left: 6px solid #2563eb;">
+          <div style="display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 36px; align-items: center; flex-wrap: wrap;">
+            <div>
+              <span class="tag" style="background: #dbeafe; color: #1e40af; font-weight: 700;">Academic Governance &amp; Global Enterprise</span>
+              <h2 style="font-size: 1.9rem; margin: 12px 0 14px;">Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</h2>
+              <p style="color: var(--ink-text-soft); font-size: 14.5px; line-height: 1.7; margin: 0 0 18px;">
+                Founded in 1992, Gstarsoft is an internationally recognized CAD software developer with over 30 years of independent graphics kernel and CAD engine innovation. Listed on the Shanghai Stock Exchange Science and Technology Innovation Board (STAR Market: 688657), Gstarsoft powers more than 500,000 enterprise clients across 100+ nations. GstarCAD Global Academy serves as the official academic gateway for cultivating next-generation engineering talent.
+              </p>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a class="btn btn-primary" href="/about" style="padding: 10px 20px; font-size: 13.5px;">About Gstarsoft &amp; Academic Board &rarr;</a>
+                <a class="btn" href="https://www.gstarcad.net/distributor/" target="_blank" rel="noopener" style="padding: 10px 20px; font-size: 13.5px; border: 1px solid #cbd5e1; background: #fff;">Find Local Academic Partner ↗</a>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-align: center;">
+              <div style="background: #f8fafc; padding: 22px 16px; border-radius: 14px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #2563eb;">30+</div>
+                <div style="font-size: 13px; color: #64748b; margin-top: 4px; font-weight: 600;">Years Independent R&amp;D</div>
+              </div>
+              <div style="background: #f8fafc; padding: 22px 16px; border-radius: 14px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #10b981;">100+</div>
+                <div style="font-size: 13px; color: #64748b; margin-top: 4px; font-weight: 600;">Global Countries</div>
+              </div>
+              <div style="background: #f8fafc; padding: 22px 16px; border-radius: 14px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #f59e0b;">50M+</div>
+                <div style="font-size: 13px; color: #64748b; margin-top: 4px; font-weight: 600;">FastView Installations</div>
+              </div>
+              <div style="background: #f8fafc; padding: 22px 16px; border-radius: 14px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #8b5cf6;">688657</div>
+                <div style="font-size: 13px; color: #64748b; margin-top: 4px; font-weight: 600;">STAR Market Public Stock</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Engineering Knowledge Base & Concept Graph -->
+      <section class="section section-deferred" style="margin-bottom: 44px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <span class="tag" style="background: #e0f2fe; color: #0284c7; font-weight: 800;">Academic Reference</span>
+          <h2 class="section-title" style="font-size: 1.85rem; margin-top: 6px;">Technical Reference &amp; Engineering Graph</h2>
+          <span class="section-note">Master standard engineering terminology, ISO/ASME guidelines, and topological relationships</span>
+        </div>
+        <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <a class="card card-glass" href="/kb-graph" style="text-decoration: none; padding: 24px; border-radius: 16px;">
+            <span style="font-size: 1.8rem; display: block; margin-bottom: 10px;" aria-hidden="true">🕸️</span>
+            <h3 style="color: var(--ink-text); font-size: 1.15rem; margin: 0 0 8px;">Interactive D3 Concept Graph</h3>
+            <p class="meta" style="color: var(--ink-text-soft); font-size: 13px; line-height: 1.6;">
+              Explore how external references (Xrefs), coordinate systems (UCS), dynamic blocks, and layer definitions interconnect.
             </p>
-          </details>
-          <details style="background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; padding: 16px; cursor: pointer;">
-            <summary style="font-weight: 600; font-size: 1.05rem; color: var(--ink-text, #0f172a); list-style: none; display: flex; justify-content: space-between; align-items: center;">
-              <span>How can I find specific CAD software tutorials?</span>
-              <span class="faq-icon">▼</span>
-            </summary>
-            <p style="margin-top: 10px; color: var(--ink-text-soft, #475569); line-height: 1.6; font-size: 0.95rem;">
-              You can use our Tutorial Library to filter outbound links by software (AutoCAD, Revit, GstarCAD, SOLIDWORKS), level, task, and source platform.
+          </a>
+          <a class="card card-glass" href="/kb-terms" style="text-decoration: none; padding: 24px; border-radius: 16px;">
+            <span style="font-size: 1.8rem; display: block; margin-bottom: 10px;" aria-hidden="true">📖</span>
+            <h3 style="color: var(--ink-text); font-size: 1.15rem; margin: 0 0 8px;">Engineering Terminology Lexicon</h3>
+            <p class="meta" style="color: var(--ink-text-soft); font-size: 13px; line-height: 1.6;">
+              Comprehensive academic encyclopedia covering ISO, ASME, geometric dimensioning and tolerancing (GD&amp;T), and drawing standards.
             </p>
-          </details>
-          <details style="background: var(--ink-surface-2, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px; padding: 16px; cursor: pointer;">
-            <summary style="font-weight: 600; font-size: 1.05rem; color: var(--ink-text, #0f172a); list-style: none; display: flex; justify-content: space-between; align-items: center;">
-              <span>Are the tutorials on Gstarcademy free?</span>
-              <span class="faq-icon">▼</span>
-            </summary>
-            <p style="margin-top: 10px; color: var(--ink-text-soft, #475569); line-height: 1.6; font-size: 0.95rem;">
-              Yes, Gstarcademy is a free navigation service. Paid online courses from third-party platforms are marked with a credit card icon (💳) for transparency.
+          </a>
+          <a class="card card-glass" href="/kb-faq" style="text-decoration: none; padding: 24px; border-radius: 16px;">
+            <span style="font-size: 1.8rem; display: block; margin-bottom: 10px;" aria-hidden="true">❓</span>
+            <h3 style="color: var(--ink-text); font-size: 1.15rem; margin: 0 0 8px;">Technical Support &amp; FAQ</h3>
+            <p class="meta" style="color: var(--ink-text-soft); font-size: 13px; line-height: 1.6;">
+              Architectural guides for hardware graphics acceleration, network license management, font substitutions, and memory tuning.
             </p>
-          </details>
+          </a>
         </div>
       </section>
     </main>
 
+    <!-- Bottom CTA Banner: Virtual Engineering Workstation -->
+    <section style="background: radial-gradient(circle at 50% 50%, rgba(37,99,235,0.2) 0%, rgba(15,23,42,0) 70%), linear-gradient(135deg, #070d1e 0%, #0f172a 100%); color: #fff; padding: 56px 24px; text-align: center;">
+      <div class="container" style="max-width: 820px;">
+        <span style="background: rgba(37,99,235,0.3); border: 1px solid rgba(147,197,253,0.3); color: #93c5fd; padding: 4px 16px; border-radius: 99px; font-weight: 700; font-size: 12px; display:inline-block; margin-bottom:14px; text-transform:uppercase;">
+          💻 Student &amp; Professional Virtual Workstation
+        </span>
+        <h2 style="font-size: 2.3rem; font-weight: 800; margin: 0 0 16px; color: #fff;">Equip Your Engineering Workstation</h2>
+        <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.65; margin-bottom: 30px;">
+          Practice coursework on the full-featured GstarCAD Professional edition with 30-day free access. 100% native DWG, perpetual ownership options, and global support.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="/download" style="background: #2563eb; font-weight: 700; padding: 14px 32px; font-size: 15px; border-radius: 12px;">Download Free 30-Day Workstation &rarr;</a>
+          <a class="btn" href="https://www.gstarcad.net/contact/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.25); font-weight: 600; padding: 14px 28px; font-size: 15px; border-radius: 12px;">Contact Global Academic Office ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer site-footer">
       <div class="container site-footer-inner">
         <div class="site-footer-brand">
-          <p class="site-footer-tagline">Gstarcademy</p>
-          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
+          <p class="site-footer-tagline">GstarCAD Global Academy</p>
+          <p class="site-footer-desc">The official global learning, certification, and migration resource hub for GstarCAD, GstarCAD Mechanical, Architecture &amp; DWG FastView. Powered by Suzhou Gstarsoft Co., Ltd. (SSE: 688657).</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h3 class="site-footer-heading">Academic Faculties</h3>
           <ul class="site-footer-links">
-            <li><a href="./kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="./kb/software/revit">Revit Guide</a></li>
-            <li><a href="./kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="./kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="./kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="./kb/software/catia">CATIA Guide</a></li>
-            <li><a href="./kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="./kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="/tutorials?software=gstarcad">School of 2D Drafting</a></li>
+            <li><a href="/tutorials?software=mechanical">School of Mechanical CAD</a></li>
+            <li><a href="/tutorials?software=architecture">School of Architecture &amp; AEC</a></li>
+            <li><a href="/tutorials?software=fastview">School of Mobile FastView</a></li>
+            <li><a href="/migration">AutoCAD Migration Institute</a></li>
+            <li><a href="/developers">School of Developer GRX SDK</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h3 class="site-footer-heading">Accreditation &amp; Tools</h3>
           <ul class="site-footer-links">
-            <li><a href="/kb-terms">2D Drafting</a></li>
-            <li><a href="./kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="./kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="./kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="./kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="./kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="./kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="./kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="/tutorials">All Course Syllabi (31 Modules)</a></li>
+            <li><a href="/quiz">Official Skill Certification</a></li>
+            <li><a href="/knowledge-base">Technical Knowledge Base</a></li>
+            <li><a href="/download">Download 30-Day Workstation</a></li>
+            <li><a href="/kb-terms">Engineering Lexicon</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h3 class="site-footer-heading">Academic Governance</h3>
           <ul class="site-footer-links">
-            <li><a href="./knowledge-domains">Domain Map</a></li>
-            <li><a href="./knowledge-roadmap">Interactive Map</a></li>
-            <li><a href="/quiz">Quiz Challenge</a></li>
-            <li><a href="/tutorials">Tutorial Library</a></li>
-            <li><a href="/knowledge-base">Knowledge Center</a></li>
-            <li><a href="/kb-graph">Interactive Graph</a></li>
-            <li><a href="/kb-software">Software Index</a></li>
-            <li><a href="/cadguide-tools" style="color: var(--accent); font-weight: 600;">CADGuide Toolbox ↗</a></li>
-            <li><a href="/kb-terms">CAD Glossary</a></li>
-            <li><a href="/kb-faq">Technical FAQ</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
-          <ul class="site-footer-links">
-            <li><a href="/about">About Project</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/about">About Suzhou Gstarsoft (SSE: 688657)</a></li>
+            <li><a href="https://www.gstarcad.net/distributor/" target="_blank" rel="noopener">Global Distributor Network ↗</a></li>
+            <li><a href="/contact">Academic Advisory Office</a></li>
             <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/terms">Terms of Use</a></li>
-            <li><a href="/legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year"></span> GstarCAD Global Academy · Suzhou Gstarsoft Co., Ltd. All rights reserved. AutoCAD® is a registered trademark of Autodesk, Inc.</p>
       </div>
     </footer>
-
-    <div
-      id="cookie-consent"
-      class="cookie-consent"
-      role="dialog"
-      aria-label="Cookie notice"
-      data-cookie-banner
-      style="display:none;"
-    >
-      <button 
-        type="button" 
-        class="cookie-consent-close" 
-        aria-label="Dismiss cookie notice"
-      >&times;</button>
-      <div class="cookie-consent-inner">
-        <p class="cookie-consent-text">
-          We use optional cookies for basic analytics. See our
-          <a href="/privacy">privacy policy</a> for details.
-        </p>
-        <div class="cookie-consent-actions">
-          <button type="button" class="btn-cookie-outline" data-action="deny">Deny</button>
-          <button type="button" class="btn-cookie-outline" data-action="customize">Customize</button>
-          <button type="button" class="btn-cookie-primary cookie-consent-accept" data-action="accept">Accept</button>
-        </div>
-      </div>
-    </div>
-
     <script src="/app.min.js?v=20260827" defer></script>
   </body>
 </html>

@@ -85,14 +85,13 @@
       <aside
         class="site-notice"
         id="site-notice"
-        data-notice-id="global-v2"
+        data-notice-id="global-v3"
         aria-label="Announcement"
       >
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the
-            <a class="site-notice-link" href="/tutorials">tutorial library</a>
-            to filter by software, task, level, and source—then follow outbound links to the originals.
+            🚀 <strong>GstarCAD Knowledge Base:</strong> Engineering standards, AutoCAD migration procedures, and CAD concept graph.
+            <a class="site-notice-link" href="/migration">View AutoCAD Migration Hub &rarr;</a>
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -102,8 +101,8 @@
       <header class="topbar">
         <div class="container topbar-inner">
           <a class="brand" href="/">
-            <span class="brand-badge">GC</span>
-            <span>Gstarcademy</span>
+            <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+            <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
           </a>
           <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span class="hamburger-line"></span>
@@ -117,10 +116,13 @@
               </button>
             </div>
             <a class="nav-link" data-nav="home" href="/">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="/tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="/news">News</a>
-            <a class="nav-link" data-nav="about" href="/about">About</a>
+            <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+            <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+            <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+            <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+            <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+            <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
             <!-- Streak Fire Badge -->
             <div class="streak-fire-hud" id="global-streak-badge" style="display:none;" title="Your daily streak Days">
               🔥 <span id="global-streak-count">0</span> Days
@@ -339,9 +341,27 @@
                   
                   <div style="max-width: 52rem;">
                     <details class="vendor-docs-details">
-                      <summary>What is the fundamental difference between 2D CAD and BIM?</summary>
+                      <summary>How to fix missing CAD fonts displaying as "???" question marks?</summary>
                       <p>
-                        2D CAD coordinates visual vectors (lines, arcs, circles) representing geometry on a flat page. BIM (Building Information Modeling) operates on an active, multi-disciplinary relational database where elements represent real structural objects loaded with schedules, constraints, and smart behaviors.
+                        When text displays as "???", the drawing is referencing compiled SHX shape fonts (or Asian Bigfonts) that are not installed on your system. In DWG FastView, enable <strong>Automatic Cloud Font Retrieval</strong> in settings to auto-fetch missing fonts. In GstarCAD Pro, copy your company's proprietary <code>.shx</code> and TrueType font files into the <code>Fonts</code> directory, or specify <code>gbcbig.shx</code> / <code>simplex.shx</code> as fallback substitution styles.
+                      </p>
+                    </details>
+                    <details class="vendor-docs-details">
+                      <summary>Can I convert drawing schedule tables directly to Microsoft Excel?</summary>
+                      <p>
+                        Yes. Using the <strong>Table to Excel</strong> tool in DWG FastView or the <code>EATTEXT</code> (Attribute Extraction) command in GstarCAD Pro, simply frame-select the drawing table lines and text. The engine automatically parses rows, columns, and numerical cells and exports a clean, editable <code>.xlsx</code> spreadsheet with formulas.
+                      </p>
+                    </details>
+                    <details class="vendor-docs-details">
+                      <summary>How to view 3D SolidWorks, Revit, or CATIA files on mobile or web?</summary>
+                      <p>
+                        DWG FastView includes a cloud-powered 3D engine supporting 14+ formats: SolidWorks (<code>.sldprt</code>, <code>.sldasm</code>), Revit (<code>.rvt 2025</code>), CATIA, Rhino (<code>.3dm</code>), STEP, IGES, STL, and OBJ. Upload the file to FastView Cloud or open via mobile app to orbit, cut cross-sections, and measure dimensions without installing heavy CAD desktop software.
+                      </p>
+                    </details>
+                    <details class="vendor-docs-details">
+                      <summary>Will existing AutoCAD AutoLISP and Visual LISP routines run in GstarCAD?</summary>
+                      <p>
+                        Yes. GstarCAD provides native, binary-level AutoLISP compatibility. You can load your existing <code>.lsp</code> and <code>.vlx</code> files directly using the <code>APPLOAD</code> command and add them to the Startup Suite. No code rewriting or script re-compilation is necessary.
                       </p>
                     </details>
                     <details class="vendor-docs-details">
@@ -524,66 +544,42 @@
     <footer class="footer site-footer">
       <div class="container site-footer-inner">
         <div class="site-footer-brand">
-          <p class="site-footer-tagline">Gstarcademy</p>
-          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
+          <p class="site-footer-tagline">GstarCAD Academy</p>
+          <p class="site-footer-desc">The official global learning, certification, and migration resource hub for GstarCAD, GstarCAD Mechanical, Architecture &amp; DWG FastView. Powered by Gstarsoft Co., Ltd. (SSE: 688657).</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h3 class="site-footer-heading">Migration &amp; Products</h3>
           <ul class="site-footer-links">
-            <li><a href="./kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="./kb/software/revit">Revit Guide</a></li>
-            <li><a href="./kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="./kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="./kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="./kb/software/catia">CATIA Guide</a></li>
-            <li><a href="./kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="./kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="/migration">AutoCAD Migration Hub</a></li>
+            <li><a href="https://www.gstarcad.net/cad-software/" target="_blank" rel="noopener">GstarCAD Professional ↗</a></li>
+            <li><a href="https://www.gstarcad.net/mechanical/" target="_blank" rel="noopener">GstarCAD Mechanical ↗</a></li>
+            <li><a href="https://www.gstarcad.net/architecture/" target="_blank" rel="noopener">GstarCAD Architecture ↗</a></li>
+            <li><a href="https://www.dwgfastview.com/" target="_blank" rel="noopener">DWG FastView Cloud &amp; Mobile ↗</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h3 class="site-footer-heading">Learning &amp; Support</h3>
           <ul class="site-footer-links">
-            <li><a href="/kb-terms">2D Drafting</a></li>
-            <li><a href="./kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="./kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="./kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="./kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="./kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="./kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="./kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="/tutorials">Tutorials &amp; Courses</a></li>
+            <li><a href="/quiz">Skill Certification</a></li>
+            <li><a href="/knowledge-base">Technical Knowledge Base</a></li>
+            <li><a href="/developers">GRX Developer Hub</a></li>
+            <li><a href="/download">Download Free Trial</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h3 class="site-footer-heading">Company &amp; Network</h3>
           <ul class="site-footer-links">
-            <li><a href="./knowledge-domains">Domain Map</a></li>
-            <li><a href="./knowledge-roadmap">Interactive Map</a></li>
-            <li><a href="/quiz">Quiz Challenge</a></li>
-            <li><a href="/tutorials">Tutorial Library</a></li>
-            <li><a href="/knowledge-base">Knowledge Center</a></li>
-            <li><a href="/kb-graph">Interactive Graph</a></li>
-            <li><a href="/kb-software">Software Index</a></li>
-            <li><a href="/cadguide-tools" style="color: var(--accent); font-weight: 600;">CADGuide Toolbox ↗</a></li>
-            <li><a href="/kb-terms">CAD Glossary</a></li>
-            <li><a href="/kb-faq">Technical FAQ</a></li>
-            <li><a href="./kb/learning-paths/">Learning Paths</a></li>
-            <li><a href="./kb/guides/">Industry Guides</a></li>
-            <li><a href="./kb/faq/">How-To FAQ</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
-          <ul class="site-footer-links">
-            <li><a href="/about">About Project</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/about">About Gstarsoft</a></li>
+            <li><a href="https://www.gstarcad.net/distributor/" target="_blank" rel="noopener">Global Distributor Network ↗</a></li>
+            <li><a href="/contact">Contact Support</a></li>
             <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/terms">Terms of Use</a></li>
-            <li><a href="/legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year"></span> GstarCAD Academy · Gstarsoft Co., Ltd. All rights reserved. AutoCAD® is a registered trademark of Autodesk, Inc.</p>
       </div>
     </footer>
     <script src="/app.min.js?v=20260827" defer></script>
