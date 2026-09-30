@@ -1,131 +1,132 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};window.gtag=gtag;window.addEventListener('load',function(){const i=()=>{const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config','G-ZV3YR72933');};if('requestIdleCallback' in window){requestIdleCallback(i);}else{setTimeout(i,1);}});</script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>Boundary Representation (B-Rep) Topology | CAD Knowledge Base | Gstarcademy</title>
-    <meta name="description" content="The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices." />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://gstarcademy.com/kb/concepts/b-rep-boundary-representation" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:type" content="article" />
-    <meta content="Boundary Representation (B-Rep) Topology" property="og:title" />
-    <meta content="The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices." property="og:description" />
-    <meta content="https://gstarcademy.com/kb/concepts/b-rep-boundary-representation" property="og:url" />
-    <meta content="Gstarcademy" property="og:site_name" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-    <link rel="preload" href="../../styles.min.css" as="style" />
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Boundary Representation (B-Rep) Topology","description":"The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices.","url":"https://gstarcademy.com/kb/concepts/b-rep-boundary-representation","datePublished":"2026-09-30","dateModified":"2026-09-30","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Boundary Representation (B-Rep) Topology","description":"The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices.","url":"https://gstarcademy.com/kb/concepts/b-rep-boundary-representation","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Concepts","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Boundary Representation (B-Rep) Topology","item":"https://gstarcademy.com/kb/concepts/b-rep-boundary-representation"}]}</script>
-  </head>
-  <body class="page-kb-concepts" data-page="knowledge">
-    <div class="header-stack">
-      <header class="topbar">
-        <div class="container topbar-inner">
-          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
-          <nav class="nav">
-            <a class="nav-link" href="../../">Home</a>
-            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" href="../../news">News</a>
-            <a class="nav-link" href="../../about">About</a>
-          </nav>
-        </div>
-      </header>
-    </div>
+<!DOCTYPE html>
 
-    <main class="container" style="margin-top:32px;max-width:920px;">
-      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};window.gtag=gtag;window.addEventListener('load',function(){const i=()=>{const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config','G-ZV3YR72933');};if('requestIdleCallback' in window){requestIdleCallback(i);}else{setTimeout(i,1);}});</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gstarcademy Editorial Team" name="author"/>
+<meta content="Gstarcademy" name="publisher"/>
+<title>Boundary Representation (B-Rep) Topology | CAD Knowledge Base | Gstarcademy</title>
+<meta content="The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/concepts/b-rep-boundary-representation" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" name="twitter:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Boundary Representation (B-Rep) Topology" property="og:title"/>
+<meta content="The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/concepts/b-rep-boundary-representation" property="og:url"/>
+<meta content="Gstarcademy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="style" href="../../styles.min.css" rel="preload"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Boundary Representation (B-Rep) Topology","description":"The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices.","url":"https://gstarcademy.com/kb/concepts/b-rep-boundary-representation","datePublished":"2026-09-30","dateModified":"2026-09-30","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Boundary Representation (B-Rep) Topology","description":"The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices.","url":"https://gstarcademy.com/kb/concepts/b-rep-boundary-representation","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Concepts","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Boundary Representation (B-Rep) Topology","item":"https://gstarcademy.com/kb/concepts/b-rep-boundary-representation"}]}</script>
+</head>
+<body class="page-kb-concepts" data-page="knowledge">
+<div class="header-stack">
+<header class="topbar">
+<div class="container topbar-inner">
+<a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+<nav class="nav">
+<a class="nav-link" href="../../">Home</a>
+<a class="nav-link active" href="../../knowledge-base">Wiki</a>
+<a class="nav-link" href="../../tutorials">Tutorials</a>
+<a class="nav-link" href="../../news">News</a>
+<a class="nav-link" href="../../about">About</a>
+</nav>
+</div>
+</header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="../../">Home</a> /
         <a href="../../knowledge-base">Knowledge Base</a> /
         <a href="../../kb-terms">Terms &amp; Concepts</a> /
         <span aria-current="page">Boundary Representation (B-Rep) Topology</span>
-      </nav>
-
-      <article class="kb-concept-detail">
-        <header class="kb-concept-header" style="margin-bottom:28px;">
-          <span class="chip pill-ok">Computational Geometry &middot; CAD Kernel Fundamentals</span>
-          <h1 style="margin-top:12px;">Boundary Representation (B-Rep) Topology</h1>
-          <p class="hero-sub">The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices.</p>
-        </header>
-
-        <div class="ink-byline" role="contentinfo">
-          <span><strong>By</strong> Gstarcademy Editorial Team</span>
-          <span><strong>Updated</strong> <time datetime="2026-09-30">2026-09-30</time></span>
-          <span><a href="../../editorial-process">Editorial process</a></span>
-        </div>
-
-        <section class="kb-concept-section">
-          <h2>1. Definition &amp; Engineering Significance</h2>
-          <p>Solid modeling kernels divide geometry into two components: Topology (connectivity: Vertex, Edge, Loop, Face, Shell, Body) and Geometry (analytic equations: Surface, Curve, Point). B-Rep ensures exact volumetric and mass property calculations without polygonal mesh faceting.</p>
-        </section>
-
-        <section class="kb-concept-section">
-          <h2>2. Key Technical Characteristics &amp; Rules</h2>
-          <ul style="line-height:1.8; color:var(--ink-text-soft); padding-left:20px;">
-            <li style='margin-bottom:8px;'><strong>Euler-Poincaré Formula:</strong> Validates topological manifold integrity</li><li style='margin-bottom:8px;'><strong>Analytic vs NURBS Surfaces:</strong> Planes, cylinders, and spheres are stored as precise closed-form equations; complex sweeps use trimmed NURBS patches.</li><li style='margin-bottom:8px;'><strong>Non-Manifold Geometry:</strong> Disallowed in strict manufacturing solids; two faces cannot share a single open edge without enclosing a watertight volume.</li>
-          </ul>
-        </section>
-
-        <section class="kb-concept-section" style="margin-top: 40px; padding: 24px; background: var(--ink-surface-2); border-radius: 12px; border: 1px solid var(--ink-line);">
-          <h3 style="margin-top: 0; font-size: 1.15rem;">Cross-Disciplinary Resources</h3>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
-            <a href="../../tutorials" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">Browse Related Tutorials</a>
-            <a href="../../quiz" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">Skill Certification Quiz</a>
-            <a href="../../cadguide-tools" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--accent);font-weight:600;">CADGuide Toolbox (560+) ↗</a>
-          </div>
-        </section>
-      </article>
-    </main>
-
-    <footer class="footer site-footer" style="margin-top: 60px;">
-      <div class="container site-footer-inner">
-        <div class="site-footer-brand">
-          <p class="site-footer-tagline">Gstarcademy</p>
-          <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
-          <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
-          <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../cadguide-tools">CADGuide Toolbox ↗</a></li>
-            <li><a href="../../kb-terms">Terms &amp; Concepts</a></li>
-          </ul>
-        </div>
-        <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
-          <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="container site-footer-bottom">
-        <p>&copy; 2026 Gstarcademy. All rights reserved.</p>
-      </div>
-    </footer>
-  </body>
+</nav>
+<article class="kb-concept-detail">
+<header class="kb-concept-header" style="margin-bottom:28px;">
+<span class="chip pill-ok">Computational Geometry · CAD Kernel Fundamentals</span>
+<h1 style="margin-top:12px;">Boundary Representation (B-Rep) Topology</h1>
+<p class="hero-sub">The fundamental mathematical data structure used by professional solid modeling kernels to represent 3D physical objects via bounded faces, edges, and vertices.</p>
+</header>
+<div class="ink-byline" role="contentinfo">
+<span><strong>By</strong> Gstarcademy Editorial Team</span>
+<span><strong>Updated</strong> <time datetime="2026-09-30">2026-09-30</time></span>
+<span><a href="../../editorial-process">Editorial process</a></span>
+</div>
+<section class="kb-concept-section">
+<h2>1. Definition &amp; Engineering Significance</h2>
+<p>Solid modeling kernels divide geometry into two components: Topology (connectivity: Vertex, Edge, Loop, Face, Shell, Body) and Geometry (analytic equations: Surface, Curve, Point). B-Rep ensures exact volumetric and mass property calculations without polygonal mesh faceting.</p>
+</section>
+<section class="kb-concept-section">
+<h2>2. Key Technical Characteristics &amp; Rules</h2>
+<ul style="line-height:1.8; color:var(--ink-text-soft); padding-left:20px;">
+<li style="margin-bottom:8px;"><strong>Euler-Poincaré Formula:</strong> Validates topological manifold integrity</li><li style="margin-bottom:8px;"><strong>Analytic vs NURBS Surfaces:</strong> Planes, cylinders, and spheres are stored as precise closed-form equations; complex sweeps use trimmed NURBS patches.</li><li style="margin-bottom:8px;"><strong>Non-Manifold Geometry:</strong> Disallowed in strict manufacturing solids; two faces cannot share a single open edge without enclosing a watertight volume.</li>
+</ul>
+</section>
+<section class="kb-concept-section"><h2>3. Geometric Modeling Engine Workflows</h2>
+<p>In boundary representation kernels such as Parasolid, ACIS, and Open CASCADE, 3D solids are evaluated through a two-tiered data structure:</p>
+<ul style="line-height:1.8; color:var(--ink-text-soft); padding-left:20px;">
+<li><strong>Topological Graph:</strong> A hierarchical connectivity network containing Shells, Faces, Loops, Edges, and Vertices. The loop topology defines the trimming boundaries for each parametric face.</li>
+<li><strong>Geometric Embedding:</strong> Exact underlying mathematical representations, including NURBS spline surfaces, analytical cylinders, tori, and planar equations tied to vertices and edges.</li>
+<li><strong>Euler Operators:</strong> Kernel operations preserve topological Euler-Poincaré invariants (V - E + F - (L - F) - 2(S - G) = 0) during Boolean unions, cuts, and sweeps, ensuring closed 2-manifold volumes.</li>
+</ul></section><section class="kb-concept-section"><h2>4. Robustness Challenges &amp; Non-Manifold Geometry</h2>
+<p>Modeling failures during complex fillets, lofts, or Boolean subtractions typically occur when geometry produces non-manifold conditions, such as two solid regions touching along a zero-thickness edge or vertex. In enterprise CAD/CAM data exchange, healing algorithms in STEP import modules re-stitch adjacent trimmed edges within an allowable numerical tolerance (typically 0.001mm to 0.01mm) to reconstruct a valid closed solid.</p></section><section class="kb-concept-section" style="margin-top: 40px; padding: 24px; background: var(--ink-surface-2); border-radius: 12px; border: 1px solid var(--ink-line);">
+<h3 style="margin-top: 0; font-size: 1.15rem;">Cross-Disciplinary Resources</h3>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+<a href="../../tutorials" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">Browse Related Tutorials</a>
+<a href="../../quiz" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">Skill Certification Quiz</a>
+<a href="../../cadguide-tools" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--accent);font-weight:600;">CADGuide Toolbox (560+) ↗</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer" style="margin-top: 60px;">
+<div class="container site-footer-inner">
+<div class="site-footer-brand">
+<p class="site-footer-tagline">Gstarcademy</p>
+<p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Software Hubs</h3>
+<ul class="site-footer-links">
+<li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
+<li><a href="../../kb/software/revit">Revit Guide</a></li>
+<li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
+<li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Structured Learn</h3>
+<ul class="site-footer-links">
+<li><a href="../../tutorials">Tutorial Library</a></li>
+<li><a href="../../knowledge-base">Knowledge Center</a></li>
+<li><a href="../../cadguide-tools">CADGuide Toolbox ↗</a></li>
+<li><a href="../../kb-terms">Terms &amp; Concepts</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Company &amp; Legal</h3>
+<ul class="site-footer-links">
+<li><a href="../../about">About Project</a></li>
+<li><a href="../../contact">Contact Us</a></li>
+<li><a href="../../privacy">Privacy Policy</a></li>
+<li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+</ul>
+</div>
+</div>
+<div class="container site-footer-bottom">
+<p>© 2026 Gstarcademy. All rights reserved.</p>
+</div>
+</footer>
+</body>
 </html>
