@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};window.gtag=gtag;window.addEventListener('load',function(){const i=()=>{const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config','G-ZV3YR72933');};if('requestIdleCallback' in window){requestIdleCallback(i);}else{setTimeout(i,1);}});</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gstarcademy Editorial Team" name="author"/>
+<meta content="Gstarcademy" name="publisher"/>
+<title>Cutter Radius Compensation (G41, G42 & G40) | CAD Knowledge Base | Gstarcademy</title>
+<meta content="Complete reference for G41 and G42 cutter radius compensation. Learn how to achieve precise dimensional tolerances on CNC milling and turning machines." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/concepts/cutter-radius-compensation-g41-g42" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" name="twitter:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Cutter Radius Compensation (G41, G42 & G40)" property="og:title"/>
+<meta content="Complete reference for G41 and G42 cutter radius compensation. Learn how to achieve precise dimensional tolerances on CNC milling and turning machines." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/concepts/cutter-radius-compensation-g41-g42" property="og:url"/>
+<meta content="Gstarcademy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="style" href="../../styles.min.css" rel="preload"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cutter Radius Compensation (G41, G42 & G40)","description":"Complete reference for G41 and G42 cutter radius compensation. Learn how to achieve precise dimensional tolerances on CNC milling and turning machines.","url":"https://gstarcademy.com/kb/concepts/cutter-radius-compensation-g41-g42","datePublished":"2026-10-12","dateModified":"2026-10-12","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Cutter Radius Compensation (G41, G42 & G40)","description":"Complete reference for G41 and G42 cutter radius compensation. Learn how to achieve precise dimensional tolerances on CNC milling and turning machines.","url":"https://gstarcademy.com/kb/concepts/cutter-radius-compensation-g41-g42","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Concepts","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Cutter Radius Compensation (G41, G42 & G40)","item":"https://gstarcademy.com/kb/concepts/cutter-radius-compensation-g41-g42"}]}</script>
+</head>
+<body class="page-kb-concepts" data-page="knowledge">
+<div class="header-stack">
+<header class="topbar">
+<div class="container topbar-inner">
+<a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+<nav class="nav">
+<a class="nav-link" href="../../">Home</a>
+<a class="nav-link active" href="../../knowledge-base">Wiki</a>
+<a class="nav-link" href="../../tutorials">Tutorials</a>
+<a class="nav-link" href="../../news">News</a>
+<a class="nav-link" href="../../about">About</a>
+</nav>
+</div>
+</header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="../../">Home</a> /
+        <a href="../../knowledge-base">Knowledge Base</a> /
+        <a href="../../kb-terms">Terms &amp; Concepts</a> /
+        <span aria-current="page">Cutter Radius Compensation (G41, G42 & G40)</span>
+</nav>
+<article class="kb-concept-detail">
+<header class="kb-concept-header" style="margin-bottom:28px;">
+<span class="chip pill-ok">CAM & CNC Machining</span>
+<h1 style="margin-top:12px;">Cutter Radius Compensation (G41, G42 & G40)</h1>
+<p class="hero-sub">Complete reference for G41 and G42 cutter radius compensation. Learn how to achieve precise dimensional tolerances on CNC milling and turning machines.</p>
+</header>
+<div class="ink-byline" role="contentinfo">
+<span><strong>By</strong> Gstarcademy Editorial Team</span>
+<span><strong>Updated</strong> <time datetime="2026-10-12">2026-10-12</time></span>
+<span><a href="../../editorial-process">Editorial process</a></span>
+</div>
+<section class="kb-concept-section">
+<h2>1. Definition &amp; Engineering Significance</h2>
+<p>Cutter Radius Compensation (CRC), commanded via <code>G41</code> (cutter left of programmed path) and <code>G42</code> (cutter right of programmed path) with cancellation via <code>G40</code>, is the industry-standard CNC programming method for maintaining exact part dimensions. In 2D profile contouring and turning, CAM software generates toolpaths based on a nominal tool diameter. On the shop floor, slight cutter wear, tool deflection, or variations in reground endmill sizes require fine adjustments to maintain tight engineering tolerances (e.g., $\pm 0.005$ mm).</p>
+</section>
+<section class="kb-concept-section">
+<h2>2. Technical Architecture &amp; Key Parameters</h2>
+<ul style="line-height:1.8; color:var(--ink-text-soft); padding-left:20px;">
+<li style="margin-bottom:8px;"><strong>G41 (Climb Milling / Left Offset):</strong> Offsets the cutter to the left of the programmed contour relative to the direction of tool motion. Standard for climb milling on modern rigid vertical machining centers.</li><li style="margin-bottom:8px;"><strong>G42 (Conventional Milling / Right Offset):</strong> Offsets the cutter to the right of the programmed contour. Used in conventional milling or specialized internal turning bore profiles.</li><li style="margin-bottom:8px;"><strong>G40 (Compensation Cancel):</strong> Cancels cutter compensation. Must always be executed along a linear lead-out move away from the finished wall to prevent gouging.</li><li style="margin-bottom:8px;"><strong>Wear Mode vs Control Mode:</strong> In 'Wear' mode, CAM programs the true part contour and the operator enters small wear deltas in the CNC offset register (e.g., -0.02mm). In 'Control' mode, CAM outputs the part edge and the operator inputs the full tool radius.</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>3. Industry Best Practices &amp; Failure Modes</h2>
+<p>A critical engineering failure in CNC programming is improper lead-in/lead-out geometry when activating cutter compensation. Engaging <code>G41</code> on a motion block that is shorter than the cutter radius, or engaging it directly into an internal corner, triggers controller alarm 'Interference in Cutter Radius Compensation' or produces severe overcut gouges.</p>
+</section>
+<section class="kb-concept-section">
+<h2>4. Production Governance &amp; Standard Protocols</h2>
+<p>Best practice involves programming tangential linear lead-ins longer than the cutter radius before entering finished part contours. By mastering G41/G42 wear offsets, CNC machinists can dial in precision bearing press fits and O-ring gland depths on the machine control without returning to the CAM desk to re-post code.</p>
+</section>
+<section class="kb-concept-section" style="margin-top: 40px; padding: 24px; background: var(--ink-surface-2); border-radius: 12px; border: 1px solid var(--ink-line);">
+<h3 style="margin-top: 0; font-size: 1.15rem;">Cross-Disciplinary Resources</h3>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+<a href="../../tutorials" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">Browse Related Tutorials</a>
+<a href="../../quiz" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">Skill Certification Quiz</a>
+<a href="../../cadguide-tools" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--accent);font-weight:600;">CADGuide Toolbox (560+) ↗</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer" style="margin-top: 60px;">
+<div class="container site-footer-inner">
+<div class="site-footer-brand">
+<p class="site-footer-tagline">Gstarcademy</p>
+<p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Software Hubs</h3>
+<ul class="site-footer-links">
+<li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
+<li><a href="../../kb/software/revit">Revit Guide</a></li>
+<li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
+<li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Structured Learn</h3>
+<ul class="site-footer-links">
+<li><a href="../../tutorials">Tutorial Library</a></li>
+<li><a href="../../knowledge-base">Knowledge Center</a></li>
+<li><a href="../../cadguide-tools">CADGuide Toolbox ↗</a></li>
+<li><a href="../../kb-terms">Terms &amp; Concepts</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Company &amp; Legal</h3>
+<ul class="site-footer-links">
+<li><a href="../../about">About Project</a></li>
+<li><a href="../../contact">Contact Us</a></li>
+<li><a href="../../privacy">Privacy Policy</a></li>
+<li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+</ul>
+</div>
+</div>
+<div class="container site-footer-bottom">
+<p>&copy; 2026 Gstarcademy. All rights reserved.</p>
+</div>
+</footer>
+</body>
+</html>

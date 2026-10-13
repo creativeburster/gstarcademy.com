@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Extract CAD Block Attributes to Excel & Create Live Associative BOM Tables | Gstarcademy</title>
+    <meta name="description" content="Automate Bill of Materials (BOM), door schedules, and equipment lists by extracting block attributes to Excel (.xlsx/.csv) or dynamic CAD tables using DATAEXTRACTION and ATTEXT." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-extract-block-attributes-to-excel-bom" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to Extract CAD Block Attributes to Excel & Create Live Associative BOM Tables" />
+    <meta property="og:description" content="Automate Bill of Materials (BOM), door schedules, and equipment lists by extracting block attributes to Excel (.xlsx/.csv) or dynamic CAD tables using DATAEXTRACTION and ATTEXT." />
+    <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-extract-block-attributes-to-excel-bom" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Extract CAD Block Attributes to Excel & Create Live Associative BOM Tables","acceptedAnswer":{"@type":"Answer","text":"Run the DATAEXTRACTION command, create a .dxe extraction template, select the target blocks across one or more DWG files, filter for your custom Attribute tags, and choose to output either a live on-drawing CAD Table, an external Excel (.xls/.csv) file, or both."}},{"@type":"Question","name":"Step 1: Standardize Block Attribute Definitions (ATTDEF / BATTMAN)","acceptedAnswer":{"@type":"Answer","text":"Ensure your equipment, valve, or door blocks contain consistent attribute tags (e.g., <code>PART_NO</code>, <code>MANUFACTURER</code>, <code>SPEC</code>, <code>QTY</code>). If you modify tags on existing blocks, run <code>ATTSYNC</code> or <code>BATTMAN</code> (Block Attribute Manager) to synchronize all placed instances."}},{"@type":"Question","name":"Step 2: Launch the Data Extraction Wizard (DATAEXTRACTION)","acceptedAnswer":{"@type":"Answer","text":"Type <code>DATAEXTRACTION</code> (or <code>DX</code>) and save a reusable <code>.dxe</code> configuration file. Add either the current drawing or an entire project folder of DWG sheets. On the object filter page, check 'Display blocks only' and 'Display objects with attributes only'."}},{"@type":"Question","name":"Step 3: Configure Grouping, Counts & Output to Excel / CAD Table","acceptedAnswer":{"@type":"Answer","text":"Check 'Combine identical rows' to automatically sum component quantities in the Count column. Sort by <code>PART_NO</code>, and choose to insert a dynamic <b>CAD Table</b> into Paper Space and/or export directly to an external <code>.xlsx</code> / <code>.csv</code> spreadsheet."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Extract CAD Block Attributes to Excel & Create Live Associative BOM Tables","item":"https://gstarcademy.com/kb/faq/how-to-extract-block-attributes-to-excel-bom"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
+        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <span aria-current="page" style="color: var(--ink-text);">GstarCAD</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">How-To &amp; FAQ &middot; GstarCAD</span>
+          <h1 style="margin-top: 12px; font-size: 2.1rem; line-height: 1.25;">How to Extract CAD Block Attributes to Excel & Create Live Associative BOM Tables</h1>
+          <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Automate Bill of Materials (BOM), door schedules, and equipment lists by extracting block attributes to Excel (.xlsx/.csv) or dynamic CAD tables using DATAEXTRACTION and ATTEXT.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
+          <span><strong>Author:</strong> Gstarcademy Engineering Editorial Board</span>
+          <span><strong>Updated:</strong> <time datetime="2026-10-12">2026-10-12</time></span>
+        </div>
+
+        
+    <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+      <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">⚡ Quick Answer / Key Takeaway</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-text);">Run the DATAEXTRACTION command, create a .dxe extraction template, select the target blocks across one or more DWG files, filter for your custom Attribute tags, and choose to output either a live on-drawing CAD Table, an external Excel (.xls/.csv) file, or both.</p>
+    </div>
+
+        <section class="kb-concept-section">
+          <h2>Step-by-Step Instructions &amp; Commands</h2>
+          
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 1: Standardize Block Attribute Definitions (ATTDEF / BATTMAN)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Ensure your equipment, valve, or door blocks contain consistent attribute tags (e.g., <code>PART_NO</code>, <code>MANUFACTURER</code>, <code>SPEC</code>, <code>QTY</code>). If you modify tags on existing blocks, run <code>ATTSYNC</code> or <code>BATTMAN</code> (Block Attribute Manager) to synchronize all placed instances.</p>
+        </div>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 2: Launch the Data Extraction Wizard (DATAEXTRACTION)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Type <code>DATAEXTRACTION</code> (or <code>DX</code>) and save a reusable <code>.dxe</code> configuration file. Add either the current drawing or an entire project folder of DWG sheets. On the object filter page, check 'Display blocks only' and 'Display objects with attributes only'.</p>
+        </div>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 3: Configure Grouping, Counts & Output to Excel / CAD Table</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Check 'Combine identical rows' to automatically sum component quantities in the Count column. Sort by <code>PART_NO</code>, and choose to insert a dynamic <b>CAD Table</b> into Paper Space and/or export directly to an external <code>.xlsx</code> / <code>.csv</code> spreadsheet.</p>
+        </div>
+        </section>
+
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Common Issues &amp; Troubleshooting Guide</h2>
+          <div style="overflow-x: auto; margin-top: 16px;">
+            <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 14px;">
+              <thead>
+                <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line); text-align: left;">
+                  <th style="padding: 12px 16px; font-weight: 700;">Common Failure / Problem</th>
+                  <th style="padding: 12px 16px; font-weight: 700;">Root Cause &amp; Recommended Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Identical blocks appear on separate rows instead of summing quantities</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">One of the blocks has a trailing space in its attribute string (e.g., 'M12 ' vs 'M12') or a slight scale variation. Uncheck X/Y/Z Scale columns in the extraction wizard so only attribute values govern row grouping.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Updated block counts in the drawing don't show in the CAD Table</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Right-click the extracted CAD table and select 'Update Table Data Links' (or run DATALINKUPDATE -> U -> All) before plotting.</td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Cross-CAD Compatibility &amp; Alternatives</h2>
+          <p style="font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">In GstarCAD Mechanical, the dedicated BOM Manager and AutoXLSTable provide real-time bidirectional synchronization with Microsoft Excel—editing a cell in Excel immediately updates the DWG block attribute.</p>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Engineering Best Practices Checklist</h2>
+          <ul style="padding-left: 20px; font-size: 14.5px; color: var(--ink-text);">
+            <li style="margin-bottom: 10px; line-height: 1.6;">Save your .dxe extraction template in the project root folder so any team member can re-run the BOM in two clicks.</li><li style="margin-bottom: 10px; line-height: 1.6;">Use Constant or Preset attribute modes for fixed manufacturer metadata to prevent drafter typos.</li><li style="margin-bottom: 10px; line-height: 1.6;">Include DATALINKUPDATE in your pre-publish checklist.</li>
+          </ul>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Related Concepts &amp; Further Learning</h2>
+          <ul style="list-style: none; padding: 0; font-size: 14.5px;">
+            <li style="margin-bottom: 8px;"><a href="../concepts/p-and-id-piping-instrumentation-diagram" style="color: var(--accent); font-weight: 600;">P&ID Equipment Tagging & BOMs</a></li><li style="margin-bottom: 8px;"><a href="../concepts/step-ap242-semantic-pmi" style="color: var(--accent); font-weight: 600;">Manufacturing Product Data</a></li>
+          </ul>
+        </section>
+
+        <aside style="margin-top: 48px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <p style="font-size: 13px; font-weight: 700; margin: 0 0 6px; color: var(--ink-text);">Gstarcademy Technical Review Committee</p>
+          <p style="font-size: 12px; color: var(--ink-text-soft); margin: 0; line-height: 1.5;">This technical answer was authored and verified by CAD application engineers. Content is updated regularly to align with modern AutoCAD, GstarCAD, SOLIDWORKS, Revit, and Fusion 360 releases.</p>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="footer site-footer" style="margin-top: 60px;">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p><p class="site-footer-desc">CAD Knowledge Base &amp; Tutorial Hub for Architecture, Engineering, and Manufacturing professionals.</p></div>
+      </div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy. All rights reserved.</p></div>
+    </footer>
+    <script src="../../app.min.js" defer></script>
+  </body>
+</html>

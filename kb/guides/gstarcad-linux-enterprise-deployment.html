@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};window.gtag=gtag;window.addEventListener('load',function(){const i=()=>{const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config','G-ZV3YR72933');};if('requestIdleCallback' in window){requestIdleCallback(i);}else{setTimeout(i,1);}});</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gstarcademy Editorial Team" />
+    <meta name="publisher" content="Gstarcademy" />
+    <title>GstarCAD for Linux: Enterprise Cross-Platform Deployment & Workstation Migration Guide | Gstarcademy</title>
+    <meta name="description" content="Complete IT deployment guide for running GstarCAD natively on Ubuntu, Debian, RedHat, and enterprise Linux distributions: package installation, font mapping, LISP scripts, and network licensing." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/guides/gstarcad-linux-enterprise-deployment" />
+    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta property="og:type" content="article" />
+    <meta content="GstarCAD for Linux: Enterprise Cross-Platform Deployment & Workstation Migration Guide" property="og:title" />
+    <meta content="Complete IT deployment guide for running GstarCAD natively on Ubuntu, Debian, RedHat, and enterprise Linux distributions: package installation, font mapping, LISP scripts, and network licensing." property="og:description" />
+    <meta content="https://gstarcademy.com/kb/guides/gstarcad-linux-enterprise-deployment" property="og:url" />
+    <meta content="Gstarcademy" property="og:site_name" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GstarCAD for Linux: Enterprise Cross-Platform Deployment & Workstation Migration Guide", "description": "Complete IT deployment guide for running GstarCAD natively on Ubuntu, Debian, RedHat, and enterprise Linux distributions: package installation, font mapping, LISP scripts, and network licensing.", "url": "https://gstarcademy.com/kb/guides/gstarcad-linux-enterprise-deployment", "datePublished": "2026-10-12", "dateModified": "2026-10-12", "inLanguage": "en", "author": {"@type": "Organization", "name": "Gstarcademy Editorial Team", "url": "https://gstarcademy.com/about"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd.", "url": "https://gstarcademy.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 4, "name": "GstarCAD for Linux: Enterprise Cross-Platform Deployment & Workstation Migration Guide", "item": "https://gstarcademy.com/kb/guides/gstarcad-linux-enterprise-deployment"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top:32px;max-width:920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../">Home</a> /
+        <a href="../../knowledge-base">Knowledge Base</a> /
+        <a href="./">Guides</a> /
+        <span aria-current="page">GstarCAD for Linux: Enterprise Cross-Platform Deployment & Workstation Migration Guide</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom:28px;">
+          <span class="chip pill-ok">Linux · Enterprise IT</span>
+          <h1 style="margin-top:12px;">GstarCAD for Linux: Enterprise Cross-Platform Deployment & Workstation Migration Guide</h1>
+          <p class="hero-sub">Complete IT deployment guide for running GstarCAD natively on Ubuntu, Debian, RedHat, and enterprise Linux distributions: package installation, font mapping, LISP scripts, and network licensing.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo">
+          <span><strong>By</strong> Gstarcademy Editorial Team</span>
+          <span><strong>Updated</strong> <time datetime="2026-10-12">2026-10-12</time></span>
+          <span><a href="../../editorial-process">Editorial process</a></span>
+        </div>
+
+        <section class="kb-concept-section">
+          <h2>1. Native Linux CAD Architecture (No Wine or Virtual Machine Overhead)</h2>
+          <p>As aerospace, defense, automotive, and public-sector engineering organizations expand Linux desktop deployments for security and OS cost reduction, running Windows CAD inside virtual machines introduces severe GPU passthrough latency. GstarCAD for Linux is compiled natively for x86_64 and ARM64 Linux architectures, delivering direct OpenGL hardware acceleration and 100% DWG file parity with Windows workstations.</p>
+          <div style="overflow-x: auto; margin: 18px 0;"><table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px; background: var(--ink-surface); border: 1px solid var(--ink-line);"><tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);"><th style="padding: 10px 14px;">System Layer</th><th style="padding: 10px 14px;">Specification / Requirement</th><th style="padding: 10px 14px;">Enterprise Configuration Notes</th></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px;">Supported Distributions</td><td style="padding: 10px 14px;">Ubuntu 20.04/22.04/24.04 LTS, Debian 11/12, UOS, Kylin</td><td style="padding: 10px 14px;">Native .deb and .rpm installer packages</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px;">Graphics Pipeline</td><td style="padding: 10px 14px;">OpenGL 3.3+ with NVIDIA proprietary or Mesa AMD drivers</td><td style="padding: 10px 14px;">Hardware acceleration enabled via GRAPHICSCONFIG</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px;">File & Font Parity</td><td style="padding: 10px 14px;">100% Binary DWG (R12–2027), SHX & TrueType (.ttf/.ttc)</td><td style="padding: 10px 14px;">Mount shared corporate font directories via NFS/SMB</td></tr><tr style="border-bottom: 1px solid var(--ink-line);"><td style="padding: 10px 14px;">Automation & APIs</td><td style="padding: 10px 14px;">Native AutoLISP (.lsp/.fas), DCL dialogs, C++ GRX for Linux</td><td style="padding: 10px 14px;">Cross-compile C++ plugins with GCC / Clang</td></tr></table></div>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>2. Silent Command-Line Package Installation & Repository Management</h2>
+          <p>IT administrators can deploy GstarCAD across hundreds of Linux workstations using Ansible, Puppet, or standard APT/YUM package managers. On Debian/Ubuntu systems, execute `sudo apt install ./gstarcad-2027-linux-amd64.deb -y` followed by automated configuration of `/etc/gstarcad/license.conf` pointing to the central FlexNet/Gstarsoft license server.</p>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>3. Resolving TrueType and SHX Font Substitution on Linux</h2>
+          <p>Because Linux distributions do not ship with proprietary Microsoft TrueType fonts (such as Arial, Tahoma, or SimSun), opening legacy Windows DWG files can trigger font substitution unless properly configured. Enterprise IT should deploy the corporate TrueType font pack to `/usr/share/fonts/truetype/cad-enterprise/` and run `fc-cache -fv` so GstarCAD renders every title block with pixel-perfect fidelity.</p>
+        </section>
+
+        <section class="kb-concept-section">
+          <h2>4. Porting AutoLISP Routines: Case-Sensitive File Paths on Linux</h2>
+          <p>When migrating internal AutoLISP scripts from Windows to Linux, developers must account for two OS differences: forward-slash path separators (`/`) and POSIX case-sensitive filenames (`BlockLib.dwg` vs `blocklib.dwg`). Normalizing path strings to lowercase and replacing hardcoded `C:\\` paths with `(findfile)` ensures 100% cross-platform LISP execution.</p>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; padding: 24px; background: var(--ink-surface-2); border-radius: 12px; border: 1px solid var(--ink-line);">
+          <h3 style="margin-top: 0; font-size: 1.15rem;">Related Software Profiles &amp; Enterprise Gateways</h3>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+            <a href="../../migration" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">AutoCAD Migration Hub</a>
+            <a href="../../download" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">30-Day Free Trial</a>
+            <a href="../../developers" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">GRX Developer SDK</a>
+            <a href="../software/gstarcad" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">GstarCAD Profile</a>
+            <a href="../../quiz" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--accent);font-weight:600;">Skill Certification Exam &rarr;</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer site-footer" style="margin-top: 60px;">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">Gstarcademy</p>
+          <p class="site-footer-desc">Official global learning, AutoCAD migration, and skill certification hub powered by Suzhou Gstarsoft Co., Ltd. (SSE: 688657).</p>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Software Hubs</h3>
+          <ul class="site-footer-links">
+            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
+            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit">Revit Guide</a></li>
+            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Structured Learn</h3>
+          <ul class="site-footer-links">
+            <li><a href="../../tutorials">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base">Knowledge Center</a></li>
+            <li><a href="../../cadguide-tools">CADGuide Toolbox ↗</a></li>
+            <li><a href="../../kb/guides/">Industry Guides</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col">
+          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <ul class="site-footer-links">
+            <li><a href="../../about">About Gstarsoft</a></li>
+            <li><a href="../../contact">Contact Us</a></li>
+            <li><a href="../../privacy">Privacy Policy</a></li>
+            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>&copy; 2026 Gstarcademy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

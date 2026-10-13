@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenFOAM & ANSYS Fluent Computational Fluid Dynamics (CFD) 8-Week Path | Gstarcademy</title>
+    <meta name="description" content="Comprehensive 8-week CFD engineering learning path covering OpenFOAM and ANSYS Fluent. Master fluid domain extraction, boundary layer y+ inflation prism meshing, RANS/LES turbulence models, conjugate heat transfer, and aerodynamic lift/drag validation." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/learning-paths/openfoam-and-fluent-cfd-engineer-path" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="OpenFOAM & ANSYS Fluent Computational Fluid Dynamics (CFD) 8-Week Path" />
+    <meta property="og:description" content="Comprehensive 8-week CFD engineering learning path covering OpenFOAM and ANSYS Fluent. Master fluid domain extraction, boundary layer y+ inflation prism meshing, RANS/LES turbulence models, conjugate heat transfer, and aerodynamic lift/drag validation." />
+    <meta property="og:url" content="https://gstarcademy.com/kb/learning-paths/openfoam-and-fluent-cfd-engineer-path" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"OpenFOAM & ANSYS Fluent Computational Fluid Dynamics (CFD) 8-Week Path","description":"Comprehensive 8-week CFD engineering learning path covering OpenFOAM and ANSYS Fluent. Master fluid domain extraction, boundary layer y+ inflation prism meshing, RANS/LES turbulence models, conjugate heat transfer, and aerodynamic lift/drag validation.","provider":{"@type":"Organization","name":"Gstarcademy"},"url":"https://gstarcademy.com/kb/learning-paths/openfoam-and-fluent-cfd-engineer-path"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Learning Paths","item":"https://gstarcademy.com/kb/learning-paths/"},{"@type":"ListItem","position":4,"name":"OpenFOAM & ANSYS Fluent Computational Fluid Dynamics (CFD) 8-Week Path","item":"https://gstarcademy.com/kb/learning-paths/openfoam-and-fluent-cfd-engineer-path"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
+        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="./" style="color: var(--ink-text-soft);">Learning Paths</a> /
+        <span aria-current="page" style="color: var(--ink-text);">OpenFOAM</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">Curriculum Roadmap &middot; OpenFOAM</span>
+          <h1 style="margin-top: 12px; font-size: 2.2rem; line-height: 1.25;">OpenFOAM & ANSYS Fluent Computational Fluid Dynamics (CFD) 8-Week Path</h1>
+          <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Comprehensive 8-week CFD engineering learning path covering OpenFOAM and ANSYS Fluent. Master fluid domain extraction, boundary layer y+ inflation prism meshing, RANS/LES turbulence models, conjugate heat transfer, and aerodynamic lift/drag validation.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
+          <span><strong>Curriculum Director:</strong> Gstarcademy Engineering Editorial Board</span>
+          <span><strong>Updated:</strong> <time datetime="2026-10-12">2026-10-12</time></span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px;">
+          <div style="padding: 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px;">
+            <span style="font-size: 12px; color: var(--ink-text-soft); text-transform: uppercase; font-weight: 700;">Duration</span>
+            <p style="margin: 4px 0 0; font-size: 15px; font-weight: 700; color: var(--ink-text);">8 weeks (8-10 hours / week)</p>
+          </div>
+          <div style="padding: 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px;">
+            <span style="font-size: 12px; color: var(--ink-text-soft); text-transform: uppercase; font-weight: 700;">Target Level</span>
+            <p style="margin: 4px 0 0; font-size: 15px; font-weight: 700; color: var(--ink-text);">Advanced / Simulation Engineer</p>
+          </div>
+          <div style="padding: 16px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 10px;">
+            <span style="font-size: 12px; color: var(--ink-text-soft); text-transform: uppercase; font-weight: 700;">Self-Assessment</span>
+            <p style="margin: 4px 0 0; font-size: 15px; font-weight: 700; color: var(--accent);"><a href="../../quiz" style="color: var(--accent); text-decoration: none;">Take CAD Quiz &rarr;</a></p>
+          </div>
+        </div>
+
+        <section class="kb-concept-section">
+          <h2>Prerequisites &amp; Setup Requirements</h2>
+          <p style="font-size: 15px; line-height: 1.75; color: var(--ink-text);">Fluid mechanics fundamentals (Navier-Stokes, Reynolds number) and basic Linux/CLI familiarity.</p>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Structured Learning Progression (Stage by Stage)</h2>
+          
+        <div style="margin-bottom: 28px; padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink-text);">Week 1: Fluid Volume Extraction, Watertight CAD & Far-Field Domains</h3>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 10px; background: var(--accent-bg, #e0f2fe); color: var(--accent, #0284c7); border-radius: 20px;">Stage 1</span>
+          </div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink-text-soft);">Core Topics Covered:</p>
+          <ul style="padding-left: 20px; color: var(--ink-text); margin-bottom: 16px;">
+            <li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Extracting internal wet fluid volumes from solid valve/piping assemblies</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Sizing external wind-tunnel bounding boxes (5L upstream, 15L downstream blockage control)</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Fixing non-manifold edges, gaps, and intersecting surfaces for watertight surface wrapping</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Defining Named Selections / STL patch regions (inlet, outlet, symmetry, walls)</li>
+          </ul>
+          <div style="margin-bottom: 16px; padding: 14px 16px; background: var(--ink-surface-2); border-left: 3px solid var(--accent, #0284c7); border-radius: 6px;">
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-text);"><strong>🛠️ Practical Hands-on Assignment:</strong> Extract a watertight internal fluid volume from a multi-port control valve assembly and extend inlet/outlet development pipes by 10 diameters.</p>
+            <p style="margin: 6px 0 0; font-size: 12.5px; color: var(--ink-text-soft);"><strong>Key Commands / Tools:</strong> <code>VolumeExtract, SurfaceWrap, checkMesh, surfaceFeatureExtract</code></p>
+          </div>
+          <div>
+            <span style="font-size: 12px; font-weight: 600; color: var(--ink-text-soft); margin-right: 8px;">Recommended Concepts:</span>
+            <a href="../concepts/quality-assurance-cad" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">quality-assurance-cad</a><a href="../concepts/dwg-file-format" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">dwg-file-format</a>
+          </div>
+        </div>
+        <div style="margin-bottom: 28px; padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink-text);">Week 2: Poly-Hexcore Meshing, Prism Inflation Layers & y+ Calculation</h3>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 10px; background: var(--accent-bg, #e0f2fe); color: var(--accent, #0284c7); border-radius: 20px;">Stage 2</span>
+          </div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink-text-soft);">Core Topics Covered:</p>
+          <ul style="padding-left: 20px; color: var(--ink-text); margin-bottom: 16px;">
+            <li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Computing first-cell wall height ($\Delta y_1$) from target $y^+$, Reynolds number, and skin friction</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Generating `snappyHexMesh` (OpenFOAM) and Poly-Hexcore (Fluent Meshing) volume grids</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Growing 15-25 boundary layer prism layers without stair-stepping or negative cell volumes</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Wake refinement boxes (BOIs) and Orthogonal Quality (>0.15) / Skewness (<0.85) auditing</li>
+          </ul>
+          <div style="margin-bottom: 16px; padding: 14px 16px; background: var(--ink-surface-2); border-left: 3px solid var(--accent, #0284c7); border-radius: 6px;">
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-text);"><strong>🛠️ Practical Hands-on Assignment:</strong> Generate a 4-million-cell poly-hexcore mesh around a NACA 0012 airfoil with 20 prism inflation layers targeting $y^+ \approx 0.8$.</p>
+            <p style="margin: 6px 0 0; font-size: 12.5px; color: var(--ink-text-soft);"><strong>Key Commands / Tools:</strong> <code>blockMesh, snappyHexMesh, checkMesh, PolyHexcore</code></p>
+          </div>
+          <div>
+            <span style="font-size: 12px; font-weight: 600; color: var(--ink-text-soft); margin-right: 8px;">Recommended Concepts:</span>
+            <a href="../concepts/quality-assurance-cad" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">quality-assurance-cad</a><a href="../concepts/iso-128-technical-drawings-rules" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">iso-128-technical-drawings-rules</a>
+          </div>
+        </div>
+        <div style="margin-bottom: 28px; padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink-text);">Week 3: RANS Turbulence Modeling (k-epsilon vs k-omega SST)</h3>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 10px; background: var(--accent-bg, #e0f2fe); color: var(--accent, #0284c7); border-radius: 20px;">Stage 3</span>
+          </div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink-text-soft);">Core Topics Covered:</p>
+          <ul style="padding-left: 20px; color: var(--ink-text); margin-bottom: 16px;">
+            <li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Reynolds-Averaged Navier-Stokes (RANS) closure and the Boussinesq eddy-viscosity hypothesis</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Standard/Realizable $k$-$\epsilon$ with Scalable Wall Functions ($30 < y^+ < 300$)</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">$k$-$\omega$ SST (Shear Stress Transport) low-Re integration to the wall ($y^+ \approx 1$)</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Inlet turbulence intensity ($I$) and hydraulic diameter / viscosity ratio specification</li>
+          </ul>
+          <div style="margin-bottom: 16px; padding: 14px 16px; background: var(--ink-surface-2); border-left: 3px solid var(--accent, #0284c7); border-radius: 6px;">
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-text);"><strong>🛠️ Practical Hands-on Assignment:</strong> Compare flow separation prediction over a backward-facing step using Realizable $k$-$\epsilon$ vs $k$-$\omega$ SST against experimental laser-Doppler data.</p>
+            <p style="margin: 6px 0 0; font-size: 12.5px; color: var(--ink-text-soft);"><strong>Key Commands / Tools:</strong> <code>simpleFoam, turbulenceProperties, kOmegaSST, realizableKE</code></p>
+          </div>
+          <div>
+            <span style="font-size: 12px; font-weight: 600; color: var(--ink-text-soft); margin-right: 8px;">Recommended Concepts:</span>
+            <a href="../concepts/quality-assurance-cad" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">quality-assurance-cad</a><a href="../concepts/dwg-file-format" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">dwg-file-format</a>
+          </div>
+        </div>
+        <div style="margin-bottom: 28px; padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink-text);">Week 4: Pressure-Velocity Coupling, Discretization Schemes & Convergence</h3>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 10px; background: var(--accent-bg, #e0f2fe); color: var(--accent, #0284c7); border-radius: 20px;">Stage 4</span>
+          </div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink-text-soft);">Core Topics Covered:</p>
+          <ul style="padding-left: 20px; color: var(--ink-text); margin-bottom: 16px;">
+            <li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">SIMPLE, SIMPLEC, PISO, and PIMPLE pressure-velocity coupling algorithms</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">First-order Upwind vs Second-order Upwind / Linear-Upwind (`divSchemes`) accuracy</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Under-relaxation factors (`fvSolution`) and Courant-Friedrichs-Lewy (CFL / Co) number stability</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Monitoring scaled residuals ($<10^{-4}$) alongside physical integrated force/mass-flux monitors</li>
+          </ul>
+          <div style="margin-bottom: 16px; padding: 14px 16px; background: var(--ink-surface-2); border-left: 3px solid var(--accent, #0284c7); border-radius: 6px;">
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-text);"><strong>🛠️ Practical Hands-on Assignment:</strong> Configure `fvSchemes` and `fvSolution` in OpenFOAM to converge a high-speed cyclone separator flow with second-order divergence accuracy.</p>
+            <p style="margin: 6px 0 0; font-size: 12.5px; color: var(--ink-text-soft);"><strong>Key Commands / Tools:</strong> <code>simpleFoam, pimpleFoam, fvSchemes, fvSolution</code></p>
+          </div>
+          <div>
+            <span style="font-size: 12px; font-weight: 600; color: var(--ink-text-soft); margin-right: 8px;">Recommended Concepts:</span>
+            <a href="../concepts/quality-assurance-cad" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">quality-assurance-cad</a><a href="../concepts/iso-128-technical-drawings-rules" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">iso-128-technical-drawings-rules</a>
+          </div>
+        </div>
+        <div style="margin-bottom: 28px; padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink-text);">Week 5: Conjugate Heat Transfer (CHT) & Electronics Cooling</h3>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 10px; background: var(--accent-bg, #e0f2fe); color: var(--accent, #0284c7); border-radius: 20px;">Stage 5</span>
+          </div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink-text-soft);">Core Topics Covered:</p>
+          <ul style="padding-left: 20px; color: var(--ink-text); margin-bottom: 16px;">
+            <li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Multi-region fluid-solid coupled meshing and conformal interface mapping</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Natural convection (Boussinesq buoyancy approximation vs Ideal Gas) and Rayleigh numbers</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Forced convection finned heat sinks, fan performance curves, and porous media pressure drops</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Radiation models (Surface-to-Surface S2S, Discrete Ordinates DO) for high-temperature enclosures</li>
+          </ul>
+          <div style="margin-bottom: 16px; padding: 14px 16px; background: var(--ink-surface-2); border-left: 3px solid var(--accent, #0284c7); border-radius: 6px;">
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-text);"><strong>🛠️ Practical Hands-on Assignment:</strong> Simulate a liquid-cooled EV battery cold plate using `chtMultiRegionFoam` / Fluent CHT to keep maximum cell temperature below 35°C.</p>
+            <p style="margin: 6px 0 0; font-size: 12.5px; color: var(--ink-text-soft);"><strong>Key Commands / Tools:</strong> <code>chtMultiRegionFoam, topoSet, splitMeshRegions, CoupledWall</code></p>
+          </div>
+          <div>
+            <span style="font-size: 12px; font-weight: 600; color: var(--ink-text-soft); margin-right: 8px;">Recommended Concepts:</span>
+            <a href="../concepts/quality-assurance-cad" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">quality-assurance-cad</a><a href="../concepts/dwg-file-format" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">dwg-file-format</a>
+          </div>
+        </div>
+        <div style="margin-bottom: 28px; padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink-text);">Week 6: Multiphase Flows (VOF Free-Surface & Eulerian-Lagrangian DPM)</h3>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 10px; background: var(--accent-bg, #e0f2fe); color: var(--accent, #0284c7); border-radius: 20px;">Stage 6</span>
+          </div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink-text-soft);">Core Topics Covered:</p>
+          <ul style="padding-left: 20px; color: var(--ink-text); margin-bottom: 16px;">
+            <li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Volume of Fluid (`interFoam` / VOF) interface capturing with MULES compressive schemes</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Cavitation phase-change modeling in pumps, propellers, and injectors</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Discrete Phase Model (DPM) Lagrangian particle tracking, erosion, and droplet evaporation</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Eulerian-Eulerian multiphase mixing and fluidized bed simulations</li>
+          </ul>
+          <div style="margin-bottom: 16px; padding: 14px 16px; background: var(--ink-surface-2); border-left: 3px solid var(--accent, #0284c7); border-radius: 6px;">
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-text);"><strong>🛠️ Practical Hands-on Assignment:</strong> Run a transient VOF sloshing and dam-break simulation using `interFoam` with adaptive mesh refinement (`dynamicMeshDict`) at the air-water interface.</p>
+            <p style="margin: 6px 0 0; font-size: 12.5px; color: var(--ink-text-soft);"><strong>Key Commands / Tools:</strong> <code>interFoam, setFields, dynamicMeshDict, DPM</code></p>
+          </div>
+          <div>
+            <span style="font-size: 12px; font-weight: 600; color: var(--ink-text-soft); margin-right: 8px;">Recommended Concepts:</span>
+            <a href="../concepts/quality-assurance-cad" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">quality-assurance-cad</a><a href="../concepts/iso-128-technical-drawings-rules" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">iso-128-technical-drawings-rules</a>
+          </div>
+        </div>
+        <div style="margin-bottom: 28px; padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink-text);">Week 7: Transient Scale-Resolving Simulations (DES, LES) & Rotating Machinery</h3>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 10px; background: var(--accent-bg, #e0f2fe); color: var(--accent, #0284c7); border-radius: 20px;">Stage 7</span>
+          </div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink-text-soft);">Core Topics Covered:</p>
+          <ul style="padding-left: 20px; color: var(--ink-text); margin-bottom: 16px;">
+            <li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Moving Reference Frame (MRF / Frozen Rotor) vs Sliding Mesh (`AMI` - Arbitrary Mesh Interface)</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Detached Eddy Simulation (DDES) and Large Eddy Simulation (LES WALE / Smagorinsky)</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Acoustic pressure fluctuation extraction (Ffowcs Williams-Hawkings aeroacoustics)</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">High-Performance Computing (HPC) domain decomposition (`decomposePar` Scotch) and MPI scaling</li>
+          </ul>
+          <div style="margin-bottom: 16px; padding: 14px 16px; background: var(--ink-surface-2); border-left: 3px solid var(--accent, #0284c7); border-radius: 6px;">
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-text);"><strong>🛠️ Practical Hands-on Assignment:</strong> Simulate a centrifugal water pump impeller using Sliding Mesh (`pimpleFoam` with cyclicAMI) across 16 MPI cores and plot the Head-Capacity (H-Q) curve.</p>
+            <p style="margin: 6px 0 0; font-size: 12.5px; color: var(--ink-text-soft);"><strong>Key Commands / Tools:</strong> <code>decomposePar, mpirun, pimpleFoam, createBaffles</code></p>
+          </div>
+          <div>
+            <span style="font-size: 12px; font-weight: 600; color: var(--ink-text-soft); margin-right: 8px;">Recommended Concepts:</span>
+            <a href="../concepts/quality-assurance-cad" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">quality-assurance-cad</a><a href="../concepts/dwg-file-format" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">dwg-file-format</a>
+          </div>
+        </div>
+        <div style="margin-bottom: 28px; padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink-text);">Week 8: ParaView Post-Processing, Q-Criterion & Automated Python Workflows</h3>
+            <span style="font-size: 12px; font-weight: 700; padding: 3px 10px; background: var(--accent-bg, #e0f2fe); color: var(--accent, #0284c7); border-radius: 20px;">Stage 8</span>
+          </div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--ink-text-soft);">Core Topics Covered:</p>
+          <ul style="padding-left: 20px; color: var(--ink-text); margin-bottom: 16px;">
+            <li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Extracting Q-criterion and $\lambda_2$ vortex core isosurfaces colored by velocity magnitude</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Line integral convolution (LIC) surface streamlines and pressure coefficient ($C_p$) plots</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Automating parameter sweeps with PyFluent / OpenFOAM `Allrun` bash & Python scripts</li><li style="margin-bottom: 6px; font-size: 14px; line-height: 1.6;">Generating quantitative validation reports against wind-tunnel and empirical correlations</li>
+          </ul>
+          <div style="margin-bottom: 16px; padding: 14px 16px; background: var(--ink-surface-2); border-left: 3px solid var(--accent, #0284c7); border-radius: 6px;">
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-text);"><strong>🛠️ Practical Hands-on Assignment:</strong> Write a `pvpython` script in ParaView that batch-renders Q-criterion wake structures and exports lift/drag time-history CSV reports.</p>
+            <p style="margin: 6px 0 0; font-size: 12.5px; color: var(--ink-text-soft);"><strong>Key Commands / Tools:</strong> <code>paraFoam, pvpython, postProcess, forceCoeffs</code></p>
+          </div>
+          <div>
+            <span style="font-size: 12px; font-weight: 600; color: var(--ink-text-soft); margin-right: 8px;">Recommended Concepts:</span>
+            <a href="../concepts/quality-assurance-cad" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">quality-assurance-cad</a><a href="../concepts/iso-128-technical-drawings-rules" style="display: inline-block; padding: 4px 10px; font-size: 12px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 6px; text-decoration: none; color: var(--accent); margin-right: 6px; margin-top: 4px;">iso-128-technical-drawings-rules</a>
+          </div>
+        </div>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Capstone Graduation Portfolio Project</h2>
+          <div style="padding: 22px 24px; background: var(--accent-bg, #f0f9ff); border-left: 4px solid var(--accent, #0284c7); border-radius: 8px;">
+            <p style="margin: 0; font-size: 15px; line-height: 1.75; font-weight: 500; color: var(--ink-text);">Automotive External Aerodynamics & Heat Exchanger CHT Benchmark: Build a poly-hexcore mesh with y+ < 1 prism layers, solve steady RANS (k-omega SST) and transient DDES flows in OpenFOAM/Fluent, validate drag coefficient ($C_d$) within 2% of wind-tunnel data, and post-process vorticity isosurfaces in ParaView.</p>
+          </div>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Next Steps &amp; Professional Certification</h2>
+          <p style="font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Upon completing this learning path: review our <a href="../software/openfoam" style="color: var(--accent); font-weight: 600;">OpenFOAM Documentation Hub</a>, test your retention with our interactive <a href="../../quiz" style="color: var(--accent); font-weight: 600;">CAD Certification Practice Quizzes</a>, or explore curated video courses in the <a href="../../tutorials" style="color: var(--accent); font-weight: 600;">Tutorials Directory</a>.</p>
+        </section>
+
+        <aside style="margin-top: 48px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <p style="font-size: 13px; font-weight: 700; margin: 0 0 6px; color: var(--ink-text);">Gstarcademy Editorial Board</p>
+          <p style="font-size: 12px; color: var(--ink-text-soft); margin: 0; line-height: 1.5;">Structured curriculum updated for 2026 industry standards. All registered trademarks belong to their respective holders.</p>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="footer site-footer" style="margin-top: 60px;">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p><p class="site-footer-desc">Professional CAD learning path guides and knowledge library.</p></div>
+      </div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy. All rights reserved.</p></div>
+    </footer>
+    <script src="../../app.min.js" defer></script>
+  </body>
+</html>

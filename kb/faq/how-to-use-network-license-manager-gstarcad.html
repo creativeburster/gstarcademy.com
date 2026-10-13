@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Configure GstarCAD Network License Manager: Floating Seats, Borrowing & Firewall Ports | Gstarcademy</title>
+    <meta name="description" content="Enterprise IT guide to deploying GstarCAD Network License Manager (FlexNet / GLM): server activation, TCP firewall port configuration, offline seat borrowing, and multi-subnet options files." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-use-network-license-manager-gstarcad" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to Configure GstarCAD Network License Manager: Floating Seats, Borrowing & Firewall Ports" />
+    <meta property="og:description" content="Enterprise IT guide to deploying GstarCAD Network License Manager (FlexNet / GLM): server activation, TCP firewall port configuration, offline seat borrowing, and multi-subnet options files." />
+    <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-use-network-license-manager-gstarcad" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Configure GstarCAD Network License Manager: Floating Seats, Borrowing & Firewall Ports","acceptedAnswer":{"@type":"Answer","text":"Install Gstarsoft Network License Manager on a static-IP Windows or Linux server, activate your XML/online license key, open TCP ports 27000–27009 and the vendor daemon port in your firewall, and point client workstations to 'Server_IP' via the GstarCAD License Manager."}},{"@type":"Question","name":"Step 1: Server Installation & Master License Activation","acceptedAnswer":{"@type":"Answer","text":"Assign a static IP address to your license server. Install the <b>Gstarsoft Network License Manager</b> service, launch the activation utility, and bind your enterprise Entitlement ID (either online or via offline XML request/response for air-gapped defense networks)."}},{"@type":"Question","name":"Step 2: Configure Static TCP Firewall Ports in the License File","acceptedAnswer":{"@type":"Answer","text":"To allow workstations across VLANs or VPNs to check out licenses rapidly, lock the ports in the license file header: append <code>27000</code> to the <code>SERVER</code> line and <code>PORT=11000</code> to the <code>VENDOR</code> line. Add inbound TCP firewall rules allowing ports <code>27000</code> and <code>11000</code>."}},{"@type":"Question","name":"Step 3: Configure Seat Borrowing & Group Reservation (Options File)","acceptedAnswer":{"@type":"Answer","text":"Field engineers traveling with laptops can borrow a floating license offline for up to 30 days via the client License Manager's <b>Borrow</b> tab. IT admins can also configure an options file (<code>gstar.opt</code>) using <code>RESERVE</code> and <code>MAX_BORROW_HOURS</code> to guarantee seats for priority production teams."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Configure GstarCAD Network License Manager: Floating Seats, Borrowing & Firewall Ports","item":"https://gstarcademy.com/kb/faq/how-to-use-network-license-manager-gstarcad"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
+        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <span aria-current="page" style="color: var(--ink-text);">GstarCAD</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">How-To &amp; FAQ &middot; GstarCAD</span>
+          <h1 style="margin-top: 12px; font-size: 2.1rem; line-height: 1.25;">How to Configure GstarCAD Network License Manager: Floating Seats, Borrowing & Firewall Ports</h1>
+          <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Enterprise IT guide to deploying GstarCAD Network License Manager (FlexNet / GLM): server activation, TCP firewall port configuration, offline seat borrowing, and multi-subnet options files.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
+          <span><strong>Author:</strong> Gstarcademy Engineering Editorial Board</span>
+          <span><strong>Updated:</strong> <time datetime="2026-10-12">2026-10-12</time></span>
+        </div>
+
+        
+    <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+      <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">⚡ Quick Answer / Key Takeaway</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-text);">Install Gstarsoft Network License Manager on a static-IP Windows or Linux server, activate your XML/online license key, open TCP ports 27000–27009 and the vendor daemon port in your firewall, and point client workstations to 'Server_IP' via the GstarCAD License Manager.</p>
+    </div>
+
+        <section class="kb-concept-section">
+          <h2>Step-by-Step Instructions &amp; Commands</h2>
+          
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 1: Server Installation & Master License Activation</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Assign a static IP address to your license server. Install the <b>Gstarsoft Network License Manager</b> service, launch the activation utility, and bind your enterprise Entitlement ID (either online or via offline XML request/response for air-gapped defense networks).</p>
+        </div>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 2: Configure Static TCP Firewall Ports in the License File</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">To allow workstations across VLANs or VPNs to check out licenses rapidly, lock the ports in the license file header: append <code>27000</code> to the <code>SERVER</code> line and <code>PORT=11000</code> to the <code>VENDOR</code> line. Add inbound TCP firewall rules allowing ports <code>27000</code> and <code>11000</code>.</p>
+        </div>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 3: Configure Seat Borrowing & Group Reservation (Options File)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Field engineers traveling with laptops can borrow a floating license offline for up to 30 days via the client License Manager's <b>Borrow</b> tab. IT admins can also configure an options file (<code>gstar.opt</code>) using <code>RESERVE</code> and <code>MAX_BORROW_HOURS</code> to guarantee seats for priority production teams.</p>
+        </div>
+        </section>
+
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Common Issues &amp; Troubleshooting Guide</h2>
+          <div style="overflow-x: auto; margin-top: 16px;">
+            <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 14px;">
+              <thead>
+                <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line); text-align: left;">
+                  <th style="padding: 12px 16px; font-weight: 700;">Common Failure / Problem</th>
+                  <th style="padding: 12px 16px; font-weight: 700;">Root Cause &amp; Recommended Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Client takes 45 seconds to connect or fails with Error -15</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">The vendor daemon port is shifting randomly on server reboot and being blocked by Windows Firewall. Explicitly pin PORT=11000 on the VENDOR line and restart the license service.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">VPN users cannot check out floating licenses</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Set the environment variable FLEXLM_TIMEOUT=3000000 (3 seconds) on client laptops to accommodate higher WAN/VPN ping latency.</td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Cross-CAD Compatibility &amp; Alternatives</h2>
+          <p style="font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">A single Gstarsoft Network License Server can concurrently serve hybrid fleets of GstarCAD Windows, GstarCAD Linux, GstarCAD Mechanical, and Architecture workstations.</p>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Engineering Best Practices Checklist</h2>
+          <ul style="padding-left: 20px; font-size: 14.5px; color: var(--ink-text);">
+            <li style="margin-bottom: 10px; line-height: 1.6;">Host the license manager on a highly available virtual machine with static MAC address binding.</li><li style="margin-bottom: 10px; line-height: 1.6;">Return borrowed licenses early when returning to the office to free up concurrent pool capacity.</li><li style="margin-bottom: 10px; line-height: 1.6;">Monitor peak concurrency logs monthly to optimize seat-to-engineer ratios.</li>
+          </ul>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Related Concepts &amp; Further Learning</h2>
+          <ul style="list-style: none; padding: 0; font-size: 14.5px;">
+            <li style="margin-bottom: 8px;"><a href="../concepts/cde-common-data-environment-iso-19650" style="color: var(--accent); font-weight: 600;">Enterprise IT & CDE Governance</a></li><li style="margin-bottom: 8px;"><a href="../concepts/open-design-alliance-drawing-sdk" style="color: var(--accent); font-weight: 600;">Enterprise CAD Infrastructure</a></li>
+          </ul>
+        </section>
+
+        <aside style="margin-top: 48px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <p style="font-size: 13px; font-weight: 700; margin: 0 0 6px; color: var(--ink-text);">Gstarcademy Technical Review Committee</p>
+          <p style="font-size: 12px; color: var(--ink-text-soft); margin: 0; line-height: 1.5;">This technical answer was authored and verified by CAD application engineers. Content is updated regularly to align with modern AutoCAD, GstarCAD, SOLIDWORKS, Revit, and Fusion 360 releases.</p>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="footer site-footer" style="margin-top: 60px;">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p><p class="site-footer-desc">CAD Knowledge Base &amp; Tutorial Hub for Architecture, Engineering, and Manufacturing professionals.</p></div>
+      </div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy. All rights reserved.</p></div>
+    </footer>
+    <script src="../../app.min.js" defer></script>
+  </body>
+</html>

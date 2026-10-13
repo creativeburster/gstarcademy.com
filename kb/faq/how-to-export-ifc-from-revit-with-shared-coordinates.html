@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Export IFC 4 / IFC 4.3 from Revit with Accurate Shared Coordinates & Custom Property Sets | Gstarcademy</title>
+    <meta name="description" content="Configure lossless OpenBIM IFC exports from Autodesk Revit: set Coordinate Base to Shared Coordinates, map Revit categories to IFC classes, and export custom schedules as buildingSMART Property Sets." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-export-ifc-from-revit-with-shared-coordinates" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to Export IFC 4 / IFC 4.3 from Revit with Accurate Shared Coordinates & Custom Property Sets" />
+    <meta property="og:description" content="Configure lossless OpenBIM IFC exports from Autodesk Revit: set Coordinate Base to Shared Coordinates, map Revit categories to IFC classes, and export custom schedules as buildingSMART Property Sets." />
+    <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-export-ifc-from-revit-with-shared-coordinates" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Export IFC 4 / IFC 4.3 from Revit with Accurate Shared Coordinates & Custom Property Sets","acceptedAnswer":{"@type":"Answer","text":"In File -> Export -> IFC -> Modify Setup: set IFC Version to 'IFC4 Reference View' (or Design Transfer View), set Coordinate Base under General to 'Shared Coordinates', and check 'Export Revit property sets' or attach a custom Property Mapping .txt file under Property Sets."}},{"@type":"Question","name":"Step 1: Verify Survey Point, Project Base Point & Shared Site","acceptedAnswer":{"@type":"Answer","text":"Before exporting, confirm that your Revit model acquired shared coordinates from the civil control file (`Manage` → `Coordinates` → `Acquire Coordinates`). In the IFC Export Setup (`Modify Setup` → `General` tab), set <b>Coordinate Base</b> to <b>Shared Coordinates</b> so the exported `IfcSite` aligns seamlessly with Civil 3D and Navisworks."}},{"@type":"Question","name":"Step 2: Map Revit Categories & Built-In Parameters (`IfcExportAs`)","acceptedAnswer":{"@type":"Answer","text":"To override individual families (such as a generic model acting as a structural precast girder), bind the official shared parameters <code>IfcExportAs</code> (e.g., value <code>IfcBeam</code>) and <code>IfcExportType</code> (e.g., <code>GIRDER</code>) to the family categories."}},{"@type":"Question","name":"Step 3: Export Custom Schedules as Standardized Property Sets","acceptedAnswer":{"@type":"Answer","text":"In the `Property Sets` tab of the IFC Export dialog, check <b>Export schedules as property sets</b> and <b>Export only schedules containing IFC, Pset, or Common in the title</b>. Create a Revit schedule named `Pset_CustomAssetData` containing your exact required parameters to embed clean, uncluttered metadata."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb/faq/"},{"@type":"ListItem","position":4,"name":"How to Export IFC 4 / IFC 4.3 from Revit with Accurate Shared Coordinates & Custom Property Sets","item":"https://gstarcademy.com/kb/faq/how-to-export-ifc-from-revit-with-shared-coordinates"}]}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
+        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <span aria-current="page" style="color: var(--ink-text);">Revit</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 28px;">
+          <span class="chip pill-warn">How-To &amp; FAQ &middot; Revit</span>
+          <h1 style="margin-top: 12px; font-size: 2.1rem; line-height: 1.25;">How to Export IFC 4 / IFC 4.3 from Revit with Accurate Shared Coordinates & Custom Property Sets</h1>
+          <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Configure lossless OpenBIM IFC exports from Autodesk Revit: set Coordinate Base to Shared Coordinates, map Revit categories to IFC classes, and export custom schedules as buildingSMART Property Sets.</p>
+        </header>
+
+        <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
+          <span><strong>Author:</strong> Gstarcademy Engineering Editorial Board</span>
+          <span><strong>Updated:</strong> <time datetime="2026-10-12">2026-10-12</time></span>
+        </div>
+
+        
+    <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+      <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">⚡ Quick Answer / Key Takeaway</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-text);">In File -> Export -> IFC -> Modify Setup: set IFC Version to 'IFC4 Reference View' (or Design Transfer View), set Coordinate Base under General to 'Shared Coordinates', and check 'Export Revit property sets' or attach a custom Property Mapping .txt file under Property Sets.</p>
+    </div>
+
+        <section class="kb-concept-section">
+          <h2>Step-by-Step Instructions &amp; Commands</h2>
+          
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 1: Verify Survey Point, Project Base Point & Shared Site</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Before exporting, confirm that your Revit model acquired shared coordinates from the civil control file (`Manage` → `Coordinates` → `Acquire Coordinates`). In the IFC Export Setup (`Modify Setup` → `General` tab), set <b>Coordinate Base</b> to <b>Shared Coordinates</b> so the exported `IfcSite` aligns seamlessly with Civil 3D and Navisworks.</p>
+        </div>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 2: Map Revit Categories & Built-In Parameters (`IfcExportAs`)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">To override individual families (such as a generic model acting as a structural precast girder), bind the official shared parameters <code>IfcExportAs</code> (e.g., value <code>IfcBeam</code>) and <code>IfcExportType</code> (e.g., <code>GIRDER</code>) to the family categories.</p>
+        </div>
+        <div style="margin-bottom: 24px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 12px; font-size: 1.0rem; font-weight: 700; color: var(--ink-text);">Step 3: Export Custom Schedules as Standardized Property Sets</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">In the `Property Sets` tab of the IFC Export dialog, check <b>Export schedules as property sets</b> and <b>Export only schedules containing IFC, Pset, or Common in the title</b>. Create a Revit schedule named `Pset_CustomAssetData` containing your exact required parameters to embed clean, uncluttered metadata.</p>
+        </div>
+        </section>
+
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Common Issues &amp; Troubleshooting Guide</h2>
+          <div style="overflow-x: auto; margin-top: 16px;">
+            <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 14px;">
+              <thead>
+                <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line); text-align: left;">
+                  <th style="padding: 12px 16px; font-weight: 700;">Common Failure / Problem</th>
+                  <th style="padding: 12px 16px; font-weight: 700;">Root Cause &amp; Recommended Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">Exported IFC lands 500 kilometers away from other models in Navisworks</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">One discipline exported using 'Internal Origin' while another used 'Shared Coordinates'. Enforce 'Shared Coordinates' across all trades in the BIM Execution Plan.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ink-line);">
+              <td style="padding: 12px 16px; font-weight: 600; vertical-align: top; color: var(--ink-text); width: 35%;">IFC file size is over 800MB for a medium building</td>
+              <td style="padding: 12px 16px; vertical-align: top; color: var(--ink-text); line-height: 1.6;">Set 'Level of detail for some element geometry' to Low or Medium in the Advanced tab; High tessellation turns every curved pipe elbow and railing baluster into tens of thousands of triangles.</td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Cross-CAD Compatibility &amp; Alternatives</h2>
+          <p style="font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Always inspect your exported IFC file in an independent viewer (such as BIMcollab Zoom, Solibri Anywhere, or DWG FastView 3D) before uploading to the project CDE.</p>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Engineering Best Practices Checklist</h2>
+          <ul style="padding-left: 20px; font-size: 14.5px; color: var(--ink-text);">
+            <li style="margin-bottom: 10px; line-height: 1.6;">Save your configured IFC Export Setup as an in-session JSON preset and distribute it to all project consultants.</li><li style="margin-bottom: 10px; line-height: 1.6;">Keep 'Split Walls, Columns, Ducts by Level' checked when exporting for 4D construction scheduling or 5D quantity takeoff.</li><li style="margin-bottom: 10px; line-height: 1.6;">Validate exported IFC files against buildingSMART IDS rulesets prior to milestone handoff.</li>
+          </ul>
+        </section>
+        
+        <section class="kb-concept-section" style="margin-top: 36px;">
+          <h2>Related Concepts &amp; Further Learning</h2>
+          <ul style="list-style: none; padding: 0; font-size: 14.5px;">
+            <li style="margin-bottom: 8px;"><a href="../concepts/ifc-4-3-infrastructure-entities" style="color: var(--accent); font-weight: 600;">IFC 4.3 OpenBIM Standard</a></li><li style="margin-bottom: 8px;"><a href="../concepts/cde-common-data-environment-iso-19650" style="color: var(--accent); font-weight: 600;">ISO 19650 CDE Workflows</a></li>
+          </ul>
+        </section>
+
+        <aside style="margin-top: 48px; padding: 20px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 14px;">
+          <p style="font-size: 13px; font-weight: 700; margin: 0 0 6px; color: var(--ink-text);">Gstarcademy Technical Review Committee</p>
+          <p style="font-size: 12px; color: var(--ink-text-soft); margin: 0; line-height: 1.5;">This technical answer was authored and verified by CAD application engineers. Content is updated regularly to align with modern AutoCAD, GstarCAD, SOLIDWORKS, Revit, and Fusion 360 releases.</p>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="footer site-footer" style="margin-top: 60px;">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p><p class="site-footer-desc">CAD Knowledge Base &amp; Tutorial Hub for Architecture, Engineering, and Manufacturing professionals.</p></div>
+      </div>
+      <div class="container site-footer-bottom"><p>&copy; <span id="footer-year"></span> Gstarcademy. All rights reserved.</p></div>
+    </footer>
+    <script src="../../app.min.js" defer></script>
+  </body>
+</html>
