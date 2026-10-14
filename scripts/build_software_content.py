@@ -182,7 +182,7 @@ def footer_html(relpath: str) -> str:
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>"""
 
@@ -1121,7 +1121,7 @@ def render_concept(term: dict, software: dict, editorial: dict, all_terms_index:
             sources.append({
                 "label": "Gstarsoft Support Center & Technical FAQ Portal",
                 "url": "https://www.gstarcad.net/support/",
-                "publisher": "Gstarsoft Co., Ltd."
+                "publisher": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"
             })
         elif "zwsoft" in vendor_name.lower():
             sources.append({
@@ -2074,33 +2074,43 @@ def patch_faq(software_list: list[dict]) -> None:
         pattern = re.compile(re.escape(TAB_START) + r"[\s\S]*?" + re.escape(TAB_END))
         text = pattern.sub(lambda _m: tab_block, text)
 
-    # Also emit a FAQPage JSON-LD encompassing all software FAQs (one combined entity per software)
-    faqpages_ld = []
+    # Emit a single unified FAQPage JSON-LD encompassing all software FAQs (Google Search Central compliant)
+    merged_questions = []
     for sw in software_list:
-        if not sw.get("faqs"):
+        faqs = sw.get("faqs", [])
+        if not faqs:
             continue
-        faqpages_ld.append({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "name": f"{sw['name']} FAQs",
-            "url": f"{SITE_URL}/kb-faq.html#{sw['slug']}",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": q["question"],
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": q["answer"],
-                    },
-                }
-                for q in sw["faqs"]
-            ],
-        })
+        for q in faqs:
+            clean_ans = re.sub(r"`([^`]+)`", r"\1", q.get("answer", ""))
+            merged_questions.append({
+                "@type": "Question",
+                "name": q["question"],
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": clean_ans,
+                },
+            })
 
-    ld_block = "<!-- AUTO-GEN faq-jsonld START -->\n"
-    for ld in faqpages_ld:
-        ld_block += '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False, separators=(",", ":")) + "</script>\n"
-    ld_block += "<!-- AUTO-GEN faq-jsonld END -->"
+    single_faq_ld = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "name": "CAD & BIM Engineering Technical FAQs — GstarCAD Academy",
+        "url": f"{SITE_URL}/kb-faq",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)",
+            "url": "https://www.gstarcad.net/",
+        },
+        "mainEntity": merged_questions,
+    }
+
+    ld_block = (
+        "<!-- AUTO-GEN faq-jsonld START -->\n"
+        + '<script type="application/ld+json">'
+        + json.dumps(single_faq_ld, ensure_ascii=False, separators=(",", ":"))
+        + "</script>\n"
+        + "<!-- AUTO-GEN faq-jsonld END -->"
+    )
 
     if "<!-- AUTO-GEN faq-jsonld START -->" in text:
         pattern = re.compile(

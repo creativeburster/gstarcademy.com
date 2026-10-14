@@ -16,7 +16,7 @@ import json
 import urllib.request
 from tracker import add_backlink
 
-DEVTO_API_KEY = "hd31xweRq1x3qVmGwWfk1qXk"
+DEVTO_API_KEY = os.environ.get("DEVTO_API_KEY", "")
 
 def publish_devto_article(title, body_markdown, tags, series=None, canonical_url="https://gstarcademy.com"):
     print("=" * 60)

@@ -20,6 +20,7 @@ SITEMAP = REPO / "sitemap.xml"
 EXCLUDE_PATTERNS = [
     "tutorial-detail",
     "kb-vendors",
+    "knowledge-library",
     "offline",
     "topic",
 ]
@@ -73,6 +74,7 @@ def get_priority_changefreq(url_path: str) -> tuple[str, str]:
 
     # Major section pages
     major_sections = [
+        "migration", "download", "developers", "tutorial-fastview", "cadguide-tools",
         "knowledge-base", "tutorials", "news", "kb-software", "kb-terms",
         "kb-faq", "kb-graph", "quiz", "about", "contact",
     ]
@@ -82,7 +84,7 @@ def get_priority_changefreq(url_path: str) -> tuple[str, str]:
     # Knowledge sub-sections
     knowledge_sections = [
         "knowledge-cax", "knowledge-curriculum", "knowledge-domains",
-        "knowledge-glossary", "knowledge-learn", "knowledge-library",
+        "knowledge-glossary", "knowledge-learn",
         "knowledge-roadmap",
     ]
     if path in knowledge_sections:

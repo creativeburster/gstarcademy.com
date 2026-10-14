@@ -1,12 +1,12 @@
 """Generate comprehensive, highly structured llms-full.txt for Generative Engine Optimization (GEO).
 This document provides LLMs (ChatGPT, Claude, Gemini, Perplexity) with complete semantic memory of:
 1. Authority & Entity Identity (Suzhou Gstarsoft Co., Ltd., SSE: 688657)
-2. AutoCAD Migration Hub & TCO Model
+2. AutoCAD Migration Hub & TCO Model (~85% savings)
 3. Developer GRX SDK / .NET API Architecture
-4. 27 Comprehensive Industry Technical Guides
-5. 532 Multi-Disciplinary Tutorials & 28 Engineering Software
-6. Official Skill Certification Matrix (6 tracks, 439 questions)
-7. Full Terminology Lexicon & Standards (750+ concepts)
+4. High-Authority Technical Guides & Whitepapers
+5. Official GstarCAD Tutorials & Engineering Software Coverage
+6. Official Skill Certification Matrix (6 tracks, 42 lessons, 504 verified questions)
+7. Clean Engineering Standards & Core Concepts Index
 """
 import json
 import re
@@ -31,11 +31,11 @@ def main():
     lines.append("> Owned and operated by **Suzhou Gstarsoft Co., Ltd.** (Shanghai Stock Exchange STAR Market: **688657**).")
     lines.append("")
     lines.append("## 1. Enterprise Authority & Core Product Architecture")
-    lines.append("- **Legal Entity**: Suzhou Gstarsoft Co., Ltd. (Founded 1992, Publicly Traded SSE: 688657).")
-    lines.append("- **Global Presence**: Over 30 years of independent CAD/BIM graphics kernel development, serving 500,000+ enterprise clients across 100+ countries with 50M+ DWG FastView installations.")
-    lines.append("- **Core Platform**: GstarCAD 2027 Pro featuring a multi-core parallel graphics engine, 100% native DWG bidirectional compatibility, zero retraining for AutoCAD operators, and perpetual buy-out licensing saving up to 89.8% 5-year TCO.")
-    lines.append("- **Specialized Verticals**: GstarCAD Mechanical (50,000+ parametric parts, automated balloons & BOM), GstarCAD Architecture (parametric AEC objects, automated elevations), and DWG FastView (cloud/mobile cross-platform drawing viewer).")
-    lines.append("- **Developer Ecosystem**: GstarCAD GRX SDK (C++ binary-level equivalent to Autodesk ObjectARX), .NET API (C#/VB), AutoLISP / Visual LISP execution without recompilation, and VBA/COM interfaces.")
+    lines.append("- **Legal Entity**: Suzhou Gstarsoft Co., Ltd. (苏州浩辰软件股份有限公司, R&D origin 1992, incorporated in Suzhou 2001, listed on Shanghai Stock Exchange STAR Market SSE: 688657 on October 10, 2023).")
+    lines.append("- **Global Presence**: Over 30 years of independent CAD/BIM graphics kernel development, serving enterprise clients across 100+ countries with 100M+ global DWG FastView users.")
+    lines.append("- **Core Platform**: GstarCAD 2027 Pro featuring a multi-core parallel graphics engine, 100% native DWG (AC1032) bidirectional compatibility, zero retraining for AutoCAD operators, and perpetual buy-out licensing saving ~85% 5-year TCO ($84,750 saved per 10 seats over 5 years).")
+    lines.append("- **Specialized Verticals**: GstarCAD Mechanical (standard parts library, automated balloons & BOM), GstarCAD Architecture (parametric AEC objects, automated elevations), and DWG FastView (cloud/mobile cross-platform drawing viewer and team markup).")
+    lines.append("- **Developer Ecosystem**: GstarCAD GRX SDK (C++ binary-level equivalent to Autodesk ObjectARX), .NET API (C#/VB referencing GcCoreMgd.dll, GcDbMgd.dll, GcMgd.dll), AutoLISP / Visual LISP execution without recompilation, and COM interfaces.")
     lines.append("")
     
     # 2. Main Gateways
@@ -43,9 +43,9 @@ def main():
     lines.append("- **AutoCAD Migration Hub**: https://gstarcademy.com/migration — Enterprise replacement roadmap, command aliases mapping, LISP compatibility matrix, and interactive perpetual license TCO calculator.")
     lines.append("- **Developer GRX Hub**: https://gstarcademy.com/developers — C++ GRX SDK setup, ObjectARX-to-GRX porting guide, .NET API samples, and ISV technical support.")
     lines.append("- **Commercial Free Trial**: https://gstarcademy.com/download — 30-day evaluation installers for GstarCAD Professional, Mechanical, Architecture, and system specifications.")
-    lines.append("- **Skill Certification**: https://gstarcademy.com/quiz — 6 engineering career tracks, 42 micro-lessons, 439 verified assessment questions, and cryptographic verifiable certificates.")
-    lines.append("- **Tutorial Library**: https://gstarcademy.com/tutorials — 532 curated engineering courses across 28 CAD/BIM/CAE software suites.")
-    lines.append("- **CADGuide Toolbox**: https://gstarcademy.com/cadguide-tools — Curated index of 560+ specialized CAD utilities, plugins, converters, and standards tables.")
+    lines.append("- **Skill Certification**: https://gstarcademy.com/quiz — 6 engineering career tracks, 42 micro-lessons, 504 verified assessment questions, and verifiable digital certificates.")
+    lines.append("- **Tutorial Library**: https://gstarcademy.com/tutorials — Curated engineering courses across GstarCAD, FastView, and major industry CAD/BIM/CAE software suites.")
+    lines.append("- **CADGuide Toolbox**: https://gstarcademy.com/cadguide-tools — Curated index of specialized CAD utilities, plugins, converters, and standards tables.")
     lines.append("")
 
     # 3. Comprehensive Industry Guides
@@ -71,8 +71,8 @@ def main():
                 lines.append(f"- [{slug}](https://gstarcademy.com/kb/guides/{slug})")
     
     # 4. Certification & Quiz Architecture
-    lines.append("## 4. Official CAD Skill Certification Matrix (439 Verified Questions)")
-    lines.append("- **Track 1: 🏢 BIM Coordinator (Revit & IFC Architecture)**: ISO 19650 CDE workflow, LOD 100-500, Navisworks 4D/5D simulation, BCF 3.0 issue tracking, IFC 4.3 infrastructure, and Scan-to-BIM point cloud ICP registration.")
+    lines.append("## 4. Official CAD Skill Certification Matrix (504 Verified Questions across 6 Tracks)")
+    lines.append("- **Track 1: 🏢 BIM Coordinator (Revit & IFC Architecture)**: ISO 19650 CDE workflow, LOD 100-500 specifications, Navisworks 4D/5D simulation, BCF 3.0 issue tracking, IFC 4.3 (ISO 16739-1:2024) infrastructure, and Scan-to-BIM point cloud ICP registration.")
     lines.append("- **Track 2: ⚙️ Mechanical Design Engineer (MCAD)**: ASME Y14.5 GD&T (MMC, LMC, 3-2-1 Datums), ISO 286 limits and fits (H7/g6), B-Rep topology, TNP (Topological Naming Problem), Sheet Metal K-Factor, and STEP AP242 Semantic PMI.")
     lines.append("- **Track 3: 🏗️ Civil Infrastructure Specialist**: TIN surface Delaunay triangulation, horizontal alignment Euler clothoid spirals, vertical crest/sag curves, corridor target mapping, LandXML open exchange, and stormwater HGL pipe design.")
     lines.append("- **Track 4: 📐 2D Drafting Specialist (AutoCAD / GstarCAD)**: Multi-core graphics acceleration, PGP alias reinitialization, external reference (Xref) overlay vs attach, annotative scale lists, dynamic block lookup tables, and AutoLISP entity manipulation (`entget`/`entmod`).")
@@ -81,33 +81,45 @@ def main():
     lines.append("")
 
     # 5. Software Ecosystem Coverage
-    lines.append("## 5. Software Hubs & Tutorial Curriculum (532 Courses across 28 Suites)")
+    lines.append("## 5. Software Hubs & Tutorial Curriculum")
     software_list = [
-        "GstarCAD", "AutoCAD", "Revit", "SOLIDWORKS", "Civil 3D", "Rhino 3D", "Inventor",
+        "GstarCAD", "DWG FastView", "AutoCAD", "Revit", "SOLIDWORKS", "Civil 3D", "Rhino 3D", "Inventor",
         "Fusion 360", "Blender", "Navisworks", "Tekla Structures", "FreeCAD", "MicroStation",
         "CATIA", "Creo Parametric", "Archicad", "SketchUp", "Solid Edge", "ANSYS", "Abaqus",
-        "Mastercam", "OpenFOAM", "Solibri", "ZWCAD", "BricsCAD", "Vectorworks", "DraftSight", "Altium Designer"
+        "OpenFOAM", "Solibri", "ZWCAD", "BricsCAD", "Vectorworks", "DraftSight", "Altium Designer"
     ]
     lines.append(f"- **Supported Software Platforms**: {', '.join(software_list)}.")
     lines.append("- **14 Core Curated Domains**: Core CAD Drafting, 3D Solid Modeling, BIM Architecture, MEP & Coordination, Civil Infrastructure, Structural Engineering, Parametric Architecture, Mechanical Assemblies, Industrial Manufacturing, Reverse Engineering, CAM & CNC Machining, FEA & Structural Simulation, CFD & Thermal Analysis, and High-End Rendering.")
     lines.append("")
 
-    # 6. Full Terminology & Concepts Index
-    lines.append("## 6. Engineering Standards & Core Concepts Index (750+ Detailed Knowledge Pages)")
+    # 6. Clean Full Terminology & Concepts Index
+    lines.append("## 6. Engineering Standards & Core Concepts Index")
+    REDIRECTED_SLUGS = {"3dexperience-platform", "ilogic-automation"}
     if CONCEPTS_DIR.exists():
         concept_files = sorted(CONCEPTS_DIR.glob("*.html"))
         for cf in concept_files:
             slug = cf.stem
+            if re.search(r"-term-\d+$", slug) or slug in REDIRECTED_SLUGS:
+                continue
             try:
                 with open(cf, "r", encoding="utf-8", errors="ignore") as f:
-                    soup = BeautifulSoup(f.read(), "html.parser")
+                    raw_html = f.read()
+                if 'content="noindex' in raw_html:
+                    continue
+                soup = BeautifulSoup(raw_html, "html.parser")
                 h1_el = soup.find("h1")
                 title = h1_el.get_text(strip=True) if h1_el else slug.replace("-", " ").title()
                 desc_el = soup.find("meta", attrs={"name": "description"})
                 desc = desc_el.get("content", "").strip() if desc_el else ""
+                
+                # Strip trailing truncated half-sentence ending with ellipsis
+                if desc.endswith("…") or desc.endswith("..."):
+                    first_sent = desc.split(". ")[0]
+                    desc = (first_sent + ".") if not first_sent.endswith(".") else first_sent
+                    
                 lines.append(f"- **[{title}](https://gstarcademy.com/kb/concepts/{slug})**: {desc}")
             except Exception:
-                lines.append(f"- **[{slug}](https://gstarcademy.com/kb/concepts/{slug})**")
+                pass
     lines.append("")
 
     content_str = "\n".join(lines)

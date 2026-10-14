@@ -55,7 +55,10 @@ def main() -> int:
         for p in concepts_dir.glob("*.html"):
             slug = p.stem
             try:
-                soup = BeautifulSoup(p.read_text(encoding="utf-8"), "html.parser")
+                raw_html = p.read_text(encoding="utf-8")
+                if 'content="noindex' in raw_html or re.search(r"-term-\d+$", slug):
+                    continue
+                soup = BeautifulSoup(raw_html, "html.parser")
                 t_tag = soup.find("title")
                 title = clean_title(t_tag.get_text()) if t_tag else slug.replace("-", " ").title()
                 
@@ -199,14 +202,17 @@ def main() -> int:
 
     # 7. Core Section Hubs
     hubs = [
+        ("AutoCAD to GstarCAD Migration Hub", "100% native DWG compatibility, PGP alias mapping, LISP/GRX/.NET porting, and 5-year perpetual TCO calculator.", "/migration"),
+        ("Download GstarCAD 2027 & DWG FastView Free Trial", "Official 30-day evaluation installers for GstarCAD Professional, Mechanical, Architecture, and DWG FastView.", "/download"),
+        ("GstarCAD Developer & SDK Center (GRX / .NET / LISP)", "Port ObjectARX C++ plugins to GRX, reference GcCoreMgd/GcDbMgd/GcMgd .NET assemblies, and run AutoLISP.", "/developers"),
+        ("DWG FastView Mobile & Cloud Collaboration Masterclass", "Step-by-step field measurement, voice/cloud markup, and offline CAD viewing workflows.", "/tutorial-fastview"),
         ("Knowledge Base Home", "Comprehensive index of CAD/BIM/CAE concepts and engineering terminology.", "/knowledge-base"),
         ("CAD Software Hub", "Browse 51 professional CAD, BIM, and CAM software platforms.", "/kb-software"),
         ("CAD Terminology Index", "254 atomic CAD terms arranged by alphabetical index.", "/kb-terms"),
         ("CAD Technical FAQ", "670 frequently asked questions spanning 20+ CAD tools.", "/kb-faq"),
         ("Interactive Knowledge Graph", "Visual force-directed map of CAD concepts and dependencies.", "/kb-graph"),
-        ("Tutorial Navigation Library", "168 curated courses across YouTube, Coursera, and official academies.", "/tutorials"),
-        ("CAD & AEC Industry News", "123 curated articles covering AI, standards, and new software releases.", "/news"),
-        ("Engineering PDF Library", "Curated textbook extracts and chapter summaries.", "/knowledge-library"),
+        ("Tutorial Navigation Library", "Curated courses across YouTube, Coursera, and official academies.", "/tutorials"),
+        ("CAD & AEC Industry News", "Curated articles covering AI, standards, and new software releases.", "/news"),
         ("CAD Skills Challenge Quiz", "Interactive CAD quiz testing multi-discipline skills.", "/quiz"),
         ("About Gstarcademy", "Project mission, editorial team, and peer-review process.", "/about"),
         ("Editorial Process & Sources", "Peer review guidelines, sourcing policies, and E-E-A-T criteria.", "/editorial-process"),
@@ -226,6 +232,21 @@ def main() -> int:
                 "url": h_url
             })
 
+    # 7b. Official GstarCAD Tutorials
+    gcad_tut_file = REPO / "data" / "tutorials_gstarcad.json"
+    if gcad_tut_file.exists():
+        for t in json.loads(gcad_tut_file.read_text(encoding="utf-8")):
+            title = t.get("title", "")
+            if title and title not in seen_ids:
+                seen_ids.add(title)
+                nodes_list.append({
+                    "id": title,
+                    "type": "tutorial",
+                    "tags": t.get("tags", ["gstarcad", "tutorial"]),
+                    "hint": t.get("summary", "")[:120],
+                    "url": t.get("url") or f"/tutorials?q={t.get('software', 'gstarcad')}"
+                })
+
     # 8. Premium Tutorials
     prem_file = REPO / "data" / "tutorials_premium.json"
     if prem_file.exists():
@@ -238,7 +259,7 @@ def main() -> int:
                     "type": "tutorial",
                     "tags": t.get("tags", ["tutorial"]),
                     "hint": t.get("editorial_note", "")[:120],
-                    "url": f"/tutorials?search={t.get('software', '')}"
+                    "url": f"/tutorials?q={t.get('software', '')}"
                 })
 
     # 9. YouTube Tutorials
@@ -254,7 +275,7 @@ def main() -> int:
                     "type": "tutorial",
                     "tags": [v.get("software", "cad"), v.get("task", "tutorial"), "youtube"],
                     "hint": v.get("description", "")[:120],
-                    "url": f"/tutorials?search={v.get('software', '')}"
+                    "url": f"/tutorials?q={v.get('software', '')}"
                 })
 
     # 10. Industry News

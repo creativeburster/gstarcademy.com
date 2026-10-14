@@ -1,11 +1,23 @@
 {
   "mcpVersion": "2024-11-05",
   "info": {
-    "name": "Gstarcademy WebMCP Server",
-    "version": "1.0.0",
-    "description": "Exposes CAD/BIM terminology, tutorials, FAQs, and industry news for Model Context Protocol (MCP) clients."
+    "name": "GstarCAD Academy MCP Server",
+    "version": "2.0.0",
+    "description": "Exposes official GstarCAD, Mechanical, Architecture, DWG FastView, and multi-CAD knowledge base, tutorials, and AutoCAD migration data. Operated by Suzhou Gstarsoft Co., Ltd. (SSE: 688657)."
   },
   "resources": [
+    {
+      "uri": "https://gstarcademy.com/data/tutorials_gstarcad.json",
+      "name": "Official GstarCAD, Mechanical, Architecture & DWG FastView Tutorials",
+      "mimeType": "application/json",
+      "description": "First-party curriculum and command workflows authored by Suzhou Gstarsoft Co., Ltd. (SSE: 688657)."
+    },
+    {
+      "uri": "https://gstarcademy.com/data/kb_software.json",
+      "name": "CAD & BIM Software Knowledge Index",
+      "mimeType": "application/json",
+      "description": "Comprehensive specifications, file formats, and features for 28 CAD/BIM/CAE software suites."
+    },
     {
       "uri": "https://gstarcademy.com/data/terms_entries.json",
       "name": "CAD Terminology Glossary",
@@ -22,13 +34,13 @@
   "tools": [
     {
       "name": "search_terms",
-      "description": "Search the CAD glossary index on Gstarcademy.",
+      "description": "Search the CAD glossary index on GstarCAD Academy.",
       "inputSchema": {
         "type": "object",
         "properties": {
           "query": {
             "type": "string",
-            "description": "The search query (e.g., 'xref', 'annotative scaling')."
+            "description": "The search query (e.g., 'xref', 'dynamic blocks', 'GRX')."
           }
         },
         "required": ["query"]

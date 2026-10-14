@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
@@ -8,73 +8,54 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        }
+        };
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
+          requestIdleCallback(initGtag);
         } else {
-          setTimeout(initGtag, 2500);
+          setTimeout(initGtag, 1);
         }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>Autodesk – Company Profile &amp; CAD Products | Gstarcademy</title>
-    <meta name="description" content="Autodesk — global CAD/BIM software leader behind AutoCAD, Revit, Inventor, Civil 3D, and Fusion 360; vendor profile, product portfolio, and ecosystem context." />
-    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/autodesk" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <title>Autodesk — CAD vendor profile · Gstarcademy</title>
+    <meta name="description" content="Autodesk" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/autodesk.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Autodesk — vendor profile" />
-    <meta property="og:description" content="Autodesk — global CAD/BIM software leader behind AutoCAD, Revit, Inventor, Civil 3D, and Fusion 360; vendor profile, product portfolio, and ecosystem context." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/autodesk" />
+    <meta property="og:description" content="Autodesk" />
+    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/autodesk.html" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Autodesk — vendor profile" />
-    <meta name="twitter:description" content="Autodesk — global CAD/BIM software leader behind AutoCAD, Revit, Inventor, Civil 3D, and Fusion 360; vendor profile, product portfolio, and ecosystem context." />
+    <meta name="twitter:description" content="Autodesk" />
 
-    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Autodesk","url":"https://www.autodesk.com/","description":"Autodesk — global CAD/BIM software leader behind AutoCAD, Revit, Inventor, Civil 3D, and Fusion 360; vendor profile, product portfolio, and ecosystem context."}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Autodesk — vendor profile","description":"Autodesk — global CAD/BIM software leader behind AutoCAD, Revit, Inventor, Civil 3D, and Fusion 360; vendor profile, product portfolio, and ecosystem context.","url":"https://gstarcademy.com/kb/vendors/autodesk","datePublished":"2026-05-24","dateModified":"2026-06-23","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/autodesk","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-software"},{"@type":"ListItem","position":4,"name":"Autodesk","item":"https://gstarcademy.com/kb/vendors/autodesk"}]}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Autodesk","url":"","description":"Autodesk"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Autodesk — vendor profile","description":"Autodesk","url":"https://gstarcademy.com/kb/vendors/autodesk.html","datePublished":"2026-08-16","dateModified":"2026-08-16","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/autodesk.html","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","jobTitle":"Editorial","url":"https://gstarcademy.com/about"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-vendors.html"},{"@type":"ListItem","position":4,"name":"Autodesk","item":"https://gstarcademy.com/kb/vendors/autodesk.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-vendors">
     <div class="header-stack">
       <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -83,7 +64,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -98,11 +79,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
         <div class="nav-overlay" aria-hidden="true"></div>
@@ -111,9 +92,9 @@
 
     <main class="container" style="margin-top: 24px; max-width: 1080px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="../../kb-software">Vendors</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-vendors.html">Vendors</a> /
         <span aria-current="page">Autodesk</span>
       </nav>
 
@@ -127,80 +108,57 @@
 
       <article class="kb-concept-detail">
         <div class="ink-byline">
-      <span><strong>By</strong> Gstarcademy Editorial Team</span>
-            <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-      <span><a href="../../about#editorial-process">Editorial process</a></span>
-        </div>
+      <span><strong>By</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Reviewed by</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+    </div>
+        
+        
+        
+        
+        
+        
 
-        <section class="kb-concept-section">
-          <h2>Company Overview</h2>
-          <p>Autodesk, Inc. is an American multinational software company headquartered in San Francisco, California. Founded in 1982 by John Walker and the co-creators of AutoCAD, Autodesk has grown from a single CAD product into the world's largest AEC/MFG design-software company with products spanning architecture, engineering, construction, media, and entertainment.</p>
-          <p>Autodesk's portfolio includes AutoCAD (2D/3D drafting), Revit (BIM), Inventor and Fusion 360 (MCAD), Civil 3D (civil engineering), 3ds Max and Maya (visualization and animation), and Navisworks (coordination). The company transitioned to subscription licensing in 2016, delivering products through the Autodesk Platform Services (formerly Forge) cloud ecosystem.</p>
-          <h3>Market Segments</h3>
-          <ul>
-            <li><strong>AEC (Architecture, Engineering, Construction):</strong> Revit, AutoCAD, Civil 3D, Navisworks, InfraWorks — dominant market share in BIM authoring and coordination.</li>
-            <li><strong>Manufacturing:</strong> Inventor, Fusion 360, VRED, PowerMill — covering product design, simulation, CAM, and visualization.</li>
-            <li><strong>Media & Entertainment:</strong> 3ds Max, Maya, Arnold — industry standards in VFX, game development, and architectural visualization.</li>
-          </ul>
-        </section>
-
+        
         <section class="kb-concept-section">
           <h2>Products in our knowledge base (7)</h2>
-          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/3dsmax" style="display:block; padding:18px 20px;">
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/3dsmax.html" style="display:block; padding:18px 20px;">
               <h3>3ds Max</h3>
               <p class="meta">Autodesk&#x27;s premium 3D modeling, animation, and rendering software, widely used for architectural visualization.</p>
             </a>
-<a class="card" href="../software/autocad" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/autocad.html" style="display:block; padding:18px 20px;">
               <h3>AutoCAD</h3>
               <p class="meta">The original commercial CAD platform — still the lingua franca of DWG-based 2D documentation across AEC, mechanical, and infrastructure work.</p>
             </a>
-<a class="card" href="../software/civil-3d" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/civil-3d.html" style="display:block; padding:18px 20px;">
               <h3>Civil 3D</h3>
               <p class="meta">Autodesk&#x27;s civil-infrastructure design platform — alignments, profiles, corridors, surfaces, parcels, pipe networks, and pressure networks built on a DWG core.</p>
             </a>
-<a class="card" href="../software/fusion-360" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/fusion-360.html" style="display:block; padding:18px 20px;">
               <h3>Fusion 360</h3>
               <p class="meta">Autodesk&#x27;s cloud-native unified design-and-make platform — parametric/direct hybrid modelling, CAM, sheet metal, simulation, electronics, and generative design in one subscription.</p>
             </a>
-<a class="card" href="../software/inventor" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/inventor.html" style="display:block; padding:18px 20px;">
               <h3>Inventor</h3>
               <p class="meta">Autodesk&#x27;s Windows-native parametric MCAD — strong on large mechanical assemblies, sheet metal, frame generator, and integration with Autodesk Vault and Revit.</p>
             </a>
-<a class="card" href="../software/navisworks" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/navisworks.html" style="display:block; padding:18px 20px;">
               <h3>Navisworks</h3>
               <p class="meta">Autodesk&#x27;s premium project review software enabling design coordination, clash detection, and 4D construction simulation.</p>
             </a>
-<a class="card" href="../software/revit" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/revit.html" style="display:block; padding:18px 20px;">
               <h3>Revit</h3>
               <p class="meta">Autodesk&#x27;s flagship BIM authoring tool — the building model becomes the single source of truth for plans, sections, schedules, and clash detection.</p>
             </a></div>
         </section>
         
         <section class="kb-concept-section">
-          <h2>Market Position &amp; Strategy</h2>
-          <p>Autodesk holds the dominant market position in AEC design software globally, with Revit and AutoCAD commanding the largest share of the BIM authoring and 2D drafting markets respectively. The company's 2016 transition from perpetual licenses to subscription-only pricing was disruptive but ultimately increased recurring revenue predictability and accelerated its shift to cloud-connected products.</p>
-          <p>The Autodesk Platform Services (APS, formerly Forge) strategy positions the company as an infrastructure provider rather than just a tool vendor. APS offers web APIs for file translation, model viewing, design automation, and data management, enabling third-party developers and enterprise customers to build custom workflows on top of Autodesk's data formats. This platform approach creates significant switching costs—once an organization's custom tools depend on APS APIs, migrating to a competing platform requires rebuilding those integrations.</p>
-          <p>In manufacturing, Autodesk's Fusion 360 represents a deliberate strategy to capture the small-to-midsize market that SolidWorks and Inventor traditionally served, but with a cloud-native, lower-price-point offering. The inclusion of CAM, simulation, electronics design, and generative design in a single subscription at a lower price point than traditional MCAD tools positions Fusion 360 as a disruptive force, though large enterprises still predominantly use Inventor, SolidWorks, or CATIA for production work.</p>
-        <h2>Technology Platform</h2>
-          <p>Autodesk's technology stack spans four decades of evolution. AutoCAD's DWG format remains the most widely used CAD file standard globally, though it is a proprietary binary format that Autodesk controls. Competing DWG implementations (Open Design Alliance's Teigha/ODA SDK) enable alternative products like BricsCAD and GstarCAD to read and write DWG files, but format compatibility remains an ongoing challenge as Autodesk updates the format with each AutoCAD release.</p>
-          <p>Revit uses a single-file database model (RVT) rather than the file-based approach of AutoCAD. This architectural choice—where the entire building model resides in one file with internal versioning for worksharing—provides data consistency but creates file-size scalability challenges on large projects. The Revit API (available in .NET) is extensively used by firms to automate repetitive tasks, though its single-threaded architecture limits computational performance for large-scale operations.</p>
-          <p>Fusion 360's cloud-native architecture stores project data in Autodesk's cloud (A360), with a local cache for offline editing. The modeling kernel combines Autodesk's own T-Spline technology (acquired from T-Splines Inc. in 2011) with a parametric/direct hybrid modeling engine. This architecture allows Autodesk to deploy updates continuously without requiring users to manage software versions, though it also means feature changes or pricing changes take effect unilaterally.</p>
-        <h2>Learning Resources</h2>
-          <p>Autodesk maintains one of the largest vendor-provided learning ecosystems in the CAD industry. Key resources include:</p>
-          <ul>
-            <li><strong><a href="https://www.autodesk.com/certification" rel="noopener noreferrer nofollow" target="_blank">Autodesk Certification Program</a>:</strong> Professional certifications for AutoCAD, Revit, Inventor, Civil 3D, and other products. Certifications are recognized across the AEC and manufacturing industries as baseline competency verification.</li>
-            <li><strong><a href="https://knowledge.autodesk.com/" rel="noopener noreferrer nofollow" target="_blank">Autodesk Knowledge Network</a>:</strong> Official documentation, tutorials, and community forums. The knowledge base covers product help, troubleshooting, and system requirements for all Autodesk products.</li>
-            <li><strong>Autodesk University (AU):</strong> Annual conference (in-person and virtual) with hundreds of technical sessions. Recordings of AU sessions are freely available online and represent a substantial library of advanced-topic content from practitioners and Autodesk product teams.</li>
-            <li><strong>Education licenses:</strong> Autodesk provides free educational licenses for students and educators, making its tools accessible for learning without financial barriers.</li>
-          </ul>
-        </section>
-
-        <section class="kb-concept-section">
           <h2>Sources</h2>
           <ul class="ink-source-list"><li><a href="https://www.autodesk.com/" rel="noopener noreferrer nofollow" target="_blank">Autodesk Official Corporate Portal</a> · <span class="meta">Autodesk</span></li></ul>
         </section>
 
-        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -211,58 +169,58 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="../../kb-terms.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim-workbench.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/constraints-fusion.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/dynamic-input.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>

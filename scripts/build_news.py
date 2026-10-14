@@ -76,8 +76,10 @@ def render_news_cards(news_items: list[dict]) -> str:
         
         # Build tags for semantic metadata line
         meta_tags = ", ".join(tags)
+        item_id = html.escape(item.get("id") or "")
+        id_attr = f' id="{item_id}"' if item_id else ""
         
-        lines.append('            <article class="tutorial-item news-curated-item">')
+        lines.append(f'            <article class="tutorial-item news-curated-item"{id_attr}>')
         lines.append(f'              {thumb_div}')
         lines.append('              <div class="item-body">')
         lines.append(f'                <h3>{title}</h3>')

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
@@ -8,73 +8,54 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        }
+        };
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
+          requestIdleCallback(initGtag);
         } else {
-          setTimeout(initGtag, 2500);
+          setTimeout(initGtag, 1);
         }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>Gstarsoft – Company Profile &amp; CAD Products | Gstarcademy</title>
-    <meta name="description" content="Gstarsoft — pioneer of independently developed CAD platform in China; 30+ years building 2D/3D DWG CAD and verticals across AEC, mechanical, electrical, mapping, and BIM." />
-    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/gstarsoft" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <title>Gstarsoft — CAD vendor profile · Gstarcademy</title>
+    <meta name="description" content="Pioneer of independently developed CAD platform in China — 30+ years building 2D/3D DWG CAD and verticals across AEC, mechanical, electrical, mapping, and BIM." />
+    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/gstarsoft.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Gstarsoft — vendor profile" />
     <meta property="og:description" content="Pioneer of independently developed CAD platform in China — 30+ years building 2D/3D DWG CAD and verticals across AEC, mechanical, electrical, mapping, and BIM." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/gstarsoft" />
+    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/gstarsoft.html" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Gstarsoft — vendor profile" />
     <meta name="twitter:description" content="Pioneer of independently developed CAD platform in China — 30+ years building 2D/3D DWG CAD and verticals across AEC, mechanical, electrical, mapping, and BIM." />
 
-    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gstarsoft","url":"https://www.gstarcad.net/","description":"Gstarsoft — pioneer of independently developed CAD platform in China; 30+ years building 2D/3D DWG CAD and verticals across AEC, mechanical, electrical, mapping, and BIM."}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Gstarsoft — vendor profile","description":"Gstarsoft — pioneer of independently developed CAD platform in China; 30+ years building 2D/3D DWG CAD and verticals across AEC, mechanical, electrical, mapping, and BIM.","url":"https://gstarcademy.com/kb/vendors/gstarsoft","datePublished":"2026-05-24","dateModified":"2026-06-23","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/gstarsoft","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-software"},{"@type":"ListItem","position":4,"name":"Gstarsoft","item":"https://gstarcademy.com/kb/vendors/gstarsoft"}]}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gstarsoft","url":"","description":"Pioneer of independently developed CAD platform in China — 30+ years building 2D/3D DWG CAD and verticals across AEC, mechanical, electrical, mapping, and BIM."}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Gstarsoft — vendor profile","description":"Pioneer of independently developed CAD platform in China — 30+ years building 2D/3D DWG CAD and verticals across AEC, mechanical, electrical, mapping, and BIM.","url":"https://gstarcademy.com/kb/vendors/gstarsoft.html","datePublished":"2026-08-16","dateModified":"2026-08-16","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/gstarsoft.html","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","jobTitle":"Editorial","url":"https://gstarcademy.com/about"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-vendors.html"},{"@type":"ListItem","position":4,"name":"Gstarsoft","item":"https://gstarcademy.com/kb/vendors/gstarsoft.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-vendors">
     <div class="header-stack">
       <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -83,7 +64,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -98,11 +79,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
         <div class="nav-overlay" aria-hidden="true"></div>
@@ -111,9 +92,9 @@
 
     <main class="container" style="margin-top: 24px; max-width: 1080px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="../../kb-software">Vendors</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-vendors.html">Vendors</a> /
         <span aria-current="page">Gstarsoft</span>
       </nav>
 
@@ -127,86 +108,63 @@
 
       <article class="kb-concept-detail">
         <div class="ink-byline">
-      <span><strong>By</strong> Gstarcademy Editorial Team</span>
-      <span><strong>Reviewed by</strong> Gstarsoft Co., Ltd</span>
-      <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-      <span><a href="../../about#editorial-process">Editorial process</a></span>
-        </div>
+      <span><strong>By</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Reviewed by</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+    </div>
+        
+        
+        
+        
+        
+        
 
-        <section class="kb-concept-section">
-          <h2>Company Overview</h2>
-          <p>Gstarsoft Co., Ltd. (also known as Suzhou Gstarsoft Co., Ltd.) is a Chinese CAD software company headquartered in Suzhou, Jiangsu Province. Founded in 1992, Gstarsoft develops GstarCAD — a DWG-compatible 2D/3D CAD platform — along with vertical applications including GstarCAD Mechanical, GstarCAD Architecture, and GstarBIM.</p>
-          <p>GstarCAD is positioned as a professional-grade alternative to AutoCAD, emphasizing DWG compatibility, fast performance, and competitive licensing costs. The company serves customers in over 50 countries with particular strength in the Asia-Pacific market, Latin America, and Eastern Europe. Gstarsoft also provides GRX API compatibility for organizations migrating custom AutoCAD-based applications.</p>
-          <h3>Product Portfolio</h3>
-          <ul>
-            <li><strong>GstarCAD:</strong> Flagship DWG-native 2D/3D drafting platform with GRX/LISP/VBA API support, .NET integration, and enterprise deployment tools.</li>
-            <li><strong>GstarCAD Mechanical:</strong> Mechanical design add-on with standards-based part libraries, BOM generation, and tolerance annotation.</li>
-            <li><strong>GstarCAD Architecture:</strong> Architectural design module with wall, door, window, and staircase tools compliant with regional building standards.</li>
-            <li><strong>GstarBIM:</strong> BIM-oriented platform for architects and interior designers combining 3D modeling with documentation workflows.</li>
-          </ul>
-        </section>
-
+        
         <section class="kb-concept-section">
           <h2>Products in our knowledge base (10)</h2>
-          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/dwg-fastview-plus" style="display:block; padding:18px 20px;">
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/dwg-fastview-plus.html" style="display:block; padding:18px 20px;">
               <h3>DWG FastView Plus</h3>
               <p class="meta">Desktop viewer positioned as an alternative light client for plotting and reviewing DWGs on Windows.</p>
             </a>
-<a class="card" href="../software/dwg-fastview" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/dwg-fastview.html" style="display:block; padding:18px 20px;">
               <h3>DWG FastView</h3>
               <p class="meta">Browser, mobile, and desktop clients to open, annotate, and share DWG without a full CAD seat.</p>
             </a>
-<a class="card" href="../software/fastview-3d" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/fastview-3d.html" style="display:block; padding:18px 20px;">
               <h3>3D FastView</h3>
               <p class="meta">Separate 3D viewing line for heavyweight CAD/visualization workloads linked from Gstar marketing.</p>
             </a>
-<a class="card" href="../software/gstarbim" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/gstarbim.html" style="display:block; padding:18px 20px;">
               <h3>GstarBIM</h3>
               <p class="meta">All-in-one BIM-oriented environment aimed at architects and interior designers in Gstarsoft’s portfolio.</p>
             </a>
-<a class="card" href="../software/gstarcad-365" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/gstarcad-365.html" style="display:block; padding:18px 20px;">
               <h3>GstarCAD 365</h3>
               <p class="meta">Subscription-style cloud bridge for sharing drawings, sheets, and comments across teams beyond a single LAN drive.</p>
             </a>
-<a class="card" href="../software/gstarcad-architecture" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/gstarcad-architecture.html" style="display:block; padding:18px 20px;">
               <h3>GstarCAD Architecture</h3>
               <p class="meta">Architectural drawing environment with wall/door/window style objects and project-oriented layer conventions.</p>
             </a>
-<a class="card" href="../software/gstarcad-mechanical" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/gstarcad-mechanical.html" style="display:block; padding:18px 20px;">
               <h3>GstarCAD Mechanical</h3>
               <p class="meta">Mechanical design add-on with library parts, BOM hooks, and drawing automation on the GstarCAD stack.</p>
             </a>
-<a class="card" href="../software/gstarcad-point-cloud" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/gstarcad-point-cloud.html" style="display:block; padding:18px 20px;">
               <h3>GstarCAD Point Cloud</h3>
               <p class="meta">Import and work with scan data for as-built documentation and modeling assistance inside GstarCAD.</p>
             </a>
-<a class="card" href="../software/gstarcad" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/gstarcad.html" style="display:block; padding:18px 20px;">
               <h3>GstarCAD</h3>
               <p class="meta">Gstarsoft&#x27;s full-featured 2D/3D DWG CAD platform — perpetual licensing, native DWG compatibility, AI-assisted drafting, and a 30+ industry vertical lineup spanning AEC, mechanical, electrical, mapping, and BIM.</p>
             </a>
-<a class="card" href="../software/houseplan" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/houseplan.html" style="display:block; padding:18px 20px;">
               <h3>Houseplan</h3>
               <p class="meta">Fast residential massing and presentation with real-time rendering as positioned on the vendor site.</p>
             </a></div>
         </section>
         
-        <section class="kb-concept-section">
-          <h2>Market Position &amp; Strategy</h2>
-          <p>Gstarsoft Co., Ltd is a Chinese CAD software company that develops GstarCAD, one of the leading DWG-compatible alternatives to AutoCAD in the Asia-Pacific market. Founded in 1992, the company has built a significant user base in China, Southeast Asia, and expanding into European and Latin American markets.</p>
-          <p>GstarCAD's value proposition centers on full DWG compatibility at a substantially lower price point than AutoCAD, with perpetual licensing still available alongside subscription options. This pricing model appeals to firms and markets where Autodesk's subscription-only pricing creates budget constraints, particularly for organizations with large seat counts.</p>
-          <p>Gstarsoft's strategy includes both the core GstarCAD desktop product and vertical solutions (GstarCAD Mechanical, GstarCAD Architecture) that add discipline-specific tools on top of the general-purpose platform. The company also invests in mobile and cloud viewing capabilities through its collaboration platform.</p>
-        <h2>Technology Platform</h2>
-          <p>GstarCAD's DWG engine provides native read/write support for DWG files up to the current format version. The drawing engine is optimized for large file handling, with proprietary memory management that allows GstarCAD to open and edit complex drawings that may strain competing products. The 2D drafting performance benchmarks favorably against AutoCAD for common operations like zoom, pan, and entity selection in drawings with hundreds of thousands of entities.</p>
-          <p>The customization platform supports LISP (compatible with AutoCAD LISP routines), GRX (a C++ API analogous to AutoCAD's ARX), and .NET, allowing firms with existing AutoCAD customization investments to migrate their tools with relatively moderate porting effort. This API compatibility is a deliberate strategy to lower the switching cost barrier for AutoCAD users.</p>
-          <p>GstarCAD's collaborative features include DWG Compare, cloud-based drawing review, and PDF underlay management. The mobile companion app enables on-site drawing viewing and markup on tablets and phones without requiring a full desktop installation.</p>
-        <h2>Learning Resources</h2>
-          <ul>
-            <li><strong><a href="https://www.gstarcad.net/support/" rel="noopener noreferrer nofollow" target="_blank">GstarCAD Support Center</a>:</strong> Official documentation, FAQs, and video tutorials covering GstarCAD features and workflows.</li>
-            <li><strong>GstarCAD Blog:</strong> Technical articles, tips and tricks, and comparison guides published by the Gstarsoft team.</li>
-            <li><strong>Partner training network:</strong> Authorized resellers in each market provide localized training and certification programs.</li>
-          </ul>
-        </section>
-
         <section class="kb-concept-section">
           <h2>Sources</h2>
           <ul class="ink-source-list"><li><a href="https://www.gstarcad.net/" rel="noopener noreferrer nofollow" target="_blank">Gstarsoft corporate site</a> · <span class="meta">Gstarsoft</span></li>
@@ -214,7 +172,7 @@
 <li><a href="http://www.sse.com.cn/" rel="noopener noreferrer nofollow" target="_blank">Gstarsoft on Shanghai STAR Market (688657)</a> · <span class="meta">Shanghai Stock Exchange</span></li></ul>
         </section>
 
-        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -225,58 +183,58 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="../../kb-terms.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim-workbench.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/constraints-fusion.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/dynamic-input.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>

@@ -36,7 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GstarCAD Global Skill Certification &amp; Assessment | GstarCAD Academy</title>
     <meta name="author" content="GstarCAD Academy Certification Board" />
-    <meta name="publisher" content="Gstarsoft Co., Ltd." />
+    <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
     <link rel="service" type="application/openapi+json" href="/openapi.json" />
     <link rel="mcp" type="application/json" href="/mcp.json" />
     <meta name="description" content="Official GstarCAD Skill Certification &amp; Competence Benchmark. Test your CAD proficiency across 6 engineering tracks, earn XP, diagnose skill gaps, and achieve GstarCAD certified credentials." />
@@ -65,7 +65,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
     </noscript>
     <link rel="stylesheet" href="/styles.min.css?v=20260901z" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GstarCAD Skill Certification","url":"https://gstarcademy.com/quiz","description":"Official GstarCAD Skill Certification and assessment platform across 6 engineering tracks.","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Gstarsoft Co., Ltd.","url":"https://www.gstarcad.net/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GstarCAD Skill Certification","url":"https://gstarcademy.com/quiz","description":"Official GstarCAD Skill Certification and assessment platform across 6 engineering tracks.","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://www.gstarcad.net/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Certification","item":"https://gstarcademy.com/quiz"}]}</script>
   </head>
   <body data-page="quiz" class="quiz-body">
@@ -428,10 +428,10 @@
             </p>
             
             <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:12px;">
-                <button type="button" class="btn btn-primary" style="background:#d97706; border-color:#d97706; color:#fff; font-weight:700; padding:10px 20px;" onclick="openCertificateModal()">📜 Claim Official Certificate &rarr;</button>
+                <button type="button" class="btn btn-cert" id="quiz-claim-cert-btn" style="background:#d97706; border-color:#d97706; color:#fff; font-weight:700; padding:10px 20px;" onclick="openCertificateModal()">📜 Claim Official Certificate &rarr;</button>
               </div>
               <div style="display:flex; gap:12px; justify-content:center;">
-                <a href="knowledge-roadmap" class="btn btn-primary">🗺️ View Learning Map</a>
+                <a href="knowledge-roadmap" id="quiz-continue-btn" class="btn btn-primary">🗺️ View Learning Map</a>
               <a href="quiz" class="btn">🔄 Try Other Pathways</a>
             </div>
           </div>
@@ -549,6 +549,9 @@
               <option value="Core 2D Drafting & Platform Architecture">Core 2D Drafting & Platform Architecture</option>
               <option value="Mechanical CAD & Dynamic BOM Engineering">Mechanical CAD & Dynamic BOM Engineering</option>
               <option value="Architecture & Parametric AEC Systems">Architecture & Parametric AEC Systems</option>
+              <option value="Civil Infrastructure & Surveying Coordination">Civil Infrastructure & Surveying Coordination</option>
+              <option value="Simulation & Computational Mechanics">Simulation & Computational Mechanics</option>
+              <option value="3D Photorealistic Rendering & Visualization">3D Photorealistic Rendering & Visualization</option>
               <option value="Mobile & Cloud Field Collaboration (DWG FastView)">Mobile & Cloud Field Collaboration (DWG FastView)</option>
               <option value="AutoCAD to GstarCAD Enterprise Migration">AutoCAD to GstarCAD Enterprise Migration</option>
               <option value="Developer Engineering & GRX C++ / .NET SDK">Developer Engineering & GRX C++ / .NET SDK</option>
@@ -571,9 +574,9 @@
               <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.18em; color:#2563eb; display:block;">
                 Suzhou Gstarsoft Co., Ltd. · Academic Board
               </span>
-              <h1 style="font-size:26px; font-weight:800; letter-spacing:0.06em; margin:6px 0 2px; text-transform:uppercase; color:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+              <h2 style="font-size:26px; font-weight:800; letter-spacing:0.06em; margin:6px 0 2px; text-transform:uppercase; color:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
                 GstarCAD Global Academy
-              </h1>
+              </h2>
               <span style="font-size:14px; font-style:italic; color:#64748b;">Official Credential of Engineering Competency</span>
             </div>
 

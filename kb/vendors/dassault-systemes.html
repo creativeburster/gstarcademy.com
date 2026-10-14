@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
@@ -8,73 +8,54 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        }
+        };
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
+          requestIdleCallback(initGtag);
         } else {
-          setTimeout(initGtag, 2500);
+          setTimeout(initGtag, 1);
         }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>Dassault Systèmes – Company Profile &amp; CAD Products | Gstarcademy</title>
-    <meta name="description" content="Dassault Systèmes — maker of CATIA, SOLIDWORKS, and 3DEXPERIENCE platform; 3D design, simulation, and PLM leader for aerospace, automotive, and industrial sectors." />
-    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/dassault-systemes" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <title>Dassault Systèmes — CAD vendor profile · Gstarcademy</title>
+    <meta name="description" content="Dassault Systèmes" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/dassault-systemes.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Dassault Systèmes — vendor profile" />
-    <meta property="og:description" content="Dassault Systèmes — maker of CATIA, SOLIDWORKS, and 3DEXPERIENCE platform; 3D design, simulation, and PLM leader for aerospace, automotive, and industrial sectors." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/dassault-systemes" />
+    <meta property="og:description" content="Dassault Systèmes" />
+    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/dassault-systemes.html" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dassault Systèmes — vendor profile" />
-    <meta name="twitter:description" content="Dassault Systèmes — maker of CATIA, SOLIDWORKS, and 3DEXPERIENCE platform; 3D design, simulation, and PLM leader for aerospace, automotive, and industrial sectors." />
+    <meta name="twitter:description" content="Dassault Systèmes" />
 
-    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Dassault Systèmes","url":"https://www.3ds.com/","description":"Dassault Systèmes — maker of CATIA, SOLIDWORKS, and 3DEXPERIENCE platform; 3D design, simulation, and PLM leader for aerospace, automotive, and industrial sectors."}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Dassault Systèmes — vendor profile","description":"Dassault Systèmes — maker of CATIA, SOLIDWORKS, and 3DEXPERIENCE platform; 3D design, simulation, and PLM leader for aerospace, automotive, and industrial sectors.","url":"https://gstarcademy.com/kb/vendors/dassault-systemes","datePublished":"2026-05-24","dateModified":"2026-06-23","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/dassault-systemes","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-software"},{"@type":"ListItem","position":4,"name":"Dassault Systèmes","item":"https://gstarcademy.com/kb/vendors/dassault-systemes"}]}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Dassault Systèmes","url":"","description":"Dassault Systèmes"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Dassault Systèmes — vendor profile","description":"Dassault Systèmes","url":"https://gstarcademy.com/kb/vendors/dassault-systemes.html","datePublished":"2026-08-16","dateModified":"2026-08-16","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/dassault-systemes.html","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","jobTitle":"Editorial","url":"https://gstarcademy.com/about"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-vendors.html"},{"@type":"ListItem","position":4,"name":"Dassault Systèmes","item":"https://gstarcademy.com/kb/vendors/dassault-systemes.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-vendors">
     <div class="header-stack">
       <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -83,7 +64,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -98,11 +79,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
         <div class="nav-overlay" aria-hidden="true"></div>
@@ -111,9 +92,9 @@
 
     <main class="container" style="margin-top: 24px; max-width: 1080px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="../../kb-software">Vendors</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-vendors.html">Vendors</a> /
         <span aria-current="page">Dassault Systèmes</span>
       </nav>
 
@@ -127,60 +108,37 @@
 
       <article class="kb-concept-detail">
         <div class="ink-byline">
-      <span><strong>By</strong> Gstarcademy Editorial Team</span>
-            <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-      <span><a href="../../about#editorial-process">Editorial process</a></span>
-        </div>
+      <span><strong>By</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Reviewed by</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+    </div>
+        
+        
+        
+        
+        
+        
 
-        <section class="kb-concept-section">
-          <h2>Company Overview</h2>
-          <p>Dassault Systemes SE is a French multinational software company headquartered in Velizy-Villacoublay, near Paris. Founded in 1981 as a spinoff from Dassault Aviation, the company develops the 3DEXPERIENCE platform and a portfolio of industry-leading CAD/PLM applications including CATIA, SOLIDWORKS, SIMULIA, DELMIA, and ENOVIA.</p>
-          <p>Dassault Systemes serves aerospace, automotive, consumer goods, life sciences, and industrial equipment markets. The company's strategy centers on the "virtual twin experience" — creating comprehensive digital replicas of products, processes, and even human bodies for design optimization and simulation.</p>
-          <h3>Core Brands</h3>
-          <ul>
-            <li><strong>CATIA:</strong> High-end 3D CAD for complex surface modeling, multi-discipline design, and systems engineering — dominant in aerospace and automotive.</li>
-            <li><strong>SOLIDWORKS:</strong> Mid-market parametric 3D CAD with the largest installed base in mechanical engineering — acquired in 1997, operates as an independent subsidiary.</li>
-            <li><strong>SIMULIA:</strong> Simulation portfolio including Abaqus FEA, CST electromagnetics, and Tosca optimization.</li>
-            <li><strong>ENOVIA:</strong> Product lifecycle management (PLM) for configuration management, change control, and regulatory compliance.</li>
-          </ul>
-        </section>
-
+        
         <section class="kb-concept-section">
           <h2>Products in our knowledge base (2)</h2>
-          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/catia" style="display:block; padding:18px 20px;">
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/catia.html" style="display:block; padding:18px 20px;">
               <h3>CATIA</h3>
               <p class="meta">Dassault Systèmes&#x27; high-end PLM-grade CAD — the production tool of aerospace, automotive, and class-A surface modelling.</p>
             </a>
-<a class="card" href="../software/solidworks" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/solidworks.html" style="display:block; padding:18px 20px;">
               <h3>SOLIDWORKS</h3>
               <p class="meta">Dassault Systèmes&#x27; mainstream parametric MCAD — feature-based modelling, assembly mates, and 2D drawings tightly coupled to the 3D model.</p>
             </a></div>
         </section>
         
         <section class="kb-concept-section">
-          <h2>Market Position &amp; Strategy</h2>
-          <p>Dassault Systèmes (3DS) occupies the premium tier of the CAD/PLM market, with CATIA as its flagship for complex product design (automotive, aerospace) and the 3DEXPERIENCE platform as its strategic vehicle for cloud transformation. The company's acquisition strategy—buying SolidWorks (1997), SIMULIA (Abaqus, 2005), GEOVIA, BIOVIA, and Medidata—expanded its reach from mechanical CAD into life sciences, mining, and clinical trials.</p>
-          <p>The 3DEXPERIENCE platform strategy aims to create a unified data backbone connecting design (CATIA), simulation (SIMULIA), manufacturing (DELMIA), and collaboration (ENOVIA) in a single cloud environment. For practitioners, this means increasingly tight integration between previously separate tools, but also vendor lock-in as workflows depend on the 3DEXPERIENCE infrastructure.</p>
-          <p>SolidWorks remains Dassault's volume product, serving the mainstream mechanical design market. The introduction of SolidWorks Cloud (3DEXPERIENCE SolidWorks) represents a potential long-term migration path, though desktop SolidWorks continues to receive active development and retains its large installed base.</p>
-        <h2>Technology Platform</h2>
-          <p>Dassault's technology foundation rests on the CGM (Convergent Geometric Modeler) kernel, which powers CATIA, SolidWorks, and SIMULIA. CGM handles both B-rep solid modeling and polyhedral (mesh) geometry in a unified framework—a capability that becomes increasingly important as additive manufacturing and reverse engineering workflows require mixing scanned mesh data with precise parametric geometry.</p>
-          <p>CATIA V5/V6 introduced the feature-based parametric modeling paradigm that now dominates the industry. The V6 architecture moved from file-based data management to a database-centric model (ENOVIA-backed), where every design element is a database object with full version history and access control. This architectural choice trades file portability for enterprise-grade data management.</p>
-          <p>The 3DEXPERIENCE platform runs on a multi-tenant cloud architecture (available on AWS and private cloud deployments) that provides browser-based access to CAD tools through CATIA on the Cloud and SolidWorks Cloud. The cloud rendering and computation capabilities enable thin-client access, though network latency can impact the interactive modeling experience compared to native desktop applications.</p>
-        <h2>Learning Resources</h2>
-          <ul>
-            <li><strong><a href="https://www.3ds.com/edu/" rel="noopener noreferrer nofollow" target="_blank">3DEXPERIENCE Edu</a>:</strong> Official learning platform with role-based training paths covering CATIA, SolidWorks, SIMULIA, and DELMIA.</li>
-            <li><strong><a href="https://my.solidworks.com/training" rel="noopener noreferrer nofollow" target="_blank">MySolidWorks Training</a>:</strong> SolidWorks-specific training with structured courses, practice exercises, and certification preparation.</li>
-            <li><strong>CATIA Companion:</strong> In-product tutorials and guided workflows for CATIA on the 3DEXPERIENCE platform.</li>
-            <li><strong>Certification:</strong> CSWA (Certified SolidWorks Associate) and CSWP (Professional) certifications are widely recognized in mechanical engineering hiring. CATIA certifications are available through 3DEXPERIENCE Edu.</li>
-          </ul>
-        </section>
-
-        <section class="kb-concept-section">
           <h2>Sources</h2>
           <ul class="ink-source-list"><li><a href="https://www.3ds.com/" rel="noopener noreferrer nofollow" target="_blank">Dassault Systèmes Official Corporate Portal</a> · <span class="meta">Dassault Systèmes</span></li></ul>
         </section>
 
-        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -191,58 +149,58 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="../../kb-terms.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim-workbench.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/constraints-fusion.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/dynamic-input.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>

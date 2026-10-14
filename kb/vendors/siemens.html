@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
@@ -8,73 +8,54 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        }
+        };
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
+          requestIdleCallback(initGtag);
         } else {
-          setTimeout(initGtag, 2500);
+          setTimeout(initGtag, 1);
         }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>Siemens Digital Industries Software – Company Profile &amp; CAD Products | Gstarcademy</title>
-    <meta name="description" content="Siemens Digital Industries Software — developer of NX, Solid Edge, Teamcenter, and Simcenter; PLM, MCAD, and simulation solutions for discrete manufacturing." />
-    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/siemens" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <title>Siemens Digital Industries Software — CAD vendor profile · Gstarcademy</title>
+    <meta name="description" content="Siemens Digital Industries Software" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/siemens.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Siemens Digital Industries Software — vendor profile" />
-    <meta property="og:description" content="Siemens Digital Industries Software — developer of NX, Solid Edge, Teamcenter, and Simcenter; PLM, MCAD, and simulation solutions for discrete manufacturing." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/siemens" />
+    <meta property="og:description" content="Siemens Digital Industries Software" />
+    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/siemens.html" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Siemens Digital Industries Software — vendor profile" />
-    <meta name="twitter:description" content="Siemens Digital Industries Software — developer of NX, Solid Edge, Teamcenter, and Simcenter; PLM, MCAD, and simulation solutions for discrete manufacturing." />
+    <meta name="twitter:description" content="Siemens Digital Industries Software" />
 
-    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Siemens Digital Industries Software","url":"https://www.siemens.com/","description":"Siemens Digital Industries Software — developer of NX, Solid Edge, Teamcenter, and Simcenter; PLM, MCAD, and simulation solutions for discrete manufacturing."}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Siemens Digital Industries Software — vendor profile","description":"Siemens Digital Industries Software — developer of NX, Solid Edge, Teamcenter, and Simcenter; PLM, MCAD, and simulation solutions for discrete manufacturing.","url":"https://gstarcademy.com/kb/vendors/siemens","datePublished":"2026-05-24","dateModified":"2026-06-23","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/siemens","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-software"},{"@type":"ListItem","position":4,"name":"Siemens Digital Industries Software","item":"https://gstarcademy.com/kb/vendors/siemens"}]}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Siemens Digital Industries Software","url":"","description":"Siemens Digital Industries Software"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Siemens Digital Industries Software — vendor profile","description":"Siemens Digital Industries Software","url":"https://gstarcademy.com/kb/vendors/siemens.html","datePublished":"2026-08-16","dateModified":"2026-08-16","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/siemens.html","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","jobTitle":"Editorial","url":"https://gstarcademy.com/about"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-vendors.html"},{"@type":"ListItem","position":4,"name":"Siemens Digital Industries Software","item":"https://gstarcademy.com/kb/vendors/siemens.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-vendors">
     <div class="header-stack">
       <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -83,7 +64,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -98,11 +79,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
         <div class="nav-overlay" aria-hidden="true"></div>
@@ -111,9 +92,9 @@
 
     <main class="container" style="margin-top: 24px; max-width: 1080px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="../../kb-software">Vendors</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-vendors.html">Vendors</a> /
         <span aria-current="page">Siemens Digital Industries Software</span>
       </nav>
 
@@ -127,62 +108,41 @@
 
       <article class="kb-concept-detail">
         <div class="ink-byline">
-      <span><strong>By</strong> Gstarcademy Editorial Team</span>
-            <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-      <span><a href="../../about#editorial-process">Editorial process</a></span>
-        </div>
+      <span><strong>By</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Reviewed by</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+    </div>
+        
+        
+        
+        
+        
+        
 
-        <section class="kb-concept-section">
-          <h2>Company Overview</h2>
-          <p>Siemens Digital Industries Software (formerly Siemens PLM Software, and before that UGS) is a business unit of Siemens AG headquartered in Plano, Texas. The division provides product lifecycle management (PLM), CAD, CAM, CAE, and electronic design automation (EDA) software, forming one of the most comprehensive industrial-software portfolios globally.</p>
-          <p>Siemens' Xcelerator portfolio encompasses NX (advanced CAD/CAM/CAE), Teamcenter (PLM), Simcenter (simulation), Tecnomatix (manufacturing), and Mentor (EDA). The company's industrial-software strategy connects digital design to factory-floor automation through the Siemens Digital Enterprise framework.</p>
-          <h3>Core Brands</h3>
-          <ul>
-            <li><strong>NX:</strong> High-end integrated CAD/CAM/CAE system used in aerospace, automotive, and machinery — known for synchronous technology (hybrid parametric/direct editing) and convergent modeling.</li>
-            <li><strong>Solid Edge:</strong> Mid-range MCAD with synchronous technology — targets the SMB mechanical engineering market with strong sheet metal and simulation capabilities.</li>
-            <li><strong>Teamcenter:</strong> Enterprise PLM platform for BOM management, change processes, requirements traceability, and multi-site collaboration — the world's most widely used PLM system.</li>
-          </ul>
-        </section>
-
+        
         <section class="kb-concept-section">
           <h2>Products in our knowledge base (3)</h2>
-          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/siemens-nx" style="display:block; padding:18px 20px;">
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/siemens-nx.html" style="display:block; padding:18px 20px;">
               <h3>Siemens NX</h3>
               <p class="meta">Siemens&#x27; high-end CAD/CAM/CAE platform — synchronous + parametric hybrid modelling, strong CAM, and Teamcenter PLM integration.</p>
             </a>
-<a class="card" href="../software/solid-edge" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/solid-edge.html" style="display:block; padding:18px 20px;">
               <h3>Solid Edge</h3>
               <p class="meta">Siemens&#x27; mainstream parametric MCAD utilizing Synchronous Technology to blend history-free and history-based modeling.</p>
             </a>
-<a class="card" href="../software/teamcenter" style="display:block; padding:18px 20px;">
+<a class="card" href="../software/teamcenter.html" style="display:block; padding:18px 20px;">
               <h3>Siemens Teamcenter</h3>
               <p class="meta">The world&#x27;s most widely adopted product lifecycle management (PLM) system, connecting teams and CAD data across the enterprise.</p>
             </a></div>
         </section>
         
         <section class="kb-concept-section">
-          <h2>Market Position &amp; Strategy</h2>
-          <p>Siemens Digital Industries Software (formerly Siemens PLM Software, originally UGS Corp) holds the leading position in enterprise PLM and competes directly with Dassault Systèmes in the automotive and aerospace sectors. The Xcelerator portfolio—spanning NX (CAD/CAM/CAE), Teamcenter (PLM), Tecnomatix (manufacturing simulation), and Simcenter (simulation)—represents the broadest integrated product lifecycle suite from a single vendor.</p>
-          <p>Siemens' strategy uniquely combines industrial automation hardware (factory control systems, sensors, PLCs) with digital design software, creating a "digital twin" proposition that connects the design model to the physical factory. No other CAD/PLM vendor has this hardware-software integration depth, which gives Siemens a differentiated position in Industry 4.0 conversations.</p>
-          <p>The 2020 acquisition of Mendix (low-code development) and the incorporation of Xcelerator Cloud signal a shift toward platform-based delivery, though NX and Teamcenter deployments remain predominantly on-premises in enterprise accounts. Solid Edge targets the midmarket with a more accessible parametric CAD offering, competing with SolidWorks and Inventor.</p>
-        <h2>Technology Platform</h2>
-          <p>NX is built on the Parasolid geometric kernel, which Siemens owns and licenses to numerous third-party CAD systems (SolidWorks, SolidEdge, and many others use Parasolid). This kernel ownership gives Siemens a strategic advantage: improvements to Parasolid benefit NX first, and competing products depend on Siemens for their geometric foundation.</p>
-          <p>NX pioneered synchronous technology—a hybrid parametric/direct modeling approach that allows face-level edits on parametric models without breaking the feature tree. This technology addresses a fundamental productivity challenge in parametric CAD: editing imported geometry or making late-stage design changes without rebuilding the feature history.</p>
-          <p>Teamcenter provides the PLM data backbone, managing bills of materials, engineering change orders, configuration management, and multi-site replication. Teamcenter's integration with NX is tighter than competing PLM-CAD combinations because Siemens controls both products, enabling features like managed mode (where file saves go directly to Teamcenter rather than the local filesystem).</p>
-        <h2>Learning Resources</h2>
-          <ul>
-            <li><strong><a href="https://www.plm.automation.siemens.com/global/en/support/training.html" rel="noopener noreferrer nofollow" target="_blank">Siemens Learning Center</a>:</strong> Official training for NX, Solid Edge, Teamcenter, and Simcenter with instructor-led and self-paced options.</li>
-            <li><strong>Siemens Xcelerator Academy:</strong> Free and paid courses covering the full Xcelerator portfolio, with certification paths for NX and Solid Edge.</li>
-            <li><strong>Community forums:</strong> The Siemens Digital Industries Software community provides peer support, knowledge articles, and developer resources for API customization.</li>
-          </ul>
-        </section>
-
-        <section class="kb-concept-section">
           <h2>Sources</h2>
           <ul class="ink-source-list"><li><a href="https://www.siemens.com/" rel="noopener noreferrer nofollow" target="_blank">Siemens Digital Industries Software Official Corporate Portal</a> · <span class="meta">Siemens Digital Industries Software</span></li></ul>
         </section>
 
-        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -193,58 +153,58 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="../../kb-terms.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim-workbench.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/constraints-fusion.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/dynamic-input.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>

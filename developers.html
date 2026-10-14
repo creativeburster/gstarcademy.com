@@ -36,7 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GstarCAD Developer Hub – GRX C++, .NET &amp; LISP Secondary Development | GstarCAD Academy</title>
     <meta name="author" content="GstarCAD Academy Developer Relations" />
-    <meta name="publisher" content="Gstarsoft Co., Ltd." />
+    <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
     <meta
       name="description"
       content="Official GstarCAD Developer Hub. Learn GRX (ObjectARX compatible C++ API), .NET development, and AutoLISP porting. Build high-performance CAD plugins and enterprise vertical applications."
@@ -62,6 +62,25 @@
     </noscript>
     <link rel="preload" href="/styles.min.css?v=20260901z" as="style" />
     <link rel="stylesheet" href="/styles.min.css?v=20260901z" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "GstarCAD Developer Center — GRX C++ SDK, .NET Managed API & AutoLISP Migration Guide",
+      "description": "Official developer documentation for porting Autodesk ObjectARX C++ plugins to GstarCAD GRX, migrating .NET C# assemblies (GcCoreMgd.dll, GcDbMgd.dll, GcMgd.dll), and running AutoLISP/VLISP routines.",
+      "url": "https://gstarcademy.com/developers",
+      "author": {
+        "@type": "Organization",
+        "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)",
+        "url": "https://www.gstarcad.net/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)",
+        "url": "https://www.gstarcad.net/"
+      }
+    }
+    </script>
   </head>
   <body data-page="developers">
     <div class="header-stack">
@@ -148,8 +167,8 @@
               Full managed .NET wrapper providing modern object-oriented access. Develop rich WPF/WinForms dockable palettes, Ribbon controls, and automated transaction-based drawing processors with Visual Studio.
             </p>
             <ul style="list-style: none; padding: 0; font-size: 13px; color: var(--ink-text-soft); display: flex; flex-direction: column; gap: 6px; margin: 16px 0;">
-              <li>• <strong>Managed Assemblies:</strong> <code>gcadmgd.dll</code> &amp; <code>gcadmdg.dll</code></li>
-              <li>• <strong>Namespace Parity:</strong> <code>Autodesk.AutoCAD.*</code> &rarr; <code>GstarCAD.*</code></li>
+              <li>• <strong>Managed Assemblies:</strong> <code>GcCoreMgd.dll</code>, <code>GcDbMgd.dll</code> &amp; <code>GcMgd.dll</code></li>
+              <li>• <strong>Namespace Parity:</strong> <code>Autodesk.AutoCAD.*</code> &rarr; <code>Gssoft.Gscad.*</code></li>
               <li>• <strong>LINQ &amp; Database Transactions:</strong> Safe and robust document transaction locks</li>
             </ul>
             <a href="./kb/concepts/api-ecosystem-gstarcad" style="color: #10b981; font-weight: 600; font-size: 14px; text-decoration: none;">Explore .NET Development Guide &rarr;</a>
@@ -200,15 +219,15 @@
         <div style="background: #1e293b; color: #f8fafc; padding: 24px; border-radius: 12px; font-family: monospace; font-size: 13px; line-height: 1.7; overflow-x: auto;">
           <span style="color: #94a3b8;">// 1. Header Inclusion Prefix Transformation</span><br>
           <span style="color: #ef4444;">- #include "dbmain.h"</span>  <span style="color: #64748b;">// AutoCAD</span><br>
-          <span style="color: #22c55e;">+ #include "gcad/gcad.h"</span> <span style="color: #64748b;">// GstarCAD GRX</span><br>
+          <span style="color: #22c55e;">+ #include "gcdb.h"</span>     <span style="color: #64748b;">// GstarCAD GRX</span><br>
           <br>
           <span style="color: #94a3b8;">// 2. Class Prefix Transformation: Ac* &rarr; Gc*</span><br>
           <span style="color: #ef4444;">- AcDbBlockTableRecord* pBlockRecord;</span><br>
           <span style="color: #22c55e;">+ GcDbBlockTableRecord* pBlockRecord;</span><br>
           <br>
-          <span style="color: #94a3b8;">// 3. Command Definition Macro</span><br>
-          <span style="color: #ef4444;">- AcedRegCmds-&gt;addCommand(...);</span><br>
-          <span style="color: #22c55e;">+ GcedRegCmds-&gt;addCommand(...);</span>
+          <span style="color: #94a3b8;">// 3. Command Definition Macro (Lowercase aced/gced)</span><br>
+          <span style="color: #ef4444;">- acedRegCmds-&gt;addCommand(...);</span><br>
+          <span style="color: #22c55e;">+ gcedRegCmds-&gt;addCommand(...);</span>
         </div>
         <p style="margin-top: 16px; font-size: 14px; color: var(--ink-text-soft);">
           Gstarsoft provides dedicated technical migration consulting for global Independent Software Vendors (ISVs) seeking to bring their industry plugins to the GstarCAD global marketplace.

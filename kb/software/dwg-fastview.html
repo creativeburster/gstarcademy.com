@@ -8,72 +8,54 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        }
+        };
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
+          requestIdleCallback(initGtag);
         } else {
-          setTimeout(initGtag, 2500);
+          setTimeout(initGtag, 1);
         }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>DWG FastView – Features, Tutorials &amp; Learning Path | Gstarcademy</title>
+    <title>DWG FastView — software profile, learning path, ecosystem · Gstarcademy</title>
     <meta name="description" content="Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps." />
-    <link rel="canonical" href="https://gstarcademy.com/kb/software/dwg-fastview" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/software/dwg-fastview.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="DWG FastView — software profile" />
     <meta property="og:description" content="Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/software/dwg-fastview" />
+    <meta property="og:url" content="https://gstarcademy.com/kb/software/dwg-fastview.html" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="DWG FastView — software profile" />
     <meta name="twitter:description" content="Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps." />
 
-    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DWG FastView","applicationCategory":"Cloud & cross-platform DWG viewer / light editor","operatingSystem":"Windows","url":"https://gstarcademy.com/kb/software/dwg-fastview","description":"Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps.","brand":{"@type":"Brand","name":"Gstarsoft"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DWG FastView — software profile, learning path, ecosystem","description":"Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps.","url":"https://gstarcademy.com/kb/software/dwg-fastview","datePublished":"2026-05-24","dateModified":"2026-06-23","inLanguage":"en","mainEntityOfPage":"https://gstarcademy.com/kb/software/dwg-fastview","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Software","item":"https://gstarcademy.com/kb-software"},{"@type":"ListItem","position":4,"name":"DWG FastView","item":"https://gstarcademy.com/kb/software/dwg-fastview"}]}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DWG FastView","applicationCategory":"Cloud & cross-platform DWG viewer / light editor","operatingSystem":"Windows","url":"https://gstarcademy.com/kb/software/dwg-fastview.html","description":"Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps.","brand":{"@type":"Brand","name":"Gstarsoft"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DWG FastView — software profile, learning path, ecosystem","description":"Anchored at en.dwgfastview.com—useful for field markup, investor reviews, and quick measurement. Editing depth is intentionally narrower than desktop GstarCAD; check SDK/licensing separately if you embed viewers in your own apps.","url":"https://gstarcademy.com/kb/software/dwg-fastview.html","datePublished":"2026-08-16","dateModified":"2026-08-16","inLanguage":"en","mainEntityOfPage":"https://gstarcademy.com/kb/software/dwg-fastview.html","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","jobTitle":"Editorial","url":"https://gstarcademy.com/about"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Software","item":"https://gstarcademy.com/kb-software.html"},{"@type":"ListItem","position":4,"name":"DWG FastView","item":"https://gstarcademy.com/kb/software/dwg-fastview.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-software">
     <div class="header-stack">
       <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -82,7 +64,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -97,11 +79,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
         <div class="nav-overlay" aria-hidden="true"></div>
@@ -110,27 +92,13 @@
 
     <main class="container" style="margin-top: 24px; max-width: 1100px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="../../kb-software">Software</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-software.html">Software</a> /
         <span aria-current="page">DWG FastView</span>
       </nav>
 
-      
-        <section class="kb-concept-section" style="margin-top: 32px; border-top: 1px solid var(--ink-line); padding-top: 24px;">
-          <h2 style="font-size: 1.3rem; font-weight: 700; color: var(--ink-text); margin-bottom: 12px;">🔗 Related Software</h2>
-          <p style="font-size: 14px; color: var(--ink-text-soft); margin-bottom: 12px;">Compare with similar tools in this category:</p>
-          <ul class="ink-source-list" style="columns: 2; column-gap: 24px;">
-            <li><a href="./teamcenter">Siemens Teamcenter — software profile, learning path, ecosystem</a></li>
-            <li><a href="./dwg-fastview-plus">DWG FastView Plus — software profile, learning path, ecosystem</a></li>
-            <li><a href="./fastview-3d">3D FastView — software profile, learning path, ecosystem</a></li>
-            <li><a href="./gstarcad-365">GstarCAD 365 — software profile, learning path, ecosystem</a></li>
-            <li><a href="./alibre-design">Alibre Design — software profile, learning path, ecosystem</a></li>
-            <li><a href="./allplan">Allplan — software profile, learning path, ecosystem</a></li>
-          </ul>
-        </section>
-
-    <section class="hero hero-premium" style="margin-top: 20px;">
+      <section class="hero hero-premium" style="margin-top: 20px;">
         <div class="hero-inner">
           <span class="eyebrow">Software profile · Gstarsoft</span>
           <h1 class="hero-title">DWG FastView</h1>
@@ -140,35 +108,22 @@
 
       <article class="kb-concept-detail">
         <div class="ink-byline">
-      <span><strong>By</strong> Gstarcademy Editorial Team</span>
-      <span><strong>Reviewed by</strong> Gstarsoft Co., Ltd</span>
-      <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-      <span><a href="../../about#editorial-process">Editorial process</a></span>
+      <span><strong>By</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Reviewed by</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
     </div>
 
         
         <section class="kb-concept-section">
           <h2>At a glance</h2>
           <table style="width:100%; border-collapse: collapse; font-size:14.5px;">
-            <tbody><tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Vendor</th><td style="padding:8px 0; color:var(--ink-text);"><a href="../vendors/gstarsoft">Gstarsoft</a></td></tr>
+            <tbody><tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Vendor</th><td style="padding:8px 0; color:var(--ink-text);"><a href="../vendors/gstarsoft.html">Gstarsoft</a></td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Platforms</th><td style="padding:8px 0; color:var(--ink-text);">Windows</td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Native / common formats</th><td style="padding:8px 0; color:var(--ink-text);">DWG/DXF views, Markup layers, Share links</td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Typical domains</th><td style="padding:8px 0; color:var(--ink-text);">Collaboration, Construction supers, Education</td></tr></tbody>
           </table>
         </section>
-
-        <section class="kb-concept-section">
-          <h2>Product Overview</h2>
-          <p>DWG FastView is a free, cross-platform DWG/DXF viewer developed by Gstarsoft, available on Windows, iOS, Android, and web browsers. It allows engineers, contractors, and project managers to view, measure, and annotate CAD drawings without a full CAD installation.</p>
-          <p>The tool supports both 2D and 3D DWG/DXF files, with features for layer control, block navigation, and external-reference handling. DWG FastView's mobile and web versions make it particularly useful for field teams who need to review drawings on tablets or smartphones at construction sites.</p>
-          <h3>Key Features</h3>
-          <ul>
-            <li><strong>Multi-platform access:</strong> Native apps for Windows, iOS, and Android plus a web-based viewer — no desktop CAD license required.</li>
-            <li><strong>Full DWG fidelity:</strong> Renders DWG/DXF files with correct layers, linetypes, hatches, and external references.</li>
-            <li><strong>Field-ready tools:</strong> Measurement, markup, comparison, and PDF export features optimized for mobile use on construction sites.</li>
-          </ul>
-        </section>
-
         
         
         
@@ -182,15 +137,15 @@
         <section class="kb-concept-section">
           <h2>Core terminology &amp; workflows (3)</h2>
           <p class="meta">Atomic concepts our editors broke out from official documentation and real practice. Each is a standalone, linkable definition with sources.</p>
-          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../concepts/dwg-fastview-term-1" style="display:block; padding:18px 20px;">
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../concepts/dwg-fastview-term-1.html" style="display:block; padding:18px 20px;">
               <h3>Mobile CAD Annotation</h3>
               <p class="meta">Technical best practices for Mobile CAD Annotation inside DWG FastView.</p>
             </a>
-<a class="card" href="../concepts/dwg-fastview-term-2" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/dwg-fastview-term-2.html" style="display:block; padding:18px 20px;">
               <h3>Cross-Platform Drawing Share</h3>
               <p class="meta">Technical best practices for Cross-Platform Drawing Share inside DWG FastView.</p>
             </a>
-<a class="card" href="../concepts/dwg-fastview-term-3" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/dwg-fastview-term-3.html" style="display:block; padding:18px 20px;">
               <h3>Offline Drawing Storage</h3>
               <p class="meta">Technical best practices for Offline Drawing Storage inside DWG FastView.</p>
             </a></div>
@@ -210,7 +165,7 @@
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">How to sync annotations with the office team?</summary>
               <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Save the annotated drawing back to the cloud space. Other team members will receive notifications and see markups instantly.</p></div>
             </details>
-          <p class="meta" style="margin-top:14px;"><a href="../../kb-faq#dwg-fastview">All DWG FastView FAQs ›</a></p>
+          <p class="meta" style="margin-top:14px;"><a href="../../kb-faq.html#dwg-fastview">All DWG FastView FAQs ›</a></p>
         </section>
         <section class="kb-concept-section kb-quiz-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
   <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">⚡ Software Guide Self-Test</h2>
@@ -243,29 +198,6 @@
   </div>
 </section>
         
-        
-        <section class="kb-concept-section">
-          <h2>Competitive Positioning</h2>
-          <p>DWG FastView is a free mobile/desktop DWG viewer, competing with AutoCAD Mobile, DraftSight Free, and A360 Viewer in the lightweight CAD viewing market.</p>
-          <p><strong>vs. AutoCAD Mobile:</strong> DWG FastView provides free DWG viewing and basic markup without Autodesk subscription requirements. While AutoCAD Mobile requires an Autodesk account and has editing limitations in free tier, DWG FastView offers measurement and annotation tools at no cost.</p>
-          <p><strong>vs. web-based viewers:</strong> Unlike browser-only viewers (AutoCAD Web, ShareCAD), DWG FastView installs natively on mobile devices for offline access—critical for construction sites and field environments with unreliable internet connectivity.</p>
-          <p><strong>Format breadth:</strong> Beyond DWG/DXF, DWG FastView supports viewing of DWF, PDF, and image formats commonly encountered in construction documentation packages, reducing the need for multiple viewing applications.</p>
-        </section>
-
-        <section class="kb-concept-section">
-          <h2>Use Cases &amp; Industry Applications</h2>
-          <ul>
-            <li><strong>Construction site review:</strong> Foremen and inspectors view drawing details on tablets directly at the work face, verifying dimensions, reinforcement details, and MEP routing against the installed work.</li>
-            <li><strong>Client presentations:</strong> Architects share DWG files with clients who can zoom, measure, and annotate using the free viewer—no CAD license required for review feedback.</li>
-            <li><strong>Subcontractor coordination:</strong> Trade subcontractors (electrical, plumbing, HVAC) view full construction drawing sets to understand interfaces without purchasing CAD software.</li>
-            <li><strong>Drawing markup and RFI:</strong> Field engineers mark up drawings with questions and observations, then share annotated versions back to the design office as Request for Information documentation.</li>
-            <li><strong>Archive access:</strong> Facilities managers access historical DWG drawings for maintenance planning, space management, and renovation preparation without maintaining active CAD licenses.</li>
-          
-            <li><a href="../concepts/dwg-fastview-plus-term-1">Fidelity QA Viewer · DWG FastView Plus · Gstarcademy</a></li>
-            <li><a href="../concepts/dwg-fastview-plus-term-2">Batch Plotting Utility · DWG FastView Plus · Gstarcademy</a></li>
-            <li><a href="../concepts/dwg-fastview-plus-term-3">Markup Layer Merge · DWG FastView Plus · Gstarcademy</a></li></ul>
-        </section>
-
         <section class="kb-concept-section">
           <h2>Sources &amp; further reading</h2>
           <ul class="ink-source-list"><li><a href="https://www.gstarcad.net/" rel="noopener noreferrer nofollow" target="_blank">DWG FastView Official Homepage &amp; Resource Directory</a> · <span class="meta">Gstarsoft</span></li></ul>
@@ -274,14 +206,14 @@
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Continue exploring</h2>
           <ul class="ink-source-list">
-            <li><a href="../vendors/gstarsoft">Gstarsoft — vendor profile</a></li>
-            <li><a href="../../kb-graph">Open the DWG FastView cluster in the knowledge graph</a></li>
-            <li><a href="../../tutorials">Find tutorials on DWG FastView</a></li>
-            <li><a href="../../kb-terms">All CAD terms</a></li>
+            <li><a href="../vendors/gstarsoft.html">Gstarsoft — vendor profile</a></li>
+            <li><a href="../../kb-graph.html">Open the DWG FastView cluster in the knowledge graph</a></li>
+            <li><a href="../../tutorials.html">Find tutorials on DWG FastView</a></li>
+            <li><a href="../../kb-terms.html">All CAD terms</a></li>
           </ul>
         </section>
 
-        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -292,58 +224,58 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="../../kb-terms.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim-workbench.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/constraints-fusion.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/dynamic-input.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>

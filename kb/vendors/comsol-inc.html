@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
@@ -8,73 +8,54 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        }
+        };
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
+          requestIdleCallback(initGtag);
         } else {
-          setTimeout(initGtag, 2500);
+          setTimeout(initGtag, 1);
         }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>COMSOL – Company Profile &amp; CAD Products | Gstarcademy</title>
-    <meta name="description" content="COMSOL Inc. — multiphysics simulation software developer; COMSOL Multiphysics for FEA, CFD, electromagnetics, and coupled-physics modeling in research and industry." />
-    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/comsol-inc" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <title>COMSOL — CAD vendor profile · Gstarcademy</title>
+    <meta name="description" content="COMSOL" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/vendors/comsol-inc.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="COMSOL — vendor profile" />
-    <meta property="og:description" content="COMSOL Inc. — multiphysics simulation software developer; COMSOL Multiphysics for FEA, CFD, electromagnetics, and coupled-physics modeling in research and industry." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/comsol-inc" />
+    <meta property="og:description" content="COMSOL" />
+    <meta property="og:url" content="https://gstarcademy.com/kb/vendors/comsol-inc.html" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="COMSOL — vendor profile" />
-    <meta name="twitter:description" content="COMSOL Inc. — multiphysics simulation software developer; COMSOL Multiphysics for FEA, CFD, electromagnetics, and coupled-physics modeling in research and industry." />
+    <meta name="twitter:description" content="COMSOL" />
 
-    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"COMSOL","url":"https://www.comsol.com/","description":"COMSOL Inc. — multiphysics simulation software developer; COMSOL Multiphysics for FEA, CFD, electromagnetics, and coupled-physics modeling in research and industry."}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"COMSOL — vendor profile","description":"COMSOL Inc. — multiphysics simulation software developer; COMSOL Multiphysics for FEA, CFD, electromagnetics, and coupled-physics modeling in research and industry.","url":"https://gstarcademy.com/kb/vendors/comsol-inc","datePublished":"2026-05-24","dateModified":"2026-06-23","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/comsol-inc","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-software"},{"@type":"ListItem","position":4,"name":"COMSOL","item":"https://gstarcademy.com/kb/vendors/comsol-inc"}]}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"COMSOL","url":"","description":"COMSOL"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"COMSOL — vendor profile","description":"COMSOL","url":"https://gstarcademy.com/kb/vendors/comsol-inc.html","datePublished":"2026-08-16","dateModified":"2026-08-16","mainEntityOfPage":"https://gstarcademy.com/kb/vendors/comsol-inc.html","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","jobTitle":"Editorial","url":"https://gstarcademy.com/about"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Vendors","item":"https://gstarcademy.com/kb-vendors.html"},{"@type":"ListItem","position":4,"name":"COMSOL","item":"https://gstarcademy.com/kb/vendors/comsol-inc.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-vendors">
     <div class="header-stack">
       <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -83,7 +64,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -98,11 +79,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
         <div class="nav-overlay" aria-hidden="true"></div>
@@ -111,9 +92,9 @@
 
     <main class="container" style="margin-top: 24px; max-width: 1080px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="../../kb-software">Vendors</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-vendors.html">Vendors</a> /
         <span aria-current="page">COMSOL</span>
       </nav>
 
@@ -127,45 +108,33 @@
 
       <article class="kb-concept-detail">
         <div class="ink-byline">
-      <span><strong>By</strong> Gstarcademy Editorial Team</span>
-            <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-      <span><a href="../../about#editorial-process">Editorial process</a></span>
-        </div>
+      <span><strong>By</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Reviewed by</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
+    </div>
+        
+        
+        
+        
+        
+        
 
-        <section class="kb-concept-section">
-          <h2>Company Overview</h2>
-          <p>COMSOL, Inc. is a Swedish-American software company that develops COMSOL Multiphysics, a cross-platform finite element analysis and simulation environment. Founded in 1986 and headquartered in Stockholm (with U.S. operations in Burlington, Massachusetts), COMSOL specializes in multiphysics coupling — the ability to simulate multiple interacting physical phenomena in a single model.</p>
-          <p>COMSOL Multiphysics is used by engineers and researchers in structural mechanics, heat transfer, fluid dynamics, acoustics, electromagnetics, and chemical engineering. The platform's Application Builder allows simulation experts to create custom simulation apps for non-specialist colleagues.</p>
-          <h3>Key Capabilities</h3>
-          <ul>
-            <li><strong>Multiphysics coupling:</strong> Solve coupled physics problems (e.g., thermal-structural, electromagnetic-thermal, fluid-structure) in a unified model environment.</li>
-            <li><strong>Application Builder:</strong> Create standalone simulation applications with custom GUIs that can be deployed via COMSOL Server to teams without simulation expertise.</li>
-            <li><strong>CAD interoperability:</strong> Import geometry from SolidWorks, Inventor, Creo, CATIA, and NX via LiveLink add-ons for bidirectional parametric updates.</li>
-          </ul>
-        </section>
-
+        
         <section class="kb-concept-section">
           <h2>Products in our knowledge base (1)</h2>
-          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/comsol" style="display:block; padding:18px 20px;">
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../software/comsol.html" style="display:block; padding:18px 20px;">
               <h3>COMSOL Multiphysics</h3>
               <p class="meta">A powerful cross-disciplinary FEA platform specializing in coupled multiphysics simulations and custom application building.</p>
             </a></div>
         </section>
         
         <section class="kb-concept-section">
-          <h2>Market Position &amp; Strategy</h2>
-          <p>COMSOL competes in the multiphysics simulation market alongside ANSYS and Dassault Systèmes SIMULIA, differentiating through its focus on coupled-physics modeling and the Application Builder. While ANSYS dominates enterprise simulation and SIMULIA leads in non-linear structural analysis, COMSOL's strength lies in solving problems where multiple physics interact — thermal-structural, electromagnetic-thermal, fluid-structure — within a single unified environment.</p>
-          <p>The Application Builder is a key differentiator: simulation engineers can create custom apps with simplified GUIs that allow non-specialist colleagues to run pre-configured simulations without learning the full COMSOL interface. This capability extends simulation access within organizations. COMSOL is widely adopted in academia for research and teaching, and in R&D departments where custom physics modeling and source-code-level access to solver settings are essential. Users typically pair COMSOL with a CAD tool (SolidWorks, Inventor, Creo) via LiveLink connections for geometry import and parametric updates.</p>
-        <h2>Learning Resources</h2>
-          <p>COMSOL provides training through <a href="https://www.comsol.com/events" rel="noopener noreferrer nofollow" target="_blank">COMSOL Events</a>, including hands-on workshops, webinars, and the COMSOL Conference. The Application Library (built into the software) contains hundreds of tutorial models with step-by-step instructions. The COMSOL Blog and Discussion Forum are valuable for troubleshooting and modeling techniques.</p>
-        </section>
-
-        <section class="kb-concept-section">
           <h2>Sources</h2>
           <ul class="ink-source-list"><li><a href="https://gstarcademy.com/" rel="noopener noreferrer nofollow" target="_blank">COMSOL Official Corporate Portal</a> · <span class="meta">COMSOL</span></li></ul>
         </section>
 
-        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -176,58 +145,58 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="../../kb-terms.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim-workbench.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/constraints-fusion.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/dynamic-input.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>

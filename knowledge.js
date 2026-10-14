@@ -774,7 +774,6 @@ if (document.body.getAttribute("data-page") === "knowledge") {
   { id: "Topological Naming", type: "concept", group: 2, radius: 10, tags: ["freecad", "modeling"], hint: "Geometric reference limitation on face renaming.", slug: "" },
   { id: "FreeCAD Python", type: "sdk", group: 2, radius: 9, tags: ["freecad", "api"], hint: "Python scripting and macro automation console.", slug: "" },
   { id: "CalculiX FEM", type: "product", group: 1, radius: 9, tags: ["freecad", "simulation"], hint: "Open-source solver for FEM workbench.", slug: "" },
-  { id: "Fusion 360", type: "product", group: 1, radius: 14, tags: ["autodesk", "cloud", "mcad", "cam"], hint: "Cloud-native unified CAD/CAM/CAE.", slug: "fusion-360" },
   { id: "Fusion Components", type: "concept", group: 2, radius: 9, tags: ["fusion", "assembly"], hint: "Assembly containers with joints.", slug: "" },
   { id: "Fusion Sheet Metal", type: "skill", group: 2, radius: 8, tags: ["fusion", "fabrication"], hint: "Rule-driven flange-based modelling.", slug: "" },
   { id: "Fusion T-Spline", type: "concept", group: 2, radius: 8, tags: ["fusion", "surfacing"], hint: "Form workspace freeform modelling.", slug: "" },

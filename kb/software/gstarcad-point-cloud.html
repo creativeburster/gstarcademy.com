@@ -8,72 +8,54 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        }
+        };
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
+          requestIdleCallback(initGtag);
         } else {
-          setTimeout(initGtag, 2500);
+          setTimeout(initGtag, 1);
         }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>GstarCAD Point Cloud – Features, Tutorials &amp; Learning Path | Gstarcademy</title>
+    <title>GstarCAD Point Cloud — software profile, learning path, ecosystem · Gstarcademy</title>
     <meta name="description" content="Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version." />
-    <link rel="canonical" href="https://gstarcademy.com/kb/software/gstarcad-point-cloud" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/software/gstarcad-point-cloud.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="GstarCAD Point Cloud — software profile" />
     <meta property="og:description" content="Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/software/gstarcad-point-cloud" />
+    <meta property="og:url" content="https://gstarcademy.com/kb/software/gstarcad-point-cloud.html" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="GstarCAD Point Cloud — software profile" />
     <meta name="twitter:description" content="Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version." />
 
-    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"GstarCAD Point Cloud","applicationCategory":"Point cloud processing on DWG","operatingSystem":"Windows","url":"https://gstarcademy.com/kb/software/gstarcad-point-cloud","description":"Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version.","brand":{"@type":"Brand","name":"Gstarsoft"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GstarCAD Point Cloud — software profile, learning path, ecosystem","description":"Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version.","url":"https://gstarcademy.com/kb/software/gstarcad-point-cloud","datePublished":"2026-05-24","dateModified":"2026-06-23","inLanguage":"en","mainEntityOfPage":"https://gstarcademy.com/kb/software/gstarcad-point-cloud","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Software","item":"https://gstarcademy.com/kb-software"},{"@type":"ListItem","position":4,"name":"GstarCAD Point Cloud","item":"https://gstarcademy.com/kb/software/gstarcad-point-cloud"}]}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"GstarCAD Point Cloud","applicationCategory":"Point cloud processing on DWG","operatingSystem":"Windows","url":"https://gstarcademy.com/kb/software/gstarcad-point-cloud.html","description":"Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version.","brand":{"@type":"Brand","name":"Gstarsoft"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GstarCAD Point Cloud — software profile, learning path, ecosystem","description":"Used when field scans must meet CAD deliverables: registration concepts, clipping, and vector extraction depend on project scale. Use the vendor’s Point Cloud user guides for command coverage by version.","url":"https://gstarcademy.com/kb/software/gstarcad-point-cloud.html","datePublished":"2026-08-16","dateModified":"2026-08-16","inLanguage":"en","mainEntityOfPage":"https://gstarcademy.com/kb/software/gstarcad-point-cloud.html","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Person","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","jobTitle":"Editorial","url":"https://gstarcademy.com/about"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Software","item":"https://gstarcademy.com/kb-software.html"},{"@type":"ListItem","position":4,"name":"GstarCAD Point Cloud","item":"https://gstarcademy.com/kb/software/gstarcad-point-cloud.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-software">
     <div class="header-stack">
       <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -82,7 +64,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -97,11 +79,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
         <div class="nav-overlay" aria-hidden="true"></div>
@@ -110,23 +92,13 @@
 
     <main class="container" style="margin-top: 24px; max-width: 1100px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="../../kb-software">Software</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-software.html">Software</a> /
         <span aria-current="page">GstarCAD Point Cloud</span>
       </nav>
 
-      
-        <section class="kb-concept-section" style="margin-top: 32px; border-top: 1px solid var(--ink-line); padding-top: 24px;">
-          <h2 style="font-size: 1.3rem; font-weight: 700; color: var(--ink-text); margin-bottom: 12px;">🔗 Related Software</h2>
-          <p style="font-size: 14px; color: var(--ink-text-soft); margin-bottom: 12px;">Compare with similar tools in this category:</p>
-          <ul class="ink-source-list" style="columns: 2; column-gap: 24px;">
-            <li><a href="./alibre-design">Alibre Design — software profile, learning path, ecosystem</a></li>
-            <li><a href="./allplan">Allplan — software profile, learning path, ecosystem</a></li>
-          </ul>
-        </section>
-
-    <section class="hero hero-premium" style="margin-top: 20px;">
+      <section class="hero hero-premium" style="margin-top: 20px;">
         <div class="hero-inner">
           <span class="eyebrow">Software profile · Gstarsoft</span>
           <h1 class="hero-title">GstarCAD Point Cloud</h1>
@@ -136,35 +108,22 @@
 
       <article class="kb-concept-detail">
         <div class="ink-byline">
-      <span><strong>By</strong> Gstarcademy Editorial Team</span>
-      <span><strong>Reviewed by</strong> Gstarsoft Co., Ltd</span>
-      <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-      <span><a href="../../about#editorial-process">Editorial process</a></span>
+      <span><strong>By</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Reviewed by</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
     </div>
 
         
         <section class="kb-concept-section">
           <h2>At a glance</h2>
           <table style="width:100%; border-collapse: collapse; font-size:14.5px;">
-            <tbody><tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Vendor</th><td style="padding:8px 0; color:var(--ink-text);"><a href="../vendors/gstarsoft">Gstarsoft</a></td></tr>
+            <tbody><tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Vendor</th><td style="padding:8px 0; color:var(--ink-text);"><a href="../vendors/gstarsoft.html">Gstarsoft</a></td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Platforms</th><td style="padding:8px 0; color:var(--ink-text);">Windows</td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Native / common formats</th><td style="padding:8px 0; color:var(--ink-text);">DWG, RCS/RCP (workflow-dependent), PDF</td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Typical domains</th><td style="padding:8px 0; color:var(--ink-text);">Survey as-builts, Renovation, Plant retrofits</td></tr></tbody>
           </table>
         </section>
-
-        <section class="kb-concept-section">
-          <h2>Product Overview</h2>
-          <p>GstarCAD Point Cloud is an add-on module that brings point-cloud processing capabilities into the GstarCAD environment. It allows engineers and surveyors to import, display, and work with laser-scan data (from terrestrial scanners, drones, or mobile mapping systems) directly within the DWG drafting workflow.</p>
-          <p>The module supports common point-cloud formats (LAS, LAZ, E57, PTS) and provides tools for point-cloud clipping, sectioning, and snap-to-point functionality. This enables as-built documentation, renovation design, and site surveys to be integrated with traditional CAD drafting without switching between specialized scan-processing software and the design environment.</p>
-          <h3>Key Features</h3>
-          <ul>
-            <li><strong>Direct import:</strong> Load LAS, LAZ, E57, and PTS point-cloud files into the GstarCAD workspace with automatic coordinate alignment.</li>
-            <li><strong>Section and clip:</strong> Create section cuts through point clouds for as-built measurement and 2D trace-over drafting.</li>
-            <li><strong>Snap integration:</strong> Snap to point-cloud data when drawing new geometry, ensuring as-built accuracy in renovation and retrofit projects.</li>
-          </ul>
-        </section>
-
         
         
         
@@ -178,15 +137,15 @@
         <section class="kb-concept-section">
           <h2>Core terminology &amp; workflows (3)</h2>
           <p class="meta">Atomic concepts our editors broke out from official documentation and real practice. Each is a standalone, linkable definition with sources.</p>
-          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../concepts/gstarcad-point-cloud-term-1" style="display:block; padding:18px 20px;">
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../concepts/gstarcad-point-cloud-term-1.html" style="display:block; padding:18px 20px;">
               <h3>Point Cloud Import</h3>
               <p class="meta">Technical best practices for Point Cloud Import inside GstarCAD Point Cloud.</p>
             </a>
-<a class="card" href="../concepts/gstarcad-point-cloud-term-2" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/gstarcad-point-cloud-term-2.html" style="display:block; padding:18px 20px;">
               <h3>Vector Extraction</h3>
               <p class="meta">Technical best practices for Vector Extraction inside GstarCAD Point Cloud.</p>
             </a>
-<a class="card" href="../concepts/gstarcad-point-cloud-term-3" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/gstarcad-point-cloud-term-3.html" style="display:block; padding:18px 20px;">
               <h3>Section Clipping</h3>
               <p class="meta">Technical best practices for Section Clipping inside GstarCAD Point Cloud.</p>
             </a></div>
@@ -206,7 +165,7 @@
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">How to optimize viewport navigation for massive point cloud files?</summary>
               <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Reduce the point display density in the properties panel, or turn on hardware acceleration under options to utilize GPU caching.</p></div>
             </details>
-          <p class="meta" style="margin-top:14px;"><a href="../../kb-faq#gstarcad-point-cloud">All GstarCAD Point Cloud FAQs ›</a></p>
+          <p class="meta" style="margin-top:14px;"><a href="../../kb-faq.html#gstarcad-point-cloud">All GstarCAD Point Cloud FAQs ›</a></p>
         </section>
         <section class="kb-concept-section kb-quiz-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
   <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">⚡ Software Guide Self-Test</h2>
@@ -239,26 +198,6 @@
   </div>
 </section>
         
-        
-        <section class="kb-concept-section">
-          <h2>Competitive Positioning</h2>
-          <p>GstarCAD Point Cloud enables point cloud visualization and modeling within the GstarCAD environment, competing with AutoCAD's point cloud features, CloudCompare, and Leica Cyclone in the scan-to-CAD workflow market.</p>
-          <p><strong>vs. AutoCAD Point Cloud:</strong> GstarCAD Point Cloud provides similar point cloud attachment, sectioning, and snap-to-point capabilities at GstarCAD's lower price point. For firms already using GstarCAD for 2D drafting, it adds point cloud functionality without switching platforms.</p>
-          <p><strong>vs. dedicated point cloud software:</strong> Unlike Cyclone or RealWorks (which focus on scan processing), GstarCAD Point Cloud integrates viewing directly into the drafting environment—users create 2D drawings from point cloud data without switching between applications.</p>
-          <p><strong>Workflow integration:</strong> Point cloud data displays as an intelligent underlay within the familiar CAD workspace. Drafters trace geometry from scan data using standard draw commands while snapping to point cloud features for as-built accuracy.</p>
-        </section>
-
-        <section class="kb-concept-section">
-          <h2>Use Cases &amp; Industry Applications</h2>
-          <ul>
-            <li><strong>As-built documentation:</strong> Creating accurate 2D floor plans, sections, and elevations from 3D laser scan data of existing buildings where original drawings are lost, outdated, or never existed.</li>
-            <li><strong>Renovation design:</strong> Overlaying new design geometry on point cloud references of existing conditions, ensuring proposed changes fit the actual building geometry rather than idealized drawings.</li>
-            <li><strong>Industrial plant surveys:</strong> Documenting existing piping, equipment, and structural steel in process plants for maintenance planning, compliance verification, and expansion design.</li>
-            <li><strong>Heritage recording:</strong> Creating measured drawings of historical structures from laser scan data, preserving dimensional accuracy of irregular and deteriorated building elements.</li>
-            <li><strong>Construction verification:</strong> Comparing as-built scan data against design drawings to identify deviations, verify completed work, and document construction progress for payment certification.</li>
-          </ul>
-        </section>
-
         <section class="kb-concept-section">
           <h2>Sources &amp; further reading</h2>
           <ul class="ink-source-list"><li><a href="https://www.gstarcad.net/" rel="noopener noreferrer nofollow" target="_blank">GstarCAD Point Cloud Official Homepage &amp; Resource Directory</a> · <span class="meta">Gstarsoft</span></li></ul>
@@ -267,14 +206,14 @@
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Continue exploring</h2>
           <ul class="ink-source-list">
-            <li><a href="../vendors/gstarsoft">Gstarsoft — vendor profile</a></li>
-            <li><a href="../../kb-graph">Open the GstarCAD Point Cloud cluster in the knowledge graph</a></li>
-            <li><a href="../../tutorials">Find tutorials on GstarCAD Point Cloud</a></li>
-            <li><a href="../../kb-terms">All CAD terms</a></li>
+            <li><a href="../vendors/gstarsoft.html">Gstarsoft — vendor profile</a></li>
+            <li><a href="../../kb-graph.html">Open the GstarCAD Point Cloud cluster in the knowledge graph</a></li>
+            <li><a href="../../tutorials.html">Find tutorials on GstarCAD Point Cloud</a></li>
+            <li><a href="../../kb-terms.html">All CAD terms</a></li>
           </ul>
         </section>
 
-        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -285,58 +224,58 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="../../kb-terms.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim-workbench.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/constraints-fusion.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/dynamic-input.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>

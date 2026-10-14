@@ -300,7 +300,7 @@ document.addEventListener("keydown", (ev) => {
     status.textContent = "Sending your message...";
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/591611431@qq.com", {
+      const response = await fetch("https://formsubmit.co/ajax/will@blog.dwgfastview.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -311,7 +311,7 @@ document.addEventListener("keydown", (ev) => {
           email: email,
           topic: topic,
           message: message,
-          _subject: `[Gstarcademy Contact] New message from ${name} (${topic})`,
+          _subject: `[GstarCAD Academy Contact] New message from ${name} (${topic})`,
           _template: "table",
           _captcha: "false"
         })
@@ -524,8 +524,8 @@ document.addEventListener("keydown", (ev) => {
       }
     });
 
-    // Check generic search query parameter ?q=
-    const query = params.get("q");
+    // Check generic search query parameter ?q= or ?search=
+    const query = params.get("q") || params.get("search");
     if (query) {
       const lowerQuery = query.toLowerCase();
 

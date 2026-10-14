@@ -59,10 +59,18 @@ def prerender_terms():
             # Link to concept
             concept_slug = item.get("slug") or re_slug(title_text)
             starter_slug_map = {
+                "layer": "layers-gstarcad",
+                "block": "dynamic-blocks-gstarcad",
+                "xref": "xrefs-gstarcad",
                 "constraint": "constraints-autocad",
+                "tolerance": "gdt-geometric-tolerancing",
+                "bim": "bim-workbench",
                 "dwg-compatibility-mode": "dwg-file-format",
                 "command-alias-pgp": "cui-autocad",
+                "mechanical-bom": "bom-bill-of-materials",
                 "point-cloud-scan": "point-cloud-autocad",
+                "aec-object-style": "gstarcad-architecture",
+                "sysvar": "filedia-system-variable",
             }
             if concept_slug in starter_slug_map:
                 concept_slug = starter_slug_map[concept_slug]
@@ -193,7 +201,7 @@ def prerender_library():
     with open(html_file, "r", encoding="utf-8") as f:
         soup = BeautifulSoup(f.read(), "html.parser")
 
-    main_article = soup.find("article") or soup.find("main")
+    main_article = soup.find(id="kb-pdf-library") or soup.find("main")
     if main_article:
         # Check if library grid exists or create
         lib_container = soup.find(id="pdf-library-cards") or soup.find(class_=re_compile(r"library-grid|cards-grid"))
@@ -206,7 +214,8 @@ def prerender_library():
         for doc in pdf_data:
             card = soup.new_tag("div", attrs={"style": "padding: 24px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);"})
             
-            title = doc.get("title_meta", doc.get("file", "Engineering Reference"))
+            raw_title = doc.get("title_meta")
+            title = raw_title if (raw_title and raw_title != "Launch ArcMap") else doc.get("file", "Engineering Reference").replace("_", " ").replace(".pdf", "")
             pages = doc.get("pages", "~200")
             size_mb = round(doc.get("file_size_bytes", 0) / (1024*1024), 1)
             

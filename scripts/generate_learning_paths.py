@@ -289,7 +289,7 @@ def generate_path_page(p):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
     <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Course","name":"{p['title']}","description":"{p['desc']}","provider":{{"@type":"Organization","name":"Gstarcademy"}},"url":"{canonical}"}}</script>
+    <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Course","name":"{p['title']}","description":"{p['desc']}","provider":{{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://www.gstarcad.net/"}},"url":"{canonical}"}}</script>
     <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"}},{{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"}},{{"@type":"ListItem","position":3,"name":"Learning Paths","item":"https://gstarcademy.com/kb/learning-paths/"}},{{"@type":"ListItem","position":4,"name":"{p['title']}","item":"{canonical}"}}]}}</script>
   </head>
   <body>

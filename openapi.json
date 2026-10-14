@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Gstarcademy CAD Knowledge Base APIs",
-    "description": "API documentation for accessing machine-readable static datasets on Gstarcademy. Enables AI agents to read, query, and integrate CAD terminology, tutorials, FAQs, and industry news.",
-    "version": "1.0.0"
+    "title": "GstarCAD Academy CAD Knowledge Base & Migration APIs",
+    "description": "Official machine-readable datasets on GstarCAD Academy, operated by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). Enables AI agents to read, query, and integrate CAD terminology, tutorials, FAQs, and industry news.",
+    "version": "2.0.0"
   },
   "servers": [
     {
@@ -11,6 +11,57 @@
     }
   ],
   "paths": {
+    "/data/tutorials_gstarcad.json": {
+      "get": {
+        "summary": "Retrieve official GstarCAD & DWG FastView tutorials",
+        "description": "Returns first-party courses, command workflows, and masterclasses for GstarCAD Professional, Mechanical, Architecture, and DWG FastView authored by Suzhou Gstarsoft Co., Ltd. (SSE: 688657).",
+        "responses": {
+          "200": {
+            "description": "Official GstarCAD tutorials retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string" },
+                      "title": { "type": "string" },
+                      "software": { "type": "string" },
+                      "task": { "type": "string" },
+                      "level": { "type": "string" },
+                      "summary": { "type": "string" },
+                      "url": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/kb_software.json": {
+      "get": {
+        "summary": "Retrieve CAD/BIM software knowledge index",
+        "description": "Returns comprehensive specifications, file formats, and features for 28 CAD/BIM/CAE software suites.",
+        "responses": {
+          "200": {
+            "description": "Software knowledge index retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/data/terms_entries.json": {
       "get": {
         "summary": "Retrieve all CAD terminology entries",
@@ -116,28 +167,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/kb-terms": {
-      "get": {
-        "summary": "Search CAD Terminology Portal",
-        "description": "Interactive search query on the Terminology Index page. Queries the clientside database using a fuzzy search.",
-        "parameters": [
-          {
-            "name": "q",
-            "in": "query",
-            "description": "Fuzzy text search query (e.g. 'xref', '3D modeling')",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Search interface HTML page rendered successfully"
           }
         }
       }

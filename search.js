@@ -119,7 +119,7 @@ const CADSearch = {
   // Resolve file paths correctly for root files and subdirectory files (kb/concepts/ etc.)
   resolvePath(originalUrl) {
     const pathname = window.location.pathname;
-    const isSubdir = pathname.includes("/kb/concepts/") || pathname.includes("/kb/software/") || pathname.includes("/kb/vendors/");
+    const isSubdir = /\/kb\/(concepts|software|vendors|guides|faq|learning-paths)\//.test(pathname);
     
     if (isSubdir) {
       // If we are inside /kb/concepts/, /kb/software/, or /kb/vendors/

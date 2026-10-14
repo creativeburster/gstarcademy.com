@@ -43,7 +43,7 @@
             "difficulty": "beginner",
             "question": "In BIM specifications, Level of Development (LOD) defines the clarity of model elements. What is the fundamental difference between LOD 300 and LOD 400?",
             "options": [
-              "LOD 300 contains approximate sizing for aesthetic design, while LOD 400 includes precise fabrication, assembly, and installation details.",
+              "LOD 300 defines specific assemblies with accurate quantity, size, shape, location, and orientation suitable for construction documentation, whereas LOD 400 includes shop fabrication, assembly, and installation details.",
               "LOD 300 is rendered in grayscale, whereas LOD 400 must have textured colors.",
               "LOD 300 runs on local PCs, while LOD 400 requires cloud database servers.",
               "LOD 300 represents 2D schematic layouts, while LOD 400 represents 3D views."
@@ -1612,7 +1612,7 @@
               "The thermal expansion coefficient during laser cutting operations."
             ],
             "correctIdx": 0,
-            "why": "The neutral axis does not stretch or compress during bending; the K-factor locates this neutral plane ($K \\approx 0.33$ for sharp bends, $0.5$ for wide radius).",
+            "why": "The neutral axis does not stretch or compress during bending; the K-factor locates this neutral plane ($K \\approx 0.33$ for sharp bends, 0.5 for wide radius).",
             "pitfall": "Using a default $K=0.5$ for high-strength steel air-bending results in inaccurate flat patterns that fail to mate properly after press brake forming."
           },
           {
@@ -2199,13 +2199,13 @@
             "difficulty": "intermediate",
             "question": "In ISO 1302 and ASME B46.1 surface texture standards, how does Rz differ from Ra?",
             "options": [
-              "Ra calculates the arithmetic mean roughness across the profile, while Rz measures the average height of the 5 highest peaks and 5 deepest valleys.",
+              "Ra calculates the arithmetic mean height of profile deviations, whereas Rz measures the mean peak-to-valley profile height across sampling lengths, making it far more sensitive to isolated scratch defects.",
               "Ra measures circularity; Rz measures cylindrical runout.",
               "Ra is measured in inches; Rz is measured in light waves.",
               "Ra applies only to cast iron; Rz applies only to forged titanium."
             ],
             "correctIdx": 0,
-            "why": "Ra averages out extreme scratches and spikes; Rz highlights deep surface gouges that could cause seal leakage or fatigue notch cracking.",
+            "why": "Under modern ISO 4287 and ISO 21920-2, Rz measures the mean of the maximum peak-to-valley heights across sampling lengths (replacing legacy 10-point height RzJIS). Unlike Ra, which averages out isolated defects, Rz directly catches deep scratches or burrs on sealing and bearing surfaces.",
             "pitfall": "Never substitute Ra for Rz on hydraulic cylinder rod specifications; a surface with good Ra can still have sharp Rz scratches that shred elastomeric seals."
           },
           {
@@ -2229,7 +2229,7 @@
             "nodeId": "mbd",
             "slug": "mcad-gdt-datum-target-areas",
             "difficulty": "advanced",
-            "question": "When specifying a Datum Target Area (e.g., [A1] with a $\\varnothing 10$ mm circle) per ASME Y14.5, what manufacturing condition justifies its use over a full planar datum?",
+            "question": "When specifying a Datum Target Area (e.g., [A1] with a $\⌀ 10$ mm circle) per ASME Y14.5, what manufacturing condition justifies its use over a full planar datum?",
             "options": [
               "Irregular, warped, or cast surfaces where entire planar contact is impossible, requiring discrete spherical or circular fixturing contact pads.",
               "High-precision ground optical mirror surfaces.",
@@ -2434,15 +2434,15 @@
             "nodeId": "mbd",
             "slug": "mcad-gdt-bonus-tolerance-mmc-calc",
             "difficulty": "advanced",
-            "question": "A hole is specified with a diameter of $\\varnothing 10.00 \\pm 0.10$ mm and a position tolerance of $\\varnothing 0.20$ mm at MMC. If the hole is machined at $\\varnothing 10.08$ mm, what is the total allowable position tolerance?",
+            "question": "A hole is specified with a diameter of $\⌀ 10.00 \± 0.10$ mm and a position tolerance of $\⌀ 0.20$ mm at MMC. If the hole is machined at $\⌀ 10.08$ mm, what is the total allowable position tolerance?",
             "options": [
-              "$\\varnothing 0.38$ mm (Stated tolerance $0.20$ + Bonus tolerance $0.18$).",
-              "$\\varnothing 0.20$ mm (Bonus tolerance cannot be applied to internal holes).",
-              "$\\varnothing 0.10$ mm (Tolerance decreases as hole size increases).",
-              "$\\varnothing 0.28$ mm (Stated tolerance $0.20$ + Bonus tolerance $0.08$)."
+              "$\⌀ 0.38$ mm (Stated tolerance 0.20 + Bonus tolerance 0.18).",
+              "$\⌀ 0.20$ mm (Bonus tolerance cannot be applied to internal holes).",
+              "$\⌀ 0.10$ mm (Tolerance decreases as hole size increases).",
+              "$\⌀ 0.28$ mm (Stated tolerance 0.20 + Bonus tolerance 0.08)."
             ],
             "correctIdx": 0,
-            "why": "MMC for an internal hole is its minimum size ($9.90$ mm). Departure from MMC: $10.08 - 9.90 = 0.18$ mm bonus. Total tolerance: $0.20 + 0.18 = 0.38$ mm.",
+            "why": "MMC for an internal hole is its minimum size (9.90 mm). Departure from MMC: $10.08 - 9.90 = 0.18$ mm bonus. Total tolerance: $0.20 + 0.18 = 0.38$ mm.",
             "pitfall": "Do not confuse MMC for holes (smallest hole) with MMC for pins (largest pin). Departure must be calculated from minimum size for internal features."
           },
           {
@@ -2452,7 +2452,7 @@
             "difficulty": "advanced",
             "question": "In 1D tolerance stackup analysis, when is Root Sum of Squares (RSS) statistical tolerancing preferred over Worst-Case (arithmetic) tolerancing?",
             "options": [
-              "In high-volume automated production where component dimensions follow normal Gaussian distributions ($C_p \\ge 1.33$), preventing overly tight individual tolerances.",
+              "In high-volume automated production where component dimensions follow normal Gaussian distributions ($C_p \≥ 1.33$), preventing overly tight individual tolerances.",
               "In critical medical safety valves where zero assembly defects are permitted under any circumstance.",
               "When manufacturing custom single-piece prototypes in toolroom quantities.",
               "When all component parts are sourced from different unknown vendor suppliers."
@@ -2615,7 +2615,7 @@
           {
             "type": "single",
             "nodeId": "gdt",
-            "slug": "gdt-geometric-tolerancing",
+            "slug": "mcad-l7-cylindricity-form-control",
             "difficulty": "intermediate",
             "question": "Which geometric characteristic symbol in ASME Y14.5 / ISO 1101 controls the form of a cylindrical feature surface without requiring a reference datum?",
             "options": [
@@ -4119,9 +4119,9 @@
             "difficulty": "advanced",
             "question": "When sizing gravity storm sewer pipe networks in Civil 3D / HydroCAD using Manning's equation, what velocity threshold prevents both sediment deposition and pipe scour?",
             "options": [
-              "Minimum self-cleansing velocity $\\ge 0.6$ m/s ($2$ ft/s); maximum scouring velocity $\\le 3.0$ m/s ($10$ ft/s).",
-              "Velocity must be kept strictly below $0.1$ m/s at all times.",
-              "Velocity should exceed $10.0$ m/s to flush debris through manholes quickly.",
+              "Minimum self-cleansing velocity $\≥ 0.6$ m/s (2 ft/s); maximum scouring velocity $\≤ 3.0$ m/s (10 ft/s).",
+              "Velocity must be kept strictly below 0.1 m/s at all times.",
+              "Velocity should exceed 10.0 m/s to flush debris through manholes quickly.",
               "Velocity is irrelevant as long as pipe diameter is greater than 300mm."
             ],
             "correctIdx": 0,
@@ -5060,7 +5060,7 @@
             "difficulty": "intermediate",
             "question": "Which tools pull data OUT of drawings for schedules and tables? (Select all correct)",
             "options": [
-              "The Data Extraction (EEXTRACT) wizard over block attributes and object properties",
+              "The Data Extraction (DATAEXTRACTION / EATTEXT) wizard over block attributes and object properties",
               "Fields linked to objects, attributes, or system variables",
               "Legacy attribute extraction templates for schedule generation",
               "Dynamic block visibility state selectors"
@@ -6000,7 +6000,7 @@
             "difficulty": "advanced",
             "question": "What does the Courant-Friedrichs-Lewy (CFL) condition govern in transient CFD and explicit dynamic FEA simulations?",
             "options": [
-              "The maximum allowable time step size (\\(\\Delta t \\le \\Delta x / c\\)) ensuring numerical information does not propagate faster than physical wave speeds across mesh cells.",
+              "The maximum allowable time step size (\\(\Δt \≤ \Δx / c\\)) ensuring numerical information does not propagate faster than physical wave speeds across mesh cells.",
               "The maximum allowable temperature rise in combustion chambers.",
               "The total volume of fluid that can exit the domain outlet boundary.",
               "The maximum allowable number of CPU cores in parallel computing."
@@ -6038,7 +6038,7 @@
               "The element has more than six neighboring faces."
             ],
             "correctIdx": 0,
-            "why": "A Jacobian ratio $\\le 0$ indicates the mathematical mapping from parametric parent space to physical space has folded over itself.",
+            "why": "A Jacobian ratio $\≤ 0$ indicates the mathematical mapping from parametric parent space to physical space has folded over itself.",
             "pitfall": "Always run mesh diagnostic quality audits (Aspect Ratio < 5, Skewness < 0.7, Jacobian > 0.6) before submitting 8-hour non-linear simulation runs."
           }
         ]
@@ -6161,7 +6161,7 @@
               "It converts all solid steel elements into hollow plastic pipes."
             ],
             "correctIdx": 0,
-            "why": "SIMP parameterizes Young's modulus as \\(E(\\rho) = \\rho^p E_0\\); using a penalty factor \\(p \\ge 3\\) makes intermediate gray densities structurally inefficient, driving 0/1 convergence.",
+            "why": "SIMP parameterizes Young's modulus as \\(E(\\rho) = \\rho^p E_0\\); using a penalty factor \\(p \≥ 3\\) makes intermediate gray densities structurally inefficient, driving 0/1 convergence.",
             "pitfall": "Without manufacturing overhang or draw direction constraints, SIMP generates unmachinable organic sponge geometry impossible to mill or cast."
           },
           {
@@ -6217,7 +6217,7 @@
             "nodeId": "cfd",
             "slug": "sim-cfd-y-plus-viscous-sublayer-resolution",
             "difficulty": "advanced",
-            "question": "When running aerodynamic CFD simulations using the $k$-$\\omega$ SST turbulence model, why is the first near-wall cell height sized to achieve $y^+ \\approx 1$?",
+            "question": "When running aerodynamic CFD simulations using the $k$-$\\omega$ SST turbulence model, why is the first near-wall cell height sized to achieve y⁺ \\approx 1$?",
             "options": [
               "To directly resolve the linear viscous sublayer adjacent to the solid wall without relying on empirical empirical wall functions.",
               "To minimize the total number of mesh cells in the far-field fluid domain.",
@@ -6225,8 +6225,8 @@
               "To force laminar flow across the entire aircraft fuselage."
             ],
             "correctIdx": 0,
-            "why": "$k$-$\\omega$ SST integrates turbulence equations all the way through the viscous sublayer to the wall, requiring the first grid point at $y^+ \\le 1$.",
-            "pitfall": "Setting $y^+$ into the buffer layer ($5 < y^+ < 30$) produces severe mathematical boundary errors in turbulence and heat transfer calculations."
+            "why": "$k$-$\\omega$ SST integrates turbulence equations all the way through the viscous sublayer to the wall, requiring the first grid point at y⁺ \≤ 1$.",
+            "pitfall": "Setting y⁺ into the buffer layer ($5 < y^+ < 30$) produces severe mathematical boundary errors in turbulence and heat transfer calculations."
           },
           {
             "type": "single",
@@ -6235,14 +6235,14 @@
             "difficulty": "advanced",
             "question": "In transient CFD and explicit FEA simulations, what does the Courant-Friedrichs-Lewy (CFL / Co) number physically govern?",
             "options": [
-              "The ratio of physical fluid/wave propagation speed to the spatial cell transit rate per time step ($C = u \\Delta t / \\Delta x$), governing numerical stability.",
+              "The ratio of physical fluid/wave propagation speed to the spatial cell transit rate per time step ($C = u \Δt / \Δx$), governing numerical stability.",
               "The total thermodynamic entropy generated by viscous shear dissipation.",
               "The ratio of aerodynamic lift to drag coefficients.",
               "The percentage of memory allocated to parallel GPU compute threads."
             ],
             "correctIdx": 0,
-            "why": "Information cannot propagate across more than one spatial grid cell in a single numerical time step without triggering numerical instability (CFL $\\le 1$).",
-            "pitfall": "Excessively tiny mesh elements in an explicit model drive the stable time step $\\Delta t$ down to nanoseconds, causing multi-day simulation runtimes."
+            "why": "Information cannot propagate across more than one spatial grid cell in a single numerical time step without triggering numerical instability (CFL $\≤ 1$).",
+            "pitfall": "Excessively tiny mesh elements in an explicit model drive the stable time step $\Δt$ down to nanoseconds, causing multi-day simulation runtimes."
           }
         ]
       },
@@ -6380,7 +6380,7 @@
               "Radiation is the only heat transfer mode that generates colorful thermal plots."
             ],
             "correctIdx": 0,
-            "why": "While conduction scales linearly with temperature difference (\\(\\Delta T\\)), radiation scales as \\(T_1^4 - T_2^4\\), exponentially overtaking other modes at high temperatures.",
+            "why": "While conduction scales linearly with temperature difference (\\(\Δ T\\)), radiation scales as \\(T_1^4 - T_2^4\\), exponentially overtaking other modes at high temperatures.",
             "pitfall": "Surface emissivity (\\(\\varepsilon\\)) drastically alters radiation; assuming \\(\\varepsilon = 1.0\\) for polished aluminum (actual \\(\\varepsilon \\approx 0.05\\)) ruins simulation accuracy."
           },
           {
@@ -6609,7 +6609,7 @@
             "difficulty": "intermediate",
             "question": "In high-cycle fatigue life prediction, how does Palmgren-Miner's Rule calculate cumulative damage under variable amplitude loading?",
             "options": [
-              "By summing the fractional damage cycles: \\(D = \\sum (n_i / N_i)\\); failure is predicted when cumulative damage \\(D \\ge 1.0\\).",
+              "By summing the fractional damage cycles: \\(D = \\sum (n_i / N_i)\\); failure is predicted when cumulative damage \\(D \≥ 1.0\\).",
               "By multiplying the maximum peak stress by the total operating days.",
               "By measuring the hardness of the metal after 1,000 hours of operation.",
               "By dividing the material tensile strength by the fatigue endurance limit."
@@ -6625,7 +6625,7 @@
             "difficulty": "advanced",
             "question": "In structural topology optimization, how does the Solid Isotropic Material with Penalization (SIMP) method penalize intermediate densities?",
             "options": [
-              "It raises artificial element density $\\rho$ to a penalization power $p$ ($p \\ge 3$) in the stiffness matrix, driving intermediate densities toward binary 0 (void) or 1 (solid).",
+              "It raises artificial element density $\\rho$ to a penalization power $p$ ($p \≥ 3$) in the stiffness matrix, driving intermediate densities toward binary 0 (void) or 1 (solid).",
               "It penalizes material cost by adding financial penalty taxes to finite elements.",
               "It deletes all elements with a von Mises stress below 50 MPa.",
               "It converts solid elements into porous lattice structures automatically."
@@ -7533,6 +7533,7 @@
             "pitfall": "GPU rendering is limited by VRAM. Scenes exceeding available VRAM either fail or fall back to slower out-of-core rendering. Monitor VRAM usage during test renders."
           },
           {
+            "type": "multiple",
             "nodeId": "rendering",
             "slug": "viz-l3-aov-passes",
             "difficulty": "intermediate",
@@ -7543,7 +7544,11 @@
               "Z-depth for fog and depth-of-field effects",
               "Polygon count statistics of the scene"
             ],
-            "correctIdx": 0,
+            "correctIndices": [
+              0,
+              1,
+              2
+            ],
             "why": "AOVs split the render into controllable components — grading reflections, adding atmosphere, or blurring by depth happens in seconds without re-rendering.",
             "pitfall": "Denoising or tone-mapping before separating passes contaminates the components — keep passes in linear space until the composite is finished."
           },
@@ -8427,7 +8432,7 @@
           "Applying flat 2D projection sketches instead of 3D volumetric coordinates."
         ],
         "correctIdx": 0,
-        "why": "LOD 300 defines approximate elements with general size and orientation. LOD 400 includes exact fabrication detailing suitable for site installers.",
+        "why": "LOD 300 defines accurate element geometry (size, shape, location, and orientation) suitable for construction documentation, while LOD 400 adds precise shop fabrication and installation detailing.",
         "pitfall": "Avoid requiring LOD 400 across all MEP pipes in contract documents; this creates massive file bloat and wastes coordinator time."
       },
       {
@@ -9447,7 +9452,7 @@
       // 更新文案
       const sTitle = successView.querySelector('.hero-title');
       const sMetaList = successView.querySelectorAll('p.meta');
-      const successPrimaryBtn = successView.querySelector('.btn-primary');
+      const successPrimaryBtn = document.getElementById('quiz-continue-btn') || successView.querySelector('a.btn-primary');
       const successSecondaryBtn = successView.querySelector('.btn:not(.btn-primary)');
 
       if (sTitle) {
@@ -9487,7 +9492,7 @@
     // 动态重写 successView 内部的文案和按钮
     const sTitle = successView.querySelector('.hero-title');
     const sMetaList = successView.querySelectorAll('p.meta');
-    const successPrimaryBtn = successView.querySelector('.btn-primary');
+    const successPrimaryBtn = document.getElementById('quiz-continue-btn') || successView.querySelector('a.btn-primary');
     const successSecondaryBtn = successView.querySelector('.btn:not(.btn-primary)');
     
     if (state.activeTrack === "placement") {

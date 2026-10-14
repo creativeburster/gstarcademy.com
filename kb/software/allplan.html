@@ -8,72 +8,54 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
           script.async = true;
           document.head.appendChild(script);
           gtag('js', new Date());
           gtag('config', 'G-ZV3YR72933');
-        }
+        };
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
+          requestIdleCallback(initGtag);
         } else {
-          setTimeout(initGtag, 2500);
+          setTimeout(initGtag, 1);
         }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Gstarcademy Editorial Team" />
-    <meta name="publisher" content="Gstarcademy" />
-    <title>Allplan – Features, Tutorials &amp; Learning Path | Gstarcademy</title>
+    <title>Allplan — software profile, learning path, ecosystem · Gstarcademy</title>
     <meta name="description" content="Allplan profile: Nemetschek&#x27;s high-performance BIM platform focused on structural engineering and precast concrete. plus 15 terms and 15 FAQs reviewed by editors." />
-    <link rel="canonical" href="https://gstarcademy.com/kb/software/allplan" />
-    <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/software/allplan.html" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
     <script src="../../search.js" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Allplan — software profile" />
     <meta property="og:description" content="Allplan profile: Nemetschek&#x27;s high-performance BIM platform focused on structural engineering and precast concrete. plus 15 terms and 15 FAQs reviewed by editors." />
-    <meta property="og:url" content="https://gstarcademy.com/kb/software/allplan" />
+    <meta property="og:url" content="https://gstarcademy.com/kb/software/allplan.html" />
     <meta property="og:site_name" content="Gstarcademy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Allplan — software profile" />
     <meta name="twitter:description" content="Allplan profile: Nemetschek&#x27;s high-performance BIM platform focused on structural engineering and precast concrete. plus 15 terms and 15 FAQs reviewed by editors." />
 
-    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preload" href="../../styles.css?v=v12_roadmap_sorting_credibility" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
-    </noscript>
-    <link rel="stylesheet" href="../../styles.min.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Allplan","applicationCategory":"DesignApplication","operatingSystem":"Windows (64-bit)","url":"https://gstarcademy.com/kb/software/allplan","description":"Allplan profile: Nemetschek's high-performance BIM platform focused on structural engineering and precast concrete. plus 15 terms and 15 FAQs reviewed by editors.","brand":{"@type":"Brand","name":"Allplan (Nemetschek)"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Allplan — software profile, learning path, ecosystem","description":"Allplan profile: Nemetschek's high-performance BIM platform focused on structural engineering and precast concrete. plus 15 terms and 15 FAQs reviewed by editors.","url":"https://gstarcademy.com/kb/software/allplan","datePublished":"2026-05-28","dateModified":"2026-06-23","inLanguage":"en","mainEntityOfPage":"https://gstarcademy.com/kb/software/allplan","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"Gstarcademy","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":{"@type":"Organization","name":"Gstarsoft Co., Ltd","url":"https://gstarcademy.com/about"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Software","item":"https://gstarcademy.com/kb-software"},{"@type":"ListItem","position":4,"name":"Allplan","item":"https://gstarcademy.com/kb/software/allplan"}]}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.css?v=v12_roadmap_sorting_credibility" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Allplan","applicationCategory":"DesignApplication","operatingSystem":"Windows (64-bit)","url":"https://gstarcademy.com/kb/software/allplan.html","description":"Allplan profile: Nemetschek's high-performance BIM platform focused on structural engineering and precast concrete. plus 15 terms and 15 FAQs reviewed by editors.","brand":{"@type":"Brand","name":"Allplan (Nemetschek)"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Allplan — software profile, learning path, ecosystem","description":"Allplan profile: Nemetschek's high-performance BIM platform focused on structural engineering and precast concrete. plus 15 terms and 15 FAQs reviewed by editors.","url":"https://gstarcademy.com/kb/software/allplan.html","datePublished":"2026-05-28","dateModified":"2026-05-28","inLanguage":"en","mainEntityOfPage":"https://gstarcademy.com/kb/software/allplan.html","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/about"},"publisher":{"@type":"Organization","name":"GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/index.html"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base.html"},{"@type":"ListItem","position":3,"name":"Software","item":"https://gstarcademy.com/kb-software.html"},{"@type":"ListItem","position":4,"name":"Allplan","item":"https://gstarcademy.com/kb/software/allplan.html"}]}</script>
   </head>
   <body data-page="knowledge" class="page-kb-software">
     <div class="header-stack">
       <aside class="site-notice" id="site-notice" data-notice-id="global-v2" aria-label="Announcement">
         <div class="site-notice-inner container">
           <p class="site-notice-text">
-            Tip: open the <a class="site-notice-link" href="../../tutorials">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
+            Tip: open the <a class="site-notice-link" href="../../tutorials.html">tutorial library</a> to filter by software, task, level, and source—then follow outbound links to the originals.
           </p>
           <button type="button" class="site-notice-close" aria-label="Dismiss announcement">
             <span aria-hidden="true">&times;</span>
@@ -82,7 +64,7 @@
       </aside>
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../">
+          <a class="brand" href="../../index.html">
             <span class="brand-badge">GC</span>
             <span>Gstarcademy</span>
           </a>
@@ -97,11 +79,11 @@
                 <span class="nav-close-icon">×</span>
               </button>
             </div>
-            <a class="nav-link" data-nav="home" href="../../">Home</a>
-            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" data-nav="tutorials" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" data-nav="news" href="../../news">News</a>
-            <a class="nav-link" data-nav="about" href="../../about">About</a>
+            <a class="nav-link" data-nav="home" href="../../index.html">Home</a>
+            <a class="nav-link active" data-nav="knowledge" href="../../knowledge-base.html">Wiki</a>
+            <a class="nav-link" data-nav="tutorials" href="../../tutorials.html">Tutorials</a>
+            <a class="nav-link" data-nav="news" href="../../news.html">News</a>
+            <a class="nav-link" data-nav="about" href="../../about.html">About</a>
           </nav>
         </div>
         <div class="nav-overlay" aria-hidden="true"></div>
@@ -110,28 +92,13 @@
 
     <main class="container" style="margin-top: 24px; max-width: 1100px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> /
-        <a href="../../knowledge-base">Knowledge Base</a> /
-        <a href="../../kb-software">Software</a> /
+        <a href="../../index.html">Home</a> /
+        <a href="../../knowledge-base.html">Knowledge Base</a> /
+        <a href="../../kb-software.html">Software</a> /
         <span aria-current="page">Allplan</span>
       </nav>
 
-      
-        <section class="kb-concept-section" style="margin-top: 32px; border-top: 1px solid var(--ink-line); padding-top: 24px;">
-          <h2 style="font-size: 1.3rem; font-weight: 700; color: var(--ink-text); margin-bottom: 12px;">🔗 Related Software</h2>
-          <p style="font-size: 14px; color: var(--ink-text-soft); margin-bottom: 12px;">Compare with similar tools in this category:</p>
-          <ul class="ink-source-list" style="columns: 2; column-gap: 24px;">
-            <li><a href="./archicad">Archicad — software profile, learning path, ecosystem</a></li>
-            <li><a href="./revit">Revit — software profile, learning path, ecosystem</a></li>
-            <li><a href="./tekla-structures">Tekla Structures — software profile, learning path, ecosystem</a></li>
-            <li><a href="./vectorworks">Vectorworks — software profile, learning path, ecosystem</a></li>
-            <li><a href="./gstarbim">GstarBIM — software profile, learning path, ecosystem</a></li>
-            <li><a href="./alibre-design">Alibre Design — software profile, learning path, ecosystem</a></li>
-            <li><a href="./ares-commander">ARES Commander — software profile, learning path, ecosystem</a></li>
-          </ul>
-        </section>
-
-    <section class="hero hero-premium" style="margin-top: 20px;">
+      <section class="hero hero-premium" style="margin-top: 20px;">
         <div class="hero-inner">
           <span class="eyebrow">Software profile · Allplan (Nemetschek)</span>
           <h1 class="hero-title">Allplan</h1>
@@ -141,17 +108,17 @@
 
       <article class="kb-concept-detail">
         <div class="ink-byline">
-      <span><strong>By</strong> Gstarcademy Editorial Team</span>
-      
-      <span><strong>Last reviewed</strong> <time datetime="2026-06-23">2026-06-23</time></span>
-      <span><a href="../../about#editorial-process">Editorial process</a></span>
+      <span><strong>By</strong> GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)</span>
+      <span><strong>Reviewed by</strong> Gstarcademy Editorial Team</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-05-28">2026-05-28</time></span>
+      <span><a href="../../about.html#editorial-process">Editorial process</a></span>
     </div>
 
         
         <section class="kb-concept-section">
           <h2>At a glance</h2>
           <table style="width:100%; border-collapse: collapse; font-size:14.5px;">
-            <tbody><tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Vendor</th><td style="padding:8px 0; color:var(--ink-text);"><a href="../vendors/allplan">Allplan (Nemetschek)</a></td></tr>
+            <tbody><tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Vendor</th><td style="padding:8px 0; color:var(--ink-text);"><a href="../vendors/allplan.html">Allplan (Nemetschek)</a></td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">First released</th><td style="padding:8px 0; color:var(--ink-text);">1984</td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Current release track</th><td style="padding:8px 0; color:var(--ink-text);">Allplan Architecture, Engineering, and Bridge (annual major releases)</td></tr>
 <tr><th scope="row" style="text-align:left; padding:8px 14px 8px 0; color:var(--ink-text-muted); font-weight:600; font-size:13px; vertical-align:top;">Licensing model</th><td style="padding:8px 0; color:var(--ink-text);">Subscription or perpetual with maintenance agreements. Tiers for design vs. detailing.</td></tr>
@@ -211,63 +178,63 @@
         <section class="kb-concept-section">
           <h2>Core terminology &amp; workflows (15)</h2>
           <p class="meta">Atomic concepts our editors broke out from official documentation and real practice. Each is a standalone, linkable definition with sources.</p>
-          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../concepts/allplan-term-1" style="display:block; padding:18px 20px;">
+          <div class="grid grid-2" style="gap:14px; margin-top:14px;"><a class="card" href="../concepts/allplan-term-1.html" style="display:block; padding:18px 20px;">
               <h3>SmartParts (Allplan)</h3>
               <p class="meta">Parametric, script-driven object definitions for structural BIM.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-2" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-2.html" style="display:block; padding:18px 20px;">
               <h3>3D Reinforcement Modeling (Allplan)</h3>
               <p class="meta">Dynamic, physical modeling of reinforcing bars in concrete.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-3" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-3.html" style="display:block; padding:18px 20px;">
               <h3>Allplan Bridge (Allplan)</h3>
               <p class="meta">Parametric modeler for complex civil bridge structures.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-4" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-4.html" style="display:block; padding:18px 20px;">
               <h3>BIM Model Topology (Allplan)</h3>
               <p class="meta">Story-based spatial organization of architectural projects.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-5" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-5.html" style="display:block; padding:18px 20px;">
               <h3>Reinforcement Reports (Allplan)</h3>
               <p class="meta">Automated schedules driven directly by 3D rebar models.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-6" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-6.html" style="display:block; padding:18px 20px;">
               <h3>PythonParts (Allplan)</h3>
               <p class="meta">Next-generation parametric BIM elements driven by Python.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-7" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-7.html" style="display:block; padding:18px 20px;">
               <h3>IFC Exchange (Allplan)</h3>
               <p class="meta">Standardized data exchange for open BIM collaboration.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-8" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-8.html" style="display:block; padding:18px 20px;">
               <h3>Quantity Takeoff (Allplan)</h3>
               <p class="meta">Automated calculation of concrete, formwork, and finish areas.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-9" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-9.html" style="display:block; padding:18px 20px;">
               <h3>Terrain Modeling (Allplan)</h3>
               <p class="meta">Site contour and surface generation from coordinate data.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-10" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-10.html" style="display:block; padding:18px 20px;">
               <h3>Multi-Layer Walls (Allplan)</h3>
               <p class="meta">Complex wall definitions hosting structural, thermal, and finish layers.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-11" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-11.html" style="display:block; padding:18px 20px;">
               <h3>Element Plan Generator (Allplan)</h3>
               <p class="meta">Automated drafting generator for precast concrete components.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-12" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-12.html" style="display:block; padding:18px 20px;">
               <h3>Clash Detection (Allplan)</h3>
               <p class="meta">Spatial conflict checker for overlapping structural elements.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-13" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-13.html" style="display:block; padding:18px 20px;">
               <h3>Reference Planes (Allplan)</h3>
               <p class="meta">Custom baseline sheets controlling geometry heights.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-14" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-14.html" style="display:block; padding:18px 20px;">
               <h3>CineRender Engine (Allplan)</h3>
               <p class="meta">High-end photo-realistic rendering engine integrated inside Allplan.</p>
             </a>
-<a class="card" href="../concepts/allplan-term-15" style="display:block; padding:18px 20px;">
+<a class="card" href="../concepts/allplan-term-15.html" style="display:block; padding:18px 20px;">
               <h3>Nemetschek Allplan Connect (Allplan)</h3>
               <p class="meta">Cloud-based collaboration and asset portal.</p>
             </a></div>
@@ -277,65 +244,65 @@
           <h2>Frequently asked questions (15)</h2>
           <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan SmartParts?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Define SmartParts as parametric building components with built-in intelligence. Set parameter ranges (min/max wall thickness, opening sizes) to prevent invalid configurations. Use the SmartPart Editor to create custom families—embed IFC property sets for proper classification in BIM workflows.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with SmartParts in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan 3D Reinforcement Modeling?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Model reinforcement in 3D by placing bars along structural member faces. Use bar shapes from the standard library (L, U, stirrup) and define cover rules per exposure class. Generate bar bending schedules automatically—verify quantities match structural calculations before issuing for construction.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with 3D Reinforcement Modeling in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Allplan Bridge?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use Allplan Bridge for parametric bridge design with cross-section variation along alignment. Define tendon geometry using parabolic profiles and check eccentricity limits. Export analysis models to SOFISTIK for structural verification. Coordinate deck segments with construction sequence phasing.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Allplan Bridge in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan BIM Model Topology?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Structure the BIM model using Building Structure levels: site > building > floor > room. Assign structural elements to the correct level for accurate quantity extraction. Use reference planes between floors for consistent slab-to-slab height control across the model.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with BIM Model Topology in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Reinforcement Reports?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Configure reinforcement reports using the Report Editor—select bar mark, diameter, shape, length, and quantity columns. Group bars by structural member and floor level. Export to Excel for integration with cost estimation systems. Validate total steel weight against structural engineer's material takeoff.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Reinforcement Reports in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan PythonParts?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Develop PythonParts to create custom parametric objects beyond SmartParts. Use the Allplan Python API with the VS Code extension for debugging. Implement parameter scripts for the property palette and paint scripts for 3D geometry. Distribute via Allplan Connect for team-wide access.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with PythonParts in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan IFC Exchange?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Export IFC 2x3 or 4.0 depending on receiving application compatibility. Map Allplan layers to IFC spatial structure before export. Use MVD (Model View Definition) profiles—'Coordination View' for general exchange, 'Structural Analysis View' for engineering handoff. Validate exports with Solibri or BIMcollab.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with IFC Exchange in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Quantity Takeoff?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use Allplan's built-in QTO by assigning formula attributes to elements (volume, area, length). Create quantity reports grouped by building level and element type. Link to cost databases using the Design-to-Cost module. Re-run takeoffs after model changes to keep estimates current.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Quantity Takeoff in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Terrain Modeling?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Import survey data (points, breaklines) as DXF or LandXML. Create triangulated surface models (TIN) and add grading objects for earthwork. Calculate cut/fill volumes between existing and design surfaces. Use contour visualization to verify drainage patterns before finalizing site design.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Terrain Modeling in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Multi-Layer Walls?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Define multi-layer walls with core, insulation, and finish layers. Set layer priorities for automatic cleanup at junctions—higher priority layers cut through lower ones. Use surface modifications for local changes (thickened areas, recesses) without breaking the wall definition.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Multi-Layer Walls in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Element Plan Generator?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use the Element Plan Generator to automate drawing sheet creation from model views. Define viewport templates with scale, layer visibility, and annotation style. Generate floor plans per level with a single operation—update sheets automatically when the model changes.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Element Plan Generator in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Clash Detection?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Run clash detection between disciplines (structural vs MEP, architecture vs structure). Set tolerance thresholds per clash type—5mm for hard clashes, 50mm for clearance issues. Use clash groupings to batch related issues. Export BCF reports for coordination meetings with external teams.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Clash Detection in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Reference Planes?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Place reference planes at key elevations (finished floor, ceiling, parapet) to serve as snap targets for element placement. Name planes descriptively and organize in the Building Structure tree. Reference planes propagate across drawings ensuring consistent heights between plan and section views.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Reference Planes in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan CineRender Engine?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use CineRender for photorealistic visualization directly within Allplan. Assign materials from the built-in library and adjust reflection/roughness for realism. Set sun position based on project geo-location and time of day. Use medium quality for design reviews, high quality only for final presentations.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with CineRender Engine in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
 <details style="margin: 10px 0; padding: 14px 18px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
               <summary style="cursor:pointer; font-weight:600; color: var(--ink-text);">What is the recommended practice for Allplan Nemetschek Allplan Connect?</summary>
-              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>Use Allplan Connect to access shared content: SmartPart libraries, PythonParts, material catalogs, and templates. Upload custom content for team sharing. Check the forum for workflow tips and submit support tickets through the portal. Keep software updated via the Connect download manager.</p></div>
+              <div style="margin-top:10px; color:var(--ink-text-soft);"><p>When working with Nemetschek Allplan Connect in Allplan, always start from standard templates. Maintain clean reference coordinate frameworks, suppress unused structural parameters regularly, and perform audit operations to safeguard drawing performance.</p></div>
             </details>
-          <p class="meta" style="margin-top:14px;"><a href="../../kb-faq#allplan">All Allplan FAQs ›</a></p>
+          <p class="meta" style="margin-top:14px;"><a href="../../kb-faq.html#allplan">All Allplan FAQs ›</a></p>
         </section>
         <section class="kb-concept-section kb-quiz-section" style="margin-top: 40px; border-top: 1px solid var(--ink-line); padding-top: 32px;">
   <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink-text); margin-bottom: 8px;">⚡ Software Guide Self-Test</h2>
@@ -376,14 +343,14 @@
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Continue exploring</h2>
           <ul class="ink-source-list">
-            <li><a href="../vendors/allplan">Allplan (Nemetschek) — vendor profile</a></li>
-            <li><a href="../../kb-graph">Open the Allplan cluster in the knowledge graph</a></li>
-            <li><a href="../../tutorials">Find tutorials on Allplan</a></li>
-            <li><a href="../../kb-terms">All CAD terms</a></li>
+            <li><a href="../vendors/allplan.html">Allplan (Nemetschek) — vendor profile</a></li>
+            <li><a href="../../kb-graph.html">Open the Allplan cluster in the knowledge graph</a></li>
+            <li><a href="../../tutorials.html">Find tutorials on Allplan</a></li>
+            <li><a href="../../kb-terms.html">All CAD terms</a></li>
           </ul>
         </section>
 
-        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is original commentary by Gstarcademy editors. External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
+        <p class="meta" style="margin-top: 28px; font-size: 12px;">Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners.</p>
       </article>
     </main>
 
@@ -394,58 +361,58 @@
           <p class="site-footer-desc">CAD knowledge base and tutorial navigation. We link to high-quality, curated external CAD sources for AEC, MFG, and Civil Engineering professionals.</p>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Software Hubs</h3>
+          <h4 class="site-footer-heading">Software Hubs</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
-            <li><a href="../../kb/software/revit">Revit Guide</a></li>
-            <li><a href="../../kb/software/fusion-360">Fusion 360</a></li>
-            <li><a href="../../kb/software/civil-3d">Civil 3D Guide</a></li>
-            <li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
-            <li><a href="../../kb/software/catia">CATIA Guide</a></li>
-            <li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
-            <li><a href="../../kb/software/inventor">Autodesk Inventor</a></li>
+            <li><a href="../../kb/software/autocad.html">AutoCAD Guide</a></li>
+            <li><a href="../../kb/software/revit.html">Revit Guide</a></li>
+            <li><a href="../../kb/software/fusion-360.html">Fusion 360</a></li>
+            <li><a href="../../kb/software/civil-3d.html">Civil 3D Guide</a></li>
+            <li><a href="../../kb/software/solidworks.html">SOLIDWORKS</a></li>
+            <li><a href="../../kb/software/catia.html">CATIA Guide</a></li>
+            <li><a href="../../kb/software/gstarcad.html">GstarCAD</a></li>
+            <li><a href="../../kb/software/inventor.html">Autodesk Inventor</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Technical Core</h3>
+          <h4 class="site-footer-heading">Technical Core</h4>
           <ul class="site-footer-links">
-            <li><a href="../../kb-terms">2D Drafting</a></li>
-            <li><a href="../../kb/concepts/bim-workbench">BIM Coordination</a></li>
-            <li><a href="../../kb/concepts/constraints-fusion">Parametrics</a></li>
-            <li><a href="../../kb/concepts/dynamic-input">Command Line</a></li>
-            <li><a href="../../kb/concepts/dwg-file-format">Drawing Merge</a></li>
-            <li><a href="../../kb/concepts/file-comparison-zw">DWG Compare</a></li>
-            <li><a href="../../kb/concepts/layers-gstarcad">Layer Strategy</a></li>
-            <li><a href="../../kb/concepts/dynamic-blocks-autocad">Xrefs &amp; Blocks</a></li>
+            <li><a href="../../kb-terms.html">2D Drafting</a></li>
+            <li><a href="../../kb/concepts/bim-workbench.html">BIM Coordination</a></li>
+            <li><a href="../../kb/concepts/constraints-fusion.html">Parametrics</a></li>
+            <li><a href="../../kb/concepts/dynamic-input.html">Command Line</a></li>
+            <li><a href="../../kb/concepts/dwg-file-format.html">Drawing Merge</a></li>
+            <li><a href="../../kb/concepts/file-comparison-zw.html">DWG Compare</a></li>
+            <li><a href="../../kb/concepts/layers-gstarcad.html">Layer Strategy</a></li>
+            <li><a href="../../kb/concepts/dynamic-blocks-autocad.html">Xrefs &amp; Blocks</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Structured Learn</h3>
+          <h4 class="site-footer-heading">Structured Learn</h4>
           <ul class="site-footer-links">
-            <li><a href="../../tutorials">Tutorial Library</a></li>
-            <li><a href="../../knowledge-base">Knowledge Center</a></li>
-            <li><a href="../../kb-graph">Interactive Graph</a></li>
-            <li><a href="../../knowledge-domains">Domain Map</a></li>
-            <li><a href="../../kb-software">Software Index</a></li>
-            <li><a href="../../kb-terms">CAD Glossary</a></li>
-            <li><a href="../../kb-faq">Technical FAQ</a></li>
+            <li><a href="../../tutorials.html">Tutorial Library</a></li>
+            <li><a href="../../knowledge-base.html">Knowledge Center</a></li>
+            <li><a href="../../kb-graph.html">Interactive Graph</a></li>
+            <li><a href="../../knowledge-domains.html">Domain Map</a></li>
+            <li><a href="../../kb-software.html">Software Index</a></li>
+            <li><a href="../../kb-terms.html">CAD Glossary</a></li>
+            <li><a href="../../kb-faq.html">Technical FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
-          <h3 class="site-footer-heading">Company &amp; Legal</h3>
+          <h4 class="site-footer-heading">Company &amp; Legal</h4>
           <ul class="site-footer-links">
-            <li><a href="../../about">About Project</a></li>
-            <li><a href="../../contact">Contact Us</a></li>
-            <li><a href="../../privacy">Privacy Policy</a></li>
-            <li><a href="../../terms">Terms of Use</a></li>
-            <li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+            <li><a href="../../about.html">About Project</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../legal.html">Copyright &amp; Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="container site-footer-bottom">
-        <p>© <span id="footer-year"></span> Gstarcademy. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../app.js?v=v15_dashboard_concept_filters" defer></script>
+    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>
