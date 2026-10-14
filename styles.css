@@ -481,36 +481,12 @@ a { color: inherit; text-decoration: none; }
   font-family: "Outfit", "Inter", sans-serif !important;
 }
 
-/* 改造后面的 span 元素，使其仅显示 cad 并且加上下划线 */
-.brand span:not(.brand-badge) {
-  font-size: 0 !important; /* 隐藏原有的 Gstarcademy */
-  display: inline-block !important;
+/* 统一品牌标识由末尾专用品牌区块控制 */
+.brand > span:not(.brand-badge) {
+  display: inline-flex !important;
+  align-items: center !important;
   line-height: 1 !important;
   color: inherit !important;
-}
-
-.brand span:not(.brand-badge)::after {
-  content: "cad" !important;
-  font-size: 1.15rem !important;
-  font-weight: 900 !important;
-  color: inherit !important;
-  text-transform: none !important;
-  line-height: 1 !important;
-  text-decoration: underline !important; /* cad 三个字加下划线 */
-  text-underline-offset: 3px !important; /* 下划线精致偏移量 */
-  font-family: "Outfit", "Inter", sans-serif !important;
-}
-
-/* 利用 brand 的伪元素在最末尾拼装上不带下划线的 emy */
-.brand::after {
-  content: "emy" !important;
-  font-size: 1.15rem !important;
-  font-weight: 900 !important;
-  color: inherit !important;
-  text-transform: none !important;
-  line-height: 1 !important;
-  font-family: "Outfit", "Inter", sans-serif !important;
-  display: inline-block !important;
 }
 
 .nav { display: flex; align-items: center; gap: 4px; }
@@ -5418,8 +5394,8 @@ body[data-page="knowledge"] .kb-subnav {
   font-family: "Outfit", "Inter", sans-serif !important;
 }
 
-/* Hide original Gstarcademy text and style inline span */
-.brand span:not(.brand-badge) {
+/* Hide original text and style inline direct child span only */
+.brand > span:not(.brand-badge) {
   font-size: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -5427,8 +5403,13 @@ body[data-page="knowledge"] .kb-subnav {
   color: inherit !important;
 }
 
+/* Hide any nested span children to prevent duplicate cadcademyemy injection */
+.brand > span:not(.brand-badge) * {
+  display: none !important;
+}
+
 /* Inject "cad" with high quality underline */
-.brand span:not(.brand-badge)::before {
+.brand > span:not(.brand-badge)::before {
   content: "cad" !important;
   font-size: 1.15rem !important;
   font-weight: 800 !important;
@@ -5442,7 +5423,7 @@ body[data-page="knowledge"] .kb-subnav {
 }
 
 /* Inject "emy" plain next to it */
-.brand span:not(.brand-badge)::after {
+.brand > span:not(.brand-badge)::after {
   content: "emy" !important;
   font-size: 1.15rem !important;
   font-weight: 800 !important;
@@ -7922,4 +7903,90 @@ body[data-page="knowledge"] {
   .grid > * {
     min-width: 0;
   }
+}
+
+
+/* ============================================================
+   TOPBAR NAVIGATION SINGLE-LINE & RESPONSIVE REFINEMENT
+   ============================================================ */
+@media (min-width: 781px) {
+  .topbar-inner .nav {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+  }
+  .topbar-inner .nav .nav-link {
+    white-space: nowrap !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    padding: 7px 11px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    line-height: 1.3 !important;
+  }
+  .topbar-inner .nav .btn,
+  .topbar-inner .nav .btn-primary {
+    white-space: nowrap !important;
+    padding: 7px 15px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    margin-left: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+}
+
+/* ============================================================
+   ACADEMY OFFICIAL CERTIFICATION CARD (HIGH CONTRAST DARK THEME)
+   ============================================================ */
+.academy-cert-card,
+.card.academy-cert-card,
+.card-glass.academy-cert-card {
+  background: radial-gradient(circle at 85% 15%, rgba(37, 99, 235, 0.35) 0%, rgba(15, 23, 42, 0) 60%), linear-gradient(135deg, #070d1e 0%, #0f172a 50%, #1e3a8a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.28) !important;
+  padding: 40px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.academy-cert-card h2 {
+  color: #ffffff !important;
+}
+
+.academy-cert-card p {
+  color: #e2e8f0 !important;
+}
+
+.academy-cert-card strong {
+  color: #ffffff !important;
+}
+
+.academy-cert-levels-panel {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 28px !important;
+  border-radius: 18px !important;
+}
+
+.academy-cert-levels-panel h4 {
+  color: #93c5fd !important;
+}
+
+.academy-cert-levels-panel ul li {
+  color: #f8fafc !important;
+}
+
+.academy-cert-levels-panel ul li strong {
+  color: #ffffff !important;
+}
+
+.academy-cert-footer-meta {
+  color: #cbd5e1 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
