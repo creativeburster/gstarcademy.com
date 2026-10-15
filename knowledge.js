@@ -1682,7 +1682,7 @@ if (document.body.getAttribute("data-page") === "knowledge") {
             url: v.url || `https://www.youtube.com/watch?v=${v.video_id}`,
             platform: "YouTube 🎁",
             software: ed.software || "—",
-            tags: ed.tags || ["YouTube", "Video"],
+            tags: ed.tags || ["Tutorial", "Video"],
             difficulty: ed.difficulty || "—",
             task: ed.task || "—"
           };

@@ -8921,10 +8921,12 @@
       if (!masteredProgress[t]) masteredProgress[t] = [];
     });
 
+    const trackMax = { bim: 5, mcad: 5, civil: 5, draft: 14, sim: 6, viz: 5 };
     const tracks = ["bim", "mcad", "civil", "draft", "sim", "viz"];
     tracks.forEach(tKey => {
-      const count = Math.min(masteredProgress[tKey].length, 5); // 上限 5
-      const pct = Math.round((count / 5) * 100);
+      const maxNodes = trackMax[tKey] || 5;
+      const count = Math.min(masteredProgress[tKey].length, maxNodes);
+      const pct = Math.round((count / maxNodes) * 100);
 
       // 找到对应的 DOM
       const ringFill = document.getElementById(`ring-fill-${tKey}`);
@@ -8932,7 +8934,7 @@
       const statDesc = document.getElementById(`stat-desc-${tKey}`);
 
       if (statDesc) {
-        statDesc.textContent = `${count} / 5 Lit`;
+        statDesc.textContent = `${count} / ${maxNodes} Lit`;
       }
       if (ringText) {
         ringText.textContent = `${pct}%`;
