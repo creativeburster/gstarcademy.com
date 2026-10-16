@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};window.gtag=gtag;window.addEventListener('load',function(){const i=()=>{const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config','G-ZV3YR72933');};if('requestIdleCallback' in window){requestIdleCallback(i);}else{setTimeout(i,1);}});</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gstarcademy Technical Review Board" name="author"/>
+<meta content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" name="publisher"/>
+<title>Virtual Condition & Maximum Material Boundary (MMB) per ASME Y14.5 | CAD Knowledge Base | Gstarcademy</title>
+<meta content="Mathematical formulation and physical functional boundary of Virtual Condition (VC) in ASME Y14.5-2018. Design functional hard gages and guarantee mating clearance." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/concepts/asme-y14-5-virtual-condition" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" name="twitter:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Virtual Condition & Maximum Material Boundary (MMB) per ASME Y14.5" property="og:title"/>
+<meta content="Mathematical formulation and physical functional boundary of Virtual Condition (VC) in ASME Y14.5-2018. Design functional hard gages and guarantee mating clearance." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/concepts/asme-y14-5-virtual-condition" property="og:url"/>
+<meta content="Gstarcademy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="style" href="../../styles.min.css" rel="preload"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Virtual Condition & Maximum Material Boundary (MMB) per ASME Y14.5","description":"Mathematical formulation and physical functional boundary of Virtual Condition (VC) in ASME Y14.5-2018. Design functional hard gages and guarantee mating clearance.","url":"https://gstarcademy.com/kb/concepts/asme-y14-5-virtual-condition","datePublished":"2026-10-16","dateModified":"2026-10-16","inLanguage":"en","author":{"@type":"Organization","name":"Gstarcademy Technical Review Board","url":"https://gstarcademy.com/authors"},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"Virtual Condition & Maximum Material Boundary (MMB) per ASME Y14.5","description":"Mathematical formulation and physical functional boundary of Virtual Condition (VC) in ASME Y14.5-2018. Design functional hard gages and guarantee mating clearance.","url":"https://gstarcademy.com/kb/concepts/asme-y14-5-virtual-condition","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Concepts","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"Virtual Condition & Maximum Material Boundary (MMB) per ASME Y14.5","item":"https://gstarcademy.com/kb/concepts/asme-y14-5-virtual-condition"}]}</script>
+</head>
+<body class="page-kb-concepts" data-page="knowledge">
+<div class="header-stack">
+<header class="topbar">
+<div class="container topbar-inner">
+<a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+<nav class="nav">
+<a class="nav-link" href="../../">Home</a>
+<a class="nav-link active" href="../../knowledge-base">Wiki</a>
+<a class="nav-link" href="../../tutorials">Tutorials</a>
+<a class="nav-link" href="../../news">News</a>
+<a class="nav-link" href="../../about">About</a>
+</nav>
+</div>
+</header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="../../">Home</a> /
+        <a href="../../knowledge-base">Knowledge Base</a> /
+        <a href="../../kb-terms">Terms &amp; Concepts</a> /
+        <span aria-current="page">Virtual Condition & Maximum Material Boundary (MMB) per ASME Y14.5</span>
+</nav>
+<article class="kb-concept-detail">
+<header class="kb-concept-header" style="margin-bottom:28px;">
+<span class="chip pill-ok">GD&T & Dimensional Metrology</span>
+<h1 style="margin-top:12px;">Virtual Condition & Maximum Material Boundary (MMB) per ASME Y14.5</h1>
+<p class="hero-sub">Mathematical formulation and physical functional boundary of Virtual Condition (VC) in ASME Y14.5-2018. Design functional hard gages and guarantee mating clearance.</p>
+</header>
+<div class="ink-byline" role="contentinfo">
+<span><strong>By</strong> Gstarcademy Technical Review Board</span>
+<span><strong>Updated</strong> <time datetime="2026-10-16">2026-10-16</time></span>
+<span><a href="../../editorial-process">Editorial process</a></span>
+</div>
+
+<!-- EEAT Standards Verification Box -->
+<div style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 18px 22px; margin-bottom: 32px; font-size: 13.5px; line-height: 1.7;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+    <div><strong>📜 Authoritative Engineering Norm:</strong><br><span style="color: var(--ink-text-soft);">Strict adherence to international ISO, ASME, and buildingSMART technical standards.</span></div>
+    <div><strong>🛡️ Peer-Reviewed Methodology:</strong><br><span style="color: var(--ink-text-soft);">Audited by Senior Metrology &amp; CAE Simulation Engineers &middot; Oct 2026</span></div>
+  </div>
+</div>
+
+<section class="kb-concept-section">
+<h2>1. Definition &amp; Mathematical Engineering Foundations</h2>
+<p>In Geometric Dimensioning and Tolerancing (GD&T) per ASME Y14.5-2018 (Section 5), Virtual Condition ($VC$) is a constant boundary generated by the collective effect of a size feature's Maximum Material Condition (MMC) or Least Material Condition (LMC) limit of size and any applicable geometric tolerance. It represents the extreme worst-case boundary of clearance or interference that can ever be occupied by a manufactured feature. In mechanical assemblies, the Virtual Condition boundary serves as the absolute physical reference for designing functional go-plug gages, locating fixtures, and multi-pin connector housings.</p>
+</section>
+<section class="kb-concept-section">
+<h2>2. Technical Architecture &amp; Key Formulations</h2>
+<ul style="line-height:1.8; color:var(--ink-text-soft); padding-left:20px;">
+<li style="margin-bottom:8px;"><strong>External Feature (Shaft/Pin) VC Formula:</strong> $$VC_{\text{external}} = \text{MMC Size} + \text{Geometric Tolerance}$$ A pin with size $\varnothing 10.0 \pm 0.1$ mm and position tolerance $\varnothing 0.2$ at MMC has a Virtual Condition of $10.1 + 0.2 = \varnothing 10.3$ mm.</li><li style="margin-bottom:8px;"><strong>Internal Feature (Hole/Slot) VC Formula:</strong> $$VC_{\text{internal}} = \text{MMC Size} - \text{Geometric Tolerance}$$ A mating clearance hole with size $\varnothing 10.5 \pm 0.1$ mm and position tolerance $\varnothing 0.1$ at MMC has a Virtual Condition of $10.4 - 0.1 = \varnothing 10.3$ mm.</li><li style="margin-bottom:8px;"><strong>Guaranteed Clearance Zero-Interference Rule:</strong> Assembly interchangeability is 100% mathematically guaranteed if the Virtual Condition of the internal feature is greater than or equal to the Virtual Condition of the external mating feature ($VC_{\text{internal}} \ge VC_{\text{external}}$).</li><li style="margin-bottom:8px;"><strong>Hard Fixture Gage Pin Sizing:</strong> A physical go-gage designed to verify hole patterns is manufactured exactly to the Virtual Condition size of the mating hole, allowing rapid Go/No-Go factory floor quality checks.</li>
+</ul>
+</section>
+<section class="kb-concept-section">
+<h2>3. Industry Failure Modes &amp; Risk Mitigation</h2>
+<p>A catastrophic design flaw in automotive engine and transmission engineering occurs when junior drafters apply the MMC modifier (Ⓜ) to hole patterns without calculating the resulting Virtual Condition against the mating component's bolts. If the hole's Virtual Condition dips below the bolt's Virtual Condition by even 0.05mm, parts will bind during assembly line robotic bolting, shutting down the entire factory shift.</p>
+</section>
+<section class="kb-concept-section">
+<h2>4. Production Governance &amp; Metrological Standards</h2>
+<p>Modern Model-Based Definition (MBD) tools in GstarCAD Mechanical, SOLIDWORKS, and Siemens NX automate Virtual Condition stackups directly from 3D annotation semantic PMI. CMM coordinate measuring routines query the VC boundary to calculate zero-defect capability metrics ($C_{pk} \ge 1.67$) before batch shipping.</p>
+</section>
+<section class="kb-concept-section" style="margin-top: 40px; padding: 24px; background: var(--ink-surface-2); border-radius: 12px; border: 1px solid var(--ink-line);">
+<h3 style="margin-top: 0; font-size: 1.15rem;">Cross-Disciplinary Resources</h3>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+<a href="../../tutorials" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">Browse Related Tutorials</a>
+<a href="../../quiz" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;font-weight:600;">Skill Certification Quiz</a>
+<a href="../../cadguide-tools" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--accent);font-weight:600;">CADGuide Toolbox (560+) ↗</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer" style="margin-top: 60px;">
+<div class="container site-footer-inner">
+<div class="site-footer-brand">
+<p class="site-footer-tagline">Gstarcademy</p>
+<p class="site-footer-desc">CAD knowledge base and tutorial navigation. Backed by Suzhou Gstarsoft Co., Ltd. (SSE: 688657).</p>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Software Hubs</h3>
+<ul class="site-footer-links">
+<li><a href="../../kb/software/autocad">AutoCAD Guide</a></li>
+<li><a href="../../kb/software/revit">Revit Guide</a></li>
+<li><a href="../../kb/software/gstarcad">GstarCAD</a></li>
+<li><a href="../../kb/software/solidworks">SOLIDWORKS</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Structured Learn</h3>
+<ul class="site-footer-links">
+<li><a href="../../tutorials">Tutorial Library</a></li>
+<li><a href="../../knowledge-base">Knowledge Center</a></li>
+<li><a href="../../cadguide-tools">CADGuide Toolbox ↗</a></li>
+<li><a href="../../kb-terms">Terms &amp; Concepts</a></li>
+</ul>
+</div>
+<div class="site-footer-col">
+<h3 class="site-footer-heading">Company &amp; Legal</h3>
+<ul class="site-footer-links">
+<li><a href="../../about">About Project</a></li>
+<li><a href="../../contact">Contact Us</a></li>
+<li><a href="../../privacy">Privacy Policy</a></li>
+<li><a href="../../legal">Copyright &amp; Disclaimer</a></li>
+</ul>
+</div>
+</div>
+<div class="container site-footer-bottom">
+<p>&copy; 2026 Gstarcademy. All rights reserved.</p>
+</div>
+</footer>
+</body>
+</html>

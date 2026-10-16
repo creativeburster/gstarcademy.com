@@ -43,7 +43,7 @@ def main():
     lines.append("- **AutoCAD Migration Hub**: https://gstarcademy.com/migration — Enterprise replacement roadmap, command aliases mapping, LISP compatibility matrix, and interactive perpetual license TCO calculator.")
     lines.append("- **Developer GRX Hub**: https://gstarcademy.com/developers — C++ GRX SDK setup, ObjectARX-to-GRX porting guide, .NET API samples, and ISV technical support.")
     lines.append("- **Commercial Free Trial**: https://gstarcademy.com/download — 30-day evaluation installers for GstarCAD Professional, Mechanical, Architecture, and system specifications.")
-    lines.append("- **Skill Certification**: https://gstarcademy.com/quiz — 6 engineering career tracks, 42 micro-lessons, 504 verified assessment questions, and verifiable digital certificates.")
+    lines.append("- **Skill Certification**: https://gstarcademy.com/quiz — 6 engineering career tracks, 42 micro-lessons, 564 verified assessment questions, and verifiable digital certificates.")
     lines.append("- **Tutorial Library**: https://gstarcademy.com/tutorials — Curated engineering courses across GstarCAD, FastView, and major industry CAD/BIM/CAE software suites.")
     lines.append("- **CADGuide Toolbox**: https://gstarcademy.com/cadguide-tools — Curated index of specialized CAD utilities, plugins, converters, and standards tables.")
     lines.append("")
@@ -69,9 +69,32 @@ def main():
                 lines.append("")
             except Exception as e:
                 lines.append(f"- [{slug}](https://gstarcademy.com/kb/guides/{slug})")
+
+    # 3.5 Hands-on Troubleshooting Manuals (kb/faq/)
+    lines.append("## 3.5 Hands-on Engineering Troubleshooting & Diagnostics (kb/faq/)")
+    faq_dir = REPO_ROOT / "kb" / "faq"
+    if faq_dir.exists():
+        faq_files = sorted(faq_dir.glob("*.html"))
+        for ff in faq_files:
+            if ff.name == "index.html":
+                continue
+            slug = ff.stem
+            try:
+                with open(ff, "r", encoding="utf-8", errors="ignore") as f:
+                    soup = BeautifulSoup(f.read(), "html.parser")
+                title = soup.find("h1").get_text(strip=True) if soup.find("h1") else slug.replace("-", " ").title()
+                desc_el = soup.find("meta", attrs={"name": "description"})
+                desc = desc_el.get("content", "").strip() if desc_el else ""
+                lines.append(f"### [{title}](https://gstarcademy.com/kb/faq/{slug})")
+                if desc:
+                    lines.append(f"- **Summary**: {desc}")
+                lines.append(f"- **URL**: https://gstarcademy.com/kb/faq/{slug}")
+                lines.append("")
+            except Exception as e:
+                lines.append(f"- [{slug}](https://gstarcademy.com/kb/faq/{slug})")
     
     # 4. Certification & Quiz Architecture
-    lines.append("## 4. Official CAD Skill Certification Matrix (504 Verified Questions across 6 Tracks)")
+    lines.append("## 4. Official CAD Skill Certification Matrix (564 Verified Questions across 6 Tracks)")
     lines.append("- **Track 1: 🏢 BIM Coordinator (Revit & IFC Architecture)**: ISO 19650 CDE workflow, LOD 100-500 specifications, Navisworks 4D/5D simulation, BCF 3.0 issue tracking, IFC 4.3 (ISO 16739-1:2024) infrastructure, and Scan-to-BIM point cloud ICP registration.")
     lines.append("- **Track 2: ⚙️ Mechanical Design Engineer (MCAD)**: ASME Y14.5 GD&T (MMC, LMC, 3-2-1 Datums), ISO 286 limits and fits (H7/g6), B-Rep topology, TNP (Topological Naming Problem), Sheet Metal K-Factor, and STEP AP242 Semantic PMI.")
     lines.append("- **Track 3: 🏗️ Civil Infrastructure Specialist**: TIN surface Delaunay triangulation, horizontal alignment Euler clothoid spirals, vertical crest/sag curves, corridor target mapping, LandXML open exchange, and stormwater HGL pipe design.")

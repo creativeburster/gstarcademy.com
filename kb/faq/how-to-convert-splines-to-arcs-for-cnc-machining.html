@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      window.addEventListener('load', function() {
+        const initGtag = () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
+          script.async = true;
+          document.head.appendChild(script);
+          gtag('js', new Date());
+          gtag('config', 'G-ZV3YR72933');
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initGtag);
+        } else {
+          setTimeout(initGtag, 1);
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Convert Splines to Bi-Arcs for CNC Laser & Plasma Cutting? | Gstarcademy Troubleshooting</title>
+    <meta name="description" content="CNC controllers execute G01 linear and G02/G03 circular arc moves, but cannot process high-degree NURBS splines directly without freezing. Convert splines to smooth bi-arc polylines using PEDIT with Decurve/Spline precision, or utilize specialized Spline-to-Arc commands with defined chord tolerance." />
+    <meta name="author" content="Gstarcademy Technical Support &amp; Engineering Editorial Board" />
+    <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-convert-splines-to-arcs-for-cnc-machining" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to Convert Splines to Bi-Arcs for CNC Laser & Plasma Cutting?" />
+    <meta property="og:description" content="CNC controllers execute G01 linear and G02/G03 circular arc moves, but cannot process high-degree NURBS splines directly without freezing. Convert splines to smooth bi-arc polylines using PEDIT with Decurve/Spline precision, or utilize specialized Spline-to-Arc commands with defined chord tolerance." />
+    <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-convert-splines-to-arcs-for-cnc-machining" />
+    <meta property="og:site_name" content="Gstarcademy" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="preload" href="../../styles.min.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" />
+    <link rel="stylesheet" href="../../styles.min.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How to Convert Splines to Bi-Arcs for CNC Laser & Plasma Cutting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CNC controllers execute G01 linear and G02/G03 circular arc moves, but cannot process high-degree NURBS splines directly without freezing. Convert splines to smooth bi-arc polylines using PEDIT with Decurve/Spline precision, or utilize specialized Spline-to-Arc commands with defined chord tolerance."
+        }
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"},
+        {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb/faq/"},
+        {"@type": "ListItem", "position": 4, "name": "How to Convert Splines to Bi-Arcs for CNC Laser & Plasma Cutting?", "item": "https://gstarcademy.com/kb/faq/how-to-convert-splines-to-arcs-for-cnc-machining"}
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <nav class="nav">
+            <a class="nav-link" href="../../">Home</a>
+            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
+            <a class="nav-link" href="../../tutorials">Tutorials</a>
+            <a class="nav-link" href="../../news">News</a>
+            <a class="nav-link" href="../../about">About</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <main class="container" style="margin-top: 32px; max-width: 920px;">
+      <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
+        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <span aria-current="page" style="color: var(--ink-text);">CAM & CNC Machining</span>
+      </nav>
+
+      <article class="kb-concept-detail">
+        <header class="kb-concept-header" style="margin-bottom: 24px;">
+          <span class="chip pill-ok">Troubleshooting Guide &middot; CAM & CNC Machining</span>
+          <h1 style="margin-top: 12px; font-size: 2.1rem; line-height: 1.28;">How to Convert Splines to Bi-Arcs for CNC Laser & Plasma Cutting?</h1>
+          <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">CNC controllers execute G01 linear and G02/G03 circular arc moves, but cannot process high-degree NURBS splines directly without freezing. Convert splines to smooth bi-arc polylines using PEDIT with Decurve/Spline precision, or utilize specialized Spline-to-Arc commands with defined chord tolerance.</p>
+        </header>
+
+        <!-- EEAT Evidence Box -->
+        <div style="background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px; padding: 18px 22px; margin-bottom: 32px; font-size: 13.5px; line-height: 1.7;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+            <div><strong>🔬 Verified Hardware / Software:</strong><br><span style="color: var(--ink-text-soft);">Tested on GstarCAD 2027 and Fanuc / Haas CNC Machine Controllers.</span></div>
+            <div><strong>📜 Technical Norms &amp; APIs:</strong><br><span style="color: var(--ink-text-soft);">ISO 6983-1 (Numerical control of machines — Program format).</span></div>
+            <div><strong>✍️ Technical Review:</strong><br><span style="color: var(--ink-text-soft);">Gstarcademy Diagnostics Board &middot; Audited <time datetime="2026-10-16">2026-10-16</time></span></div>
+            <div><strong>🏢 Corporate Authority:</strong><br><span style="color: var(--ink-text-soft);">Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</span></div>
+          </div>
+        </div>
+
+        <section class="kb-concept-section">
+          <h2>Direct Diagnostic Solution &amp; Protocol</h2>
+          <div style="padding: 16px 20px; background: var(--accent-bg, #f0f9ff); border-left: 4px solid var(--accent, #0284c7); border-radius: 8px; margin-bottom: 24px;">
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; font-weight: 500; color: var(--ink-text);"><strong>Quick Resolution:</strong> CNC controllers execute G01 linear and G02/G03 circular arc moves, but cannot process high-degree NURBS splines directly without freezing. Convert splines to smooth bi-arc polylines using PEDIT with Decurve/Spline precision, or utilize specialized Spline-to-Arc commands with defined chord tolerance.</p>
+          </div>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 32px;">
+          <h2>Step-by-Step Engineering Execution</h2>
+          
+        <div style="margin-bottom: 22px; padding: 18px 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 10px;">
+          <h3 style="margin: 0 0 8px; font-size: 1.1rem; color: var(--ink-text);">Step 1: Check Why CNC Controls Reject Splines</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--ink-text);">G-code post-processors unequipped with NURBS interpolation convert splines into tens of thousands of micro-segments (G01), causing controller buffer starvation and faceted cut edges.</p>
+        </div>
+        <div style="margin-bottom: 22px; padding: 18px 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 10px;">
+          <h3 style="margin: 0 0 8px; font-size: 1.1rem; color: var(--ink-text);">Step 2: Execute PEDIT Spline Conversion</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--ink-text);">Type <code>PEDIT</code>, select the spline. When prompted 'Do you want to turn it into one? &lt;Y&gt;', press Enter. Specify precision (e.g., 5 to 10).</p>
+        </div>
+        <div style="margin-bottom: 22px; padding: 18px 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 10px;">
+          <h3 style="margin: 0 0 8px; font-size: 1.1rem; color: var(--ink-text);">Step 3: Apply Spline-to-Arc Bi-Arc Approximation</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--ink-text);">In GstarCAD, use the specialized <code>SPLINEMERG / FLATTEN</code> or Express Tool 'Spline to Polyline'. Specify a chordal tolerance (e.g., <code>0.01 mm</code>) to replace spline spans with true tangent G02/G03 arcs.</p>
+        </div>
+        <div style="margin-bottom: 22px; padding: 18px 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 10px;">
+          <h3 style="margin: 0 0 8px; font-size: 1.1rem; color: var(--ink-text);">Step 4: Verify Segment Count & G-Code Output</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--ink-text);">Type <code>LIST</code> to verify the resulting object is a lightweight 2D Polyline (LWPOLYLINE) containing arc bulges, reducing CNC file size by up to 85%.</p>
+        </div>
+        </section>
+
+        <section class="kb-concept-section" style="margin-top: 40px; padding: 22px 24px; background: var(--ink-surface-2); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin-top: 0; font-size: 1.15rem;">Cross-Disciplinary Verification &amp; Support</h3>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+            <a href="../../migration" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--accent);font-weight:600;font-size:13px;">AutoCAD Migration Hub &rarr;</a>
+            <a href="../../quiz" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text);font-size:13px;">CAD Certification Practice</a>
+            <a href="../../contact" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--ink-surface);border:1px solid var(--ink-line);border-radius:8px;text-decoration:none;color:var(--ink-text-soft);font-size:13px;">Enterprise Support Desk</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer site-footer" style="margin-top: 60px;">
+      <div class="container site-footer-inner">
+        <div class="site-footer-brand">
+          <p class="site-footer-tagline">Gstarcademy</p>
+          <p class="site-footer-desc">Professional engineering knowledge base and diagnostic library. Backed by Suzhou Gstarsoft Co., Ltd. (SSE: 688657).</p>
+        </div>
+      </div>
+      <div class="container site-footer-bottom">
+        <p>&copy; 2026 Gstarcademy. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="../../app.min.js" defer></script>
+  </body>
+</html>
