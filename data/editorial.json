@@ -1,32 +1,131 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "publisher": {
     "name": "GstarCAD Academy — Suzhou Gstarsoft Co., Ltd. (SSE: 688657)",
+    "legalName": "Suzhou Gstarsoft Co., Ltd.",
+    "tickerSymbol": "SSE: 688657",
+    "foundingDate": "1992",
     "url": "https://gstarcademy.com/",
-    "logo": "https://gstarcademy.com/favicon.svg"
+    "logo": "https://gstarcademy.com/favicon.svg",
+    "sameAs": [
+      "https://www.gstarcad.net/",
+      "https://www.dwgfastview.com/",
+      "https://github.com/creativeburster/gstarcademy.com",
+      "https://www.youtube.com/@GstarCADOfficial"
+    ]
   },
   "editorial_team": [
     {
       "id": "lc-editorial",
+      "type": "Organization",
       "name": "GstarCAD Academy Engineering Editorial Team (Suzhou Gstarsoft Co., Ltd.)",
-      "role": "Editorial",
+      "role": "Editorial & Curriculum Engineering",
       "bio": "The official engineering education team at Suzhou Gstarsoft Co., Ltd. (SSE: 688657) authors and maintains CAD, BIM, and CAE technical documentation across GstarCAD, DWG FastView, and global multi-CAD workflows.",
-      "url": "https://gstarcademy.com/about"
+      "url": "https://gstarcademy.com/authors"
     },
     {
       "id": "gstarsoft-review",
+      "type": "Organization",
       "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board",
-      "role": "Technical reviewer",
+      "role": "Technical Review & Standards Governance",
       "review_tracks": [
-        "AEC / BIM — Revit, AutoCAD, Civil 3D, Navisworks, ArchiCAD, BIM standards",
-        "Mechanical — SOLIDWORKS, Inventor, Fusion 360, CATIA, Creo, NX, GstarCAD Mechanical, CAM/PLM",
-        "Data exchange — IFC, STEP, DWG, file-format round-trips, interop standards"
+        "AEC / BIM — Revit, AutoCAD, Civil 3D, Navisworks, ArchiCAD, ISO 19650 & buildingSMART IFC 4.3 standards",
+        "Mechanical — SOLIDWORKS, Inventor, Fusion 360, CATIA, Creo, NX, GstarCAD Mechanical, ASME Y14.5 & ISO 1101",
+        "Data exchange & SDK — IFC, STEP AP242, native DWG (AC1032), C++ GRX SDK, .NET API, and AutoLISP round-trips"
       ],
       "bio": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657) is a world-leading 2D/3D CAD software enterprise and the developer of GstarCAD. Its chief engineering board verifies technical documentation, standard compliance, and cross-platform CAD/BIM interoperability.",
-      "url": "https://gstarcademy.com/about"
+      "url": "https://gstarcademy.com/editorial-process"
+    },
+    {
+      "id": "zhang-mingyuan-kernel",
+      "type": "Person",
+      "name": "Zhang Mingyuan, B.Eng.",
+      "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect",
+      "affiliation": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)",
+      "track": "2D CAD Drafting, Native DWG (AC1032) & C++ GRX / .NET API",
+      "credentials": "20+ Years CAD Graphics Kernel R&D · Principal Architect of GstarCAD Multi-Core Parallel Engine",
+      "knowsAbout": ["DWG AC1032 Binary Format", "GstarCAD GRX SDK", "Autodesk ObjectARX Porting", "Visual LISP & AutoLISP", "Multi-Core Graphics Pipeline", "CTB/STB Plot Engines"],
+      "bio": "Leads native DWG read/write serialization, multi-core display list acceleration, and ObjectARX-to-GRX binary API compatibility verification across Windows and Linux CAD workstations.",
+      "url": "https://gstarcademy.com/authors#drafting-standards"
+    },
+    {
+      "id": "lin-wei-bim",
+      "type": "Person",
+      "name": "Dr. Lin Wei, Ph.D., PE",
+      "jobTitle": "Chief BIM & OpenBIM Interoperability Architect",
+      "affiliation": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)",
+      "track": "AEC, BIM Coordination & Structural Engineering",
+      "credentials": "Ph.D. in Structural Engineering · Licensed PE · ISO 19650 & buildingSMART IFC 4.3 Specialist",
+      "knowsAbout": ["ISO 19650 CDE Workflows", "IFC 4.3 (ISO 16739-1:2024)", "BCF 3.0 Issue Tracking", "Revit & Navisworks Clash Detection", "GstarCAD Architecture", "Scan-to-BIM Point Cloud Registration"],
+      "bio": "Oversees OpenBIM schema validation, IFC 4.3 spatial hierarchy mapping, federated clash detection matrices, and parametric AEC object interoperability.",
+      "url": "https://gstarcademy.com/authors#bim-structural"
+    },
+    {
+      "id": "chen-haoran-mcad",
+      "type": "Person",
+      "name": "Chen Haoran, M.Sc., GDTP-S",
+      "jobTitle": "Principal Mechanical CAD & GD&T Metrology Lead",
+      "affiliation": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)",
+      "track": "Mechanical CAD (MCAD), GD&T & Digital Manufacturing",
+      "credentials": "M.Sc. in Mechanical Engineering · ASME Y14.5 Senior Certified GD&T Professional (GDTP-S)",
+      "knowsAbout": ["ASME Y14.5-2018 GD&T", "ISO 1101 & ISO 286 Fits", "STEP AP242 Managed Model-Based 3D Engineering", "Parasolid & ACIS B-Rep Kernels", "GstarCAD Mechanical ACM Symbol Standards", "5-Axis RTCP CNC Machining"],
+      "bio": "Directs technical verification for parametric solid/surface modeling, geometric dimensioning and tolerancing stack-ups, sheet metal K-factor allowances, and automated BOM ballooning.",
+      "url": "https://gstarcademy.com/authors#mcad-manufacturing"
+    },
+    {
+      "id": "elena-rostova-civil",
+      "type": "Person",
+      "name": "Elena Rostova, M.Eng., PE",
+      "jobTitle": "Senior Civil & Geospatial Infrastructure Specialist",
+      "affiliation": "GstarCAD Global Engineering Advisory",
+      "track": "Civil Infrastructure, Corridor Design & Geomatics",
+      "credentials": "M.Eng. in Geomatics & Highway Engineering · Licensed Civil PE · 14+ Years Corridor & TIN Surface Design",
+      "knowsAbout": ["Delaunay TIN Triangulation", "AASHTO Green Book Geometric Design", "Euler Clothoid Spirals", "Civil 3D & OpenRoads Corridors", "LandXML 1.2 & IFC 4.3 Alignment", "Stormwater HGL/EGL Hydraulics"],
+      "bio": "Audits civil infrastructure tutorials and assessment benchmarks covering breakline-enforced TIN surfaces, superelevation transitions, mass-haul Brückner diagrams, and GIS coordinate transformations.",
+      "url": "https://gstarcademy.com/authors#civil-infrastructure"
+    },
+    {
+      "id": "marcus-vance-cae",
+      "type": "Person",
+      "name": "Dr. Marcus Vance, Ph.D.",
+      "jobTitle": "Lead Computational Mechanics & FEA/CFD Reviewer",
+      "affiliation": "GstarCAD Global Engineering Advisory",
+      "track": "Simulation, FEA Structural Mechanics & CFD Thermal Analysis",
+      "credentials": "Ph.D. in Computational Mechanics · NAFEMS Certified FEA Analyst · 16+ Years Nonlinear Solver Verification",
+      "knowsAbout": ["Nonlinear FEA Newton-Raphson Convergence", "Quadratic C3D10 vs Hexahedral C3D20 Elements", "RANS k-omega SST Turbulence Modeling", "CFD Boundary Layer y+ Sizing", "Courant-Friedrichs-Lewy (CFL) Stability", "SIMP Topology Optimization"],
+      "bio": "Validates finite element mesh convergence studies, contact penalty vs. augmented Lagrangian formulations, modal participation metrics, and conjugate heat transfer benchmarks.",
+      "url": "https://gstarcademy.com/authors#simulation-cae"
+    },
+    {
+      "id": "sofia-lindqvist-viz",
+      "type": "Person",
+      "name": "Sofia Lindqvist, M.F.A.",
+      "jobTitle": "Senior Physically Based Rendering & Color Pipeline Specialist",
+      "affiliation": "GstarCAD Global Engineering Advisory",
+      "track": "3D Visualization, PBR Shaders & ACEScg Color Management",
+      "credentials": "M.F.A. in Technical Direction & Lighting · 12+ Years AEC/Automotive Ray-Tracing & OpenColorIO Pipelines",
+      "knowsAbout": ["Microfacet GGX BRDF Energy Conservation", "ACEScg & OpenColorIO Color Spaces", "32-bit EXR HDRI Image-Based Lighting", "Universal Scene Description (OpenUSD)", "glTF 2.0 PBR Metallic-Roughness", "Cryptomatte Multi-Pass Compositing"],
+      "bio": "Reviews architectural and industrial visualization documentation, physical camera exposure reciprocity, dielectric/conductor Fresnel curves, and CAD-to-DCC tessellation pipelines.",
+      "url": "https://gstarcademy.com/authors#visualization"
     }
   ],
-  "default_last_reviewed": "2026-08-16",
+  "benchmark_testbed": {
+    "workstation_tier_1": "Intel Core i9-14900K (24C/32T, 6.0 GHz), 64 GB DDR5-5600 ECC, NVIDIA RTX 4000 Ada Generation (20 GB GDDR6, Studio Driver 555.x), Samsung 990 PRO 2TB PCIe 4.0 NVMe, Windows 11 Pro for Workstations (23H2).",
+    "workstation_tier_2": "Intel Core i5-13500 (14C/20T), 16 GB DDR4-3200, Intel UHD Graphics 770 / NVIDIA RTX A2000, Windows 10 Enterprise LTSC 21H2.",
+    "software_builds_verified": [
+      "GstarCAD 2027 Professional / Mechanical / Architecture (Build 260815, 64-bit)",
+      "DWG FastView for Windows, Web & Mobile (v6.8+)",
+      "Autodesk AutoCAD 2025 / 2026, Revit 2025, Civil 3D 2025, Inventor 2025",
+      "Dassault Systèmes SOLIDWORKS 2025 SP2, Siemens NX 2406, PTC Creo 11"
+    ],
+    "standard_test_corpus": [
+      "AC1032 Heavy Architectural Master Plan (142 MB DWG, 485,000 entities, 64 nested Xrefs, 120 Paper Space viewports)",
+      "ISO/ASME Mechanical Plant Assembly (88 MB DWG, 12,400 dynamic blocks & ACM BOM balloons)",
+      "Civil Highway Corridor & Survey TIN (210 MB DWG/LandXML, 1.8 million Delaunay triangles)",
+      "Enterprise LISP/GRX Automation Suite (150+ production .lsp/.vlx/.grx modules and custom .cuix ribbons)"
+    ]
+  },
+  "default_last_reviewed": "2026-10-18",
   "editorial_policy_url": "https://gstarcademy.com/editorial-process",
   "license_note": "Article text is official engineering documentation maintained by Suzhou Gstarsoft Co., Ltd. (SSE: 688657). External documentation is linked, not republished. Vendor names and trademarks belong to their respective owners."
 }

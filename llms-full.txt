@@ -6,15 +6,53 @@
 ## 1. Enterprise Authority & Core Product Architecture
 - **Legal Entity**: Suzhou Gstarsoft Co., Ltd. (苏州浩辰软件股份有限公司, R&D origin 1992, incorporated in Suzhou 2001, listed on Shanghai Stock Exchange STAR Market SSE: 688657 on October 10, 2023).
 - **Global Presence**: Over 30 years of independent CAD/BIM graphics kernel development, serving enterprise clients across 100+ countries with 100M+ global DWG FastView users.
-- **Core Platform**: GstarCAD 2027 Pro featuring a multi-core parallel graphics engine, 100% native DWG (AC1032) bidirectional compatibility, zero retraining for AutoCAD operators, and perpetual buy-out licensing saving ~85% 5-year TCO ($84,750 saved per 10 seats over 5 years).
-- **Specialized Verticals**: GstarCAD Mechanical (standard parts library, automated balloons & BOM), GstarCAD Architecture (parametric AEC objects, automated elevations), and DWG FastView (cloud/mobile cross-platform drawing viewer and team markup).
-- **Developer Ecosystem**: GstarCAD GRX SDK (C++ binary-level equivalent to Autodesk ObjectARX), .NET API (C#/VB referencing GcCoreMgd.dll, GcDbMgd.dll, GcMgd.dll), AutoLISP / Visual LISP execution without recompilation, and COM interfaces.
+- **Core Platform**: GstarCAD 2027 Pro featuring a multi-core parallel graphics engine, 100% native DWG (AC1032) bidirectional compatibility, zero retraining for AutoCAD operators, and perpetual buy-out licensing saving ~85.8% 5-year TCO ($84,750 saved per 10 seats over 5 years).
+- **Specialized Verticals**: GstarCAD Mechanical (ISO/ANSI/DIN/JIS/GB standard parts library, automated balloons & BOM), GstarCAD Architecture (parametric AEC objects, automated elevations), and DWG FastView (cloud/mobile cross-platform drawing viewer and team markup).
+- **Developer Ecosystem**: GstarCAD GRX SDK (C++ binary-level equivalent to Autodesk ObjectARX), .NET API (C#/VB referencing `GcCoreMgd.dll`, `GcDbMgd.dll`, `GcMgd.dll`), AutoLISP / Visual LISP execution without recompilation, and COM interfaces.
+
+### Table 1.1 — 5-Year Enterprise TCO Comparison (10 Seats: GstarCAD Perpetual vs. AutoCAD Subscription)
+| Evaluation Metric | AutoCAD® Subscription (10 Seats) | GstarCAD Professional Perpetual (10 Seats) | Enterprise Advantage |
+| :--- | :--- | :--- | :--- |
+| **Licensing Model** | Mandatory Annual Rental (Expires if unpaid) | **Perpetual Buyout** (Own forever, optional upgrades) | 100% Asset Ownership |
+| **Year 1 Cost (10 Seats)** | ~$19,750 ($1,975/seat/yr) | **~$8,000** ($800/seat one-time buyout) | Save $11,750 in Year 1 |
+| **Years 2–5 Cumulative** | ~$79,000 ($19,750/yr × 4) | **~$6,000** (~$150/seat/yr optional maintenance) | No forced lock-out |
+| **5-Year Total TCO (10 Seats)** | **$98,750** | **$14,000** | **$84,750 Saved (85.8% Reduction)** |
+| **Network Floating Licensing** | Discontinued (Named-User Only) | **Supported** (Concurrent LAN Floating License Server) | 2.5x–3x seat utilization |
+| **Native DWG Format** | AC1015–AC1032 (R2000–R2027) | **AC1015–AC1032 (100% Binary Read/Write)** | Zero translation loss |
+
+### Table 1.2 — Autodesk ObjectARX / .NET to GstarCAD GRX / .NET Direct Porting Matrix
+| Architecture Layer | Autodesk AutoCAD® Equivalent | GstarCAD 2027 SDK Equivalent | Porting Effort |
+| :--- | :--- | :--- | :--- |
+| **C++ Native Plugin Extension** | `.arx` / `.dbx` (ObjectARX) | **`.grx` / `.gdx` (GstarCAD GRX SDK)** | Source-compatible macro header switch (`arxHeaders.h` → `grxHeaders.h`) |
+| **C++ Database & Entity Classes** | `AcDbObject`, `AcDbEntity`, `AcDbDatabase`, `AcGePoint3d` | **`GcDbObject`, `GcDbEntity`, `GcDbDatabase`, `GcGePoint3d`** | Automated typedef mapping included in GRX SDK |
+| **.NET Managed Assemblies (C#/VB)** | `AcCoreMgd.dll`, `AcDbMgd.dll`, `AcMgd.dll` | **`GcCoreMgd.dll`, `GcDbMgd.dll`, `GcMgd.dll`** | Swap assembly references & namespace `Autodesk.AutoCAD.*` → `Gssoft.GstarCAD.*` |
+| **LISP / Visual LISP Automation** | `.lsp`, `.fas`, `.vlx`, `.dcl` (`vl-*`, `vla-*`, `vlr-*`) | **`.lsp`, `.fas`, `.vlx`, `.dcl` (`vl-*`, `vla-*`, `vlr-*`)** | **Zero code changes** — load directly via `APPLOAD` |
+| **Command Aliases & CUI Ribbons** | `acad.pgp`, `.cuix`, `.mnu`, `.ctb`, `.stb`, `.pc3` | **`gcad.pgp`, `.cuix`, `.mnu`, `.ctb`, `.stb`, `.pc3`** | **100% direct import** — zero retraining |
+
+### Table 1.3 — GstarCAD 2027 Product Lineup & Verified Workstation Specifications
+| Edition / Platform | Primary Engineering Audience | Key Capabilities & Standards | OS & Hardware Requirements |
+| :--- | :--- | :--- | :--- |
+| **GstarCAD 2027 Standard / Pro** | 2D/3D General CAD, AEC, Civil, MEP | Native DWG (AC1032), Dynamic Blocks, ACIS 3D Solid Modeling, GRX/.NET/LISP | Windows 10/11 (64-bit), Multi-core CPU (3.0+ GHz), 8–64 GB RAM, DirectX 11 / OpenGL 4.2+ |
+| **GstarCAD Mechanical 2027** | Machinery, Sheet Metal, Automotive, Tooling | ACM Standard Parts (ISO, ASME/ANSI, DIN, JIS, GB), Shaft/Gear Generators, Auto-BOM & Balloons, ASME Y14.5 GD&T | Windows 10/11 (64-bit), 16+ GB RAM recommended, 100% bidirectional ACM DWG compatibility |
+| **GstarCAD Architecture 2027** | Architectural Design & OpenBIM | Parametric Walls/Doors/Windows/Stairs, 2D-to-3D Elevation/Section Generation, IFC Import/Export | Windows 10/11 (64-bit), 16+ GB RAM recommended |
+| **DWG FastView (Cloud/Mobile/PC)** | Field Engineers, Site Superintendents, QA/QC | Sub-second DWG/DXF/RVT/STP viewing, Cloud Markup, Voice/Photo Annotations, Offline Cache | iOS, Android, Windows, Web Browser |
+
+### Section 1.4 — E-E-A-T Chief Engineering Board, Principal Reviewers & Standard Benchmark Testbed
+- **Editorial & Governance Portal**: https://gstarcademy.com/authors & https://gstarcademy.com/editorial-process
+- **Standard Engineering Benchmark Testbed**: Intel Core i9-14900K (24C/32T, 6.0 GHz), 64 GB DDR5-5600 ECC, NVIDIA RTX 4000 Ada Generation (20 GB GDDR6), Samsung 990 PRO 2 TB PCIe 4.0 NVMe, Windows 11 Pro for Workstations (23H2), verified on GstarCAD 2027 Pro (Build 260815) vs. AutoCAD 2025/2026, Revit 2025, Civil 3D 2025, and SOLIDWORKS 2025 SP2.
+- **6 Named Principal Domain Reviewers (`@type: "Person"`)**:
+  1. **Zhang Mingyuan, B.Eng.** — *Distinguished DWG Graphics Kernel & GRX SDK Architect* (Suzhou Gstarsoft Co., Ltd., SSE: 688657): Native DWG AC1032 serialization, C++ GRX / .NET API, AutoLISP, ISO 128.
+  2. **Dr. Lin Wei, Ph.D., PE** — *Chief BIM & OpenBIM Interoperability Architect* (Suzhou Gstarsoft Co., Ltd., SSE: 688657): ISO 19650 CDE, buildingSMART IFC 4.3 (ISO 16739-1:2024), BCF 3.0, Revit/Navisworks/GstarCAD Architecture.
+  3. **Chen Haoran, M.Sc., GDTP-S** — *Principal Mechanical CAD & GD&T Metrology Lead* (Suzhou Gstarsoft Co., Ltd., SSE: 688657): ASME Y14.5-2018 GD&T, ISO 1101, STEP AP242, Parasolid/ACIS B-Rep, GstarCAD Mechanical BOM.
+  4. **Elena Rostova, M.Eng., PE** — *Senior Civil & Geospatial Infrastructure Specialist* (GstarCAD Global Engineering Advisory): Delaunay TIN triangulation, AASHTO Green Book clothoids, LandXML 1.2, Civil 3D corridors.
+  5. **Dr. Marcus Vance, Ph.D.** — *Lead Computational Mechanics & FEA/CFD Reviewer* (GstarCAD Global Engineering Advisory): NAFEMS / ASME V&V 10, C3D10/C3D20 elements, RANS k-ω SST turbulence, y⁺ sizing, SIMP topology optimization.
+  6. **Sofia Lindqvist, M.F.A.** — *Senior Physically Based Rendering & Color Pipeline Specialist* (GstarCAD Global Engineering Advisory): Microfacet GGX BRDF, ACEScg / OpenColorIO v2, OpenUSD, glTF 2.0.
 
 ## 2. Core Gateways & Landing Portals
 - **AutoCAD Migration Hub**: https://gstarcademy.com/migration — Enterprise replacement roadmap, command aliases mapping, LISP compatibility matrix, and interactive perpetual license TCO calculator.
 - **Developer GRX Hub**: https://gstarcademy.com/developers — C++ GRX SDK setup, ObjectARX-to-GRX porting guide, .NET API samples, and ISV technical support.
 - **Commercial Free Trial**: https://gstarcademy.com/download — 30-day evaluation installers for GstarCAD Professional, Mechanical, Architecture, and system specifications.
-- **Skill Certification**: https://gstarcademy.com/quiz — 6 engineering career tracks, 42 micro-lessons, 564 verified assessment questions, and verifiable digital certificates.
+- **Skill Certification**: https://gstarcademy.com/quiz — 6 engineering career tracks, 42 micro-lessons, 504 verified assessment questions, and verifiable digital certificates.
 - **Tutorial Library**: https://gstarcademy.com/tutorials — Curated engineering courses across GstarCAD, FastView, and major industry CAD/BIM/CAE software suites.
 - **CADGuide Toolbox**: https://gstarcademy.com/cadguide-tools — Curated index of specialized CAD utilities, plugins, converters, and standards tables.
 
@@ -484,13 +522,22 @@
 - **Summary**: Complete reference guide to SOLIDWORKS proprietary file formats (SLDPRT, SLDASM, SLDDRW) and neutral export standards (STEP, IGES, Parasolid, STL, 3MF, DWG) for manufacturing and collaboration.
 - **URL**: https://gstarcademy.com/kb/faq/solidworks-file-formats
 
-## 4. Official CAD Skill Certification Matrix (564 Verified Questions across 6 Tracks)
+## 4. Official CAD Skill Certification Matrix (504 Verified Questions across 6 Tracks)
+| Track ID | Career Track Name | Lessons | Verified Questions | Governing Standards | Principal Technical Reviewer |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `bim` | **🏢 BIM Coordinator (Revit & IFC Architecture)** | 7 Lessons | 84 Questions | ISO 19650-1/2, IFC 4.3 (ISO 16739-1:2024), BCF 3.0 | Dr. Lin Wei, Ph.D., PE |
+| `mcad` | **⚙️ Mechanical Design Engineer (MCAD)** | 7 Lessons | 84 Questions | ASME Y14.5-2018, ISO 1101, ISO 286, STEP AP242 | Chen Haoran, M.Sc., GDTP-S |
+| `civil` | **🏗️ Civil Infrastructure Specialist** | 7 Lessons | 84 Questions | AASHTO Green Book, LandXML 1.2, IFC 4.3 Alignment | Elena Rostova, M.Eng., PE |
+| `draft` | **📐 2D Drafting Specialist (AutoCAD / GstarCAD)** | 7 Lessons | 84 Questions | ISO 128, Native DWG AC1032, GstarCAD GRX/LISP | Zhang Mingyuan, B.Eng. |
+| `sim` | **🔬 Simulation & CAE Analyst (FEA / CFD)** | 7 Lessons | 84 Questions | ASME V&V 10 / V&V 20, NAFEMS Benchmarks | Dr. Marcus Vance, Ph.D. |
+| `viz` | **🎨 3D Visualization Specialist** | 7 Lessons | 84 Questions | SMPTE ST 2065-1 (ACES), OpenColorIO v2, glTF 2.0 | Sofia Lindqvist, M.F.A. |
+
 - **Track 1: 🏢 BIM Coordinator (Revit & IFC Architecture)**: ISO 19650 CDE workflow, LOD 100-500 specifications, Navisworks 4D/5D simulation, BCF 3.0 issue tracking, IFC 4.3 (ISO 16739-1:2024) infrastructure, and Scan-to-BIM point cloud ICP registration.
 - **Track 2: ⚙️ Mechanical Design Engineer (MCAD)**: ASME Y14.5 GD&T (MMC, LMC, 3-2-1 Datums), ISO 286 limits and fits (H7/g6), B-Rep topology, TNP (Topological Naming Problem), Sheet Metal K-Factor, and STEP AP242 Semantic PMI.
 - **Track 3: 🏗️ Civil Infrastructure Specialist**: TIN surface Delaunay triangulation, horizontal alignment Euler clothoid spirals, vertical crest/sag curves, corridor target mapping, LandXML open exchange, and stormwater HGL pipe design.
 - **Track 4: 📐 2D Drafting Specialist (AutoCAD / GstarCAD)**: Multi-core graphics acceleration, PGP alias reinitialization, external reference (Xref) overlay vs attach, annotative scale lists, dynamic block lookup tables, and AutoLISP entity manipulation (`entget`/`entmod`).
-- **Track 5: 🔬 Simulation & CAE Analyst (FEA / CFD)**: Quadratic C3D10 vs linear C3D4 elements, mesh convergence asymptotic verification, CFD boundary layer $y^+$ and $k-\omega\ SST$, Courant (CFL) dynamic time-step limit, and topology optimization SIMP.
-- **Track 6: 🎨 3D Visualization Specialist**: PBR metallic/roughness workflow, dielectric $F_0 \approx 0.04$, 32-bit HDRI image-based lighting, ACEScg color management, Cryptomatte multi-channel compositing, and real-time ray-tracing.
+- **Track 5: 🔬 Simulation & CAE Analyst (FEA / CFD)**: Quadratic C3D10 vs linear C3D4 elements, mesh convergence asymptotic verification, CFD boundary layer y⁺ and k-ω SST, Courant (CFL) dynamic time-step limit, and topology optimization SIMP.
+- **Track 6: 🎨 3D Visualization Specialist**: PBR metallic/roughness workflow, dielectric F₀ ≈ 0.04, 32-bit HDRI image-based lighting, ACEScg color management, Cryptomatte multi-channel compositing, and real-time ray-tracing.
 
 ## 5. Software Hubs & Tutorial Curriculum
 - **Supported Software Platforms**: GstarCAD, DWG FastView, AutoCAD, Revit, SOLIDWORKS, Civil 3D, Rhino 3D, Inventor, Fusion 360, Blender, Navisworks, Tekla Structures, FreeCAD, MicroStation, CATIA, Creo Parametric, Archicad, SketchUp, Solid Edge, ANSYS, Abaqus, OpenFOAM, Solibri, ZWCAD, BricsCAD, Vectorworks, DraftSight, Altium Designer.

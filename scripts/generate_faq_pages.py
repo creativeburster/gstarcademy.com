@@ -1145,9 +1145,10 @@ def generate_faq_page(faq):
         </section>'''
 
     # JSON-LD Schema
-    schema_qa = [f'{{"@type":"Question","name":"{f["title"]}","acceptedAnswer":{{"@type":"Answer","text":"{f["quick_answer"][:500]}"}}}}']
+    import json as _json
+    schema_qa = [_json.dumps({"@type": "Question", "name": f["title"], "acceptedAnswer": {"@type": "Answer", "text": f["quick_answer"][:500]}}, ensure_ascii=False)]
     for s in f["steps"]:
-        schema_qa.append(f'{{"@type":"Question","name":"{s["title"]}","acceptedAnswer":{{"@type":"Answer","text":"{s["content"][:400]}"}}}}')
+        schema_qa.append(_json.dumps({"@type": "Question", "name": s["title"], "acceptedAnswer": {"@type": "Answer", "text": s["content"][:400]}}, ensure_ascii=False))
     faq_schema = ",".join(schema_qa)
 
     html = f'''<!doctype html>
