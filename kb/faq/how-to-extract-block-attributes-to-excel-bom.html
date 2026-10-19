@@ -45,18 +45,20 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Extract CAD Block Attributes to Excel & Create Live Associative BOM Tables","acceptedAnswer":{"@type":"Answer","text":"Run the DATAEXTRACTION command, create a .dxe extraction template, select the target blocks across one or more DWG files, filter for your custom Attribute tags, and choose to output either a live on-drawing CAD Table, an external Excel (.xls/.csv) file, or both."}},{"@type":"Question","name":"Step 1: Standardize Block Attribute Definitions (ATTDEF / BATTMAN)","acceptedAnswer":{"@type":"Answer","text":"Ensure your equipment, valve, or door blocks contain consistent attribute tags (e.g., <code>PART_NO</code>, <code>MANUFACTURER</code>, <code>SPEC</code>, <code>QTY</code>). If you modify tags on existing blocks, run <code>ATTSYNC</code> or <code>BATTMAN</code> (Block Attribute Manager) to synchronize all placed instances."}},{"@type":"Question","name":"Step 2: Launch the Data Extraction Wizard (DATAEXTRACTION)","acceptedAnswer":{"@type":"Answer","text":"Type <code>DATAEXTRACTION</code> (or <code>DX</code>) and save a reusable <code>.dxe</code> configuration file. Add either the current drawing or an entire project folder of DWG sheets. On the object filter page, check 'Display blocks only' and 'Display objects with attributes only'."}},{"@type":"Question","name":"Step 3: Configure Grouping, Counts & Output to Excel / CAD Table","acceptedAnswer":{"@type":"Answer","text":"Check 'Combine identical rows' to automatically sum component quantities in the Count column. Sort by <code>PART_NO</code>, and choose to insert a dynamic <b>CAD Table</b> into Paper Space and/or export directly to an external <code>.xlsx</code> / <code>.csv</code> spreadsheet."}}],"author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"reviewedBy":[{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#drafting-standards"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://www.gstarcad.net/","https://www.dwgfastview.com/","https://github.com/creativeburster/gstarcademy.com","https://www.youtube.com/@GstarCADOfficial"]}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb-faq"},{"@type":"ListItem","position":4,"name":"How to Extract CAD Block Attributes to Excel & Create Live Associative BOM Tables","item":"https://gstarcademy.com/kb/faq/how-to-extract-block-attributes-to-excel-bom"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How to Extract CAD Block Attributes to Excel & Create Live Associative BOM Tables","description":"Automate Bill of Materials (BOM), door schedules, and equipment lists by extracting block attributes to Excel (.xlsx/.csv) or dynamic CAD tables using DATAEXTRACTION and ATTEXT.","url":"https://gstarcademy.com/kb/faq/how-to-extract-block-attributes-to-excel-bom","mainEntityOfPage":"https://gstarcademy.com/kb/faq/how-to-extract-block-attributes-to-excel-bom","datePublished":"2026-08-16","dateModified":"2026-10-18","inLanguage":"en","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"reviewedBy":[{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#drafting-standards"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://www.gstarcad.net/","https://www.dwgfastview.com/","https://github.com/creativeburster/gstarcademy.com","https://www.youtube.com/@GstarCADOfficial"]},"citation":["ISO 128 — Technical Product Documentation (TPD): General Principles of Presentation","Native DWG Binary File Specification AC1015–AC1032 (R2000–R2027)","Suzhou Gstarsoft Co., Ltd. (SSE: 688657) — GstarCAD 2027 Professional & GRX SDK Reference Manual"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub"]}}</script>
+      <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <div class="page-shell">
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <a class="brand" href="/."><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
           <nav class="nav">
-            <a class="nav-link" href="../../">Home</a>
-            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" href="../../news">News</a>
-            <a class="nav-link" href="../../about">About</a>
+            <a class="nav-link" href="/.">Home</a>
+            <a class="nav-link active" href="/knowledge-base">Wiki</a>
+            <a class="nav-link" href="/tutorials">Tutorials</a>
+            <a class="nav-link" href="/news">News</a>
+            <a class="nav-link" href="/about">About</a>
           </nav>
         </div>
       </header>
@@ -64,9 +66,9 @@
 
     <main class="container" style="margin-top: 32px; max-width: 920px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
-        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
-        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
-        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <a href="/." style="color: var(--ink-text-soft);">Home</a> /
+        <a href="/knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="/kb-faq" style="color: var(--ink-text-soft);">FAQ</a> /
         <span aria-current="page" style="color: var(--ink-text);">GstarCAD</span>
       </nav>
 
@@ -78,7 +80,7 @@
         </header>
 
         <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
-          <span><strong>Author:</strong> <a href="/authors" style="color: inherit; text-decoration: underline;">GstarCAD Academy Engineering Board</a></span><span><strong>Reviewed by:</strong> <a href="https://gstarcademy.com/authors#drafting-standards" style="color: var(--accent); font-weight: 600;">Zhang Mingyuan, B.Eng.</a> (SSE: 688657)</span>
+          <span><strong>Author:</strong> <a href="/authors" style="color: inherit; text-decoration: underline;">GstarCAD Academy Engineering Board</a></span><span><strong>Reviewed by:</strong> <a href="/authors#drafting-standards" style="color: var(--accent); font-weight: 600;">Zhang Mingyuan, B.Eng.</a> (SSE: 688657)</span>
           <span><strong>Updated:</strong> <time datetime="2026-10-12">2026-10-12</time></span>
         </div>
 
@@ -146,7 +148,7 @@
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Related Concepts &amp; Further Learning</h2>
           <ul style="list-style: none; padding: 0; font-size: 14.5px;">
-            <li style="margin-bottom: 8px;"><a href="../concepts/p-and-id-piping-instrumentation-diagram" style="color: var(--accent); font-weight: 600;">P&ID Equipment Tagging & BOMs</a></li><li style="margin-bottom: 8px;"><a href="../concepts/step-ap242-semantic-pmi" style="color: var(--accent); font-weight: 600;">Manufacturing Product Data</a></li>
+            <li style="margin-bottom: 8px;"><a href="/kb/concepts/p-and-id-piping-instrumentation-diagram" style="color: var(--accent); font-weight: 600;">P&ID Equipment Tagging & BOMs</a></li><li style="margin-bottom: 8px;"><a href="/kb/concepts/step-ap242-semantic-pmi" style="color: var(--accent); font-weight: 600;">Manufacturing Product Data</a></li>
           </ul>
         </section>
 

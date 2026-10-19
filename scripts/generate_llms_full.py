@@ -168,7 +168,7 @@ def main():
 
     # 6. Clean Full Terminology & Concepts Index
     lines.append("## 6. Engineering Standards & Core Concepts Index")
-    REDIRECTED_SLUGS = {"3dexperience-platform", "ilogic-automation"}
+    REDIRECTED_SLUGS = {"3dexperience-platform", "ilogic-automation", "view-templates-revit"}
     if CONCEPTS_DIR.exists():
         concept_files = sorted(CONCEPTS_DIR.glob("*.html"))
         for cf in concept_files:

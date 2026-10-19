@@ -45,18 +45,20 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Export IFC 4 / IFC 4.3 from Revit with Accurate Shared Coordinates & Custom Property Sets","acceptedAnswer":{"@type":"Answer","text":"In File -> Export -> IFC -> Modify Setup: set IFC Version to 'IFC4 Reference View' (or Design Transfer View), set Coordinate Base under General to 'Shared Coordinates', and check 'Export Revit property sets' or attach a custom Property Mapping .txt file under Property Sets."}},{"@type":"Question","name":"Step 1: Verify Survey Point, Project Base Point & Shared Site","acceptedAnswer":{"@type":"Answer","text":"Before exporting, confirm that your Revit model acquired shared coordinates from the civil control file (`Manage` → `Coordinates` → `Acquire Coordinates`). In the IFC Export Setup (`Modify Setup` → `General` tab), set <b>Coordinate Base</b> to <b>Shared Coordinates</b> so the exported `IfcSite` aligns seamlessly with Civil 3D and Navisworks."}},{"@type":"Question","name":"Step 2: Map Revit Categories & Built-In Parameters (`IfcExportAs`)","acceptedAnswer":{"@type":"Answer","text":"To override individual families (such as a generic model acting as a structural precast girder), bind the official shared parameters <code>IfcExportAs</code> (e.g., value <code>IfcBeam</code>) and <code>IfcExportType</code> (e.g., <code>GIRDER</code>) to the family categories."}},{"@type":"Question","name":"Step 3: Export Custom Schedules as Standardized Property Sets","acceptedAnswer":{"@type":"Answer","text":"In the `Property Sets` tab of the IFC Export dialog, check <b>Export schedules as property sets</b> and <b>Export only schedules containing IFC, Pset, or Common in the title</b>. Create a Revit schedule named `Pset_CustomAssetData` containing your exact required parameters to embed clean, uncluttered metadata."}}],"author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"reviewedBy":[{"@type":"Person","name":"Dr. Lin Wei, Ph.D., PE","jobTitle":"Chief BIM & OpenBIM Interoperability Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#bim-structural"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://www.gstarcad.net/","https://www.dwgfastview.com/","https://github.com/creativeburster/gstarcademy.com","https://www.youtube.com/@GstarCADOfficial"]}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb-faq"},{"@type":"ListItem","position":4,"name":"How to Export IFC 4 / IFC 4.3 from Revit with Accurate Shared Coordinates & Custom Property Sets","item":"https://gstarcademy.com/kb/faq/how-to-export-ifc-from-revit-with-shared-coordinates"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How to Export IFC 4 / IFC 4.3 from Revit with Accurate Shared Coordinates & Custom Property Sets","description":"Configure lossless OpenBIM IFC exports from Autodesk Revit: set Coordinate Base to Shared Coordinates, map Revit categories to IFC classes, and export custom schedules as buildingSMART Property Sets.","url":"https://gstarcademy.com/kb/faq/how-to-export-ifc-from-revit-with-shared-coordinates","mainEntityOfPage":"https://gstarcademy.com/kb/faq/how-to-export-ifc-from-revit-with-shared-coordinates","datePublished":"2026-08-16","dateModified":"2026-10-18","inLanguage":"en","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"reviewedBy":[{"@type":"Person","name":"Dr. Lin Wei, Ph.D., PE","jobTitle":"Chief BIM & OpenBIM Interoperability Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#bim-structural"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://www.gstarcad.net/","https://www.dwgfastview.com/","https://github.com/creativeburster/gstarcademy.com","https://www.youtube.com/@GstarCADOfficial"]},"citation":["ISO 19650-1:2018 & ISO 19650-2:2018 — Organization and digitization of information about buildings and civil engineering works (BIM)","ISO 16739-1:2024 — Industry Foundation Classes (IFC 4.3) for data sharing in the construction and facility management industries","buildingSMART International BCF 3.0 & OpenBIM Technical Specifications"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub"]}}</script>
+      <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <div class="page-shell">
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <a class="brand" href="/."><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
           <nav class="nav">
-            <a class="nav-link" href="../../">Home</a>
-            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" href="../../news">News</a>
-            <a class="nav-link" href="../../about">About</a>
+            <a class="nav-link" href="/.">Home</a>
+            <a class="nav-link active" href="/knowledge-base">Wiki</a>
+            <a class="nav-link" href="/tutorials">Tutorials</a>
+            <a class="nav-link" href="/news">News</a>
+            <a class="nav-link" href="/about">About</a>
           </nav>
         </div>
       </header>
@@ -64,9 +66,9 @@
 
     <main class="container" style="margin-top: 32px; max-width: 920px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
-        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
-        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
-        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <a href="/." style="color: var(--ink-text-soft);">Home</a> /
+        <a href="/knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="/kb-faq" style="color: var(--ink-text-soft);">FAQ</a> /
         <span aria-current="page" style="color: var(--ink-text);">Revit</span>
       </nav>
 
@@ -78,7 +80,7 @@
         </header>
 
         <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
-          <span><strong>Author:</strong> <a href="/authors" style="color: inherit; text-decoration: underline;">GstarCAD Academy Engineering Board</a></span><span><strong>Reviewed by:</strong> <a href="https://gstarcademy.com/authors#bim-structural" style="color: var(--accent); font-weight: 600;">Dr. Lin Wei, Ph.D., PE</a> (SSE: 688657)</span>
+          <span><strong>Author:</strong> <a href="/authors" style="color: inherit; text-decoration: underline;">GstarCAD Academy Engineering Board</a></span><span><strong>Reviewed by:</strong> <a href="/authors#bim-structural" style="color: var(--accent); font-weight: 600;">Dr. Lin Wei, Ph.D., PE</a> (SSE: 688657)</span>
           <span><strong>Updated:</strong> <time datetime="2026-10-12">2026-10-12</time></span>
         </div>
 
@@ -146,7 +148,7 @@
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Related Concepts &amp; Further Learning</h2>
           <ul style="list-style: none; padding: 0; font-size: 14.5px;">
-            <li style="margin-bottom: 8px;"><a href="../concepts/ifc-4-3-infrastructure-entities" style="color: var(--accent); font-weight: 600;">IFC 4.3 OpenBIM Standard</a></li><li style="margin-bottom: 8px;"><a href="../concepts/cde-common-data-environment-iso-19650" style="color: var(--accent); font-weight: 600;">ISO 19650 CDE Workflows</a></li>
+            <li style="margin-bottom: 8px;"><a href="/kb/concepts/ifc-4-3-infrastructure-entities" style="color: var(--accent); font-weight: 600;">IFC 4.3 OpenBIM Standard</a></li><li style="margin-bottom: 8px;"><a href="/kb/concepts/cde-common-data-environment-iso-19650" style="color: var(--accent); font-weight: 600;">ISO 19650 CDE Workflows</a></li>
           </ul>
         </section>
 

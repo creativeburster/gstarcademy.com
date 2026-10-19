@@ -170,6 +170,42 @@
           }
         }
       }
+    },
+    "/data/editorial.json": {
+      "get": {
+        "summary": "Retrieve E-E-A-T Chief Engineering Board, Principal Reviewers & Standard Benchmark Testbed",
+        "description": "Returns machine-readable E-E-A-T governance specification for Suzhou Gstarsoft Co., Ltd. (SSE: 688657), including 6 named domain lead reviewers, credentials, ISO/ASME standards coverage, and laboratory hardware testbed specifications.",
+        "responses": {
+          "200": {
+            "description": "Editorial & E-E-A-T governance metadata retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms-full.txt": {
+      "get": {
+        "summary": "Retrieve Comprehensive GEO Knowledge Corpus & TCO/SDK Fact Matrices",
+        "description": "Returns the complete Markdown knowledge context for LLMs, including 5-year TCO tables, ObjectARX-to-GRX API mapping, 504-question certification matrix, and 800+ CAD/BIM concepts.",
+        "responses": {
+          "200": {
+            "description": "Full Markdown GEO corpus retrieved successfully",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

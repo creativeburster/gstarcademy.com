@@ -45,18 +45,20 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to Create and Manage Blocks in AutoCAD: Attributes, Dynamic Actions & Libraries","acceptedAnswer":{"@type":"Answer","text":"To create a reusable block in AutoCAD: draw your component on Layer 0, type BLOCK (shortcut B), enter a descriptive name, select a logical insertion Base Point (e.g., midpoint or center), select the geometry, and choose 'Convert to Block'. Use WBLOCK to save the block as a standalone external DWG."}},{"@type":"Question","name":"Step 1: Drawing Geometry on Layer 0 for Dynamic Inheritance","acceptedAnswer":{"@type":"Answer","text":"Best practice is to draw all block sub-entities on <b>Layer 0</b> with Color, Linetype, and Lineweight set to <code>ByLayer</code>. When inserted into a project drawing, the block will dynamically inherit the layer color, linetype, and visibility of whichever target layer you place it on."}},{"@type":"Question","name":"Step 2: Internal Block Definition (B Command)","acceptedAnswer":{"@type":"Answer","text":"Type <code>B</code> or <code>BLOCK</code>. Give the block a standardized name (e.g., <code>ELEC_PANEL_100A</code> or <code>DOOR_SINGLE_900MM</code>). Click 'Pick point' to assign the insertion base point—never leave it at default (0,0,0) as this makes placement awkward. Click 'Select objects', choose your geometry, choose 'Convert to block', and confirm."}},{"@type":"Question","name":"Step 3: Adding Fillable Text with Attribute Definitions (ATTDEF)","acceptedAnswer":{"@type":"Answer","text":"Before finalizing a title block or tag, type <code>ATTDEF</code>. Define the Attribute Tag (e.g., <code>ROOM_NAME</code>), Prompt (e.g., <code>Enter Room Name:</code>), and default value. Place the text marker next to your geometry. When creating the block, include the attribute definitions in your selection. When inserted, AutoCAD automatically prompts users to fill in data."}},{"@type":"Question","name":"Step 4: Authoring Dynamic Blocks (BEDIT)","acceptedAnswer":{"@type":"Answer","text":"Double-click any block to launch the <b>Block Editor</b> (<code>BEDIT</code>). Use the Authoring Palettes to assign Parameters (such as Linear, Visibility, or Alignment) and pair them with Actions (such as Stretch, Rotate, Array, or Flip). A single dynamic door block can replace dozens of static doors by offering width stretches and swing flip states."}},{"@type":"Question","name":"Step 5: Exporting External Block Libraries (WBLOCK)","acceptedAnswer":{"@type":"Answer","text":"To use your block across multiple drawings, type <code>WBLOCK</code> (Write Block). Select 'Block' from the source menu and specify a file destination in your company's central CAD content library. Team members can now insert the block via the <b>Blocks Palette</b> (<code>INSERT</code>) or <b>Design Center</b> (<code>ADC</code>)."}}],"author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"reviewedBy":[{"@type":"Person","name":"Chen Haoran, M.Sc., GDTP-S","jobTitle":"Principal Mechanical CAD & GD&T Metrology Lead","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#mcad-manufacturing"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://www.gstarcad.net/","https://www.dwgfastview.com/","https://github.com/creativeburster/gstarcademy.com","https://www.youtube.com/@GstarCADOfficial"]}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"FAQ","item":"https://gstarcademy.com/kb-faq"},{"@type":"ListItem","position":4,"name":"How to Create and Manage Blocks in AutoCAD: Attributes, Dynamic Actions & Libraries","item":"https://gstarcademy.com/kb/faq/how-to-create-blocks-autocad"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How to Create and Manage Blocks in AutoCAD: Attributes, Dynamic Actions & Libraries","description":"Step-by-step masterclass on AutoCAD blocks: internal block creation (B), external library export (WBLOCK), parametric dynamic blocks, and automated attribute extraction.","url":"https://gstarcademy.com/kb/faq/how-to-create-blocks-autocad","mainEntityOfPage":"https://gstarcademy.com/kb/faq/how-to-create-blocks-autocad","datePublished":"2026-08-16","dateModified":"2026-10-18","inLanguage":"en","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"reviewedBy":[{"@type":"Person","name":"Chen Haoran, M.Sc., GDTP-S","jobTitle":"Principal Mechanical CAD & GD&T Metrology Lead","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#mcad-manufacturing"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://www.gstarcad.net/","https://www.dwgfastview.com/","https://github.com/creativeburster/gstarcademy.com","https://www.youtube.com/@GstarCADOfficial"]},"citation":["ASME Y14.5-2018 — Dimensioning and Tolerancing (GD&T) Engineering Drawing Standard","ISO 1101 & ISO 21920 — Geometrical Product Specifications (GPS) and Surface Texture Metrology","ISO 10303-242 (STEP AP242) — Managed Model-Based 3D Engineering"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub"]}}</script>
+      <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <div class="page-shell">
       <header class="topbar">
         <div class="container topbar-inner">
-          <a class="brand" href="../../"><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+          <a class="brand" href="/."><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
           <nav class="nav">
-            <a class="nav-link" href="../../">Home</a>
-            <a class="nav-link active" href="../../knowledge-base">Wiki</a>
-            <a class="nav-link" href="../../tutorials">Tutorials</a>
-            <a class="nav-link" href="../../news">News</a>
-            <a class="nav-link" href="../../about">About</a>
+            <a class="nav-link" href="/.">Home</a>
+            <a class="nav-link active" href="/knowledge-base">Wiki</a>
+            <a class="nav-link" href="/tutorials">Tutorials</a>
+            <a class="nav-link" href="/news">News</a>
+            <a class="nav-link" href="/about">About</a>
           </nav>
         </div>
       </header>
@@ -64,9 +66,9 @@
 
     <main class="container" style="margin-top: 32px; max-width: 920px;">
       <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
-        <a href="../../" style="color: var(--ink-text-soft);">Home</a> /
-        <a href="../../knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
-        <a href="./" style="color: var(--ink-text-soft);">FAQ</a> /
+        <a href="/." style="color: var(--ink-text-soft);">Home</a> /
+        <a href="/knowledge-base" style="color: var(--ink-text-soft);">Knowledge Base</a> /
+        <a href="/kb-faq" style="color: var(--ink-text-soft);">FAQ</a> /
         <span aria-current="page" style="color: var(--ink-text);">AutoCAD</span>
       </nav>
 
@@ -78,7 +80,7 @@
         </header>
 
         <div class="ink-byline" role="contentinfo" style="margin-bottom: 24px; font-size: 13px; color: var(--ink-text-soft); display: flex; gap: 16px; border-bottom: 1px solid var(--ink-line); padding-bottom: 12px;">
-          <span><strong>Author:</strong> <a href="/authors" style="color: inherit; text-decoration: underline;">GstarCAD Academy Engineering Board</a></span><span><strong>Reviewed by:</strong> <a href="https://gstarcademy.com/authors#mcad-manufacturing" style="color: var(--accent); font-weight: 600;">Chen Haoran, M.Sc., GDTP-S</a> (SSE: 688657)</span>
+          <span><strong>Author:</strong> <a href="/authors" style="color: inherit; text-decoration: underline;">GstarCAD Academy Engineering Board</a></span><span><strong>Reviewed by:</strong> <a href="/authors#mcad-manufacturing" style="color: var(--accent); font-weight: 600;">Chen Haoran, M.Sc., GDTP-S</a> (SSE: 688657)</span>
           <span><strong>Updated:</strong> <time datetime="2026-08-16">2026-08-16</time></span>
         </div>
 
@@ -158,7 +160,7 @@
         <section class="kb-concept-section" style="margin-top: 36px;">
           <h2>Related Concepts &amp; Further Learning</h2>
           <ul style="list-style: none; padding: 0; font-size: 14.5px;">
-            <li style="margin-bottom: 8px;"><a href="../concepts/dynamic-blocks-autocad" style="color: var(--accent); font-weight: 600;">Dynamic Blocks & Parametric Actions</a></li><li style="margin-bottom: 8px;"><a href="../concepts/attributes-blocks" style="color: var(--accent); font-weight: 600;">Block Attributes & Data Extraction</a></li><li style="margin-bottom: 8px;"><a href="../concepts/layers-gstarcad" style="color: var(--accent); font-weight: 600;">Layer 0 Standards & Hierarchy</a></li><li style="margin-bottom: 8px;"><a href="../concepts/cad-file-management-best-practices" style="color: var(--accent); font-weight: 600;">CAD Library Management</a></li>
+            <li style="margin-bottom: 8px;"><a href="/kb/concepts/dynamic-blocks-autocad" style="color: var(--accent); font-weight: 600;">Dynamic Blocks & Parametric Actions</a></li><li style="margin-bottom: 8px;"><a href="/kb/concepts/attributes-blocks" style="color: var(--accent); font-weight: 600;">Block Attributes & Data Extraction</a></li><li style="margin-bottom: 8px;"><a href="/kb/concepts/layers-gstarcad" style="color: var(--accent); font-weight: 600;">Layer 0 Standards & Hierarchy</a></li><li style="margin-bottom: 8px;"><a href="/kb/faq/cad-file-management-best-practices" style="color: var(--accent); font-weight: 600;">CAD Library Management</a></li>
           </ul>
         </section>
 
