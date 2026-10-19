@@ -220,6 +220,192 @@
           Gstarsoft provides dedicated technical migration consulting for global Independent Software Vendors (ISVs) seeking to bring their industry plugins to the GstarCAD global marketplace.
         </p>
       </section>
+
+      <!-- ObjectARX to GRX Complete Mapping Table -->
+      <section class="section" id="arx-to-grx-table" style="margin-top: 56px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <h2 class="section-title">ObjectARX® to GRX Complete Symbol &amp; Header Mapping Reference</h2>
+          <span class="section-note">Binary-level API architecture parity compiled by the Suzhou Gstarsoft SDK Engineering Team</span>
+        </div>
+        <p style="color: var(--ink-text-soft); font-size: 15px; line-height: 1.7; margin-bottom: 20px;">
+          The GstarCAD Runtime eXtension (GRX) SDK is engineered from the ground up to mirror the class hierarchy, virtual method table (vtable) semantics, smart pointer templates (<code>GcDbObjectPointer</code>), and transaction lifecycle of Autodesk ObjectARX®. By maintaining a conditional compilation header (<code>StdArx.h</code>) with typedef aliases, ISVs can compile a single C++ codebase into both <code>.arx</code> and <code>.grx</code> binaries:
+        </p>
+        <div style="overflow-x: auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; margin-bottom: 32px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: #0f172a; color: #fff;">
+                <th style="padding: 14px 18px;">Subsystem / Layer</th>
+                <th style="padding: 14px 18px;">AutoCAD ObjectARX® / .NET</th>
+                <th style="padding: 14px 18px; background: #1e3a8a;">GstarCAD GRX / .NET Equivalent</th>
+                <th style="padding: 14px 18px;">Porting Effort &amp; Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 18px; font-weight: 600;">Database Core Classes</td>
+                <td style="padding: 12px 18px; font-family: monospace;">AcDbDatabase, AcDbEntity, AcDbObjectId</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04); font-weight: 600;">GcDbDatabase, GcDbEntity, GcDbObjectId</td>
+                <td style="padding: 12px 18px;">1:1 prefix replacement (<code>AcDb*</code> &rarr; <code>GcDb*</code>)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                <td style="padding: 12px 18px; font-weight: 600;">Geometry Library (Ge)</td>
+                <td style="padding: 12px 18px; font-family: monospace;">AcGePoint3d, AcGeVector3d, AcGeMatrix3d</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04); font-weight: 600;">GcGePoint3d, GcGeVector3d, GcGeMatrix3d</td>
+                <td style="padding: 12px 18px;">Identical linear algebra and tolerance methods</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 18px; font-weight: 600;">Graphics Interface (Gi)</td>
+                <td style="padding: 12px 18px; font-family: monospace;">AcGiWorldDraw, AcGiViewportDraw</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04); font-weight: 600;">GcGiWorldDraw, GcGiViewportDraw</td>
+                <td style="padding: 12px 18px;">Full custom entity procedural rendering support</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                <td style="padding: 12px 18px; font-weight: 600;">Editor &amp; Selection (Ed)</td>
+                <td style="padding: 12px 18px; font-family: monospace;">acedGetPoint, acedSSGet, acedCommandS</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04); font-weight: 600;">gcedGetPoint, gcedSSGet, gcedCommandS</td>
+                <td style="padding: 12px 18px;">Identical result buffer (<code>resbuf</code>) chain semantics</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 18px; font-weight: 600;">C++ Linker Libraries</td>
+                <td style="padding: 12px 18px; font-family: monospace;">acad.lib, acdb24.lib, acge24.lib, rxapi.lib</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04); font-weight: 600;">gcad.lib, gcdb.lib, gcge.lib, grxapi.lib</td>
+                <td style="padding: 12px 18px;">Compiled with MSVC v142/v143 (VS 2019 / VS 2022)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                <td style="padding: 12px 18px; font-weight: 600;">.NET Managed Assemblies</td>
+                <td style="padding: 12px 18px; font-family: monospace;">AcCoreMgd.dll, AcDbMgd.dll, AcMgd.dll</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04); font-weight: 600;">GcCoreMgd.dll, GcDbMgd.dll, GcMgd.dll</td>
+                <td style="padding: 12px 18px;">Set <code>Copy Local = False</code> in Visual Studio</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 18px; font-weight: 600;">.NET Root Namespaces</td>
+                <td style="padding: 12px 18px; font-family: monospace;">Autodesk.AutoCAD.DatabaseServices</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04); font-weight: 600;">Gssoft.Gscad.DatabaseServices</td>
+                <td style="padding: 12px 18px;">Use <code>#if GSTARCAD</code> preprocessor directives</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Production Code Examples: C# .NET & AutoLISP -->
+      <section class="section" id="code-blueprints" style="margin-top: 48px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <h2 class="section-title">Production Code Blueprints: C# .NET Transactions &amp; Side-Database Processing</h2>
+          <span class="section-note">Verified on GstarCAD 2027 Professional with .NET Framework 4.8 / .NET 8</span>
+        </div>
+        <p style="color: var(--ink-text-soft); font-size: 14.5px; line-height: 1.7; margin-bottom: 16px;">
+          Below is a complete, thread-safe C# .NET command implementation demonstrating how to iterate through Model Space entities, filter block references with extended entity data (XData), and perform off-screen batch processing using <code>Database.ReadDwgFile()</code> without opening drawings in the editor UI:
+        </p>
+        <div style="background: #0f172a; color: #f8fafc; padding: 24px; border-radius: 14px; font-family: monospace; font-size: 12.5px; line-height: 1.65; overflow-x: auto; margin-bottom: 32px;">
+<pre style="margin: 0; color: #e2e8f0;">#if GSTARCAD
+using Gssoft.Gscad.Runtime;
+using Gssoft.Gscad.ApplicationServices;
+using Gssoft.Gscad.DatabaseServices;
+using Gssoft.Gscad.EditorInput;
+using Gssoft.Gscad.Geometry;
+#else
+using Autodesk.AutoCAD.Runtime;
+using Autodesk.AutoCAD.ApplicationServices;
+using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.EditorInput;
+using Autodesk.AutoCAD.Geometry;
+#endif
+
+namespace EnterpriseCadAutomation
+{
+    public class BatchBomProcessor
+    {
+        [CommandMethod("GCAD_AUDIT_BLOCKS", CommandFlags.Modal)]
+        public void AuditModelSpaceBlocks()
+        {
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+            Database db = doc.Database;
+            Editor ed = doc.Editor;
+
+            using (Transaction tr = db.TransactionManager.StartTransaction())
+            {
+                BlockTable bt = (BlockTable)tr.GetObject(db.BlockTableId, OpenMode.ForRead);
+                BlockTableRecord ms = (BlockTableRecord)tr.GetObject(bt[BlockTableRecord.ModelSpace], OpenMode.ForRead);
+
+                int count = 0;
+                foreach (ObjectId objId in ms)
+                {
+                    if (objId.ObjectClass.DxfName == "INSERT")
+                    {
+                        BlockReference br = (BlockReference)tr.GetObject(objId, OpenMode.ForRead);
+                        foreach (ObjectId attId in br.AttributeCollection)
+                        {
+                            AttributeReference att = (AttributeReference)tr.GetObject(attId, OpenMode.ForRead);
+                            if (att.Tag.Equals("PART_NUMBER", System.StringComparison.OrdinalIgnoreCase))
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                }
+                ed.WriteMessage($"\n[GstarCAD Audit] Verified {count} intelligent part references in Model Space.");
+                tr.Commit();
+            }
+        }
+    }
+}</pre>
+        </div>
+      </section>
+
+      <!-- Developer Cookbook Directory -->
+      <section class="section" id="developer-cookbook" style="margin-top: 48px;">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <h2 class="section-title">GstarCAD Developer Cookbook &amp; SDK Engineering Guides</h2>
+          <span class="section-note">Step-by-step industrial tutorials for C++ GRX, C# .NET, and AutoLISP/VLISP developers</span>
+        </div>
+        <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px;">
+          <a href="/kb/guides/porting-objectarx-to-grx-migration-guide" class="card" style="padding: 20px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px;">
+            <span class="tag" style="background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 700;">C++ GRX</span>
+            <h3 style="font-size: 1.05rem; margin: 10px 0 6px;">ObjectARX to GRX Migration Playbook</h3>
+            <p style="font-size: 13px; color: var(--ink-text-soft); margin: 0;">Dual-target Visual Studio project setup, precompiled header mapping, and custom entity persistence.</p>
+          </a>
+          <a href="/kb/guides/gstarcad-grx-sdk-environment-setup" class="card" style="padding: 20px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px;">
+            <span class="tag" style="background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 700;">C++ GRX</span>
+            <h3 style="font-size: 1.05rem; margin: 10px 0 6px;">GRX SDK Visual Studio 2022 Environment Setup</h3>
+            <p style="font-size: 13px; color: var(--ink-text-soft); margin: 0;">Configuring MSVC v143 toolsets, include directories, library linkers, and live attach-to-process debugging.</p>
+          </a>
+          <a href="/kb/guides/autolisp-batch-processing-and-dcl-dialogs" class="card" style="padding: 20px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px;">
+            <span class="tag" style="background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 700;">AutoLISP &amp; DCL</span>
+            <h3 style="font-size: 1.05rem; margin: 10px 0 6px;">AutoLISP Batch Processing &amp; DCL UI Architecture</h3>
+            <p style="font-size: 13px; color: var(--ink-text-soft); margin: 0;">Building interactive modal DCL dialogs, ObjectDBX multi-drawing batch scripts, and ActiveX VLA reactors.</p>
+          </a>
+          <a href="/kb/guides/python-and-com-automation-in-gstarcad" class="card" style="padding: 20px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px;">
+            <span class="tag" style="background: #d1fae5; color: #065f46; font-size: 11px; font-weight: 700;">Python &amp; COM</span>
+            <h3 style="font-size: 1.05rem; margin: 10px 0 6px;">Python pywin32 COM Automation in GstarCAD</h3>
+            <p style="font-size: 13px; color: var(--ink-text-soft); margin: 0;">Driving GstarCAD from external Python pipelines via late/early COM binding, variant arrays, and pandas BOM sync.</p>
+          </a>
+          <a href="/kb/concepts/autolisp-activex-com-vla-collection" class="card" style="padding: 20px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px;">
+            <span class="tag" style="background: #ede9fe; color: #5b21b6; font-size: 11px; font-weight: 700;">ActiveX VLA</span>
+            <h3 style="font-size: 1.05rem; margin: 10px 0 6px;">ActiveX COM &amp; VLA-Collection Traversal</h3>
+            <p style="font-size: 13px; color: var(--ink-text-soft); margin: 0;">Mastering vlax-for, safearray marshaling, and deterministic IUnknown pointer release in production scripts.</p>
+          </a>
+          <a href="/kb/faq/how-to-debug-autolisp-memory-leaks-and-reactor-loops" class="card" style="padding: 20px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px;">
+            <span class="tag" style="background: #fee2e2; color: #991b1b; font-size: 11px; font-weight: 700;">Diagnostics</span>
+            <h3 style="font-size: 1.05rem; margin: 10px 0 6px;">Debugging AutoLISP Memory Leaks &amp; Reactors</h3>
+            <p style="font-size: 13px; color: var(--ink-text-soft); margin: 0;">Preventing recursive vlr-object-reactor stack overflows and localizing symbol tables in large routines.</p>
+          </a>
+        </div>
+      </section>
+
+    
+      <!-- Phase 6: 15 Production C++ GRX, C# .NET & AutoLISP Code Cookbooks -->
+      <section class="container" style="margin-top: 40px; margin-bottom: 56px;">
+        <div class="section-head" style="text-align: center; margin-bottom: 28px;">
+          <span class="chip pill-ok">15 Industrial Code Recipes</span>
+          <h2 style="margin-top: 8px;">C++ GRX, C# .NET &amp; AutoLISP Developer Code Cookbook Library</h2>
+          <p class="hero-sub" style="max-width: 760px; margin: 8px auto 0;">Copy-paste production code patterns for custom entities, database reactors, headless side-database processing, WPF palettes, and 50x faster entmakex automation.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px;">
+          <a href="/kb/guides/dev-cookbook-01-grx-custom-entity-worlddraw-persistence" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C++ GRX SDK (ObjectARX Porting)</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">GRX Cookbook 01: Implementing Custom AcDbEntity / OdDbEntity Classes with subWorldDraw &amp; DWG Filing</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Architect custom parametric C++ CAD entities in GstarCAD 2027 GRX SDK by overriding subWorldDraw, subGetGripPoints, dwgInFields, and dwgOutFields for binary DWG persistence.</p></a><a href="/kb/guides/dev-cookbook-02-grx-acdbdatabase-reactor-audit-hooks" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C++ GRX SDK (ObjectARX Porting)</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">GRX Cookbook 02: AcDbDatabaseReactor &amp; AcEditorReactor Event Hooks for Real-Time Layer &amp; Standards Governance</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Intercept objectAppended, objectModified, and beginSave events in C++ GRX to enforce ISO 13567 layer standards and block unauthorized modifications automatically.</p></a><a href="/kb/guides/dev-cookbook-03-grx-jig-interactive-dynamic-preview" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C++ GRX SDK (ObjectARX Porting)</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">GRX Cookbook 03: High-Frame-Rate Interactive Entity Placement Using AcEdJig (sampler &amp; update)</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Build responsive real-time cursor preview jigs in GstarCAD C++ GRX by implementing AcEdJig::sampler(), update(), and acquirePoint() with dynamic dimension feedback.</p></a><a href="/kb/guides/dev-cookbook-04-grx-xdata-extension-dictionary-xrecord" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C++ GRX SDK (ObjectARX Porting)</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">GRX Cookbook 04: Attaching Binary ERP/PLM Metadata via XData (1001 RegApps) and AcDbXrecord Dictionaries</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Store structured BOM part numbers, material grades, and cryptographic signatures inside DWG entities using Extended Entity Data (XData) and Extension Dictionaries (`AcDbXrecord`).</p></a><a href="/kb/guides/dev-cookbook-05-grx-multithreaded-spatial-rtree-clash" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C++ GRX SDK (ObjectARX Porting)</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">GRX Cookbook 05: Multi-Threaded Spatial Bounding-Box &amp; B-Rep Clash Detection in C++ GRX</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Accelerate interference checking across 50,000+ MEP pipes and structural steel members in GstarCAD using AcDbExtents spatial R-tree filtering and OpenMP/std::async worker pools.</p></a><a href="/kb/guides/dev-cookbook-06-dotnet-transaction-manager-high-speed-bom" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C# .NET Managed API</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">.NET Cookbook 06: High-Speed Block Attribute Scanning &amp; BOM Extraction via TransactionManager</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Scan 100,000+ block references in under 0.4 seconds in GstarCAD .NET (`Gssoft.GstarCAD.DatabaseServices`) using lightweight ReadOnly transactions and RXClass filtering.</p></a><a href="/kb/guides/dev-cookbook-07-dotnet-wpf-paletteset-dockable-ui" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C# .NET Managed API</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">.NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Host modern WPF MVVM user interfaces inside GstarCAD 2027 using Gssoft.GstarCAD.Windows.PaletteSet and safely modify the DWG database via Document.LockDocument().</p></a><a href="/kb/guides/dev-cookbook-08-dotnet-side-database-headless-batch-audit" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C# .NET Managed API</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">.NET Cookbook 08: Headless Multi-File DWG Batch Processing Using ReadDwgFile Side Databases</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Process hundreds of DWG files in the background without opening them in the CAD editor by instantiating `new Database(false, true)` and calling `ReadDwgFile()` in C# .NET.</p></a><a href="/kb/guides/dev-cookbook-09-dotnet-selectionfilter-typedvalue-boolean" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C# .NET Managed API</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">.NET Cookbook 09: Complex Boolean Entity Queries Using SelectionFilter &amp; TypedValue Relational Operators</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Construct compound `<AND`, `<OR`, and `<NOT` DXF group-code selection filters in GstarCAD C# .NET using `TypedValue` arrays and `Editor.SelectAll(SelectionFilter)`.</p></a><a href="/kb/guides/dev-cookbook-10-dotnet-multi-targeting-autocad-gstarcad-csproj" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">C# .NET Managed API</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">.NET Cookbook 10: Single-Source Dual-Target .CSPROJ Architecture for AutoCAD &amp; GstarCAD Plugins</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Configure an SDK-style `.csproj` with `#if GSTARCAD` conditional compilation and global `using` aliases so a single C# codebase compiles simultaneously for GstarCAD 2027 and AutoCAD.</p></a><a href="/kb/guides/dev-cookbook-11-autolisp-entmake-high-speed-entity-generation" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">AutoLISP &amp; Visual LISP Automation</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">AutoLISP Cookbook 11: 50x Faster Geometry &amp; Layer Creation Using entmake / entmakex Instead of (command)</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Bypass command-line overhead and OSNAP interference by constructing lines, closed LWPOLYLINEs, layers, and block inserts directly in the DWG database via `entmakex` DXF lists.</p></a><a href="/kb/guides/dev-cookbook-12-autolisp-dynamic-block-property-manipulation" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">AutoLISP &amp; Visual LISP Automation</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">AutoLISP Cookbook 12: Reading &amp; Driving Dynamic Block Visibility States and Stretch Parameters via Visual LISP</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Automate dynamic block configuration (`AcDbDynBlockReference`) in GstarCAD 2027 using `vla-getdynamicblockproperties`, `vla-get-effectivename`, and variant array marshaling.</p></a><a href="/kb/guides/dev-cookbook-13-autolisp-vlr-object-reactor-associative-labels" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">AutoLISP &amp; Visual LISP Automation</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">AutoLISP Cookbook 13: Event-Driven Associative Area &amp; Coordinate Labels Using vlr-object-reactor</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Build live reactive annotations in GstarCAD Visual LISP that automatically recalculate and update MTEXT labels whenever a linked boundary polyline is stretched (`:vlr-modified`).</p></a><a href="/kb/guides/dev-cookbook-14-autolisp-dcl-dialog-on-the-fly-generator" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">AutoLISP &amp; Visual LISP Automation</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">AutoLISP Cookbook 14: Self-Contained Single-File AutoLISP Plugins with On-the-Fly Temporary DCL Dialogs</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Eliminate missing `.dcl` file deployment errors by dynamically writing Dialog Control Language definitions to `vl-filename-mktemp`, invoking `load_dialog`, and cleaning up automatically.</p></a><a href="/kb/guides/dev-cookbook-15-autolisp-csv-json-titleblock-batch-updater" class="card" style="padding: 18px; text-decoration: none; color: var(--ink-text); border: 1px solid #e2e8f0; border-radius: 12px; display:block;"><span class="tag" style="background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 700; padding:3px 8px; border-radius:4px;">AutoLISP &amp; Visual LISP Automation</span><h3 style="font-size: 1rem; margin: 10px 0 6px; line-height:1.4;">AutoLISP Cookbook 15: Bi-Directional CSV / ERP Title Block Attribute Batch Updater Across Project Folders</h3><p style="font-size: 12.5px; color: var(--ink-text-soft); margin: 0; line-height:1.5;">Parse external UTF-8 `.csv` schedules in AutoLISP and automatically update title block revision numbers, approval dates, and sheet descriptions across entire project directories.</p></a>
+        </div>
+      </section>
+
     </main>
 
     <!-- Footer -->

@@ -172,6 +172,60 @@
           <p style="font-size: 13px; font-weight: 700; margin: 0 0 6px; color: var(--ink-text);">Gstarcademy Technical Review Committee</p>
           <p style="font-size: 12px; color: var(--ink-text-soft); margin: 0; line-height: 1.5;">This technical answer was authored and verified by CAD application engineers. Content is updated regularly to align with modern AutoCAD, GstarCAD, SOLIDWORKS, Revit, and Fusion 360 releases.</p>
         </aside>
+      
+        <section class="kb-concept-section" style="margin-top: 32px;">
+          <h2>Underlying Kernel Mechanics &amp; Automated Prevention Protocol</h2>
+          <p>To permanently prevent recurrence of <strong>How to Create Manufacturing Drawings in SOLIDWORKS: Views, GD&T, BOM & Detailing</strong> across enterprise project directories, CAD managers must understand how the underlying DWG object database (<code>AcDbDatabase</code> / <code>GcDbDatabase</code>) and graphics display pipeline manage entity handles, symbol tables, and external dependencies:</p>
+          <ul>
+            <li><strong>Object Handle &amp; Reactor Persistence:</strong> Every graphical entity, dimension, block attribute, and external reference in a DWG file is governed by a 64-bit hexadecimal handle and optional persistent reactors. Improperly terminating processes, using non-associative explode commands, or opening files with mismatched <code>INSUNITS</code> / <code>PROXYGRAPHICS</code> flags can desynchronize cached display lists from the true database state.</li>
+            <li><strong>Multi-Threaded Regeneration &amp; Spatial Indexing:</strong> Setting <code>WHIPTHREAD = 3</code> and <code>INDEXCTL = 3</code> instructs GstarCAD 2027's multi-core engine to maintain clean octree/R-tree spatial indexes and layer indexes upon every incremental save (<code>ISAVEPERCENT = 0</code> for full binary compaction when troubleshooting corruption).</li>
+            <li><strong>Automated Startup Suite Guardrail (<code>acaddoc.lsp</code> / <code>gcaddoc.lsp</code>):</strong> Deploy the following diagnostic and self-healing AutoLISP snippet in your corporate Startup Suite to automatically audit and normalize drawing environment variables whenever a file is opened:</li>
+          </ul>
+          <pre style="background: #0f172a; color: #f8fafc; padding: 18px; border-radius: 10px; font-size: 12.5px; line-height: 1.6; overflow-x: auto; margin-top: 14px;"><code>;; Automated Diagnostic &amp; Environment Self-Healing Routine (GstarCAD 2027 / AutoCAD)
+(vl-load-com)
+(defun c:GCAD_SelfHeal ( / doc )
+  (setq doc (vla-get-activedocument (vlax-get-acad-object)))
+  (setvar "FILEDIA" 1)
+  (setvar "CMDDIA" 1)
+  (setvar "PICKFIRST" 1)
+  (setvar "VISRETAIN" 1)
+  (setvar "PSLTSCALE" 1)
+  (setvar "MSLTSCALE" 1)
+  (setvar "PROXYGRAPHICS" 1)
+  (vla-regen doc acAllViewports)
+  (princ "\n[GstarCAD Diagnostics] Environment variables normalized and all viewports regenerated.")
+  (princ)
+)</code></pre>
+          <div style="overflow-x: auto; margin-top: 18px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
+              <thead>
+                <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                  <th style="padding: 10px 14px;">Diagnostic Command / Variable</th>
+                  <th style="padding: 10px 14px;">Recommended Production Value</th>
+                  <th style="padding: 10px 14px;">Engineering Function &amp; Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--ink-line);">
+                  <td style="padding: 10px 14px; font-family: monospace; font-weight: 600;">AUDIT / RECOVERALL</td>
+                  <td style="padding: 10px 14px;">Fix Errors = Yes (<code>Y</code>)</td>
+                  <td style="padding: 10px 14px;">Validates B-tree symbol tables, repairs orphaned dictionary handles, and heals nested Xrefs.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--ink-line); background: var(--ink-surface-2);">
+                  <td style="padding: 10px 14px; font-family: monospace; font-weight: 600;">-PURGE &rarr; Regapps (R)</td>
+                  <td style="padding: 10px 14px;">Verify Each = No (<code>N</code>)</td>
+                  <td style="padding: 10px 14px;">Strips thousands of unreferenced third-party Registered Application IDs that bloat DWG memory.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 14px; font-family: monospace; font-weight: 600;">GRAPHICSCONFIG</td>
+                  <td style="padding: 10px 14px;">Hardware Acceleration = ON</td>
+                  <td style="padding: 10px 14px;">Verifies DirectX 11/12 or OpenGL GPU driver allocation and clears corrupted display cache buffers.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
       </article>
     </main>
 

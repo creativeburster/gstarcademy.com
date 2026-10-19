@@ -373,6 +373,110 @@
           <a class="btn" href="https://www.gstarcad.net/contact/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); font-weight: 600; padding: 14px 24px; font-size: 16px;">Request Enterprise Quote ↗</a>
         </div>
       </section>
+
+      <!-- 30-Day Enterprise Migration Roadmap -->
+      <section class="section" id="migration-roadmap" style="margin-top: 56px;">
+        <div class="section-head" style="margin-bottom: 28px;">
+          <h2 class="section-title">30-Day Enterprise Zero-Downtime Migration Roadmap</h2>
+          <span class="section-note">Proven 4-stage methodology used by 500+ seat AEC design institutes and manufacturing plants</span>
+        </div>
+        <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px;">
+          <div class="card" style="padding: 24px; background: #fff; border: 1px solid #e2e8f0; border-top: 4px solid #2563eb; border-radius: 14px;">
+            <span style="font-size: 12px; font-weight: 800; color: #2563eb; text-transform: uppercase;">Week 1 · Stage 1</span>
+            <h3 style="font-size: 1.15rem; margin: 8px 0;">Technical Pilot &amp; DWG Fidelity Benchmark</h3>
+            <p style="font-size: 13.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0;">
+              Select 5–10 power users across drafting disciplines. Test your heaviest production DWG files (Xrefs, dynamic blocks, annotative scales, sheet sets) and verify bidirectional save fidelity with external AutoCAD contractors.
+            </p>
+          </div>
+          <div class="card" style="padding: 24px; background: #fff; border: 1px solid #e2e8f0; border-top: 4px solid #10b981; border-radius: 14px;">
+            <span style="font-size: 12px; font-weight: 800; color: #10b981; text-transform: uppercase;">Week 2 · Stage 2</span>
+            <h3 style="font-size: 1.15rem; margin: 8px 0;">Workspace, CTB &amp; LISP/GRX Plugin Audit</h3>
+            <p style="font-size: 13.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0;">
+              Migrate custom command aliases (<code>acad.pgp</code> &rarr; <code>gcad.pgp</code>), ribbon <code>.cuix</code> files, <code>.ctb/.stb</code> plot style tables, <code>.shx</code> font directories, and in-house AutoLISP / .NET / GRX automation scripts.
+            </p>
+          </div>
+          <div class="card" style="padding: 24px; background: #fff; border: 1px solid #e2e8f0; border-top: 4px solid #f59e0b; border-radius: 14px;">
+            <span style="font-size: 12px; font-weight: 800; color: #f59e0b; text-transform: uppercase;">Week 3 · Stage 3</span>
+            <h3 style="font-size: 1.15rem; margin: 8px 0;">Floating License Server &amp; Silent MSI Rollout</h3>
+            <p style="font-size: 13.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0;">
+              Deploy the Gstarsoft Network License Manager (GLM / FlexNet) on your Windows or Linux server. Push silent MSI packages with pre-mapped network template paths via Active Directory GPO or SCCM.
+            </p>
+          </div>
+          <div class="card" style="padding: 24px; background: #fff; border: 1px solid #e2e8f0; border-top: 4px solid #8b5cf6; border-radius: 14px;">
+            <span style="font-size: 12px; font-weight: 800; color: #8b5cf6; text-transform: uppercase;">Week 4 · Stage 4</span>
+            <h3 style="font-size: 1.15rem; margin: 8px 0;">Subscription Retirement &amp; Skill Certification</h3>
+            <p style="font-size: 13.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0;">
+              Retire up to 80–90% of expiring AutoCAD annual subscriptions while retaining a minimal hybrid pool if required by specific legacy contracts. Onboard drafters via <a href="/quiz">GstarCAD Skill Certification</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Configuration File Mapping Table -->
+      <section class="section" id="config-migration-table" style="margin-top: 48px;">
+        <div class="section-head" style="margin-bottom: 20px;">
+          <h2 class="section-title">CAD Customization &amp; Support File Migration Matrix</h2>
+          <span class="section-note">Direct 1:1 file extension compatibility eliminates environment rebuilding</span>
+        </div>
+        <div style="overflow-x: auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: #0f172a; color: #fff;">
+                <th style="padding: 14px 18px;">Customization Asset</th>
+                <th style="padding: 14px 18px;">AutoCAD® File Format</th>
+                <th style="padding: 14px 18px; background: #1e3a8a;">GstarCAD 2027 Support</th>
+                <th style="padding: 14px 18px;">Migration Procedure</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 18px; font-weight: 600;">Command Aliases (Shortcuts)</td>
+                <td style="padding: 12px 18px; font-family: monospace;">acad.pgp</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04);">gcad.pgp (100% compatible)</td>
+                <td style="padding: 12px 18px;">Copy custom alias block into <code>gcad.pgp</code> and run <code>REINIT</code></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                <td style="padding: 12px 18px; font-weight: 600;">Drawing Templates</td>
+                <td style="padding: 12px 18px; font-family: monospace;">*.dwt</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04);">*.dwt (Native binary read)</td>
+                <td style="padding: 12px 18px;">Point <code>QNEW</code> default template path in <code>OPTIONS &rarr; Files</code></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 18px; font-weight: 600;">Plot Style Tables</td>
+                <td style="padding: 12px 18px; font-family: monospace;">*.ctb / *.stb</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04);">*.ctb / *.stb (Identical)</td>
+                <td style="padding: 12px 18px;">Copy directly to GstarCAD <code>Plot Styles</code> folder or shared UNC path</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                <td style="padding: 12px 18px; font-weight: 600;">Custom Linetypes &amp; Hatch Patterns</td>
+                <td style="padding: 12px 18px; font-family: monospace;">acad.lin / acad.pat</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04);">gcad.lin / gcad.pat</td>
+                <td style="padding: 12px 18px;">Add custom <code>.lin</code> and <code>.pat</code> folder to Support File Search Path</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 18px; font-weight: 600;">Sheet Set Definitions</td>
+                <td style="padding: 12px 18px; font-family: monospace;">*.dst</td>
+                <td style="padding: 12px 18px; font-family: monospace; background: rgba(37,99,235,0.04);">*.dst (Native SSM)</td>
+                <td style="padding: 12px 18px;">Open directly via <code>SHEETSET</code> command for batch publishing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    
+      <!-- Phase 5: 10 Global Enterprise AutoCAD-to-GstarCAD Migration Case Studies -->
+      <section class="container" style="margin-top: 48px; margin-bottom: 56px;">
+        <div class="section-head" style="text-align: center; margin-bottom: 28px;">
+          <span class="chip pill-ok">Audited Enterprise ROI</span>
+          <h2 style="margin-top: 8px;">10 Global Enterprise AutoCAD®-to-GstarCAD Migration Case Studies</h2>
+          <p class="hero-sub" style="max-width: 760px; margin: 8px auto 0;">Explore how automotive Tier-1 suppliers, seismic architectural design institutes, petrochemical EPCs, and semiconductor cleanroom integrators cut 5-year CAD TCO by 73%–75%.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+          <a href="/kb/guides/case-study-automotive-tier1-germany" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$3,915,000 USD Saved Over 5 Years (74.2% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: German Automotive Tier-1 Supplier Migrates 450 Seats to GstarCAD Mechanical</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a Stuttgart-based automotive powertrain &amp; body-in-white stamping die manufacturer replaced 450 AutoCAD Mechanical subscriptions with GstarCAD Mechanical 2027, cutting 5-year TCO by 74%.</p></a><a href="/kb/guides/case-study-aec-design-institute-japan" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$5,410,000 USD Saved Over 5 Years (75.0% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: Tokyo Architectural &amp; Structural Engineering Group Deploys 620 GstarCAD Seats</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a leading Japanese seismic structural and commercial architectural firm transitioned 620 seats from AutoCAD to GstarCAD Architecture &amp; Professional with zero JWW/DWG data loss.</p></a><a href="/kb/guides/case-study-epc-petrochemical-middle-east" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$3,306,000 USD Saved Over 5 Years (73.8% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: Middle East Petrochemical EPC Contractor Standardizes 380 Piping &amp; P&amp;ID Seats on GstarCAD</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How an Abu Dhabi &amp; Dammam energy EPC contractor migrated 380 P&amp;ID, electrical instrumentation, and plant piping drafting workstations to GstarCAD 2027 Professional.</p></a><a href="/kb/guides/case-study-civil-highway-rail-southeast-asia" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$2,697,000 USD Saved Over 5 Years (74.5% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: Southeast Asian Civil Infrastructure &amp; Metro Rail Consortium Adopts GstarCAD</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a Singapore-Bangkok-Jakarta civil engineering consortium deployed 310 GstarCAD 2027 seats for metro viaduct alignments, utility relocation, and automated LAYOUTBYPATH sheet production.</p></a><a href="/kb/guides/case-study-semiconductor-cleanroom-korea" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$4,524,000 USD Saved Over 5 Years (75.1% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: South Korean Semiconductor Fab &amp; Cleanroom MEP Integrator Moves 520 Seats to GstarCAD</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a Gyeonggi-do ultra-pure water (UPW) and semiconductor cleanroom MEP contractor replaced high-cost annual CAD subscriptions with perpetual GstarCAD 2027 licenses.</p></a><a href="/kb/guides/case-study-shipbuilding-offshore-europe" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$2,523,000 USD Saved Over 5 Years (74.0% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: European Shipbuilding &amp; Offshore Wind Jacket Fabricator Migrates 290 CAD Workstations</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a Rotterdam &amp; Gdansk marine engineering and offshore wind foundation fabricator achieved 100% CNC plasma nesting and hull structural DWG continuity on GstarCAD.</p></a><a href="/kb/guides/case-study-power-grid-substation-latin-america" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$2,958,000 USD Saved Over 5 Years (74.3% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: Latin American High-Voltage Transmission &amp; Substation Utility Deploys 340 GstarCAD Seats</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a São Paulo &amp; Santiago electrical power grid engineering utility standardized primary and secondary substation schematic drafting on GstarCAD 2027.</p></a><a href="/kb/guides/case-study-modular-prefab-housing-north-america" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$1,914,000 USD Saved Over 5 Years (73.6% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: North American Modular Steel &amp; Prefab Building Manufacturer Switches 220 Seats to GstarCAD</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a Toronto &amp; Texas volumetric modular building manufacturer unified architectural design and shop-floor fabrication drawings using GstarCAD Architecture &amp; DWG FastView.</p></a><a href="/kb/guides/case-study-precision-mold-die-manufacturing-asia" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$3,567,000 USD Saved Over 5 Years (74.8% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: Precision Injection Mold &amp; Die-Casting Group Standardizes 410 Seats on GstarCAD Mechanical</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a multi-plant precision mold maker for consumer electronics and medical devices eliminated CNC hole coordinate transcription errors with GstarCAD Mechanical.</p></a><a href="/kb/guides/case-study-municipal-water-gis-utility-europe" style="display:block; padding:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; text-decoration:none; color:#0f172a;"><span style="font-size:11px; font-weight:700; color:#16a34a; text-transform:uppercase;">$2,262,000 USD Saved Over 5 Years (74.1% TCO Reduction)</span><h3 style="margin:6px 0 8px; font-size:15px; line-height:1.4;">Case Study: Southern European Municipal Water &amp; District Heating Utility Migrates 260 GIS/CAD Seats</h3><p style="margin:0; font-size:12.5px; color:#475569; line-height:1.5;">How a metropolitan water, wastewater, and district heating operator integrated 260 GstarCAD 2027 seats with enterprise GIS and mobile field inspection workflows.</p></a>
+        </div>
+      </section>
+
     </main>
 
     <!-- Footer -->

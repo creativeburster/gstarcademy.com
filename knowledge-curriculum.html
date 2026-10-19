@@ -210,7 +210,49 @@
                     <p class="meta">Goal: build CAD mental model before touching tool details.</p>
                     <div class="item-tags"><span class="tag">Beginner</span><span class="tag">Concepts</span><span class="tag">2D</span></div>
                   </div>
-                </article>
+                
+<section class="container" style="margin-top: 32px; margin-bottom: 36px; padding: 28px; background: var(--ink-surface-2, #f8fafc); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 16px;">
+  <h2 style="margin-top: 0; font-size: 1.3rem;">Enterprise CAD Governance, Interoperability &amp; Quality Assurance Reference</h2>
+  <p style="line-height: 1.75; color: var(--ink-text-soft, #475569);">
+    Published and maintained by the <strong>GstarCAD Academy Engineering Editorial Board</strong> under <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, this documentation resource adheres to international technical product documentation and geometric modeling standards including <strong>ISO 128</strong> (General principles of presentation), <strong>ISO 13567</strong> (CAD layer organization), <strong>ASME Y14.5-2018</strong> (Dimensioning and Tolerancing), and <strong>ISO 19650</strong> (Building Information Modeling information management). Whether evaluating enterprise DWG software, executing a zero-downtime migration from AutoCAD to GstarCAD 2027 Professional, or training multi-disciplinary engineering teams, organizations must establish verifiable technical governance across four operational pillars:
+  </p>
+  <ul style="line-height: 1.8; color: var(--ink-text-soft, #475569); padding-left: 20px; margin-top: 12px;">
+    <li><strong>Binary-Level DWG Database Fidelity (AC1012–AC1032):</strong> Production CAD engines must preserve 100% of entity handles, extended entity data (XData), custom dictionary objects, dynamic block visibility states, associative dimension constraints, and plot style tables (<code>.ctb</code> / <code>.stb</code>) without intermediate file translation or precision truncation.</li>
+    <li><strong>Hardware-Accelerated Multi-Core Graphics &amp; Memory Hygiene:</strong> Large civil topography surveys, plant piping layouts, and multi-story architectural Xref assemblies require multi-threaded display list regeneration, incremental file save architectures, and automated purge protocols (<code>-PURGE</code> RegApps, <code>OVERKILL</code> duplicate vectors, and <code>AUDIT</code> symbol table verification) to prevent workstation memory exhaustion.</li>
+    <li><strong>Automation &amp; API Ecosystem Continuity (AutoLISP, .NET &amp; C++ GRX):</strong> Enterprise productivity relies on custom drafting automation. GstarCAD 2027 supports direct execution of legacy <code>.lsp</code>, <code>.vlx</code>, and <code>.fas</code> routines alongside source-compatible C++ GRX and C# .NET plugins, enabling rapid modernization of proprietary engineering toolboxes.</li>
+    <li><strong>Perpetual Licensing &amp; Total Cost of Ownership (TCO) Predictability:</strong> By deploying perpetual standalone USB/Dongle or centralized FlexNet/GstarLM floating network licenses, engineering directors eliminate recurring annual subscription lock-in while reducing 5-year CAD software expenditure by 65% to 75%.</li>
+  </ul>
+  <div style="overflow-x: auto; margin-top: 18px; background: var(--ink-surface, #ffffff); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 12px;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
+      <thead>
+        <tr style="background: var(--ink-surface-2, #f1f5f9); border-bottom: 2px solid var(--ink-line, #e2e8f0);">
+          <th style="padding: 10px 14px;">Verification Dimension</th>
+          <th style="padding: 10px 14px;">Engineering Standard / Command</th>
+          <th style="padding: 10px 14px;">Enterprise Production Acceptance Gate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line, #e2e8f0);">
+          <td style="padding: 10px 14px; font-weight: 600;">Drawing Seed &amp; Units</td>
+          <td style="padding: 10px 14px;"><code>INSUNITS</code>, <code>LUNITS</code>, <code>MEASUREMENT</code></td>
+          <td style="padding: 10px 14px;">Enforce corporate <code>.dwt</code> seed template; verify 1:1 metric (mm) or imperial consistency across Xrefs.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line, #e2e8f0); background: var(--ink-surface-2, #f8fafc);">
+          <td style="padding: 10px 14px; font-weight: 600;">Layer &amp; Annotation Hygiene</td>
+          <td style="padding: 10px 14px;"><code>LAYTRANS</code>, <code>DIMASSOC=2</code>, <code>ANNOMONITOR</code></td>
+          <td style="padding: 10px 14px;">Zero entities on <code>Defpoints</code>; 100% associative dimensions and multi-scale annotative text styles.</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 14px; font-weight: 600;">Transmittal &amp; Field Review</td>
+          <td style="padding: 10px 14px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
+          <td style="padding: 10px 14px;">Package all dependent SHX/TTF fonts, CTB tables, and relative-path Xrefs; verify multi-page PDF/DWG output.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</article>
                 <article class="tutorial-item kb-detail-card" data-tags="beginner terms commandline 2d" data-title="Stage 2: Command Grammar & 2D Drafting Operations" data-desc="Learn command families, selection logic, modify tools, and drafting accuracy flow." data-extra="Output: complete a clean 2D drawing and apply annotations.">
                   <div class="thumb">Stage 2</div>
                   <div class="item-body">
@@ -257,6 +299,34 @@
         </div>
       </div>
     </div>
+
+    
+      <section class="container" style="max-width: 1100px; margin: 40px auto; padding: 32px; background: var(--ink-surface-2, #f8fafc); border: 1px solid var(--ink-line, #e2e8f0); border-radius: 16px;">
+        <h2 style="font-size: 1.5rem; margin-top: 0;">GstarCAD Global Academy Curriculum Architecture &amp; Pedagogical Framework</h2>
+        <p style="font-size: 14.5px; color: var(--ink-text-soft); line-height: 1.7;">
+          Designed by the Engineering Education Board at <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, our curriculum bridges the gap between theoretical university engineering graphics and high-speed enterprise production drafting. Rather than teaching isolated software buttons, every module emphasizes <strong>standards-compliant geometry construction</strong>, <strong>database cleanliness</strong>, and <strong>cross-platform interoperability</strong>.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div style="background: var(--ink-surface, #fff); padding: 20px; border-radius: 12px; border: 1px solid var(--ink-line, #e2e8f0);">
+            <h3 style="font-size: 1.05rem; margin: 0 0 8px;">Tier 1 · Core 2D Drafting &amp; DWG Governance (Weeks 1–4)</h3>
+            <p style="font-size: 13.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0;">
+              Covers precision Cartesian and polar coordinate entry, ISO 13567 layer naming hierarchies, linetypes and annotative scaling (<code>MSLTSCALE</code> / <code>PSLTSCALE</code>), external reference (Xref) relative pathing and demand loading (<code>INDEXCTL=3</code>), dynamic block authoring with geometric/dimensional constraints, and batch publishing with CTB/STB plot style tables.
+            </p>
+          </div>
+          <div style="background: var(--ink-surface, #fff); padding: 20px; border-radius: 12px; border: 1px solid var(--ink-line, #e2e8f0);">
+            <h3 style="font-size: 1.05rem; margin: 0 0 8px;">Tier 2 · Vertical Discipline Specialization (Weeks 5–8)</h3>
+            <p style="font-size: 13.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0;">
+              Splits into specialized engineering tracks: <strong>Mechanical Manufacturing</strong> (GstarCAD Mechanical standard parts, shaft/gear generators, ASME Y14.5 GD&amp;T feature control frames, associative BOM and balloons), <strong>Architectural &amp; BIM</strong> (GstarCAD Architecture parametric walls/doors, automatic elevations, ISO 19650 CDE workflows, IFC 4.3 exchange), and <strong>Civil Infrastructure</strong> (TIN terrain modeling, horizontal clothoids, and grading).
+            </p>
+          </div>
+          <div style="background: var(--ink-surface, #fff); padding: 20px; border-radius: 12px; border: 1px solid var(--ink-line, #e2e8f0);">
+            <h3 style="font-size: 1.05rem; margin: 0 0 8px;">Tier 3 · Enterprise Automation &amp; SDK Development (Weeks 9–12)</h3>
+            <p style="font-size: 13.5px; color: var(--ink-text-soft); line-height: 1.6; margin: 0;">
+              Prepares CAD managers and software engineers to automate repetitive drafting tasks using <strong>AutoLISP / Visual LISP</strong>, <strong>ActiveX COM / VBA</strong>, <strong>C# .NET Managed API</strong>, and <strong>C++ GRX SDK</strong>. Includes silent enterprise MSI deployment, FlexNet network license pooling, and automated drawing QA/QC scripts.
+            </p>
+          </div>
+        </div>
+      </section>
 
     <footer class="footer site-footer">
       <div class="container site-footer-inner">

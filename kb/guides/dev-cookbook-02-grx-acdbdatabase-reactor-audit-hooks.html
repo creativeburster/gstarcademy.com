@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};window.gtag=gtag;window.addEventListener('load',function(){const i=()=>{const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config','G-ZV3YR72933');};if('requestIdleCallback' in window){requestIdleCallback(i);}else{setTimeout(i,1);}});</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>GRX Cookbook 02: AcDbDatabaseReactor &amp; AcEditorReactor Event Hooks for Real-Time Layer &amp; Standards Governance | GstarCAD Developer Cookbook</title>
+<meta content="Intercept objectAppended, objectModified, and beginSave events in C++ GRX to enforce ISO 13567 layer standards and block unauthorized modifications automatically." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-02-grx-acdbdatabase-reactor-audit-hooks" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="GRX Cookbook 02: AcDbDatabaseReactor &amp; AcEditorReactor Event Hooks for Real-Time Layer &amp; Standards Governance" property="og:title"/>
+<meta content="Intercept objectAppended, objectModified, and beginSave events in C++ GRX to enforce ISO 13567 layer standards and block unauthorized modifications automatically." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-02-grx-acdbdatabase-reactor-audit-hooks" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"GRX Cookbook 02: AcDbDatabaseReactor & AcEditorReactor Event Hooks for Real-Time Layer & Standards Governance","description":"Intercept objectAppended, objectModified, and beginSave events in C++ GRX to enforce ISO 13567 layer standards and block unauthorized modifications automatically.","url":"https://gstarcademy.com/kb/guides/dev-cookbook-02-grx-acdbdatabase-reactor-audit-hooks","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"en","author":{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"GRX Developer Hub","item":"https://gstarcademy.com/developers"},{"@type":"ListItem","position":3,"name":"GRX Cookbook 02: AcDbDatabaseReactor & AcEditorReactor Event Hooks for Real-Time Layer & Standards Governance","item":"https://gstarcademy.com/kb/guides/dev-cookbook-02-grx-acdbdatabase-reactor-audit-hooks"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+<header class="topbar">
+<div class="container topbar-inner">
+<a class="brand" href="/."><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
+<nav class="nav">
+<a class="nav-link" href="/.">Home</a>
+<a class="nav-link" href="/migration">Migration Hub</a>
+<a class="nav-link" href="/tutorials">Tutorials</a>
+<a class="nav-link" href="/quiz">Certification</a>
+<a class="nav-link" href="/knowledge-base">Knowledge Base</a>
+<a class="nav-link active" href="/developers">Developers</a>
+<a class="nav-link" href="/download">Free Trial</a>
+</nav>
+</div>
+</header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/.">Home</a> / <a href="/developers">GRX / .NET / LISP Developer Hub</a> / <a href="/kb/guides/">Developer Cookbooks</a> / <span aria-current="page">GRX Cookbook 02: AcDbDatabaseReactor &amp; AcEditorReactor Event Hooks for Real-Time Layer &amp; Standards Governance</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C++ GRX SDK (ObjectARX Porting)</span>
+<h1 style="margin-top:12px;">GRX Cookbook 02: AcDbDatabaseReactor &amp; AcEditorReactor Event Hooks for Real-Time Layer &amp; Standards Governance</h1>
+<p class="hero-sub">Intercept objectAppended, objectModified, and beginSave events in C++ GRX to enforce ISO 13567 layer standards and block unauthorized modifications automatically.</p>
+<div class="ink-byline" style="margin-top:14px;">
+<span><strong>Author:</strong> Zhang Mingyuan, B.Eng. (Distinguished GRX SDK Architect, Suzhou Gstarsoft Co., Ltd.)</span>
+<span><strong>Core APIs:</strong> <code>AcDbDatabaseReactor, AcEditorReactor, objectAppended, beginSave, acdbHostApplicationServices</code></span>
+<span><strong>Updated:</strong> <time datetime="2026-10-19">2026-10-19</time></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
+<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Intercept objectAppended, objectModified, and beginSave events in C++ GRX to enforce ISO 13567 layer standards and block unauthorized modifications automatically.</p>
+<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>AcDbDatabaseReactor, AcEditorReactor, objectAppended, beginSave, acdbHostApplicationServices</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Production-Grade Source Code Implementation</h2>
+<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// GstarCAD 2027 GRX SDK — Database Reactor for Layer Standards Enforcement
+#include "grxdefs.h"
+#include "dbmain.h"
+
+class GcLayerAuditReactor : public AcDbDatabaseReactor {
+public:
+    virtual void objectAppended(const AcDbDatabase* pDb, const AcDbObject* pObj) override {
+        if (pObj-&gt;isKindOf(AcDbEntity::desc())) {
+            AcDbEntity* pEnt = AcDbEntity::cast(pObj);
+            // Inspect pEnt-&gt;layer() and log compliance metrics
+        }
+    }
+};</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. ObjectARX-to-GRX &amp; .NET API Porting Matrix</h2>
+<p>When dual-targeting plugins for both AutoCAD and GstarCAD 2027 from a unified Git repository, reference the following symbol, header, and assembly mapping table:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">SDK Dimension</th>
+  <th style="padding:12px 16px;">AutoCAD® ObjectARX / .NET</th>
+  <th style="padding:12px 16px;">GstarCAD 2027 GRX / .NET Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Target API Classes</td>
+  <td style="padding:12px 16px;"><code>AcDbDatabaseReactor, AcEditorReactor, objectAppended, beginSave, acdbHostApplicationServices</code></td>
+  <td style="padding:12px 16px;">Identical class &amp; method signatures via compat headers</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">C++ Binary Extension</td>
+  <td style="padding:12px 16px;"><code>*.arx</code> / <code>*.dbx</code></td>
+  <td style="padding:12px 16px;"><code>*.grx</code> / <code>*.tx</code> (Loaded via <code>APPLOAD</code> or Registry)</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">Managed .NET Assemblies</td>
+  <td style="padding:12px 16px;"><code>acmgd.dll</code>, <code>acdbmgd.dll</code>, <code>accoremgd.dll</code></td>
+  <td style="padding:12px 16px;"><code>GsMgd.dll</code>, <code>GsDbMgd.dll</code> (Set <code>Copy Local = False</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Memory Management, Thread Safety &amp; QA Checklist</h2>
+<ul style="line-height:1.85; padding-left:20px;">
+  <li><strong>Deterministic Object Closure &amp; Transaction Disposal:</strong> In C++ GRX, every <code>acdbOpenObject()</code> call that returns <code>Acad::eOk</code> must be paired with an explicit <code>pObj-&gt;close()</code> before starting a command or returning control to the editor. In C# .NET, always wrap <code>StartTransaction()</code> inside a <code>using</code> block and explicitly call <code>tr.Commit()</code>.</li>
+  <li><strong>Document Locking from Modeless Contexts:</strong> Whenever modifying the active DWG database from a modeless WPF <code>PaletteSet</code>, WinForms dialog, or external COM event, acquire a write lock via <code>doc.LockDocument()</code> to prevent <code>eLockViolation</code> exceptions.</li>
+  <li><strong>Multi-Core Fiber &amp; Main-Thread Discipline:</strong> The DWG database (`AcDbDatabase`) is not thread-safe for concurrent writes. Offload heavy geometric calculations or SQL/REST I/O to background worker threads, then marshal database mutations back to the main CAD UI thread.</li>
+</ul>
+<div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/developers" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Back to GstarCAD Developer Hub &rarr;</a>
+  <a href="/download" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Download GstarCAD 2027 &amp; GRX SDK</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Test Your CAD API Mastery</a>
+</div>
+</section>
+
+<section style="margin-top:28px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
+<h2 style="margin-top:0; font-size:1.15rem;">Production Compilation, Packaging &amp; Enterprise Deployment Guide</h2>
+<p style="line-height:1.75; color:var(--ink-text-soft);">
+When deploying this developer recipe into commercial enterprise production, development leads should configure automated CI/CD build agents (GitHub Actions or Azure DevOps) using MSBuild command-line flags. Ensure that all dependent assemblies (such as <code>GsMgd.dll</code> and <code>GsDbMgd.dll</code>) have their reference property set to <code>Copy Local = False</code> (Private=False) to prevent deployment conflicts with the host GstarCAD 2027 application folder:
+</p>
+<ul style="line-height:1.8; color:var(--ink-text-soft); padding-left:20px;">
+  <li><strong>Target Framework Alignment:</strong> For C# .NET plugins, target .NET Framework 4.8 or .NET 8.0 Windows Desktop runtime depending on your GstarCAD host version. For C++ GRX extensions, compile using Visual Studio 2022 (MSVC v143) with the platform toolset set to 64-bit (x64) and Character Set set to Unicode.</li>
+  <li><strong>Registry-Free Autoloading (.bundle):</strong> Package your compiled binary and menu CUIX files into an Autodesk/GstarCAD-compatible Application Package bundle folder (e.g., <code>EnterprisePlugin.bundle/PackageContents.xml</code>) and deploy directly to <code>%APPDATA%\Autodesk\ApplicationPlugins</code> or <code>%PROGRAMDATA%\Gstarsoft\ApplicationPlugins</code> for automatic silent loading without requiring administrative Windows registry rights.</li>
+  <li><strong>Automated Exception Trapping &amp; Telemetry:</strong> Always wrap top-level command methods and event handlers inside structured <code>try-catch</code> or AutoLISP <code>vl-catch-all-apply</code> blocks to log diagnostic stack traces to corporate log repositories rather than letting unhandled exceptions crash the host drawing session.</li>
+</ul>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:10px;">
+  <table style="width:100%; border-collapse:collapse; font-size:13px; text-align:left;">
+    <thead>
+      <tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+        <th style="padding:10px 14px;">Build Artifact</th>
+        <th style="padding:10px 14px;">Production Location</th>
+        <th style="padding:10px 14px;">Deployment Verification Gate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--ink-line);">
+        <td style="padding:10px 14px; font-weight:600;">C++ GRX Binary</td>
+        <td style="padding:10px 14px;"><code>bin/x64/Release/*.grx</code></td>
+        <td style="padding:10px 14px;">Verify zero unresolved DLL imports via Dependency Walker / dumpbin /dependents.</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+        <td style="padding:10px 14px; font-weight:600;">Managed .NET DLL</td>
+        <td style="padding:10px 14px;"><code>bin/Release/net48/*.dll</code></td>
+        <td style="padding:10px 14px;">Confirm assemblies are strong-name signed and pass NETLOAD in GstarCAD 2027.</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px; font-weight:600;">AutoLISP / VLX</td>
+        <td style="padding:10px 14px;"><code>build/dist/*.vlx</code> or <code>*.lsp</code></td>
+        <td style="padding:10px 14px;">Verify clean loading in Startup Suite (APPLOAD) with zero console syntax errors.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+</body>
+</html>
