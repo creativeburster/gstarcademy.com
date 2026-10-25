@@ -8,6 +8,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
 <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+    <link rel="service" type="application/openapi+json" href="/openapi.json" />
+    <link rel="mcp" type="application/json" href="/mcp.json" />
 <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
 <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
 <title>AutoLISP Cookbook 11: 50x Faster Geometry &amp; Layer Creation Using entmake / entmakex Instead of (command) | GstarCAD Developer Cookbook</title>
@@ -21,29 +23,44 @@
 <meta content="https://gstarcademy.com/kb/guides/dev-cookbook-11-autolisp-entmake-high-speed-entity-generation" property="og:url"/>
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="../../styles.min.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"AutoLISP Cookbook 11: 50x Faster Geometry & Layer Creation Using entmake / entmakex Instead of (command)","description":"Bypass command-line overhead and OSNAP interference by constructing lines, closed LWPOLYLINEs, layers, and block inserts directly in the DWG database via `entmakex` DXF lists.","url":"https://gstarcademy.com/kb/guides/dev-cookbook-11-autolisp-entmake-high-speed-entity-generation","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"en","author":{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"AutoLISP Cookbook 11: 50x Faster Geometry & Layer Creation Using entmake / entmakex Instead of (command)","description":"Bypass command-line overhead and OSNAP interference by constructing lines, closed LWPOLYLINEs, layers, and block inserts directly in the DWG database via `entmakex` DXF lists.","url":"https://gstarcademy.com/kb/guides/dev-cookbook-11-autolisp-entmake-high-speed-entity-generation","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"en","author":{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/"},"reviewedBy":[{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#drafting-standards"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"citation":["ISO 128 — Technical Product Documentation (TPD): General Principles of Presentation","Native DWG Binary File Specification AC1015–AC1032 (R2000–R2027)","Suzhou Gstarsoft Co., Ltd. (SSE: 688657) — GstarCAD 2027 Professional & GRX SDK Reference Manual"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".kb-concept-definition"]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"GRX Developer Hub","item":"https://gstarcademy.com/developers"},{"@type":"ListItem","position":3,"name":"AutoLISP Cookbook 11: 50x Faster Geometry & Layer Creation Using entmake / entmakex Instead of (command)","item":"https://gstarcademy.com/kb/guides/dev-cookbook-11-autolisp-entmake-high-speed-entity-generation"}]}</script>
 </head>
 <body data-page="developers">
 <div class="header-stack">
-<header class="topbar">
-<div class="container topbar-inner">
-<a class="brand" href="/."><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
-<nav class="nav">
-<a class="nav-link" href="/.">Home</a>
-<a class="nav-link" href="/migration">Migration Hub</a>
-<a class="nav-link" href="/tutorials">Tutorials</a>
-<a class="nav-link" href="/quiz">Certification</a>
-<a class="nav-link" href="/knowledge-base">Knowledge Base</a>
-<a class="nav-link active" href="/developers">Developers</a>
-<a class="nav-link" href="/download">Free Trial</a>
-</nav>
-</div>
-</header>
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="/">
+            <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+            <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+            <a class="nav-link" data-nav="home" href="/">Home</a>
+            <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+            <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+            <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+            <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+            <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+            <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+          </nav>
+        </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
 </div>
 <main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
 <nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
-<a href="/.">Home</a> / <a href="/developers">GRX / .NET / LISP Developer Hub</a> / <a href="/kb/guides/">Developer Cookbooks</a> / <span aria-current="page">AutoLISP Cookbook 11: 50x Faster Geometry &amp; Layer Creation Using entmake / entmakex Instead of (command)</span>
+<a href="/">Home</a> / <a href="/developers">GRX / .NET / LISP Developer Hub</a> / <a href="/kb/guides/">Developer Cookbooks</a> / <span aria-current="page">AutoLISP Cookbook 11: 50x Faster Geometry &amp; Layer Creation Using entmake / entmakex Instead of (command)</span>
 </nav>
 <article>
 <header style="margin-bottom:28px;">
@@ -176,5 +193,6 @@ When deploying this developer recipe into commercial enterprise production, deve
 <footer class="footer site-footer">
 <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
 </footer>
+  <script src="/app.min.js?v=20260901z" defer></script>
 </body>
 </html>

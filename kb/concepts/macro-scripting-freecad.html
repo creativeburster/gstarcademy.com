@@ -70,27 +70,39 @@
 <button aria-label="Dismiss" class="env-banner-close"><span aria-hidden="true">×</span></button>
 </div>
 </aside>
-<header class="topbar">
-<div class="container topbar-inner">
-<a class="brand" href="/."><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
-<button aria-expanded="false" aria-label="Toggle navigation menu" class="hamburger">
-<span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
-</button>
-<nav class="nav">
-<div class="nav-header"><button aria-label="Close navigation menu" class="nav-close"><span class="nav-close-icon">×</span></button></div>
-<a class="nav-link" data-nav="home" href="/.">Home</a>
-<a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Wiki</a>
-<a class="nav-link" data-nav="tutorials" href="/tutorials">Tutorials</a>
-<a class="nav-link" data-nav="news" href="/news">News</a>
-<a class="nav-link" data-nav="about" href="/about">About</a>
-</nav>
-</div>
-<div aria-hidden="true" class="nav-overlay"></div>
-</header>
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="/">
+            <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+            <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+            <a class="nav-link" data-nav="home" href="/">Home</a>
+            <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+            <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+            <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+            <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+            <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+            <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+          </nav>
+        </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
 </div>
 <main class="container" style="margin-top: 32px; max-width: 920px;">
 <nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
-<a href="/.">Home</a> /
+<a href="/">Home</a> /
         <a href="/knowledge-base">Knowledge Base</a> /
         <a href="/kb-terms">Terms</a> /
         <a href="/kb/software/freecad">FreeCAD</a> /
@@ -103,10 +115,11 @@
 <p class="hero-sub">FreeCAD's Python console and macro system for automating tasks, creating custom objects, and extending functionality.</p>
 </header>
 <div class="ink-byline" role="contentinfo">
-<span><strong>By</strong> Gstarcademy Editorial Team</span>
-<span><strong>Updated</strong> <time datetime="2026-08-16">2026-08-16</time></span>
-<span><a href="/editorial-process">Editorial process</a></span>
-</div>
+      <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+      <span><strong>Reviewed by</strong> <a href="/authors#mcad-manufacturing">Chen Haoran, M.Sc., GDTP-S</a> (Principal Mechanical CAD & GD&T Metrology Lead)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-08-16">2026-08-16</time></span>
+      <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+    </div>
 <section class="kb-concept-section">
 <h2>Definition &amp; Context</h2>
 <p>FreeCAD is scriptable end-to-end in Python: the Python console gives live access to the document model, and macros (.FCMacro) record or code sequences of operations. Almost every GUI action maps to a Python call, so you can automate modeling, batch-process files, and build custom objects and even whole workbenches/add-ons.</p>

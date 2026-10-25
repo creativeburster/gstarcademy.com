@@ -8,6 +8,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
 <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+    <link rel="service" type="application/openapi+json" href="/openapi.json" />
+    <link rel="mcp" type="application/json" href="/mcp.json" />
 <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
 <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
 <title>.NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution | GstarCAD Developer Cookbook</title>
@@ -21,40 +23,56 @@
 <meta content="https://gstarcademy.com/kb/guides/dev-cookbook-07-dotnet-wpf-paletteset-dockable-ui" property="og:url"/>
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="../../styles.min.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":".NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution","description":"Host modern WPF MVVM user interfaces inside GstarCAD 2027 using Gssoft.GstarCAD.Windows.PaletteSet and safely modify the DWG database via Document.LockDocument().","url":"https://gstarcademy.com/kb/guides/dev-cookbook-07-dotnet-wpf-paletteset-dockable-ui","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"en","author":{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":".NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution","description":"Host modern WPF MVVM user interfaces inside GstarCAD 2027 using Gssoft.GstarCAD.Windows.PaletteSet and safely modify the DWG database via Document.LockDocument().","url":"https://gstarcademy.com/kb/guides/dev-cookbook-07-dotnet-wpf-paletteset-dockable-ui","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"en","author":{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/"},"reviewedBy":[{"@type":"Person","name":"Sofia Lindqvist, M.F.A.","jobTitle":"Senior Physically Based Rendering & Color Pipeline Specialist","worksFor":{"@type":"Organization","name":"GstarCAD Global Engineering Advisory"},"url":"https://gstarcademy.com/authors#visualization"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"citation":["SMPTE ST 2065-1 — Academy Color Encoding Specification (ACES) & OpenColorIO v2","Khronos Group glTF 2.0 & Pixar OpenUSD (Universal Scene Description) Specification"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".kb-concept-definition"]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"GRX Developer Hub","item":"https://gstarcademy.com/developers"},{"@type":"ListItem","position":3,"name":".NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution","item":"https://gstarcademy.com/kb/guides/dev-cookbook-07-dotnet-wpf-paletteset-dockable-ui"}]}</script>
 </head>
 <body data-page="developers">
 <div class="header-stack">
-<header class="topbar">
-<div class="container topbar-inner">
-<a class="brand" href="/."><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
-<nav class="nav">
-<a class="nav-link" href="/.">Home</a>
-<a class="nav-link" href="/migration">Migration Hub</a>
-<a class="nav-link" href="/tutorials">Tutorials</a>
-<a class="nav-link" href="/quiz">Certification</a>
-<a class="nav-link" href="/knowledge-base">Knowledge Base</a>
-<a class="nav-link active" href="/developers">Developers</a>
-<a class="nav-link" href="/download">Free Trial</a>
-</nav>
-</div>
-</header>
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="/">
+            <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+            <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+            <a class="nav-link" data-nav="home" href="/">Home</a>
+            <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+            <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+            <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+            <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+            <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+            <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+          </nav>
+        </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
 </div>
 <main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
 <nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
-<a href="/.">Home</a> / <a href="/developers">GRX / .NET / LISP Developer Hub</a> / <a href="/kb/guides/">Developer Cookbooks</a> / <span aria-current="page">.NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution</span>
+<a href="/">Home</a> / <a href="/developers">GRX / .NET / LISP Developer Hub</a> / <a href="/kb/guides/">Developer Cookbooks</a> / <span aria-current="page">.NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution</span>
 </nav>
 <article>
 <header style="margin-bottom:28px;">
 <span class="chip pill-ok">C# .NET Managed API</span>
 <h1 style="margin-top:12px;">.NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution</h1>
 <p class="hero-sub">Host modern WPF MVVM user interfaces inside GstarCAD 2027 using Gssoft.GstarCAD.Windows.PaletteSet and safely modify the DWG database via Document.LockDocument().</p>
-<div class="ink-byline" style="margin-top:14px;">
-<span><strong>Author:</strong> Zhang Mingyuan, B.Eng. (Distinguished GRX SDK Architect, Suzhou Gstarsoft Co., Ltd.)</span>
-<span><strong>Core APIs:</strong> <code>PaletteSet, ElementHost, Document.LockDocument, CommandFlags.Session, INotifyPropertyChanged</code></span>
-<span><strong>Updated:</strong> <time datetime="2026-10-19">2026-10-19</time></span>
-</div>
+<div class="ink-byline" role="contentinfo">
+      <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+      <span><strong>Reviewed by</strong> <a href="/authors#visualization">Sofia Lindqvist, M.F.A.</a> (Senior Physically Based Rendering & Color Pipeline Specialist)</span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-10-19">2026-10-19</time></span>
+      <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+    </div>
 </header>
 
 <section style="margin-top:24px;">
@@ -177,5 +195,6 @@ When deploying this developer recipe into commercial enterprise production, deve
 <footer class="footer site-footer">
 <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
 </footer>
+  <script src="/app.min.js?v=20260901z" defer></script>
 </body>
 </html>

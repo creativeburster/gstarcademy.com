@@ -8,6 +8,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
 <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+    <link rel="service" type="application/openapi+json" href="/openapi.json" />
+    <link rel="mcp" type="application/json" href="/mcp.json" />
 <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
 <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
 <title>Course 04: Enterprise External Reference (Xref) Federation, Demand Loading &amp; ISO 13567 Layer Standards | Official GstarCAD Academy Course</title>
@@ -21,40 +23,57 @@
 <meta content="https://gstarcademy.com/kb/guides/course-04-enterprise-xref-architecture-layer-standards" property="og:url"/>
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="../../styles.min.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Course 04: Enterprise External Reference (Xref) Federation, Demand Loading & ISO 13567 Layer Standards","description":"Architect multi-disciplinary Xref project trees using Overlay vs Attachment, XLOADCTL=2 non-locking network copies, INDEXCTL=3 spatial R-trees, VISRETAIN=1, and LAYTRANS mapping.","url":"https://gstarcademy.com/kb/guides/course-04-enterprise-xref-architecture-layer-standards","provider":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","inLanguage":"en"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Course 04: Enterprise External Reference (Xref) Federation, Demand Loading & ISO 13567 Layer Standards","description":"Architect multi-disciplinary Xref project trees using Overlay vs Attachment, XLOADCTL=2 non-locking network copies, INDEXCTL=3 spatial R-trees, VISRETAIN=1, and LAYTRANS mapping.","url":"https://gstarcademy.com/kb/guides/course-04-enterprise-xref-architecture-layer-standards","provider":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","inLanguage":"en"},"reviewedBy":[{"@type":"Person","name":"Dr. Lin Wei, Ph.D., PE","jobTitle":"Chief BIM & OpenBIM Interoperability Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#bim-structural"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"citation":["ISO 19650-1:2018 & ISO 19650-2:2018 — Organization and digitization of information about buildings and civil engineering works (BIM)","ISO 16739-1:2024 — Industry Foundation Classes (IFC 4.3) for data sharing in the construction and facility management industries","buildingSMART International BCF 3.0 & OpenBIM Technical Specifications"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".kb-concept-definition"]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Learn & Courses","item":"https://gstarcademy.com/tutorials"},{"@type":"ListItem","position":3,"name":"Course 04: Enterprise External Reference (Xref) Federation, Demand Loading & ISO 13567 Layer Standards","item":"https://gstarcademy.com/kb/guides/course-04-enterprise-xref-architecture-layer-standards"}]}</script>
 </head>
 <body data-page="tutorials">
 <div class="header-stack">
-<header class="topbar">
-<div class="container topbar-inner">
-<a class="brand" href="/."><span class="brand-badge">GC</span><span>Gstarcademy</span></a>
-<nav class="nav">
-<a class="nav-link" href="/.">Home</a>
-<a class="nav-link" href="/migration">Migration Hub</a>
-<a class="nav-link active" href="/tutorials">Tutorials</a>
-<a class="nav-link" href="/quiz">Certification</a>
-<a class="nav-link" href="/knowledge-base">Knowledge Base</a>
-<a class="nav-link" href="/developers">Developers</a>
-<a class="nav-link" href="/download">Free Trial</a>
-</nav>
-</div>
-</header>
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href="/">
+            <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+            <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+          </a>
+          <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-header">
+              <button class="nav-close" aria-label="Close navigation menu">
+                <span class="nav-close-icon">×</span>
+              </button>
+            </div>
+            <a class="nav-link" data-nav="home" href="/">Home</a>
+            <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+            <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+            <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+            <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+            <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+            <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+            <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+          </nav>
+        </div>
+        <div class="nav-overlay" aria-hidden="true"></div>
+      </header>
 </div>
 <main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
 <nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
-<a href="/.">Home</a> / <a href="/tutorials">Official Courses</a> / <a href="/kb/guides/">Curriculum Index</a> / <span aria-current="page">Course 04: Enterprise External Reference (Xref) Federation, Demand Loading &amp; ISO 13567 Layer Standards</span>
+<a href="/">Home</a> / <a href="/tutorials">Official Courses</a> / <a href="/kb/guides/">Curriculum Index</a> / <span aria-current="page">Course 04: Enterprise External Reference (Xref) Federation, Demand Loading &amp; ISO 13567 Layer Standards</span>
 </nav>
 <article>
 <header style="margin-bottom:28px;">
 <span class="chip pill-ok">GstarCAD 2027 Core Curriculum</span>
 <h1 style="margin-top:12px;">Course 04: Enterprise External Reference (Xref) Federation, Demand Loading &amp; ISO 13567 Layer Standards</h1>
 <p class="hero-sub">Architect multi-disciplinary Xref project trees using Overlay vs Attachment, XLOADCTL=2 non-locking network copies, INDEXCTL=3 spatial R-trees, VISRETAIN=1, and LAYTRANS mapping.</p>
-<div class="ink-byline" style="margin-top:14px;">
-<span><strong>Instructor Team:</strong> GstarCAD Academy Certified Training Board (Suzhou Gstarsoft Co., Ltd.)</span>
-<span><strong>Key Commands:</strong> <code>XREF, XCLIP, VISRETAIN=1, XLOADCTL=2, INDEXCTL=3, LAYTRANS</code></span>
-<span><strong>Updated:</strong> <time datetime="2026-10-19">2026-10-19</time></span>
-</div>
+<div class="ink-byline" role="contentinfo">
+      <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+      <span><strong>Reviewed by</strong> <a href="/authors#bim-structural">Dr. Lin Wei, Ph.D., PE</a> (Chief BIM & OpenBIM Interoperability Architect)</span>
+      <span><strong>Key Commands:</strong> <code>XREF, XCLIP, VISRETAIN=1, XLOADCTL=2, INDEXCTL=3, LAYTRANS</code></span>
+      <span><strong>Last reviewed</strong> <time datetime="2026-10-19">2026-10-19</time></span>
+      <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+    </div>
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
@@ -130,5 +149,6 @@
 <footer class="footer site-footer">
 <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
 </footer>
+  <script src="/app.min.js?v=20260901z" defer></script>
 </body>
 </html>
