@@ -10,8 +10,17 @@
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
       gtag('consent', 'default', {
-        'analytics_storage': 'granted'
+        'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+        'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+        'wait_for_update': 500
       });
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+      });
+      try {
+        var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+        if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+      } catch (e) {}
       gtag('js', new Date());
       gtag('config', 'G-ZV3YR72933');
     </script>
@@ -226,6 +235,7 @@
 
 </main>
     <footer class="footer site-footer"><div class="container site-footer-bottom"><p>&copy; Gstarcademy.</p></div></footer>
-    <script data-cfasync="false" src="../../app.min.js" defer></script>
+    <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+      <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
   </body>
 </html>

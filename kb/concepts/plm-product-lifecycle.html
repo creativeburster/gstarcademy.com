@@ -10,8 +10,17 @@
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
       gtag('consent', 'default', {
-        'analytics_storage': 'granted'
+        'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+        'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+        'wait_for_update': 500
       });
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+      });
+      try {
+        var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+        if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+      } catch (e) {}
       gtag('js', new Date());
       gtag('config', 'G-ZV3YR72933');
     </script>
@@ -162,6 +171,7 @@
 <div class="container site-footer-inner"><div class="site-footer-brand"><p class="site-footer-tagline">Gstarcademy</p></div></div>
 <div class="container site-footer-bottom"><p>© <span id="year">2026</span> Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
 </footer>
-<script data-cfasync="false" defer="" src="../../app.min.js"></script>
-</body>
+<script data-cfasync="false" defer="" src="/app.min.js?v=20261026"></script>
+    <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+  </body>
 </html>
