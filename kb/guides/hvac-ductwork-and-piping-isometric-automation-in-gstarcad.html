@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>MEP Coordination in GstarCAD 2027: Double-Line HVAC Ductwork, Pipe Sizing & Multi-Layer Clash Overlay | GstarCAD Academy</title>
+<meta content="Draft double-line supply/return HVAC ductwork, hydronic chilled-water piping schematics, and multi-discipline ceiling coordination plans in GstarCAD 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/hvac-ductwork-and-piping-isometric-automation-in-gstarcad" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="MEP Coordination in GstarCAD 2027: Double-Line HVAC Ductwork, Pipe Sizing & Multi-Layer Clash Overlay" property="og:title"/>
+<meta content="Draft double-line supply/return HVAC ductwork, hydronic chilled-water piping schematics, and multi-discipline ceiling coordination plans in GstarCAD 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/hvac-ductwork-and-piping-isometric-automation-in-gstarcad" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "MEP Coordination in GstarCAD 2027: Double-Line HVAC Ductwork, Pipe Sizing & Multi-Layer Clash Overlay", "description": "Draft double-line supply/return HVAC ductwork, hydronic chilled-water piping schematics, and multi-discipline ceiling coordination plans in GstarCAD 2027.", "url": "https://gstarcademy.com/kb/guides/hvac-ductwork-and-piping-isometric-automation-in-gstarcad", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Dr. Lin Wei, Ph.D., PE", "jobTitle": "Principal BIM & Interoperability Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#bim-architecture"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["ASHRAE Handbook \u2014 Fundamentals (Duct Design & Friction Loss Darcy-Weisbach)", "SMACNA \u2014 HVAC Duct Construction Standards Metal and Flexible"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Official Courses & Tutorials", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "MEP Coordination in GstarCAD 2027: Double-Line HVAC Ductwork, Pipe Sizing & Multi-Layer Clash Overlay", "item": "https://gstarcademy.com/kb/guides/hvac-ductwork-and-piping-isometric-automation-in-gstarcad"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Official Courses & Tutorials</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">MEP Coordination in GstarCAD 2027: Double-Line HVAC Ductwork, Pipe Sizing & Multi-Layer Clash Overlay</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">MEP & HVAC Engineering</span>
+<h1 style="margin-top:12px;">MEP Coordination in GstarCAD 2027: Double-Line HVAC Ductwork, Pipe Sizing & Multi-Layer Clash Overlay</h1>
+<p class="hero-sub">Draft double-line supply/return HVAC ductwork, hydronic chilled-water piping schematics, and multi-discipline ceiling coordination plans in GstarCAD 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#bim-architecture">Dr. Lin Wei, Ph.D., PE</a> (Principal BIM & Interoperability Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. High-Speed MEP Ceiling Coordination in 2D/3D DWG</h2>
+<p>In commercial hospital, laboratory, and cleanroom construction, coordinating supply/return/exhaust ductwork, chilled-water piping, fire protection sprinklers, and electrical cable trays above suspended ceilings requires disciplined layer governance and accurate double-line duct geometry. <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> enables MEP engineers to draft associative multiline/double-line duct corridors (`MLINE` / Dynamic Duct Blocks), apply background structure transparency (`CETRANSPARENCY`), and run automated clearance overlays.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. SMACNA / ASHRAE MEP Layer &amp; Elevation Tagging Standards</h2>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">MEP Discipline System</th>
+  <th style="padding:12px 16px;">Standard Layer &amp; Color</th>
+  <th style="padding:12px 16px;">Mandatory Ceiling Coordination Annotation</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Supply Air Ductwork (SA)</td>
+  <td style="padding:12px 16px;"><code>M-HVAC-SUPP</code> (Color 150 Blue)</td>
+  <td style="padding:12px 16px;">Width &times; Height (`800x400`), Airflow (`m³/h`), and Bottom of Duct (`BOD +3.20m`).</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Return / Exhaust Air (RA/EA)</td>
+  <td style="padding:12px 16px;"><code>M-HVAC-RETN</code> (Color 210 Magenta)</td>
+  <td style="padding:12px 16px;">Diagonal cross-lines on inlets; acoustic lining thickness (+25mm internal insulation).</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">Gravity Sanitary/Storm Drainage</td>
+  <td style="padding:12px 16px;"><code>P-SANR-PIPE</code> (Color 30 Orange)</td>
+  <td style="padding:12px 16px;">Priority right-of-way: Invert Elevation (`IE`) and slope gradient ($i = 1.5\%$ to $2.0\%$).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. AutoLISP Equivalent Circular/Rectangular Duct Hydraulic Calculator</h2>
+<p>When ceiling soffit height is restricted by structural beams, HVAC engineers must convert circular duct diameters ($D_e$) into low-profile rectangular ducts ($a \times b$) with identical friction head loss using the Huebscher equation $D_e = 1.30 \cdot \frac{(a \cdot b)^{0.625}}{(a + b)^{0.25}}$:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 — ASHRAE Huebscher Equivalent Rectangular Duct Calculator &amp; Labeler
+(defun c:GCAD_DUCT_EQ ( / a b de v q pt txt)
+  (setq a (getreal "\nEnter Rectangular Duct Width a (mm): "))
+  (setq b (getreal "\nEnter Rectangular Duct Height b (mm): "))
+  (setq q (getreal "\nEnter Airflow Rate Q (m3/h): "))
+  ;; Huebscher formula: De = 1.30 * ((a*b)^0.625) / ((a+b)^0.25)
+  (setq de (* 1.30 (/ (expt (* a b) 0.625) (expt (+ a b) 0.25))))
+  ;; Velocity v (m/s) = (Q / 3600) / ((a/1000) * (b/1000))
+  (setq v (/ (/ q 3600.0) (* (/ a 1000.0) (/ b 1000.0))))
+  (setq txt (strcat (rtos a 2 0) "x" (rtos b 2 0) " (De=" (rtos de 2 0) "mm, v=" (rtos v 2 2) "m/s)"))
+  (princ (strcat "\n[ASHRAE Calc] " txt))
+  (if (setq pt (getpoint "\nPick point to place duct annotation label: "))
+    (entmakex (list '(0 . "MTEXT") '(8 . "M-HVAC-TEXT") '(100 . "AcDbEntity") '(100 . "AcDbMText") (cons 10 pt) '(40 . 3.0) (cons 1 txt)))
+  )
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. ASHRAE Acoustic Velocity &amp; Pressure-Drop Sizing Reference Table</h2>
+<p>When running automated double-line duct generation or hydronic pipe sizing routines in GstarCAD 2027, embedding ASHRAE Fundamentals velocity and friction-loss thresholds directly into your AutoLISP engineering rules prevents noisy diffuser branches and oversized sheet-metal fabrication costs:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">Occupancy / System Zone</th>
+  <th style="padding:10px 14px;">Target Noise Criteria (NC)</th>
+  <th style="padding:10px 14px;">Max Main Duct Velocity ($v_{\max}$)</th>
+  <th style="padding:10px 14px;">Max Branch Duct Velocity</th>
+  <th style="padding:10px 14px;">Design Friction Rate ($\Delta P / L$)</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Hospital Operating Room / Recording Studio</strong></td>
+  <td style="padding:10px 14px;">NC 20–25</td>
+  <td style="padding:10px 14px;">4.5 m/s (900 fpm)</td>
+  <td style="padding:10px 14px;">3.0 m/s (600 fpm)</td>
+  <td style="padding:10px 14px;">0.65 Pa/m (0.08 in. wg/100 ft)</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Commercial Office / Hotel Guestroom</strong></td>
+  <td style="padding:10px 14px;">NC 30–35</td>
+  <td style="padding:10px 14px;">6.5 m/s (1,300 fpm)</td>
+  <td style="padding:10px 14px;">4.5 m/s (900 fpm)</td>
+  <td style="padding:10px 14px;">0.80 Pa/m (0.10 in. wg/100 ft)</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Retail Concourse / Hospital Corridor</strong></td>
+  <td style="padding:10px 14px;">NC 35–40</td>
+  <td style="padding:10px 14px;">8.0 m/s (1,600 fpm)</td>
+  <td style="padding:10px 14px;">6.0 m/s (1,200 fpm)</td>
+  <td style="padding:10px 14px;">1.00 Pa/m (0.12 in. wg/100 ft)</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><strong>Industrial Plant / Basement Smoke Exhaust</strong></td>
+  <td style="padding:10px 14px;">NC 45–55</td>
+  <td style="padding:10px 14px;">11.0 m/s (2,200 fpm)</td>
+  <td style="padding:10px 14px;">8.5 m/s (1,700 fpm)</td>
+  <td style="padding:10px 14px;">1.50 Pa/m (0.18 in. wg/100 ft)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="margin-top:14px;"><strong>Insulation Allowance in Clash Detection:</strong> When generating double-line ductwork in GstarCAD 2027, assign external thermal/acoustic insulation thickness (e.g., `25 mm` or `50 mm` elastomeric foam) to a dedicated `M-DUCT-INSL` sub-layer inside the routing routine so ceiling-void coordination sections immediately highlight insulation-to-beam clearances.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

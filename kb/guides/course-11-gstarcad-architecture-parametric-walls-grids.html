@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Drafting architectural floor plans with primitive parallel lines and manual trim/fillet commands turns every wall-thickness change or window relocation into tedious manual surgery. GstarCAD Architecture 2027 introduces intelligent, object-oriented AEC entities (Walls, Axes, Doors, Windows, Columns) that display simultaneously as 2D construction plan symbols and 3D volumetric models.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>AXISGRID, WALL, DOOR, WINDOW, WALLJOIN</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Generate orthogonal and radial structural axis grids (AXISGRID) with automated multi-bubble dimension chains (AXISDIM) and live column insertion (COLUMN) at grid intersections.</li>
+  <li>Draw multi-ply composite thermal walls (WALL) with prioritized layer cleanup (brick veneer, rigid insulation, concrete core, gypsum board) that self-heal T-junctions and L-corners automatically.</li>
+  <li>Insert parametric Doors (DOOR) and Windows (WINDOW) equipped with intelligent wall-opening boolean cutouts, swing direction grips, and configurable sill/lintel plan representations.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 11: GstarCAD Architecture — Structural Column Grids, Multi-Leaf Cavity Walls &amp; Associative Openings</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Construct parametric architectural column grids, multi-layer insulated cavity walls with automatic T/L intersection healing, and associative doors/windows with real-time 2D/3D synchronization. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: GstarCAD Architecture: Multi-Axis Structural Grids, Composite Walls & Parametric Openings</h2>
+<p>In <strong><a href="/kb/software/gstarcad-architecture">GstarCAD Architecture</a></strong>, architectural walls are custom parametric objects derived from the AEC entity database. Each wall style defines multiple component plies with specific priority indices (from 1 for structural reinforced concrete cores down to 5 for interior plaster finishes). When a partition wall intersects an exterior load-bearing wall, the engine automatically trims the plaster and insulation layers while fusing the structural cores cleanly.</p>
+<p>Similarly, doors and windows maintain a topological host-child relationship with their parent wall: dragging a window along a wall or changing its width in the Properties palette heals the masonry opening and updates its associative Window Tag (`DOORWINTAG`) in real time.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>AXISGRID, WALL, DOOR, WINDOW, WALLJOIN</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Structural Grid</td>
+  <td style="padding:12px 16px;"><code>AXISGRID / AXISDIM / COLUMN</code></td>
+  <td style="padding:12px 16px;">Builds numbered/lettered column grids with two-tier overall and bay-to-bay dimensioning.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Composite Wall</td>
+  <td style="padding:12px 16px;"><code>WALL / WALLCLEANUP</code></td>
+  <td style="padding:12px 16px;">Models multi-layer cavity walls with priority-based intersection cleanup and 3D height binding.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Hosted Openings</td>
+  <td style="padding:12px 16px;"><code>DOOR / WINDOW / DOORWINTAG</code></td>
+  <td style="padding:12px 16px;">Cuts associative wall openings and attaches live-linked schedule identification tags.</td>
 </tr>
 </tbody>
 </table>

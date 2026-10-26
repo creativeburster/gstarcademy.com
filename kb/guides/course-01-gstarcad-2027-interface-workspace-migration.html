@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Transitioning an enterprise drafting department from legacy AutoCAD to GstarCAD 2027 begins at the user-interface shell and command parser level. Rather than forcing engineers to relearn muscle-memory keystrokes, GstarCAD decouples visual workspace layouts (.cuix XML schemas) from the underlying command alias table (gcad.pgp) and hardware DirectX/OpenGL rasterizer.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>WORKSPACE, OPTIONS, REINIT, CUI, WHIPTHREAD=3, LINESMOOTHING=1</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Switch dynamically between Ribbon (2D Drafting), Classic Toolbar/Menu Bar (MENUBAR=1), and custom dual-monitor CUI workspaces without restarting the session.</li>
+  <li>Migrate custom AutoCAD command aliases from acad.pgp into %APPDATA%\Gstarsoft\GstarCAD\R27\en-US\Support\gcad.pgp and hot-reload in memory via REINIT (Bitcode 16).</li>
+  <li>Standardize corporate .dwt seed templates with pre-locked metric (MEASUREMENT=1, INSUNITS=4) or imperial (MEASUREMENT=0, INSUNITS=1) unit dictionaries and 4K hardware anti-aliasing (WHIPTHREAD=3, LINESMOOTHING=1).</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 01: GstarCAD 2027 Workspace Mastery, Ribbon/Classic UI &amp; Zero-Day AutoCAD Migration</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Configure Ribbon and Classic toolbars, import custom acad.pgp command aliases into gcad.pgp, map corporate .dwt seed templates, and optimize hardware-accelerated 4K display settings. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Workspace Architecture, PGP Alias Compilation & High-DPI Graphics Pipeline</h2>
+<p>In a 500-seat engineering deployment, even a 3-second hesitation locating a toolbar icon compounds into thousands of lost billable hours. GstarCAD 2027's interface layer parses standard CUIX customization containers alongside legacy MNU/MNS menu macros. When a drafter types <code>L</code> for <code>LINE</code> or <code>C</code> for <code>CIRCLE</code>, the command processor consults the in-memory hash table loaded from <code>gcad.pgp</code> before querying registered GRX or AutoLISP symbol tables.</p>
+<p>To eliminate eye strain on modern 3840&times;2160 (4K UHD) workstation monitors, GstarCAD 2027 pairs high-DPI vector icon scaling with multi-threaded display list regeneration. Setting <code>WHIPTHREAD = 3</code> distributes both regeneration and redraw calculations across physical CPU cores, while <code>HQGEOM = 1</code> and <code>LINESMOOTHING = 1</code> offload anti-aliased vector tessellation to the workstation GPU.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>WORKSPACE, OPTIONS, REINIT, CUI, WHIPTHREAD=3, LINESMOOTHING=1</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">UI Shell Mode</td>
+  <td style="padding:12px 16px;"><code>WORKSPACE / MENUBAR=1 / RIBBON</code></td>
+  <td style="padding:12px 16px;">Toggles instantly between modern tabbed Ribbon panels and classic floating toolbars.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Alias Hot-Reload</td>
+  <td style="padding:12px 16px;"><code>gcad.pgp + REINIT (PGP bit=16)</code></td>
+  <td style="padding:12px 16px;">Recompiles custom keyboard shortcuts in under 50ms without closing active DWG files.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">4K GPU Rasterizer</td>
+  <td style="padding:12px 16px;"><code>GRAPHICSCONFIG / WHIPTHREAD=3</code></td>
+  <td style="padding:12px 16px;">Activates multi-core display list caching and DirectX 11/OpenGL hardware line smoothing.</td>
 </tr>
 </tbody>
 </table>

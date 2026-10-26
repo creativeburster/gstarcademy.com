@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Bulletproof AutoLISP *error* Handlers, System Variable Stacks & Undo Group Hygiene (dev-cookbook-28) | GstarCAD Academy</title>
+<meta content="Prevent corrupted OSMODE, CMDECHO, and CLAYER settings when users press ESC in GstarCAD 2027 AutoLISP routines using lexical *error* traps and vla-StartUndoMark." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-28-autolisp-custom-error-handler-and-sysvar-stack" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Bulletproof AutoLISP *error* Handlers, System Variable Stacks & Undo Group Hygiene (dev-cookbook-28)" property="og:title"/>
+<meta content="Prevent corrupted OSMODE, CMDECHO, and CLAYER settings when users press ESC in GstarCAD 2027 AutoLISP routines using lexical *error* traps and vla-StartUndoMark." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-28-autolisp-custom-error-handler-and-sysvar-stack" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Bulletproof AutoLISP *error* Handlers, System Variable Stacks & Undo Group Hygiene (dev-cookbook-28)", "description": "Prevent corrupted OSMODE, CMDECHO, and CLAYER settings when users press ESC in GstarCAD 2027 AutoLISP routines using lexical *error* traps and vla-StartUndoMark.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-28-autolisp-custom-error-handler-and-sysvar-stack", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 2027 AutoLISP Developer Guide", "Transactional System Variable Restoration & Error Recovery"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Bulletproof AutoLISP *error* Handlers, System Variable Stacks & Undo Group Hygiene (dev-cookbook-28)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-28-autolisp-custom-error-handler-and-sysvar-stack"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Bulletproof AutoLISP *error* Handlers, System Variable Stacks & Undo Group Hygiene (dev-cookbook-28)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">AutoLISP / Visual LISP · Production Reliability</span>
+<h1 style="margin-top:12px;">Bulletproof AutoLISP *error* Handlers, System Variable Stacks & Undo Group Hygiene (dev-cookbook-28)</h1>
+<p class="hero-sub">Prevent corrupted OSMODE, CMDECHO, and CLAYER settings when users press ESC in GstarCAD 2027 AutoLISP routines using lexical *error* traps and vla-StartUndoMark.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Why Unprotected AutoLISP Routines Corrupt User Workspaces on `ESC`</h2>
+<p>Nothing frustrates a production drafting team faster than pressing `ESC` mid-command to cancel an in-house AutoLISP tool and discovering that their Object Snaps (`OSMODE`) have been wiped to `0`, file dialogs (`FILEDIA`) are disabled, the active layer (`CLAYER`) is stuck on a construction layer, and pressing `Ctrl+Z` (`UNDO`) requires 45 separate keystrokes to roll back partial geometry. In <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong>, every enterprise AutoLISP command must wrap its execution body inside a deterministic **System Variable Stack + Local `*error*` Trap + ActiveX Undo Group**.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. The Gold-Standard GstarCAD 2027 AutoLISP Command Template</h2>
+<p>By declaring `*error*` as a local symbol inside the `defun` parameter list `(defun C:MYCMD ( / *error* sysVars ...))`, LISP dynamically binds your custom error trap for the duration of the command and automatically restores the global `*error*` handler when the function exits—whether normally or via an exception/cancel signal:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>;; EnterpriseAutoLispTemplate.lsp - Transactional SysVar Stack &amp; Undo Group Wrapper
+(vl-load-com)
+
+(defun C:GC_SAFE_ROUTE ( / *error* doc savedVars SetSysVars RestoreSysVars pt1 pt2)
+
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)))
+
+  ;; 1. Helper: Snapshot and apply a list of '(("VARNAME" . newValue) ...) pairs
+  (defun SetSysVars (varPairs)
+    (setq savedVars
+      (mapcar
+        '(lambda (pair)
+           (cons (car pair) (getvar (car pair)))
+         )
+        varPairs
+      )
+    )
+    (foreach pair varPairs
+      (setvar (car pair) (cdr pair))
+    )
+  )
+
+  ;; 2. Helper: Deterministically restore all snapshotted system variables
+  (defun RestoreSysVars ()
+    (if savedVars
+      (progn
+        (foreach pair savedVars
+          (vl-catch-all-apply 'setvar (list (car pair) (cdr pair)))
+        )
+        (setq savedVars nil)
+      )
+    )
+  )
+
+  ;; 3. Local lexical *error* trap invoked on ESC, Cancel, or runtime exception
+  (defun *error* (msg)
+    (RestoreSysVars)
+    (vla-EndUndoMark doc)
+    (if (and msg
+             (not (wcmatch (strcase msg) "*BREAK*,*CANCEL*,*EXIT*,*QUIT*")))
+      (princ (strcat "
+[GC_SAFE_ROUTE Error]: " msg))
+    )
+    (princ)
+  )
+
+  ;; 4. Begin Atomic Undo Group &amp; Apply Temporary Command Environment
+  (vla-StartUndoMark doc)
+  (SetSysVars
+    '(("CMDECHO"  . 0)
+      ("OSMODE"   . 0)
+      ("ORTHOMODE". 1)
+      ("BLIPMODE" . 0))
+  )
+
+  ;; 5. Core Interactive Command Logic (Safe even if user hits ESC here!)
+  (if (and (setq pt1 (getpoint "
+Specify duct start point: "))
+           (setq pt2 (getpoint pt1 "
+Specify duct end point: ")))
+    (progn
+      (entmakex
+        (list '(0 . "LWPOLYLINE")
+              '(100 . "AcDbEntity")
+              '(8 . "M-DUCT-MAIN")
+              '(100 . "AcDbPolyline")
+              '(90 . 2)
+              '(43 . 2.5)
+              (cons 10 pt1)
+              (cons 10 pt2)))
+      (princ "
+Routed primary duct segment successfully.")
+    )
+  )
+
+  ;; 6. Clean Normal Exit Path
+  (RestoreSysVars)
+  (vla-EndUndoMark doc)
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Why `vla-StartUndoMark` Is Superior to `(command "_.UNDO" "_Begin")`</h2>
+<p>In legacy AutoLISP code, developers often invoked `(command "_.UNDO" "_Begin")` and `(command "_.UNDO" "_End")`. However, invoking `(command ...)` inside an `*error*` handler when the user has just pressed `ESC` during an active prompt can fail or trigger nested command-state warnings. Calling **`(vla-StartUndoMark doc)`** and **`(vla-EndUndoMark doc)`** bypasses the command-line parser completely and writes the undo boundary directly into GstarCAD 2027's C++ database transaction stream, guaranteeing that a single `Ctrl+Z` cleanly reverses the entire routine.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Auditing Global Namespace Pollution (`atoms-family`) in Shared `.LSP` Libraries</h2>
+<p>A subtle bug in multi-developer AutoLISP repositories occurs when helper scripts forget to declare loop counters (`i`, `ent`, `pt`, `ss`) after the `/` slash in `(defun MyHelper (arg1 / i ent pt ss) ...)`. Unlocalized symbols leak into the global document namespace and can overwrite variables in calling functions. Run a pre-commit LISP check comparing `(atoms-family 1)` before and after executing your command to verify zero unintended global symbol leakage.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

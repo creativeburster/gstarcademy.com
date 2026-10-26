@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Fix Dimension Text Too Small to Read & Missing Arrowheads in CAD | GstarCAD Academy</title>
+  <meta name="description" content="Calibrate DIMSCALE, Annotative Dimension Scales (CANNOSCALE), and DIMLFAC so dimension text height and arrowheads plot at exact ISO/ASME millimeter heights." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-fix-dimension-text-too-small-or-arrows-missing" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Fix Dimension Text Too Small to Read & Missing Arrowheads in CAD" />
+  <meta property="og:description" content="Calibrate DIMSCALE, Annotative Dimension Scales (CANNOSCALE), and DIMLFAC so dimension text height and arrowheads plot at exact ISO/ASME millimeter heights." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-fix-dimension-text-too-small-or-arrows-missing" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix Dimension Text Too Small to Read & Missing Arrowheads in CAD", "acceptedAnswer": {"@type": "Answer", "text": "Open DIMSTYLE (D) > Modify > Fit tab: either check 'Annotative' (synchronizes automatically with CANNOSCALE) or set 'Use overall scale of (DIMSCALE)' to your target plot scale factor (e.g., 50 for a 1:50 drawing)."}}, {"@type": "Question", "name": "1. Method A: Scale Dimension Features via DIMSCALE (Classic Model Space)", "acceptedAnswer": {"@type": "Answer", "text": "Type <code>D</code> (`DIMSTYLE`), click <strong>Modify &rarr; Text</strong>, set Text Height (`DIMTXT`) to your target plotted paper height (`2.5 mm` per ISO 3098 or `3.0 mm`), then switch to the <strong>Fit</strong> tab and set <strong>Use overall scale of (`DIMSCALE`)</strong> to `50` (for `1:50`) or `100` (for `1:100`)."}}, {"@type": "Question", "name": "2. Method B: Enable Annotative Scaling (Multi-Scale Layouts)", "acceptedAnswer": {"@type": "Answer", "text": "In the <code>DIMSTYLE &rarr; Fit</code> tab, check <strong>Annotative</strong>. Set your Model Space status bar scale (`CANNOSCALE`) to `1:100`. GstarCAD 2027 automatically multiplies the `2.5 mm` paper height by `100` (`250 mm` in Model Space)."}}, {"@type": "Question", "name": "3. Never Mutate DIMLFAC to Fix Small Text!", "acceptedAnswer": {"@type": "Answer", "text": "Beginners sometimes change <code>DIMLFAC</code> (Linear Scale Factor on the Primary Units tab) instead of `DIMSCALE`. **Warning:** `DIMLFAC` multiplies the *measured numeric value* (`1000 mm` becomes `50000 mm`), not the text size! Always keep `DIMLFAC = 1.0` for `1:1` Model Space geometry."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Fix Dimension Text Too Small to Read & Missing Arrowheads in CAD", "item": "https://gstarcademy.com/kb/faq/how-to-fix-dimension-text-too-small-or-arrows-missing"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix Dimension Text Too Small to Read & Missing Arrowheads in CAD", "description": "Calibrate DIMSCALE, Annotative Dimension Scales (CANNOSCALE), and DIMLFAC so dimension text height and arrowheads plot at exact ISO/ASME millimeter heights.", "url": "https://gstarcademy.com/kb/faq/how-to-fix-dimension-text-too-small-or-arrows-missing", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Fix Dimension Text Too Small to Read & Missing Arrowheads in CAD</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">Annotation & Dimensions</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Fix Dimension Text Too Small to Read & Missing Arrowheads in CAD</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Calibrate DIMSCALE, Annotative Dimension Scales (CANNOSCALE), and DIMLFAC so dimension text height and arrowheads plot at exact ISO/ASME millimeter heights.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">Open DIMSTYLE (D) > Modify > Fit tab: either check 'Annotative' (synchronizes automatically with CANNOSCALE) or set 'Use overall scale of (DIMSCALE)' to your target plot scale factor (e.g., 50 for a 1:50 drawing).</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>When an engineer draws a `12,000 mm` building bay in Model Space at `1:1` real-world units and places a linear dimension (`DIMLINEAR`), the dimension appears as a simple line with invisible text and missing arrowheads. Zooming in `500x` at the midpoint reveals that the text is actually there—it is simply `2.5 mm` tall against a `12,000 mm` wall because `DIMSCALE` is set to `1.0` instead of the sheet's plot scale (`50.0` or `100.0`).</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Method A: Scale Dimension Features via DIMSCALE (Classic Model Space)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Type <code>D</code> (`DIMSTYLE`), click <strong>Modify &rarr; Text</strong>, set Text Height (`DIMTXT`) to your target plotted paper height (`2.5 mm` per ISO 3098 or `3.0 mm`), then switch to the <strong>Fit</strong> tab and set <strong>Use overall scale of (`DIMSCALE`)</strong> to `50` (for `1:50`) or `100` (for `1:100`).</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Method B: Enable Annotative Scaling (Multi-Scale Layouts)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">In the <code>DIMSTYLE &rarr; Fit</code> tab, check <strong>Annotative</strong>. Set your Model Space status bar scale (`CANNOSCALE`) to `1:100`. GstarCAD 2027 automatically multiplies the `2.5 mm` paper height by `100` (`250 mm` in Model Space).</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Never Mutate DIMLFAC to Fix Small Text!</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Beginners sometimes change <code>DIMLFAC</code> (Linear Scale Factor on the Primary Units tab) instead of `DIMSCALE`. **Warning:** `DIMLFAC` multiplies the *measured numeric value* (`1000 mm` becomes `50000 mm`), not the text size! Always keep `DIMLFAC = 1.0` for `1:1` Model Space geometry.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:FIXDIMSCALE)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:FIXDIMSCALE ( / scaleFac)
+  (setq scaleFac (getreal "\nEnter target drawing plot scale denominator (e.g. 50 for 1:50, 100 for 1:100) <100>: "))
+  (if (null scaleFac) (setq scaleFac 100.0))
+  (setvar "DIMTXT" 2.5)
+  (setvar "DIMASZ" 2.5)
+  (setvar "DIMEXE" 1.25)
+  (setvar "DIMEXO" 0.625)
+  (setvar "DIMLFAC" 1.0)
+  (setvar "DIMSCALE" scaleFac)
+  (command "_.-DIMSTYLE" "_Apply" "_All" "")
+  (princ (strcat "\n[FIXDIMSCALE] Applied ISO 2.5mm text/arrows at 1:" (rtos scaleFac 2 0) " scale."))
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Dimension text & arrows are microscopic</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>DIMSCALE = 50 / 100</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Overall feature multiplier is 1.0; set to inverse of plot scale (e.g. 100).</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Arrowheads disappear on narrow slots</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>DIMATFIT / DIMTIX</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Insufficient space between extension lines; enable Text & Arrows outside.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Dimension reads 25400 instead of 1000</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>DIMLFAC = 1.0</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Linear measurement multiplier was altered; reset DIMLFAC strictly to 1.0.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

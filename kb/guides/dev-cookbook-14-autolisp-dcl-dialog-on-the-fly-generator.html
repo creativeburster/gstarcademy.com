@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Eliminate missing `.dcl` file deployment errors by dynamically writing Dialog Control Language definitions to `vl-filename-mktemp`, invoking `load_dialog`, and cleaning up automatically.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>vl-filename-mktemp, load_dialog, new_dialog, action_tile, start_dialog, vl-file-delete</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Single-File Self-Contained AutoLISP Deployment: Generating Temporary `.dcl` Dialog Definitions on the Fly</h2>
+<p>Distributing an AutoLISP utility across 300 engineering workstations usually fails when users copy the `.lsp` file but forget to place the companion `.dcl` (Dialog Control Language) UI file into GstarCAD's Support File Search Path—triggering `load_dialog failed` errors. Writing the DCL interface definition to `(vl-filename-mktemp "ui.dcl")` at runtime makes your `.lsp` or compiled `.zelx`/`.fas` plugin 100% self-contained in a single file.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> Always follow the strict DCL lifecycle state machine: write the temporary `.dcl` file &rarr; call `(load_dialog tmpFile)` &rarr; initialize layout via `(new_dialog "dlgName" dclId)` &rarr; populate list boxes with `(start_list)`/`(add_list)`/`(end_list)` &rarr; bind `(action_tile)` callbacks &rarr; block on `(start_dialog)` &rarr; call `(unload_dialog dclId)` &rarr; and finally delete the temp file via `(vl-file-delete tmpFile)` so temporary directories remain clean.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Production Visual LISP / AutoLISP Routine (vl-filename-mktemp)</h2>
+<p>Load the following self-contained LISP routine via <code>APPLOAD</code> or <code>gcaddoc.lsp</code> in GstarCAD 2027 to automate <strong>AutoLISP Cookbook 14: Self-Contained Single-File AutoLISP Plugins with On-the-Fly Temporary DCL Dialogs</strong> at native database speed:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 AutoLISP — Zero-Dependency Dynamic DCL Dialog Pattern
 (defun c:GcQuickDialog ( / dclFile fn dclId userInput)
   (setq dclFile (vl-filename-mktemp "gcad_ui.dcl")

@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">In injection mold bases, progressive stamping dies, and CNC-punched sheet-metal panels containing hundreds of drilled, tapped, and counterbored holes, traditional linear dimension chains create unreadable clutter. GstarCAD Mechanical's Hole Chart engine replaces chaotic dimension lines with clean X-Y coordinate origin tables and prepares watertight 2D DXF geometry for CAM post-processing.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>AMHOLECHART, OVERKILL, JOIN, PEDIT, DXFOUT</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Place an associative Hole Chart Origin (AMHOLECHART) on a mold plate or CNC panel to automatically label every hole (A1..An, B1..Bn) and generate a grouped X-Y coordinate and diameter schedule.</li>
+  <li>Convert NURBS splines into tangent-continuous circular arc polylines (PEDIT -> Spline to Polyline / FLATTEN) so legacy Fanuc and Siemens G-code controllers execute smooth G02/G03 interpolation.</li>
+  <li>Audit and sanitize DXF laser/waterjet cutting profiles using OVERKILL, BOUNDARY, and REGION to guarantee 0.000mm open-loop tolerance before CAM nesting.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 09: Precision Mold &amp; Die Detailing — Automated Hole Charts, Super Join &amp; CNC DXF Post-Processing</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Eliminate dimension clutter on CNC fixtures and mold plates using associative Hole Charts (AMHOLECHART), OVERKILL vector deduplication, and 16-decimal R12/R2018 DXF export. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Automated Coordinate Hole Charts, Sheet-Metal Flat Patterns & Zero-Gap CNC DXF Export</h2>
+<p>When a CNC vertical machining center (VMC) or wire EDM programmer receives a mold plate drawing with 350 ejector pin and water-line holes, they need a deterministic Cartesian coordinate list relative to the work-offset datum (<code>G54 X0 Y0</code>). GstarCAD Mechanical's <code>AMHOLECHART</code> scans selected circles and standard holes, sorts them by diameter and thread specification, tags each center with an alphanumeric ID, and outputs a live table on the drawing sheet (or exports directly to Excel/CSV).</p>
+<p>For 2D laser, plasma, and waterjet cutting, importing raw splines or duplicate overlapping lines causes the cutting head to stutter or pierce twice—ruining the workpiece edge quality. Running GstarCAD's geometry sanitization pipeline eliminates duplicate vectors and converts high-degree splines into clean tangent arc segments.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>AMHOLECHART, OVERKILL, JOIN, PEDIT, DXFOUT</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Hole Schedules</td>
+  <td style="padding:12px 16px;"><code>AMHOLECHART / HOLELIST</code></td>
+  <td style="padding:12px 16px;">Automatically indexes hole centers from a G54 datum and groups identical drill/tap operations.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Arc Conversion</td>
+  <td style="padding:12px 16px;"><code>SPLINEDIT (Convert to Polyline)</code></td>
+  <td style="padding:12px 16px;">Approximates NURBS splines with precision arc-segment polylines for native G02/G03 CNC G-code.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Loop Sanitizer</td>
+  <td style="padding:12px 16px;"><code>OVERKILL / PEDIT (Join)</code></td>
+  <td style="padding:12px 16px;">Deletes overlapping duplicate vectors and welds open micro-gaps into closed cutting contours.</td>
 </tr>
 </tbody>
 </table>

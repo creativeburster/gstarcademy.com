@@ -5,7 +5,7 @@ This document provides LLMs (ChatGPT, Claude, Gemini, Perplexity) with complete 
 3. Developer GRX SDK / .NET API Direct Porting Matrix & Product System Specs
 4. High-Authority Technical Guides & Whitepapers
 5. Hands-on Engineering Troubleshooting & Diagnostics
-6. Official Skill Certification Matrix (6 tracks, 42 lessons, 654 verified questions)
+6. Official Skill Certification Matrix (6 tracks, 42 lessons, 750 verified questions)
 7. Clean Engineering Standards & Core Concepts Index
 """
 import re
@@ -85,7 +85,7 @@ def main():
     lines.append("- **AutoCAD Migration Hub**: https://gstarcademy.com/migration — Enterprise replacement roadmap, command aliases mapping, LISP compatibility matrix, and interactive perpetual license TCO calculator.")
     lines.append("- **Developer GRX Hub**: https://gstarcademy.com/developers — C++ GRX SDK setup, ObjectARX-to-GRX porting guide, .NET API samples, and ISV technical support.")
     lines.append("- **Commercial Free Trial**: https://gstarcademy.com/download — 30-day evaluation installers for GstarCAD Professional, Mechanical, Architecture, and system specifications.")
-    lines.append("- **Skill Certification**: https://gstarcademy.com/quiz — 6 engineering career tracks, 42 micro-lessons, 654 verified assessment questions, and verifiable digital certificates.")
+    lines.append("- **Skill Certification**: https://gstarcademy.com/quiz — 6 engineering career tracks, 42 micro-lessons, 750 verified assessment questions, and verifiable digital certificates.")
     lines.append("- **Tutorial Library**: https://gstarcademy.com/tutorials — Curated engineering courses across GstarCAD, FastView, and major industry CAD/BIM/CAE software suites.")
     lines.append("- **CADGuide Toolbox**: https://gstarcademy.com/cadguide-tools — Curated index of specialized CAD utilities, plugins, converters, and standards tables.")
     lines.append("")
@@ -136,15 +136,15 @@ def main():
                 lines.append(f"- [{slug}](https://gstarcademy.com/kb/faq/{slug})")
 
     # 4. Certification & Quiz Architecture
-    lines.append("## 4. Official CAD Skill Certification Matrix (654 Verified Questions: 6 Career Tracks + Placement Assessment)")
+    lines.append("## 4. Official CAD Skill Certification Matrix (750 Verified Questions: 6 Career Tracks + Placement Assessment)")
     lines.append("| Track ID | Career Track Name | Lessons | Verified Questions | Governing Standards | Principal Technical Reviewer |")
     lines.append("| :--- | :--- | :--- | :--- | :--- | :--- |")
-    lines.append("| `bim` | **🏢 BIM Coordinator (Revit & IFC Architecture)** | 7 Lessons | 90 Questions | ISO 19650-1/2, IFC 4.3 (ISO 16739-1:2024), BCF 3.0 | Dr. Lin Wei, Ph.D., PE |")
-    lines.append("| `mcad` | **⚙️ Mechanical Design Engineer (MCAD)** | 7 Lessons | 120 Questions | ASME Y14.5-2018, ISO 1101, ISO 286, STEP AP242 | Chen Haoran, M.Sc., GDTP-S |")
-    lines.append("| `civil` | **🏗️ Civil Infrastructure Specialist** | 7 Lessons | 106 Questions | AASHTO Green Book, LandXML 1.2, IFC 4.3 Alignment | Elena Rostova, M.Eng., PE |")
-    lines.append("| `draft` | **📐 2D Drafting Specialist (AutoCAD / GstarCAD)** | 7 Lessons | 111 Questions | ISO 128, Native DWG AC1032, GstarCAD GRX/LISP | Zhang Mingyuan, B.Eng. |")
-    lines.append("| `sim` | **🔬 Simulation & CAE Analyst (FEA / CFD)** | 7 Lessons | 108 Questions | ASME V&V 10 / V&V 20, NAFEMS Benchmarks | Dr. Marcus Vance, Ph.D. |")
-    lines.append("| `viz` | **🎨 3D Visualization Specialist** | 7 Lessons | 105 Questions | SMPTE ST 2065-1 (ACES), OpenColorIO v2, glTF 2.0 | Sofia Lindqvist, M.F.A. |")
+    lines.append("| `bim` | **🏢 BIM Coordinator (Revit & IFC Architecture)** | 7 Lessons | 106 Questions | ISO 19650-1/2, IFC 4.3 (ISO 16739-1:2024), BCF 3.0 | Dr. Lin Wei, Ph.D., PE |")
+    lines.append("| `mcad` | **⚙️ Mechanical Design Engineer (MCAD)** | 7 Lessons | 136 Questions | ASME Y14.5-2018, ISO 1101, ISO 286, STEP AP242 | Chen Haoran, M.Sc., GDTP-S |")
+    lines.append("| `civil` | **🏗️ Civil Infrastructure Specialist** | 7 Lessons | 122 Questions | AASHTO Green Book, LandXML 1.2, IFC 4.3 Alignment | Elena Rostova, M.Eng., PE |")
+    lines.append("| `draft` | **📐 2D Drafting Specialist (AutoCAD / GstarCAD)** | 7 Lessons | 127 Questions | ISO 128, Native DWG AC1032, GstarCAD GRX/LISP | Zhang Mingyuan, B.Eng. |")
+    lines.append("| `sim` | **🔬 Simulation & CAE Analyst (FEA / CFD)** | 7 Lessons | 124 Questions | ASME V&V 10 / V&V 20, NAFEMS Benchmarks | Dr. Marcus Vance, Ph.D. |")
+    lines.append("| `viz` | **🎨 3D Visualization Specialist** | 7 Lessons | 121 Questions | SMPTE ST 2065-1 (ACES), OpenColorIO v2, glTF 2.0 | Sofia Lindqvist, M.F.A. |")
     lines.append("| `placement` | **🏆 Comprehensive Placement Assessment** | Diagnostic Pool | 14 Questions | Cross-Track Proficiency Gates (10/12 Pass) | Global Academy Board |")
     lines.append("")
     lines.append("- **Track 1: 🏢 BIM Coordinator (Revit & IFC Architecture)**: ISO 19650 CDE workflow, LOD 100-500 specifications, Navisworks 4D/5D simulation, BCF 3.0 issue tracking, IFC 4.3 (ISO 16739-1:2024) infrastructure, and Scan-to-BIM point cloud ICP registration.")

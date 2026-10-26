@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Fix 3D Orbit Z-Fighting, Flickering & Shaded Viewport Glitches | GstarCAD Academy</title>
+  <meta name="description" content="Eliminate Z-fighting surface flicker, jagged 3D solids, and clipping plane disappears during 3DORBIT in GstarCAD 2027 and AutoCAD." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-fix-3d-orbit-and-shaded-viewport-display-glitches" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Fix 3D Orbit Z-Fighting, Flickering & Shaded Viewport Glitches" />
+  <meta property="og:description" content="Eliminate Z-fighting surface flicker, jagged 3D solids, and clipping plane disappears during 3DORBIT in GstarCAD 2027 and AutoCAD." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-fix-3d-orbit-and-shaded-viewport-display-glitches" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix 3D Orbit Z-Fighting, Flickering & Shaded Viewport Glitches", "acceptedAnswer": {"@type": "Answer", "text": "Move 3D solids closer to WCS origin (0,0,0) to restore 24-bit GPU Z-buffer precision, increase VIEWRES to 5000 and FACETRES to 4.0, and enable DirectX 11 hardware acceleration in 3DCONFIG."}}, {"@type": "Question", "name": "1. Purge Stray Far-Flung Entities & Move Near 0,0,0", "acceptedAnswer": {"@type": "Answer", "text": "Run <code>ZOOM &rarr; Extents</code>. If the model shrinks to a tiny dot, use <code>ERASE &rarr; All</code> then hold <code>Shift</code> and window-deselect your main model to delete stray outlier geometry. For 3D visualization, relocate the project base point near WCS <code>0,0,0</code>."}}, {"@type": "Question", "name": "2. Calibrate ACIS Tessellation Smoothness (FACETRES & VIEWRES)", "acceptedAnswer": {"@type": "Answer", "text": "Set <code>FACETRES = 4.0</code> (range `0.01` to `10.0`) to refine 3D solid mesh triangles in Shaded/Realistic modes, and run <code>VIEWRES &rarr; Yes &rarr; 5000</code> for smooth 2D arcs."}}, {"@type": "Question", "name": "3. Reset Clipping Planes in DVIEW / 3DCLIP", "acceptedAnswer": {"@type": "Answer", "text": "If the front of your 3D assembly vanishes when zooming in, run <code>3DCLIP</code> (or <code>PROPERTIES &rarr; 3D Visualization &rarr; Clipping</code>) and toggle <strong>Front/Back Clipping Off</strong>."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Fix 3D Orbit Z-Fighting, Flickering & Shaded Viewport Glitches", "item": "https://gstarcademy.com/kb/faq/how-to-fix-3d-orbit-and-shaded-viewport-display-glitches"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix 3D Orbit Z-Fighting, Flickering & Shaded Viewport Glitches", "description": "Eliminate Z-fighting surface flicker, jagged 3D solids, and clipping plane disappears during 3DORBIT in GstarCAD 2027 and AutoCAD.", "url": "https://gstarcademy.com/kb/faq/how-to-fix-3d-orbit-and-shaded-viewport-display-glitches", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Sofia Lindqvist, M.F.A.", "jobTitle": "Principal Architectural Visualization & Color Scientist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#3d-visualization"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Fix 3D Orbit Z-Fighting, Flickering & Shaded Viewport Glitches</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">3D Graphics & GPU</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Fix 3D Orbit Z-Fighting, Flickering & Shaded Viewport Glitches</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Eliminate Z-fighting surface flicker, jagged 3D solids, and clipping plane disappears during 3DORBIT in GstarCAD 2027 and AutoCAD.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#3d-visualization">Sofia Lindqvist, M.F.A.</a> (Principal Architectural Visualization & Color Scientist)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">Move 3D solids closer to WCS origin (0,0,0) to restore 24-bit GPU Z-buffer precision, increase VIEWRES to 5000 and FACETRES to 4.0, and enable DirectX 11 hardware acceleration in 3DCONFIG.</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>When orbiting 3D ACIS solids (`3DORBIT`), two visual artifacts commonly occur: **Z-fighting (coplanar surface flickering/striping)** and **facet fragmentation**, where cylindrical pipes appear hexagonal or disappear when zooming. In DirectX 11 viewports, the GPU depth buffer (`Z-Buffer`) uses 24-bit floating-point depth ratios between the Front and Back clipping planes. If your 3D model sits at civil coordinates (`X=500,000, Y=4,200,000`) or a single stray line sits 10 km away, the camera's near/far frustum spans kilometers—collapsing depth precision to several centimeters and causing overlapping flanges to flicker violently.</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Purge Stray Far-Flung Entities & Move Near 0,0,0</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Run <code>ZOOM &rarr; Extents</code>. If the model shrinks to a tiny dot, use <code>ERASE &rarr; All</code> then hold <code>Shift</code> and window-deselect your main model to delete stray outlier geometry. For 3D visualization, relocate the project base point near WCS <code>0,0,0</code>.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Calibrate ACIS Tessellation Smoothness (FACETRES & VIEWRES)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Set <code>FACETRES = 4.0</code> (range `0.01` to `10.0`) to refine 3D solid mesh triangles in Shaded/Realistic modes, and run <code>VIEWRES &rarr; Yes &rarr; 5000</code> for smooth 2D arcs.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Reset Clipping Planes in DVIEW / 3DCLIP</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">If the front of your 3D assembly vanishes when zooming in, run <code>3DCLIP</code> (or <code>PROPERTIES &rarr; 3D Visualization &rarr; Clipping</code>) and toggle <strong>Front/Back Clipping Off</strong>.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:FIX3DVIEW)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:FIX3DVIEW ()
+  (setvar "FACETRES" 4.0)
+  (setvar "ISOLINES" 16)
+  (setvar "DISPSILH" 1)
+  (command "_.VIEWRES" "_Yes" 5000)
+  (command "_.REGENALL")
+  (princ "\n[FIX3DVIEW] Calibrated 3D ACIS tessellation & silhouette variables.")
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Shaded surfaces flicker with striped bands</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>Move near WCS 0,0,0</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">GPU 24-bit Z-buffer precision exhausted due to extreme WCS coordinates.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">3D cylinders look like 8-sided polygons</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>FACETRES = 4.0</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Default ACIS solid facet resolution (0.5) is too coarse; raise to 3.0–5.0.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Foreground objects get sliced open on zoom</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>3DCLIP (Off)</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Front clipping plane is active in the current camera viewport.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

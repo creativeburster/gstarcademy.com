@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Multi-Entity Interactive Placement & Dynamic Dimensioning with DrawJig and EntityJig (dev-cookbook-25) | GstarCAD Academy</title>
+<meta content="Master EntityJig and DrawJig in GstarCAD 2027 C# .NET to build interactive rubber-band previews for structural trusses, pipe assemblies, and dynamic angular dimensions." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-25-dotnet-jig-entityjig-and-drawjig-multi-entity" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Multi-Entity Interactive Placement & Dynamic Dimensioning with DrawJig and EntityJig (dev-cookbook-25)" property="og:title"/>
+<meta content="Master EntityJig and DrawJig in GstarCAD 2027 C# .NET to build interactive rubber-band previews for structural trusses, pipe assemblies, and dynamic angular dimensions." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-25-dotnet-jig-entityjig-and-drawjig-multi-entity" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Multi-Entity Interactive Placement & Dynamic Dimensioning with DrawJig and EntityJig (dev-cookbook-25)", "description": "Master EntityJig and DrawJig in GstarCAD 2027 C# .NET to build interactive rubber-band previews for structural trusses, pipe assemblies, and dynamic angular dimensions.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-25-dotnet-jig-entityjig-and-drawjig-multi-entity", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD .NET EditorInput EntityJig & DrawJig API", "Real-Time 60 FPS Transient Rubber-Band Preview Architecture"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Multi-Entity Interactive Placement & Dynamic Dimensioning with DrawJig and EntityJig (dev-cookbook-25)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-25-dotnet-jig-entityjig-and-drawjig-multi-entity"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Multi-Entity Interactive Placement & Dynamic Dimensioning with DrawJig and EntityJig (dev-cookbook-25)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C# .NET API · Interactive Jigs</span>
+<h1 style="margin-top:12px;">Multi-Entity Interactive Placement & Dynamic Dimensioning with DrawJig and EntityJig (dev-cookbook-25)</h1>
+<p class="hero-sub">Master EntityJig and DrawJig in GstarCAD 2027 C# .NET to build interactive rubber-band previews for structural trusses, pipe assemblies, and dynamic angular dimensions.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Choosing Between `EntityJig` and `DrawJig` in GstarCAD `.NET`</h2>
+<p>Interactive graphical placement—where geometry dynamically stretches, rotates, and displays live dimensional feedback at 60 FPS as the engineer moves the crosshair—is powered by the <strong>Jig Engine</strong> (`Gssoft.GstarCAD.EditorInput`) in <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong>. The SDK provides two abstract base classes tailored to different geometric cardinalities:</p>
+<ul style="line-height:1.75;">
+  <li><strong><code>EntityJig</code> (Single Database Entity):</strong> Wraps exactly one memory-resident `Entity` instance (such as a single `BlockReference`, `Polyline`, or custom `AcDbEntity`). It supports built-in Dynamic Input (`DIMINPUT`) dimensional heads-up boxes via `DynamicDimensionDataCollection`.</li>
+  <li><strong><code>DrawJig</code> (Multi-Entity Assemblies &amp; Procedural Previews):</strong> Does not bind to a single entity. Instead, its `WorldDraw(WorldDraw draw)` override allows you to render dozens of synchronized primitives—such as a complete steel portal frame (two columns, two rafters, haunch stiffeners, and live span labels)—simultaneously during mouse drag before appending them to Model Space in a single transaction.</li>
+</ul>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. C# .NET Implementation: Multi-Entity Structural Portal Frame `DrawJig`</h2>
+<p>The C# `DrawJig` below prompts the engineer for a base point, tracks the cursor via `Prompts.AcquirePoint()`, suppresses micro-jitter below `1e-4` mm, and renders a live multi-member steel frame preview before committing the entities to the database:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>using System;
+using Gssoft.GstarCAD.Runtime;
+using Gssoft.GstarCAD.ApplicationServices;
+using Gssoft.GstarCAD.DatabaseServices;
+using Gssoft.GstarCAD.EditorInput;
+using Gssoft.GstarCAD.Geometry;
+using Gssoft.GstarCAD.GraphicsInterface;
+
+namespace GstarCadSamples.JigEngine
+{
+    public class PortalFrameDrawJig : DrawJig
+    {
+        private readonly Point3d _basePt;
+        private Point3d _cursorPt;
+        private readonly double _columnHeight;
+
+        public PortalFrameDrawJig(Point3d basePt, double columnHeight)
+        {
+            _basePt = basePt;
+            _cursorPt = basePt + new Vector3d(6000.0, 0, 0);
+            _columnHeight = columnHeight;
+        }
+
+        protected override SamplerStatus Sampler(JigPrompts prompts)
+        {
+            JigPromptPointOptions opts = new JigPromptPointOptions("
+Specify right column base point: ")
+            {
+                BasePoint = _basePt,
+                UseBasePoint = true,
+                Cursor = CursorType.RubberBand,
+                UserInputControls = UserInputControls.Accept3dCoordinates
+            };
+
+            PromptPointResult res = prompts.AcquirePoint(opts);
+            if (res.Status != PromptStatus.OK) return SamplerStatus.Cancel;
+
+            // Prevent redundant WorldDraw calls when mouse hasn't moved
+            if (_cursorPt.DistanceTo(res.Value) &lt; 1e-4)
+                return SamplerStatus.NoChange;
+
+            _cursorPt = res.Value;
+            return SamplerStatus.OK;
+        }
+
+        protected override bool WorldDraw(WorldDraw draw)
+        {
+            Vector3d spanVec = _cursorPt - _basePt;
+            if (spanVec.Length &lt; 500.0) return true;
+
+            Point3d eaveLeft  = _basePt + new Vector3d(0, _columnHeight, 0);
+            Point3d eaveRight = new Point3d(_cursorPt.X, _basePt.Y + _columnHeight, 0);
+            Point3d apexPt    = new Point3d((_basePt.X + _cursorPt.X) * 0.5, _basePt.Y + _columnHeight + (Math.Abs(spanVec.X) * 0.15), 0);
+
+            WorldGeometry geo = draw.Geometry;
+            geo.WorldLine(_basePt, eaveLeft);     // Left Column
+            geo.WorldLine(new Point3d(_cursorPt.X, _basePt.Y, 0), eaveRight); // Right Column
+            geo.WorldLine(eaveLeft, apexPt);      // Left Rafter
+            geo.WorldLine(apexPt, eaveRight);     // Right Rafter
+            return true;
+        }
+    }
+}</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Critical Jig Memory &amp; Disposal Discipline in `.NET`</h2>
+<p>Inside `DrawJig.WorldDraw()`, if you instantiate temporary in-memory `Entity` objects (such as `new MText()` or `new Hatch()`) and pass them to `draw.Geometry.Draw(tempEnt)`, you **must** wrap those temporary non-database-resident entities inside a `using (...)` block so their underlying C++ `AcDbObject` wrappers are deterministically disposed on every mouse frame. Failing to dispose non-DBRO entities inside a 60 Hz Jig loop leaks unmanaged heap memory and can trigger garbage-collection pauses mid-drag.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Adding Interactive Keyword Switching (`[Flip/SectionSize/PinBase]`) Inside `Sampler()`</h2>
+<p>To let the engineer switch steel profile sizes or flip frame orientation mid-drag without exiting the `DrawJig`, register keywords on your `JigPromptPointOptions` via `opts.Keywords.Add("Flip")` and `opts.Keywords.Add("Profile")` before calling `prompts.AcquirePoint(opts)`.</p>
+<p>When the user presses `F` or clicks `Flip` on the command line, `res.Status` returns `PromptStatus.Keyword` and `res.StringResult` contains `"Flip"`. Toggle your internal boolean `_isFlipped = !_isFlipped` and return `SamplerStatus.OK` so `WorldDraw()` immediately redraws the mirrored portal frame on the very next frame.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

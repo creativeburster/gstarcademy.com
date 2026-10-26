@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Asynchronous PLM/ERP REST API Synchronization with DWG Title Block Attributes in C# .NET (dev-cookbook-24) | GstarCAD Academy</title>
+<meta content="Safely bridge async/await HttpClient calls to SAP, Teamcenter, or Windchill REST APIs with GstarCAD 2027's single-threaded DWG transaction fiber in C# .NET." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-24-dotnet-plm-erp-rest-api-async-titleblock-sync" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Asynchronous PLM/ERP REST API Synchronization with DWG Title Block Attributes in C# .NET (dev-cookbook-24)" property="og:title"/>
+<meta content="Safely bridge async/await HttpClient calls to SAP, Teamcenter, or Windchill REST APIs with GstarCAD 2027's single-threaded DWG transaction fiber in C# .NET." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-24-dotnet-plm-erp-rest-api-async-titleblock-sync" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Asynchronous PLM/ERP REST API Synchronization with DWG Title Block Attributes in C# .NET (dev-cookbook-24)", "description": "Safely bridge async/await HttpClient calls to SAP, Teamcenter, or Windchill REST APIs with GstarCAD 2027's single-threaded DWG transaction fiber in C# .NET.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-24-dotnet-plm-erp-rest-api-async-titleblock-sync", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD .NET Threading & SynchronizationContext Guide", "ISO 10303 STEP / PLM Title Block Metadata Synchronization"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Asynchronous PLM/ERP REST API Synchronization with DWG Title Block Attributes in C# .NET (dev-cookbook-24)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-24-dotnet-plm-erp-rest-api-async-titleblock-sync"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Asynchronous PLM/ERP REST API Synchronization with DWG Title Block Attributes in C# .NET (dev-cookbook-24)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C# .NET API · PLM/ERP Cloud Sync</span>
+<h1 style="margin-top:12px;">Asynchronous PLM/ERP REST API Synchronization with DWG Title Block Attributes in C# .NET (dev-cookbook-24)</h1>
+<p class="hero-sub">Safely bridge async/await HttpClient calls to SAP, Teamcenter, or Windchill REST APIs with GstarCAD 2027's single-threaded DWG transaction fiber in C# .NET.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. The Async/Await Thread-Marshaling Challenge in CAD `.NET` Plugins</h2>
+<p>Modern enterprise Product Lifecycle Management (PLM) and ERP platforms—such as **SAP S/4HANA, Siemens Teamcenter, PTC Windchill, and Dassault ENOVIA**—expose OAuth2-authenticated REST/JSON endpoints over HTTPS. In standard C# applications, calling `await httpClient.GetAsync(url)` resumes on a background `.NET` ThreadPool worker thread unless a valid UI `SynchronizationContext` is captured. However, the AC1032 DWG database engine inside <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> is strictly **single-threaded apartment (STA)** bound.</p>
+<p>Attempting to call `doc.TransactionManager.StartTransaction()` or `doc.LockDocument()` directly from a ThreadPool continuation thread after `await` will either throw `eWrongObjectType` / `AccessViolationException` or corrupt the undo stack. To achieve non-blocking HTTP latency while guaranteeing 100% thread-safe DWG attribute writes, decouple the network I/O phase from the main-thread CAD transaction commit phase.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. C# .NET Implementation: Non-Blocking PLM Fetch &amp; Main-Thread `Idle` Commit</h2>
+<p>The production pattern below fetches revision, approval state, and material spec JSON payloads on a background task via `HttpClient`, queues the result into a `ConcurrentQueue`, and flushes the update safely on GstarCAD's main UI thread via `Application.Idle` + `DocumentLock`:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>using System;
+using System.Collections.Concurrent;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Gssoft.GstarCAD.Runtime;
+using Gssoft.GstarCAD.ApplicationServices;
+using Gssoft.GstarCAD.DatabaseServices;
+
+namespace GstarCadSamples.PlmIntegration
+{
+    public record PlmTitleBlockDto(string DrawingNumber, string Revision, string Approver, string LifecycleState);
+
+    public class PlmTitleBlockSynchronizer
+    {
+        private static readonly HttpClient _http = new HttpClient { Timeout = TimeSpan.FromSeconds(8) };
+        private static readonly ConcurrentQueue&lt;PlmTitleBlockDto&gt; _pendingUpdates = new();
+
+        [CommandMethod("GSTAR_PLM_PULL_TITLEBLOCK")]
+        public void PullPlmMetadataAsync()
+        {
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+            string dwgCode = System.IO.Path.GetFileNameWithoutExtension(doc.Name);
+            doc.Editor.WriteMessage($"
+[PLM Sync] Querying Teamcenter REST API for {dwgCode}...");
+
+            Application.Idle += OnApplicationIdleFlushQueue;
+
+            Task.Run(async () =&gt;
+            {
+                try
+                {
+                    string url = $"https://plm-gateway.corp.example.com/api/v2/drawings/{dwgCode}";
+                    string json = await _http.GetStringAsync(url).ConfigureAwait(false);
+                    var dto = JsonSerializer.Deserialize&lt;PlmTitleBlockDto&gt;(json);
+                    if (dto != null) _pendingUpdates.Enqueue(dto);
+                }
+                catch (System.Exception ex)
+                {
+                    // Log error safely; never touch CAD Database objects on background thread
+                    System.Diagnostics.Trace.WriteLine($"PLM REST Error: {ex.Message}");
+                }
+            });
+        }
+
+        private static void OnApplicationIdleFlushQueue(object sender, EventArgs e)
+        {
+            if (_pendingUpdates.IsEmpty) return;
+            Application.Idle -= OnApplicationIdleFlushQueue;
+
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+            if (doc == null) return;
+
+            while (_pendingUpdates.TryDequeue(out PlmTitleBlockDto dto))
+            {
+                using (DocumentLock docLock = doc.LockDocument())
+                using (Transaction tr = doc.Database.TransactionManager.StartTransaction())
+                {
+                    UpdateTitleBlockAttributes(doc.Database, tr, dto);
+                    tr.Commit();
+                }
+                doc.Editor.WriteMessage($"
+[PLM Sync] Updated Title Block to Rev {dto.Revision} ({dto.LifecycleState}).");
+            }
+        }
+
+        private static void UpdateTitleBlockAttributes(Database db, Transaction tr, PlmTitleBlockDto dto)
+        {
+            BlockTable bt = (BlockTable)tr.GetObject(db.BlockTableId, OpenMode.ForRead);
+            BlockTableRecord btr = (BlockTableRecord)tr.GetObject(bt[BlockTableRecord.PaperSpace], OpenMode.ForRead);
+            foreach (ObjectId entId in btr)
+            {
+                if (tr.GetObject(entId, OpenMode.ForRead) is BlockReference blkRef)
+                {
+                    foreach (ObjectId attId in blkRef.AttributeCollection)
+                    {
+                        AttributeReference att = (AttributeReference)tr.GetObject(attId, OpenMode.ForWrite);
+                        if (att.Tag.Equals("REV", StringComparison.OrdinalIgnoreCase)) att.TextString = dto.Revision;
+                        else if (att.Tag.Equals("APPROVED_BY", StringComparison.OrdinalIgnoreCase)) att.TextString = dto.Approver;
+                        else if (att.Tag.Equals("STATUS", StringComparison.OrdinalIgnoreCase)) att.TextString = dto.LifecycleState;
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Enterprise OAuth2 Token Caching &amp; Offline Resilience</h2>
+<p>In production deployments across 200+ engineering seats, reuse a singleton `HttpClient` instance with `SocketsHttpHandler.PooledConnectionLifetime = TimeSpan.FromMinutes(10)` to prevent TCP socket exhaustion (`TIME_WAIT` port starvation) and cache OAuth2 Bearer tokens in Windows Credential Manager (`CredWriteW` / DPAPI). When a workstation operates offline, store outbound attribute modifications in a local SQLite write-ahead queue and replay them automatically when `DocumentSaved` detects LAN connectivity.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Bi-Directional Checksum Verification &amp; Conflict Resolution Dialogs</h2>
+<p>In bi-directional PLM workflows—where an engineer might edit a title-block attribute locally in GstarCAD 2027 while a project manager simultaneously updates the same metadata field in SAP or Teamcenter—store an `ETag` or `LastSyncedUtc` timestamp inside a hidden block attribute (`PLM_SYNC_HASH`) or Xrecord.</p>
+<p>Before overwriting DWG attributes during `OnApplicationIdleFlushQueue`, compare the server's `ETag` against `PLM_SYNC_HASH`. If both the local DWG attribute and the remote PLM record changed since the last sync, display a side-by-side WPF conflict resolution dialog highlighting the local vs. server values before committing the transaction.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

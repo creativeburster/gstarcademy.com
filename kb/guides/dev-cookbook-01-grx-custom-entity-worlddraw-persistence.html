@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Architect custom parametric C++ CAD entities in GstarCAD 2027 GRX SDK by overriding subWorldDraw, subGetGripPoints, dwgInFields, and dwgOutFields for binary DWG persistence.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>AcDbEntity, AcGiWorldDraw, AcDbDwgFiler, ACRX_DXF_DEFINE_MEMBERS, gcedRegCmds</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Custom Parametric C++ Entity Architecture (`AcDbEntity`), `subWorldDraw` Viewport Caching & Binary DWG Filing</h2>
+<p>Standard DWG primitives (lines, arcs, blocks) cannot encapsulate complex domain-specific engineering behavior—such as a parametric HVAC damper that automatically adjusts its internal louvers when stretched, or a civil retaining wall that dynamically renders different detail levels depending on viewport scale. By deriving a custom C++ class from `AcDbEntity` in the GstarCAD 2027 GRX SDK and registering it with `ACRX_DXF_DEFINE_MEMBERS`, ISV developers create first-class database objects with custom binary serialization (`dwgInFields` / `dwgOutFields`) and hardware-accelerated graphics generation (`subWorldDraw`).</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> Always call `assertReadEnabled()` as the very first statement inside `subWorldDraw()` and `dwgOutFields()`, and call `assertWriteEnabled()` inside `dwgInFields()` and any setter method. Failing to invoke `assertWriteEnabled()` before mutating a member variable prevents GstarCAD's undo filer (`AcDbUndoController`) from recording the state delta—resulting in catastrophic database corruption when the user presses Ctrl+Z.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Verified C++17 GRX Implementation (AcDbEntity)</h2>
+<p>Compile the following native C++ source code against the GstarCAD 2027 GRX SDK using Visual Studio 2022 (Platform Toolset <code>v143</code>, Target Architecture <code>x64</code>, linking <code>grx27.lib</code> and <code>gcdb27.lib</code>) to implement <strong>GRX Cookbook 01: Implementing Custom AcDbEntity / OdDbEntity Classes with subWorldDraw &amp; DWG Filing</strong>:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// GstarCAD 2027 GRX SDK — Custom Parametric Entity Implementation
 #include "grxdefs.h"
 #include "dbents.h"

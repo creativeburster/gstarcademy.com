@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Persisting User Preferences Across Sessions via vl-registry-* & Lightweight JSON Parsers in AutoLISP (dev-cookbook-29) | GstarCAD Academy</title>
+<meta content="Store per-user UI settings in the Windows Registry, Drawing Dictionaries (vlax-ldata-put), and external JSON config files in GstarCAD 2027 AutoLISP." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-29-autolisp-registry-and-json-configuration-manager" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Persisting User Preferences Across Sessions via vl-registry-* & Lightweight JSON Parsers in AutoLISP (dev-cookbook-29)" property="og:title"/>
+<meta content="Store per-user UI settings in the Windows Registry, Drawing Dictionaries (vlax-ldata-put), and external JSON config files in GstarCAD 2027 AutoLISP." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-29-autolisp-registry-and-json-configuration-manager" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Persisting User Preferences Across Sessions via vl-registry-* & Lightweight JSON Parsers in AutoLISP (dev-cookbook-29)", "description": "Store per-user UI settings in the Windows Registry, Drawing Dictionaries (vlax-ldata-put), and external JSON config files in GstarCAD 2027 AutoLISP.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-29-autolisp-registry-and-json-configuration-manager", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 2027 Visual LISP Persistent Data API", "Enterprise CAD Configuration Governance: Registry vs. LData vs. JSON"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Persisting User Preferences Across Sessions via vl-registry-* & Lightweight JSON Parsers in AutoLISP (dev-cookbook-29)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-29-autolisp-registry-and-json-configuration-manager"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Persisting User Preferences Across Sessions via vl-registry-* & Lightweight JSON Parsers in AutoLISP (dev-cookbook-29)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">AutoLISP / Visual LISP · State & Configuration</span>
+<h1 style="margin-top:12px;">Persisting User Preferences Across Sessions via vl-registry-* & Lightweight JSON Parsers in AutoLISP (dev-cookbook-29)</h1>
+<p class="hero-sub">Store per-user UI settings in the Windows Registry, Drawing Dictionaries (vlax-ldata-put), and external JSON config files in GstarCAD 2027 AutoLISP.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Choosing the Right Persistence Tier in GstarCAD 2027 AutoLISP</h2>
+<p>When designing enterprise AutoLISP tools for <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong>, configuration data falls into three distinct lifecycle scopes, each served by a dedicated persistence mechanism:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">Persistence Tier</th>
+  <th style="padding:10px 14px;">Visual LISP API / Mechanism</th>
+  <th style="padding:10px 14px;">Ideal Engineering Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>1. Per-Workstation User Profile</strong></td>
+  <td style="padding:10px 14px;"><code>vl-registry-write</code> / <code>getenv</code> / <code>setenv</code></td>
+  <td style="padding:10px 14px;">Remembering a drafter's last-used dialog checkboxes, default duct velocity, or preferred CSV export folder across restarts.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>2. Inside the `.DWG` Binary File</strong></td>
+  <td style="padding:10px 14px;"><code>vlax-ldata-put</code> / <code>vlax-ldata-get</code></td>
+  <td style="padding:10px 14px;">Storing project-specific datum elevations, structural wind zone codes, or revision history directly inside the `.dwg` Named Object Dictionary so it travels with the file.</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><strong>3. Enterprise Shared Network Config</strong></td>
+  <td style="padding:10px 14px;">JSON / INI file on UNC Share</td>
+  <td style="padding:10px 14px;">Centralized discipline layer mappings, ERP material lookup codes, and standard title-block attribute schemas managed under Git version control.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Production AutoLISP: Registry Preferences &amp; Embedded `.DWG` LData Storage</h2>
+<p>The module below demonstrates how to combine per-user Windows Registry preferences (`HKEY_CURRENT_USER\Software\Gstarsoft\CorpTools\v2027`) with document-embedded `vlax-ldata-*` dictionaries that persist inside the AC1032 `.dwg` file across external email/CDE transfers:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>;; CorpConfigManager.lsp - Registry User Prefs + DWG Embedded LData Dictionary
+(vl-load-com)
+
+(setq *CORP_REG_KEY* "HKEY_CURRENT_USER\Software\Gstarsoft\CorpBimTools\2027")
+(setq *CORP_LDATA_DICT* "GSTAR_CORP_PROJECT_META")
+
+;; Read user preference from HKCU Registry with fallback default value
+(defun Corp:GetUserPref (valName defaultVal / raw)
+  (setq raw (vl-registry-read *CORP_REG_KEY* valName))
+  (if raw raw defaultVal)
+)
+
+;; Save user preference to HKCU Registry
+(defun Corp:SetUserPref (valName valData)
+  (vl-registry-write *CORP_REG_KEY* valName valData)
+)
+
+;; Embed structured association list directly inside the active .DWG binary database
+(defun Corp:SaveProjectMetaToDwg (assocList)
+  (vlax-ldata-put *CORP_LDATA_DICT* "ProjectSpec" assocList)
+  (princ "
+[CorpConfig] Embedded project metadata into DWG Named Object Dictionary.")
+)
+
+;; Retrieve structured association list from the active .DWG database
+(defun Corp:LoadProjectMetaFromDwg ( / data)
+  (setq data (vlax-ldata-get *CORP_LDATA_DICT* "ProjectSpec"))
+  (if data
+    data
+    '(("PROJECT_CODE" . "UNASSIGNED")
+      ("SEISMIC_ZONE" . "PGA_0.20g")
+      ("DESIGN_STD"   . "ISO_19650_2027"))
+  )
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Parsing External JSON Configs via `Msxml2` / JScript or Native Tokenizer</h2>
+<p>Because `vlax-ldata-put` natively serializes nested LISP association lists (`'((key . val) ...)`), numbers, strings, and 3D points without requiring any string parsing, many CAD Managers distribute shared network configuration files as `.lsp` data files (`CorpCatalog.dat`) loaded via `(read (read-line fp))`—which GstarCAD's C++ LISP reader parses into memory in under **0.4 milliseconds** for 5,000 catalog items.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Inspecting and Purging Custom `vlax-ldata-*` Dictionaries</h2>
+<p>Because `vlax-ldata-put` stores binary records inside the DWG's Named Object Dictionary (`NOD`), you can list all keys under your company dictionary at any time using `(vlax-ldata-list "GSTAR_CORP_PROJECT_META")` or delete obsolete keys via `(vlax-ldata-delete "GSTAR_CORP_PROJECT_META" "OldKey")`.</p>
+<p>Unlike Extended Entity Data (`XDATA`)—which enforces a legacy 16 KB size limit per entity—Named Object Dictionary `LData` entries in GstarCAD 2027 have no 16 KB ceiling, making them ideal for storing full JSON string payloads or multi-hundred-row revision audit trails inside the `.dwg` container.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

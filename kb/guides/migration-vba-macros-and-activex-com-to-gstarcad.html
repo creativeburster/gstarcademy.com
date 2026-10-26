@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Porting Excel/Access VBA Macros & ActiveX COM Automation (GetObject / CreateObject) to GstarCAD 2027 | GstarCAD Academy</title>
+<meta content="Migrate enterprise Excel VBA BOM generators, automated drawing generators, and external VB6/Python COM scripts from AutoCAD.Application to GstarCAD.Application in minutes." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/migration-vba-macros-and-activex-com-to-gstarcad" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Porting Excel/Access VBA Macros & ActiveX COM Automation (GetObject / CreateObject) to GstarCAD 2027" property="og:title"/>
+<meta content="Migrate enterprise Excel VBA BOM generators, automated drawing generators, and external VB6/Python COM scripts from AutoCAD.Application to GstarCAD.Application in minutes." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/migration-vba-macros-and-activex-com-to-gstarcad" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Porting Excel/Access VBA Macros & ActiveX COM Automation (GetObject / CreateObject) to GstarCAD 2027", "description": "Migrate enterprise Excel VBA BOM generators, automated drawing generators, and external VB6/Python COM scripts from AutoCAD.Application to GstarCAD.Application in minutes.", "url": "https://gstarcademy.com/kb/guides/migration-vba-macros-and-activex-com-to-gstarcad", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Microsoft Component Object Model (COM / IDispatch) Type Library Specification", "GstarCAD 2027 ActiveX & VBA Reference Manual"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "AutoCAD Migration Hub", "item": "https://gstarcademy.com/migration"}, {"@type": "ListItem", "position": 3, "name": "Porting Excel/Access VBA Macros & ActiveX COM Automation (GetObject / CreateObject) to GstarCAD 2027", "item": "https://gstarcademy.com/kb/guides/migration-vba-macros-and-activex-com-to-gstarcad"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/migration">AutoCAD Migration Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Porting Excel/Access VBA Macros & ActiveX COM Automation (GetObject / CreateObject) to GstarCAD 2027</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">VBA & ActiveX COM Porting</span>
+<h1 style="margin-top:12px;">Porting Excel/Access VBA Macros & ActiveX COM Automation (GetObject / CreateObject) to GstarCAD 2027</h1>
+<p class="hero-sub">Migrate enterprise Excel VBA BOM generators, automated drawing generators, and external VB6/Python COM scripts from AutoCAD.Application to GstarCAD.Application in minutes.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. 1:1 ActiveX COM Object Model Parity (`GcadApplication`)</h2>
+<p>Thousands of manufacturing and engineering firms rely on Microsoft Excel VBA workbooks that read engineering parameters from spreadsheet cells and automatically draw 2D assemblies, electrical schematics, or title blocks in CAD via ActiveX COM automation. Because <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> exposes a complete dual-interface COM Type Library (<code>gcax27enu.tlb</code>) that mirrors AutoCAD's object hierarchy (<code>Application</code> &rarr; <code>Documents</code> &rarr; <code>ModelSpace</code> / <code>PaperSpace</code> &rarr; <code>Layers</code> / <code>Blocks</code>), existing VBA macros migrate with almost zero code changes.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. ProgID &amp; Late-Binding vs. Early-Binding Reference Table</h2>
+<p>To convert an Excel VBA macro or standalone VBScript/Python script from AutoCAD to GstarCAD 2027, update the COM Programmatic Identifier (<strong>ProgID</strong>) as shown below:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">COM Binding Dimension</th>
+  <th style="padding:12px 16px;">Legacy AutoCAD VBA / COM</th>
+  <th style="padding:12px 16px;">GstarCAD 2027 VBA / COM Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Version-Independent ProgID</td>
+  <td style="padding:12px 16px;"><code>"AutoCAD.Application"</code></td>
+  <td style="padding:12px 16px;"><code>"GstarCAD.Application"</code></td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Version-Specific ProgID (2027)</td>
+  <td style="padding:12px 16px;"><code>"AutoCAD.Application.25"</code></td>
+  <td style="padding:12px 16px;"><code>"GstarCAD.Application.27"</code></td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">In-Process `.DVB` Project Engine</td>
+  <td style="padding:12px 16px;"><code>VBAIDE</code> / `VBAMAN` (`ThisDrawing`)</td>
+  <td style="padding:12px 16px;">Native `VBAIDE` / `VBAMAN` (`ThisDrawing` object identical)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Dual-Compatible Excel VBA Macro Pattern (Works on Both GstarCAD &amp; AutoCAD)</h2>
+<p>By using late binding (`Dim cadApp As Object`) and a fallback `On Error Resume Next` ProgID resolver, your Excel VBA engineering workbooks can drive <strong>both GstarCAD 2027 and AutoCAD</strong> seamlessly across hybrid enterprise teams:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>' Microsoft Excel VBA — Hybrid Connector for GstarCAD 2027 &amp; Legacy AutoCAD
+Sub PushExcelScheduleToGstarCAD()
+    Dim cadApp As Object
+    Dim cadDoc As Object
+    Dim ptIns(0 To 2) As Double
+    
+    On Error Resume Next
+    ' 1. Try attaching to running GstarCAD 2027 instance first
+    Set cadApp = GetObject(, "GstarCAD.Application")
+    If cadApp Is Nothing Then
+        Set cadApp = CreateObject("GstarCAD.Application")
+    End If
+    ' 2. Fallback for external subcontractors still on AutoCAD
+    If cadApp Is Nothing Then
+        Set cadApp = GetObject(, "AutoCAD.Application")
+    End If
+    On Error GoTo 0
+    
+    If cadApp Is Nothing Then
+        MsgBox "Neither GstarCAD nor AutoCAD is installed on this workstation.", vbCritical
+        Exit Sub
+    End If
+    
+    cadApp.Visible = True
+    Set cadDoc = cadApp.ActiveDocument
+    ptIns(0) = 100#: ptIns(1) = 250#: ptIns(2) = 0#
+    
+    ' Identical COM method call across both platforms
+    cadDoc.ModelSpace.AddMText ptIns, 120#, "GENERATED VIA EXCEL COM AUTOMATION"
+    cadDoc.Regen 1 ' acAllViewports
+End Sub</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Automating `.DVB` Startup Loading &amp; 64-Bit API PtrSafe Declarations</h2>
+<p>When migrating legacy AutoCAD VBA macros originally authored in 32-bit environments (AutoCAD 2004–2013) into 64-bit GstarCAD 2027 (which ships with the Microsoft Visual Basic for Applications 7.1 x64 runtime), any Windows Win32 API `Declare Function` calls inside your `.dvb` modules must include the `PtrSafe` keyword and use `LongPtr` for window handles (`HWND`) and memory pointers:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>' Conditional VBA 7.1 64-bit / 32-bit Win32 API Declaration inside GstarCAD .DVB
+#If VBA7 Then
+    Private Declare PtrSafe Function GetTickCount64 Lib "kernel32" () As LongLong
+    Private Declare PtrSafe Function FindWindowA Lib "user32" ( _
+        ByVal lpClassName As String, ByVal lpWindowName As String) As LongPtr
+#Else
+    Private Declare Function GetTickCount Lib "kernel32" () As Long
+#End If</code></pre>
+<p><strong>Enterprise Auto-Loading via `gcaddoc.lsp`:</strong> Rather than instructing users to run `VBALOAD` manually every morning, deploy your `.dvb` project to a read-only network share and invoke `-VBARUN` transparently from Ribbon buttons or AutoLISP command wrappers:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>;; Inside gcaddoc.lsp: Demand-load corporate DVB and expose native command C:BOMSYNC
+(defun C:BOMSYNC ( / dvbPath)
+  (setq dvbPath (findfile "CorpTools_2027.dvb"))
+  (if dvbPath
+    (progn
+      (vl-vbaload dvbPath)
+      (vl-vbarun "ModERP.SyncActiveTitleBlockToSAP")
+    )
+    (princ "
+[ERROR] CorpTools_2027.dvb not found in Support File Search Path.")
+  )
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

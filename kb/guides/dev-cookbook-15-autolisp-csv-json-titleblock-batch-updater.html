@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Parse external UTF-8 `.csv` schedules in AutoLISP and automatically update title block revision numbers, approval dates, and sheet descriptions across entire project directories.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>open, read-line, vl-string-position, vla-getattributes, vla-put-textstring</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Bi-Directional ERP/PLM Title-Block Synchronization: Parsing External CSV/JSON Schedules into DWG Attributes</h2>
+<p>Before issuing a 150-drawing construction or manufacturing package, project coordinators often update revision numbers, checker signatures, and release dates in a master Excel/CSV register or PLM export. Manually opening 150 layouts to double-click title-block attributes (`EATTEDIT`) wastes an entire day and introduces typos. Automating external CSV/JSON ingestion in AutoLISP updates all title blocks in seconds.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> When updating `AcDbAttribute` values via AutoLISP or ActiveX (`vla-put-TextString`), handle CSV delimiter edge cases (such as quoted strings containing commas) and strip UTF-8 Byte Order Marks (`\xEF\xBB\xBF`) from Excel-exported CSV files. After modifying block attributes programmatically, call `(vla-Update blkRefObj)` to force immediate viewport glyph regeneration without requiring a full drawing `REGEN`.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Production Visual LISP / AutoLISP Routine (open)</h2>
+<p>Load the following self-contained LISP routine via <code>APPLOAD</code> or <code>gcaddoc.lsp</code> in GstarCAD 2027 to automate <strong>AutoLISP Cookbook 15: Bi-Directional CSV / ERP Title Block Attribute Batch Updater Across Project Folders</strong> at native database speed:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 AutoLISP — Title Block Attribute Map Updater
 (vl-load-com)
 (defun GcUpdateTitleBlockAttrs (blkVlaObj tagValAssocList / pair)

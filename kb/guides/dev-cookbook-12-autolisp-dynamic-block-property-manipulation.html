@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Automate dynamic block configuration (`AcDbDynBlockReference`) in GstarCAD 2027 using `vla-getdynamicblockproperties`, `vla-get-effectivename`, and variant array marshaling.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>vl-load-com, vla-get-effectivename, vla-getdynamicblockproperties, vlax-variant-value</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Programmatic Dynamic Block Control in Visual LISP: `vla-GetDynamicBlockProperties`, Visibility States & `EffectiveName`</h2>
+<p>When a user stretches a Dynamic Block or switches its Visibility State in GstarCAD 2027, the block reference converts into an anonymous block (`*U###`). As a result, standard `(ssget "X" '((0 . "INSERT") (2 . "DOOR_DYN")))` queries fail to find modified instances, and standard DXF `(entget)` lists do not expose dynamic parameter values.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> To query and drive Dynamic Blocks reliably in Visual LISP, convert the entity to a VLA-Object via `(vlax-ename->vla-object ent)`, verify `(vla-get-IsDynamicBlock obj)` is `:vlax-true`, match the true block name via `(vla-get-EffectiveName obj)`, and iterate through `(vlax-invoke obj 'GetDynamicBlockProperties)` to read or write custom `Value` variants (ensuring data types match `Double` for linear/angular parameters or `String` for visibility/lookup states).</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Production Visual LISP / AutoLISP Routine (vl-load-com)</h2>
+<p>Load the following self-contained LISP routine via <code>APPLOAD</code> or <code>gcaddoc.lsp</code> in GstarCAD 2027 to automate <strong>AutoLISP Cookbook 12: Reading &amp; Driving Dynamic Block Visibility States and Stretch Parameters via Visual LISP</strong> at native database speed:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 Visual LISP — Set Dynamic Block Parameter by Name
 (vl-load-com)
 (defun GcSetDynProp (blkVlaObj propName newVal / props found)

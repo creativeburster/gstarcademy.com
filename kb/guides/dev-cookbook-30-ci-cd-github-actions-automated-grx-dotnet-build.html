@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Automated GitHub Actions CI/CD Pipeline for Multi-Version GstarCAD GRX C++ & .NET Bundle Packaging (dev-cookbook-30) | GstarCAD Academy</title>
+<meta content="Configure MSBuild matrix builds, code-signing certificates, and Autoloader .bundle packaging in GitHub Actions for GstarCAD 2025, 2026, and 2027 plugins." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-30-ci-cd-github-actions-automated-grx-dotnet-build" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Automated GitHub Actions CI/CD Pipeline for Multi-Version GstarCAD GRX C++ & .NET Bundle Packaging (dev-cookbook-30)" property="og:title"/>
+<meta content="Configure MSBuild matrix builds, code-signing certificates, and Autoloader .bundle packaging in GitHub Actions for GstarCAD 2025, 2026, and 2027 plugins." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-30-ci-cd-github-actions-automated-grx-dotnet-build" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Automated GitHub Actions CI/CD Pipeline for Multi-Version GstarCAD GRX C++ & .NET Bundle Packaging (dev-cookbook-30)", "description": "Configure MSBuild matrix builds, code-signing certificates, and Autoloader .bundle packaging in GitHub Actions for GstarCAD 2025, 2026, and 2027 plugins.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-30-ci-cd-github-actions-automated-grx-dotnet-build", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD ApplicationPlugins .bundle Specification", "GitHub Actions Windows-2022 MSBuild & Authenticode Signing Workflow"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Automated GitHub Actions CI/CD Pipeline for Multi-Version GstarCAD GRX C++ & .NET Bundle Packaging (dev-cookbook-30)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-30-ci-cd-github-actions-automated-grx-dotnet-build"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Automated GitHub Actions CI/CD Pipeline for Multi-Version GstarCAD GRX C++ & .NET Bundle Packaging (dev-cookbook-30)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">DevOps & CI/CD · Multi-Target Packaging</span>
+<h1 style="margin-top:12px;">Automated GitHub Actions CI/CD Pipeline for Multi-Version GstarCAD GRX C++ & .NET Bundle Packaging (dev-cookbook-30)</h1>
+<p class="hero-sub">Configure MSBuild matrix builds, code-signing certificates, and Autoloader .bundle packaging in GitHub Actions for GstarCAD 2025, 2026, and 2027 plugins.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Multi-Target MSBuild Configurations for GstarCAD 2025–2027</h2>
+<p>Commercial ISVs and enterprise R&amp;D teams shipping plugins for <strong><a href="/kb/software/gstarcad">GstarCAD</a></strong> rarely compile binaries manually on developer laptops. By setting up a **GitHub Actions (or GitLab CI / Azure DevOps)** matrix pipeline using `windows-2022` runners, a single `git tag v2.4.0` push can automatically compile both native C++ `.grx` binaries (`v142` / `v143` MSVC toolsets) and managed `.NET` (`net48` / `net8.0-windows`) assemblies against GstarCAD 2025, 2026, and 2027 SDK headers, sign them with an EV Authenticode certificate, and package everything into a universal **`ApplicationPlugins/*.bundle`** installer.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Production `.github/workflows/build-gstarcad-bundle.yml` Pipeline</h2>
+<p>The GitHub Actions workflow below runs a multi-version MSBuild matrix, verifies `<Private>False</Private>` (`CopyLocal = False`) on `GdbMgd.dll` and `GcadMgd.dll` so SDK assemblies never pollute your output folder, and packs the universal `.bundle`:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>name: Build &amp; Package GstarCAD GRX/.NET Bundle
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  msbuild-matrix:
+    runs-on: windows-2022
+    strategy:
+      fail-fast: false
+      matrix:
+        gcad_year: [ '2025', '2026', '2027' ]
+    steps:
+      - name: Checkout Plugin Repository
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild &amp; Visual Studio 2022 C++ / .NET Toolset
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore NuGet &amp; GstarCAD SDK Headers
+        run: nuget restore GstarEnterprisePlugin.sln
+
+      - name: Compile C++ GRX &amp; C# .NET Targets (Release|x64)
+        run: |
+          msbuild GstarEnterprisePlugin.sln `
+            /p:Configuration=Release_${{ matrix.gcad_year }} `
+            /p:Platform=x64 `
+            /p:CopyLocalLockFileAssemblies=false `
+            /m /v:minimal
+
+      - name: Verify Zero SDK DLL Leakage in Output Directory
+        shell: pwsh
+        run: |
+          $leaked = Get-ChildItem "bin/Release_${{ matrix.gcad_year }}" -Include "GdbMgd.dll","GcadMgd.dll" -Recurse
+          if ($leaked) { throw "ERROR: Set CopyLocal=False on GdbMgd/GcadMgd references!" }
+
+      - name: Stage into ApplicationPlugins Autoloader .bundle Structure
+        shell: pwsh
+        run: |
+          $dest = "dist/CorpTools.bundle/Contents/Win64/${{ matrix.gcad_year }}"
+          New-Item -ItemType Directory -Force -Path $dest | Out-Null
+          Copy-Item "bin/Release_${{ matrix.gcad_year }}/*.grx" $dest -ErrorAction SilentlyContinue
+          Copy-Item "bin/Release_${{ matrix.gcad_year }}/*.dll" $dest -ErrorAction SilentlyContinue
+
+      - name: Upload Compiled Year Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-${{ matrix.gcad_year }}
+          path: dist/CorpTools.bundle</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Universal `PackageContents.xml` Version-Routing Schema</h2>
+<p>Inside `CorpTools.bundle/PackageContents.xml`, declare separate `<Components>` blocks with `SeriesMin` and `SeriesMax` attributes pointing to `Contents/Win64/2025`, `Contents/Win64/2026`, and `Contents/Win64/2027`. When an IT administrator drops `CorpTools.bundle` into `%ProgramData%\Gstarsoft\ApplicationPlugins\`, every installed GstarCAD release automatically loads its exact matching binary on startup without touching the Windows Registry.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automated Headless Smoke Testing (`gcad.exe /b`) in GitHub Actions</h2>
+<p>Beyond compiling binaries, your CI/CD pipeline can verify that the newly built `.grx` or `.dll` actually loads and executes cleanly inside GstarCAD 2027. Add a post-build smoke-test step on a self-hosted Windows runner that invokes `gcad.exe "tests/fixture.dwg" /b "tests/ci_smoke_test.scr"`. Inside `ci_smoke_test.scr`, call `(arxload "CorpPlugin.grx")` (or `NETLOAD`), execute your test command, write a `"PASS"` token to `ci_result.txt`, and call `._QUIT _Y`.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

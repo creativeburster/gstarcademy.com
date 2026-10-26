@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Fix Hatch Pattern Too Dense, Solid Black, or Boundary Not Closed Errors | GstarCAD Academy</title>
+  <meta name="description" content="Solve 'Hatch spacing too dense', solid-fill appearance, gap tolerance failures, and shattered hatch patterns far from WCS origin in GstarCAD 2027 and AutoCAD." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-fix-hatch-pattern-too-dense-or-not-working" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Fix Hatch Pattern Too Dense, Solid Black, or Boundary Not Closed Errors" />
+  <meta property="og:description" content="Solve 'Hatch spacing too dense', solid-fill appearance, gap tolerance failures, and shattered hatch patterns far from WCS origin in GstarCAD 2027 and AutoCAD." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-fix-hatch-pattern-too-dense-or-not-working" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix Hatch Pattern Too Dense, Solid Black, or Boundary Not Closed Errors", "acceptedAnswer": {"@type": "Answer", "text": "Check MEASUREMENT (0 = Imperial ANSI, 1 = Metric ISO) so ANSI31 isn't scaled in millimeters, adjust HPGAPTOL to bridge small boundary micro-gaps, and run HATCHSETORIGIN (or SNAPBASE) if hatching at large civil coordinates freezes or shatters."}}, {"@type": "Question", "name": "1. Align MEASUREMENT with Your Drawing Units (ANSI vs. ISO)", "acceptedAnswer": {"@type": "Answer", "text": "Type <code>MEASUREMENT</code>. Set to <code>1</code> for metric drawings (loads `gcadiso.pat` / `acadiso.pat`) or <code>0</code> for imperial inch drawings. If using `ANSI31` in a millimeter drawing, set Hatch Scale to <code>25.4</code>\u2013<code>100</code>."}}, {"@type": "Question", "name": "2. Bridge Unclosed Micro-Gaps via HPGAPTOL", "acceptedAnswer": {"@type": "Answer", "text": "Set <code>HPGAPTOL = 2.0</code> (in drawing units, e.g., 2 mm) so the planar ray-casting boundary solver automatically bridges small corner gaps between unjoined lines."}}, {"@type": "Question", "name": "3. Fix Shattered / Disjointed Hatches at Large Coordinates", "acceptedAnswer": {"@type": "Answer", "text": "If concrete (`AR-CONC`) or gravel hatches break into random lines on civil survey plans, click <strong>Set Origin</strong> in the Hatch Contextual Ribbon (or set <code>HPORIGIN</code> to a corner of the local object) to anchor the `.pat` dash matrix locally."}}, {"@type": "Question", "name": "4. Adjust HPMAXLINES & HPMAXAREAS Safety Caps", "acceptedAnswer": {"@type": "Answer", "text": "If a valid large site hatch says 'Hatch spacing too dense', increase <code>HPMAXLINES</code> from its default (`100000` or `1000000`) up to `5000000`."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Fix Hatch Pattern Too Dense, Solid Black, or Boundary Not Closed Errors", "item": "https://gstarcademy.com/kb/faq/how-to-fix-hatch-pattern-too-dense-or-not-working"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix Hatch Pattern Too Dense, Solid Black, or Boundary Not Closed Errors", "description": "Solve 'Hatch spacing too dense', solid-fill appearance, gap tolerance failures, and shattered hatch patterns far from WCS origin in GstarCAD 2027 and AutoCAD.", "url": "https://gstarcademy.com/kb/faq/how-to-fix-hatch-pattern-too-dense-or-not-working", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Fix Hatch Pattern Too Dense, Solid Black, or Boundary Not Closed Errors</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">Drafting & Hatching</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Fix Hatch Pattern Too Dense, Solid Black, or Boundary Not Closed Errors</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Solve 'Hatch spacing too dense', solid-fill appearance, gap tolerance failures, and shattered hatch patterns far from WCS origin in GstarCAD 2027 and AutoCAD.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">Check MEASUREMENT (0 = Imperial ANSI, 1 = Metric ISO) so ANSI31 isn't scaled in millimeters, adjust HPGAPTOL to bridge small boundary micro-gaps, and run HATCHSETORIGIN (or SNAPBASE) if hatching at large civil coordinates freezes or shatters.</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>Hatching failures in AC1032 DWG drawings stem from three mathematical mismatches: (1) mixing **Imperial `.pat` definitions** (`ANSI31` defined at `0.125` inch spacing) inside a **Metric millimeter drawing** (`MEASUREMENT = 1`), creating 100,000+ microscopic lines; (2) unclosed boundary micro-gaps where endpoint coordinates differ by `0.05 mm`; and (3) **IEEE 754 floating-point precision loss** when evaluating hatch dash arrays at civil coordinates (`X &gt; 500,000`).</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Align MEASUREMENT with Your Drawing Units (ANSI vs. ISO)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Type <code>MEASUREMENT</code>. Set to <code>1</code> for metric drawings (loads `gcadiso.pat` / `acadiso.pat`) or <code>0</code> for imperial inch drawings. If using `ANSI31` in a millimeter drawing, set Hatch Scale to <code>25.4</code>–<code>100</code>.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Bridge Unclosed Micro-Gaps via HPGAPTOL</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Set <code>HPGAPTOL = 2.0</code> (in drawing units, e.g., 2 mm) so the planar ray-casting boundary solver automatically bridges small corner gaps between unjoined lines.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Fix Shattered / Disjointed Hatches at Large Coordinates</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">If concrete (`AR-CONC`) or gravel hatches break into random lines on civil survey plans, click <strong>Set Origin</strong> in the Hatch Contextual Ribbon (or set <code>HPORIGIN</code> to a corner of the local object) to anchor the `.pat` dash matrix locally.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">4. Adjust HPMAXLINES & HPMAXAREAS Safety Caps</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">If a valid large site hatch says 'Hatch spacing too dense', increase <code>HPMAXLINES</code> from its default (`100000` or `1000000`) up to `5000000`.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:FIXBROKENHATCH)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:FIXBROKENHATCH ( / ss i ent obj extMin extMax)
+  (vl-load-com)
+  (princ "\nSelect shattered hatches at large coordinates to reset local origin: ")
+  (if (setq ss (ssget '((0 . "HATCH"))))
+    (repeat (setq i (sslength ss))
+      (setq ent (ssname ss (setq i (1- i)))
+            obj (vlax-ename->vla-object ent))
+      (vla-GetBoundingBox obj 'extMin 'extMax)
+      (setq extMin (vlax-safearray->list extMin))
+      (vla-put-Origin obj (vlax-3d-point (car extMin) (cadr extMin) 0.0))
+      (vla-Evaluate obj)
+    )
+  )
+  (princ "\nReset hatch origins to local bounding-box corners.")
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Hatch looks like a solid black blob</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>HPSCALE / MEASUREMENT</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">ANSI pattern used in mm drawing at Scale=1. Increase scale to 25.4+.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">AR-CONC pattern shatters into stray lines</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>HPORIGIN / Set Origin</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Object is millions of units from 0,0,0; snap Hatch Origin to local corner.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">'A closed boundary could not be determined'</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>HPGAPTOL & Zoom Extents</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Ensure the entire boundary is visible on screen during Pick Points and raise HPGAPTOL.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

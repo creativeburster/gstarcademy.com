@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Construct compound `<AND`, `<OR`, and `<NOT` DXF group-code selection filters in GstarCAD C# .NET using `TypedValue` arrays and `Editor.SelectAll(SelectionFilter)`.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>SelectionFilter, TypedValue, DxfCode.Operator, Editor.SelectAll, PromptSelectionResult</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Relational & Boolean Selection Set Queries (`SelectionFilter`, `TypedValue` DXF Codes & `-4` Logical Operators)</h2>
+<p>Iterating through every entity in ModelSpace in C# to find 'all red or yellow closed polylines on layers starting with PIPE-* whose elevation is greater than 0' is inefficient when GstarCAD's native C++ selection engine (`Editor.SelectAll` / `Editor.GetSelection`) can evaluate complex boolean filter trees at native C++ speed using `SelectionFilter` and `TypedValue` arrays.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> DXF relational operators (`DxfCode.Operator` / group code `-4`) support full boolean algebra (`<AND ... AND>`, `<OR ... OR>`, `<NOT ... NOT>`, `<XOR ... XOR>`) and numeric bitmask/inequality tests (`"*"`, `"="`, `"!="`, `">="`, `"&"`). Always verify that every opening `"<OR"` or `"<AND"` token is balanced by an exact closing `"OR>"` or `"AND>"` token, otherwise `Editor.SelectAll(filter)` returns `PromptStatus.Error`.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Managed C# .NET Implementation (SelectionFilter)</h2>
+<p>Reference <code>GsMgd.dll</code> and <code>GsDbMgd.dll</code> (with <code>Copy Local = False</code>) in your C# class library project to execute <strong>.NET Cookbook 09: Complex Boolean Entity Queries Using SelectionFilter &amp; TypedValue Relational Operators</strong> inside the GstarCAD 2027 CLR runtime:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// GstarCAD 2027 C# .NET API — Compound Boolean SelectionFilter
 using Gssoft.GstarCAD.DatabaseServices;
 using Gssoft.GstarCAD.EditorInput;

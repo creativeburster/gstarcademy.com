@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Drafting stepped transmission shafts, involute gear profiles, rolling-element bearings, and helical compression springs from scratch using primitive lines and arcs wastes hours per assembly drawing. GstarCAD Mechanical 2027 includes parametric mechanical component generators backed by over 100,000 standardized parts from ISO, DIN, ANSI, JIS, and GB catalogs.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>AMSHAFT2D, AMSTDPLIB, AMSPRING2D, AMSCREWCON2D, AMHIDE</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Construct multi-stepped transmission shafts (AMSHAFT2D) complete with DIN 509 undercut relief grooves, Woodruff keyways, chamfers, thread ends, and automated side/sectional projections.</li>
+  <li>Insert parametric involute gears, sprockets, and grooved pulleys that automatically compute pitch circle diameters ($d = m \cdot z$), root clearances, and mated shaft center distances.</li>
+  <li>Deploy complete bolted screw connections, rolling bearings (deep-groove, tapered roller, thrust), circlips, O-ring seals, and helical/belleville springs with automatic hidden-line occlusion (AMSHIDE).</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 07: Parametric Power Transmission Design — Shafts, Gears, Bearings, Fasteners &amp; Hide Situations</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Generate stepped transmission shafts (AMSHAFT2D), involute gears, rolling bearings, and bolted connections from the 100,000+ standard parts library with associative foreground/background occlusion (AMHIDE). Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Parametric Shaft Generator, Standard Fastener Catalogs & Bearing/Spring Synthesis</h2>
+<p>When an engineer inserts a stepped shaft segment or a DIN 912 socket head cap screw in GstarCAD Mechanical, the software does not merely insert a dumb block; it instantiates a parametric mechanical object equipped with automatic <strong>2D Hide Situation (<code>AMSHIDE</code>)</strong> intelligence. Placing a rolling bearing onto a shaft step automatically trims or switches the underlying shaft contour lines to hidden dashed lines—and heals them instantly if the bearing is moved or deleted.</p>
+<p>Furthermore, every standard fastener and bearing inserted from the library automatically populates its exact specification (e.g., <code>ISO 4762 - M12x45 - 8.8</code> or <code>SKF 6208-2RS1</code>) directly into the drawing's <code>AMBOM</code> database.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>AMSHAFT2D, AMSTDPLIB, AMSPRING2D, AMSCREWCON2D, AMHIDE</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Shaft Synthesis</td>
+  <td style="padding:12px 16px;"><code>AMSHAFT2D / Shaft Contours</code></td>
+  <td style="padding:12px 16px;">Generates stepped shafts, threads, keyways, wrench flats, and automatic cross-sections.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Standard Library</td>
+  <td style="padding:12px 16px;"><code>AMSTDPLIB (ISO/DIN/ANSI/JIS)</code></td>
+  <td style="padding:12px 16px;">Inserts 100,000+ parametric fasteners, bearings, pins, keys, and structural steel shapes.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Associative Hide</td>
+  <td style="padding:12px 16px;"><code>AMSHIDE / AMSHIDEEDIT</code></td>
+  <td style="padding:12px 16px;">Dynamically suppresses background lines obscured by foreground components without destructive trimming.</td>
 </tr>
 </tbody>
 </table>

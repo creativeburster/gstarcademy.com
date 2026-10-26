@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>GstarLM Network License Server Architecture: Floating Pools, Firewall Ports, Subnet Routing & Offline Borrowing | GstarCAD Academy</title>
+<meta content="Deploy GstarLM floating perpetual licenses across Windows and Linux servers, bind static TCP daemon ports through corporate firewalls, and configure offline laptop seat borrowing." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/gstarlm-network-license-server-high-availability-guide" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="GstarLM Network License Server Architecture: Floating Pools, Firewall Ports, Subnet Routing & Offline Borrowing" property="og:title"/>
+<meta content="Deploy GstarLM floating perpetual licenses across Windows and Linux servers, bind static TCP daemon ports through corporate firewalls, and configure offline laptop seat borrowing." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/gstarlm-network-license-server-high-availability-guide" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GstarLM Network License Server Architecture: Floating Pools, Firewall Ports, Subnet Routing & Offline Borrowing", "description": "Deploy GstarLM floating perpetual licenses across Windows and Linux servers, bind static TCP daemon ports through corporate firewalls, and configure offline laptop seat borrowing.", "url": "https://gstarcademy.com/kb/guides/gstarlm-network-license-server-high-availability-guide", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarLM 2027 Network License Administrator Manual"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "AutoCAD Migration Hub", "item": "https://gstarcademy.com/migration"}, {"@type": "ListItem", "position": 3, "name": "GstarLM Network License Server Architecture: Floating Pools, Firewall Ports, Subnet Routing & Offline Borrowing", "item": "https://gstarcademy.com/kb/guides/gstarlm-network-license-server-high-availability-guide"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/migration">AutoCAD Migration Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">GstarLM Network License Server Architecture: Floating Pools, Firewall Ports, Subnet Routing & Offline Borrowing</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Enterprise License Engineering</span>
+<h1 style="margin-top:12px;">GstarLM Network License Server Architecture: Floating Pools, Firewall Ports, Subnet Routing & Offline Borrowing</h1>
+<p class="hero-sub">Deploy GstarLM floating perpetual licenses across Windows and Linux servers, bind static TCP daemon ports through corporate firewalls, and configure offline laptop seat borrowing.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Why Floating Network Licensing Outperforms Named-User Subscriptions</h2>
+<p>When Autodesk retired multi-user network licensing in favor of mandatory Named-User subscriptions, enterprises were forced to buy a 1:1 license for every occasional user, project manager, and shift worker. <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> engineered <strong>GstarLM (Gstarsoft License Manager)</strong> to preserve true enterprise floating concurrency: a pool of 100 perpetual network licenses can legally serve 250+ engineers across global time zones or rotating manufacturing shifts, achieving an immediate 60%–85% TCO reduction.</p>
+<p>Crucially, GstarLM operates <strong>100% on-premises inside your private corporate network</strong>—making it ideal for air-gapped defense facilities, semiconductor wafer fabs, and power-grid control centers with zero external internet access.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Static TCP Port Binding &amp; Corporate Firewall Rules</h2>
+<p>By default, network license managers negotiate dynamic TCP ports, which can be blocked by strict Windows Defender or Cisco/Palo Alto VLAN firewalls. For deterministic multi-subnet routing, pin both the Master License Daemon and the Vendor Daemon to static TCP ports in your license configuration:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">Service Component</th>
+  <th style="padding:12px 16px;">Recommended Static Port</th>
+  <th style="padding:12px 16px;">Firewall &amp; Subnet Routing Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">GstarLM Master Service</td>
+  <td style="padding:12px 16px;"><code>TCP 27000</code> (Inbound/Outbound)</td>
+  <td style="padding:12px 16px;">Handles initial client license handshake (`27000@10.20.1.50`) across engineering VLANs.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Gstarsoft Vendor Daemon</td>
+  <td style="padding:12px 16px;"><code>TCP 27001</code> (Pinned Static)</td>
+  <td style="padding:12px 16px;">Maintains heartbeat checkouts and automatic seat reclamation if a client workstation crashes.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">Web Management Console</td>
+  <td style="padding:12px 16px;"><code>TCP 8080 / HTTPS 8443</code></td>
+  <td style="padding:12px 16px;">Restricted to IT Administrators for real-time seat utilization graphs and borrow logs.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Silent Client Binding &amp; Offline Field Laptop Borrowing</h2>
+<p>When deploying GstarCAD 2027 to 500 client machines via SCCM or Active Directory GPO, pre-populate the license server address via registry or PowerShell so engineers never see an activation prompt:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code># PowerShell — Silently Bind GstarCAD 2027 Clients to Primary &amp; Failover GstarLM Servers
+$RegPath = "HKLM:\SOFTWARE\Gstarsoft\GstarCAD\R27\License"
+if (!(Test-Path $RegPath)) { New-Item -Path $RegPath -Force | Out-Null }
+Set-ItemProperty -Path $RegPath -Name "LicenseServer" -Value "27000@10.20.1.50;27000@10.20.2.50"
+Write-Host "[GstarLM] Configured redundant floating license servers successfully."</code></pre>
+<p>For field engineers visiting construction sites or offshore platforms without VPN connectivity, open the <strong>GstarCAD License Manager</strong> utility on the laptop before departure, select <strong>Borrow License</strong>, specify the return date (e.g., 14 or 30 days), and click Borrow. The seat automatically returns to the central corporate pool at midnight on the expiration date—or early if the engineer clicks <em>Return License Early</em> upon reconnecting to the office LAN.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Prometheus / SNMP Telemetry &amp; Automated Seat Utilization Auditing</h2>
+<p>For IT Asset Management (ITAM) teams managing 100 to 2,000 floating seats across multiple time zones, tracking peak concurrent checkout ratios (`Peak Active Seats / Total Entitlement Pool`) is essential for right-sizing annual maintenance or perpetual expansion orders. GstarLM provides both a RESTful JSON status endpoint on the local administration port (`http://127.0.0.1:27009/api/v1/status`) and structured daily audit logs.</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code># PowerShell Scheduled Task: Query GstarLM Seat Utilization &amp; Alert at 90% Threshold
+$LmHost = "cad-lic-01.corp.example.com"
+$ApiUrl = "http://${LmHost}:27009/api/v1/pools"
+
+try {
+    $Pools = Invoke-RestMethod -Uri $ApiUrl -TimeoutSec 5
+    foreach ($Pool in $Pools.features) {
+        $Used = [int]$Pool.in_use
+        $Total = [int]$Pool.total_seats
+        $Ratio = [math]::Round(($Used / $Total) * 100, 1)
+        Write-Output "[$(Get-Date -Format o)] Feature: $($Pool.name) v$($Pool.version) | Active: $Used/$Total ($Ratio%)"
+        if ($Ratio -ge 90.0) {
+            # Trigger Teams / Slack Webhook or SNMP Trap for IT Operations
+            Write-Warning "HIGH UTILIZATION ALERT: $($Pool.name) reached $Ratio% capacity!"
+        }
+    }
+} catch {
+    Write-Error "CRITICAL: GstarLM primary daemon unreachable on $LmHost. Checking failover node..."
+}</code></pre>
+<p style="margin-top:14px;"><strong>Zero-Downtime License Renewal &amp; Borrowing (`BORROWLICENSE`):</strong> Field engineers departing for offshore rigs, tunnel construction sites, or air-gapped military facilities can borrow a floating network seat directly to their laptop for up to 180 days (or whatever maximum cap is defined in your server policy table). When the borrow period expires—or when the engineer clicks <em>Return License Early</em> upon reconnecting to the corporate LAN—the seat automatically returns to the central GstarLM pool without manual IT intervention.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

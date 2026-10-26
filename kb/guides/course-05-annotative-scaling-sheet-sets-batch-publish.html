@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Manual text-height multiplication—where drafters create separate 'TEXT-1-50', 'TEXT-1-100', and 'TEXT-1-200' layers and duplicate dimensions for enlarged detail callouts—is the primary source of dimension discrepancies on construction sites. Annotative Scaling in GstarCAD 2027 binds multiple paper-space scale representations directly to a single model-space annotation entity.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>DIMASSOC=2, ANNOALLVISIBLE=0, PSLTSCALE=1, PAGESETUP, PUBLISH, ETRANSMIT</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Calculate and assign exact Paper Space viewport scales (1:10, 1:50, 1:100, 1/4"=1'-0") and lock viewport camera matrices (MVIEW -> Lock = ON) to prevent accidental zoom drift.</li>
+  <li>Configure Annotative Text, Dimensions, Multileaders, and Hatches with ANNOAUTOSCALE = -4 and ANNOALLVISIBLE = 0 so annotations dynamically resize to 2.5mm or 3.5mm paper height in every viewport.</li>
+  <li>Orchestrate 200-sheet project deliverables using the Sheet Set Manager (SSM / .dst), dynamic sheet title fields (FIELD), and background multi-sheet PDF plotting (PUBLISH / BACKGROUNDPLOT).</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 05: Multi-Scale Annotative Dimensions, Paper Space Viewports, CTB/STB &amp; Batch Sheet Set Publishing</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Standardize multi-scale detailing across 1:20 and 1:100 viewports using CANNOSCALE, LTSCALE/PSLTSCALE/MSLTSCALE=1, monochrome CTB pen tables, Sheet Set Manager (SSM), and ETRANSMIT. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Annotative Object Scale Dictionaries, Paper Space Viewports & Sheet Set Publishing</h2>
+<p>Under the hood, an annotative entity in GstarCAD attaches an <code>AcDbAnnotScaleObjectContextData</code> dictionary entry for each supported viewport scale (e.g., <code>1:50</code> and <code>1:200</code>). When a Paper Space viewport (`AcDbViewport`) is set to `1:50` (`CANNOSCALE`), the graphics pipeline queries the context dictionary and scales the glyph bounding box by $50 \times 2.5\,\text{mm} = 125\,\text{mm}$ in model units while hiding annotations that lack the `1:50` context key (`ANNOALLVISIBLE = 0`).</p>
+<p>To ensure dashed hidden lines and centerlines render identically in both Model Space and multi-scale Paper Space viewports, engineers enforce the universal four-variable linetype equation: <code>LTSCALE = 1.0</code>, <code>PSLTSCALE = 1</code>, <code>MSLTSCALE = 1</code>, and <code>CELTSCALE = 1.0</code>.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>DIMASSOC=2, ANNOALLVISIBLE=0, PSLTSCALE=1, PAGESETUP, PUBLISH, ETRANSMIT</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Annotative Engine</td>
+  <td style="padding:12px 16px;"><code>CANNOSCALE / ANNOALLVISIBLE=0</code></td>
+  <td style="padding:12px 16px;">Filters and scales single-source model annotations to exact millimeter heights on paper.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Linetype Matrix</td>
+  <td style="padding:12px 16px;"><code>PSLTSCALE=1 / MSLTSCALE=1</code></td>
+  <td style="padding:12px 16px;">Synchronizes dashed linetype dash-gap lengths across arbitrary Paper Space viewport scales.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Sheet Automation</td>
+  <td style="padding:12px 16px;"><code>SSM (.dst) / PUBLISH / ETRANSMIT</code></td>
+  <td style="padding:12px 16px;">Compiles multi-drawing sheet sets into bookmarked vector PDFs and self-contained archival packages.</td>
 </tr>
 </tbody>
 </table>

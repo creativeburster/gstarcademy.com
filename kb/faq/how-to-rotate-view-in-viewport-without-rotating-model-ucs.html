@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Rotate a View in a Layout Viewport Without Rotating Model Space Coordinates | GstarCAD Academy</title>
+  <meta name="description" content="Align angled roads, pipelines, or building wings horizontally on a plotted sheet while preserving true North-East survey coordinates in Model Space using UCS + PLAN or DVIEW Twist." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-rotate-view-in-viewport-without-rotating-model-ucs" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Rotate a View in a Layout Viewport Without Rotating Model Space Coordinates" />
+  <meta property="og:description" content="Align angled roads, pipelines, or building wings horizontally on a plotted sheet while preserving true North-East survey coordinates in Model Space using UCS + PLAN or DVIEW Twist." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-rotate-view-in-viewport-without-rotating-model-ucs" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Rotate a View in a Layout Viewport Without Rotating Model Space Coordinates", "acceptedAnswer": {"@type": "Answer", "text": "Double-click inside the unlocked Layout Viewport, set UCSFOLLOW = 0, run UCS > Object (or 3-Point) aligned to your angled road/building centerline, and type PLAN > Current. Then run UCS > World and lock the viewport!"}}, {"@type": "Question", "name": "1. Method A: The UCS + PLAN Viewport Alignment Workflow", "acceptedAnswer": {"@type": "Answer", "text": "Double-click inside the Paper Space viewport (`MSPACE`) and unlock it. Type <code>UCS</code> &rarr; <code>Object</code> (or `Z`) and click a line running parallel to your angled building edge or road tangent. Next, type <code>PLAN</code> &rarr; <code>Current</code>. The camera rotates so your building sits perfectly horizontal on the sheet!"}}, {"@type": "Question", "name": "2. Restore WCS Coordinates Inside the Rotated Viewport", "acceptedAnswer": {"@type": "Answer", "text": "Immediately after `PLAN > Current`, type <code>UCS</code> &rarr; <code>World</code> (keeping `UCSFOLLOW = 0`). Now your viewport view remains rotated horizontally for plotting, while any `ID` coordinate queries or Xref insertions inside that viewport still use true World `Easting/Northing` coordinates!"}}, {"@type": "Question", "name": "3. Method B: Rotate the Viewport Border Directly (VPROTATEASSOC = 1)", "acceptedAnswer": {"@type": "Answer", "text": "In GstarCAD 2027, set <code>VPROTATEASSOC = 1</code>, select the viewport frame in Paper Space, and run standard <code>ROTATE</code>. Rotating the viewport frame by `-32.5` degrees rotates the camera view inside automatically."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Rotate a View in a Layout Viewport Without Rotating Model Space Coordinates", "item": "https://gstarcademy.com/kb/faq/how-to-rotate-view-in-viewport-without-rotating-model-ucs"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Rotate a View in a Layout Viewport Without Rotating Model Space Coordinates", "description": "Align angled roads, pipelines, or building wings horizontally on a plotted sheet while preserving true North-East survey coordinates in Model Space using UCS + PLAN or DVIEW Twist.", "url": "https://gstarcademy.com/kb/faq/how-to-rotate-view-in-viewport-without-rotating-model-ucs", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Elena Rostova, M.Eng., PE", "jobTitle": "Senior Civil Infrastructure & Geomatics Engineer", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#civil-infrastructure"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Rotate a View in a Layout Viewport Without Rotating Model Space Coordinates</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">Civil & Site Alignment</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Rotate a View in a Layout Viewport Without Rotating Model Space Coordinates</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Align angled roads, pipelines, or building wings horizontally on a plotted sheet while preserving true North-East survey coordinates in Model Space using UCS + PLAN or DVIEW Twist.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#civil-infrastructure">Elena Rostova, M.Eng., PE</a> (Senior Civil Infrastructure & Geomatics Engineer)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">Double-click inside the unlocked Layout Viewport, set UCSFOLLOW = 0, run UCS > Object (or 3-Point) aligned to your angled road/building centerline, and type PLAN > Current. Then run UCS > World and lock the viewport!</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>In civil infrastructure, highway corridor design, and multi-wing masterplans, Model Space geometry **must remain anchored at true World Geodetic / State Plane Coordinates (`North = +Y`, `East = +X`)** so survey stakeout points and Xrefs align accurately. Never use the `ROTATE` command on Model Space geometry just to make an angled road fit horizontally inside a rectangular Paper Space title block! Instead, rotate the **Viewport Camera (`VPROTATEASSOC` / `DVIEW Twist` / `UCS + PLAN`)**.</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Method A: The UCS + PLAN Viewport Alignment Workflow</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Double-click inside the Paper Space viewport (`MSPACE`) and unlock it. Type <code>UCS</code> &rarr; <code>Object</code> (or `Z`) and click a line running parallel to your angled building edge or road tangent. Next, type <code>PLAN</code> &rarr; <code>Current</code>. The camera rotates so your building sits perfectly horizontal on the sheet!</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Restore WCS Coordinates Inside the Rotated Viewport</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Immediately after `PLAN > Current`, type <code>UCS</code> &rarr; <code>World</code> (keeping `UCSFOLLOW = 0`). Now your viewport view remains rotated horizontally for plotting, while any `ID` coordinate queries or Xref insertions inside that viewport still use true World `Easting/Northing` coordinates!</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Method B: Rotate the Viewport Border Directly (VPROTATEASSOC = 1)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">In GstarCAD 2027, set <code>VPROTATEASSOC = 1</code>, select the viewport frame in Paper Space, and run standard <code>ROTATE</code>. Rotating the viewport frame by `-32.5` degrees rotates the camera view inside automatically.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:VPTWISTLINE)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:VPTWISTLINE ( / ent elist p1 p2 ang)
+  (if (= (getvar "TILEMODE") 1)
+    (princ "\n[Error] Switch to a Paper Space Layout and activate a Viewport first!")
+    (if (setq ent (car (entsel "\nSelect line to align horizontally in this viewport: ")))
+      (progn
+        (setq elist (entget ent)
+              p1    (cdr (assoc 10 elist))
+              p2    (cdr (assoc 11 elist))
+              ang   (- 0.0 (angle p1 p2)))
+        (setvar "UCSFOLLOW" 0)
+        (command "_.DVIEW" "" "_Twist" (angtos ang 0 4) "")
+        (princ "\n[VPTWISTLINE] Rotated viewport camera while preserving WCS survey coordinates.")
+      )
+    )
+  )
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Never use ROTATE on civil survey geometry</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>DVIEW > Twist / PLAN</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">ROTATE destroys Easting/Northing survey coordinates; rotate camera only.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Viewport zooms to extents every time UCS changes</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>UCSFOLLOW = 0</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Set UCSFOLLOW = 0 inside the viewport so UCS changes don't reset zoom.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">North Arrow block needs to match viewport twist</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>VIEWCTR / VIEWTWIST</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Read system variable VIEWTWIST (radians) to orient your North Arrow.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

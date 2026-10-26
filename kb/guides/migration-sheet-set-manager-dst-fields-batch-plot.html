@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Sheet Set Manager (.DST), Dynamic Title-Block Fields & Multi-Core Batch Plotting in GstarCAD 2027 | GstarCAD Academy</title>
+<meta content="Migrate AutoCAD Sheet Set Data (.dst) files to GstarCAD 2027 without breaking CurrentSheetNumber, CurrentSheetTitle, or Model View callout fields during background PDF publishing." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/migration-sheet-set-manager-dst-fields-batch-plot" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Sheet Set Manager (.DST), Dynamic Title-Block Fields & Multi-Core Batch Plotting in GstarCAD 2027" property="og:title"/>
+<meta content="Migrate AutoCAD Sheet Set Data (.dst) files to GstarCAD 2027 without breaking CurrentSheetNumber, CurrentSheetTitle, or Model View callout fields during background PDF publishing." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/migration-sheet-set-manager-dst-fields-batch-plot" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Sheet Set Manager (.DST), Dynamic Title-Block Fields & Multi-Core Batch Plotting in GstarCAD 2027", "description": "Migrate AutoCAD Sheet Set Data (.dst) files to GstarCAD 2027 without breaking CurrentSheetNumber, CurrentSheetTitle, or Model View callout fields during background PDF publishing.", "url": "https://gstarcademy.com/kb/guides/migration-sheet-set-manager-dst-fields-batch-plot", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["GstarCAD 2027 Sheet Set Manager (.dst) Binary Compatibility Specification", "ISO 7200 \u2014 Technical Product Documentation: Data Fields in Title Blocks"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "AutoCAD Migration Hub", "item": "https://gstarcademy.com/migration"}, {"@type": "ListItem", "position": 3, "name": "Sheet Set Manager (.DST), Dynamic Title-Block Fields & Multi-Core Batch Plotting in GstarCAD 2027", "item": "https://gstarcademy.com/kb/guides/migration-sheet-set-manager-dst-fields-batch-plot"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/migration">AutoCAD Migration Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Sheet Set Manager (.DST), Dynamic Title-Block Fields & Multi-Core Batch Plotting in GstarCAD 2027</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Sheet Set (.DST) Governance</span>
+<h1 style="margin-top:12px;">Sheet Set Manager (.DST), Dynamic Title-Block Fields & Multi-Core Batch Plotting in GstarCAD 2027</h1>
+<p class="hero-sub">Migrate AutoCAD Sheet Set Data (.dst) files to GstarCAD 2027 without breaking CurrentSheetNumber, CurrentSheetTitle, or Model View callout fields during background PDF publishing.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Binary Compatibility of `.DST` Sheet Set Databases</h2>
+<p>In large infrastructure, architectural, and EPC plant projects comprising 100 to 500 drawing sheets, managing sheet numbering, revision indexes, and transmittal packages manually is impossible. The <strong>Sheet Set Manager (`SSM` / `SHEETSET`)</strong> coordinates an entire project folder through a central XML/binary <strong>`.dst` (Drawing Sheet Set)</strong> database file.</p>
+<p><strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> reads and writes native `.dst` files directly without conversion. Every subset hierarchy, linked Paper Space layout pointer, Custom Sheet Set Property (such as `Client_Name`, `Project_Code`, `Issue_Date`), and Custom Sheet Property (`Drawn_By`, `Checked_By`, `Sheet_Rev`) remains 100% intact when opened across mixed AutoCAD and GstarCAD workstations.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Preserving Dynamic Title-Block Fields (`%<\AcSm ...>%`)</h2>
+<p>Title blocks linked to a `.dst` file rely on embedded Field expressions (`FIELD` command) using `AcSm` (Sheet Set Manager) evaluator codes. GstarCAD 2027 natively evaluates all standard `AcSm` field expressions whenever `FIELDEVAL = 31` is active:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">Title Block Attribute</th>
+  <th style="padding:12px 16px;">Underlying DWG Field Expression Syntax</th>
+  <th style="padding:12px 16px;">Evaluation Trigger (`FIELDEVAL=31`)</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Sheet Number</td>
+  <td style="padding:12px 16px;"><code>%&lt;\AcSm Sheet.Number \f "%tc1"&gt;%</code></td>
+  <td style="padding:12px 16px;">Updates automatically when sheets are reordered or renumbered in the SSM tree.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Project Number (Custom)</td>
+  <td style="padding:12px 16px;"><code>%&lt;\AcSm SheetSet.Project_Code&gt;%</code></td>
+  <td style="padding:12px 16px;">Propagates global project metadata across all 500 sheets upon `REGEN` or `PLOT`.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">View Scale Callout</td>
+  <td style="padding:12px 16px;"><code>%&lt;\AcObjProp Object(%&lt;\_ObjId ...&gt;%).CustomScale \f "1:%lu2"&gt;%</code></td>
+  <td style="padding:12px 16px;">Reads the exact Paper Space viewport scale factor dynamically.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. High-Speed Background PDF Publishing &amp; `ETRANSMIT` Archiving</h2>
+<p>To publish an entire `.dst` sheet set into a single multi-page, bookmark-indexed vector PDF without freezing the engineer's workstation:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 — Pre-Publish Sheet Set Field Refresh &amp; Plot Environment Optimizer
+(defun c:GCAD_PREP_SSM_PUBLISH ()
+  (setvar "FIELDEVAL" 31)        ;; Evaluate fields on Open(1)+Save(2)+Plot(4)+eTransmit(8)+Regen(16)
+  (setvar "BACKGROUNDPLOT" 2)    ;; Run PUBLISH in background worker process; PLOT in foreground
+  (setvar "EPDFSHX" 0)           ;; Suppress ugly PDF comment boxes around SHX vector text
+  (setvar "IMAGEFRAME" 0)        ;; Hide raster company logo bounding borders on plotted PDFs
+  (command "_REGENALL")
+  (princ "\n[SSM Ready] All dynamic fields refreshed. Ready for multi-sheet PDF Publish.")
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Multi-User `.DST` Network Locking &amp; Field Update Governance</h2>
+<p>Unlike individual `.dwg` files—which lock an entire drawing to a single editor via `.dwl` / `.dwl2` lock files—a Sheet Set database (`.dst`) is designed for concurrent multi-user collaboration across an entire project discipline. When ten engineers open the same `Project-Master.dst` in GstarCAD 2027's Sheet Set Manager (`SSM`), GstarCAD acquires brief, atomic write locks on the `.dst` file only during metadata transactions (such as adding a sheet, renumbering a subset, or editing custom project properties) and immediately releases the lock.</p>
+<p>To prevent stale title-block fields or network file contention on SMB/CIFS shares, configure these production system variables across all workstations:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">System Variable</th>
+  <th style="padding:10px 14px;">Recommended Setting</th>
+  <th style="padding:10px 14px;">Operational Impact on Sheet Sets &amp; Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>FIELDEVAL</code></td>
+  <td style="padding:10px 14px;"><code>31</code> (Bitmask: 1+2+4+8+16)</td>
+  <td style="padding:10px 14px;">Forces automatic recalculation of `CurrentSheetNumber`, `SheetSetPlaceholder`, and plot date fields on Open, Save, Plot, eTransmit, and Regen.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>SSMAUTOOPEN</code></td>
+  <td style="padding:10px 14px;"><code>1</code></td>
+  <td style="padding:10px 14px;">Automatically opens the associated `.dst` palette whenever an engineer opens any member `.dwg` sheet belonging to that Sheet Set.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>SSLOCATE</code></td>
+  <td style="padding:10px 14px;"><code>1</code></td>
+  <td style="padding:10px 14px;">Searches the drawing's folder and parent project directory tree for the governing `.dst` file upon `OPEN`.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>SSMPOLTIME</code></td>
+  <td style="padding:10px 14px;"><code>60</code> (Seconds)</td>
+  <td style="padding:10px 14px;">Controls the polling interval between automatic tree status refreshes (lock icons, missing file alerts) across network shares.</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><code>BACKGROUNDPLOT</code></td>
+  <td style="padding:10px 14px;"><code>2</code> (Publish only)</td>
+  <td style="padding:10px 14px;">Runs single-sheet `PLOT` synchronously for instant PDF output while offloading 100-sheet `PUBLISH` jobs to an asynchronous worker process.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

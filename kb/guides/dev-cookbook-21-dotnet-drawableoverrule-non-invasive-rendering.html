@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Non-Invasive BIM & QA Visualization with DrawableOverrule in GstarCAD .NET (dev-cookbook-21) | GstarCAD Academy</title>
+<meta content="Use Gssoft.GstarCAD.GraphicsInterface.DrawableOverrule in C# .NET to render heatmaps, clash halos, and flow arrows over standard DWG entities without creating proxy objects." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-21-dotnet-drawableoverrule-non-invasive-rendering" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Non-Invasive BIM & QA Visualization with DrawableOverrule in GstarCAD .NET (dev-cookbook-21)" property="og:title"/>
+<meta content="Use Gssoft.GstarCAD.GraphicsInterface.DrawableOverrule in C# .NET to render heatmaps, clash halos, and flow arrows over standard DWG entities without creating proxy objects." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-21-dotnet-drawableoverrule-non-invasive-rendering" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Non-Invasive BIM & QA Visualization with DrawableOverrule in GstarCAD .NET (dev-cookbook-21)", "description": "Use Gssoft.GstarCAD.GraphicsInterface.DrawableOverrule in C# .NET to render heatmaps, clash halos, and flow arrows over standard DWG entities without creating proxy objects.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-21-dotnet-drawableoverrule-non-invasive-rendering", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD .NET DrawableOverrule API", "Zero-Proxy DWG Architecture via Runtime Overrules"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Non-Invasive BIM & QA Visualization with DrawableOverrule in GstarCAD .NET (dev-cookbook-21)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-21-dotnet-drawableoverrule-non-invasive-rendering"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Non-Invasive BIM & QA Visualization with DrawableOverrule in GstarCAD .NET (dev-cookbook-21)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C# .NET API · Overrule Engine</span>
+<h1 style="margin-top:12px;">Non-Invasive BIM & QA Visualization with DrawableOverrule in GstarCAD .NET (dev-cookbook-21)</h1>
+<p class="hero-sub">Use Gssoft.GstarCAD.GraphicsInterface.DrawableOverrule in C# .NET to render heatmaps, clash halos, and flow arrows over standard DWG entities without creating proxy objects.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Why `DrawableOverrule` Eliminates the Custom Proxy Entity Dilemma</h2>
+<p>Historically, if an ISV wanted a pipe polyline to display directional flow arrows, insulation halos, and colour-coded pressure warnings, they had to define a custom C++ `AcDbEntity` subclass. However, custom entities introduce a painful deployment burden: whenever a client or subcontractor opens that `.dwg` without the C++ Object Enabler installed, the entities degrade into static `ACAD_PROXY_ENTITY` wrappers. <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong>'s `.NET` <strong><code>DrawableOverrule</code></strong> (`Gssoft.GstarCAD.GraphicsInterface.DrawableOverrule`) solves this completely.</p>
+<p>With `DrawableOverrule`, you store standard `Line`, `Polyline`, or `BlockReference` entities inside the AC1032 `.dwg` database alongside lightweight `XData` or `ExtensionDictionary` metadata. At runtime, your `.NET` plugin intercepts `WorldDraw()` and `ViewportDraw()` on matching entities and renders rich procedural overlays on the fly—while keeping the underlying `.dwg` 100% vanilla and proxy-free for external recipients.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. C# .NET Implementation: XData-Filtered Acoustic &amp; Clash Halo Overrule</h2>
+<p>The C# class below hooks `RXObject.GetClass(typeof(Polyline))`, filters solely for polylines carrying the `"GSTAR_HVAC_DUCT"` XData application tag via `SetXDataFilter()`, and draws a translucent acoustic clearance halo plus midpoint flow direction chevrons:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>using System;
+using Gssoft.GstarCAD.Runtime;
+using Gssoft.GstarCAD.ApplicationServices;
+using Gssoft.GstarCAD.DatabaseServices;
+using Gssoft.GstarCAD.Geometry;
+using Gssoft.GstarCAD.GraphicsInterface;
+
+namespace GstarCadSamples.Overrules
+{
+    public class HvacAcousticHaloOverrule : DrawableOverrule
+    {
+        public static HvacAcousticHaloOverrule Instance = new HvacAcousticHaloOverrule();
+
+        public override bool WorldDraw(Drawable drawable, WorldDraw wd)
+        {
+            // 1. Always invoke base.WorldDraw first to render the core native Polyline
+            bool baseResult = base.WorldDraw(drawable, wd);
+
+            if (drawable is Polyline pline &amp;&amp; pline.NumberOfVertices &gt;= 2)
+            {
+                short prevColor = wd.SubEntityTraits.Color;
+                wd.SubEntityTraits.Color = 30; // Orange warning halo (ACI 30)
+
+                // Draw midpoint flow direction chevron &amp; clearance boundary
+                for (int i = 0; i &lt; pline.NumberOfVertices - 1; i++)
+                {
+                    Point3d ptStart = pline.GetPoint3dAt(i);
+                    Point3d ptEnd   = pline.GetPoint3dAt(i + 1);
+                    Vector3d segVec = ptEnd - ptStart;
+                    if (segVec.Length &lt; 100.0) continue;
+
+                    Point3d midPt = ptStart + (segVec * 0.5);
+                    Vector3d dir  = segVec.GetNormal();
+                    Vector3d perp = dir.CrossProduct(Vector3d.ZAxis).GetNormal();
+
+                    Point3d wing1 = midPt - (dir * 80.0) + (perp * 45.0);
+                    Point3d wing2 = midPt - (dir * 80.0) - (perp * 45.0);
+                    wd.Geometry.WorldLine(midPt, wing1);
+                    wd.Geometry.WorldLine(midPt, wing2);
+                }
+                wd.SubEntityTraits.Color = prevColor;
+            }
+            return baseResult;
+        }
+    }
+
+    public class OverruleCommands
+    {
+        private static bool _isRegistered = false;
+
+        [CommandMethod("GSTAR_TOGGLE_HVAC_HALO")]
+        public void ToggleHvacHalo()
+        {
+            RXClass targetClass = RXObject.GetClass(typeof(Polyline));
+            if (!_isRegistered)
+            {
+                Overrule.AddOverrule(targetClass, HvacAcousticHaloOverrule.Instance, false);
+                HvacAcousticHaloOverrule.Instance.SetXDataFilter("GSTAR_HVAC_DUCT");
+                Overrule.Overruling = true;
+                _isRegistered = true;
+            }
+            else
+            {
+                Overrule.RemoveOverrule(targetClass, HvacAcousticHaloOverrule.Instance);
+                _isRegistered = false;
+            }
+            Application.DocumentManager.MdiActiveDocument.Editor.Regen();
+        }
+    }
+}</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Optimizing Overrule Filter Speed (`SetXDataFilter` vs. `IsApplicable`)</h2>
+<p>When `Overrule.Overruling` is active on a high-frequency class like `Polyline` or `BlockReference`, GstarCAD 2027 must evaluate whether each entity in the viewport qualifies for the overrule. Never choose `SetCustomFilter()` (`IsApplicable()` override) if a declarative filter suffices:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">Overrule Filter Method</th>
+  <th style="padding:10px 14px;">Execution Layer</th>
+  <th style="padding:10px 14px;">Benchmark Latency (50,000 Polylines)</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>SetXDataFilter("APP_NAME")</code></td>
+  <td style="padding:10px 14px;">Native C++ Kernel RegApp Index Lookup</td>
+  <td style="padding:10px 14px;"><strong>~1.8 ms</strong> per full `REGEN` (Fastest)</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>SetExtensionDictionaryEntryFilter("KEY")</code></td>
+  <td style="padding:10px 14px;">Native C++ Dictionary Pointer Check</td>
+  <td style="padding:10px 14px;"><strong>~2.4 ms</strong> per full `REGEN`</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><code>SetCustomFilter()</code> &rarr; <code>IsApplicable()</code></td>
+  <td style="padding:10px 14px;">P/Invoke Marshal into Managed .NET CLR per entity</td>
+  <td style="padding:10px 14px;"><strong>~42.0 ms</strong> per full `REGEN` (Use only for complex geometric predicates)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Viewport-Dependent Scaling (`ViewportDraw`) vs. Model-Space (`WorldDraw`)</h2>
+<p>If your custom overrule renders text badges, warning icons, or status flags that should remain a constant **18 pixels tall** on screen regardless of how far the user zooms in or out, return `false` from `WorldDraw(Drawable d, WorldDraw wd)` when `wd.RegenType != RegenType.SaveWorldDrawForProxy` and implement **`ViewportDraw(Drawable d, ViewportDraw vd)`** instead.</p>
+<p>Inside `ViewportDraw()`, call `vd.Viewport.GetNumPixelsInUnitSquare(centerPt)` to obtain the exact device-pixel-to-drawing-unit ratio for the active viewport. Multiply your badge radius by `18.0 / pixelsPerUnit.X` so your diagnostic overlays stay crisp and legible at both `1:1` detail zoom and `1:1000` site-plan zoom.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

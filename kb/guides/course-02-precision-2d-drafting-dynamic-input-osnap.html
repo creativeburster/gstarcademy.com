@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Sub-millimeter geometric integrity in 2D engineering blueprints relies on deterministic coordinate entry and exact topological snapping. Whenever a drafter eyeballs an intersection instead of locking an Object Snap (OSNAP) bitcode, microscopic gap errors ($10^{-4}\,\text{mm}$) propagate downstream—breaking hatch boundary ray-casting, associative dimensioning, and CNC laser cutter toolpaths.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>OSNAP, OSMODE=175, DYNMODE=3, POLARANG, FILLET, CHAMFER, ALIGN</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Master absolute Cartesian (X,Y), relative Cartesian (@dX,dY), and relative polar (@L<Angle) coordinate syntax inside the Dynamic Input (DYNMODE=3) heads-up display.</li>
+  <li>Encode production OSMODE bitmask combinations (e.g., OSMODE=4135 for Endpoint[1] + Midpoint[2] + Center[4] + Intersection[32] + Extension[4096]) for zero-miss snapping.</li>
+  <li>Combine Polar Tracking (AUTOSNAP=63, POLARANG) with Object Snap Tracking (OTRACK) to construct complex orthogonal mechanical brackets without drawing temporary construction lines.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 02: Precision 2D Euclidean Drafting, Polar Tracking &amp; Bitwise Object Snap Governance</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Master absolute, relative Cartesian (@X,Y), and polar (@D<A) coordinate entry, Temporary Track Points (TT), Mid Between 2 Points (M2P), and OSMODE bitcode automation. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Cartesian/Polar Coordinate Math, OSMODE Bitmasks & Dynamic Input HUD</h2>
+<p>Every geometric entity inside an AC1032 DWG database is stored in 64-bit IEEE 754 double-precision floating-point coordinates relative to the World Coordinate System (WCS), providing roughly 15–17 significant decimal digits of precision. However, the human cursor on a 1080p or 4K screen spans several millimeters of model space per pixel. <strong>Object Snaps (OSNAP)</strong> bridge this gap by querying the exact mathematical parametrization of nearby curves within the aperture box (<code>APERTURE = 10</code> pixels).</p>
+<p>By configuring <code>DYNPICOORDS = 0</code> (relative coordinates by default) and <code>DYNMODE = 3</code> (both pointer and dimensional input active), engineers keep their visual focus on the crosshair aperture rather than glancing down at the command line.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>OSNAP, OSMODE=175, DYNMODE=3, POLARANG, FILLET, CHAMFER, ALIGN</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Snap Bitmask</td>
+  <td style="padding:12px 16px;"><code>OSMODE = 4135 (or 16383)</code></td>
+  <td style="padding:12px 16px;">Bitwise integer sum controlling active running object snaps (1=End, 2=Mid, 4=Cen, 8=Node, 32=Int).</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Dynamic HUD</td>
+  <td style="padding:12px 16px;"><code>DYNMODE = 3 / DYNPICOORDS = 0</code></td>
+  <td style="padding:12px 16px;">Enables on-cursor dimensional fields and defaults second-point entry to relative (@) deltas.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Tracking Rays</td>
+  <td style="padding:12px 16px;"><code>POLARANG = 15 / ORTHOMODE = 0</code></td>
+  <td style="padding:12px 16px;">Projects alignment vectors at 15-degree increments and orthogonal intersections from acquired Osnap points.</td>
 </tr>
 </tbody>
 </table>

@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Build live reactive annotations in GstarCAD Visual LISP that automatically recalculate and update MTEXT labels whenever a linked boundary polyline is stretched (`:vlr-modified`).</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>vlr-object-reactor, :vlr-modified, vlr-data, vla-get-area, vla-put-textstring</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Event-Driven Associativity in Visual LISP: `vlr-object-reactor` Callbacks for Live Area & Coordinate Annotations</h2>
+<p>Standard MTEXT room labels or boundary coordinate tags become stale the moment an engineer stretches a room boundary polyline (`LWPOLYLINE`) via grips. By binding a Visual LISP Object Reactor (`vlr-object-reactor`) between the boundary polyline (Owner) and the MTEXT label (Client data), your script automatically recalculates the polygon's area and centroid whenever `:vlr-modified` fires.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> Never invoke interactive `(command ...)` calls inside a `:vlr-modified` reactor callback! Instead, update the dependent MTEXT entity purely via ActiveX property assignment (`(vla-put-TextString labelObj ...)` and `(vla-put-InsertionPoint labelObj ...)`) after checking `(and (not (vlax-erased-p ownerObj)) (vlax-write-enabled-p labelObj))`. Remember that VLR reactors are session-transient unless reconstructed on drawing open via `gcaddoc.lsp` utilizing persistent XData handle links.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Production Visual LISP / AutoLISP Routine (vlr-object-reactor)</h2>
+<p>Load the following self-contained LISP routine via <code>APPLOAD</code> or <code>gcaddoc.lsp</code> in GstarCAD 2027 to automate <strong>AutoLISP Cookbook 13: Event-Driven Associative Area &amp; Coordinate Labels Using vlr-object-reactor</strong> at native database speed:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 Visual LISP — Reactive Polyline Area Label Callback
 (vl-load-com)
 (defun GcAreaReactorCallback (notifierObj reactorObj paramList / labelObj areaVal)

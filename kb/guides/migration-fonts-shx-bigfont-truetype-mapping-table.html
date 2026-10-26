@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Eliminating Missing SHX Fonts, BigFont CJK Question Marks (???) & Configuring gcad.fmp in GstarCAD 2027 | GstarCAD Academy</title>
+<meta content="Configure SHX compiled vector fonts, Asian BigFont codepages (gbcbig.shx, extfont2.shx, whgtxt.shx),FONTALT fallbacks, and gcad.fmp font mapping tables in GstarCAD 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/migration-fonts-shx-bigfont-truetype-mapping-table" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Eliminating Missing SHX Fonts, BigFont CJK Question Marks (???) & Configuring gcad.fmp in GstarCAD 2027" property="og:title"/>
+<meta content="Configure SHX compiled vector fonts, Asian BigFont codepages (gbcbig.shx, extfont2.shx, whgtxt.shx),FONTALT fallbacks, and gcad.fmp font mapping tables in GstarCAD 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/migration-fonts-shx-bigfont-truetype-mapping-table" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Eliminating Missing SHX Fonts, BigFont CJK Question Marks (???) & Configuring gcad.fmp in GstarCAD 2027", "description": "Configure SHX compiled vector fonts, Asian BigFont codepages (gbcbig.shx, extfont2.shx, whgtxt.shx),FONTALT fallbacks, and gcad.fmp font mapping tables in GstarCAD 2027.", "url": "https://gstarcademy.com/kb/guides/migration-fonts-shx-bigfont-truetype-mapping-table", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Unicode & ANSI/DBCS Codepage Mapping in DWG Text Styles (AC1032)", "GstarCAD 2027 Font Mapping Table (gcad.fmp) Specification"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "AutoCAD Migration Hub", "item": "https://gstarcademy.com/migration"}, {"@type": "ListItem", "position": 3, "name": "Eliminating Missing SHX Fonts, BigFont CJK Question Marks (???) & Configuring gcad.fmp in GstarCAD 2027", "item": "https://gstarcademy.com/kb/guides/migration-fonts-shx-bigfont-truetype-mapping-table"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/migration">AutoCAD Migration Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Eliminating Missing SHX Fonts, BigFont CJK Question Marks (???) & Configuring gcad.fmp in GstarCAD 2027</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Typography & Multi-Language SHX</span>
+<h1 style="margin-top:12px;">Eliminating Missing SHX Fonts, BigFont CJK Question Marks (???) & Configuring gcad.fmp in GstarCAD 2027</h1>
+<p class="hero-sub">Configure SHX compiled vector fonts, Asian BigFont codepages (gbcbig.shx, extfont2.shx, whgtxt.shx),FONTALT fallbacks, and gcad.fmp font mapping tables in GstarCAD 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Why Missing SHX &amp; BigFont Files Cause `???` Garbled Text</h2>
+<p>Unlike TrueType fonts (`.ttf`/`.otf`) registered globally in `C:\Windows\Fonts`, CAD vector shape fonts (<strong>`.shx`</strong>) are lightweight stroke definitions loaded exclusively from the CAD application's `Fonts` directory. In Asian, Middle Eastern, and Eastern European engineering drawings, text styles frequently pair a single-byte ASCII Roman font (e.g., `simplex.shx` or `romans.shx`) with a double-byte <strong>BigFont</strong> (e.g., `gbcbig.shx` for Simplified Chinese, `chineset.shx` for Traditional Chinese, `extfont2.shx` for Japanese JIS, or `whgtxt.shx` for Korean Hangul).</p>
+<p>If an engineer opens a subcontractor DWG file referencing a custom or regional `.shx` font that is not present in the local font path, unmapped multi-byte character codes render as `???` question marks or overlapping boxes.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Three-Layer Font Substitution Hierarchy in GstarCAD 2027</h2>
+<p><strong>GstarCAD 2027</strong> resolves font references using a deterministic three-stage lookup pipeline:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">Resolution Priority</th>
+  <th style="padding:12px 16px;">GstarCAD Mechanism</th>
+  <th style="padding:12px 16px;">Enterprise Configuration Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Stage 1: Explicit Font Map</td>
+  <td style="padding:12px 16px;"><code>FONTMAP</code> (`gcad.fmp`)</td>
+  <td style="padding:12px 16px;">Maps specific legacy font names via semicolon pairs (e.g., <code>hztxt.shx;gbcbig.shx</code>).</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Stage 2: Support Search Path</td>
+  <td style="padding:12px 16px;">`C:\Program Files\Gstarsoft\...\Fonts` + NAS</td>
+  <td style="padding:12px 16px;">Add a shared network font vault (`\\CorpNAS\CAD_Std\Fonts`) to `OPTIONS` &rarr; Support Paths.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">Stage 3: Global Fallback</td>
+  <td style="padding:12px 16px;"><code>FONTALT</code> System Variable</td>
+  <td style="padding:12px 16px;">Defaults to `simplex.shx` for Western scripts or `gbcbig.shx` for CJK multi-byte environments.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Production `gcad.fmp` Configuration &amp; AutoLISP Font Healer</h2>
+<p>Append these rules to your corporate <code>gcad.fmp</code> file and deploy the AutoLISP style repair script below to instantly cure garbled `???` text styles across external vendor drawings:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 — Automated Missing BigFont &amp; TextStyle Healer
+(vl-load-com)
+(defun c:GCAD_HEAL_MISSING_FONTS ( / doc styles sty fontFile bigFont)
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)))
+  (setq styles (vla-get-TextStyles doc))
+  (vlax-for sty styles
+    (setq fontFile (vla-get-FontFile sty))
+    (setq bigFont (vla-get-BigFontFile sty))
+    ;; If primary SHX font file cannot be located on disk, fallback to simplex.shx + gbcbig.shx
+    (if (and (/= fontFile "") (not (findfile fontFile)))
+      (progn
+        (vla-put-FontFile sty "simplex.shx")
+        (if (/= bigFont "") (vla-put-BigFontFile sty "gbcbig.shx"))
+        (princ (strcat "\n[Font Healer] Repaired missing font on style: " (vla-get-Name sty)))
+      )
+    )
+  )
+  (vla-Regen doc acAllViewports)
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Diagnosing Missing SHX Fonts &amp; TrueType Performance Optimization</h2>
+<p>Even with a properly configured `gcad.fmp` font mapping table, multi-national infrastructure projects often combine DWG files authored across Chinese (`GB2312`/`GBK`), Japanese (`Shift-JIS`), Korean (`EUC-KR`), and Western European (`CP1252`) Windows locales. If a drawing displays question marks (`???`) or rectangular tofu boxes (`□□□`), use this 3-step diagnostic sequence in GstarCAD 2027:</p>
+<ol style="line-height:1.75;">
+  <li><strong>Inspect Active Font Substitution via `STYLE` or `LIST`:</strong> Select the garbled `TEXT` or `MTEXT` entity, check its assigned `TextStyle` name in the Properties palette (`Ctrl+1`), and open the `STYLE` dialog. If a yellow warning icon appears next to the `.shx` font name, GstarCAD is currently falling back to `FONTALT` (`simplex.shx`) because the primary font is absent.</li>
+  <li><strong>Check `Big Font` Pairing for Single-Byte SHX Styles:</strong> In legacy CJK drawings, engineers pair a Western single-byte font (`romans.shx` or `txt.shx`) with an East Asian BigFont (`gbcbig.shx`, `hztxt.shx`, or `extfont2.shx`). Ensure the <em>Use Big Font</em> checkbox is enabled in `STYLE` when assigning CJK `.shx` files.</li>
+  <li><strong>Strip Hardcoded MTEXT Inline Font Overrides:</strong> Sometimes the `TextStyle` is properly mapped in `gcad.fmp`, yet specific `MTEXT` paragraphs remain garbled because a previous user pasted rich text from Microsoft Word, embedding inline formatting codes like <code>{\fSimSun|b0|i0|c134;...}</code>. Use GstarCAD's built-in MTEXT editor tool <em>Remove Formatting &rarr; Remove Character Formatting</em> (or a regex AutoLISP scrubber) to return the text to its clean layer/style governance.</li>
+</ol>
+<p><strong>Hardware Acceleration for TrueType (`TTF`) Heavy Drawings:</strong> In GstarCAD 2027, TrueType glyph outlines are tessellated and cached on the GPU via DirectX 11 hardware acceleration (`WHIPTHREAD = 3`, `TEXTQLTY = 50`), eliminating the pan/zoom frame-rate drops that plagued older CAD releases when rendering 20,000+ Windows TrueType labels.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Fix Extremely Slow Ctrl+C / Ctrl+V Copy-Paste in AutoCAD & GstarCAD | GstarCAD Academy</title>
+  <meta name="description" content="Resolve 10-to-60 second freezes when copying and pasting entities between DWG files by purging orphaned RegApps, DGN LineStyle dictionaries, and bloated annotative scale lists." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-fix-dwg-copy-paste-extremely-slow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Fix Extremely Slow Ctrl+C / Ctrl+V Copy-Paste in AutoCAD & GstarCAD" />
+  <meta property="og:description" content="Resolve 10-to-60 second freezes when copying and pasting entities between DWG files by purging orphaned RegApps, DGN LineStyle dictionaries, and bloated annotative scale lists." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-fix-dwg-copy-paste-extremely-slow" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix Extremely Slow Ctrl+C / Ctrl+V Copy-Paste in AutoCAD & GstarCAD", "acceptedAnswer": {"@type": "Answer", "text": "Run -PURGE > Regapps (*), execute -SCALELISTEDIT > Reset > Yes, and run PURGE with 'Purge orphaned data (DGN linestyles)' checked. In GstarCAD 2027, these dictionary bottlenecks are scrubbed in under 2 seconds."}}, {"@type": "Question", "name": "1. Purge Registered Application IDs (-PURGE Regapps)", "acceptedAnswer": {"@type": "Answer", "text": "Type <code>-PURGE</code> (with the leading hyphen) on the command line, enter <code>R</code> for Regapps, type <code>*</code> for all names, and enter <code>N</code> to skip confirmation. Removing 40,000 orphaned RegApps typically shrinks a 25 MB DWG down to 2 MB."}}, {"@type": "Question", "name": "2. Reset Bloated Annotative Scale Lists (-SCALELISTEDIT)", "acceptedAnswer": {"@type": "Answer", "text": "Nested Xrefs often multiply custom scales (`1:100_1`, `1:100_2`...). Type <code>-SCALELISTEDIT</code>, enter <code>R</code> (Reset), and choose <code>Y</code> (Yes) to restore the clean default metric/imperial scale table."}}, {"@type": "Question", "name": "3. Strip Orphaned DGN LineStyle Complex Strokes", "acceptedAnswer": {"@type": "Answer", "text": "Open the <code>PURGE</code> dialog, check <strong>Purge orphaned data</strong> (or run <code>DGNPURGE</code>), and click Purge All to strip invisible MicroStation dictionary trees."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Fix Extremely Slow Ctrl+C / Ctrl+V Copy-Paste in AutoCAD & GstarCAD", "item": "https://gstarcademy.com/kb/faq/how-to-fix-dwg-copy-paste-extremely-slow"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix Extremely Slow Ctrl+C / Ctrl+V Copy-Paste in AutoCAD & GstarCAD", "description": "Resolve 10-to-60 second freezes when copying and pasting entities between DWG files by purging orphaned RegApps, DGN LineStyle dictionaries, and bloated annotative scale lists.", "url": "https://gstarcademy.com/kb/faq/how-to-fix-dwg-copy-paste-extremely-slow", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Fix Extremely Slow Ctrl+C / Ctrl+V Copy-Paste in AutoCAD & GstarCAD</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">DWG Performance</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Fix Extremely Slow Ctrl+C / Ctrl+V Copy-Paste in AutoCAD & GstarCAD</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Resolve 10-to-60 second freezes when copying and pasting entities between DWG files by purging orphaned RegApps, DGN LineStyle dictionaries, and bloated annotative scale lists.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">Run -PURGE > Regapps (*), execute -SCALELISTEDIT > Reset > Yes, and run PURGE with 'Purge orphaned data (DGN linestyles)' checked. In GstarCAD 2027, these dictionary bottlenecks are scrubbed in under 2 seconds.</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>When pressing <code>Ctrl+C</code> (`COPYCLIP`) or <code>Ctrl+V</code> (`PASTECLIP`) freezes your CAD session for 30+ seconds on a seemingly simple 2D drawing, the culprit is almost never visible geometry. Instead, the AC1032 `WblockClone` deep-copy filer is cloning tens of thousands of unreferenced <strong>Registered Application IDs (`AcDbRegAppTableRecord`)</strong>, orphaned MicroStation **DGN Complex Stroke Dictionaries (`AcDbLS*`)**, or thousands of duplicate **Annotative Scales (`ACDB_ANNOTATIONSCALES`)** attached to the root Named Object Dictionary.</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Purge Registered Application IDs (-PURGE Regapps)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Type <code>-PURGE</code> (with the leading hyphen) on the command line, enter <code>R</code> for Regapps, type <code>*</code> for all names, and enter <code>N</code> to skip confirmation. Removing 40,000 orphaned RegApps typically shrinks a 25 MB DWG down to 2 MB.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Reset Bloated Annotative Scale Lists (-SCALELISTEDIT)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Nested Xrefs often multiply custom scales (`1:100_1`, `1:100_2`...). Type <code>-SCALELISTEDIT</code>, enter <code>R</code> (Reset), and choose <code>Y</code> (Yes) to restore the clean default metric/imperial scale table.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Strip Orphaned DGN LineStyle Complex Strokes</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Open the <code>PURGE</code> dialog, check <strong>Purge orphaned data</strong> (or run <code>DGNPURGE</code>), and click Purge All to strip invisible MicroStation dictionary trees.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:FASTCLIP)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:FASTCLIP ( / doc)
+  (vl-load-com)
+  (setvar "CMDECHO" 0)
+  (command "_.-PURGE" "_Regapps" "*" "_No")
+  (command "_.-PURGE" "_All" "*" "_No")
+  (command "_.-SCALELISTEDIT" "_Reset" "_Yes" "_Exit")
+  (setvar "ISAVEPERCENT" 0)
+  (princ "\n[FASTCLIP] Purged RegApps, orphaned dictionaries, and reset scale list.")
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Ctrl+C freezes for 45+ seconds</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>-PURGE > R</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Orphaned XDATA RegApp table exceeds 20,000 records; purge RegApps via command line.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Opening Scale List dialog hangs UI</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>-SCALELISTEDIT</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Use hyphenated command-line version to reset 5,000+ duplicated Xref scales.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Empty DWG file is still 18 MB</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>PURGE (Orphaned Data)</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">DGN stroke dictionary bloat in Named Object Dictionary; purge orphaned data.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

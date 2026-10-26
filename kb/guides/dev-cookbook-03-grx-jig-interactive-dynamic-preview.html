@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Build responsive real-time cursor preview jigs in GstarCAD C++ GRX by implementing AcEdJig::sampler(), update(), and acquirePoint() with dynamic dimension feedback.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>AcEdJig, DragStatus, acquirePoint, acquireDist, subWorldDraw</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Interactive Rubber-Band Ghosting (`AcEdJig`), Mouse Sampler Debouncing & Real-Time Entity Synthesis</h2>
+<p>When an engineer places a custom parametric staircase, pipe fitting, or steel bracket, static command-line coordinate prompts feel archaic. Deriving an interactive placement controller from `AcEdJig` in the GstarCAD GRX SDK gives users real-time visual feedback ('ghosting') as they move the crosshair or type dynamic distances in the heads-up display.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> Inside `AcEdJig::sampler()`, always set appropriate input controls (such as `AcEdJig::kAccept3dCoordinates | AcEdJig::kNoZeroResponseAccepted`) and compare the newly sampled `AcGePoint3d` against the previous frame's point using `isEqualTo()` with a tolerance ($10^{-4}$). Returning `AcEdJig::kNoChange` when the cursor has not moved prevents redundant `update()` and `subWorldDraw()` cycles that cause screen flicker.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Verified C++17 GRX Implementation (AcEdJig)</h2>
+<p>Compile the following native C++ source code against the GstarCAD 2027 GRX SDK using Visual Studio 2022 (Platform Toolset <code>v143</code>, Target Architecture <code>x64</code>, linking <code>grx27.lib</code> and <code>gcdb27.lib</code>) to implement <strong>GRX Cookbook 03: High-Frame-Rate Interactive Entity Placement Using AcEdJig (sampler &amp; update)</strong>:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// GstarCAD 2027 GRX SDK — Interactive AcEdJig Placement Pattern
 #include "grxdefs.h"
 #include "dbjig.h"

@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">When an external subcontractor returns a revised DWG drawing without redline clouds, manually hunting for a shifted 2mm mounting hole or a modified tolerance note across a complex A0 sheet is a severe quality hazard. Course 10 covers GstarCAD 2027's dual comparison engines and automated 2D barcode/QR-code shop-floor tracking.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>DWGCOMPARE, GRAPHICCOMPARE, QRCODE, BARCODE, FIELD</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Execute DWGCOMPARE to perform an entity-handle and geometric hash diff between two DWG revisions, highlighting additions in green, deletions in red, and unchanged geometry in gray with automated revision clouds.</li>
+  <li>Run GRAPHICCOMPARE to perform a sub-pixel raster overlay comparison when entity handles have been regenerated or when comparing flattened blocks and imported vector PDFs.</li>
+  <li>Generate ISO/IEC 18004 QR codes (QRCODE) and Code-128/EAN barcodes (BARCODE) linked to dynamic drawing properties so shop-floor optical scanners pull live PLM/ERP revision status instantly.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 10: Engineering Change Orders (ECO) — DWGCOMPARE, GRAPHICCOMPARE &amp; PLM QR Code Title Blocks</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Audit mechanical assembly revisions using geometric DWGCOMPARE and pixel-level GRAPHICCOMPARE, and embed ISO 18004 QR codes and Code-128 barcodes into shop drawings for ERP/PLM tracking. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Binary Vector DWGCOMPARE, Pixel-Level GRAPHICCOMPARE & QR-Code PLM Shop Tracking</h2>
+<p>GstarCAD 2027 provides two complementary visual diff engines tailored to different engineering scenarios. <strong><code>DWGCOMPARE</code></strong> operates at the database entity level: it traverses the <code>ModelSpace</code> block table record of Revision A and Revision B, comparing geometric coordinates, layer assignments, and text strings, and wraps every delta inside parametric revision clouds (`REVCLOUD`) that can be imported into the active drawing.</p>
+<p>Conversely, when comparing drawings exported from two different 3D CAD systems where all entity handles and block structures differ even though the visual geometry looks identical, <strong><code>GRAPHICCOMPARE</code></strong> rasterizes both viewports into high-resolution bitmaps and performs a bitwise XOR pixel comparison—instantly exposing even a 0.5mm line shift.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>DWGCOMPARE, GRAPHICCOMPARE, QRCODE, BARCODE, FIELD</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Vector Diff</td>
+  <td style="padding:12px 16px;"><code>DWGCOMPARE / COMPAREEXPORT</code></td>
+  <td style="padding:12px 16px;">Compares DWG database entities, attributes, and text, generating bounded revision cloud sets.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Pixel XOR Diff</td>
+  <td style="padding:12px 16px;"><code>GRAPHICCOMPARE</code></td>
+  <td style="padding:12px 16px;">Detects visual geometry shifts across exploded blocks, Xrefs, or heterogeneous CAD exports.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Optical PLM Tag</td>
+  <td style="padding:12px 16px;"><code>QRCODE / BARCODE / FIELD</code></td>
+  <td style="padding:12px 16px;">Embeds scannable QR matrices encoding drawing number, revision, and PLM verification URLs.</td>
 </tr>
 </tbody>
 </table>

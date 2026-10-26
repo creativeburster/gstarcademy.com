@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Calibrating AutoCAD .CTB / .STB Plot Style Tables, .PC3 Plotters & .PMP Margins in GstarCAD 2027 | GstarCAD Academy</title>
+<meta content="Achieve 100% identical line weights, grayscale screening, dither patterns, and printable paper margins when migrating AutoCAD .ctb, .stb, .pc3, and .pmp files to GstarCAD 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/migration-ctb-stb-pc3-pmp-plotting-calibration" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Calibrating AutoCAD .CTB / .STB Plot Style Tables, .PC3 Plotters & .PMP Margins in GstarCAD 2027" property="og:title"/>
+<meta content="Achieve 100% identical line weights, grayscale screening, dither patterns, and printable paper margins when migrating AutoCAD .ctb, .stb, .pc3, and .pmp files to GstarCAD 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/migration-ctb-stb-pc3-pmp-plotting-calibration" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Calibrating AutoCAD .CTB / .STB Plot Style Tables, .PC3 Plotters & .PMP Margins in GstarCAD 2027", "description": "Achieve 100% identical line weights, grayscale screening, dither patterns, and printable paper margins when migrating AutoCAD .ctb, .stb, .pc3, and .pmp files to GstarCAD 2027.", "url": "https://gstarcademy.com/kb/guides/migration-ctb-stb-pc3-pmp-plotting-calibration", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["ISO 128-20 \u2014 Basic Conventions for Lines & Lineweight Progression (1:sqrt(2))", "GstarCAD 2027 Plot Style Manager & Vector PDF Driver Reference"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "AutoCAD Migration Hub", "item": "https://gstarcademy.com/migration"}, {"@type": "ListItem", "position": 3, "name": "Calibrating AutoCAD .CTB / .STB Plot Style Tables, .PC3 Plotters & .PMP Margins in GstarCAD 2027", "item": "https://gstarcademy.com/kb/guides/migration-ctb-stb-pc3-pmp-plotting-calibration"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/migration">AutoCAD Migration Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Calibrating AutoCAD .CTB / .STB Plot Style Tables, .PC3 Plotters & .PMP Margins in GstarCAD 2027</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Plotting & Lineweight Calibration</span>
+<h1 style="margin-top:12px;">Calibrating AutoCAD .CTB / .STB Plot Style Tables, .PC3 Plotters & .PMP Margins in GstarCAD 2027</h1>
+<p class="hero-sub">Achieve 100% identical line weights, grayscale screening, dither patterns, and printable paper margins when migrating AutoCAD .ctb, .stb, .pc3, and .pmp files to GstarCAD 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Binary Compatibility of `.CTB` (Color-Dependent) &amp; `.STB` (Named) Plot Styles</h2>
+<p>In architectural and mechanical production, visual hierarchy on plotted drawings depends on the ISO 128 $1:\sqrt{2}$ lineweight progression ($0.13\,\text{mm},\, 0.18\,\text{mm},\, 0.25\,\text{mm},\, 0.35\,\text{mm},\, 0.50\,\text{mm},\, 0.70\,\text{mm}$) and screening percentages (e.g., 40% screening for existing background topography) stored inside <strong>`.ctb` (Color-Dependent Plot Style Table)</strong> and <strong>`.stb` (Named Plot Style Table)</strong> files.</p>
+<p><strong>GstarCAD 2027</strong> parses compressed binary and zlib-encoded `.ctb` and `.stb` files natively. Copying your corporate `Company_Monochrome_ISO.ctb` into GstarCAD's <code>Plot Styles</code> folder (accessible via the <strong><code>STYLESMANAGER</code></strong> command) preserves all 255 AutoCAD Color Index (ACI) pen mappings, line end styles (Butt, Square, Round, Diamond), join styles (Miter, Bevel, Round), and virtual pen assignments with zero deviation.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Resolving `.PC3` Printer Driver Mismatches &amp; `.PMP` Margin Offsets</h2>
+<p>When opening a legacy AutoCAD DWG layout whose Page Setup references `DWG To PDF.pc3` or an obsolete physical plotter, you may see a missing plotter warning if the exact `.pc3` filename is absent. Use the following mapping and calibration strategy:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">Plotting Artifact / Issue</th>
+  <th style="padding:12px 16px;">Root Technical Cause</th>
+  <th style="padding:12px 16px;">GstarCAD 2027 Deterministic Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Title Block Cropped by 5mm on PDF</td>
+  <td style="padding:12px 16px;">Standard ISO A1/A3 paper includes 5mm hardware grip margins vs. Full Bleed.</td>
+  <td style="padding:12px 16px;">Select <strong>ISO full bleed A1 (841.00 x 594.00 MM)</strong> or zero out margins in the `.pmp` calibration file (`PLOTTERMANAGER`).</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">SHX Text Surrounded by Yellow Sticky Notes in PDF</td>
+  <td style="padding:12px 16px;">PDF comment encoding of SHX vector strokes (`EPDFSHX=1`).</td>
+  <td style="padding:12px 16px;">Set <code>EPDFSHX = 0</code> (or `PDFSHX = 0`) so Acrobat/Bluebeam renders clean vector glyphs without comment boxes.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">Screened Grayscale Hatches Plot Solid Black</td>
+  <td style="padding:12px 16px;">`Plot with plot styles` unchecked or TrueColor (RGB) bypassing ACI table.</td>
+  <td style="padding:12px 16px;">Ensure hatch uses Index Color (ACI 1–255, e.g., Color 8/9 or 250–254) and enable `Plot with plot styles` + `Plot transparency`.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Batch Updating Page Setups Across Legacy Drawings via AutoLISP</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 — Standardize All Paper Space Layouts to Corporate CTB &amp; Full-Bleed PDF
+(vl-load-com)
+(defun c:GCAD_BIND_CORP_PLOT_STYLE ( / doc layouts lay)
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object)))
+  (setq layouts (vla-get-Layouts doc))
+  (vlax-for lay layouts
+    (if (/= (vla-get-Name lay) "Model")
+      (progn
+        (vla-put-StyleSheet lay "Corp_ISO_Monochrome.ctb")
+        (vla-put-PlotWithPlotStyles lay :vlax-true)
+        (vla-put-PlotViewportBorders lay :vlax-false)
+      )
+    )
+  )
+  (princ "\n[Plot Calibration] Bound Corp_ISO_Monochrome.ctb across all Paper Space layouts.")
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Converting Between `.CTB` and `.STB` &amp; Plot Transparency QA</h2>
+<p>During corporate mergers or joint-venture infrastructure tenders, engineering teams frequently receive client drawings configured for Named Plot Styles (`.stb`) when their internal standard mandates Color-Dependent Plot Styles (`.ctb`), or vice versa. GstarCAD 2027 provides full bidirectional conversion utilities identical to AutoCAD:</p>
+<ul style="line-height:1.75;">
+  <li><strong><code>CONVERTPSTYLES</code>:</strong> Converts the currently open `.dwg` between Named Plot Style mode (`PSTYLEMODE = 0`) and Color-Dependent Plot Style mode (`PSTYLEMODE = 1`). When converting from `.stb` to `.ctb`, GstarCAD strips named style overrides and restores ACI color-based pen mapping immediately.</li>
+  <li><strong><code>CONVERTCTB</code>:</strong> Converts a legacy color-dependent `.ctb` table into a new `.stb` file by grouping ACI colors that share identical lineweight and screening rules into consolidated named styles (`Style_1`, `Style_2`, etc.), which you can then rename semantically (e.g., `0.18mm_Halftone`, `0.50mm_CutWall`).</li>
+</ul>
+<p><strong>Troubleshooting Plot Transparency &amp; Rasterization Memory:</strong> When `PLOTTRANSPARENCY` is enabled (either via the Plot dialog checkbox or setting `PLOTTRANSPARENCYOVERRIDE = 1`), any CAD engine must composite alpha-blended hatches before dispatching bands to the printer driver. For A0/Arch E civil grading sheets containing semi-transparent flood-zone hatches over aerial GeoTIFF imagery, use GstarCAD 2027's native <code>DWG To PDF.pc3</code> with vector resolution set to <code>600 dpi</code> and raster image quality set to <code>300 dpi</code>. This balances crisp TrueType/SHX vector typography against compact PDF file sizes (&lt;4.5 MB per sheet).</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

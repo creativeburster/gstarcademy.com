@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Implementing AcDbGripData & Custom OSNAP Modes in C++ GRX (dev-cookbook-16) | GstarCAD Academy</title>
+<meta content="Deep-dive C++ GRX guide to overriding subGetGripPoints(), subMoveGripPointsAt(), and AcDbCustomOsnapMode for custom parametric entities in GstarCAD 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-16-grx-custom-osnap-and-grip-points" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Implementing AcDbGripData & Custom OSNAP Modes in C++ GRX (dev-cookbook-16)" property="og:title"/>
+<meta content="Deep-dive C++ GRX guide to overriding subGetGripPoints(), subMoveGripPointsAt(), and AcDbCustomOsnapMode for custom parametric entities in GstarCAD 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-16-grx-custom-osnap-and-grip-points" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Implementing AcDbGripData & Custom OSNAP Modes in C++ GRX (dev-cookbook-16)", "description": "Deep-dive C++ GRX guide to overriding subGetGripPoints(), subMoveGripPointsAt(), and AcDbCustomOsnapMode for custom parametric entities in GstarCAD 2027.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-16-grx-custom-osnap-and-grip-points", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 2027 GRX C++ SDK Reference", "ISO/IEC 14882:2020 C++20 ABI & ObjectARX-Compatible AcDbEntity Overrides"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Implementing AcDbGripData & Custom OSNAP Modes in C++ GRX (dev-cookbook-16)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-16-grx-custom-osnap-and-grip-points"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Implementing AcDbGripData & Custom OSNAP Modes in C++ GRX (dev-cookbook-16)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C++ GRX SDK · Custom Entities</span>
+<h1 style="margin-top:12px;">Implementing AcDbGripData & Custom OSNAP Modes in C++ GRX (dev-cookbook-16)</h1>
+<p class="hero-sub">Deep-dive C++ GRX guide to overriding subGetGripPoints(), subMoveGripPointsAt(), and AcDbCustomOsnapMode for custom parametric entities in GstarCAD 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Architecture of AppData-Driven Grips vs. Legacy Index-Based Grips</h2>
+<p>When porting custom C++ entities (`AcDbEntity` or `AcDbCurve` subclasses) to <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> via the GRX SDK, developers can choose between two virtual grip protocols: the legacy integer index array (`subGetGripPoints(AcGePoint3dArray&amp;, AcDbIntArray&amp;, AcDbIntArray&amp;)`) or the modern object-oriented <strong><code>AcDbGripDataPtrArray</code></strong> signature. For multi-function engineering primitives—such as structural steel gusset plates, precast concrete embeds, or HVAC dampers—the `AcDbGripData` architecture is strongly preferred because each grip carries an opaque `void* appData` pointer, custom hover/hot viewport draw callbacks (`GripWorldDrawPtr`), and per-grip right-click context menus.</p>
+<p>In GstarCAD 2027's AC1032 graphics pipeline, whenever a user selects a custom entity in Model Space, the host grip manager queries `subGetGripPoints()` with unit view vectors and pixel scaling factors. When the user drags a hot grip, `subMoveGripPointsAt()` receives the `AcDbVoidPtrArray` of active `appData` identifiers and the 3D displacement vector (`const AcGeVector3d&amp; offset`), updating the entity within an active database drag transaction.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Production C++ GRX Implementation: Multi-Mode `AcDbGripData` Override</h2>
+<p>The following C++ implementation demonstrates a custom structural bracket entity (`GcSteelBracket`) that exposes three distinct grip behaviors: a base insertion grip (`kGripOrigin`), a rotational orientation grip (`kGripAngle`), and a flange length stretch grip (`kGripLength`) constrained along the bracket's local X-axis:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>#include "grxHeaders.h"
+#include "dbmain.h"
+#include "dbgrip.h"
+
+enum BracketGripId : intptr_t {
+    kGripOrigin = 1,
+    kGripLength = 2,
+    kGripAngle  = 3
+};
+
+Acad::ErrorStatus GcSteelBracket::subGetGripPoints(
+    AcDbGripDataPtrArray&amp; grips,
+    const double curViewUnitSize,
+    const int gripSize,
+    const AcGeVector3d&amp; curViewDir,
+    const int bitflags) const
+{
+    assertReadEnabled();
+
+    // 1. Origin Translation Grip
+    AcDbGripData* pOriginGrip = new AcDbGripData();
+    pOriginGrip-&gt;setGripPoint(m_origin);
+    pOriginGrip-&gt;setAppData(reinterpret_cast&lt;void*&gt;(kGripOrigin));
+    grips.append(pOriginGrip);
+
+    // 2. Constrained Flange Length Stretch Grip
+    AcGePoint3d tipPt = m_origin + (m_dirX.normal() * m_flangeLength);
+    AcDbGripData* pLenGrip = new AcDbGripData();
+    pLenGrip-&gt;setGripPoint(tipPt);
+    pLenGrip-&gt;setAppData(reinterpret_cast&lt;void*&gt;(kGripLength));
+    grips.append(pLenGrip);
+
+    return Acad::eOk;
+}
+
+Acad::ErrorStatus GcSteelBracket::subMoveGripPointsAt(
+    const AcDbVoidPtrArray&amp; gripAppData,
+    const AcGeVector3d&amp; offset,
+    const int bitflags)
+{
+    assertWriteEnabled();
+    if (offset.isZeroLength()) return Acad::eOk;
+
+    for (int i = 0; i &lt; gripAppData.length(); ++i) {
+        const auto gripType = reinterpret_cast&lt;intptr_t&gt;(gripAppData[i]);
+        if (gripType == kGripOrigin) {
+            m_origin += offset;
+        } else if (gripType == kGripLength) {
+            // Project 3D drag vector onto local bracket X-axis and clamp to [50mm, 2500mm]
+            double delta = offset.dotProduct(m_dirX.normal());
+            m_flangeLength = std::clamp(m_flangeLength + delta, 50.0, 2500.0);
+        }
+    }
+    recordGraphicsModified(true);
+    return Acad::eOk;
+}</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Registering Custom Object Snap Modes (`AcDbCustomOsnapMode`)</h2>
+<p>Standard CAD object snaps (`kOsModeEnd`, `kOsModeMid`, `kOsModeCen`) often fail to capture domain-specific engineering points—such as the center of gravity (CoG) of an asymmetric precast panel or the weld root throat of a structural joint. Using `AcDbCustomOsnapManager` (`acdbCustomOsnapManager()`), your `.grx` plugin can register a custom OSNAP keyword (e.g., `_COG`) complete with a custom `AcGiGlyph` viewport marker:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">GRX Virtual Method / Class</th>
+  <th style="padding:10px 14px;">Execution Context</th>
+  <th style="padding:10px 14px;">Critical Memory &amp; Threading Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>AcDbEntity::subGetOsnapPoints()</code></td>
+  <td style="padding:10px 14px;">Called on mouse hover when `OSMODE` bitmask is active</td>
+  <td style="padding:10px 14px;">Must call <code>assertReadEnabled()</code>; never open or modify other database objects inside an OSNAP query.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>AcDbCustomOsnapInfo::getOsnapInfo()</code></td>
+  <td style="padding:10px 14px;">Protocol extension attached to `AcDbEntity::desc()`</td>
+  <td style="padding:10px 14px;">Unregister via <code>acdbCustomOsnapManager()-&gt;removeCustomOsnapMode()</code> in `On_kUnloadAppMsg` to avoid dangling vtable pointers.</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><code>AcGiGlyph::subViewportDraw()</code></td>
+  <td style="padding:10px 14px;">Renders custom snap aperture symbol in device pixels</td>
+  <td style="padding:10px 14px;">Use <code>AcGiViewportGeometry::polygonDc()</code> or <code>polylineDc()</code> so glyph size remains invariant during zoom.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Debugging Custom Grip HoverCallbacks &amp; Multi-Grip Stretch Combinations</h2>
+<p>When an engineer holds the <code>Shift</code> key in GstarCAD 2027 to select multiple grips simultaneously on your custom entity before clicking a hot grip, `subMoveGripPointsAt()` receives all selected `appData` pointers inside the `gripAppData` array in a single call. Your C++ handler should inspect `gripAppData.length()`: if both `kGripOrigin` and `kGripLength` are hot simultaneously, apply a rigid-body translation (`transformBy(AcGeMatrix3d::translation(offset))`) rather than stretching the flange length twice.</p>
+<p>Additionally, if you attach a custom `GripWorldDrawPtr` callback to `AcDbGripData::setWorldDraw()`, verify that your custom grip glyph returns `true` when drawing world-space vectors or `false` if delegating to `GripViewportDrawPtr` for pixel-invariant screen icons. Always test custom grips under both 2D Wireframe (`SHADEMODE = 2D`) and Hardware-Accelerated Realistic modes (`3DCONFIG`) to confirm transient grip buffers clear cleanly upon `ESC` (`GripOpStatus::kGripAbort`).</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

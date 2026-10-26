@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Manually projecting 2D building elevations and cross-sections from floor plans using construction rays is tedious and prone to coordination errors whenever a window is shifted on the 3rd floor. GstarCAD Architecture 2027 compiles multi-story floor plans into a virtual 3D building assembly to extract 2D elevations, sections, and material schedules automatically.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>BLDGELEVATION, BLDGSECTION, AREATABLE, DOORSCHEDULE, WINDOWSCHEDULE</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Assemble individual story floor plans (Ground, Typical Floor, Roof) into a unified multi-story building model manager with defined story elevations and floor-to-floor heights.</li>
+  <li>Cut live section lines and exterior elevation markers to generate 2D vector Building Elevations (BLDGELEVATION) and Cross-Sections (BLDGSECTION) with automatic depth hatching and hidden-line removal.</li>
+  <li>Extract comprehensive Door and Window Schedules (SCHEDULE) with graphical elevation thumbnails, rough opening dimensions, fire ratings, and total unit counts.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 13: Live Architectural Documentation — Automated Building Sections, Elevations &amp; Room Area Schedules</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Generate live 2D building elevations and stepped cross-sections directly from the 3D story model, and compute BOMA/ISO room areas using AREATABLE and automated Door/Window schedules. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Automated 2D Building Elevations, Live Cross-Sections & Door/Window Quantity Schedules</h2>
+<p>In GstarCAD Architecture's multi-story coordination workflow, each floor plan remains a lightweight, fast-loading DWG file. When the architect places a section callout line and invokes <strong><code>BLDGSECTION</code></strong>, the engine traverses all referenced story Xrefs along the Z-axis, slices every intersecting parametric Wall, Slab, Beam, Stair, and Roof, applies reinforced-concrete or masonry section hatches to cut planes, and projects background elevations into a clean 2D DWG block.</p>
+<p>Concurrently, the schedule generator queries all <code>DOOR</code> and <code>WINDOW</code> entities across the building stories, grouping identical mark numbers (`WD-01`, `FM-02`) and automatically drawing scaled 2D front-elevation diagrams inside the schedule table cells.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>BLDGELEVATION, BLDGSECTION, AREATABLE, DOORSCHEDULE, WINDOWSCHEDULE</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Story Assembly</td>
+  <td style="padding:12px 16px;"><code>FLOORMANAGER / 3DASSEMBLY</code></td>
+  <td style="padding:12px 16px;">Stacks 2D/3D story drawings along true Z-elevations for full-building sectioning.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Section Engine</td>
+  <td style="padding:12px 16px;"><code>BLDGELEVATION / BLDGSECTION</code></td>
+  <td style="padding:12px 16px;">Projects hidden-line-removed exterior facades and hatched structural cross-sections.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Visual Schedules</td>
+  <td style="padding:12px 16px;"><code>DOORSCHEDULE / WINDOWSCHEDULE</code></td>
+  <td style="padding:12px 16px;">Compiles quantity takeoff tables complete with automated 2D component elevation graphics.</td>
 </tr>
 </tbody>
 </table>

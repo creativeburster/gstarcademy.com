@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Migrating AutoCAD .CUI / .CUIX Ribbon Tabs, Classic Toolbars & Custom Workspaces to GstarCAD 2027 | GstarCAD Academy</title>
+<meta content="Step-by-step architectural guide to transferring AutoCAD .cuix XML customization archives, partial enterprise menus, Diesel macro strings, and dual-screen workspaces into GstarCAD 2027 with zero UI rebuild." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/migration-cui-cuix-ribbon-workspaces-to-gstarcad" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Migrating AutoCAD .CUI / .CUIX Ribbon Tabs, Classic Toolbars & Custom Workspaces to GstarCAD 2027" property="og:title"/>
+<meta content="Step-by-step architectural guide to transferring AutoCAD .cuix XML customization archives, partial enterprise menus, Diesel macro strings, and dual-screen workspaces into GstarCAD 2027 with zero UI rebuild." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/migration-cui-cuix-ribbon-workspaces-to-gstarcad" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Migrating AutoCAD .CUI / .CUIX Ribbon Tabs, Classic Toolbars & Custom Workspaces to GstarCAD 2027", "description": "Step-by-step architectural guide to transferring AutoCAD .cuix XML customization archives, partial enterprise menus, Diesel macro strings, and dual-screen workspaces into GstarCAD 2027 with zero UI rebuild.", "url": "https://gstarcademy.com/kb/guides/migration-cui-cuix-ribbon-workspaces-to-gstarcad", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["ISO/IEC 29500 Open Packaging Conventions (ZIP/XML .cuix Containers)", "Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 2027 Customization Guide"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "AutoCAD Migration Hub", "item": "https://gstarcademy.com/migration"}, {"@type": "ListItem", "position": 3, "name": "Migrating AutoCAD .CUI / .CUIX Ribbon Tabs, Classic Toolbars & Custom Workspaces to GstarCAD 2027", "item": "https://gstarcademy.com/kb/guides/migration-cui-cuix-ribbon-workspaces-to-gstarcad"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/migration">AutoCAD Migration Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Migrating AutoCAD .CUI / .CUIX Ribbon Tabs, Classic Toolbars & Custom Workspaces to GstarCAD 2027</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Enterprise UI Migration</span>
+<h1 style="margin-top:12px;">Migrating AutoCAD .CUI / .CUIX Ribbon Tabs, Classic Toolbars & Custom Workspaces to GstarCAD 2027</h1>
+<p class="hero-sub">Step-by-step architectural guide to transferring AutoCAD .cuix XML customization archives, partial enterprise menus, Diesel macro strings, and dual-screen workspaces into GstarCAD 2027 with zero UI rebuild.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Inside the `.CUIX` Open Packaging Container &amp; GstarCAD Parser</h2>
+<p>Veteran engineering departments often hesitate to switch CAD platforms because they have invested decades into custom Ribbon panels, pull-down menus, mouse double-click actions, and Classic floating toolbars stored in AutoCAD's <code>acad.cuix</code> or departmental partial CUIX files. Fortunately, both AutoCAD and <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> implement the Open Packaging Conventions (OPC) ZIP archive format for user-interface customization.</p>
+<p>If you rename any <code>.cuix</code> file to <code>.zip</code> and inspect its contents, you will find structured XML configuration streams—such as <code>CustomizationSection.cui</code>, <code>MenuGroup.cui</code>, <code>RibbonRoot.cui</code>, and embedded 16&times;16 / 32&times;32 PNG/BMP icon resources. GstarCAD 2027's native <strong><code>CUI</code> (Customize User Interface)</strong> engine parses these XML schemas directly, preserving command macro strings (including `^C^C`, pause tokens `\`, and Diesel expressions `$M=$(...)`), keyboard accelerators, and workspace arrangements.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Main CUIX vs. Enterprise Partial CUIX Architecture</h2>
+<p>Rather than overwriting GstarCAD's default main customization file (<code>gcad.cuix</code>)—which would complicate future software point-release updates—enterprise CAD Managers separate customizations into a three-tier hierarchy:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">Customization Tier</th>
+  <th style="padding:12px 16px;">GstarCAD 2027 Target Path</th>
+  <th style="padding:12px 16px;">Governance &amp; Read/Write Policy</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Main CUIX File</td>
+  <td style="padding:12px 16px;"><code>%APPDATA%\Gstarsoft\GstarCAD\R27\en-US\Support\gcad.cuix</code></td>
+  <td style="padding:12px 16px;">Local user writable; hosts standard 2D Drafting and Classic workspaces.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Enterprise CUIX (Read-Only)</td>
+  <td style="padding:12px 16px;"><code>\\CorpNAS\CAD_Std\2027\CUI\Corp_Enterprise.cuix</code></td>
+  <td style="padding:12px 16px;">Read-only to drafters; locks mandatory company Ribbon tabs and plotting macros.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">Partial CUIX / MNU Plugins</td>
+  <td style="padding:12px 16px;">Loaded via <code>CUILOAD</code> or <code>ApplicationPlugins\*.bundle</code></td>
+  <td style="padding:12px 16px;">Modular discipline toolbars (HVAC, Piping, Structural, Electrical) loaded on demand.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Step-by-Step Transfer Protocol &amp; AutoLISP Deployment Script</h2>
+<ol style="line-height:1.8;">
+  <li><strong>Transfer Dialog Drag-and-Drop:</strong> Type <code>CUI</code> in GstarCAD 2027 and switch to the <strong>Transfer</strong> tab. In the right-hand pane, click <em>Open Customization File</em> and select your legacy <code>acad.cuix</code> (or legacy <code>.cui</code> / <code>.mnu</code> / <code>.mns</code> file). Drag custom Toolbars, Ribbon Tabs, Ribbon Panels, and Workspaces from the right pane into the Main Customization pane on the left.</li>
+  <li><strong>Icon Resource Resolution:</strong> Extract custom `.bmp` or `.png` toolbar icons from your legacy AutoCAD support folder into a shared network folder (`\\CorpNAS\CAD_Std\2027\Icons`) and append that directory to GstarCAD's <code>OPTIONS</code> &rarr; <em>Files</em> &rarr; <em>Support File Search Path</em> so zero question-mark cloud icons appear.</li>
+  <li><strong>Zero-Touch Enterprise Rollout via `gcaddoc.lsp`:</strong> Add the following AutoLISP routine to your startup script to automatically attach the departmental partial CUIX file across all workstations:</li>
+</ol>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 — Automated Partial CUIX Loader &amp; Workspace Switcher
+(vl-load-com)
+(defun c:GCAD_SYNC_CORPORATE_CUI ( / menuGroups corpCuiPath)
+  (setq corpCuiPath "\\CorpNAS\CAD_Std\2027\CUI\Corp_Engineering.cuix")
+  (setq menuGroups (vla-get-MenuGroups (vlax-get-acad-object)))
+  (if (and (findfile corpCuiPath)
+           (vl-catch-all-error-p (vl-catch-all-apply 'vla-Item (list menuGroups "CORP_ENG"))))
+    (progn
+      (vla-Load menuGroups corpCuiPath)
+      (princ "\n[GstarCAD Governance] Loaded Corporate Ribbon &amp; Toolbars: CORP_ENG.")
+    )
+  )
+  ;; Enforce Menubar visibility for veteran Classic drafters
+  (setvar "MENUBAR" 1)
+  (princ)
+)
+(c:GCAD_SYNC_CORPORATE_CUI)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Diesel Macro Compatibility &amp; Icon Resource Resolution Matrix</h2>
+<p>When migrating legacy <code>.mnu</code>, <code>.mns</code>, or <code>.cuix</code> files created across multiple AutoCAD releases (2008 through 2026), two edge cases typically arise: hardcoded absolute icon paths and Diesel expression string evaluation inside status bar or Ribbon toggle buttons. GstarCAD 2027 includes a dedicated <strong>Diesel Expression Interpreter</strong> that evaluates nested <code>$M=$(if,$(eq,$(getvar,orthomode),1),...)</code> macros at 60 Hz UI refresh intervals without stalling the command line.</p>
+<p>If custom 16&times;16 or 32&times;32 toolbar icons display as a generic cloud or question mark after importing a partial CUIX, verify how the icon resources were packaged:</p>
+<ul style="line-height:1.75;">
+  <li><strong>Embedded OPC ZIP Streams:</strong> Icons stored inside the <code>.cuix</code> archive's root with relative XML URIs in <code>SmallImage</code> / <code>LargeImage</code> attributes resolve automatically upon <code>CUILOAD</code>.</li>
+  <li><strong>External BMP/PNG Icon Folders:</strong> Legacy toolbars migrated from older <code>.mnu</code> files often reference loose <code>.bmp</code> icons on a shared drive. Append that icon folder path to <code>OPTIONS &rarr; Files &rarr; Custom Icon Location</code> (or via AutoLISP using <code>setenv</code> on the icon search path) and issue <code>CUI</code> &rarr; <em>Apply</em> to flush the icon cache.</li>
+  <li><strong>Dark vs. Light Theme Contrast:</strong> Monochrome black vector icons designed for classic light toolbars can become invisible against GstarCAD 2027's default Dark UI theme (`COLORTHEME = 0`). Use the built-in Icon Editor inside the <code>CUI</code> dialog or batch-invert luminance channels via ImageMagick prior to repackaging the `.cuix` container.</li>
+</ul>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">UI System Variable / Command</th>
+  <th style="padding:10px 14px;">Default / Recommended Value</th>
+  <th style="padding:10px 14px;">Enterprise Migration Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>WSCURRENT</code></td>
+  <td style="padding:10px 14px;"><code>"2D Drafting"</code> or Custom Name</td>
+  <td style="padding:10px 14px;">Switches active workspace layout programmatically via startup LISP or desktop shortcut switch <code>/w</code>.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>WSAUTOSAVE</code></td>
+  <td style="padding:10px 14px;"><code>0</code> (Disabled in production)</td>
+  <td style="padding:10px 14px;">Prevents accidental toolbar drags or docked palette closures from overwriting the corporate workspace baseline on exit.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>RIBBONSTATE</code> / <code>MENUBAR</code></td>
+  <td style="padding:10px 14px;"><code>1</code> / <code>1</code></td>
+  <td style="padding:10px 14px;">Allows hybrid operation where modern Ribbon tabs coexist with classic pull-down cascading menus (`File`, `Edit`, `Express`).</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><code>FILEDIA</code></td>
+  <td style="padding:10px 14px;"><code>1</code> (Restore after `CUILOAD`)</td>
+  <td style="padding:10px 14px;">Temporarily set to <code>0</code> inside batch LISP loaders so `CUILOAD` accepts file paths on the command prompt without modal dialogs.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

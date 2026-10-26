@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Handling AutoCAD Civil 3D, MEP & Plant 3D Proxy Entities (Zombie Objects) in GstarCAD 2027 | GstarCAD Academy</title>
+<meta content="Resolve missing TIN surfaces, pipe networks, and AEC wall proxy bounding boxes in GstarCAD 2027 using PROXYGRAPHICS, EXPORTTOAUTOCAD, LandXML, and selective proxy explosion." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/migration-object-enablers-aec-civil-proxy-entities" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Handling AutoCAD Civil 3D, MEP & Plant 3D Proxy Entities (Zombie Objects) in GstarCAD 2027" property="og:title"/>
+<meta content="Resolve missing TIN surfaces, pipe networks, and AEC wall proxy bounding boxes in GstarCAD 2027 using PROXYGRAPHICS, EXPORTTOAUTOCAD, LandXML, and selective proxy explosion." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/migration-object-enablers-aec-civil-proxy-entities" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Handling AutoCAD Civil 3D, MEP & Plant 3D Proxy Entities (Zombie Objects) in GstarCAD 2027", "description": "Resolve missing TIN surfaces, pipe networks, and AEC wall proxy bounding boxes in GstarCAD 2027 using PROXYGRAPHICS, EXPORTTOAUTOCAD, LandXML, and selective proxy explosion.", "url": "https://gstarcademy.com/kb/guides/migration-object-enablers-aec-civil-proxy-entities", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Elena Rostova, M.Eng., PE", "jobTitle": "Senior Civil Infrastructure & Geomatics Engineer", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#civil-infrastructure"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Native DWG AC1032 Proxy Entity Graphics Cache Specification", "LandXML 1.2 Open Civil Engineering Data Exchange Standard"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "AutoCAD Migration Hub", "item": "https://gstarcademy.com/migration"}, {"@type": "ListItem", "position": 3, "name": "Handling AutoCAD Civil 3D, MEP & Plant 3D Proxy Entities (Zombie Objects) in GstarCAD 2027", "item": "https://gstarcademy.com/kb/guides/migration-object-enablers-aec-civil-proxy-entities"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/migration">AutoCAD Migration Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Handling AutoCAD Civil 3D, MEP & Plant 3D Proxy Entities (Zombie Objects) in GstarCAD 2027</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Proxy Entities & Object Enablers</span>
+<h1 style="margin-top:12px;">Handling AutoCAD Civil 3D, MEP & Plant 3D Proxy Entities (Zombie Objects) in GstarCAD 2027</h1>
+<p class="hero-sub">Resolve missing TIN surfaces, pipe networks, and AEC wall proxy bounding boxes in GstarCAD 2027 using PROXYGRAPHICS, EXPORTTOAUTOCAD, LandXML, and selective proxy explosion.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#civil-infrastructure">Elena Rostova, M.Eng., PE</a> (Senior Civil Infrastructure & Geomatics Engineer)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. What Are Custom ObjectARX Proxy Entities (`AcDbProxyEntity`)?</h2>
+<p>When a drawing is authored in vertical applications such as <a href="/kb/software/civil-3d">AutoCAD Civil 3D</a> (`AeccDbSurfaceTin`, `AeccDbAlignment`), AutoCAD MEP, or Plant 3D, those programs write custom C++ class instances into the DWG database. When the DWG file is opened in any CAD environment where the originating vertical C++ DLL is absent, the DWG kernel wraps the unknown binary stream inside an <strong><code>AcDbProxyEntity</code> (Proxy / Zombie Object)</strong>.</p>
+<p>Whether those custom objects render with full visual fidelity or appear as empty wireframe bounding boxes in <strong>GstarCAD 2027</strong> depends entirely on whether the sender saved the drawing with embedded <strong>Proxy Graphics</strong>.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Controlling Proxy Visibility &amp; Display Variables in GstarCAD 2027</h2>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">System Variable</th>
+  <th style="padding:12px 16px;">Recommended Setting</th>
+  <th style="padding:12px 16px;">Database &amp; Viewport Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;"><code>PROXYGRAPHICS</code></td>
+  <td style="padding:12px 16px;"><code>1</code> (Must be set by Sender on Save)</td>
+  <td style="padding:12px 16px;">Embeds full 2D/3D vector display primitives inside the DWG file so GstarCAD renders exact contours and labels.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;"><code>PROXYSHOW</code></td>
+  <td style="padding:12px 16px;"><code>1</code> (Display Graphics)</td>
+  <td style="padding:12px 16px;"><code>0</code> hides proxies; <code>1</code> displays full embedded graphics; <code>2</code> displays only bounding boxes.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;"><code>PROXYNOTICE</code></td>
+  <td style="padding:12px 16px;"><code>0</code> (In Batch Scripts) / <code>1</code> (Audit)</td>
+  <td style="padding:12px 16px;">Controls whether the Proxy Information dialog pops up when opening files with custom AEC/Civil objects.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Converting Locked Proxy Entities into Editable Native Geometry</h2>
+<p>If your engineering team needs to edit, trim, or snap to Civil 3D contours or AEC walls inside GstarCAD 2027:</p>
+<ol style="line-height:1.8;">
+  <li><strong>Upstream `EXPORTTOAUTOCAD` (`-AECTOACAD`):</strong> Instruct the upstream Civil 3D or MEP consultant to run `-EXPORTTOAUTOCAD` before transmittal, which decomposes `AeccDb*` objects into native 2D/3D polylines, blocks, and MTEXT with zero visual shift.</li>
+  <li><strong>Open LandXML 1.2 / IFC 4.3 Exchange:</strong> For civil alignments, profiles, and TIN surfaces, request a lightweight <strong>LandXML (`.xml`)</strong> export alongside the DWG—preserving exact mathematical clothoid spirals and elevation triangles.</li>
+  <li><strong>Diagnostic LISP Scanner for Hidden Proxy Bloat:</strong> Run the following AutoLISP routine in GstarCAD 2027 to inventory all proxy entity classes inside a sluggish subcontractor drawing:</li>
+</ol>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 — Audit &amp; Inventory Custom Proxy Entities in Active DWG
+(defun c:GCAD_AUDIT_PROXIES ( / ss i ent dxf proxyCount)
+  (setq ss (ssget "_X" '((0 . "ACAD_PROXY_ENTITY"))))
+  (if ss
+    (progn
+      (setq proxyCount (sslength ss))
+      (princ (strcat "\n[Proxy Audit] Found " (itoa proxyCount) " graphical proxy entities in drawing."))
+      (setvar "PROXYSHOW" 1)
+    )
+    (princ "\n[Proxy Audit] Clean DWG! Zero graphical proxy entities detected.")
+  )
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Selective Proxy Explode vs. Round-Trip Preservation Strategy</h2>
+<p>A critical architectural distinction must be maintained between <strong>consuming</strong> an external civil/MEP consultant's drawing as a background coordination Xref versus <strong>destructively exploding</strong> proxy entities:</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">Coordination Scenario</th>
+  <th style="padding:10px 14px;">Recommended GstarCAD 2027 Workflow</th>
+  <th style="padding:10px 14px;">Impact on Custom C++ Object Streams</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Round-Trip Consultant DWG</strong> (You edit annotations/layers and return the file to a Civil 3D user)</td>
+  <td style="padding:10px 14px;">Keep <code>PROXYGRAPHICS = 1</code> and <code>PROXYSHOW = 1</code>. Do <strong>not</strong> run <code>EXPLODE</code> on proxy objects.</td>
+  <td style="padding:10px 14px;">100% lossless preservation. When reopened in Civil 3D, dynamic TIN surfaces, pipe networks, and alignments remain fully parametric.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Background Xref Underlay</strong> (Architectural/Structural coordination over Civil site plan)</td>
+  <td style="padding:10px 14px;">Attach via <code>XREF</code> (Overlay). Use <code>LAYISO</code> / viewport layer overrides (`VP Color`) on proxy sub-layers.</td>
+  <td style="padding:10px 14px;">Zero modification to consultant file; full `OSNAP` endpoint/intersection snapping to cached proxy graphics streams.</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><strong>Archival Deliverable Handover</strong> (Contract requires pure vanilla 2D DWG with zero third-party dependencies)</td>
+  <td style="padding:10px 14px;">Save a detached copy (`SAVEAS`), select proxy objects via `QSELECT` (`Object Type = ACAD_PROXY_ENTITY`), and run `EXPLODE`.</td>
+  <td style="padding:10px 14px;">Converts cached `worldDraw()` graphics into native `AcDbPolyline`, `AcDbLine`, and `AcDbMText` primitives and purges custom class dictionaries.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="margin-top:14px;"><strong>Inspecting Registered Application Weight:</strong> When third-party vertical applications create proxy entities, they frequently attach thousands of Registered Application IDs (`AcDbRegAppTableRecord`) and Extended Entity Data (`XDATA`). Running `-PURGE &rarr; Regapps` in GstarCAD 2027 safely strips orphaned `RegApp` records that have zero active entity bindings without harming live proxy objects.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

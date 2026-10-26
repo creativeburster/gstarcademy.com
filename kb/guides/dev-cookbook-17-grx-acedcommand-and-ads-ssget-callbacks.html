@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Advanced acedSSGet() Filter Lists, Keyword Callbacks & acedCommandS() in C++ GRX (dev-cookbook-17) | GstarCAD Academy</title>
+<meta content="Master synchronous command invocation via acedCommandS()/acedCmdS() and interactive resbuf selection filters with keyword callbacks in GstarCAD 2027 C++ GRX." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-17-grx-acedcommand-and-ads-ssget-callbacks" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Advanced acedSSGet() Filter Lists, Keyword Callbacks & acedCommandS() in C++ GRX (dev-cookbook-17)" property="og:title"/>
+<meta content="Master synchronous command invocation via acedCommandS()/acedCmdS() and interactive resbuf selection filters with keyword callbacks in GstarCAD 2027 C++ GRX." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-17-grx-acedcommand-and-ads-ssget-callbacks" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Advanced acedSSGet() Filter Lists, Keyword Callbacks & acedCommandS() in C++ GRX (dev-cookbook-17)", "description": "Master synchronous command invocation via acedCommandS()/acedCmdS() and interactive resbuf selection filters with keyword callbacks in GstarCAD 2027 C++ GRX.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-17-grx-acedcommand-and-ads-ssget-callbacks", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 2027 GRX Selection Set API", "ObjectARX Fiberless Command Execution Architecture (acedCommandS / acedCmdS)"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Advanced acedSSGet() Filter Lists, Keyword Callbacks & acedCommandS() in C++ GRX (dev-cookbook-17)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-17-grx-acedcommand-and-ads-ssget-callbacks"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Advanced acedSSGet() Filter Lists, Keyword Callbacks & acedCommandS() in C++ GRX (dev-cookbook-17)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C++ GRX SDK · Selection & Command Engine</span>
+<h1 style="margin-top:12px;">Advanced acedSSGet() Filter Lists, Keyword Callbacks & acedCommandS() in C++ GRX (dev-cookbook-17)</h1>
+<p class="hero-sub">Master synchronous command invocation via acedCommandS()/acedCmdS() and interactive resbuf selection filters with keyword callbacks in GstarCAD 2027 C++ GRX.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Why `acedCommandS()` and `acedCmdS()` Replaced Legacy `acedCommand()`</h2>
+<p>In modern 64-bit CAD kernels—including <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> and AutoCAD 2015+—the legacy fiber-based `acedCommand()` and `acedCmd()` variadic functions were superseded by coroutine-safe synchronous wrappers: <strong><code>acedCommandS()</code></strong> and <strong><code>acedCmdS()</code></strong>. Unlike legacy implementations that could leave a partially executed command suspended on the stack, `acedCommandS()` executes an entire native command macro atomically from start to finish before returning control to your C++ caller.</p>
+<p>Crucially, any database-resident entity created or modified via `acedCommandS()` must not be held open for write (`AcDb::kForWrite`) by your C++ code at the moment `acedCommandS()` is invoked; doing so will trigger an `Acad::eWasOpenForWrite` lock conflict when the native command attempts to acquire its own write transaction.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Relational `resbuf` Filter Trees &amp; Interactive Keyword Callbacks in `acedSSGet()`</h2>
+<p>Enterprise C++ plugins rarely ask users to select arbitrary entities; instead, they construct relational DXF group code filter trees (`-4` boolean operators `"&lt;AND"`, `"&lt;OR"`, `"&lt;NOT"`, relational bitmasks `"&amp;="`) combined with interactive command-line keyword callbacks (`acedSSSetKwordCallbackPtr`). Below is a complete production example that filters for closed polylines on structural layers with area greater than zero while allowing the user to press <code>[Settings/LayerFilter]</code> mid-selection:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>#include "grxHeaders.h"
+#include "acedCmdNF.h"
+
+// Callback invoked when user enters a registered keyword during acedSSGet(":K")
+struct resbuf* ssCallbackKeywordHandler(const ACHAR* kword) {
+    if (_wcsicmp(kword, L"Tolerance") == 0) {
+        double newTol = 0.5;
+        if (acedGetReal(L"
+Enter boundary gap tolerance (mm) &lt;0.5&gt;: ", &amp;newTol) == RTNORM) {
+            acutPrintf(L"
+[GRX] Tolerance updated to %.3f mm.", newTol);
+        }
+    }
+    return nullptr; // Return nullptr to resume selection loop without altering pickset
+}
+
+void GcSelectStructuralSlabs() {
+    // 1. Register interactive keyword callback for ":K" selection mode
+    acedSSSetKwordCallbackPtr(ssCallbackKeywordHandler);
+    acedInitGet(0, L"Tolerance LayerFilter");
+
+    // 2. Build relational resbuf filter: Closed LWPOLYLINE on S-SLAB* layers
+    struct resbuf* pFilter = acutBuildList(
+        RTDXF0, L"LWPOLYLINE",
+        -4,     L"&amp;=",
+        70,     1,              // Bit 1 set = Closed polyline
+        8,      L"S-SLAB*",     // Wildcard layer match
+        RTNONE
+    );
+
+    ads_name ssPick;
+    const ACHAR* prompts[2] = {
+        L"
+Select structural slab contours or [Tolerance/LayerFilter]: ",
+        L"
+Remove slab contours from calculation: "
+    };
+
+    int rc = acedSSGet(L"_:K:$", prompts, nullptr, pFilter, ssPick);
+    acutRelRb(pFilter); // Always free resbuf chain to prevent heap leaks
+
+    if (rc == RTNORM) {
+        Adesk::Int32 len = 0;
+        acedSSLength(ssPick, &amp;len);
+        acutPrintf(L"
+Validated %d closed slab boundary polylines.", len);
+        acedSSFree(ssPick);
+    }
+}</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Selection Set Handle Persistence &amp; Pickset Limits (`MAXACTVP` / Selection Slots)</h2>
+<p>Every call to `acedSSGet()` that returns `RTNORM` allocates one of the CAD kernel's active `ads_name` selection set slots (capped at 128 concurrent active selection sets per document session). Failing to call <strong><code>acedSSFree(ssPick)</code></strong> on every code branch—including early error returns and user `ESC` cancellations where partial picksets were initialized—will eventually exhaust the slot table and cause `acedSSGet()` to return `RTERROR`.</p>
+<ul style="line-height:1.75;">
+  <li><strong>RAII Wrapper Pattern:</strong> Always wrap `ads_name` selection sets inside a lightweight C++ RAII struct (`ScopedSelectionSet`) whose destructor invokes `acedSSFree()` automatically upon scope exit.</li>
+  <li><strong>Converting `ads_name` to `AcDbObjectId`:</strong> Call `acdbGetObjectId(objId, entName)` immediately inside your iteration loop and store `AcDbObjectIdArray` if the selection needs to persist across multiple commands or modeless palette clicks.</li>
+  <li><strong>Synchronous `acedCommandS()` Invocation Flag:</strong> Register commands that call `acedCommandS()` with the <code>ACRX_CMD_MODAL</code> flag (or <code>ACRX_CMD_SESSION</code> when switching active documents) and terminate your argument list with <code>RTNONE</code>.</li>
+</ul>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Combining `AcEdSSGetFilter` Reactor Hooks with Pickfirst Sets</h2>
+<p>For workflows where you must intercept or veto entities *even when the user runs native GstarCAD commands* like `ERASE`, `MOVE`, or `COPY`, attach an `AcEdSSGetFilter` reactor via `addSSgetFilterInputContextReactor(curDoc(), pMyFilter)`. Overriding `endSSGet(Acad::PromptStatus returnStatus, const AcEdSSGetFlags&amp; flags, AcEdSelectionSetService&amp; service, const AcDbObjectIdArray&amp; selectionSet)` allows your C++ plugin to inspect the final pickset and call `service.remove(index)` on any locked company title block or protected datum grid line before the native command executes.</p>
+<p>When invoking `acedCommandS()` with pickfirst selection sets, pass an `ads_name` selection set token via `RTPICKS` inside `acedCmdS( acutBuildList(RTSTR, L"_.CHPROP", RTPICKS, ssPick, RTSTR, L"", RTSTR, L"_Color", RTSHORT, 1, RTSTR, L"", RTNONE) )`—avoiding slow entity-by-entity command loops.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

@@ -1063,6 +1063,102 @@
             "correctIdx": 0,
             "why": "Zero-tolerance tests generate tens of thousands of irrelevant reports (e.g., pipe touching insulation or slight slab penetrations), overwhelming coordinators and masking genuine construction defects.",
             "pitfall": "Setting tolerance thresholds too wide (>50mm) will cause small diameter conduits and critical pipe slopes to be overlooked during structural penetrations."
+          },
+          {
+            "type": "single",
+            "nodeId": "bim",
+            "slug": "iso-19650-cde-suitability-codes",
+            "difficulty": "intermediate",
+            "question": "Under ISO 19650-2 National Annex conventions, when a GstarCAD 365 CDE container transitions from Work in Progress (WIP) to the Shared state for cross-discipline Clash Detection, which status/suitability code applies?",
+            "options": [
+              "S1 (Suitable for Coordination)",
+              "A1 (Authorized for Construction)",
+              "WIP0 (Draft Only)",
+              "CR9 (Archived As-Built)"
+            ],
+            "correctIdx": 0,
+            "why": "Suitability code S1 designates that the information container has passed internal authoring QA and is suitable for multi-discipline geometric coordination in the Shared zone.",
+            "pitfall": "Never issueWIP containers directly to external consultants without assigning a formal S1–S4 suitability status."
+          },
+          {
+            "type": "single",
+            "nodeId": "clash",
+            "slug": "hard-clash-vs-clearance-envelope",
+            "difficulty": "intermediate",
+            "question": "During MEP-to-Structural BIM coordination, why must a chilled-water supply pipe with 50 mm elastomeric thermal insulation be checked using a Clearance/Soft Clash rule rather than a bare-pipe Hard Clash check?",
+            "options": [
+              "Bare-pipe geometry often omits external field-applied insulation thickness and valve actuator maintenance envelopes, causing on-site installation collisions.",
+              "Chilled-water pipes can pass directly through reinforced concrete shear walls without sleeves.",
+              "Hard clash engines ignore cylindrical ACIS solids.",
+              "Thermal insulation reduces the nominal internal diameter of the steel pipe."
+            ],
+            "correctIdx": 0,
+            "why": "Soft/Clearance clash rules account for thermal insulation jackets, seismic sway tolerances, and maintenance access zones around valves and VAV boxes.",
+            "pitfall": "Checking only bare nominal pipe OD leads to crushed insulation and condensation dripping on ceiling tiles."
+          },
+          {
+            "type": "single",
+            "nodeId": "ifc",
+            "slug": "ifcspace-gross-vs-net-area-qto",
+            "difficulty": "intermediate",
+            "question": "When exporting associative Room/Space objects from GstarCAD Architecture to IFC4 for automated quantity takeoff (`Qto_SpaceBaseQuantities`), what distinguishes `GrossFloorArea` from `NetFloorArea`?",
+            "options": [
+              "GrossFloorArea measures to the centerline or exterior face of bounding walls including interior columns, whereas NetFloorArea deducts structural columns and interior partition footprints.",
+              "NetFloorArea includes outdoor parking lots and public highways.",
+              "GrossFloorArea is measured in cubic liters instead of square meters.",
+              "Both values are always zero unless the room has a skylight."
+            ],
+            "correctIdx": 0,
+            "why": "BOMA and ISO 9836 area standards require separating gross structural footprint from net usable/leasable carpet area.",
+            "pitfall": "Mixing Gross and Net space boundaries in tenant lease schedules causes legal and commercial discrepancies."
+          },
+          {
+            "type": "single",
+            "nodeId": "revit",
+            "slug": "omni-uniclass-2015-classification-tables",
+            "difficulty": "advanced",
+            "question": "In UK and international ISO 19650 BIM deliverables, why are Uniclass 2015 `Ss_` (Systems) and `Pr_` (Products) codes embedded into GstarCAD block attributes or IFC classification references?",
+            "options": [
+              "To enable automated mapping between CAD/BIM elements, NBS specification clauses, and ICMS/BCIS life-cycle cost estimation databases.",
+              "To change the RGB viewport background color automatically at night.",
+              "To disable the EXPLODE command on text entities.",
+              "To convert TrueType fonts into SHX stick fonts."
+            ],
+            "correctIdx": 0,
+            "why": "Uniclass 2015 provides a unified faceted classification hierarchy (Entities, Spaces, Elements, Systems, Products) linking geometry to specification and cost tables.",
+            "pitfall": "Using ad-hoc free-text descriptions instead of standardized classification codes breaks automated 5D cost estimation."
+          },
+          {
+            "type": "single",
+            "nodeId": "shared-coords",
+            "slug": "xref-overlay-vs-attach-circular-reference",
+            "difficulty": "beginner",
+            "question": "In a multi-discipline project where Architecture, Structure, and MEP all reference each other's floor plans continuously, why must every discipline link peer drawings using `XREF Overlay` rather than `XREF Attach`?",
+            "options": [
+              "Overlay strips nested references at one hop, preventing circular reference loops (A -> B -> A) and stopping duplicate background layers from multiplying.",
+              "Overlay encrypts the drawing so other engineers cannot see the walls.",
+              "Attach deletes the original file from the network server.",
+              "Overlay converts 3D solids into raster JPEG images."
+            ],
+            "correctIdx": 0,
+            "why": "When Drawing A overlays Drawing B, and Drawing B overlays Drawing A, neither pulls the other's nested overlays back in—eliminating circular dependency stalls.",
+            "pitfall": "Using Attach across peer discipline models causes nested Xref trees to balloon exponentially."
+          },
+          {
+            "type": "single",
+            "nodeId": "bim",
+            "slug": "digital-twin-aim-vs-pim-handover",
+            "difficulty": "advanced",
+            "question": "In ISO 19650-3 lifecycle management, what happens at project handover when the **Project Information Model (PIM)** transitions into the **Asset Information Model (AIM)**?",
+            "options": [
+              "Design/construction-phase geometry and verified COBie/commissioning data are validated and transferred into the owner's CAFM/CMMS platform for operational maintenance.",
+              "All CAD and BIM files are permanently shredded for security.",
+              "The building is converted back into a 2D hand sketch.",
+              "All perpetual software licenses expire automatically."
+            ],
+            "correctIdx": 0,
+            "why": "The PIM supports design and construction delivery (ISO 19650-2), whereas the AIM supports ongoing facility operations, preventive maintenance, and sensor telemetry (ISO 19650-3).",
+            "pitfall": "Handing over an unverified PIM without as-built asset tag synchronization renders the AIM unusable for facility managers."
           }
         ]
       },
@@ -1300,6 +1396,86 @@
             "correctIdx": 0,
             "why": "The BCF API provides standard HTTP endpoints (GET/POST/PUT) connecting Solibri, Navisworks, GstarCAD, and Revit to centralized platforms (BIMcollab, Revizto) for live synchronisation.",
             "pitfall": "Exchanging static .bcfzip files across multiple team members results in conflicting revision states and overwritten issue assignments."
+          },
+          {
+            "type": "single",
+            "nodeId": "ifc",
+            "slug": "ifc4-reference-view-vs-design-transfer",
+            "difficulty": "advanced",
+            "question": "In openBIM workflows using GstarCAD Architecture 2027, what distinguishes the buildingSMART IFC4 'Reference View (RV 1.2)' MVD from the 'Design Transfer View (DTV)'?",
+            "options": [
+              "Reference View optimizes tessellated/swept geometry for read-only coordination, clash detection, and quantity takeoff without requiring downstream parametric editing.",
+              "Reference View strips all 3D coordinates and exports only 2D raster bitmaps.",
+              "Design Transfer View encrypts all property sets so subcontractors cannot read fire ratings.",
+              "Reference View is restricted to imperial units only."
+            ],
+            "correctIdx": 0,
+            "why": "IFC4 Reference View (RV 1.2) guarantees stable geometric representation for background coordination and QTO, whereas DTV aims for one-way parametric handover.",
+            "pitfall": "Using DTV when the recipient only needs a coordination underlay often causes unnecessary boolean failure warnings."
+          },
+          {
+            "type": "single",
+            "nodeId": "revit",
+            "slug": "bcf-2-1-xml-camera-guid-exchange",
+            "difficulty": "advanced",
+            "question": "Why do BIM Coordinators exchange clash markups using BCF 2.1 / 3.0 (.bcfzip) instead of sending full 400 MB native BIM/DWG models back and forth?",
+            "options": [
+              "BCF transmits lightweight XML issue metadata, orthogonal/perspective 3D camera matrices, and target IFC/DWG entity GUIDs without duplicating heavy model geometry.",
+              "BCF automatically moves clashing structural steel beams without engineer approval.",
+              "BCF compresses 3D meshes into MP3 audio streams.",
+              "BCF files can only be opened on mobile phones."
+            ],
+            "correctIdx": 0,
+            "why": "BIM Collaboration Format (BCF) decouples issue communication (viewpoint camera, status, assignee, GUID list) from the heavy authoring model.",
+            "pitfall": "Embedding full models inside every issue report clogs email servers and breaks CDE single-source-of-truth governance."
+          },
+          {
+            "type": "single",
+            "nodeId": "shared-coords",
+            "slug": "insunits-xref-automatic-scaling-matrix",
+            "difficulty": "intermediate",
+            "question": "If a civil site base plan is authored in Meters (`INSUNITS = 6`) and attached as an Xref into an architectural floor plan authored in Millimeters (`INSUNITS = 4`) in GstarCAD 2027, what scale factor is automatically applied at insertion?",
+            "options": [
+              "1000.0 (1 meter = 1,000 millimeters)",
+              "0.001",
+              "25.4",
+              "1.0 (no scaling occurs)"
+            ],
+            "correctIdx": 0,
+            "why": "When INSUNITS is properly configured in both host (4 = mm) and child Xref (6 = m), GstarCAD's DWG engine automatically applies a 1000x transformation matrix.",
+            "pitfall": "Leaving INSUNITS = 0 (Unitless) forces fallback to INSUNITSDEFSOURCE/TARGET and often causes 1000x scale mismatches."
+          },
+          {
+            "type": "single",
+            "nodeId": "bim",
+            "slug": "iso-19650-file-naming-delimiter-fields",
+            "difficulty": "beginner",
+            "question": "According to ISO 19650-2 container naming conventions (`Project-Originator-Volume-Level-Type-Role-Number`), what does the `Volume/System` field (e.g., `Z1` or `ZZ`) represent?",
+            "options": [
+              "A spatial subdivision of the project (such as Zone 1) or 'ZZ' indicating the file spans all zones/volumes.",
+              "The loudspeaker audio volume of the workstation.",
+              "The file size of the DWG in megabytes.",
+              "The number of undo steps recorded in the session."
+            ],
+            "correctIdx": 0,
+            "why": "Standardized hyphen-delimited fields ensure every document in the CDE can be filtered by Originator, Spatial Zone/Volume, Level/Story, Document Type, and Discipline Role.",
+            "pitfall": "Using spaces, underscores, or dates inside the primary file identifier breaks CDE version-stacking rules."
+          },
+          {
+            "type": "single",
+            "nodeId": "clash",
+            "slug": "federated-model-origin-drift-audit",
+            "difficulty": "intermediate",
+            "question": "During weekly federated model assembly, the structural steel grid appears shifted by exactly 25.4x relative to the architectural floor plan. What is the root cause?",
+            "options": [
+              "One model was exported or inserted with Imperial Inch units (`1 in = 25.4 mm`) while the federated host expected Metric Millimeters.",
+              "The computer monitor resolution was changed from 1080p to 4K.",
+              "The structural engineer used a dark UI color theme.",
+              "The layer color was changed from Red to Yellow."
+            ],
+            "correctIdx": 0,
+            "why": "A 25.4x (or 0.03937x) scale discrepancy is the unmistakable signature of an Inch-to-Millimeter unit mismatch (`INSUNITS` 1 vs. 4).",
+            "pitfall": "Never manually scale a drifted federated link by eye; fix the export unit definition in the authoring template."
           }
         ]
       },
@@ -1531,6 +1707,86 @@
             "correctIdx": 0,
             "why": "IFC 4.3 expands openBIM from vertical buildings to horizontal civil infrastructure, introducing IfcAlignment, IfcRoad, and IfcRailway with station-offset linear referencing.",
             "pitfall": "Exporting civil alignments as segmented faceted polygonal curves rather than true mathematical clothoids/arcs creates excessive file bloat and breaks machine control data."
+          },
+          {
+            "type": "single",
+            "nodeId": "shared-coords",
+            "slug": "true-north-vs-project-north-vport",
+            "difficulty": "intermediate",
+            "question": "When coordinating an architectural floor plan in GstarCAD 2027 with a civil site survey anchored at State Plane coordinates, how should Project North and True North be reconciled?",
+            "options": [
+              "Keep Model Space geometry at true geodetic orientation (or use a named UCS/DVIEW Twist inside Paper Space viewports) so Xref insertions at 0,0,0 remain lossless.",
+              "Select all site survey contours in Model Space and run the ROTATE command around an arbitrary corner.",
+              "Scale the civil survey by 0.001 and move it manually by eye.",
+              "Explode all civil blocks and delete their Z elevations."
+            ],
+            "correctIdx": 0,
+            "why": "Rotating Model Space survey geometry destroys Easting/Northing stakeout coordinates; always rotate the view camera via UCS + PLAN or DVIEW Twist.",
+            "pitfall": "Destructively rotating survey Xrefs in Model Space breaks round-trip civil coordination."
+          },
+          {
+            "type": "single",
+            "nodeId": "bim",
+            "slug": "eir-vs-bep-contractual-hierarchy",
+            "difficulty": "beginner",
+            "question": "In an ISO 19650-compliant project tender, what is the contractual relationship between the Exchange Information Requirements (EIR) and the BIM Execution Plan (BEP)?",
+            "options": [
+              "The Appointing Party (Client) issues the EIR defining information deliverables, and the Lead Appointed Party responds with the BEP detailing how the delivery team will fulfill them.",
+              "The BEP is written by the municipal fire department after building demolition.",
+              "The EIR is a software license key file for CAD workstations.",
+              "EIR and BEP are legacy file extensions for raster images."
+            ],
+            "correctIdx": 0,
+            "why": "The EIR sets the client's information requirements and milestones; the Pre-Appointment and Post-Appointment BEP define the execution standards, CDE procedures, and responsibility matrices.",
+            "pitfall": "Starting modeling before agreeing on the BEP coordinate datum and file-naming convention leads to costly rework."
+          },
+          {
+            "type": "single",
+            "nodeId": "clash",
+            "slug": "clash-priority-hierarchy-gravity-vs-pressure",
+            "difficulty": "beginner",
+            "question": "When resolving a multi-discipline ceiling-void clash between a 150 mm gravity sanitary drainage pipe (sloped at 1.5%), a 600x400 mm supply air duct, and a flexible electrical cable tray, which system normally holds geometric priority?",
+            "options": [
+              "The gravity-sloped sanitary drainage pipe holds highest priority among MEP systems because it requires a continuous downward gradient to function.",
+              "The flexible electrical cable tray cannot be bent or rerouted under any circumstances.",
+              "The structural concrete primary girder should be cut in half to let the cable tray pass.",
+              "Lighting fixtures must be placed inside the supply air duct."
+            ],
+            "correctIdx": 0,
+            "why": "In MEP coordination hierarchy: Structure > Gravity Drainage/Sloped Piping > Large HVAC Ductwork > Pressurized Piping > Cable Trays & Conduit.",
+            "pitfall": "Rerouting gravity drainage with upward traps violates plumbing codes and causes sewage blockages."
+          },
+          {
+            "type": "single",
+            "nodeId": "ifc",
+            "slug": "ifc-site-building-story-spatial-hierarchy",
+            "difficulty": "intermediate",
+            "question": "Every valid IFC2x3 and IFC4 file requires a strict spatial containment tree before physical building elements (`IfcWall`, `IfcBeam`) can be attached. What is the mandatory top-down hierarchy?",
+            "options": [
+              "IfcProject -> IfcSite -> IfcBuilding -> IfcBuildingStorey",
+              "IfcWall -> IfcDoor -> IfcProject -> IfcLayer",
+              "IfcBlock -> IfcXref -> IfcViewport -> IfcPaper",
+              "IfcLine -> IfcCircle -> IfcArc -> IfcSolid"
+            ],
+            "correctIdx": 0,
+            "why": "In the buildingSMART schema, `IfcRelAggregates` links `IfcProject` to `IfcSite`, `IfcBuilding`, and `IfcBuildingStorey`, and `IfcRelContainedInSpatialStructure` assigns elements to a storey.",
+            "pitfall": "Orphaned IFC elements not assigned to an IfcBuildingStorey fail validation in Solibri and Navisworks."
+          },
+          {
+            "type": "single",
+            "nodeId": "revit",
+            "slug": "lod-350-interface-coordination-details",
+            "difficulty": "intermediate",
+            "question": "Why did the BIM Forum specification introduce **LOD 350** between LOD 300 (Design Development) and LOD 400 (Shop Fabrication)?",
+            "options": [
+              "LOD 350 adds critical cross-discipline interface geometry—such as gusset plates, hanger rods, embeds, and seismic bracing—required for accurate clash detection before shop fabrication.",
+              "LOD 350 is used exclusively for landscape tree foliage rendering.",
+              "LOD 350 removes all dimensions from Paper Space sheets.",
+              "LOD 350 reduces polygon counts for mobile games."
+            ],
+            "correctIdx": 0,
+            "why": "Without LOD 350 elements like pipe hangers, concrete corbels, and steel baseplates, a model at LOD 300 passes clash checks in software but clashes on site.",
+            "pitfall": "Assuming LOD 300 centerlines or bounding boxes are sufficient for tight ceiling-plenum coordination leads to field RFIs."
           }
         ]
       }
@@ -2895,6 +3151,102 @@
             "correctIdx": 0,
             "why": "At MMC (smallest allowable hole), the positional tolerance is exactly Ø0.2. As the hole is machined larger toward LMC, the clearance with the mating fastener increases, providing bonus tolerance.",
             "pitfall": "Bonus tolerance cannot be assumed during drafting; functional inspection gages or CMM software must calculate bonus dynamically based on actual measured feature size."
+          },
+          {
+            "type": "single",
+            "nodeId": "mcad",
+            "slug": "asme-y14-5-2018-datum-reference-frame-dof",
+            "difficulty": "intermediate",
+            "question": "Under ASME Y14.5-2018, when a primary planar datum feature `|A|` is contacted by a simulated datum plane on a Coordinate Measuring Machine (CMM), how many degrees of freedom (DOF) of the part are constrained?",
+            "options": [
+              "3 degrees of freedom: 1 translation (Z) and 2 rotations (Rx, Ry).",
+              "All 6 degrees of freedom are locked by a single flat plane.",
+              "1 degree of freedom: rotation around Z only.",
+              "Zero degrees of freedom until a tertiary datum is added."
+            ],
+            "correctIdx": 0,
+            "why": "A primary planar surface contact locks translation perpendicular to the plane (1) and pitch/roll rotations out of the plane (2), leaving 2 in-plane translations and 1 yaw rotation for secondary/tertiary datums.",
+            "pitfall": "Misunderstanding primary/secondary/tertiary DOF constraint order causes ambiguous CMM inspection setups."
+          },
+          {
+            "type": "single",
+            "nodeId": "step-ap242",
+            "slug": "step-ap242-pmi-semantic-tolerance-exchange",
+            "difficulty": "advanced",
+            "question": "Why do aerospace and automotive OEMs specify **ISO 10303-242 (STEP AP242)** over legacy STEP AP203 or IGES when archiving 3D CAD models alongside GstarCAD Mechanical 2D drawings?",
+            "options": [
+              "STEP AP242 preserves both exact B-Rep solid topology and machine-readable Semantic Product & Manufacturing Information (3D GD&T PMI) for automated CMM inspection.",
+              "STEP AP242 converts all 3D solids into low-resolution JPEG thumbnails.",
+              "IGES is the only format that supports solid Boolean operations.",
+              "STEP AP203 supports kinematic motion simulation and fluid dynamics."
+            ],
+            "correctIdx": 0,
+            "why": "STEP AP242 unifies AP203 (aerospace) and AP214 (automotive) and introduces semantic 3D GD&T/PMI entities that downstream CAM and CMM software can parse without human re-entry.",
+            "pitfall": "Exporting legacy IGES surfaces often results in unstitched face gaps that require manual B-Rep healing."
+          },
+          {
+            "type": "single",
+            "nodeId": "mcad",
+            "slug": "iso-21920-surface-texture-ra-vs-rz",
+            "difficulty": "intermediate",
+            "question": "When placing surface texture symbols (`AMSURFSYM`) on a hydraulic cylinder bore in GstarCAD Mechanical, why do seal manufacturers specify **Maximum Height of Profile ($R_z$)** alongside **Arithmetical Mean Roughness ($R_a$)**?",
+            "options": [
+              "Because Ra averages out isolated deep scratches or sharp peaks that would slice an elastomeric O-ring, whereas Rz directly bounds peak-to-valley extremes.",
+              "Ra measures part weight in kilograms, while Rz measures electrical conductivity.",
+              "Rz is always numerically smaller than Ra on every machined surface.",
+              "Surface texture symbols only apply to unmachined sand castings."
+            ],
+            "correctIdx": 0,
+            "why": "Two surfaces with identical Ra (e.g., 0.8 um) can have vastly different peak/valley profiles; Rz detects isolated peaks or tears that destroy dynamic hydraulic seals.",
+            "pitfall": "Relying solely on Ra for dynamic sealing surfaces risks early hydraulic fluid leakage."
+          },
+          {
+            "type": "single",
+            "nodeId": "gdt",
+            "slug": "composite-vs-two-single-segment-position",
+            "difficulty": "advanced",
+            "question": "In ASME Y14.5, what distinguishes a **Composite Positional Tolerance** (one large position symbol spanning two stacked segments) from **Two Single-Segment Positional Feature Control Frames**?",
+            "options": [
+              "In a Composite frame, the lower segment (FRTZF) constrains rotation only to the repeated datums while floating translationally to tighten hole-to-hole pattern spacing.",
+              "There is zero difference; both notations mean the exact same thing.",
+              "Composite frames apply only to rectangular slots, never circular holes.",
+              "Two single-segment frames ignore the primary datum completely."
+            ],
+            "correctIdx": 0,
+            "why": "In a Composite FCF, the upper Pattern-Locating Tolerance Zone Framework (PLTZF) locates the pattern to the datum frame, while the lower Feature-Relating Tolerance Zone Framework (FRTZF) refines hole-to-hole spacing and orientation only.",
+            "pitfall": "Confusing Composite Position with Two Single-Segment Position causes incorrect CMM alignment programs for bolt-circle patterns."
+          },
+          {
+            "type": "single",
+            "nodeId": "gdt",
+            "slug": "projected-tolerance-zone-threaded-holes",
+            "difficulty": "advanced",
+            "question": "Why is a **Projected Tolerance Zone (`(P)`)** essential when specifying the positional tolerance of a blind M12 tapped hole that receives a press-fit stud passing through a 30 mm thick mating flange?",
+            "options": [
+              "Without `(P)`, a tapped hole tilted slightly within its internal thread zone can cause the protruding stud to lean out of position and collide with the 30 mm thick mating clearance hole.",
+              "The (P) symbol indicates that the hole should be painted after tapping.",
+              "Projected tolerance zones apply only to external gear teeth.",
+              "The (P) modifier doubles the thread pitch of the fastener."
+            ],
+            "correctIdx": 0,
+            "why": "Orientation error inside a tapped hole magnifies linearly over the height of the protruding stud or cap screw; `(P)` projects the cylindrical tolerance zone outward through the thickness of the mating part.",
+            "pitfall": "Omitting `(P)` on fixed-fastener tapped hole arrays is the #1 cause of bolt-binding during heavy flange assembly."
+          },
+          {
+            "type": "single",
+            "nodeId": "step-ap242",
+            "slug": "flatshot-vs-sectionplane-acis-orthographic",
+            "difficulty": "beginner",
+            "question": "When generating 2D orthographic shop drawings from an imported 3D `.STEP` assembly in GstarCAD 2027, when should you use **`SECTIONPLANE` (`LIVESECTION`)** instead of **`FLATSHOT`**?",
+            "options": [
+              "Use SECTIONPLANE when you need an interior cut-plane view with automatic cross-hatching of sliced 3D ACIS solid walls, whereas FLATSHOT projects exterior and hidden silhouettes.",
+              "FLATSHOT deletes the 3D solid from the drawing.",
+              "SECTIONPLANE only works on 2D text strings.",
+              "Neither command supports ACIS 3DSOLID entities."
+            ],
+            "correctIdx": 0,
+            "why": "FLATSHOT projects full exterior/obscured edge silhouettes onto a plane, whereas SECTIONPLANE slices through internal cavities (such as valve bodies or pump casings) and hatches cut faces.",
+            "pitfall": "Manually drawing hatch lines over a FLATSHOT view instead of generating a true SECTIONPLANE block risks missing internal porting clearances."
           }
         ]
       },
@@ -3196,6 +3548,86 @@
             "correctIdx": 0,
             "why": "The 3-2-1 rule mathematically eliminates all 6 rigid-body degrees of freedom using perpendicular contact planes, establishing a repeatable coordinate system for manufacturing and inspection.",
             "pitfall": "Selecting non-functional or warped stamped sheet metal surfaces as primary datums without defining datum targets causes unstable fixture rocking and non-repeatable CMM measurements."
+          },
+          {
+            "type": "single",
+            "nodeId": "gdt",
+            "slug": "mmc-bonus-tolerance-virtual-condition-pin",
+            "difficulty": "advanced",
+            "question": "A cylindrical locating pin is dimensioned $\\varnothing 12.0 \\pm 0.1\\text{ mm}$ with a positional tolerance of $\\varnothing 0.05\\text{ mm} \\text{ (M)}$ relative to `|A|B|C|`. What is the pin's **Virtual Condition (VC)** diameter and maximum positional tolerance when produced at $\\varnothing 11.9\\text{ mm}$ (LMC)?",
+            "options": [
+              "Virtual Condition = 12.15 mm; Maximum positional tolerance at 11.9 mm (LMC) = 0.25 mm (0.05 base + 0.20 bonus).",
+              "Virtual Condition = 11.85 mm; Positional tolerance remains fixed at 0.05 mm.",
+              "Virtual Condition = 12.00 mm; Bonus tolerance is negative.",
+              "Virtual Condition = 15.00 mm; Pin cannot be inspected with a functional gauge."
+            ],
+            "correctIdx": 0,
+            "why": "For an external feature (shaft/pin), MMC = 12.10 mm, so VC = MMC + GeoTol = 12.10 + 0.05 = 12.15 mm. At LMC (11.90 mm), the 0.20 mm departure from MMC adds directly to the 0.05 mm positional tolerance.",
+            "pitfall": "Confusing internal (hole: VC = MMC - Tol) vs. external (pin: VC = MMC + Tol) formulas leads to interference fits on assembly lines."
+          },
+          {
+            "type": "single",
+            "nodeId": "mcad",
+            "slug": "iso-286-hole-basis-fits-h7-g6-vs-p6",
+            "difficulty": "intermediate",
+            "question": "In GstarCAD Mechanical 2027's Power Dimensioning (`AMPOWERDIM`), what functional difference separates an ISO 286 **`Ø40 H7/g6`** fit from an **`Ø40 H7/p6`** fit?",
+            "options": [
+              "H7/g6 is a precision sliding Clearance Fit (shaft always smaller than hole), whereas H7/p6 is a locational Interference/Press Fit (shaft larger than hole).",
+              "Both H7/g6 and H7/p6 are loose running fits with 2 mm play.",
+              "Capital 'H' refers to the shaft and lowercase 'g' refers to the hole.",
+              "ISO 286 fits apply only to wooden furniture joints."
+            ],
+            "correctIdx": 0,
+            "why": "In ISO 286 Hole-Basis systems (uppercase H = fundamental deviation 0 on the hole), shaft letters a–h produce clearance fits, j–n produce transition fits, and p–z produce interference press fits.",
+            "pitfall": "Specifying H7/p6 on a bearing housing that requires field disassembly without a hydraulic press causes maintenance damage."
+          },
+          {
+            "type": "single",
+            "nodeId": "tolerance-stack",
+            "slug": "iso-2768-mk-general-tolerances-titleblock",
+            "difficulty": "beginner",
+            "question": "A metric machine drawing title block contains the general tolerance note **`ISO 2768-mK`**. What do the lowercase **`m`** and uppercase **`K`** govern respectively?",
+            "options": [
+              "Lowercase 'm' specifies Medium general tolerances for untoleranced linear/angular dimensions (Part 1), and uppercase 'K' specifies Medium general geometrical tolerances for flatness, straightness, and perpendicularity (Part 2).",
+              "m stands for Meters and K stands for Kelvin temperature.",
+              "mK requires every surface to be polished to a mirror finish.",
+              "mK disables all explicit GD&T feature control frames on the sheet."
+            ],
+            "correctIdx": 0,
+            "why": "ISO 2768-1 (f, m, c, v) governs linear/angular dimensions without individual tolerances, while ISO 2768-2 (H, K, L) governs general form/orientation limits.",
+            "pitfall": "Omitting a general tolerance note like ISO 2768-m forces machinists to either guess tolerances or over-precision non-critical edges."
+          },
+          {
+            "type": "single",
+            "nodeId": "step-ap242",
+            "slug": "sheet-metal-k-factor-bend-allowance-neutral-axis",
+            "difficulty": "intermediate",
+            "question": "When unfolding a 3D sheet-metal enclosure into a 2D laser-cut flat pattern DXF (` Thickness T = 2.0 mm, Inside Bend Radius R = 2.0 mm`), what does the **K-Factor** ($K = t / T \\approx 0.44$) represent?",
+            "options": [
+              "The ratio locating the unstretched Neutral Axis ($t$) relative to total sheet thickness ($T$) during plastic bending, which determines exact Bend Allowance arc length.",
+              "The thermal conductivity of stainless steel during laser cutting.",
+              "The number of bolts required to fasten the enclosure lid.",
+              "The zoom scale factor of the Paper Space viewport."
+            ],
+            "correctIdx": 0,
+            "why": "During bending, the inner fibers compress and outer fibers stretch; the K-factor locates the neutral fiber whose length remains unchanged ($BA = \\theta (R + K \\cdot T)$).",
+            "pitfall": "Exporting a flat pattern with K = 0.50 when the press-brake V-die yields K = 0.38 causes cumulative flange length errors of 1–2 mm per bend."
+          },
+          {
+            "type": "single",
+            "nodeId": "mcad",
+            "slug": "bom-part-reference-ampartref-vs-block-attributes",
+            "difficulty": "beginner",
+            "question": "In GstarCAD Mechanical 2027, how does attaching an **`AMPARTREF`** (Part Reference node) to native 2D geometry differ from creating a traditional static CAD block with `ATTDEF` tags?",
+            "options": [
+              "AMPARTREF attaches a lightweight non-graphical BOM metadata node to geometry or blocks that automatically drives associative `AMBALLOON` callouts and `AMPARTLIST` ERP rollups.",
+              "AMPARTREF explodes all circles into line segments.",
+              "AMPARTREF locks the drawing so it cannot be saved.",
+              "AMPARTREF is used only for architectural room labels."
+            ],
+            "correctIdx": 0,
+            "why": "GstarCAD Mechanical's BOM database reads `AMPARTREF` nodes across assemblies, automatically incrementing item counts and syncing balloons without requiring every detail to be wrapped in a rigid block.",
+            "pitfall": "Manually typing numbers inside static circle balloons instead of linking `AMBALLOON` to `AMPARTREF` leads to mismatched parts lists after engineering revisions."
           }
         ]
       },
@@ -3543,6 +3975,86 @@
             "correctIdx": 0,
             "why": "A 2D stylus line trace parallel to a machining lay reports artificially low roughness. 3D areal surface metrology captures complete spatial texture (roughness, waviness, lay directionality).",
             "pitfall": "Directly converting Ra specifications to Sa without accounting for filtering cutoff lengths and surface lay directionality leads to rejected parts that are functionally identical."
+          },
+          {
+            "type": "single",
+            "nodeId": "tolerance-stack",
+            "slug": "rss-vs-worst-case-statistical-assembly",
+            "difficulty": "intermediate",
+            "question": "A precision gearbox shaft assembly comprises $n = 9$ independent machined spacers, each with a bilateral tolerance of $\\pm 0.10\\text{ mm}$. Compare the **Worst-Case ($T_{WC}$)** stack-up against the **Root Sum Square ($T_{RSS}$)** stack-up:",
+            "options": [
+              "Worst-Case = +/- 0.90 mm; RSS = +/- 0.30 mm (sqrt(9 * 0.10^2)).",
+              "Worst-Case = +/- 0.10 mm; RSS = +/- 0.90 mm.",
+              "Both Worst-Case and RSS equal +/- 0.45 mm.",
+              "RSS is always 3 times larger than Worst-Case."
+            ],
+            "correctIdx": 0,
+            "why": "Worst-Case sums tolerances linearly (9 * 0.10 = 0.90 mm), whereas RSS sums variances quadrature-wise (sqrt(9) * 0.10 = 0.30 mm), permitting tighter assembly housing designs when manufacturing processes maintain Cp >= 1.33.",
+            "pitfall": "Applying RSS without verifying that shop floor machining centers are statistically centered (Cpk >= 1.33) risks assembly scrap."
+          },
+          {
+            "type": "single",
+            "nodeId": "gdt",
+            "slug": "asme-y14-5-2018-removed-concentricity-symmetry",
+            "difficulty": "advanced",
+            "question": "Why did the **ASME Y14.5-2018** standard officially remove the **Concentricity** and **Symmetry** geometric characteristic symbols?",
+            "options": [
+              "Because inspecting derived median points/surfaces required slow, error-prone differential CMM probing that is more accurately and economically controlled by Position or Runout.",
+              "Because modern CNC lathes can no longer turn cylindrical parts.",
+              "Because Concentricity was replaced by Surface Roughness Ra.",
+              "Because all shafts are now square."
+            ],
+            "correctIdx": 0,
+            "why": "Legacy Concentricity controlled opposing median points rather than the functional surface coaxiality; Position (with MMC/RFS) or Circular/Total Runout directly controls functional assembly and rotation.",
+            "pitfall": "Continuing to place legacy Concentricity callouts on new ASME Y14.5-2018 drawings inflates CMM inspection cycle times by 300%."
+          },
+          {
+            "type": "single",
+            "nodeId": "mcad",
+            "slug": "gstarcad-mechanical-am2dhide-associative-occlusion",
+            "difficulty": "intermediate",
+            "question": "When detailing a multi-part gearbox assembly in GstarCAD Mechanical 2027, what is the engineering advantage of using **`AM2DHIDE`** (Associative Hide) over trimming overlapping lines with `TRIM`?",
+            "options": [
+              "AM2DHIDE preserves complete underlying standard parts and blocks while automatically routing occluded segments to hidden/invisible mechanical layers that update dynamically when parts move.",
+              "AM2DHIDE permanently deletes all background parts from the BOM database.",
+              "AM2DHIDE converts 2D lines into 3D NURBS surfaces.",
+              "AM2DHIDE only works on text entities."
+            ],
+            "correctIdx": 0,
+            "why": "Trimming standard fasteners or sub-assemblies breaks block integrity and BOM counts; AM2DHIDE manages foreground/background visual occlusion non-destructively.",
+            "pitfall": "Never explode and TRIM catalog fasteners in an assembly view; doing so corrupts `AMPARTLIST` BOM rollups."
+          },
+          {
+            "type": "single",
+            "nodeId": "mcad",
+            "slug": "iso-2553-weld-symbol-arrow-side-vs-other-side",
+            "difficulty": "intermediate",
+            "question": "Under **ISO 2553** (European third-angle/first-angle weld symbolism) in GstarCAD Mechanical (`AMWELDSYM`), how is an **Arrow-Side** fillet weld distinguished from an **Other-Side** fillet weld?",
+            "options": [
+              "In ISO 2553, a weld symbol placed on the SOLID reference line indicates the Arrow Side, whereas a symbol placed on the DASHED identification line indicates the Other Side.",
+              "ISO 2553 does not distinguish between arrow side and other side.",
+              "Arrow-side welds are always drawn in red ink.",
+              "A circle at the elbow means weld on the arrow side only."
+            ],
+            "correctIdx": 0,
+            "why": "ISO 2553 uses a dual reference line (solid + dashed): symbols on the solid line apply to the arrow side; symbols on the dashed line apply to the opposite side (whereas AWS A2.4 uses below/above a single solid line).",
+            "pitfall": "Mixing AWS A2.4 and ISO 2553 weld symbol conventions without checking the title block standard causes shop-floor welders to weld the wrong side of asymmetric joints."
+          },
+          {
+            "type": "single",
+            "nodeId": "tolerance-stack",
+            "slug": "thermal-expansion-differential-aluminum-steel",
+            "difficulty": "intermediate",
+            "question": "An aluminum sensor bracket ($L = 500\\text{ mm}, \\alpha_{Al} = 23 \\times 10^{-6}\\text{ /^\\circ C}$) is bolted at both ends to a cast-iron machine bed ($\\alpha_{Fe} = 11 \\times 10^{-6}\\text{ /^\\circ C}$). If operating temperature rises by $\\Delta T = +50^\\circ\\text{C}$, what differential thermal expansion ($\\Delta L$) must the slotted mounting hole accommodate?",
+            "options": [
+              "0.30 mm (500 * (23 - 11) * 10^-6 * 50)",
+              "0.00 mm",
+              "3.00 mm",
+              "12.50 mm"
+            ],
+            "correctIdx": 0,
+            "why": "Differential expansion is $\\Delta L = L \\cdot (\\alpha_{Al} - \\alpha_{Fe}) \\cdot \\Delta T = 500 \\times 12 \\times 10^{-6} \\times 50 = 0.30\\text{ mm}$.",
+            "pitfall": "Pinning dissimilar metals over long spans without a slotted thermal expansion joint induces severe thermal buckling and shear preload loss."
           }
         ]
       }
@@ -4875,6 +5387,102 @@
             "correctIdx": 0,
             "why": "Earth's surface is ellipsoidal. Projecting it onto flat planes compresses or expands distances depending on elevation above sea level and distance from projection central meridians.",
             "pitfall": "Neglecting the Combined Scale Factor on a 5 km bridge alignment will cause precast concrete deck segments to miss pier support bearings by tens of centimeters."
+          },
+          {
+            "type": "single",
+            "nodeId": "civil",
+            "slug": "tin-breaklines-retaining-wall-crown",
+            "difficulty": "intermediate",
+            "question": "When building a Triangulated Irregular Network (TIN) ground surface from survey points in a civil corridor project, why must road curbs, ditch inverts, and retaining wall tops be defined as **Hard Breaklines**?",
+            "options": [
+              "To prevent Delaunay triangulation edges from crossing across linear grade discontinuities and interpolating false diagonal slopes across vertical curbs.",
+              "To change the color of the contour lines to purple.",
+              "To delete all survey points within 10 meters of the road.",
+              "To convert 3D polylines into 2D circles."
+            ],
+            "correctIdx": 0,
+            "why": "Standard Delaunay triangulation maximizes minimum interior angles blindly across xy-coordinates; breaklines force triangle edges to align strictly along physical ridge/flow lines.",
+            "pitfall": "Omitting breaklines along road crowns or retaining walls produces jagged 'sawtooth' contour artifacts and inaccurate earthwork volumes."
+          },
+          {
+            "type": "single",
+            "nodeId": "landxml",
+            "slug": "landxml-tin-surface-and-alignment-handover",
+            "difficulty": "intermediate",
+            "question": "Why is **LandXML (`.xml` v1.2)** the universal non-proprietary exchange format between civil survey instruments, GstarCAD civil plugins, Civil 3D, and OpenRoads?",
+            "options": [
+              "LandXML preserves exact mathematical alignment geometry (tangents, circular arcs, clothoid spirals), vertical parabolic profiles, and TIN triangle vertex/face indices in human-readable XML.",
+              "LandXML stores only flattened raster screenshots of site plans.",
+              "LandXML explodes all curves into 1-millimeter straight lines.",
+              "LandXML requires a proprietary cloud subscription to open."
+            ],
+            "correctIdx": 0,
+            "why": "Unlike flat 2D DWG contours—which lose explicit TIN triangle connectivity and spiral equations—LandXML transfers true parametric horizontal/vertical alignments and triangulated surfaces.",
+            "pitfall": "Transferring terrain only via 2D spline contours instead of LandXML forces the recipient to re-triangulate from scratch, introducing elevation drift."
+          },
+          {
+            "type": "single",
+            "nodeId": "gis",
+            "slug": "epsg-4326-wgs84-vs-epsg-3857-web-mercator",
+            "difficulty": "intermediate",
+            "question": "Why must civil engineering drawings never be measured or staked out directly in **EPSG:3857 (Web Mercator)** coordinates imported from web tile maps without reprojecting to a local UTM or State Plane CRS?",
+            "options": [
+              "Web Mercator inflates linear scale by $1 / \\cos(\\text{latitude})$—causing a massive +41% length distortion at $45^\\circ$ latitude and +100% at $60^\\circ$ latitude.",
+              "EPSG:3857 only covers the Southern Hemisphere.",
+              "EPSG:4326 is measured in feet while EPSG:3857 is measured in inches.",
+              "Web Mercator rotates North by 90 degrees."
+            ],
+            "correctIdx": 0,
+            "why": "Conformal Web Mercator preserves local angles for web slippy tiles but severely distorts linear distances and areas away from the equator ($\\sec\\varphi$).",
+            "pitfall": "Tracing utility lengths directly over an unprojected Web Mercator background map at $50^\\circ\\text{N}$ overestimates pipe quantities by >55%."
+          },
+          {
+            "type": "single",
+            "nodeId": "civil",
+            "slug": "manning-equation-gravity-storm-sewer-capacity",
+            "difficulty": "intermediate",
+            "question": "According to **Manning's Equation** ($Q = \\frac{1}{n} A R_h^{2/3} S^{1/2}$) for open-channel and gravity storm-drain hydraulics, if the longitudinal pipe slope $S$ is quadrupled ($4\\times$) while diameter and roughness $n$ remain constant, how does full-flow discharge capacity $Q$ change?",
+            "options": [
+              "Flow capacity Q doubles (2x), because Q is proportional to the square root of slope (sqrt(4) = 2).",
+              "Flow capacity Q quadruples (4x).",
+              "Flow capacity Q increases by 16x.",
+              "Slope has no effect on gravity storm sewer capacity."
+            ],
+            "correctIdx": 0,
+            "why": "Because hydraulic gradient $S$ enters Manning's equation to the $1/2$ power ($S^{0.5}$), quadrupling the slope doubles the flow velocity and discharge.",
+            "pitfall": "Designing storm sewers with velocity < 0.60 m/s causes silt sedimentation, while velocity > 5.0 m/s causes abrasive concrete pipe invert erosion."
+          },
+          {
+            "type": "single",
+            "nodeId": "civil",
+            "slug": "sanitary-vs-storm-invert-elevation-crown-matching",
+            "difficulty": "intermediate",
+            "question": "At a municipal manhole where an incoming $300\\text{ mm}$ gravity storm pipe connects to an outgoing $450\\text{ mm}$ trunk pipe, why do hydraulic specifications require **Crown (Soffit) Matching** rather than Invert Matching?",
+            "options": [
+              "Matching the top interior crowns prevents pressurized backwater from the larger 450 mm downstream pipe from surcharging backwards into the smaller 300 mm upstream pipe.",
+              "Crown matching allows sewage to flow uphill without a pump.",
+              "Invert matching is illegal for pipes smaller than 2 meters.",
+              "Crown matching reduces excavation depth by 5 meters."
+            ],
+            "correctIdx": 0,
+            "why": "By aligning the interior pipe crowns (`Invert_out = Invert_in - (D_out - D_in)`), the invert drops by $150\\text{ mm}$ across the manhole, preventing upstream surcharge.",
+            "pitfall": "Setting incoming invert lower than outgoing invert creates a permanent stagnant sump and solids blockage inside the manhole."
+          },
+          {
+            "type": "single",
+            "nodeId": "civil",
+            "slug": "sight-distance-triangle-intersection-visibility",
+            "difficulty": "beginner",
+            "question": "At an at-grade urban street intersection, why do civil geometric standards mandate a clear **Sight Distance Triangle** on corner parcels?",
+            "options": [
+              "To ensure approaching drivers have an unobstructed line of sight past landscaping, signs, and walls to perceive cross-traffic and brake safely before the conflict point.",
+              "To provide a triangular parking lot for maintenance trucks.",
+              "To place tall billboards and electrical transformers.",
+              "To measure survey triangulation angles."
+            ],
+            "correctIdx": 0,
+            "why": "Sight triangles bounded by AASHTO stopping/decision sight distances must be kept free of visual obstructions between eye height ($1.08\\text{ m}$) and object height ($0.60\\text{ m}$–$1.08\\text{ m}$).",
+            "pitfall": "Planting dense hedges or placing switchgear cabinets inside the sight triangle creates high-risk blind intersections."
           }
         ]
       },
@@ -5096,6 +5704,86 @@
             "correctIdx": 0,
             "why": "Mass haul curves plot cumulative net earthwork volume against stationing. An ascending curve indicates cut volume exceeds fill; a descending curve indicates fill volume exceeds cut.",
             "pitfall": "Shifting the balance line without calculating maximum economic haul distance will result in exorbitant dump truck transport costs compared to local borrow and waste pits."
+          },
+          {
+            "type": "single",
+            "nodeId": "alignment",
+            "slug": "clothoid-spiral-transition-curve-parameter-a",
+            "difficulty": "advanced",
+            "question": "In highway and high-speed rail horizontal alignment design, an Euler/Clothoid transition spiral connects a straight tangent ($R = \\infty$) to a circular curve of radius $R = 400\\text{ m}$ over spiral length $L_s = 100\\text{ m}$. What is the fundamental geometric property of a Clothoid ($R \\cdot L = A^2$), and what is its flatness parameter $A$?",
+            "options": [
+              "Curvature (1/R) increases linearly with arc length L so centrifugal acceleration builds smoothly; A = sqrt(400 * 100) = 200 m.",
+              "Radius R remains constant along the entire spiral; A = 4.0 m.",
+              "Centrifugal force jumps instantaneously at the tangent point; A = 500 m.",
+              "Clothoids are semicircular arcs with zero superelevation."
+            ],
+            "correctIdx": 0,
+            "why": "In an Euler spiral, $1/R \\propto L$, allowing vehicle steering angle and lateral radial acceleration ($v^2/R$) to ramp linearly while superelevation runoff is introduced ($A = \\sqrt{R \\cdot L_s} = 200\\text{ m}$).",
+            "pitfall": "Connecting high-speed tangents directly to sharp circular curves without transition spirals causes sudden lateral jerk and lane drift."
+          },
+          {
+            "type": "single",
+            "nodeId": "civil",
+            "slug": "prismoidal-vs-average-end-area-earthwork",
+            "difficulty": "intermediate",
+            "question": "When calculating cut-and-fill earthwork volumes along a curved highway embankment with rapidly varying cross-sectional areas ($A_1$ and $A_2$), why does the **Average End Area method** ($V = L \\cdot \\frac{A_1+A_2}{2}$) systematically overestimate volume compared to the **Prismoidal / TIN-to-TIN Volume** method?",
+            "options": [
+              "Average End Area assumes linear area variation between stations, overestimating tapered pyramid/wedge frustums unless a Prismoidal correction ($V = \\frac{L}{6}(A_1 + 4A_m + A_2)$) or direct TIN prismoid integration is used.",
+              "Average End Area always underestimates volume by 50%.",
+              "Prismoidal volume ignores rock excavation completely.",
+              "Both methods yield identical numbers down to 0.001 cubic meters on all shapes."
+            ],
+            "correctIdx": 0,
+            "why": "For tapered transitions ($A_1 \\ll A_2$), $\\frac{A_1+A_2}{2}$ exceeds the true frustum integral; composite TIN-to-TIN prismoidal volume calculation eliminates cross-section spacing bias.",
+            "pitfall": "Using wide 50 m cross-section intervals with Average End Area on winding mountain roads can inflate earthwork payment quantities by 4%–8%."
+          },
+          {
+            "type": "single",
+            "nodeId": "civil",
+            "slug": "vertical-parabolic-crest-curve-k-value-sight-distance",
+            "difficulty": "advanced",
+            "question": "In vertical highway profile design, a $+3.0\\%$ upgrade meets a $-2.0\\%$ downgrade at a Crest Vertical Curve of length $L = 300\\text{ m}$. What is the algebraic grade difference $A$ and the vertical curvature rate **$K$-value** ($K = L / A$)?",
+            "options": [
+              "Algebraic difference A = 5.0% (|3.0 - (-2.0)|); Rate of vertical curvature K = 60 m/% (300 / 5.0).",
+              "A = 1.0%; K = 300 m/%.",
+              "A = 6.0%; K = 50 m/%.",
+              "A = 5.0%; K = 1,500 m/%."
+            ],
+            "correctIdx": 0,
+            "why": "The $K$-value ($L / |g_2 - g_1|$) represents the horizontal distance in meters required to effect a 1% change in longitudinal gradient, directly governing Stopping Sight Distance (SSD) over crests.",
+            "pitfall": "Using an undersized $K$-value on a crest curve hides stalled vehicles beyond the apex from oncoming drivers."
+          },
+          {
+            "type": "single",
+            "nodeId": "gis",
+            "slug": "lidar-point-cloud-las-classification-bare-earth",
+            "difficulty": "beginner",
+            "question": "When importing an aerial LiDAR `.las` or `.e57` point cloud into GstarCAD 2027 to generate an existing-ground topographic TIN, which ASPRS LAS standard classification code must be isolated to strip away tree canopies and building roofs?",
+            "options": [
+              "Class 2 (Ground / Bare Earth).",
+              "Class 1 (Unclassified).",
+              "Class 6 (Building Roofs).",
+              "Class 7 (Low Noise / Multipath Outliers)."
+            ],
+            "correctIdx": 0,
+            "why": "Under ASPRS LAS 1.4 specifications, Class 2 represents bare-earth ground returns, whereas Class 3–5 are vegetation and Class 6 is buildings.",
+            "pitfall": "Triangulating an unfiltered LAS point cloud containing Class 5 high vegetation creates 20-meter false hills over forested corridors."
+          },
+          {
+            "type": "single",
+            "nodeId": "landxml",
+            "slug": "subgrade-daylight-cut-fill-catch-point-slope",
+            "difficulty": "beginner",
+            "question": "In road cross-section assembly design, what is the **Daylight Line (Catch Point / Toe of Slope)** plotted on the civil grading plan?",
+            "options": [
+              "The 3D intersection trace where the engineered cut or fill side-slope (e.g., 2H:1V or 3H:1V) meets the natural existing ground TIN surface.",
+              "The centerline paint stripe dividing opposing traffic lanes.",
+              "The path of the sun across the site in summer.",
+              "The underground water table elevation."
+            ],
+            "correctIdx": 0,
+            "why": "The daylight line defines the exact horizontal footprint of earthwork disturbance, determining whether grading stays inside the legal Right-of-Way (ROW) boundary.",
+            "pitfall": "Failing to check whether the 3H:1V fill daylight line crosses outside the property ROW triggers land-acquisition stop-work orders."
           }
         ]
       },
@@ -5327,6 +6015,86 @@
             "correctIdx": 0,
             "why": "Ifc 4.3 introduces linear referencing for civil infrastructure. Components are positioned by station distance along an alignment curve rather than rigid XYZ coordinates.",
             "pitfall": "Exporting infrastructure components as isolated, unassociated boundary representation meshes strips all civil engineering semantics, preventing automated asset lifecycle management."
+          },
+          {
+            "type": "single",
+            "nodeId": "gis",
+            "slug": "grid-vs-ground-combined-scale-factor-survey",
+            "difficulty": "advanced",
+            "question": "A high-elevation highway project at $1,500\\text{ m}$ above the reference ellipsoid has a UTM/State Plane **Combined Scale Factor (CSF)** of $0.999750$. Across a $2,000.000\\text{ m}$ horizontal ground baseline measured by a total station, what is the corresponding projected **Grid Distance**?",
+            "options": [
+              "1,999.500 meters (2,000.000 * 0.999750) — a 500 mm discrepancy over 2 km.",
+              "2,000.500 meters.",
+              "Exactly 2,000.000 meters; grid and ground are identical at all altitudes.",
+              "1,500.000 meters."
+            ],
+            "correctIdx": 0,
+            "why": "Grid Distance = Ground Distance * Combined Scale Factor ($2000 \\times 0.999750 = 1999.500\\text{ m}$). A 0.50 m discrepancy over 2 km will cause prefabricated bridge girders to miss pier bearings if uncompensated.",
+            "pitfall": "Never apply a scale factor about a random point in Model Space; document the CSF and reference monument in the drawing's coordinate block."
+          },
+          {
+            "type": "single",
+            "nodeId": "alignment",
+            "slug": "superelevation-runoff-and-tangent-runout-crown",
+            "difficulty": "intermediate",
+            "question": "As a highway alignment transitions from a normal crowned tangent ($-2.0\\%$ cross-slope on both lanes) into a right-hand curve requiring $+6.0\\%$ full superelevation, what defines the **Tangent Runout** distance?",
+            "options": [
+              "The longitudinal distance required to rotate the outside lane from its normal -2.0% downward crown to 0.0% flat (level crown) prior to entering the Superelevation Runoff zone.",
+              "The total length of the circular arc.",
+              "The vertical height of the concrete median barrier.",
+              "The stopping sight distance for heavy trucks on wet pavement."
+            ],
+            "correctIdx": 0,
+            "why": "Tangent Runout brings the adverse outside lane from normal crown (-2%) to level (0%); Superelevation Runoff then rotates it from 0% through reverse crown (+2%) up to full superelevation (+6%).",
+            "pitfall": "Creating a flat 0% cross-slope zone coinciding with a 0.0% longitudinal profile grade traps stormwater sheet flow and causes hydroplaning."
+          },
+          {
+            "type": "single",
+            "nodeId": "landxml",
+            "slug": "mass-haul-diagram-free-haul-vs-overhaul",
+            "difficulty": "intermediate",
+            "question": "On an earthwork **Mass Haul Diagram** (cumulative net volume plotted on the vertical axis vs. chainage station on the horizontal axis), what does a **rising slope** indicate, and what defines a **Balance Line**?",
+            "options": [
+              "A rising cumulative curve indicates a net Excavation (Cut) zone; a horizontal Balance Line intersecting the curve twice encloses a self-balancing Cut-and-Fill loop.",
+              "A rising curve indicates that the highway is climbing a mountain.",
+              "A horizontal Balance Line indicates zero earthwork is required.",
+              "Mass Haul Diagrams measure asphalt pavement thickness."
+            ],
+            "correctIdx": 0,
+            "why": "In a Mass Haul plot (where Cut is positive + and Shrinkage-adjusted Fill is negative -), rising segments represent net cut accumulation, falling segments represent fill consumption, and horizontal chords mark balanced haul zones.",
+            "pitfall": "Forgetting to apply the soil Shrinkage Factor (e.g., 0.85–0.90 for compacted clay) before plotting the Mass Haul curve leaves the contractor short of embankment fill."
+          },
+          {
+            "type": "single",
+            "nodeId": "alignment",
+            "slug": "station-equations-back-ahead-chainage",
+            "difficulty": "intermediate",
+            "question": "During a highway realignment, a curve is shortened by $15.00\\text{ m}$. Rather than renumbering 40 km of downstream bridges, culverts, and sheet titles, the civil engineer inserts a **Station Equation `STA 12+415.00 BK = STA 12+400.00 AH`**. What does this mean?",
+            "options": [
+              "Station 12+415.00 coming from the Back (upstream) alignment is physically the exact same point on the ground as Station 12+400.00 going Ahead (downstream).",
+              "There is a 15-meter gap where no road pavement will be built.",
+              "The road elevation drops vertically by 15 meters.",
+              "All drawings after Station 12+400 must be deleted."
+            ],
+            "correctIdx": 0,
+            "why": "Station equations reconcile localized alignment length changes at a single boundary point so all downstream stationing (`AH = Ahead`) remains untouched.",
+            "pitfall": "Calculating linear guardrail length by subtracting Back and Ahead stations without accounting for the 15 m station equation offset introduces takeoff errors."
+          },
+          {
+            "type": "single",
+            "nodeId": "gis",
+            "slug": "shapefile-sidecar-prj-dbf-shx-requirements",
+            "difficulty": "beginner",
+            "question": "When a municipal GIS department sends a parcel boundary dataset as an Esri **Shapefile**, why does importing `Parcels.shp` fail or lose all street names and coordinate systems if the engineer only copies the single `.shp` file?",
+            "options": [
+              "A Shapefile is a multi-file container requiring at minimum `.shp` (geometry), `.shx` (spatial index), `.dbf` (dBASE attribute table), and `.prj` (WKT coordinate projection).",
+              "The .shp file is a virus unless renamed to .dwg.",
+              "Shapefiles can only be opened on Linux servers.",
+              "The street names are stored inside the Windows Registry."
+            ],
+            "correctIdx": 0,
+            "why": "Separating `.shp` from its mandatory `.shx`, `.dbf`, and `.prj` sidecar files strips attribute columns and CRS projection definitions.",
+            "pitfall": "Always distribute Shapefiles as a zipped archive containing all sidecar extensions (or migrate to single-file GeoPackage `.gpkg`)."
           }
         ]
       }
@@ -6688,6 +7456,102 @@
             "correctIdx": 0,
             "why": "Overlapping duplicate lines burn twice on CNC laser/plasma machines, destroying edge finish and wasting machine cycle time. OVERKILL sanitizes the vector database into clean continuous paths.",
             "pitfall": "Setting OVERKILL tolerance too high (e.g., > 1.0mm) can unintentionally merge closely spaced parallel architectural mullion lines or precision mechanical clearance offsets."
+          },
+          {
+            "type": "single",
+            "nodeId": "draft",
+            "slug": "iso-128-24-lineweight-sqrt2-progression-hierarchy",
+            "difficulty": "beginner",
+            "question": "Under **ISO 128-20 / ISO 128-24** technical drawing standards, line thicknesses follow a geometric progression with a common ratio of $\\sqrt{2} \\approx 1.41$ (`0.13, 0.18, 0.25, 0.35, 0.50, 0.70, 1.00 mm`). Why is this specific $\\sqrt{2}$ ratio used?",
+            "options": [
+              "Because ISO A-series paper sizes (`A0 -> A1 -> A2 -> A3 -> A4`) also scale by $\\sqrt{2}$, so reducing an A1 drawing to A3 (`50%`) shifts every lineweight down by exactly two standard ISO pen steps.",
+              "Because laser printers can only print multiples of 1.41.",
+              "Because 0.50 mm is the thickest line supported by AC1032 DWG.",
+              "To make all lines look identical in thickness."
+            ],
+            "correctIdx": 0,
+            "why": "Matching the $\\sqrt{2}$ pen progression to ISO 216 paper aspect ratios ($1:\\sqrt{2}$) ensures photographic or half-size plots maintain a standard ISO pen hierarchy (`0.70 mm` on A1 becomes `0.35 mm` on A3).",
+            "pitfall": "Assigning arbitrary lineweights like 0.30 mm and 0.35 mm destroys visual contrast between visible cut edges and dimension lines."
+          },
+          {
+            "type": "single",
+            "nodeId": "blocks",
+            "slug": "attdef-constant-vs-preset-vs-verify-flags",
+            "difficulty": "intermediate",
+            "question": "When defining a Block Attribute (`ATTDEF`) in GstarCAD 2027, what distinguishes the **Preset** mode flag from the **Constant** mode flag?",
+            "options": [
+              "A Preset attribute automatically populates its default value upon block insertion without pausing to prompt on the command line, yet remains individually editable per instance afterwards (unlike Constant, which cannot be edited).",
+              "Preset attributes are invisible and never plot.",
+              "Constant attributes prompt the user three times during insertion.",
+              "Preset attributes delete themselves when the drawing is saved."
+            ],
+            "correctIdx": 0,
+            "why": "Preset mode gives the best of both worlds for title blocks and equipment tags: fast, uninterrupted block placement (`no prompt pause`) while retaining full per-instance `EATTEDIT` / `Ctrl+1` editability.",
+            "pitfall": "Using Constant mode for revision or sheet-number tags makes it impossible to change the value per sheet without exploding the block."
+          },
+          {
+            "type": "single",
+            "nodeId": "layers",
+            "slug": "defpoints-layer-viewport-freeze-trap",
+            "difficulty": "advanced",
+            "question": "Why is it considered a severe CAD standards anti-pattern to place Paper Space Layout Viewport borders on the system-generated **`Defpoints`** layer instead of a dedicated **`G-ANNO-VPRT`** layer set to `Plot = No`?",
+            "options": [
+              "Because when Layer 0 is frozen or turned off, entities on the Defpoints layer become completely unselectable and their grips freeze—locking you out of resizing or unlocking the viewport border.",
+              "Defpoints prints in bright neon pink on PDF plots.",
+              "Defpoints increases file size by 100 MB.",
+              "GstarCAD deletes the Defpoints layer on every save."
+            ],
+            "correctIdx": 0,
+            "why": "`Defpoints` is internally coupled to `Layer 0` for dimension definition nodes; create a dedicated `VPORTS` or `G-ANNO-VPRT` layer with the Printer icon toggled to `No Plot` instead.",
+            "pitfall": "Putting construction geometry or viewports on `Defpoints` causes mystifying selection failures whenever `Layer 0` is frozen."
+          },
+          {
+            "type": "single",
+            "nodeId": "annotations",
+            "slug": "field-evaluation-fieldeval-bitmask-settings",
+            "difficulty": "beginner",
+            "question": "A project title block uses dynamic **Fields** (`PlotDate`, `Filename`, `Author`) inside block attributes, but the plotted PDF still shows last week's date. Which system variable bitmask governs automatic Field updates?",
+            "options": [
+              "`FIELDEVAL = 31` (sum of bitcodes: 1 Open + 2 Save + 4 Plot + 8 eTransmit + 16 Regen).",
+              "`FIELDDISPLAY = 0` (which only hides the grey background shading).",
+              "`TEXTEVAL = 1`.",
+              "`ATTDIA = 0`."
+            ],
+            "correctIdx": 0,
+            "why": "`FIELDEVAL` is a bitcode sum (`1+2+4+8+16 = 31`); if bit `4` (Plot) and bit `2` (Save) are cleared (`FIELDEVAL = 0`), fields remain frozen until manually updated via `UPDATEFIELD`.",
+            "pitfall": "Confusing `FIELDDISPLAY` (grey UI background toggle, never plots) with `FIELDEVAL` (evaluation trigger) is a common mistake."
+          },
+          {
+            "type": "single",
+            "nodeId": "draft",
+            "slug": "overkill-delete-duplicate-overlapping-geometry",
+            "difficulty": "beginner",
+            "question": "Before sending a 2D `.dxf` profile to a CNC fiber-laser cutter or extruding a 2D closed profile into a 3D solid, why is running **`OVERKILL`** mandatory?",
+            "options": [
+              "OVERKILL detects and removes stacked duplicate lines, collinear overlapping segments, and zero-length geometry that would cause a CNC laser head to double-cut and burn the steel edge (or cause EXTRUDE to fail).",
+              "OVERKILL deletes all layers and text styles from the drawing.",
+              "OVERKILL converts all circles into octagons.",
+              "OVERKILL scales the drawing by 25.4x."
+            ],
+            "correctIdx": 0,
+            "why": "Stacked duplicate lines are invisible on screen but generate duplicate G-code cutting paths in CAM software and prevent clean `JOIN` / `REGION` loops.",
+            "pitfall": "Set a sensible numeric fuzz tolerance (e.g., `0.01 mm`) in `OVERKILL` and check *Combine co-linear objects that partially overlap*."
+          },
+          {
+            "type": "single",
+            "nodeId": "blocks",
+            "slug": "xclip-polygonal-boundary-and-invert-clip",
+            "difficulty": "intermediate",
+            "question": "You need to show an enlarged `1:20` detail of a single structural stairwell from an attached floor plan Xref while masking out a rectangular zone inside the middle for a notes schedule. Which **`XCLIP`** capabilities accomplish this?",
+            "options": [
+              "Use `XCLIP > New Boundary > Polygonal` (or `Invert clip` to mask an interior region) and set `XCLIPFRAME = 2` so the clipping boundary is visible on screen but hidden on PDF plots.",
+              "Open the consultant's Xref file and erase the rest of the building.",
+              "Draw a giant solid white hatch over the entire drawing.",
+              "Explode the Xref and run TRIM 5,000 times."
+            ],
+            "correctIdx": 0,
+            "why": "`XCLIP` clips the display of any Xref or Block Reference non-destructively using rectangular, polygonal, or inverted boundaries, governed by `XCLIPFRAME` (`0` hidden, `1` visible+plots, `2` visible+no plot).",
+            "pitfall": "Never explode and trim an external reference to create a detail callout; use `XCLIP` or a Paper Space viewport."
           }
         ]
       },
@@ -6925,6 +7789,86 @@
             "correctIdx": 0,
             "why": "Visibility parameters act like internal layer filters within the block, allowing one door symbol to show 30°, 45°, or 90° swings. Stretch actions dynamically deform vertex matrices.",
             "pitfall": "Combining too many unconstrained stretch and rotate actions on the same parameter creates geometric feedback cycles that distort blocks when dragged off-axis."
+          },
+          {
+            "type": "single",
+            "nodeId": "annotations",
+            "slug": "first-angle-vs-third-angle-orthographic-projection-symbol",
+            "difficulty": "beginner",
+            "question": "You receive a European subcontractor drawing bearing the **ISO First-Angle Projection** truncated-cone symbol in the title block (cone point facing left, concentric circles on the right). Where is the **Left-Hand Side View** placed relative to the Front View?",
+            "options": [
+              "On the RIGHT side of the Front View (the object is positioned between the observer and the projection plane).",
+              "On the LEFT side of the Front View (Third-Angle ASME convention).",
+              "Directly below the Front View upside down.",
+              "On a separate drawing sheet only."
+            ],
+            "correctIdx": 0,
+            "why": "In First-Angle Projection (ISO-E, standard in Europe/Asia), you look from the left and project the image onto the plane *behind* the part (to the right of the Front View). In Third-Angle (ISO-A / ASME, US), the Left view sits on the Left.",
+            "pitfall": "Misreading a First-Angle projection as Third-Angle causes mirror-image machining of asymmetric brackets and ports."
+          },
+          {
+            "type": "single",
+            "nodeId": "draft",
+            "slug": "psltscale-msltscale-ltscale-viewport-harmony",
+            "difficulty": "intermediate",
+            "question": "An engineer sets `LTSCALE = 1.0`, `MSLTSCALE = 1`, and `CELTSCALE = 1.0`. However, on `Layout2`, dashed hidden lines inside a `1:50` viewport appear as solid continuous lines, while `Layout1` looks perfect. Which per-layout variable must be updated on `Layout2`?",
+            "options": [
+              "Set `PSLTSCALE = 1` while `Layout2` is active, then run `REGENALL` (`REA`).",
+              "Set `DIMSCALE = 5000`.",
+              "Explode all dashed lines into individual segments.",
+              "Change the viewport border layer to Defpoints."
+            ],
+            "correctIdx": 0,
+            "why": "Unlike `LTSCALE` (which is global to the DWG database), `PSLTSCALE` is stored per-Layout dictionary; switching to `Layout2`, setting `PSLTSCALE = 1`, and running `REGENALL` normalizes dash lengths to Paper Space millimeters.",
+            "pitfall": "Changingentity-level `CELTSCALE` to `50` to fix one broken layout viewport ruins the linetype appearance in Model Space and all other viewports."
+          },
+          {
+            "type": "single",
+            "nodeId": "blocks",
+            "slug": "wblock-entire-drawing-vs-purge-command",
+            "difficulty": "intermediate",
+            "question": "Why does running **`-WBLOCK`** (exporting `*` Whole Drawing to a new file) often shrink a corrupted or bloated `.dwg` file significantly more than running `PURGE` inside the original file?",
+            "options": [
+              "WBLOCK streams only active graphical entities and their directly referenced symbol table records into a brand-new AC1032 header, leaving behind unreferenced Named Object Dictionary bloat and fragmented handle gaps.",
+              "WBLOCK deletes all Model Space geometry and keeps only Paper Space.",
+              "WBLOCK converts vector lines into lossy JPEG compression.",
+              "WBLOCK strips all layer names and merges everything onto Layer 0."
+            ],
+            "correctIdx": 0,
+            "why": "In-place `PURGE` only cleans known symbol tables, whereas `-WBLOCK (*)` performs a clean forward-only `WblockClone` deep copy into a pristine database container.",
+            "pitfall": "Before running `-WBLOCK (*)`, verify whether custom project dictionaries or saved `Sheet Set` associations need to be preserved."
+          },
+          {
+            "type": "single",
+            "nodeId": "layers",
+            "slug": "layer-states-manager-las-viewport-restoration",
+            "difficulty": "intermediate",
+            "question": "How does saving a **Named Layer State (`LAYERSTATE` / `.las`)** in GstarCAD 2027 accelerate multi-discipline sheet production from a single architectural floor plan?",
+            "options": [
+              "It snapshots the exact On/Off, Freeze, Color, Lineweight, and Linetype matrix for a specific discipline (e.g., Furniture Plan vs. Reflected Ceiling Plan vs. Fire Egress Plan) and restores it to any viewport in one click.",
+              "It merges all layers into a single locked block.",
+              "It exports the drawing to 3ds Max.",
+              "It deletes all frozen layers from the hard drive."
+            ],
+            "correctIdx": 0,
+            "why": "Layer States (`LAS`) allow a single master floor plan model to drive 8 different discipline layout viewports by restoring saved visibility/color profiles per viewport.",
+            "pitfall": "Export your standard `.las` files to a shared network folder so new drawings can import them even if started from a blank template."
+          },
+          {
+            "type": "single",
+            "nodeId": "annotations",
+            "slug": "dimassoc-2-true-associative-dimensions-vs-exploded",
+            "difficulty": "beginner",
+            "question": "What is the behavioral difference between creating dimensions with **`DIMASSOC = 2`** vs. **`DIMASSOC = 1`** or **`0`** in GstarCAD 2027?",
+            "options": [
+              "`DIMASSOC = 2` creates truly associative dimensions linked via persistent object reactors to geometric OSNAP points, so stretching a wall automatically updates the dimension value and extension lines.",
+              "`DIMASSOC = 0` is the modern BIM standard because it explodes dimensions into raw lines.",
+              "`DIMASSOC = 2` locks the drawing so dimensions cannot be deleted.",
+              "`DIMASSOC` controls arrow size in millimeters."
+            ],
+            "correctIdx": 0,
+            "why": "`DIMASSOC = 2` attaches geometric reactors (`AcDbDimAssoc`) to entity vertices; `DIMASSOC = 1` creates non-associative dimension objects; `DIMASSOC = 0` explodes dimensions into raw lines and text on creation.",
+            "pitfall": "Never set `DIMASSOC = 0` in production templates; exploded dimensions are a nightmare to revise."
           }
         ]
       },
@@ -7204,6 +8148,86 @@
             "correctIdx": 0,
             "why": "Manually creating 50 layout tabs along a 20 km alignment requires tedious viewport rotation, math calculations, and manual title block indexing. LAYOUTBYPATH automates the entire strip map production.",
             "pitfall": "Drawing alignment path polylines with inconsistent directional vertex flow will cause generated Paper Space layout sheets to progress in reverse chainage order."
+          },
+          {
+            "type": "single",
+            "nodeId": "layers",
+            "slug": "byblock-vs-bylayer-color-inheritance-rules",
+            "difficulty": "intermediate",
+            "question": "When authoring reusable symbol geometry on **Layer 0** inside GstarCAD 2027's Block Editor (`BEDIT`), what is the behavioral difference between assigning entities **`Color = ByLayer`** vs. **`Color = ByBlock`**?",
+            "options": [
+              "Entities on Layer 0 with `ByLayer` inherit the color of the layer on which the block is inserted; entities with `ByBlock` inherit the explicit entity-level color override applied to the Block Reference itself.",
+              "ByBlock forces the block to always print in solid black.",
+              "ByLayer prevents the block from being moved or rotated.",
+              "There is zero difference between ByLayer and ByBlock on Layer 0."
+            ],
+            "correctIdx": 0,
+            "why": "Drawing internal geometry on Layer 0 with `ByLayer` allows the inserted block to adopt its host layer's properties; `ByBlock` allows an engineer to override a single inserted block instance's color in `Ctrl+1` without changing layers.",
+            "pitfall": "Drawing internal block geometry on a named layer like `A-WALL` instead of `Layer 0` prevents the block from hiding when its host insertion layer is turned off."
+          },
+          {
+            "type": "single",
+            "nodeId": "annotations",
+            "slug": "annotative-object-scale-list-bloat-cleanup",
+            "difficulty": "intermediate",
+            "question": "When an annotative `MTEXT` or `DIMENSION` object displays a giant bouquet of 15 overlapping ghosts in different sizes whenever you click it in Model Space, which system variable controls this selection preview, and how do you strip unused scales?",
+            "options": [
+              "Set `SELECTIONANNODISPLAY = 0` to hide inactive scale ghosts on selection, and use `OBJECTSCALE` to delete unneeded annotative scales from the entity.",
+              "Set `ANNOALLVISIBLE = 1` and explode the text.",
+              "Turn off the GPU hardware acceleration.",
+              "Set `MIRRTEXT = 1`."
+            ],
+            "correctIdx": 0,
+            "why": "`SELECTIONANNODISPLAY = 0` stops GstarCAD from rendering every single assigned scale representation simultaneously when an annotative entity is selected.",
+            "pitfall": "Enabling `ANNOAUTOSCALE = 4` accidentally adds every temporary zoom scale you click on the status bar to every annotative object in the drawing!"
+          },
+          {
+            "type": "single",
+            "nodeId": "draft",
+            "slug": "polarkey-angbase-angdir-survey-bearing-setup",
+            "difficulty": "intermediate",
+            "question": "By default in standard mechanical/architectural CAD (`ANGBASE = 0, ANGDIR = 0`), $0^\\circ$ points East (`+X`) and angles increase counter-clockwise. How do you configure `UNITS` for a civil boundary deed written in **Clockwise Azimuths from North**?",
+            "options": [
+              "Set Direction (`ANGBASE`) to North ($90^\\circ$ / +Y) and set `ANGDIR = 1` (Clockwise), with Angle Type set to Surveyor's Units or Deg/Min/Sec.",
+              "Rotate the computer monitor 90 degrees clockwise.",
+              "Set `LTSCALE = -1`.",
+              "Use negative lengths for all lines."
+            ],
+            "correctIdx": 0,
+            "why": "`ANGBASE` defines the zero-azimuth reference direction and `ANGDIR = 1` switches positive angular rotation from counter-clockwise to clockwise.",
+            "pitfall": "Forgetting to reset `ANGBASE = 0` and `ANGDIR = 0` after plotting a survey boundary causes subsequent polar arrays and text rotations to go backwards."
+          },
+          {
+            "type": "single",
+            "nodeId": "blocks",
+            "slug": "dynamic-block-visibility-states-vs-lookup-tables",
+            "difficulty": "advanced",
+            "question": "Inside GstarCAD 2027's Block Editor (`BEDIT`), you want a single dropdown grip on a structural steel column block (`W10x33`, `W10x49`, `W12x65`) to simultaneously drive flange width $b_f$, depth $d$, and web thickness $t_w$ dimensions. Which parameter/action pair should you use?",
+            "options": [
+              "A **Lookup Parameter + Lookup Action** (or Block Properties Table) mapped to Linear Stretch parameters for $d$, $b_f$, and $t_w$.",
+              "Draw 500 separate static blocks and explode them.",
+              "Use a Rotation Action only.",
+              "Use a Hatch object."
+            ],
+            "correctIdx": 0,
+            "why": "Whereas a Visibility State hides/shows separate duplicate geometry, a Lookup Table drives parametric linear distance grips (`d`, `bf`, `tw`) on a single geometric outline—keeping the block lightweight.",
+            "pitfall": "Duplicating geometry across 50 Visibility States instead of driving 3 Linear Stretch parameters via a Lookup Table bloats block definitions by 50x."
+          },
+          {
+            "type": "single",
+            "nodeId": "layers",
+            "slug": "layiso-lock-and-fade-vs-off-mode",
+            "difficulty": "beginner",
+            "question": "When running **`LAYISO`** (Layer Isolate) to focus on congested HVAC ductwork in Model Space, why do experienced engineers prefer the **`Lock and fade`** setting (`LAYLOCKFADECTL = 60`) over turning unisolated layers completely **`Off`**?",
+            "options": [
+              "Lock and fade keeps surrounding structural grids and architectural walls visible at 60% dimmed intensity for spatial reference and OSNAP snapping while protecting them from accidental erasure.",
+              "Lock and fade permanently deletes the other layers.",
+              "Off mode corrupts the layer table.",
+              "LAYISO only works in Paper Space."
+            ],
+            "correctIdx": 0,
+            "why": "With `LAYISO` set to `Lock and fade`, you retain full visual context and OSNAP coordinate snapping to background structural walls without risking accidental selection or modification.",
+            "pitfall": "If `LAYISO` turns everything pitch black instead of fading, type `LAYISO` &rarr; `Settings` &rarr; `Lock and fade`."
           }
         ]
       }
@@ -8569,6 +9593,102 @@
             "correctIdx": 0,
             "why": "Size optimization maintains the existing CAD feature structure. Shape optimization morphs freeform outer boundary nodes to achieve uniform surface stress distributions along fillets.",
             "pitfall": "Running shape optimization without geometric curvature constraints produces wavy, organic contours that cannot be machined on standard 3-axis CNC equipment."
+          },
+          {
+            "type": "single",
+            "nodeId": "sim",
+            "slug": "von-mises-octahedral-distortion-energy-yield",
+            "difficulty": "intermediate",
+            "question": "Why is the **von Mises Equivalent Stress ($\\sigma_{vm}$)** criterion used to predict yielding in ductile structural metals (such as S355 steel or 6061-T6 aluminum), whereas the **Rankine Maximum Principal Stress ($\\sigma_1$)** criterion is reserved for brittle materials (cast iron, ceramics, concrete)?",
+            "options": [
+              "Ductile metals yield via shear dislocation slip along crystal planes governed by octahedral distortion energy ($J_2$), whereas brittle materials fracture suddenly by cleavage perpendicular to maximum tensile principal stress ($\\sigma_1$).",
+              "von Mises stress ignores shear stresses completely.",
+              "Ductile metals cannot experience compressive stress.",
+              "Rankine stress is measured in watts per meter-kelvin."
+            ],
+            "correctIdx": 0,
+            "why": "Under pure hydrostatic pressure ($\\sigma_1 = \\sigma_2 = \\sigma_3 = -p$), von Mises stress is zero because ductile metals do not yield under pure hydrostatic compression; brittle materials fail when $\\sigma_1$ reaches tensile fracture strength.",
+            "pitfall": "Using von Mises stress to evaluate grey cast iron or unreinforced concrete dangerously underpredicts tensile cracking failure."
+          },
+          {
+            "type": "single",
+            "nodeId": "mesh",
+            "slug": "mesh-independence-grid-convergence-index-gci",
+            "difficulty": "intermediate",
+            "question": "In ASME V&V 10 / V&V 20 verification guidelines for FEA and CFD reports, why must an analyst perform a **3-Grid Mesh Independence / Grid Convergence Index (GCI)** study before signing off on peak stress or pressure drop?",
+            "options": [
+              "To prove that the target engineering quantity (e.g., displacement, lift drag, or fillet stress outside singularities) asymptotes to a discretization-independent continuum value as element size $h \\to 0$.",
+              "To make the rainbow contour plot look smoother for marketing brochures.",
+              "To verify that the CAD workstation has enough RAM.",
+              "Because FEA solvers require odd numbers of elements."
+            ],
+            "correctIdx": 0,
+            "why": "Comparing Coarse ($h_3$), Medium ($h_2$), and Fine ($h_1$) meshes quantifies spatial discretization error via Richardson Extrapolation.",
+            "pitfall": "Never run a mesh convergence study on a sharp $90^\\circ$ unfilleted re-entrant corner: elastic stress there is mathematically infinite ($\\sigma \\to \\infty$ as $h \\to 0$)!"
+          },
+          {
+            "type": "single",
+            "nodeId": "cfd",
+            "slug": "courant-friedrichs-lewy-cfl-number-transient-cfd",
+            "difficulty": "intermediate",
+            "question": "In a transient CFD or explicit dynamic simulation with local flow/wave velocity $u$, smallest mesh cell size $\\Delta x$, and time step $\\Delta t$, what does the **Courant-Friedrichs-Lewy (CFL) condition ($\\text{Co} = \\frac{u \\Delta t}{\\Delta x} \\le 1$)** enforce?",
+            "options": [
+              "That fluid particles or acoustic waves do not travel farther than one grid cell ($\\Delta x$) within a single discrete time step ($\\Delta t$), preventing numerical instability and solver divergence.",
+              "That the fluid viscosity remains constant with temperature.",
+              "That the Reynolds number remains laminar below 2,300.",
+              "That steady-state mass conservation is ignored."
+            ],
+            "correctIdx": 0,
+            "why": "If you halve the minimum mesh size ($\\Delta x / 2$) in an explicit or LES solver, you must also halve the time step ($\\Delta t / 2$) to keep $\\text{Co} \\le 1$.",
+            "pitfall": "A single sliver cell with tiny $\\Delta x$ in a high-velocity nozzle throat can force the global explicit time step down by $100\\times$."
+          },
+          {
+            "type": "single",
+            "nodeId": "fea",
+            "slug": "rbe2-kinematic-vs-rbe3-distributing-coupling",
+            "difficulty": "advanced",
+            "question": "In Nastran / Abaqus / CalculiX structural FEA, when transferring a bearing load or remote moment to a flexible cylindrical housing bore, what is the critical difference between an **RBE2 (Kinematic Coupling)** spider and an **RBE3 (Distributing Coupling)** spider?",
+            "options": [
+              "An RBE2 enforces rigid zero-relative-displacement between slave nodes (artificially stiffening the housing bore into an unbending rigid ring), whereas an RBE3 distributes forces/moments via weighted interpolation without adding artificial stiffness.",
+              "RBE2 adds zero stiffness, whereas RBE3 turns the entire model into a rigid body.",
+              "RBE2 and RBE3 are identical elements.",
+              "RBE3 can only be used in 2D axisymmetric thermal models."
+            ],
+            "correctIdx": 0,
+            "why": "RBE2 locks relative slave node motion (infinite stiffness), preventing ovalization of thin housing bores; RBE3 acts as a force-distribution equation that lets the bore deform naturally.",
+            "pitfall": "Using an RBE2 spider across a large flexible flange face severely underpredicts flange bending stress."
+          },
+          {
+            "type": "single",
+            "nodeId": "sim",
+            "slug": "miner-rule-cumulative-fatigue-damage-sn-curve",
+            "difficulty": "intermediate",
+            "question": "Under **Palmgren-Miner's Linear Cumulative Fatigue Damage Rule** ($D = \\sum \\frac{n_i}{N_i}$), a suspension bracket experiences $n_1 = 20,000$ cycles at a stress amplitude where endurance life is $N_1 = 50,000$ cycles, and $n_2 = 150,000$ cycles where $N_2 = 500,000$ cycles. What is the cumulative damage fraction $D$?",
+            "options": [
+              "D = 0.70 (20,000/50,000 + 150,000/500,000 = 0.40 + 0.30).",
+              "D = 1.50 (immediate fracture).",
+              "D = 0.00 (infinite fatigue life).",
+              "D = 0.10."
+            ],
+            "correctIdx": 0,
+            "why": "Miner's rule sums the cycle fractions $n_i / N_i$ across each stress bin from Rainflow cycle counting; fatigue crack initiation is predicted when $D \\ge 1.0$ (or $D \\ge 0.5$ with a design factor).",
+            "pitfall": "Remember that mean tensile stress ($\\sigma_m > 0$) significantly lowers fatigue life $N_i$ and must be corrected via **Goodman** or **Gerber** mean-stress diagrams."
+          },
+          {
+            "type": "single",
+            "nodeId": "mesh",
+            "slug": "contact-master-slave-surface-discretization-rules",
+            "difficulty": "intermediate",
+            "question": "When defining a non-linear surface-to-surface contact pair in FEA between a **stiff, coarsely meshed steel punch** and a **soft, finely meshed rubber gasket**, which surface should be assigned as the **Master (Target)** and which as the **Slave (Contact)**?",
+            "options": [
+              "Assign the stiffer, more coarsely meshed steel surface as the **Master**, and the softer, more finely meshed rubber surface as the **Slave** (since slave nodes are prevented from penetrating master facets).",
+              "Assign the soft rubber as Master so the steel punch penetrates through it.",
+              "Both surfaces must have identical element counts and materials.",
+              "Contact pairs work only when meshes are separated by 10 meters."
+            ],
+            "correctIdx": 0,
+            "why": "In node-to-surface and surface-to-surface contact formulations, slave nodes are checked for penetration against master segments; making the finer, softer surface the slave prevents master corners from poking unimpeded between coarse slave nodes.",
+            "pitfall": "Reversing Master/Slave assignment on dissimilar mesh densities causes severe contact chattering and non-convergence."
           }
         ]
       },
@@ -8790,6 +9910,86 @@
             "correctIdx": 0,
             "why": "Real machinery experiences chaotic shock and vibration. Rainflow counting pairs corresponding peak-valley reversals into closed hysteresis stress loops that map directly to material S-N fatigue curves.",
             "pitfall": "Neglecting mean stress corrections (Goodman or Gerber relationships) during fatigue damage accumulation will overestimate fatigue life for components with high tensile residual stresses."
+          },
+          {
+            "type": "single",
+            "nodeId": "fea",
+            "slug": "shear-locking-first-order-c3d8-brick-elements",
+            "difficulty": "advanced",
+            "question": "When modeling a thin cantilever beam in bending using a single layer of **first-order linear hexahedral (C3D8 / 8-node brick) elements with full integration**, the FEA displacement is underpredicted by 60%. What numerical pathology is occurring?",
+            "options": [
+              "**Shear Locking**: linear full-integration elements cannot curve their edges, developing parasitic artificial shear strains ($\\gamma_{xz}$) at Gauss integration points that make the beam behave far too stiffly.",
+              "Hourglassing (zero-energy deformation mode).",
+              "Rigid body motion due to missing boundary conditions.",
+              "Thermal runaway."
+            ],
+            "correctIdx": 0,
+            "why": "First-order full-integration elements approximate curved bending via trapezoidal shapes, inducing parasitic shear stiffness; switch to quadratic 20-node elements (`C3D20R`), incompatible modes (`C3D8I`), or shell elements.",
+            "pitfall": "Conversely, switching to first-order *reduced* integration (`C3D8R` with 1 Gauss point) cures shear locking but requires multiple elements through thickness to prevent **Hourglassing**."
+          },
+          {
+            "type": "single",
+            "nodeId": "sim",
+            "slug": "buckling-eigenvalue-linear-vs-nonlinear-imperfection",
+            "difficulty": "advanced",
+            "question": "Why must the critical load factor ($\\lambda_{cr}$) from a **Linear Eigenvalue Buckling (`SOL 105`)** analysis of a thin cylindrical shell or slender column never be used directly as the allowable design load without a **Nonlinear Riks / Imperfection** check?",
+            "options": [
+              "Linear eigenvalue buckling assumes perfect geometry and small elastic displacements, ignoring initial manufacturing ovality/out-of-straightness and material yielding that can reduce real collapse capacity by 30%–70% in thin shells.",
+              "Eigenvalue buckling only applies to tension rods.",
+              "Linear buckling underpredicts strength by 10x.",
+              "Euler buckling is independent of column length."
+            ],
+            "correctIdx": 0,
+            "why": "Thin shells (silos, aerospace fuselages, wind towers) are acutely imperfection-sensitive (knockdown factor $\\rho$); seed the first eigenvalue mode scaled by fabrication tolerance ($L/1000$) into a geometric/material nonlinear Riks arc-length analysis.",
+            "pitfall": "Treating an unfactored $\\lambda_1 = 1.2$ linear eigenvalue on a thin shell as safe can lead to catastrophic snap-through collapse."
+          },
+          {
+            "type": "single",
+            "nodeId": "mesh",
+            "slug": "jacobian-ratio-and-skewness-element-quality",
+            "difficulty": "intermediate",
+            "question": "Before launching a structural FEA or CFD solve, mesh diagnostics flag 45 distorted tetrahedral/hexahedral elements with **Skewness $> 0.96$** and **negative Jacobian determinants ($|J| \\le 0$)**. Why will the solver abort?",
+            "options": [
+              "The Jacobian matrix maps ideal parent element coordinates ($\\xi, \\eta, \\zeta$) to physical coordinates ($x, y, z$); a zero or negative determinant $|J| \\le 0$ means the element is folded inside-out with negative volume.",
+              "Negative Jacobians only change the color of the post-processor legend.",
+              "High skewness makes the solver run 10x faster.",
+              "Jacobian determinants measure the material's Young's modulus."
+            ],
+            "correctIdx": 0,
+            "why": "Numerical Gaussian quadrature integrates stiffness/flux using $\\int (\\dots) |J| \\,d\\xi d\\eta d\\zeta$; if $|J| \\le 0$, the element stiffness matrix ceases to be positive-definite.",
+            "pitfall": "Use CAD geometry Defeaturing (removing tiny $0.2\\text{ mm}$ cosmetic fillets and sliver faces in GstarCAD before STEP export) to eliminate skewed elements at the source."
+          },
+          {
+            "type": "single",
+            "nodeId": "cfd",
+            "slug": "cavitation-incipience-vapor-pressure-pump-impeller",
+            "difficulty": "intermediate",
+            "question": "In a CFD simulation of a centrifugal water pump impeller operating at $20^\\circ\\text{C}$ ($P_{\\text{vapor}} \\approx 2.34\\text{ kPa absolute}$), what physical condition triggers **Cavitation** on the suction side of the impeller blades?",
+            "options": [
+              "Local static absolute pressure drops below the liquid's saturation vapor pressure ($P_{\\text{abs}} < P_{\\text{vapor}}$), causing vapor bubbles to nucleate and subsequently implode violently in high-pressure recovery zones.",
+              "Fluid temperature exceeds the boiling point at the pump outlet.",
+              "Air leaks in through the discharge flange bolts.",
+              "The impeller rotates slower than 100 RPM."
+            ],
+            "correctIdx": 0,
+            "why": "High local velocity over the blade leading edge lowers static pressure via Bernoulli's principle; if Net Positive Suction Head Available ($\\text{NPSH}_A$) is below $\\text{NPSH}_R$, vapor cavities form and erode metal upon collapse.",
+            "pitfall": "When checking cavitation in CFD, always verify the operating reference pressure (`P_ref = 101,325 Pa`) so gauge pressure isn't confused with absolute pressure."
+          },
+          {
+            "type": "single",
+            "nodeId": "fea",
+            "slug": "plane-stress-vs-plane-strain-2d-idealization",
+            "difficulty": "intermediate",
+            "question": "When simplifying a 3D geometry into a 2D planar FEA model, which physical assumption separates **Plane Stress** ($\\sigma_z = \\tau_{xz} = \\tau_{yz} = 0$) from **Plane Strain** ($\\varepsilon_z = \\gamma_{xz} = \\gamma_{yz} = 0$)?",
+            "options": [
+              "Plane Stress models thin flat plates loaded in-plane (free to contract out-of-plane via Poisson's ratio, $\\varepsilon_z \\ne 0$), whereas Plane Strain models very long prismatic bodies like gravity dams, tunnels, or retaining walls ($\u000barepsilon_z = 0, \\sigma_z \\ne 0$).",
+              "Plane Stress applies to tunnels and dams, while Plane Strain applies to thin sheet metal.",
+              "Both assume out-of-plane stress and strain are simultaneously zero.",
+              "2D FEA models cannot calculate shear stress."
+            ],
+            "correctIdx": 0,
+            "why": "In thin sheet metal ($t \\ll L$), the free front/back faces cannot sustain $\\sigma_z$; in a 500-meter-long concrete dam or pipeline, longitudinal strain $\\varepsilon_z$ is constrained to zero, inducing out-of-plane stress $\\sigma_z = \\nu(\\sigma_x + \\sigma_y)$.",
+            "pitfall": "Selecting Plane Stress instead of Plane Strain for a geotechnical retaining wall underpredicts effective confinement stiffness by $1/(1-\\nu^2)$."
           }
         ]
       },
@@ -9021,6 +10221,86 @@
             "correctIdx": 0,
             "why": "CSF converts surface tension into a localized volumetric body force. Numerical misalignments between pressure gradients and surface tension vectors generate unphysical circulating micro-vortices.",
             "pitfall": "Spurious parasite currents in microfluidics can exceed the true physical droplet velocity, distorting capillary breakup and droplet coalescence predictions."
+          },
+          {
+            "type": "single",
+            "nodeId": "cfd",
+            "slug": "y-plus-dimensionless-wall-distance-turbulence",
+            "difficulty": "advanced",
+            "question": "In a RANS CFD simulation of an external aerodynamic fairing or internal pipe bend, what is the physical definition of the dimensionless wall distance **$y^+ = \\frac{u_\\tau y}{\\nu}$**, and what target $y^+$ range is required by low-Reynolds **$k$-$\\omega$ SST** without wall functions?",
+            "options": [
+              "$y^+$ is the local Reynolds number based on friction velocity $u_\\tau$ and first-cell centroid height $y$; resolving the viscous sublayer directly with $k$-$\\omega$ SST requires **$y^+ \\le 1.0$**.",
+              "$y^+$ must always be set to exactly 5,000 for all turbulence models.",
+              "$y^+$ measures the Mach number at the supersonic shock wave.",
+              "$y^+$ is the ratio of outlet pressure to inlet temperature."
+            ],
+            "correctIdx": 0,
+            "why": "To integrate through the laminar viscous sublayer ($u^+ = y^+$) down to the wall without empirical log-law wall functions, the first prism layer must sit at $y^+ \\approx 1$; standard $k$-$\\epsilon$ wall functions require $30 \\le y^+ \\le 300$.",
+            "pitfall": "Placing the first prism cell in the buffer layer ($5 < y^+ < 25$) invalidates both low-Re integration and standard log-law wall functions."
+          },
+          {
+            "type": "single",
+            "nodeId": "fea",
+            "slug": "saint-venant-principle-remote-boundary-conditions",
+            "difficulty": "intermediate",
+            "question": "How does **Saint-Venant's Principle** guide an FEA engineer when deciding where to truncate a structural sub-model and apply idealized fixed constraints (`SPC`) or uniform point loads?",
+            "options": [
+              "Place idealized constraints or concentrated loads at least 1 to 2 characteristic cross-section dimensions ($1D$–$2D$) away from the critical stress region of interest so localized boundary artifacts decay.",
+              "Apply point forces directly onto the single node where you plan to read peak stress.",
+              "Fixed boundary conditions have zero influence on adjacent element stresses.",
+              "Saint-Venant's principle applies only to supersonic compressible gas flows."
+            ],
+            "correctIdx": 0,
+            "why": "Self-equilibrating differences between an idealized boundary condition and the true physical traction distribution decay exponentially within ~1–2 characteristic widths.",
+            "pitfall": "Reading von Mises stress on the exact row of nodes tied to a rigid `RBE2` spider or fixed `SPC` reports artificial numerical stress spikes."
+          },
+          {
+            "type": "single",
+            "nodeId": "sim",
+            "slug": "modal-analysis-natural-frequency-stiffness-mass-ratio",
+            "difficulty": "beginner",
+            "question": "For an undamped single-degree-of-freedom structural component ($f_n = \\frac{1}{2\\pi}\\sqrt{k/m}$), if you need to raise its fundamental natural frequency $f_1$ by **+41%** ($\\sqrt{2}\\times$) to avoid resonance with a $50\\text{ Hz}$ motor without adding mass $m$, how much must stiffness $k$ increase?",
+            "options": [
+              "Stiffness $k$ must double ($2.0\\times$), because natural frequency scales with the square root of stiffness ($\\sqrt{2.0} \\approx 1.414$).",
+              "Stiffness $k$ must increase by 41%.",
+              "Stiffness $k$ must be reduced by half.",
+              "Natural frequency is independent of stiffness and mass."
+            ],
+            "correctIdx": 0,
+            "why": "Because $\\omega_n = \\sqrt{k/m}$, doubling section bending stiffness $EI$ (for example, by adding a tall stiffening rib that increases moment of inertia $I$ with minimal mass penalty) raises $f_n$ by $41\\%$.",
+            "pitfall": "Adding thick flat steel plates increases mass $m$ almost as fast as stiffness $k$, failing to shift the resonant frequency."
+          },
+          {
+            "type": "single",
+            "nodeId": "mesh",
+            "slug": "swept-hexahedral-vs-free-tetrahedral-meshing",
+            "difficulty": "beginner",
+            "question": "Why do FEA and CFD analysts slice complex 3D CAD solids into sweepable sub-volumes to generate **Structured / Swept Hexahedral (Brick)** meshes rather than relying solely on automatic **4-Node Tetrahedral (`C3D4`)** meshes?",
+            "options": [
+              "Hexahedral elements fill a given volume with ~4x–6x fewer elements/DOF than tetrahedra, align neatly with boundary-layer flow gradients, and avoid the artificial overly-stiff behavior of linear `C3D4` tetrahedra.",
+              "Tetrahedral elements cannot be used on 64-bit computers.",
+              "Hexahedral meshes require zero boundary conditions.",
+              "Linear 4-node tetrahedra are always more accurate than 20-node hexahedra."
+            ],
+            "correctIdx": 0,
+            "why": "Constant-strain 4-node tetrahedra (`C3D4`) exhibit severe volumetric and bending locking; when geometry cannot be swept into hexahedra, always use **10-node quadratic tetrahedra (`C3D10`)**.",
+            "pitfall": "Never run production structural bending stress sign-off on a coarse 1st-order 4-node tetrahedral (`C3D4`) mesh!"
+          },
+          {
+            "type": "single",
+            "nodeId": "cfd",
+            "slug": "conjugate-heat-transfer-cht-biot-number",
+            "difficulty": "advanced",
+            "question": "In a **Conjugate Heat Transfer (CHT)** simulation coupling a solid aluminum electronics heatsink ($k_s$) with forced-air cooling ($h$), what does a dimensionless **Biot Number ($\\text{Bi} = \\frac{h L_c}{k_s} < 0.1$)** signify?",
+            "options": [
+              "Internal conductive thermal resistance inside the metal fin is negligible compared to external convective boundary-layer resistance, meaning temperature within the solid cross-section is nearly uniform.",
+              "The solid aluminum is melting.",
+              "Conduction inside the solid is 100x slower than convection in air.",
+              "Radiation heat transfer is zero."
+            ],
+            "correctIdx": 0,
+            "why": "The Biot number compares solid conduction resistance ($L_c/k_s$) to fluid convection resistance ($1/h$); when $\\text{Bi} < 0.1$, lumped-capacitance transient thermal approximations are valid within 5%.",
+            "pitfall": "Do not confuse the **Biot Number** ($k_{\\text{solid}}$ in denominator) with the **Nusselt Number** ($\\text{Nu} = h L / k_{\\text{fluid}}$, which characterizes fluid convection vs. fluid conduction)."
           }
         ]
       }
@@ -10341,6 +11621,102 @@
             "correctIdx": 0,
             "why": "Light adds linearly in the physical world. Applying Gaussian blurs or lens flares to non-linear sRGB images violates energy conservation, producing unnatural grey borders around bright lights.",
             "pitfall": "Exporting final renders to 8-bit PNG before compositing in Photoshop destroys highlight dynamic range, making it impossible to recover over-exposed sky details."
+          },
+          {
+            "type": "single",
+            "nodeId": "viz",
+            "slug": "pbr-metallic-roughness-fresnel-f0-dielectric-vs-conductor",
+            "difficulty": "intermediate",
+            "question": "In Physically Based Rendering (PBR) Metallic/Roughness workflows (such as GstarCAD Houseplan, Twinmotion, and Unreal Engine), how does normal-incidence Fresnel reflectance ($F_0$) differ between **Dielectrics (`Metallic = 0.0`)** and **Raw Conductors/Metals (`Metallic = 1.0`)**?",
+            "options": [
+              "Dielectrics (wood, concrete, plastic, glass) have a low, achromatic normal-incidence reflectance ($F_0 \\approx 0.04$ or 4% for IOR 1.5), whereas raw metals have high, tinted specular reflectance ($F_0 = 0.60$–$0.98$) read directly from the Base Color map with zero diffuse subsurface scattering.",
+              "Dielectrics reflect 100% of light like a mirror at all angles.",
+              "Raw metals have zero specular reflection.",
+              "Setting Metallic = 0.5 is physically accurate for pure polished gold."
+            ],
+            "correctIdx": 0,
+            "why": "Photons entering a metal are immediately absorbed or reflected by free electrons (zero diffuse albedo, colored $F_0$); dielectrics scatter unabsorbed wavelengths diffusely while reflecting ~4% uncolored specular light at $0^\\circ$ and approaching 100% at grazing $90^\\circ$ Fresnel angles.",
+            "pitfall": "Avoid setting `Metallic` to intermediate values like `0.4` on clean materials—real matter is either a conductor (`1.0`) or a dielectric (`0.0`), except along dusty/oxidized transition masks."
+          },
+          {
+            "type": "single",
+            "nodeId": "cameras",
+            "slug": "two-point-architectural-perspective-vertical-tilt-correction",
+            "difficulty": "beginner",
+            "question": "When rendering a high-rise office tower from street level with the camera pitched upward by $+18^\\circ$, vertical building columns converge toward an upper third vanishing point, making the tower look like it is falling backward. How do architectural photographers and visualizers prevent this?",
+            "options": [
+              "Enable **Two-Point Perspective (Architectural Vertical Tilt-Shift Correction)**, which keeps the camera image plane strictly vertical (parallel to the Z-axis) so all vertical building edges render 100% parallel.",
+              "Switch to an isometric orthographic CAD view with zero depth.",
+              "Set the camera Field of View (FOV) to 170 degrees.",
+              "Rotate the 3D building model forward by 18 degrees."
+            ],
+            "correctIdx": 0,
+            "why": "Analogous to a physical tilt-shift view camera lens (rising front shift with vertical film plane), Two-Point Perspective preserves horizontal two-point depth while keeping vertical lines strictly parallel to the frame borders.",
+            "pitfall": "If you pitch the camera nearly straight up ($>60^\\circ$) into an atrium skylight, disable Two-Point Perspective—forcing verticals parallel at extreme angles stretches the top corners unnaturally."
+          },
+          {
+            "type": "single",
+            "nodeId": "materials",
+            "slug": "real-world-map-size-uvw-box-projection-scaling",
+            "difficulty": "beginner",
+            "question": "You apply a $1200 \\times 600\\text{ mm}$ porcelain floor tile material across three rooms of different sizes, but the tiles stretch to $4\\text{ m}$ wide in the lobby and shrink to $100\\text{ mm}$ in the corridor. What UVW mapping methodology prevents this?",
+            "options": [
+              "Apply **Real-World Map Size (Box / Planar UVW Mapping locked to physical millimeters/meters)** so a $1200 \\times 600\\text{ mm}$ texture repeats at exact $1:1$ physical dimensions regardless of polygon size.",
+              "Scale the 3D lobby floor mesh down by 10x.",
+              "Create 50 separate material copies with random tiling multipliers.",
+              "Set UVW tiling to 0.0."
+            ],
+            "correctIdx": 0,
+            "why": "Without standardized World-Space / Real-World UVW Box projection, default `0..1` UV coordinates stretch a texture across the entire bounding box of each individual mesh.",
+            "pitfall": "Always verify that your imported `.dwg` / `.fbx` geometry has clean `1:1` real-world scale (`Reset XForm` / `INSUNITS`) before applying Real-World UVW projections."
+          },
+          {
+            "type": "single",
+            "nodeId": "rendering",
+            "slug": "subsurface-scattering-sss-foliage-marble-translucency",
+            "difficulty": "intermediate",
+            "question": "Why do tree leaves, backlit window curtains, and thin Carrara marble counter slabs look like lifeless opaque grey plastic unless **Subsurface Scattering (`SSS`) / Thin Translucency** is enabled?",
+            "options": [
+              "Photons penetrate the surface of translucent botanical leaves, fabrics, and marble crystals, scatter internally through the medium, and exit through the shadowed back side—illuminating backlit foliage with warm green/gold transmission.",
+              "Tree leaves are 100% metallic conductors.",
+              "Opaque Lambertian shaders already transmit 80% of light through the back face.",
+              "Subsurface scattering only works on chrome bumpers."
+            ],
+            "correctIdx": 0,
+            "why": "A standard opaque PBR shader blocks 100% of light from passing to the back normal (`dot(N, L) < 0`); Two-Sided Foliage / Thin-Translucent shaders transmit backlit sun energy through the leaf canopy.",
+            "pitfall": "Enabling Thin-Walled Translucency on deciduous tree leaves instantly transforms dark, heavy black tree canopies into vibrant, sun-dappled architectural landscaping."
+          },
+          {
+            "type": "single",
+            "nodeId": "viz",
+            "slug": "glare-bloom-convolution-threshold-energy-conserving",
+            "difficulty": "beginner",
+            "question": "What optical phenomenon does post-process **Bloom / Glare Convolution** simulate in architectural dusk and night renderings?",
+            "options": [
+              "Micro-diffraction and scattering of intense high-luminance light sources (exposed filament bulbs, sun specular glints) across the camera lens aperture blades and human cornea, creating a soft halo around pixels exceeding `1.0 HDR`.",
+              "Blurring out-of-focus background mountains.",
+              "Correcting vertical column convergence.",
+              "Reducing polygon count on distant trees."
+            ],
+            "correctIdx": 0,
+            "why": "Because an 8-bit monitor cannot physically emit 50,000 nits of brightness, subtle physically conserved Bloom (`1%–3%` scatter) cues the human brain that a light source is intensely bright.",
+            "pitfall": "Keep Bloom threshold focused on high-dynamic-range emitters (`>1.5 HDR`) so ordinary white paper walls don't glow like radioactive fog."
+          },
+          {
+            "type": "single",
+            "nodeId": "cameras",
+            "slug": "rule-of-thirds-and-eye-level-camera-height-1600mm",
+            "difficulty": "beginner",
+            "question": "Why do architectural visualization studios standardize pedestrian-level camera height at **$1.55\\text{ m}$ to $1.65\\text{ m}$ above finished floor level (`AFFL`)**?",
+            "options": [
+              "It matches natural standing human eye level, anchoring horizon lines across the middle of people standing in the scene and providing an authentic, relatable sense of architectural scale.",
+              "Because cameras cannot be placed above 1.70 meters.",
+              "To hide all floor tiles from view.",
+              "Because ceiling lights are mounted at 1.60 meters."
+            ],
+            "correctIdx": 0,
+            "why": "When camera height is set to $1.60\\text{ m}$ with a level $0^\\circ$ pitch (`Two-Point Perspective`), the horizon line passes cleanly through the eyes/heads of every standing $1.70\\text{ m}$ human figure in the foreground and background.",
+            "pitfall": "Placing an interior camera at $2.40\\text{ m}$ ('giant height') makes ceiling heights feel claustrophobically low and furniture look like miniature toys."
           }
         ]
       },
@@ -10562,6 +11938,86 @@
             "correctIdx": 0,
             "why": "Isotropic surfaces have random roughness (circular highlights). Anisotropic surfaces have directional grooves (milling, brushing, turning) that stretch highlights along tangent vectors.",
             "pitfall": "Modeling brushed metal with isotropic roughness produces dull, plastic-looking matte gray surfaces that lack authentic metallic sheen."
+          },
+          {
+            "type": "single",
+            "nodeId": "rendering",
+            "slug": "ies-lm-63-photometric-candela-distribution-profiles",
+            "difficulty": "beginner",
+            "question": "Why do architectural lighting designers attach **IESNA LM-63 (`.ies`)** or **EULUMDAT (`.ldt`)** files to interior recessed downlights and street luminaires in GstarCAD Houseplan instead of using generic spherical omni lights?",
+            "options": [
+              "An `.ies` file contains goniophotometric laboratory measurements of luminous intensity (candelas) across vertical and horizontal polar angles, accurately reproducing real-world reflector scallops, beam cutoffs, and lux levels.",
+              "IES files automatically model the 3D fixture housing geometry.",
+              "IES files only work in outdoor sunlight.",
+              "IES files compress 4K textures into 1 KB."
+            ],
+            "correctIdx": 0,
+            "why": "Every physical luminaire housing, baffle, and lens shapes its light cone uniquely; `.ies` files drive physically accurate inverse-square falloff and wall grazing scallops.",
+            "pitfall": "Placing the `.ies` emitter origin slightly *inside* the opaque 3D ceiling mesh causes the ceiling polygon to block 100% of the light—offset it 2–5 mm below the lens face."
+          },
+          {
+            "type": "single",
+            "nodeId": "viz",
+            "slug": "aces-filmic-tonemapping-hdr-dynamic-range-compression",
+            "difficulty": "advanced",
+            "question": "Why do modern real-time and path-traced renderers apply **ACES (Academy Color Encoding System) Filmic Tone Mapping** when converting linear 32-bit floating-point scene radiance (`HDR`) into 8-bit display pixels (`sRGB`)?",
+            "options": [
+              "ACES applies an S-shaped shoulder and toe compression curve with highlight desaturation (crosstalk), preventing harsh clipped color shifts on bright sun-struck surfaces and mimicking cinema film stock roll-off.",
+              "ACES deletes all shadows from the scene.",
+              "ACES converts color images into monochrome black-and-white blueprints.",
+              "Linear clamping without tone mapping has wider dynamic range on 8-bit monitors."
+            ],
+            "correctIdx": 0,
+            "why": "Naive linear clamping (`min(RGB, 1.0)`) causes bright orange or blue lights to skew toward ugly secondary colors (yellow/cyan) as individual R/G/B channels clip at 1.0; ACES gracefully rolls highlights toward white.",
+            "pitfall": "Remember to set Data Maps (`Roughness`, `Normal`, `Metallic`, `Displacement`) to **`Linear / Raw (Gamma 1.0)`**—only `Base Color (Albedo)` textures should undergo `sRGB (Gamma 2.2)` decoding!"
+          },
+          {
+            "type": "single",
+            "nodeId": "cameras",
+            "slug": "exposure-triangle-ev100-sunny-16-daylight-calibration",
+            "difficulty": "intermediate",
+            "question": "When calibrating a physically based camera in an exterior architectural daylight scene using the **Sunny 16 Rule (`EV100 ≈ 14.5–15.0`)**, which combination of Aperture ($f$-number), Shutter Speed ($t$), and ISO yields correct physical exposure?",
+            "options": [
+              "Aperture `f/16`, Shutter Speed `1/100 s`, and `ISO 100` (yielding `EV100 ≈ 14.6`).",
+              "Aperture `f/1.4`, Shutter Speed `10 seconds`, and `ISO 6400` (which overexposes daylight by +15 stops into pure white!).",
+              "Aperture `f/64`, Shutter Speed `1/8000 s`, and `ISO 50`.",
+              "Physical cameras ignore shutter speed and aperture."
+            ],
+            "correctIdx": 0,
+            "why": "Under physical sky/sun luminance (~100,000 lux), `EV100 = log2(N^2 / t) ≈ 14.6–15.0` prevents artists from cranking interior lights up to absurdly non-physical 500,000-lumen values just to be visible.",
+            "pitfall": "Never leave exterior daylight exposure (`EV 15`) active when moving the camera indoors; lower exposure to `EV 6–8` for interior rooms!"
+          },
+          {
+            "type": "single",
+            "nodeId": "materials",
+            "slug": "albedo-pbr-safe-luminance-coal-to-snow-limits",
+            "difficulty": "advanced",
+            "question": "In calibrated PBR material authoring, why must artists never paint a white plaster wall with pure **`RGB(255, 255, 255)`** (`100% albedo`) or asphalt pavement with **`RGB(0, 0, 0)`** (`0% albedo`)?",
+            "options": [
+              "No physical diffuse surface reflects 100% or 0% of incident photons: fresh snow reflects at most ~85% (`sRGB ~240`) and dark charcoal/asphalt reflects at least ~4% (`sRGB 30–40`). Pure 255 white causes infinite GI energy bounce blowouts!",
+              "Monitors cannot display RGB values above 200.",
+              "Pure black (0,0,0) turns surfaces into glowing emitters.",
+              "White walls in real life absorb 95% of light."
+            ],
+            "correctIdx": 0,
+            "why": "Keeping diffuse Base Color within the PBR safe range (`30–240 sRGB`, or `0.02–0.85 linear reflectance`) preserves realistic global illumination bounce contrast and prevents blown-out radiosity.",
+            "pitfall": "If a white room with `sRGB 215` walls looks too dim, increase **Camera Exposure (EV)** or **Light Intensity (Lumens)**—never push wall Albedo to `255`!"
+          },
+          {
+            "type": "single",
+            "nodeId": "rendering",
+            "slug": "instancing-gpu-foliage-memory-footprint",
+            "difficulty": "intermediate",
+            "question": "A masterplan landscape scene in GstarCAD Houseplan contains **25,000 high-poly oak trees** (80,000 triangles each = 2 billion total triangles). How does **GPU Hardware Instancing** render this at 60 FPS inside an 8 GB VRAM budget?",
+            "options": [
+              "The GPU uploads the oak tree's vertex/index buffers and textures into VRAM **once**, and draws all 25,000 trees by streaming a lightweight array of $4 \\times 4$ transformation matrices (position, rotation, scale, tint seed).",
+              "The GPU deletes 24,999 trees and only shows one tree.",
+              "Instancing converts 3D trees into 2D text labels.",
+              "Each tree requires its own separate 500 MB VRAM allocation."
+            ],
+            "correctIdx": 0,
+            "why": "Hardware instancing (`DrawIndexedInstanced`) decouples scene polygon complexity from unique asset VRAM consumption; randomize Z-rotation (`0–360°`) and uniform scale (`0.85–1.15`) per instance to break up visual repetition.",
+            "pitfall": "Exploding instanced blocks into unique individual meshes before export destroys instancing and causes immediate GPU VRAM exhaustion."
           }
         ]
       },
@@ -10793,6 +12249,86 @@
             "correctIdx": 0,
             "why": "Standard 2D render passes store only one depth value per pixel. Deep data stores depth ranges and sub-pixel transparency samples, eliminating anti-aliasing artifacts when compositing complex elements.",
             "pitfall": "Deep EXR files are 5x to 10x larger than standard multi-channel EXR files; reserve deep compositing for complex volumetric fog and dense vegetation interactions."
+          },
+          {
+            "type": "single",
+            "nodeId": "materials",
+            "slug": "normal-map-directx-y-minus-vs-opengl-y-plus-green-channel",
+            "difficulty": "intermediate",
+            "question": "After applying a tangent-space **Normal Map** to a brick facade, mortar joints appear pushed *outward* like raised ridges when lit from above instead of recessed inward. What caused this inversion, and how is it fixed?",
+            "options": [
+              "The normal map's Green (Y) channel handedness is mismatched (`DirectX Y-` vs. `OpenGL Y+`); toggle **Flip Green Channel (Invert Y)** in the texture shader properties.",
+              "The Blue (Z) channel must be deleted.",
+              "The Base Color texture is too bright.",
+              "The camera focal length is too wide."
+            ],
+            "correctIdx": 0,
+            "why": "In tangent-space normal maps (`R = +X Right`, `G = Y Up/Down`, `B = +Z Outward`), OpenGL conventions map `Green (255)` to `+Y Up`, whereas DirectX conventions map `Green (255)` to `-Y Down`.",
+            "pitfall": "Never invert the Red and Blue channels too—only the **Green (Y)** channel flips between OpenGL and DirectX normal map standards."
+          },
+          {
+            "type": "single",
+            "nodeId": "rendering",
+            "slug": "hdri-32bit-exr-image-based-lighting-ev-range",
+            "difficulty": "intermediate",
+            "question": "Why must an environment sky dome used for **Image-Based Lighting (IBL)** be saved as an unclamped **32-bit `.HDR` or `.EXR`** floating-point image (with 15–22 EV dynamic range) rather than an 8-bit `.JPG` panorama?",
+            "options": [
+              "In an 8-bit `.JPG` (max value 255), the solar disk is barely brighter than white clouds, producing flat, shadowless lighting; a 32-bit `.EXR/.HDR` stores true solar radiance (~50,000+ scene units) to cast crisp sun shadows.",
+              "8-bit JPG files cannot wrap around a 360-degree sphere.",
+              "32-bit EXR files are smaller in megabytes than JPG files.",
+              "HDRI domes only affect wireframes."
+            ],
+            "correctIdx": 0,
+            "why": "Direct sunlight is roughly 10,000 to 100,000 times brighter than ambient sky dome blue light; only 16-bit half-float or 32-bit float `.exr`/`.hdr` containers preserve that dynamic ratio.",
+            "pitfall": "When downloading free HDRIs, check that the sun disk wasn't clipped at `EV 10` during camera bracketing; unclipped outdoor skies require `18–22 EV`."
+          },
+          {
+            "type": "single",
+            "nodeId": "viz",
+            "slug": "ambient-occlusion-ao-contact-shadow-crevices",
+            "difficulty": "beginner",
+            "question": "What role does **Ambient Occlusion (`AO` / `GTAO` / `SSAO`)** play in real-time architectural and mechanical CAD visualization?",
+            "options": [
+              "It approximates localized attenuation of diffuse ambient sky/room light inside tight geometric crevices, corners, and floor-to-furniture contact seams—grounding objects visually.",
+              "It calculates refractive caustics through diamond gemstones.",
+              "It replaces direct directional sunlight shadows.",
+              "It increases polygon mesh density."
+            ],
+            "correctIdx": 0,
+            "why": "Without contact shadows in small crevices where hemisphere visibility is occluded, furniture legs and mechanical fasteners appear to 'float' above the floor.",
+            "pitfall": "Avoid cranking SSAO radius and intensity too high—excessive screen-space AO creates unnatural dark dirty halos around foreground objects."
+          },
+          {
+            "type": "single",
+            "nodeId": "cameras",
+            "slug": "focal-length-perspective-compression-24mm-vs-85mm",
+            "difficulty": "beginner",
+            "question": "How does rendering an interior room or product with a **14 mm ultra-wide lens** differ visually from using a **35 mm–50 mm architectural lens** or an **85 mm product portrait lens**?",
+            "options": [
+              "Ultra-wide lenses (<18 mm) exaggerate spatial depth and stretch objects near the frame edges into distorted ovals, whereas 35–50 mm matches natural human spatial proportions and 85 mm+ compresses foreground-to-background perspective.",
+              "Focal length only changes image brightness, not perspective framing.",
+              "An 85 mm lens has a wider field of view than a 14 mm lens.",
+              "Architectural interiors must always be rendered at 400 mm telephoto."
+            ],
+            "correctIdx": 0,
+            "why": "For architectural interiors, `24 mm–35 mm` captures the room comfortably without bowling-ball edge distortion; for tight bathroom/elevator spaces, pull the camera *outside* the wall and use a **Near Clipping Plane (Section Cut)** with a `35 mm` lens.",
+            "pitfall": "Positioning the camera outside a small room with a Near Clip Plane at `35 mm` looks infinitely more natural than jamming a `12 mm` fisheye camera into the corner!"
+          },
+          {
+            "type": "single",
+            "nodeId": "materials",
+            "slug": "anisotropic-brushed-stainless-steel-tangent-direction",
+            "difficulty": "advanced",
+            "question": "Why does a kitchen appliance or elevator door clad in **Brushed Stainless Steel** require an **Anisotropic Shader (`Anisotropy > 0.5`)** rather than a standard isotropic Roughness shader?",
+            "options": [
+              "Microscopic directional grinding grooves scatter specular highlights elongated *perpendicular* to the brush scratch direction, whereas isotropic roughness scatters highlights into uniform circular blurs.",
+              "Brushed stainless steel is a non-metallic dielectric.",
+              "Anisotropy changes the mesh geometry into cylinders.",
+              "Isotropic shaders cannot reflect HDRI environments."
+            ],
+            "correctIdx": 0,
+            "why": "Machined lathed aluminum disks, brushed steel panels, and silk fabrics exhibit directional micro-facet distributions controlled by `Anisotropy` strength and a tangent angle map.",
+            "pitfall": "Without proper UV tangent alignment, brushed metal grain can appear rotated $90^\\circ$ between adjacent elevator door panels."
           }
         ]
       }

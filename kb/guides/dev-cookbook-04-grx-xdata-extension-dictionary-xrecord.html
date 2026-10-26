@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Store structured BOM part numbers, material grades, and cryptographic signatures inside DWG entities using Extended Entity Data (XData) and Extension Dictionaries (`AcDbXrecord`).</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>AcDbXrecord, AcDbDictionary, xData, setXData, acdbRegApp, resbuf</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Attaching Invisible PLM/BIM Metadata: Extended Entity Data (`XData` 16KB Limit) vs. Unlimited `AcDbXrecord` Dictionaries</h2>
+<p>Commercial CAD plugins must persist non-graphical engineering data—such as SAP material master UUIDs, structural load ratings, or pipe stress node numbers—directly inside the `.dwg` file so metadata travels with the geometry across subcontractors. The GstarCAD GRX SDK provides two distinct persistence mechanisms: lightweight `XData` (`resbuf` linked lists attached to any `AcDbObject`) and arbitrary-capacity `AcDbXrecord` objects stored inside an entity's `ExtensionDictionary`.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> Legacy `XData` (DXF group codes `1000–1071` registered under a mandatory `acdbRegApp` application name) is strictly capped at **16 KB per entity**. If your plugin stores serialized JSON schemas, XML trees, or dense coordinate arrays exceeding 16 KB, always instantiate an `AcDbXrecord` inside `object->createExtensionDictionary()`, which supports hundreds of megabytes per record without size limits.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Verified C++17 GRX Implementation (AcDbXrecord)</h2>
+<p>Compile the following native C++ source code against the GstarCAD 2027 GRX SDK using Visual Studio 2022 (Platform Toolset <code>v143</code>, Target Architecture <code>x64</code>, linking <code>grx27.lib</code> and <code>gcdb27.lib</code>) to implement <strong>GRX Cookbook 04: Attaching Binary ERP/PLM Metadata via XData (1001 RegApps) and AcDbXrecord Dictionaries</strong>:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// GstarCAD 2027 GRX SDK — Attaching Structured AcDbXrecord Metadata
 #include "grxdefs.h"
 #include "dbxrecrd.h"

@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Intercept objectAppended, objectModified, and beginSave events in C++ GRX to enforce ISO 13567 layer standards and block unauthorized modifications automatically.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>AcDbDatabaseReactor, AcEditorReactor, objectAppended, beginSave, acdbHostApplicationServices</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Real-Time Database Event Interception (`AcDbDatabaseReactor`) & Non-Reentrant Layer Compliance Enforcement</h2>
+<p>Enterprise CAD governance frequently requires intercepting entity creation or modification in real time—for example, automatically forcing any newly created dimension onto layer `ISO-DIM` or logging every deleted equipment block for ISO 9001 audit trails. Attaching a custom `AcDbDatabaseReactor` to `AcDbDatabase::addReactor()` allows your C++ GRX plugin to receive synchronous callbacks (`objectAppended`, `objectModified`, `objectErased`) the instant any transaction touches the database.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> Database reactor callbacks execute while the database is in a sensitive notification state. Never attempt to call `upgradeOpen()` or modify the notifying `AcDbObject` directly inside `objectModified()` without a reentrancy guard boolean (`m_bInReactor`), otherwise your modification will re-trigger `objectModified()` in an infinite recursive stack overflow. For complex mutations, queue the `AcDbObjectId` and process it inside `AcEditorReactor::commandEnded()`.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Verified C++17 GRX Implementation (AcDbDatabaseReactor)</h2>
+<p>Compile the following native C++ source code against the GstarCAD 2027 GRX SDK using Visual Studio 2022 (Platform Toolset <code>v143</code>, Target Architecture <code>x64</code>, linking <code>grx27.lib</code> and <code>gcdb27.lib</code>) to implement <strong>GRX Cookbook 02: AcDbDatabaseReactor &amp; AcEditorReactor Event Hooks for Real-Time Layer &amp; Standards Governance</strong>:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// GstarCAD 2027 GRX SDK — Database Reactor for Layer Standards Enforcement
 #include "grxdefs.h"
 #include "dbmain.h"

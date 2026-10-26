@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Measure Total Cumulative Length & Area of Multiple Polylines in CAD | GstarCAD Academy</title>
+  <meta name="description" content="Calculate combined linear cable/pipe runs and total slab areas across hundreds of selected polylines, arcs, and splines in GstarCAD 2027 and AutoCAD." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-measure-cumulative-length-and-area-of-multiple-polylines" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Measure Total Cumulative Length & Area of Multiple Polylines in CAD" />
+  <meta property="og:description" content="Calculate combined linear cable/pipe runs and total slab areas across hundreds of selected polylines, arcs, and splines in GstarCAD 2027 and AutoCAD." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-measure-cumulative-length-and-area-of-multiple-polylines" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Measure Total Cumulative Length & Area of Multiple Polylines in CAD", "acceptedAnswer": {"@type": "Answer", "text": "In GstarCAD 2027, run AREA > Add Area > Object (or built-in Express Tool TLE / TotalLength) to sum selected entities, use DATAEXTRACTION to export layer-grouped totals to Excel, or run the C:TOTALLEN AutoLISP routine below."}}, {"@type": "Question", "name": "1. Method A: Use GstarCAD 2027's Built-In Total Length & Area Tools", "acceptedAnswer": {"@type": "Answer", "text": "In GstarCAD 2027, run <code>AREATABLE</code> or Express Tools <strong>Total Length (`TLE`)</strong> to select multiple lines, arcs, polylines, and splines by layer filter and insert an automatically summed takeoff table directly into the drawing."}}, {"@type": "Question", "name": "2. Method B: Cumulative AREA Command (Add / Subtract Mode)", "acceptedAnswer": {"@type": "Answer", "text": "Type <code>AREA</code>, enter <code>A</code> (Add mode), then enter <code>O</code> (Object), and click each closed slab polyline one by one. The command line maintains a running `Total area = ...` accumulator. Press `Enter` and type `S` (Subtract) to deduct interior elevator shaft openings."}}, {"@type": "Question", "name": "3. Method C: Instant One-Second AutoLISP Summation (`C:TOTALLEN`)", "acceptedAnswer": {"@type": "Answer", "text": "Load the `C:TOTALLEN` routine below using `vlax-curve-getDistAtParam` and `vlax-curve-getArea` to compute both total linear length and total enclosed area across 10,000+ selected objects in a single window selection."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Measure Total Cumulative Length & Area of Multiple Polylines in CAD", "item": "https://gstarcademy.com/kb/faq/how-to-measure-cumulative-length-and-area-of-multiple-polylines"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Measure Total Cumulative Length & Area of Multiple Polylines in CAD", "description": "Calculate combined linear cable/pipe runs and total slab areas across hundreds of selected polylines, arcs, and splines in GstarCAD 2027 and AutoCAD.", "url": "https://gstarcademy.com/kb/faq/how-to-measure-cumulative-length-and-area-of-multiple-polylines", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Elena Rostova, M.Eng., PE", "jobTitle": "Senior Civil Infrastructure & Geomatics Engineer", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#civil-infrastructure"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Measure Total Cumulative Length & Area of Multiple Polylines in CAD</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">Quantity Takeoff & Surveying</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Measure Total Cumulative Length & Area of Multiple Polylines in CAD</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Calculate combined linear cable/pipe runs and total slab areas across hundreds of selected polylines, arcs, and splines in GstarCAD 2027 and AutoCAD.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#civil-infrastructure">Elena Rostova, M.Eng., PE</a> (Senior Civil Infrastructure & Geomatics Engineer)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">In GstarCAD 2027, run AREA > Add Area > Object (or built-in Express Tool TLE / TotalLength) to sum selected entities, use DATAEXTRACTION to export layer-grouped totals to Excel, or run the C:TOTALLEN AutoLISP routine below.</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>Notice that selecting 50 individual `LWPOLYLINE` cable trenches or `LINE` pipe segments and opening the `PROPERTIES` (`Ctrl+1`) palette displays **`*VARIES*`** in the `Length` and `Area` fields rather than summing them. For quantity surveyors and MEP estimators performing Bill of Quantities (BoQ) takeoffs, summing hundreds of segments manually with a calculator is slow and error-prone.</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Method A: Use GstarCAD 2027's Built-In Total Length & Area Tools</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">In GstarCAD 2027, run <code>AREATABLE</code> or Express Tools <strong>Total Length (`TLE`)</strong> to select multiple lines, arcs, polylines, and splines by layer filter and insert an automatically summed takeoff table directly into the drawing.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Method B: Cumulative AREA Command (Add / Subtract Mode)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Type <code>AREA</code>, enter <code>A</code> (Add mode), then enter <code>O</code> (Object), and click each closed slab polyline one by one. The command line maintains a running `Total area = ...` accumulator. Press `Enter` and type `S` (Subtract) to deduct interior elevator shaft openings.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Method C: Instant One-Second AutoLISP Summation (`C:TOTALLEN`)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Load the `C:TOTALLEN` routine below using `vlax-curve-getDistAtParam` and `vlax-curve-getArea` to compute both total linear length and total enclosed area across 10,000+ selected objects in a single window selection.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:TOTALLEN)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:TOTALLEN ( / ss i ent totalLen totalArea len area)
+  (vl-load-com)
+  (setq totalLen 0.0 totalArea 0.0)
+  (princ "\nSelect curves (Lines, Polylines, Arcs, Circles, Splines) to sum: ")
+  (if (setq ss (ssget '((0 . "LINE,LWPOLYLINE,POLYLINE,ARC,CIRCLE,SPLINE,ELLIPSE"))))
+    (progn
+      (repeat (setq i (sslength ss))
+        (setq ent (ssname ss (setq i (1- i))))
+        (setq len (vl-catch-all-apply 'vlax-curve-getDistAtParam (list ent (vlax-curve-getEndParam ent))))
+        (if (not (vl-catch-all-error-p len)) (setq totalLen (+ totalLen len)))
+        (setq area (vl-catch-all-apply 'vlax-curve-getArea (list ent)))
+        (if (not (vl-catch-all-error-p area)) (setq totalArea (+ totalArea area)))
+      )
+      (princ (strcat "\n=== QUANTITY TAKEOFF SUMMARY (" (itoa (sslength ss)) " Entities) ==="))
+      (princ (strcat "\nTotal Cumulative Length : " (rtos totalLen 2 3) " drawing units"))
+      (princ (strcat "\nTotal Cumulative Area   : " (rtos totalArea 2 3) " sq. units"))
+    )
+  )
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Properties palette shows Length = *VARIES*</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>Run C:TOTALLEN or TLE</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Ctrl+1 compares properties rather than summing; use curve integration.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Self-intersecting polyline gives wrong area</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>BOUNDARY (BO)</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Create a clean non-self-intersecting region/polyline before measuring area.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Need live Excel breakdown by Layer</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>DATAEXTRACTION</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Exports Length, Area, and Layer columns directly to .xlsx pivot tables.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

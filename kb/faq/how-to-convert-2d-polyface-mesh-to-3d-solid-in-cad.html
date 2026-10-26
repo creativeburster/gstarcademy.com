@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Convert 2D Polyylines, Polyface Meshes & Surfaces into 3D ACIS Solids | GstarCAD Academy</title>
+  <meta name="description" content="Transform closed 2D polylines, imported 3DS/OBJ polyface meshes, and watertight surface shells into true volumetric 3D ACIS solids (3DSOLID) for MASSPROP and Boolean operations." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-convert-2d-polyface-mesh-to-3d-solid-in-cad" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Convert 2D Polyylines, Polyface Meshes & Surfaces into 3D ACIS Solids" />
+  <meta property="og:description" content="Transform closed 2D polylines, imported 3DS/OBJ polyface meshes, and watertight surface shells into true volumetric 3D ACIS solids (3DSOLID) for MASSPROP and Boolean operations." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-convert-2d-polyface-mesh-to-3d-solid-in-cad" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Convert 2D Polyylines, Polyface Meshes & Surfaces into 3D ACIS Solids", "acceptedAnswer": {"@type": "Answer", "text": "Use EXTRUDE or PRESSPULL on closed 2D polylines, run CONVTOSOLID on watertight 3D meshes and thickened surfaces, or stitch enclosing planar/NURBS surfaces into a volumetric solid via SURFSCULPT."}}, {"@type": "Question", "name": "1. Convert Watertight Meshes via CONVTOSOLID", "acceptedAnswer": {"@type": "Answer", "text": "Select the mesh, set <code>SMOOTHMESHCONVERT = 3</code> (Optimized, non-faceted coplanar faces merged), and run <code>CONVTOSOLID</code>. GstarCAD 2027 stitches adjacent triangular mesh faces into clean planar/analytical ACIS solid faces."}}, {"@type": "Question", "name": "2. Stitch Enclosing Surfaces via SURFSCULPT", "acceptedAnswer": {"@type": "Answer", "text": "If your geometry consists of intersecting or touching `SURFACE` / `REGION` planes enclosing a watertight volume, select all bounding surfaces and run <code>SURFSCULPT</code> to solidify the interior void."}}, {"@type": "Question", "name": "3. Thicken Open Surface Shells via THICKEN", "acceptedAnswer": {"@type": "Answer", "text": "If a civil terrain TIN or sheet-metal hood is an open single-sided surface rather than a closed volume, run <code>CONVTOSURFACE</code> followed by <code>THICKEN</code> (e.g., `Thickness = 5.0 mm`) to generate a true 3D solid shell."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Convert 2D Polyylines, Polyface Meshes & Surfaces into 3D ACIS Solids", "item": "https://gstarcademy.com/kb/faq/how-to-convert-2d-polyface-mesh-to-3d-solid-in-cad"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Convert 2D Polyylines, Polyface Meshes & Surfaces into 3D ACIS Solids", "description": "Transform closed 2D polylines, imported 3DS/OBJ polyface meshes, and watertight surface shells into true volumetric 3D ACIS solids (3DSOLID) for MASSPROP and Boolean operations.", "url": "https://gstarcademy.com/kb/faq/how-to-convert-2d-polyface-mesh-to-3d-solid-in-cad", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Convert 2D Polyylines, Polyface Meshes & Surfaces into 3D ACIS Solids</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">3D Modeling & B-Rep</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Convert 2D Polyylines, Polyface Meshes & Surfaces into 3D ACIS Solids</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Transform closed 2D polylines, imported 3DS/OBJ polyface meshes, and watertight surface shells into true volumetric 3D ACIS solids (3DSOLID) for MASSPROP and Boolean operations.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">Use EXTRUDE or PRESSPULL on closed 2D polylines, run CONVTOSOLID on watertight 3D meshes and thickened surfaces, or stitch enclosing planar/NURBS surfaces into a volumetric solid via SURFSCULPT.</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>Imported equipment models from SketchUp, Blender, Revit, or Rhino frequently arrive inside a `.dwg` as hollow **Polyface Meshes (`AcDbPolyFaceMesh`)**, **SubD Meshes (`AcDbSubDMesh`)**, or unjoined **3D Faces (`3DFACE`)**. Because hollow mesh shells lack an internal ACIS boundary-representation (`B-Rep`) volume, native CAD commands like `UNION`, `SUBTRACT`, `INTERFERE`, `MASSPROP` (center of gravity), and `FLATSHOT` reject them until they are healed into true **`3DSOLID`** entities.</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Convert Watertight Meshes via CONVTOSOLID</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Select the mesh, set <code>SMOOTHMESHCONVERT = 3</code> (Optimized, non-faceted coplanar faces merged), and run <code>CONVTOSOLID</code>. GstarCAD 2027 stitches adjacent triangular mesh faces into clean planar/analytical ACIS solid faces.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Stitch Enclosing Surfaces via SURFSCULPT</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">If your geometry consists of intersecting or touching `SURFACE` / `REGION` planes enclosing a watertight volume, select all bounding surfaces and run <code>SURFSCULPT</code> to solidify the interior void.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Thicken Open Surface Shells via THICKEN</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">If a civil terrain TIN or sheet-metal hood is an open single-sided surface rather than a closed volume, run <code>CONVTOSURFACE</code> followed by <code>THICKEN</code> (e.g., `Thickness = 5.0 mm`) to generate a true 3D solid shell.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:MESH2SOLID)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:MESH2SOLID ( / ss)
+  (setvar "SMOOTHMESHCONVERT" 3)
+  (setvar "DELOBJ" 1)
+  (princ "\nSelect closed Meshes or Polylines with thickness to convert to 3DSOLID: ")
+  (if (setq ss (ssget '((0 . "MESH,POLYLINE,LWPOLYLINE,CIRCLE"))))
+    (progn
+      (command "_.CONVTOSOLID" ss "")
+      (princ "\n[MESH2SOLID] Converted selected geometry with coplanar face merging (SMOOTHMESHCONVERT=3).")
+    )
+  )
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Converted mesh has thousands of triangle seams</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>SMOOTHMESHCONVERT = 3</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Merges coplanar triangular mesh facets into single clean ACIS planar faces.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">CONVTOSOLID says 'Mesh is not watertight'</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>SURFSCULPT or THICKEN</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Open shell has boundary gaps; convert to surface and apply THICKEN.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Need volume & Center of Gravity (CoG)</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>MASSPROP</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Once converted to 3DSOLID, run MASSPROP to calculate volume and inertia.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Industrial Control Panel Layout, IEC 60617 Schematics & Automated Wire Terminal Numbering in GstarCAD 2027 | GstarCAD Academy</title>
+<meta content="Draft multi-sheet IEC 60617 / IEEE 315 electrical control schematics, DIN-rail PLC cabinet layouts, and automated cable/terminal schedules in GstarCAD 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/electrical-panel-and-cable-harness-drafting-in-gstarcad" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Industrial Control Panel Layout, IEC 60617 Schematics & Automated Wire Terminal Numbering in GstarCAD 2027" property="og:title"/>
+<meta content="Draft multi-sheet IEC 60617 / IEEE 315 electrical control schematics, DIN-rail PLC cabinet layouts, and automated cable/terminal schedules in GstarCAD 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/electrical-panel-and-cable-harness-drafting-in-gstarcad" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Industrial Control Panel Layout, IEC 60617 Schematics & Automated Wire Terminal Numbering in GstarCAD 2027", "description": "Draft multi-sheet IEC 60617 / IEEE 315 electrical control schematics, DIN-rail PLC cabinet layouts, and automated cable/terminal schedules in GstarCAD 2027.", "url": "https://gstarcademy.com/kb/guides/electrical-panel-and-cable-harness-drafting-in-gstarcad", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["IEC 60617 \u2014 Graphical Symbols for Diagrams", "IEC 81346-1 \u2014 Industrial Systems, Installations and Equipment: Structuring Principles and Reference Designations"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Official Courses & Tutorials", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Industrial Control Panel Layout, IEC 60617 Schematics & Automated Wire Terminal Numbering in GstarCAD 2027", "item": "https://gstarcademy.com/kb/guides/electrical-panel-and-cable-harness-drafting-in-gstarcad"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Official Courses & Tutorials</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Industrial Control Panel Layout, IEC 60617 Schematics & Automated Wire Terminal Numbering in GstarCAD 2027</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Electrical & Automation CAD</span>
+<h1 style="margin-top:12px;">Industrial Control Panel Layout, IEC 60617 Schematics & Automated Wire Terminal Numbering in GstarCAD 2027</h1>
+<p class="hero-sub">Draft multi-sheet IEC 60617 / IEEE 315 electrical control schematics, DIN-rail PLC cabinet layouts, and automated cable/terminal schedules in GstarCAD 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Structuring IEC 81346 Reference Designations (`=Function+Location-Product`)</h2>
+<p>Industrial automation, switchgear, and machinery control panels require absolute consistency between multi-line power schematics (`L1/L2/L3/PE`), 24V DC PLC I/O control loops, terminal strip tables (`-X1`, `-X2`), and physical 2D DIN-rail enclosure layouts. In <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong>, electrical engineers combine IEC 60617 dynamic symbol libraries with automated attribute incrementing (`INCREMENT` / `AUTONUM`) and `DATAEXTRACTION` wire schedules.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Electrical Schematic Layer &amp; Attribute Architecture</h2>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">Electrical Subsystem</th>
+  <th style="padding:12px 16px;">ISO/IEC Layer &amp; Lineweight</th>
+  <th style="padding:12px 16px;">Required Block Attributes (`ATTDEF`)</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">400V AC 3-Phase Power Bus</td>
+  <td style="padding:12px 16px;"><code>E-POWR-400V</code> (0.50mm Red/Black)</td>
+  <td style="padding:12px 16px;"><code>WIRE_NO</code>, <code>GAUGE_MM2</code>, <code>PHASE</code></td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">24V DC PLC Digital/Analog I/O</td>
+  <td style="padding:12px 16px;"><code>E-CTRL-24DC</code> (0.25mm Blue)</td>
+  <td style="padding:12px 16px;"><code>PLC_ADDR</code> (`%I0.0`), <code>TAG</code> (`-K1`, `-S2`), <code>DESC</code></td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">DIN-Rail Enclosure Physical Layout</td>
+  <td style="padding:12px 16px;"><code>E-CABN-COMP</code> (0.35mm + Wipeout)</td>
+  <td style="padding:12px 16px;"><code>MFG_SKU</code> (Siemens/Schneider/ABB), <code>HEAT_W</code>, <code>WIDTH_MM</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. AutoLISP Sequential Terminal &amp; Wire Number Generator</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 — Rapid Sequential Terminal Block &amp; Wire Tag Numbering (e.g., X1:01, X1:02...)
+(defun c:GCAD_WIRE_NUM ( / prefix num pt str)
+  (setq prefix (getstring "\nEnter Terminal/Wire Prefix (e.g., X1: or W24-): "))
+  (if (= prefix "") (setq prefix "X1:"))
+  (setq num (getint "\nEnter Starting Number &lt;1&gt;: "))
+  (if (not num) (setq num 1))
+  (while (setq pt (getpoint (strcat "\nPick insertion point for " prefix (itoa num) " (Enter to exit): ")))
+    (setq str (strcat prefix (if (&lt; num 10) (strcat "0" (itoa num)) (itoa num))))
+    (entmakex (list '(0 . "TEXT") '(8 . "E-WIRE-TAGS") (cons 10 pt) '(40 . 2.5) (cons 1 str) '(62 . 2)))
+    (setq num (1+ num))
+  )
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Automated PLC I/O Generation &amp; Terminal Strip Jumpers Audit</h2>
+<p>In industrial automation projects utilizing Siemens SIMATIC S7-1500, Allen-Bradley ControlLogix, or Mitsubishi MELSEC PLCs, manually drawing 32-channel digital/analog I/O modules and cross-checking wire ferrules against the software engineer's I/O tag list is a major source of commissioning delays. Using GstarCAD 2027's ActiveX/AutoLISP bridge, electrical teams generate complete multi-sheet PLC schematic rungs directly from the PLC programmer's `.csv` or `.xlsx` tag table.</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">Electrical QA Check</th>
+  <th style="padding:10px 14px;">IEC 60617 / IEC 81346 Rule</th>
+  <th style="padding:10px 14px;">GstarCAD 2027 Automated Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Duplicate Device Tag (`TAG`)</strong></td>
+  <td style="padding:10px 14px;">Every primary contactor/relay coil (`-K1`, `-Q4`) must have a unique `=Func+Loc-Tag` identifier.</td>
+  <td style="padding:10px 14px;">`DATAEXTRACTION` grouped by `TAG` + `FUNC` + `LOC` flags any count &gt; 1 on primary coil definitions.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Contact Capacity Overflow</strong></td>
+  <td style="padding:10px 14px;">Auxiliary contacts placed across sheets cannot exceed the physical NO/NC poles of the selected part number.</td>
+  <td style="padding:10px 14px;">Cross-reference script compares child contact count against catalog attribute `MAX_NO_NC` (e.g., `3NO+1NC`).</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><strong>Terminal Strip Continuity</strong></td>
+  <td style="padding:10px 14px;">Every internal panel wire and external field cable core must terminate at a numbered `-X` terminal block.</td>
+  <td style="padding:10px 14px;">Exports netlist from schematic block connections directly to Weidmüller M-Print or Phoenix Contact Project Complete.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

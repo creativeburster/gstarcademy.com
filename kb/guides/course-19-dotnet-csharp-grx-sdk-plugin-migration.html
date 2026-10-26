@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Independent Software Vendors (ISVs) and enterprise R&D teams with tens of thousands of lines of C# .NET or C++ ObjectARX code need a deterministic, low-effort migration path to GstarCAD 2027. Course 19 walks software engineers through multi-target Visual Studio 2022 project architecture, namespace mapping, and binary compilation.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>NETLOAD, CommandMethod, TransactionManager, BlockTableRecord, AcDbObject / OdDbObject</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Configure a single Visual Studio 2022 C# (.csproj) or C++ (.vcxproj) solution using conditional compilation symbols (#if GSTARCAD vs. #if AUTOCAD) to build both .dll/.grx binaries from one codebase.</li>
+  <li>Map AutoCAD .NET assemblies (AcCoreMgd.dll, AcDbMgd.dll, AcMgd.dll) to GstarCAD managed assemblies (GsMgd.dll, GsDbMgd.dll) with Copy Local = False and Gssoft.GstarCAD.* namespaces.</li>
+  <li>Port C++ ObjectARX custom entities (AcDbEntity), database reactors, and Jig classes to the GstarCAD 2027 GRX SDK (MSVC v143 x64 toolset) and package multi-version .bundle autoloader plugins.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 19: C# .NET &amp; C++ GRX SDK Development — Porting AutoCAD ObjectARX Plugins to GstarCAD 2027</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Set up Visual Studio 2022 with GsMgdDbg/gced.h headers, use Database.TransactionManager for high-speed entity creation, build Ribbon palettes, and dual-target AutoCAD &amp; GstarCAD. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Porting AutoCAD C# .NET & C++ ObjectARX Plugins to GstarCAD 2027 GRX SDK</h2>
+<p>Suzhou Gstarsoft Co., Ltd. (SSE: 688657) engineered the <strong><a href="/developers">GstarCAD GRX SDK and .NET Managed API</a></strong> specifically to minimize porting friction for the global AutoCAD developer community. In C# .NET, the class names (`Database`, `Transaction`, `BlockTable`, `BlockTableRecord`, `Entity`, `Editor`, `PromptPointOptions`, `PaletteSet`) and method signatures are <strong>99.5% identical</strong>; porting typically requires changing only the top-level `using` directives from `Autodesk.AutoCAD.*` to `Gssoft.GstarCAD.*`.</p>
+<p>In C++ GRX, GstarCAD provides matching compatibility headers (`grxdefs.h`, `aced.h`, `dbmain.h`) that alias `AcDb*`, `AcGe*`, and `AcGi*` symbols directly to the underlying GstarCAD kernel runtime—allowing million-line commercial civil, piping, and architectural plugins to recompile cleanly.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>NETLOAD, CommandMethod, TransactionManager, BlockTableRecord, AcDbObject / OdDbObject</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">.NET Assemblies</td>
+  <td style="padding:12px 16px;"><code>GsMgd.dll / GsDbMgd.dll</code></td>
+  <td style="padding:12px 16px;">Managed C#/.NET 4.8+ API under Gssoft.GstarCAD.Runtime, ApplicationServices, and DatabaseServices.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">C++ GRX Kernel</td>
+  <td style="padding:12px 16px;"><code>grxdefs.h / gcedRegCmds</code></td>
+  <td style="padding:12px 16px;">Source-level C++ ObjectARX equivalent compiled with Visual Studio 2022 (MSVC v143 x64).</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Autoloader Pack</td>
+  <td style="padding:12px 16px;"><code>ApplicationPlugins/*.bundle</code></td>
+  <td style="padding:12px 16px;">Deploys zero-touch plugin packages via PackageContents.xml across enterprise workstations.</td>
 </tr>
 </tbody>
 </table>

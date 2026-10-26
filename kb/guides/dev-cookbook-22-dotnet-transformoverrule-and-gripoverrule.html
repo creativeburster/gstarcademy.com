@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Intercepting Entity Drag, Copy & Explode Operations via TransformOverrule & GripOverrule (dev-cookbook-22) | GstarCAD Academy</title>
+<meta content="Enforce parametric engineering constraints, prevent unauthorized EXPLODE commands, and add smart grips in GstarCAD 2027 C# .NET using TransformOverrule and GripOverrule." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-22-dotnet-transformoverrule-and-gripoverrule" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Intercepting Entity Drag, Copy & Explode Operations via TransformOverrule & GripOverrule (dev-cookbook-22)" property="og:title"/>
+<meta content="Enforce parametric engineering constraints, prevent unauthorized EXPLODE commands, and add smart grips in GstarCAD 2027 C# .NET using TransformOverrule and GripOverrule." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-22-dotnet-transformoverrule-and-gripoverrule" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Intercepting Entity Drag, Copy & Explode Operations via TransformOverrule & GripOverrule (dev-cookbook-22)", "description": "Enforce parametric engineering constraints, prevent unauthorized EXPLODE commands, and add smart grips in GstarCAD 2027 C# .NET using TransformOverrule and GripOverrule.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-22-dotnet-transformoverrule-and-gripoverrule", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD .NET TransformOverrule & GripOverrule Reference", "Parametric Associativity via Managed Overrules"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Intercepting Entity Drag, Copy & Explode Operations via TransformOverrule & GripOverrule (dev-cookbook-22)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-22-dotnet-transformoverrule-and-gripoverrule"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Intercepting Entity Drag, Copy & Explode Operations via TransformOverrule & GripOverrule (dev-cookbook-22)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C# .NET API · Behavioral Overrules</span>
+<h1 style="margin-top:12px;">Intercepting Entity Drag, Copy & Explode Operations via TransformOverrule & GripOverrule (dev-cookbook-22)</h1>
+<p class="hero-sub">Enforce parametric engineering constraints, prevent unauthorized EXPLODE commands, and add smart grips in GstarCAD 2027 C# .NET using TransformOverrule and GripOverrule.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Governing Entity Behavior Without Custom C++ Subclasses</h2>
+<p>While `DrawableOverrule` controls how an entity *looks*, <strong><code>TransformOverrule</code></strong>, <strong><code>GripOverrule</code></strong>, and <strong><code>ObjectOverrule</code></strong> inside <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong>'s `.NET` API (`Gssoft.GstarCAD.DatabaseServices`) govern how standard entities *behave* when a user runs `MOVE`, `ROTATE`, `SCALE`, `MIRROR`, `EXPLODE`, or drags a grip point. This architectural pattern enables CAD teams to build intelligent, rule-driven equipment blocks and schematic components in pure C#.</p>
+<p>For example, in a cleanroom pharmaceutical piping layout or an electrical switchgear panel, certain equipment blocks must never be scaled non-uniformly, must remain snapped to modular 100 mm DIN rail increments during `MOVE`, and must never be shattered into raw lines via `EXPLODE`.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. C# .NET Implementation: Modular Grid Snapping &amp; Explode Protection</h2>
+<p>The following C# `TransformOverrule` implementation intercepts all transformation matrices (`TransformBy`) and `Explode` calls on `BlockReference` entities tagged with the `"GSTAR_LOCKED_EQUIP"` XData application name. It quantizes translations to a 50 mm modular grid, strips unauthorized scaling factors, and blocks `EXPLODE`:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>using System;
+using Gssoft.GstarCAD.Runtime;
+using Gssoft.GstarCAD.ApplicationServices;
+using Gssoft.GstarCAD.DatabaseServices;
+using Gssoft.GstarCAD.Geometry;
+
+namespace GstarCadSamples.BehavioralOverrules
+{
+    public class ModularEquipmentTransformOverrule : TransformOverrule
+    {
+        public static readonly ModularEquipmentTransformOverrule Instance =
+            new ModularEquipmentTransformOverrule();
+
+        public override void TransformBy(Entity entity, Matrix3d transform)
+        {
+            if (entity is BlockReference blkRef)
+            {
+                // Extract translation component and quantize to 50.0 mm modular grid
+                Vector3d rawTrans = transform.Translation;
+                double snapStep = 50.0;
+                Vector3d snappedTrans = new Vector3d(
+                    Math.Round(rawTrans.X / snapStep) * snapStep,
+                    Math.Round(rawTrans.Y / snapStep) * snapStep,
+                    0.0 // Lock Z-elevation strictly to 0.0
+                );
+
+                // Reconstruct rigid transformation (preserve rotation, strip scale, apply grid snap)
+                Matrix3d sanitized = Matrix3d.Displacement(snappedTrans);
+                base.TransformBy(entity, sanitized);
+                return;
+            }
+            base.TransformBy(entity, transform);
+        }
+
+        public override void Explode(Entity entity, DBObjectCollection entitySet)
+        {
+            // Prevent destructive EXPLODE on governed BIM/MEP equipment blocks
+            var doc = Application.DocumentManager.MdiActiveDocument;
+            doc?.Editor.WriteMessage(
+                "
+[BIM Governance] EXPLODE is blocked on catalog equipment blocks. Use BEDIT by CAD Admin.");
+            throw new Gssoft.GstarCAD.Runtime.Exception(ErrorStatus.NotApplicable);
+        }
+    }
+}</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Combining `GripOverrule` with Custom `GripData` Callbacks in C#</h2>
+<p>When pairing `TransformOverrule` with `GripOverrule`, override `GetGripPoints(Entity, GripDataCollection, double, int, Vector3d, GetGripPointsFlags)` and `MoveGripPointsAt(Entity, GripDataCollection, Vector3d, MoveGripPointsFlags)`. Key implementation rules in GstarCAD 2027:</p>
+<ul style="line-height:1.75;">
+  <li><strong>Clone Semantics (`DeepClone` / `WblockClone`):</strong> If your overrule stores associative handle references inside an `ExtensionDictionary`, pair it with an `ObjectOverrule` overriding `DeepClone()` so copied entities generate fresh dictionary records rather than pointing back to the source entity's handle.</li>
+  <li><strong>Throwing `ErrorStatus.NotApplicable` in `Explode()`:</strong> Throwing `new Gssoft.GstarCAD.Runtime.Exception(ErrorStatus.NotApplicable)` inside `TransformOverrule.Explode()` cleanly aborts the native `EXPLODE` command for that entity while leaving the original `BlockReference` untouched in Model Space.</li>
+</ul>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Preserving Associative Dimension &amp; Leader Connectivity During Overruled Moves</h2>
+<p>When overriding `TransformOverrule.TransformBy()`, always invoke `base.TransformBy(entity, sanitizedMatrix)` as the final step rather than manually mutating `blkRef.Position`. Calling `base.TransformBy()` ensures that GstarCAD 2027's associative reactors (`AcDbAssocNetwork`, associative leaders, and parametric constraints) receive the standard `modified()` notification and update connected dimensions automatically.</p>
+<p>To allow administrators to temporarily bypass your `Explode()` lock during template maintenance, gate the check behind a custom environment toggle or `.NET` static flag (e.g., `if (!AdminMaintenanceMode.IsUnlocked) throw new Exception(ErrorStatus.NotApplicable);`).</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

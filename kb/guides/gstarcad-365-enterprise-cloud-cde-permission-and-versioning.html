@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>GstarCAD 365 Enterprise Cloud CDE: Role-Based Access Control, Revision Versioning & Cross-Terminal Sync | GstarCAD Academy</title>
+<meta content="Deploy GstarCAD 365 as an ISO 19650-aligned Common Data Environment (CDE) connecting desktop GstarCAD 2027, web browsers, and mobile DWG FastView field teams." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/gstarcad-365-enterprise-cloud-cde-permission-and-versioning" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="GstarCAD 365 Enterprise Cloud CDE: Role-Based Access Control, Revision Versioning & Cross-Terminal Sync" property="og:title"/>
+<meta content="Deploy GstarCAD 365 as an ISO 19650-aligned Common Data Environment (CDE) connecting desktop GstarCAD 2027, web browsers, and mobile DWG FastView field teams." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/gstarcad-365-enterprise-cloud-cde-permission-and-versioning" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GstarCAD 365 Enterprise Cloud CDE: Role-Based Access Control, Revision Versioning & Cross-Terminal Sync", "description": "Deploy GstarCAD 365 as an ISO 19650-aligned Common Data Environment (CDE) connecting desktop GstarCAD 2027, web browsers, and mobile DWG FastView field teams.", "url": "https://gstarcademy.com/kb/guides/gstarcad-365-enterprise-cloud-cde-permission-and-versioning", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Dr. Lin Wei, Ph.D., PE", "jobTitle": "Principal BIM & Interoperability Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#bim-architecture"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["ISO 19650-1 \u2014 Organization and Digitization of Information about Buildings and Civil Engineering Works", "Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 365 Cloud Architecture Whitepaper"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Official Courses & Tutorials", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "GstarCAD 365 Enterprise Cloud CDE: Role-Based Access Control, Revision Versioning & Cross-Terminal Sync", "item": "https://gstarcademy.com/kb/guides/gstarcad-365-enterprise-cloud-cde-permission-and-versioning"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Official Courses & Tutorials</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">GstarCAD 365 Enterprise Cloud CDE: Role-Based Access Control, Revision Versioning & Cross-Terminal Sync</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Cloud CDE & Collaboration</span>
+<h1 style="margin-top:12px;">GstarCAD 365 Enterprise Cloud CDE: Role-Based Access Control, Revision Versioning & Cross-Terminal Sync</h1>
+<p class="hero-sub">Deploy GstarCAD 365 as an ISO 19650-aligned Common Data Environment (CDE) connecting desktop GstarCAD 2027, web browsers, and mobile DWG FastView field teams.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#bim-architecture">Dr. Lin Wei, Ph.D., PE</a> (Principal BIM & Interoperability Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Eliminating Chaotic Email Attachments with a Unified DWG Cloud CDE</h2>
+<p>Exchanging `FloorPlan_Final_v3_RevB_John.dwg` over email or consumer chat apps inevitably causes construction contractors to build from outdated drawings. <strong><a href="/kb/software/gstarcad-365">GstarCAD 365</a></strong> provides an enterprise-grade, cloud-enabled <strong>Common Data Environment (CDE)</strong> that unites three terminals onto a single authoritative DWG data source: <strong>GstarCAD 2027 Desktop</strong> (for heavy authoring), <strong>GstarCAD Web</strong> (zero-install browser viewing/markup), and <strong><a href="/kb/software/dwg-fastview">DWG FastView Mobile</a></strong> (for jobsite inspection).</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Role-Based Permission Matrix &amp; ISO 19650 Folder States</h2>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">Project Role</th>
+  <th style="padding:12px 16px;">GstarCAD 365 Permission Tier</th>
+  <th style="padding:12px 16px;">Permitted DWG Actions &amp; Security Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Lead Discipline Engineers</td>
+  <td style="padding:12px 16px;"><code>Read / Write / Check-In / Lock</code></td>
+  <td style="padding:12px 16px;">Full desktop DWG editing, Xref binding, and version promotion from WIP to Shared.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Site Superintendents &amp; QA</td>
+  <td style="padding:12px 16px;"><code>View + Measure + Cloud Markup Only</code></td>
+  <td style="padding:12px 16px;">Can measure coordinates and post redline clouds/photos; cannot alter base DWG geometry.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">External Bidding Vendors</td>
+  <td style="padding:12px 16px;"><code>Time-Limited Read-Only Link (No Download)</code></td>
+  <td style="padding:12px 16px;">Browser-only viewing with expiration timestamp and password protection; blocks raw DWG file download.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Immutable Version History &amp; Instant Visual Revision Rollback</h2>
+<p>Every time an engineer saves and checks a drawing into GstarCAD 365, the cloud storage engine records an immutable version snapshot (`V1`, `V2`, `V3`...) with author timestamp and commit notes. Project managers can select any two historical snapshots directly in the cloud portal and invoke <strong>Cloud DWG Compare</strong> to audit exact geometric changes before approving the drawing for construction issue.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. On-Premises Private Cloud Deployment &amp; REST Webhook Integration</h2>
+<p>For defense contractors, state power grids, semiconductor fabs, and municipal water authorities operating under strict data-sovereignty regulations, **GstarCAD 365 Enterprise** can be deployed as a 100% air-gapped **Private Cloud container cluster** (Docker / Kubernetes on internal Linux servers backed by PostgreSQL + MinIO/Ceph object storage) or as a hybrid cloud tenant.</p>
+<p>Project managers can also bind GstarCAD 365 CDE lifecycle events (`File.Uploaded`, `Markup.Created`, `Container.PromotedToPublished`) to internal ERP, DingTalk, Microsoft Teams, or Jira workflows via signed HTTPS webhooks:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>// Example GstarCAD 365 CDE Webhook Payload on ISO 19650 State Promotion (SHARED -> PUBLISHED)
+{
+  "event": "cde.document.state_changed",
+  "timestamp": "2026-10-26T14:22:10Z",
+  "project_id": "PRJ-2026-METRO-L4",
+  "document": {
+    "dwg_name": "MTR-AEC-ST04-L2-DR-A-1002.dwg",
+    "ac_version": "AC1032",
+    "revision": "C02",
+    "previous_state": "SHARED_S3",
+    "current_state": "PUBLISHED_A1",
+    "sha256": "8f4b2e91c0d7a3f5e6b12904a8c3d2e17f9b6a5c4d3e2f10987654321abcdef0"
+  },
+  "approved_by": {
+    "user_id": "lin.wei@corp.example.com",
+    "role": "Lead_BIM_Approver"
+  }
+}</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

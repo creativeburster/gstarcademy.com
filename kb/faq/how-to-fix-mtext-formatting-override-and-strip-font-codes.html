@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Strip MTEXT Inline Formatting Overrides (Color, Font & Width Codes) | GstarCAD Academy</title>
+  <meta name="description" content="Remove hardcoded RTF inline color (\C), font (\f), height (\H), and width (\W) overrides inside MTEXT and Multileaders so text obeys ByLayer and TextStyle standards." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-fix-mtext-formatting-override-and-strip-font-codes" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Strip MTEXT Inline Formatting Overrides (Color, Font & Width Codes)" />
+  <meta property="og:description" content="Remove hardcoded RTF inline color (\C), font (\f), height (\H), and width (\W) overrides inside MTEXT and Multileaders so text obeys ByLayer and TextStyle standards." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-fix-mtext-formatting-override-and-strip-font-codes" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Strip MTEXT Inline Formatting Overrides (Color, Font & Width Codes)", "acceptedAnswer": {"@type": "Answer", "text": "Double-click the MTEXT to open the In-Place Editor, press Ctrl+A to select all text, and click 'Remove Formatting > Remove All Formatting' on the Ribbon (or press Ctrl+Spacebar). For 1,000+ objects, run our StripMtext AutoLISP scrubber."}}, {"@type": "Question", "name": "1. Single-Entity Fix: Ctrl+A + Ctrl+Spacebar in MTEXT Editor", "acceptedAnswer": {"@type": "Answer", "text": "Double-click the offending `MTEXT` object, press <code>Ctrl+A</code> to highlight all paragraphs, and press <code>Ctrl+Spacebar</code> (or click **Clear &rarr; Remove All Formatting** in the Text Editor contextual ribbon tab)."}}, {"@type": "Question", "name": "2. Prevent Future Word/Excel Paste Pollution (PASTESPEC)", "acceptedAnswer": {"@type": "Answer", "text": "When copying specification clauses from Microsoft Word or PDF into a drawing, do not press `Ctrl+V` directly inside the MTEXT editor. Instead, use **Paste Special &rarr; Paste as Plain Text (Unformatted Unicode Text)**."}}, {"@type": "Question", "name": "3. Batch-Scrub Inline Codes Across Entire Drawings via AutoLISP", "acceptedAnswer": {"@type": "Answer", "text": "Use the production regular-expression / string-parser AutoLISP routine below (`C:CLEANMTEXT`) to strip `\\f`, `\\C`, `\\H`, `\\W`, `\\Q`, and `\\T` inline overrides across thousands of `MTEXT` and `MULTILEADER` entities in one second."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Strip MTEXT Inline Formatting Overrides (Color, Font & Width Codes)", "item": "https://gstarcademy.com/kb/faq/how-to-fix-mtext-formatting-override-and-strip-font-codes"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Strip MTEXT Inline Formatting Overrides (Color, Font & Width Codes)", "description": "Remove hardcoded RTF inline color (\\C), font (\\f), height (\\H), and width (\\W) overrides inside MTEXT and Multileaders so text obeys ByLayer and TextStyle standards.", "url": "https://gstarcademy.com/kb/faq/how-to-fix-mtext-formatting-override-and-strip-font-codes", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Strip MTEXT Inline Formatting Overrides (Color, Font & Width Codes)</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">Typography & Standards</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Strip MTEXT Inline Formatting Overrides (Color, Font & Width Codes)</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Remove hardcoded RTF inline color (\C), font (\f), height (\H), and width (\W) overrides inside MTEXT and Multileaders so text obeys ByLayer and TextStyle standards.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">Double-click the MTEXT to open the In-Place Editor, press Ctrl+A to select all text, and click 'Remove Formatting > Remove All Formatting' on the Ribbon (or press Ctrl+Spacebar). For 1,000+ objects, run our StripMtext AutoLISP scrubber.</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>A chronic frustration for CAD Managers occurs when changing a layer's color in the Layer Properties Manager—or updating the font inside `STYLE`—has **zero effect** on dozens of `MTEXT`, `MLEADER`, and `DIMENSION` callouts. Inspecting the entity's DXF Group `1` string via `(entget (car (entsel)))` reveals embedded Rich-Text control sequences such as <code>{\fArial|b1|i0;\C1;\H2.5x;NOTES:}</code> pasted from Word/PDF or applied via the MTEXT ribbon toolbar, which override `ByLayer` and `TextStyle` inheritance.</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Single-Entity Fix: Ctrl+A + Ctrl+Spacebar in MTEXT Editor</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Double-click the offending `MTEXT` object, press <code>Ctrl+A</code> to highlight all paragraphs, and press <code>Ctrl+Spacebar</code> (or click **Clear &rarr; Remove All Formatting** in the Text Editor contextual ribbon tab).</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Prevent Future Word/Excel Paste Pollution (PASTESPEC)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">When copying specification clauses from Microsoft Word or PDF into a drawing, do not press `Ctrl+V` directly inside the MTEXT editor. Instead, use **Paste Special &rarr; Paste as Plain Text (Unformatted Unicode Text)**.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Batch-Scrub Inline Codes Across Entire Drawings via AutoLISP</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Use the production regular-expression / string-parser AutoLISP routine below (`C:CLEANMTEXT`) to strip `\f`, `\C`, `\H`, `\W`, `\Q`, and `\T` inline overrides across thousands of `MTEXT` and `MULTILEADER` entities in one second.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:CLEANMTEXT)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:CLEANMTEXT ( / ss i ent obj regEx raw clean)
+  (vl-load-com)
+  (princ "\nSelect MTEXT entities to strip inline font/color/height overrides: ")
+  (if (setq ss (ssget '((0 . "MTEXT"))))
+    (progn
+      (setq regEx (vlax-create-object "VBScript.RegExp"))
+      (vlax-put-property regEx 'Global :vlax-true)
+      (vlax-put-property regEx 'IgnoreCase :vlax-true)
+      ;; Match inline control codes: \f...; \C...; \H...; \W...; \A...;
+      (vlax-put-property regEx 'Pattern "(\\[fFcChHwWtTqQaA][^;]+;|[{}])")
+      (repeat (setq i (sslength ss))
+        (setq ent   (ssname ss (setq i (1- i)))
+              obj   (vlax-ename->vla-object ent)
+              raw   (vla-get-TextString obj)
+              clean (vlax-invoke regEx 'Replace raw ""))
+        (vla-put-TextString obj clean)
+        (vla-put-Color obj acByLayer)
+      )
+      (vlax-release-object regEx)
+      (princ (strcat "\n[CLEANMTEXT] Scrubbed inline overrides from " (itoa (sslength ss)) " MTEXT objects."))
+    )
+  )
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">MTEXT stays red even when Layer is set to White</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>Strip \C1; inline code</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Internal MTEXT color code overrides entity ByLayer color.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">MTEXT ignores TextStyle font change</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>Strip \fArial; inline code</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Character-level font override pasted from Word; run C:CLEANMTEXT.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Paragraph line spacing is crushed or huge</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>TSPACEFAC = 1.0</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">Reset MTEXT line spacing factor to 1.0x Exact/At Least.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

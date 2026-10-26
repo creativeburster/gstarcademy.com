@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+  <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+    });
+    try {
+      var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+      if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+    } catch (e) {}
+    gtag('js', new Date());
+    gtag('config', 'G-ZV3YR72933');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+  <meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+  <link rel="service" type="application/openapi+json" href="/openapi.json" />
+  <link rel="mcp" type="application/json" href="/mcp.json" />
+  <title>How to Delete Unpurgeable Layers, Stubborn Blocks & DGN Linetypes in DWG | GstarCAD Academy</title>
+  <meta name="description" content="Force-delete stubborn layers and block definitions that refuse to purge in AutoCAD and GstarCAD 2027 using LAYDEL, LAYMRG, QSELECT, and nested block dependency tracing." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://gstarcademy.com/kb/faq/how-to-remove-unpurgeable-layers-blocks-and-linetypes" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Delete Unpurgeable Layers, Stubborn Blocks & DGN Linetypes in DWG" />
+  <meta property="og:description" content="Force-delete stubborn layers and block definitions that refuse to purge in AutoCAD and GstarCAD 2027 using LAYDEL, LAYMRG, QSELECT, and nested block dependency tracing." />
+  <meta property="og:url" content="https://gstarcademy.com/kb/faq/how-to-remove-unpurgeable-layers-blocks-and-linetypes" />
+  <meta property="og:image" content="https://gstarcademy.com/images/og-default.webp" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../styles.min.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Delete Unpurgeable Layers, Stubborn Blocks & DGN Linetypes in DWG", "acceptedAnswer": {"@type": "Answer", "text": "Use LAYMRG to merge the stubborn layer into Layer 0 (preserving geometry) or LAYDEL to permanently annihilate the layer and all hidden references inside nested blocks and viewport overrides."}}, {"@type": "Question", "name": "1. Locate Hidden References with Purge 'Find Non-Purgeable Items'", "acceptedAnswer": {"@type": "Answer", "text": "Open <code>PURGE</code>, switch to the <strong>Find Non-Purgeable Items</strong> tab, and select the stubborn layer or block. GstarCAD 2027 displays the exact dependency count and reason (e.g., 'Used by 2 block definitions')."}}, {"@type": "Question", "name": "2. Merge Safely with LAYMRG (Non-Destructive)", "acceptedAnswer": {"@type": "Answer", "text": "Run <code>LAYMRG</code>, select the stubborn layer via the Name dialog, and choose <code>Layer 0</code> (or its standard replacement layer) as the target. All entities and nested block references are cleanly reassigned and the old layer is deleted."}}, {"@type": "Question", "name": "3. Force-Delete with LAYDEL (Destructive Override)", "acceptedAnswer": {"@type": "Answer", "text": "If the layer contains only junk vendor entities, run <code>LAYDEL</code>, click <code>Name</code>, select the layer, and confirm. `LAYDEL` reaches inside every block definition in the Block Table, erases entities on that layer, and removes the layer record."}}], "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)", "url": "https://gstarcademy.com/authors"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Knowledge Base", "item": "https://gstarcademy.com/knowledge-base"}, {"@type": "ListItem", "position": 3, "name": "FAQ", "item": "https://gstarcademy.com/kb-faq"}, {"@type": "ListItem", "position": 4, "name": "How to Delete Unpurgeable Layers, Stubborn Blocks & DGN Linetypes in DWG", "item": "https://gstarcademy.com/kb/faq/how-to-remove-unpurgeable-layers-blocks-and-linetypes"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Delete Unpurgeable Layers, Stubborn Blocks & DGN Linetypes in DWG", "description": "Force-delete stubborn layers and block definitions that refuse to purge in AutoCAD and GstarCAD 2027 using LAYDEL, LAYMRG, QSELECT, and nested block dependency tracing.", "url": "https://gstarcademy.com/kb/faq/how-to-remove-unpurgeable-layers-blocks-and-linetypes", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+  <div class="header-stack">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+          <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <nav class="nav">
+          <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+          <a class="nav-link" data-nav="home" href="/">Home</a>
+          <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+          <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+          <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+          <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+          <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+          <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+          <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+        </nav>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </header>
+  </div>
+  <main class="container" style="margin-top: 32px; max-width: 920px; margin-bottom: 60px;">
+    <nav class="kb-faq-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 13px; color: var(--ink-text-soft);">
+      <a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb-faq">FAQ</a> / <span aria-current="page">How to Delete Unpurgeable Layers, Stubborn Blocks & DGN Linetypes in DWG</span>
+    </nav>
+    <article class="kb-concept-detail">
+      <header class="kb-concept-header" style="margin-bottom: 28px;">
+        <span class="chip pill-warn">Database Hygiene</span>
+        <h1 style="margin-top: 12px; font-size: 2.05rem; line-height: 1.25;">How to Delete Unpurgeable Layers, Stubborn Blocks & DGN Linetypes in DWG</h1>
+        <p class="hero-sub" style="font-size: 16px; line-height: 1.6; color: var(--ink-text-soft);">Force-delete stubborn layers and block definitions that refuse to purge in AutoCAD and GstarCAD 2027 using LAYDEL, LAYMRG, QSELECT, and nested block dependency tracing.</p>
+        <div class="ink-byline" role="contentinfo" style="margin-top: 16px;">
+          <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+          <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+          <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+        </div>
+      </header>
+      <div style="margin-bottom: 28px; padding: 22px 24px; background: var(--ink-surface-2, #f5f6f8); border-left: 4px solid var(--accent, #0066cc); border-radius: 8px;">
+        <h2 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700;">⚡ Quick Executive Fix</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;">Use LAYMRG to merge the stubborn layer into Layer 0 (preserving geometry) or LAYDEL to permanently annihilate the layer and all hidden references inside nested blocks and viewport overrides.</p>
+      </div>
+      <section class="kb-concept-section" style="margin-top: 28px;">
+        <h2>1. Engineering Root-Cause Diagnosis inside the AC1032 DWG Database</h2>
+        <p>The standard `PURGE` command enforces a strict relational integrity lock: a layer (`AcDbLayerTableRecord`), block (`AcDbBlockTableRecord`), or linetype cannot be purged if **even a single reference handle** points to it. Hidden references commonly hide inside zero-length lines, empty `TEXT` strings, nested sub-blocks defined on that layer, frozen layout viewports, or AEC/Civil dimension style leader definitions.</p>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>2. Step-by-Step Resolution Protocol in AutoCAD &amp; GstarCAD 2027</h2>
+        
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">1. Locate Hidden References with Purge 'Find Non-Purgeable Items'</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Open <code>PURGE</code>, switch to the <strong>Find Non-Purgeable Items</strong> tab, and select the stubborn layer or block. GstarCAD 2027 displays the exact dependency count and reason (e.g., 'Used by 2 block definitions').</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">2. Merge Safely with LAYMRG (Non-Destructive)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">Run <code>LAYMRG</code>, select the stubborn layer via the Name dialog, and choose <code>Layer 0</code> (or its standard replacement layer) as the target. All entities and nested block references are cleanly reassigned and the old layer is deleted.</p>
+        </div>
+        <div style="margin-bottom: 20px; padding: 20px; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 12px;">
+          <h3 style="margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink-text);">3. Force-Delete with LAYDEL (Destructive Override)</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--ink-text);">If the layer contains only junk vendor entities, run <code>LAYDEL</code>, click <code>Name</code>, select the layer, and confirm. `LAYDEL` reaches inside every block definition in the Block Table, erases entities on that layer, and removes the layer record.</p>
+        </div>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 32px;">
+        <h2>3. Automated AutoLISP Diagnostic &amp; Repair Script (C:FINDLAYERUSAGE)</h2>
+        <p>Load the following production AutoLISP routine into <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> or AutoCAD via <code>APPLOAD</code> (or add it to <code>gcaddoc.lsp</code>) to automate this repair across affected project files:</p>
+        <pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:FINDLAYERUSAGE ( / targetLay blkDef ent count)
+  (setq targetLay (strcase (getstring T "\nEnter stubborn layer name to trace: "))
+        count 0)
+  (vlax-for blk (vla-get-Blocks (vla-get-ActiveDocument (vlax-get-acad-object)))
+    (if (= (vla-get-IsXRef blk) :vlax-false)
+      (vlax-for ent blk
+        (if (= (strcase (vla-get-Layer ent)) targetLay)
+          (progn
+            (setq count (1+ count))
+            (princ (strcat "\nFound [" (vla-get-ObjectName ent) "] inside Block: " (vla-get-Name blk)))
+          )
+        )
+      )
+    )
+  )
+  (princ (strcat "\nTotal references found: " (itoa count)))
+  (princ)
+)</code></pre>
+      </section>
+      <section class="kb-concept-section" style="margin-top: 36px;">
+        <h2>4. Diagnostic System Variables &amp; Edge-Case Matrix</h2>
+        <div style="overflow-x: auto; margin-top: 16px;">
+          <table style="width: 100%; border-collapse: collapse; background: var(--ink-surface); border: 1px solid var(--ink-line); border-radius: 8px; font-size: 13.5px; text-align: left;">
+            <thead>
+              <tr style="background: var(--ink-surface-2); border-bottom: 2px solid var(--ink-line);">
+                <th style="padding: 12px 16px;">Failure Symptom / Scenario</th>
+                <th style="padding: 12px 16px;">Command / SysVar</th>
+                <th style="padding: 12px 16px;">Production Remediation Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Layer has 0 visible objects in Model Space</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>LAYMRG</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">A nested sub-block or frozen Paper Space viewport references the layer.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Block definition refuses to purge</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>QSELECT (Anonymous *U)</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">A dynamic block anonymous instance (*U###) or MLeader style uses the block.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--ink-line);">
+          <td style="padding: 12px 16px; font-weight: 600; vertical-align: top;">Linetype cannot be purged</td>
+          <td style="padding: 12px 16px; vertical-align: top;"><code>CHECK DIMSTYLE / MLEADERSTYLE</code></td>
+          <td style="padding: 12px 16px; vertical-align: top; line-height: 1.6;">The linetype is assigned inside a Dimension Style extension line or layer table.</td>
+        </tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+        <h3 style="margin-top:0;">Experience Faster, Corruption-Free DWG Engineering in GstarCAD 2027</h3>
+        <p style="margin-bottom:16px;">Built by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 features multi-threaded DWG open/save, built-in RegApp/Scale-List scrubbers, and perpetual licensing.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download GstarCAD 2027 Free Trial &rarr;</a>
+          <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="footer site-footer">
+    <div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+  </footer>
+  <script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+  <script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

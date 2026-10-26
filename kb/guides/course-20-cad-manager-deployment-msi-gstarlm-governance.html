@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Deploying and governing 500+ CAD seats across multi-site engineering offices requires automated software packaging, high-availability license server clustering, and centralized path locking. This capstone course equips IT directors and CAD Managers to administer GstarCAD 2027 at enterprise scale.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>msiexec /qn, GstarLM License Manager, OPTIONS Profiles (.arg), -PURGE, AUDIT</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Execute zero-touch silent MSI installations (msiexec /i GstarCAD2027.msi /qn) via Microsoft Intune, SCCM, or Active Directory GPO with pre-bound network license server IPs.</li>
+  <li>Deploy and monitor the GstarLM Network License Manager across Windows or Linux servers, configuring firewall ports, subnet access rules, and offline laptop license borrowing.</li>
+  <li>Lock corporate support file search paths, printer config directories (.pc3/.ctb), .dws CAD standards, and TRUSTEDPATHS via centralized Windows Registry profiles and gcaddoc.lsp startup scripts.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 20: Enterprise CAD Administration — Silent MSI Deployment, GstarLM Network Licensing &amp; QA Audits</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Roll out GstarCAD 2027 across 500+ workstations via Active Directory GPO/SCCM silent MSI flags, configure redundant GstarLM license servers, and enforce automated pre-transmittal DWG audits. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Enterprise CAD Administration: Silent MSI Rollout, GstarLM Floating Licenses & Security Governance</h2>
+<p>Unlike cloud-only subscription CAD platforms that force every engineer to authenticate against external vendor servers and prohibit floating seat sharing, <strong>GstarLM (Gstarsoft License Manager)</strong> operates 100% inside your corporate intranet (including completely air-gapped defense, semiconductor, and power-grid networks). A central pool of 200 floating perpetual licenses can dynamically serve 450 engineers working across staggered shifts or multiple global time zones.</p>
+<p>Through a master `gcaddoc.lsp` script hosted on a read-only network share and added to `TRUSTEDPATHS`, CAD Managers automatically enforce corporate `PSLTSCALE`, `INDEXCTL`, `XLOADCTL`, and `.ctb` plot table paths every time any engineer opens a drawing.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>msiexec /qn, GstarLM License Manager, OPTIONS Profiles (.arg), -PURGE, AUDIT</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Silent Rollout</td>
+  <td style="padding:12px 16px;"><code>msiexec /i ... /qn /norestart</code></td>
+  <td style="padding:12px 16px;">Automates mass workstation installation and profile injection via SCCM, Intune, or GPO.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Floating Pool</td>
+  <td style="padding:12px 16px;"><code>GstarLM Server (TCP Port 27000+)</code></td>
+  <td style="padding:12px 16px;">Manages concurrent network seats, department reservations, and offline field laptop borrowing.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Policy Locking</td>
+  <td style="padding:12px 16px;"><code>TRUSTEDPATHS + gcaddoc.lsp</code></td>
+  <td style="padding:12px 16px;">Enforces unified corporate templates, plot styles, and system variables on every drawing open.</td>
 </tr>
 </tbody>
 </table>

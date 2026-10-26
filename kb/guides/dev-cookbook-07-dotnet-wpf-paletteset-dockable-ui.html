@@ -95,14 +95,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Host modern WPF MVVM user interfaces inside GstarCAD 2027 using Gssoft.GstarCAD.Windows.PaletteSet and safely modify the DWG database via Document.LockDocument().</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>PaletteSet, ElementHost, Document.LockDocument, CommandFlags.Session, INotifyPropertyChanged</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Hosting Modern Dockable WPF MVVM Tool Palettes (`Gssoft.GstarCAD.Windows.PaletteSet`) & Cross-Document Locking</h2>
+<p>Modal WinForms dialogs block the engineer from panning, zooming, or picking geometry in the drawing viewport. Modern commercial GstarCAD .NET plugins utilize modeless, dockable `PaletteSet` containers hosting hardware-accelerated WPF UserControls (`ElementHost`). However, because a modeless WPF button click executes outside the context of a registered CAD command, mutating the active database directly throws an instant `eLockViolation` exception.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> Whenever a user clicks a button or edits a DataGrid cell inside a modeless `PaletteSet`, your C# event handler **must** acquire an explicit document lock via `using (DocumentLock docLock = doc.LockDocument())` before starting a `Transaction`! Better yet, for operations that require interactive viewport prompts (`Editor.GetPoint`), dispatch a registered command string via `doc.SendStringToExecute("_MY_CMD ", true, false, false)`.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Managed C# .NET Implementation (GRX / .NET / LISP)</h2>
+<p>Reference <code>GsMgd.dll</code> and <code>GsDbMgd.dll</code> (with <code>Copy Local = False</code>) in your C# class library project to execute <strong>.NET Cookbook 07: Building Dockable WPF PaletteSet Windows with Document-Locking Command Execution</strong> inside the GstarCAD 2027 CLR runtime:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// GstarCAD 2027 C# .NET API — Dockable PaletteSet with Safe Document Locking
 using System;
 using Gssoft.GstarCAD.Runtime;

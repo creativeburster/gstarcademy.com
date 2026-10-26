@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>GstarCAD Mechanical BOM Automation: Multi-Standard (ISO/DIN/ASME) Part References & SAP/ERP Sync | GstarCAD Academy</title>
+<meta content="Configure GstarCAD Mechanical 2027 AMBOM databases, custom part attribute schemas, associative leader balloons, and automated XML/CSV exports for SAP and Oracle ERP integration." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/gstarcad-mechanical-iso-din-asme-bom-erp-integration" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="GstarCAD Mechanical BOM Automation: Multi-Standard (ISO/DIN/ASME) Part References & SAP/ERP Sync" property="og:title"/>
+<meta content="Configure GstarCAD Mechanical 2027 AMBOM databases, custom part attribute schemas, associative leader balloons, and automated XML/CSV exports for SAP and Oracle ERP integration." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/gstarcad-mechanical-iso-din-asme-bom-erp-integration" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GstarCAD Mechanical BOM Automation: Multi-Standard (ISO/DIN/ASME) Part References & SAP/ERP Sync", "description": "Configure GstarCAD Mechanical 2027 AMBOM databases, custom part attribute schemas, associative leader balloons, and automated XML/CSV exports for SAP and Oracle ERP integration.", "url": "https://gstarcademy.com/kb/guides/gstarcad-mechanical-iso-din-asme-bom-erp-integration", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["ISO 7573 \u2014 Technical Product Documentation: Parts Lists", "ASME Y14.34 \u2014 Associated Lists (Parts Lists, Data Lists, and Index Lists)"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Official Courses & Tutorials", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "GstarCAD Mechanical BOM Automation: Multi-Standard (ISO/DIN/ASME) Part References & SAP/ERP Sync", "item": "https://gstarcademy.com/kb/guides/gstarcad-mechanical-iso-din-asme-bom-erp-integration"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Official Courses & Tutorials</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">GstarCAD Mechanical BOM Automation: Multi-Standard (ISO/DIN/ASME) Part References & SAP/ERP Sync</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">GstarCAD Mechanical & ERP</span>
+<h1 style="margin-top:12px;">GstarCAD Mechanical BOM Automation: Multi-Standard (ISO/DIN/ASME) Part References & SAP/ERP Sync</h1>
+<p class="hero-sub">Configure GstarCAD Mechanical 2027 AMBOM databases, custom part attribute schemas, associative leader balloons, and automated XML/CSV exports for SAP and Oracle ERP integration.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Architecture of the `AMBOM` Relational Database in GstarCAD Mechanical</h2>
+<p>In mechanical equipment manufacturing, manually typing bill-of-materials (BOM) rows into Excel or static CAD tables causes a 3% to 5% procurement mismatch rate whenever an engineer adds a fastener or changes a shaft material grade. <strong><a href="/kb/software/gstarcad-mechanical">GstarCAD Mechanical 2027</a></strong> embeds a relational <strong><code>AMBOM</code> database</strong> directly inside the native AC1032 DWG file—maintaining 100% binary compatibility with legacy AutoCAD Mechanical (ACM) drawings.</p>
+<p>Every mechanical component on the drawing is linked to the BOM via an <strong><code>AMPARTREF</code> (Part Reference)</strong> node. Whether attached to a custom 2D contour, a block reference, or inserted automatically from the 100,000-part ISO/DIN/ANSI standard catalog (`AMSTDPLIB`), the Part Reference tracks live instance counts and pushes updates immediately to associative <strong><code>AMBALLOON</code></strong> callouts and <strong><code>AMPARTLIST</code></strong> tables.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Mapping Multi-Standard BOM Schemas (ISO / DIN / ASME / JIS) to ERP Fields</h2>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">GstarCAD Mechanical Property</th>
+  <th style="padding:12px 16px;">SAP S/4HANA / ERP Target Field</th>
+  <th style="padding:12px 16px;">Automated Validation &amp; Rollup Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;"><code>ITEM</code> (Balloon Index)</td>
+  <td style="padding:12px 16px;"><code>POSNR</code> (BOM Item Number)</td>
+  <td style="padding:12px 16px;">Auto-increments by 1 or 10; locks item numbers on released revisions.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;"><code>PARTNUMBER</code> / <code>STANDARD</code></td>
+  <td style="padding:12px 16px;"><code>MATNR</code> (Material Master ID)</td>
+  <td style="padding:12px 16px;">Auto-populated for DIN 912 / ISO 4762 fasteners; merges identical SKUs across views.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;"><code>QTY</code> &amp; <code>MATERIAL</code></td>
+  <td style="padding:12px 16px;"><code>MENGE</code> &amp; <code>WRKST</code> (EN 10027 Steel Grade)</td>
+  <td style="padding:12px 16px;">Dynamically counts block/PartRef instances; flags missing material grades in red.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Automated ERP Export Pipeline &amp; Quality Verification</h2>
+<p>Before releasing a mechanical assembly drawing to production procurement, execute the following verification protocol in GstarCAD Mechanical 2027:</p>
+<ol style="line-height:1.8;">
+  <li><strong>Collect &amp; Renumber Balloons (`AMBALLOON`):</strong> Use the <em>Collect</em> and <em>Horizontal/Vertical Align</em> options to group fastener stacks (Bolt + Washer + Spring Washer + Nut) onto a single multi-tag leader arrow.</li>
+  <li><strong>Zero Unballooned Part Audit:</strong> Open the `AMBOM` dialog; components present in the database that lack a visual balloon on the sheet are highlighted so no required part is omitted from assembly instructions.</li>
+  <li><strong>Structured CSV/XLSX Export:</strong> Click <em>Export</em> inside `AMPARTLIST` (or run batch extraction) to output UTF-8 CSV/Excel schedules mapped directly to your SAP/Oracle import template.</li>
+</ol>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Multi-Standard Merging &amp; Custom Company Standard Templates (`.DWT`)</h2>
+<p>Global machinery OEMs frequently design assemblies in Europe under **ISO / DIN** metric standards while manufacturing sub-assemblies in North America under **ASME / ANSI** inch standards. GstarCAD Mechanical 2027 allows engineers to switch the active drafting standard dynamically within `AMOPTIONS &rarr; AM:Standards`—or maintain dedicated `.dwt` company templates pre-configured with custom title blocks, parts list column formulas, and surface texture libraries.</p>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">Mechanical Subsystem</th>
+  <th style="padding:10px 14px;">GstarCAD Mechanical Command</th>
+  <th style="padding:10px 14px;">ACM 2018–2026 Interoperability Guarantee</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Mechanical Layer Manager</strong></td>
+  <td style="padding:10px 14px;"><code>AMLAYER</code></td>
+  <td style="padding:10px 14px;">Automatically routes centerlines (`AM_7`), hidden lines (`AM_3`), dimensions (`AM_5`), and hatches (`AM_8`) to standard object layers regardless of active layer.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Associative Hide / Foreground</strong></td>
+  <td style="padding:10px 14px;"><code>AM2DHIDE</code> / <code>AM2DHIDEDIT</code></td>
+  <td style="padding:10px 14px;">Calculates 2D occlusion between overlapping sub-assemblies and automatically converts obscured contour segments to dashed hidden lines without exploding blocks.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><strong>Power Dimensioning &amp; Fits</strong></td>
+  <td style="padding:10px 14px;"><code>AMPOWERDIM</code></td>
+  <td style="padding:10px 14px;">Computes ISO 286 shaft/hole tolerance limits (e.g., `H7/g6` &rarr; `+0.021/0`, `-0.007/-0.020`) automatically based on nominal diameter.</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><strong>Hole Charts &amp; Coordinate Tables</strong></td>
+  <td style="padding:10px 14px;"><code>AMHOLECHART</code></td>
+  <td style="padding:10px 14px;">Filters drilled, tapped, and counterbored holes by diameter and outputs associative `X/Y` CNC coordinate tables linked to origin datum.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

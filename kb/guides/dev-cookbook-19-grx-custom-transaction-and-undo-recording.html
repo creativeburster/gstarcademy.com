@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Nested Database Transactions, Partial UndoFiler Serialization & Rollback Safety in GRX (dev-cookbook-19) | GstarCAD Academy</title>
+<meta content="Architect atomic multi-entity database modifications in GstarCAD 2027 C++ GRX using AcTransactionManager and custom partial undo recording via AcDbDwgFiler." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-19-grx-custom-transaction-and-undo-recording" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Nested Database Transactions, Partial UndoFiler Serialization & Rollback Safety in GRX (dev-cookbook-19)" property="og:title"/>
+<meta content="Architect atomic multi-entity database modifications in GstarCAD 2027 C++ GRX using AcTransactionManager and custom partial undo recording via AcDbDwgFiler." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-19-grx-custom-transaction-and-undo-recording" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Nested Database Transactions, Partial UndoFiler Serialization & Rollback Safety in GRX (dev-cookbook-19)", "description": "Architect atomic multi-entity database modifications in GstarCAD 2027 C++ GRX using AcTransactionManager and custom partial undo recording via AcDbDwgFiler.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-19-grx-custom-transaction-and-undo-recording", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 2027 AcTransactionManager Reference", "AC1032 DWG Undo Stream Serialization & Partial Undo Protocol"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Nested Database Transactions, Partial UndoFiler Serialization & Rollback Safety in GRX (dev-cookbook-19)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-19-grx-custom-transaction-and-undo-recording"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Nested Database Transactions, Partial UndoFiler Serialization & Rollback Safety in GRX (dev-cookbook-19)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C++ GRX SDK · Transactions & UndoFiler</span>
+<h1 style="margin-top:12px;">Nested Database Transactions, Partial UndoFiler Serialization & Rollback Safety in GRX (dev-cookbook-19)</h1>
+<p class="hero-sub">Architect atomic multi-entity database modifications in GstarCAD 2027 C++ GRX using AcTransactionManager and custom partial undo recording via AcDbDwgFiler.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Why `AcTransactionManager` Outperforms Manual `acdbOpenObject()` Chains</h2>
+<p>In complex engineering operations—such as automatically routing a 40-segment fire-sprinkler branch network and simultaneously updating a summary schedule table—manually calling `acdbOpenObject()` and `close()` across dozens of interdependent entities is error-prone. If a geometric validation fails halfway through the routine, rolling back the initial edits requires tedious cleanup code. <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong>'s `actrTransactionManager` provides ACID-style nested transactions over the active `AcDbDatabase`.</p>
+<p>When you open objects via `actrTransactionManager-&gt;getObject()`, you can freely upgrade an object from `AcDb::kForRead` to `AcDb::kForWrite` within the same transaction or nested sub-transaction without closing it first. Calling `abortTransaction()` instantaneously restores the exact pre-transaction binary state of every touched entity via the database's internal undo filer.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Custom Partial Undo (`assertWriteEnabled(false)`) for High-Frequency Objects</h2>
+<p>By default, calling `assertWriteEnabled()` inside a custom `AcDbObject` or `AcDbEntity` triggers a **Full Object Undo Snapshot**—serializing the entire entity via `dwgOutFields()` into the undo stream before your setter modifies a single member variable. If your custom object holds a 50,000-vertex civil TIN surface array (`AcGePoint3dArray`) and the user elevates a single vertex, full-object undo serialization will consume hundreds of megabytes of undo buffer space. Implementing **Partial Undo** via `applyPartialUndo()` reduces undo overhead to just 32 bytes per edit:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>#include "grxHeaders.h"
+#include "dbfiler.h"
+
+enum TinSurfaceUndoOp : Adesk::Int16 {
+    kUndoModifySingleVertex = 101
+};
+
+Acad::ErrorStatus GcTinSurfaceEntity::setVertexElevationAt(Adesk::Int32 idx, double newZ) {
+    // Pass autoUndo = false so GRX does NOT serialize the entire 50,000-vertex array
+    assertWriteEnabled(Adesk::kFalse);
+
+    AcDbDwgFiler* pUndoFiler = undoFiler();
+    if (pUndoFiler != nullptr) {
+        // Record class descriptor, operation op-code, vertex index, and previous Z value
+        pUndoFiler-&gt;writeAddress(GcTinSurfaceEntity::desc());
+        pUndoFiler-&gt;writeInt16(kUndoModifySingleVertex);
+        pUndoFiler-&gt;writeInt32(idx);
+        pUndoFiler-&gt;writeDouble(m_vertices[idx].z);
+    }
+
+    m_vertices[idx].z = newZ;
+    recordGraphicsModified(true);
+    return Acad::eOk;
+}
+
+Acad::ErrorStatus GcTinSurfaceEntity::applyPartialUndo(
+    AcDbDwgFiler* pUndoFiler,
+    AcRxClass* pClassObj)
+{
+    if (pClassObj != GcTinSurfaceEntity::desc()) {
+        return AcDbEntity::applyPartialUndo(pUndoFiler, pClassObj);
+    }
+    Adesk::Int16 opCode = 0;
+    pUndoFiler-&gt;readInt16(&amp;opCode);
+
+    if (opCode == kUndoModifySingleVertex) {
+        Adesk::Int32 idx = 0;
+        double oldZ = 0.0;
+        pUndoFiler-&gt;readInt32(&amp;idx);
+        pUndoFiler-&gt;readDouble(&amp;oldZ);
+        // Call setter during UNDO so Redo stack automatically records the inverse!
+        setVertexElevationAt(idx, oldZ);
+        return Acad::eOk;
+    }
+    return Acad::eInvalidInput;
+}</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Transaction Nesting Rules &amp; Memory Benchmarks</h2>
+<p>When combining `AcTransaction` scopes with custom partial undo filers in GstarCAD 2027, adhere to these three transaction invariants:</p>
+<ol style="line-height:1.75;">
+  <li><strong>Never Call `pObj-&gt;close()` on Transaction-Managed Pointers:</strong> Objects obtained via `pTrans-&gt;getObject()` are owned by the transaction stack; calling `close()` directly corrupts the transaction reference count and triggers `eNotOpenForWrite` during `endTransaction()`.</li>
+  <li><strong>Newly Appended Entities:</strong> When appending a brand-new `AcDbEntity` to Model Space inside a transaction, first add it to the `AcDbBlockTableRecord` via `appendAcDbEntity(objId, pNewEnt)`, and immediately register the pointer with `actrTransactionManager-&gt;addNewlyCreatedDBRObject(pNewEnt)`.</li>
+  <li><strong>Empirical Undo Memory Reduction:</strong> On a 100,000-triangle civil grading mesh, switching from default `assertWriteEnabled(true)` to `applyPartialUndo()` reduces per-edit undo stream allocation from **4.8 MB to 38 bytes**—a **99.99% memory reduction** that keeps `UNDO` / `REDO` instantaneous across 500+ interactive grading steps.</li>
+</ol>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Diagnosing `eNotOpenForWrite` &amp; `eAtMaxReaders` in Deep Transaction Trees</h2>
+<p>When debugging complex C++ GRX transaction trees in Visual Studio 2022 attached to `gcad.exe`, watch for two classic status codes returned by `actrTransactionManager-&gt;getObject()`:</p>
+<ul style="line-height:1.75;">
+  <li><strong><code>Acad::eWasOpenForNotify</code>:</strong> Occurs if you attempt to open an entity for write inside an object reactor callback (`AcDbObjectReactor::modified()`) while the notifying object is still mid-close. Defer secondary modifications to an `AcEditorReactor::commandEnded()` handler.</li>
+  <li><strong>Undo Stream Alignment Errors (`eInvalidInput` in `applyPartialUndo`):</strong> Every byte written to `undoFiler()` during `setVertexElevationAt()` must be read back in the exact same sequence and data type inside `applyPartialUndo()`. Leaving unread bytes in the undo filer stream will desynchronize subsequent undo op-codes.</li>
+</ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

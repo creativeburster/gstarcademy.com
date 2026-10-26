@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Renovating historic heritage buildings or retrofitting brownfield industrial piping plants using outdated 1980s paper blueprints leads to severe field clashes. Course 14 trains surveyors and retrofit engineers to process billions of terrestrial LiDAR laser scan points directly inside GstarCAD Point Cloud.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>POINTCLOUDATTACH, POINTCLOUDCLIP, UCS, PLAN,PDFIMPORT</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Index raw terrestrial and drone photogrammetry scan archives (.e57, .las, .laz, .rcp/.rcs, .pts) into high-speed octree structures capable of rendering 500+ million points at 60 FPS.</li>
+  <li>Manipulate the interactive Clipping Box and Horizontal/Vertical Section Slicers (10mm–50mm slice thickness) with RGB, Intensity, and Z-Elevation color-ramp shaders.</li>
+  <li>Utilize automated feature-extraction snapping to trace true as-built 2D floor plans (including plumb/bowed wall deviations), Heritage facade elevations, and 3D structural steel centrelines.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 14: Scan-to-CAD &amp; Heritage Renovation — Processing LiDAR Point Clouds (.RCP/.E57/.LAS) in GstarCAD</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Import terrestrial laser scanning (TLS) point clouds into GstarCAD Point Cloud, slice horizontal/vertical clipping boxes, and snap accurate 2D/3D as-built architectural floor plans. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: GstarCAD Point Cloud (Undet Engine): LiDAR E57/LAS Indexing, Dynamic Slicing & As-Built Vectorization</h2>
+<p>Loading an unindexed 40GB terrestrial laser scan directly into a standard CAD viewport exhausts workstation RAM instantly. <strong><a href="/kb/software/gstarcad-point-cloud">GstarCAD Point Cloud</a></strong> integrates the specialized Undet voxel-octree indexing engine: only the point density visible within the current camera frustum and clipping slice is streamed into GPU VRAM, keeping memory overhead flat while preserving sub-millimeter coordinate accuracy.</p>
+<p>By toggling between <strong>Intensity Coloring</strong> (which highlights reflective differences between mortar joints, steel flanges, and painted drywall) and <strong>Plane Deviation Coloring</strong>, drafters snap 2D polylines and parametric walls directly to the physical reality of the site.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>POINTCLOUDATTACH, POINTCLOUDCLIP, UCS, PLAN,PDFIMPORT</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Octree Streamer</td>
+  <td style="padding:12px 16px;"><code>.E57 / .LAS / .RCP Indexer</code></td>
+  <td style="padding:12px 16px;">Streams multi-gigabyte LiDAR point clouds smoothly via LOD frustum culling.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Slice Manager</td>
+  <td style="padding:12px 16px;"><code>Horizontal/Vertical Section Box</code></td>
+  <td style="padding:12px 16px;">Isolates thin 20mm planar slices at 1.2m cut height for rapid 2D floor plan tracing.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Best-Fit Snap</td>
+  <td style="padding:12px 16px;"><code>Point Cloud Osnap / Line Fit</code></td>
+  <td style="padding:12px 16px;">Computes least-squares best-fit wall lines and pipe axes across noisy scan clusters.</td>
 </tr>
 </tbody>
 </table>

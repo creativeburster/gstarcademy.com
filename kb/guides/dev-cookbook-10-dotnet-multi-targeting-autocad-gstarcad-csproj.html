@@ -95,14 +95,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Configure an SDK-style `.csproj` with `#if GSTARCAD` conditional compilation and global `using` aliases so a single C# codebase compiles simultaneously for GstarCAD 2027 and AutoCAD.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>Conditional Compilation (#if GSTARCAD), MSBuild Configurations, AcMgd / GsMgdDbg</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Single-Repository Multi-Targeting Architecture: Compiling AutoCAD & GstarCAD 2027 Plugins from One SDK-Style `.csproj`</h2>
+<p>Maintaining two separate Git repositories—one for AutoCAD and one for GstarCAD—inevitably leads to bug-fix drift and doubled QA overhead. Because the GstarCAD .NET API mirrors AutoCAD's class structure 1:1, software architects can configure a single modern SDK-style `.csproj` file with `<Configurations>Release_GstarCAD;Release_AutoCAD</Configurations>` and conditional MSBuild `<Reference>` blocks to compile both binaries simultaneously.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> Create a single `CadApiAliases.cs` file using C# 10+ `global using` directives guarded by `#if GSTARCAD` (`global using CadApp = Gssoft.GstarCAD.ApplicationServices.Application;`) vs `#elif AUTOCAD` (`global using CadApp = Autodesk.AutoCAD.ApplicationServices.Application;`). In your MSBuild `.csproj`, always set `<Private>False</Private>` (`Copy Local = False`) on `GsMgd.dll` and `GsDbMgd.dll` so the output folder isn't polluted with host CAD assemblies that degrade plugin load performance.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Managed C# .NET Implementation (GRX / .NET / LISP)</h2>
+<p>Reference <code>GsMgd.dll</code> and <code>GsDbMgd.dll</code> (with <code>Copy Local = False</code>) in your C# class library project to execute <strong>.NET Cookbook 10: Single-Source Dual-Target .CSPROJ Architecture for AutoCAD &amp; GstarCAD Plugins</strong> inside the GstarCAD 2027 CLR runtime:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// Dual-Target GlobalUsings.cs for GstarCAD 2027 &amp; AutoCAD Compatibility
 #if GSTARCAD
 global using CadApp = Gssoft.GstarCAD.ApplicationServices.Application;

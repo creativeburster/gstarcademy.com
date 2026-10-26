@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Programmatic Ribbon Tabs, Split Buttons & Dark-Theme Dockable PaletteSets in GstarCAD .NET (dev-cookbook-23) | GstarCAD Academy</title>
+<meta content="Build modern WPF PaletteSets and dynamic Ribbon tabs in GstarCAD 2027 C# .NET using Gssoft.GstarCAD.Windows and ComponentManager with automatic Dark/Light theme synchronization." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-23-dotnet-ribbon-custom-tab-and-command-binding" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Programmatic Ribbon Tabs, Split Buttons & Dark-Theme Dockable PaletteSets in GstarCAD .NET (dev-cookbook-23)" property="og:title"/>
+<meta content="Build modern WPF PaletteSets and dynamic Ribbon tabs in GstarCAD 2027 C# .NET using Gssoft.GstarCAD.Windows and ComponentManager with automatic Dark/Light theme synchronization." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-23-dotnet-ribbon-custom-tab-and-command-binding" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Programmatic Ribbon Tabs, Split Buttons & Dark-Theme Dockable PaletteSets in GstarCAD .NET (dev-cookbook-23)", "description": "Build modern WPF PaletteSets and dynamic Ribbon tabs in GstarCAD 2027 C# .NET using Gssoft.GstarCAD.Windows and ComponentManager with automatic Dark/Light theme synchronization.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-23-dotnet-ribbon-custom-tab-and-command-binding", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD .NET Windows & Ribbon API", "WPF HwndSource Hosting & DPI-Aware CAD UI Architecture"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Programmatic Ribbon Tabs, Split Buttons & Dark-Theme Dockable PaletteSets in GstarCAD .NET (dev-cookbook-23)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-23-dotnet-ribbon-custom-tab-and-command-binding"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Programmatic Ribbon Tabs, Split Buttons & Dark-Theme Dockable PaletteSets in GstarCAD .NET (dev-cookbook-23)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">C# .NET API · WPF Ribbon & PaletteSet</span>
+<h1 style="margin-top:12px;">Programmatic Ribbon Tabs, Split Buttons & Dark-Theme Dockable PaletteSets in GstarCAD .NET (dev-cookbook-23)</h1>
+<p class="hero-sub">Build modern WPF PaletteSets and dynamic Ribbon tabs in GstarCAD 2027 C# .NET using Gssoft.GstarCAD.Windows and ComponentManager with automatic Dark/Light theme synchronization.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Runtime Ribbon Injection vs. Static `.CUIX` Packaging</h2>
+<p>Enterprise `.NET` plugins deployed across <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> workstations typically combine two UI surfaces: a top-level **Ribbon Tab** (`Gssoft.Windows.RibbonTab`) containing command buttons, split dropdown menus, and active layer/scale combo boxes, paired with a dockable **WPF `PaletteSet`** (`Gssoft.GstarCAD.Windows.PaletteSet`) for interactive data grids and BOM trees.</p>
+<p>Constructing the Ribbon tab programmatically in C# via `ComponentManager.Ribbon` offers a major advantage over static `.cuix` files: your plugin can dynamically enable, disable, or hide specific Ribbon panels based on the logged-in user's Active Directory role or license tier without maintaining multiple `.cuix` variants.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. C# .NET Implementation: Ribbon Tab + CommandHandler &amp; Dockable WPF PaletteSet</h2>
+<p>When implementing `IExtensionApplication.Initialize()`, remember that `ComponentManager.Ribbon` may still be `null` during early startup before the main workspace finishes rendering. Always subscribe to `ComponentManager.ItemInitialized` or `Application.Idle` to inject your Ribbon tab safely:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>using System;
+using System.Windows.Input;
+using Gssoft.GstarCAD.Runtime;
+using Gssoft.GstarCAD.ApplicationServices;
+using Gssoft.GstarCAD.Windows;
+using Gssoft.Windows;
+
+namespace GstarCadSamples.EnterpriseUI
+{
+    public class RibbonCommandRouter : ICommand
+    {
+        public event EventHandler CanExecuteChanged;
+        public bool CanExecute(object parameter) =&gt; true;
+
+        public void Execute(object parameter)
+        {
+            if (parameter is RibbonCommandItem cmdItem &amp;&amp; !string.IsNullOrEmpty(cmdItem.CommandParameter as string))
+            {
+                Document doc = Application.DocumentManager.MdiActiveDocument;
+                doc?.SendStringToExecute((string)cmdItem.CommandParameter, true, false, true);
+            }
+        }
+    }
+
+    public class EnterpriseUiBootstrap : IExtensionApplication
+    {
+        private static PaletteSet _bomPalette;
+
+        public void Initialize()
+        {
+            if (ComponentManager.Ribbon != null) BuildCorporateRibbon();
+            else ComponentManager.ItemInitialized += OnComponentItemInitialized;
+        }
+
+        private void OnComponentItemInitialized(object sender, RibbonItemEventArgs e)
+        {
+            if (ComponentManager.Ribbon != null)
+            {
+                ComponentManager.ItemInitialized -= OnComponentItemInitialized;
+                BuildCorporateRibbon();
+            }
+        }
+
+        private void BuildCorporateRibbon()
+        {
+            RibbonControl ribbon = ComponentManager.Ribbon;
+            if (ribbon.FindTab("CORP_BIM_TAB") != null) return;
+
+            RibbonTab tab = new RibbonTab { Title = "Enterprise BIM", Id = "CORP_BIM_TAB" };
+            ribbon.Tabs.Add(tab);
+
+            RibbonPanelSource panelSrc = new RibbonPanelSource { Title = "QA &amp; ERP Sync" };
+            RibbonPanel panel = new RibbonPanel { Source = panelSrc };
+            tab.Panels.Add(panel);
+
+            RibbonButton btnSync = new RibbonButton
+            {
+                Text = "Sync SAP BOM",
+                ShowText = true,
+                Size = RibbonItemSize.Large,
+                Orientation = System.Windows.Controls.Orientation.Vertical,
+                CommandParameter = "._GSTAR_SAP_SYNC ",
+                CommandHandler = new RibbonCommandRouter()
+            };
+            panelSrc.Items.Add(btnSync);
+        }
+
+        public void Terminate() { }
+    }
+}</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. PaletteSet GUID Persistence &amp; Dark/Light Theme Synchronization (`COLORTHEME`)</h2>
+<p>When instantiating a dockable `PaletteSet`, always pass a deterministic **UUID (`new Guid("...")`)** to the constructor: <code>new PaletteSet("ERP BOM Inspector", "GSTAR_BOM_PALETTE", new Guid("8F4B2E91-C0D7-43F5-E6B1-2904A8C3D2E1"))</code>. GstarCAD 2027 uses this GUID to persist the user's preferred docking edge (Left, Right, Floating, Auto-Rollup, and pixel width) inside the Windows Registry/Profile XML across sessions.</p>
+<ul style="line-height:1.75;">
+  <li><strong>Synchronizing WPF Colours with `COLORTHEME`:</strong> Subscribe to `Application.SystemVariableChanged`. When `e.Name == "COLORTHEME"`, query `Convert.ToInt16(Application.GetSystemVariable("COLORTHEME"))` (`0 = Dark Theme #1E242B`, `1 = Light Theme #F3F4F6`) and swap your WPF `MergedDictionaries` resource theme immediately.</li>
+  <li><strong>Modeless Document Context:</strong> Clicking a button inside a docked WPF `PaletteSet` executes outside the CAD command fiber. Either route the action through `doc.SendStringToExecute()` or wrap database transactions inside `using (DocumentLock loc = doc.LockDocument()) { ... }`.</li>
+</ul>
+</section>
+<section style="margin-top:28px;">
+<h2>4. High-DPI Vector Icon Rendering (4K Monitors) &amp; Contextual Ribbon Tabs</h2>
+<p>On modern 4K engineering workstations running at 150% or 200% Windows DPI scaling, bitmap `.png` icons can appear soft if only 16&times;16 and 32&times;32 pixel assets are supplied. In GstarCAD 2027 `.NET`, assign a WPF `DrawingImage` (vector XAML geometry) or a 64&times;64 high-DPI `BitmapImage` to `RibbonButton.LargeImage` and `RibbonButton.Image` so icons scale with razor-sharp vector clarity across any monitor DPI.</p>
+<p>You can also configure **Contextual Ribbon Tabs** that appear automatically when a user selects a specific block or layer by subscribing to `Application.DocumentManager.MdiActiveDocument.ImpliedSelectionChanged` and toggling `tab.IsVisible` and `tab.IsContextualTab = true`.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

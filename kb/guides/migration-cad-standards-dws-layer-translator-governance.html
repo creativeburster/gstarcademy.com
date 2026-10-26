@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Enforcing Enterprise CAD Standards (.DWS), Layer Translator (LAYTRANS) & Automated QA Audits in GstarCAD 2027 | GstarCAD Academy</title>
+<meta content="Configure .dws CAD Standard templates, batch-convert non-compliant contractor layers with LAYTRANS, and enforce ISO 13567 / AIA layer rules in GstarCAD 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/migration-cad-standards-dws-layer-translator-governance" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Enforcing Enterprise CAD Standards (.DWS), Layer Translator (LAYTRANS) & Automated QA Audits in GstarCAD 2027" property="og:title"/>
+<meta content="Configure .dws CAD Standard templates, batch-convert non-compliant contractor layers with LAYTRANS, and enforce ISO 13567 / AIA layer rules in GstarCAD 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/migration-cad-standards-dws-layer-translator-governance" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Enforcing Enterprise CAD Standards (.DWS), Layer Translator (LAYTRANS) & Automated QA Audits in GstarCAD 2027", "description": "Configure .dws CAD Standard templates, batch-convert non-compliant contractor layers with LAYTRANS, and enforce ISO 13567 / AIA layer rules in GstarCAD 2027.", "url": "https://gstarcademy.com/kb/guides/migration-cad-standards-dws-layer-translator-governance", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["ISO 13567 \u2014 Technical Product Documentation: Organization and Naming of Layers for CAD", "AIA CAD Layer Guidelines (United States National CAD Standard)"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "AutoCAD Migration Hub", "item": "https://gstarcademy.com/migration"}, {"@type": "ListItem", "position": 3, "name": "Enforcing Enterprise CAD Standards (.DWS), Layer Translator (LAYTRANS) & Automated QA Audits in GstarCAD 2027", "item": "https://gstarcademy.com/kb/guides/migration-cad-standards-dws-layer-translator-governance"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/migration">AutoCAD Migration Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Enforcing Enterprise CAD Standards (.DWS), Layer Translator (LAYTRANS) & Automated QA Audits in GstarCAD 2027</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">CAD Standards (.DWS) Governance</span>
+<h1 style="margin-top:12px;">Enforcing Enterprise CAD Standards (.DWS), Layer Translator (LAYTRANS) & Automated QA Audits in GstarCAD 2027</h1>
+<p class="hero-sub">Configure .dws CAD Standard templates, batch-convert non-compliant contractor layers with LAYTRANS, and enforce ISO 13567 / AIA layer rules in GstarCAD 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+
+<section style="margin-top:24px;">
+<h2>1. Architecture of `.DWS` CAD Standards Files in GstarCAD 2027</h2>
+<p>When external subcontractors deliver DWG drawings with chaotic layer names (`Layer1`, `Red_Lines`, `Temp_Wall_New`), non-standard dimension styles, and arbitrary linetypes, downstream BIM coordination and automated BOM extraction break down. <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> includes the native <strong>CAD Standards (`STANDARDS` &amp; `CHECKSTANDARDS`)</strong> engine and <strong>Layer Translator (`LAYTRANS`)</strong>.</p>
+<p>A <strong>`.dws` (Drawing Standards)</strong> file is structurally identical to a `.dwg` or `.dwt` seed file containing your organization's approved Layer table, Dimension Styles (`DIMSTYLE`), Text Styles (`STYLE`), and Linetypes. Associating a `.dws` file with an active drawing monitors four symbol tables in real time and flags any non-compliant overrides.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Layer Translator (`LAYTRANS`) Mapping Rules &amp; ISO 13567 Compliance</h2>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 16px;">Audit Dimension</th>
+  <th style="padding:12px 16px;">Incoming Subcontractor State</th>
+  <th style="padding:12px 16px;">GstarCAD `LAYTRANS` / `.DWS` Enforcement</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Layer Naming Syntax</td>
+  <td style="padding:12px 16px;">Wildcard patterns (e.g., `*WALL*`, `ARCH_DOOR`)</td>
+  <td style="padding:12px 16px;">Mapped via wildcard rules to ISO 13567 `A-WALL-FULL` and `A-DOOR-FULL`.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Entity-Level Color/Linetype Overrides</td>
+  <td style="padding:12px 16px;">Hardcoded RGB colors instead of `ByLayer`</td>
+  <td style="padding:12px 16px;">Enable `Force object color to ByLayer` and `Force object linetype to ByLayer` in `LAYTRANS` Settings.</td>
+</tr>
+<tr>
+  <td style="padding:12px 16px; font-weight:600;">Unreferenced Legacy Layers</td>
+  <td style="padding:12px 16px;">200+ empty template layers</td>
+  <td style="padding:12px 16px;">Automatically purged during translation (`Translate unreferenced layers = OFF`).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Automated `SETBYLAYER` &amp; Standards QA Sanitizer Script</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 — Enforce Strictly ByLayer Properties &amp; Purge Non-Standard Tables
+(defun c:GCAD_ENFORCE_BYLAYER_QA ()
+  (setvar "CMDECHO" 0)
+  ;; 1. Reset Color(1) + Linetype(2) + Lineweight(4) + Material(8) + Transparency(16) = 31 to ByLayer
+  (setvar "SETBYLAYERMODE" 31)
+  (command "_SETBYLAYER" "_ALL" "" "_Yes" "_Yes")
+  ;; 2. Purge all unreferenced blocks, layers, dimstyles, and regapps
+  (command "_-PURGE" "_All" "*" "_No")
+  (command "_-PURGE" "_Regapps" "*" "_No")
+  (setvar "CMDECHO" 1)
+  (princ "\n[Standards QA] All entities reset to ByLayer (Color/Linetype/Lineweight) and database purged.")
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>4. Batch CLI Standards Auditing &amp; CI/CD Pre-Submittal Gatekeeper</h2>
+<p>While interactive `CHECKSTANDARDS` and `LAYTRANS` dialogs are ideal for individual drafters, BIM Coordinators managing 500-sheet tender submissions need automated, unattended verification before uploading deliverables to ProjectWise, Autodesk Construction Cloud, or GstarCAD 365 CDE. You can combine GstarCAD 2027's script runner (`/b`) with an AutoLISP standards inspector to generate a CSV non-conformance report across an entire project directory:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>;; StandardsAudit.lsp - Batch verify Layer Naming against ISO 13567 / BS 1192 Regex
+(defun AuditDrawingLayers (logFilePath / doc layers layName nonCompliantCount fp)
+  (vl-load-com)
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object))
+        layers (vla-get-Layers doc)
+        nonCompliantCount 0)
+  (vlax-for lay layers
+    (setq layName (vla-get-Name lay))
+    ;; Ignore Layer 0, Defpoints, and Xref-dependent layers (containing "|")
+    (if (and (not (wcmatch (strcase layName) "0,DEFPOINTS,*|*"))
+             (not (wcmatch (strcase layName) "[A-Z]-*-*")))
+      (setq nonCompliantCount (1+ nonCompliantCount))
+    )
+  )
+  (setq fp (open logFilePath "a"))
+  (write-line (strcat (getvar "DWGNAME") "," (itoa nonCompliantCount)) fp)
+  (close fp)
+  (princ)
+)</code></pre>
+<p><strong>Locking `.DWS` Files in Enterprise Deployments:</strong> Always store your master `.dws` files on a read-only UNC path or replicated DFS namespace, and configure `STANDARDSVIOLATION = 1` or `2` inside your company's `gcaddoc.lsp`. When a designer creates a non-standard layer or modifies a standard dimension style (`DIMSTYLE`), GstarCAD 2027 immediately displays a real-time tray notification offering a one-click fix routed directly to your `.dws` baseline.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

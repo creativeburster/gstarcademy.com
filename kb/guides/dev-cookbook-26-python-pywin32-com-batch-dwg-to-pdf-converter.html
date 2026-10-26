@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Out-of-Process Python pywin32 COM Pipeline for Unattended Batch DWG-to-PDF & BOM Extraction (dev-cookbook-26) | GstarCAD Academy</title>
+<meta content="Automate GstarCAD 2027 from Python 3.11+ via pywin32 win32com.client with RPC_E_CALL_REJECTED retry resilience, layout PDF plotting, and Pandas BOM DataFrame export." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-26-python-pywin32-com-batch-dwg-to-pdf-converter" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Out-of-Process Python pywin32 COM Pipeline for Unattended Batch DWG-to-PDF & BOM Extraction (dev-cookbook-26)" property="og:title"/>
+<meta content="Automate GstarCAD 2027 from Python 3.11+ via pywin32 win32com.client with RPC_E_CALL_REJECTED retry resilience, layout PDF plotting, and Pandas BOM DataFrame export." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-26-python-pywin32-com-batch-dwg-to-pdf-converter" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Out-of-Process Python pywin32 COM Pipeline for Unattended Batch DWG-to-PDF & BOM Extraction (dev-cookbook-26)", "description": "Automate GstarCAD 2027 from Python 3.11+ via pywin32 win32com.client with RPC_E_CALL_REJECTED retry resilience, layout PDF plotting, and Pandas BOM DataFrame export.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-26-python-pywin32-com-batch-dwg-to-pdf-converter", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 2027 ActiveX & COM Automation Reference", "Python pywin32 COM Apartment Marshaling &VARIANT Array Packing"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "Out-of-Process Python pywin32 COM Pipeline for Unattended Batch DWG-to-PDF & BOM Extraction (dev-cookbook-26)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-26-python-pywin32-com-batch-dwg-to-pdf-converter"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Out-of-Process Python pywin32 COM Pipeline for Unattended Batch DWG-to-PDF & BOM Extraction (dev-cookbook-26)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">Python & COM Automation</span>
+<h1 style="margin-top:12px;">Out-of-Process Python pywin32 COM Pipeline for Unattended Batch DWG-to-PDF & BOM Extraction (dev-cookbook-26)</h1>
+<p class="hero-sub">Automate GstarCAD 2027 from Python 3.11+ via pywin32 win32com.client with RPC_E_CALL_REJECTED retry resilience, layout PDF plotting, and Pandas BOM DataFrame export.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Connecting Python 3 (`pywin32`) to GstarCAD 2027's COM ProgID</h2>
+<p>Data engineers, QA automation specialists, and ERP integration architects frequently prefer **Python 3** (`pandas`, `openpyxl`, `sqlalchemy`, `pywin32`) over compiled C++ when building nightly batch DWG processing pipelines. Because <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong> exposes a full out-of-process IDispatch / vtable COM Automation server under the versioned ProgID <strong><code>GstarCAD.Application.27</code></strong> (and version-independent <code>GstarCAD.Application</code>), any Python script running on Windows can attach to an active GstarCAD session or spawn a headless background worker process.</p>
+<p>When driving an out-of-process COM server from Python at high speed, the single most important engineering safeguard is implementing a **COM Message Filter / Retry Decorator** for HRESULT <code>-2147418111 (0x80010001: RPC_E_CALL_REJECTED)</code>, which occurs momentarily while GstarCAD is busy regenerating a large drawing or flushing a plot spool.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Production Python 3 Script: Resilient COM Wrapper, BOM Extraction &amp; PDF Plot</h2>
+<p>Install `pywin32` (`pip install pywin32 pandas`) and use the production script below to iterate a directory of `.dwg` files, extract all block attributes into a structured CSV/Excel report, and plot Model/Paper layouts to vector PDF:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>import time
+import pathlib
+import pythoncom
+import win32com.client
+from pywintypes import com_error
+
+RPC_E_CALL_REJECTED = -2147418111
+
+def com_retry(func, *args, max_retries=25, delay=0.25, **kwargs):
+    """Retries out-of-process COM calls when GstarCAD is momentarily busy."""
+    for attempt in range(max_retries):
+        try:
+            return func(*args, **kwargs)
+        except com_error as exc:
+            if exc.hresult == RPC_E_CALL_REJECTED and attempt &lt; max_retries - 1:
+                time.sleep(delay)
+                continue
+            raise
+
+def connect_gstarcad(visible: bool = False):
+    pythoncom.CoInitialize()
+    try:
+        app = win32com.client.GetActiveObject("GstarCAD.Application")
+    except com_error:
+        app = win32com.client.Dispatch("GstarCAD.Application")
+    app.Visible = visible
+    return app
+
+def extract_bom_and_plot_pdf(dwg_path: pathlib.Path, pdf_out: pathlib.Path) -&gt; list[dict]:
+    app = connect_gstarcad(visible=False)
+    doc = com_retry(app.Documents.Open, str(dwg_path.resolve()), True) # ReadOnly = True
+    bom_rows = []
+    try:
+        msp = com_retry(lambda: doc.ModelSpace)
+        count = com_retry(lambda: msp.Count)
+        for i in range(count):
+            ent = com_retry(msp.Item, i)
+            if com_retry(lambda: ent.ObjectName) == "AcDbBlockReference":
+                if com_retry(lambda: ent.HasAttributes):
+                    atts = com_retry(ent.GetAttributes)
+                    row = {"BlockName": com_retry(lambda: ent.EffectiveName)}
+                    for att in atts:
+                        row[att.TagString] = att.TextString
+                    bom_rows.append(row)
+
+        # Configure silent background plot to vector PDF
+        doc.SetVariable("BACKGROUNDPLOT", 0)
+        layout = doc.ActiveLayout
+        layout.ConfigName = "DWG To PDF.pc3"
+        layout.CanonicalMediaName = "ISO_full_bleed_A3_(420.00_x_297.00_MM)"
+        layout.PlotType = 1  # acExtents
+        layout.CenterPlot = True
+        layout.StandardScale = 0  # acVpScaleToFit
+        com_retry(doc.Plot.PlotToFile, str(pdf_out.resolve()))
+    finally:
+        com_retry(doc.Close, False)
+    return bom_rows</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Packing 3D Coordinates with `win32com.client.VARIANT` (`VT_ARRAY | VT_R8`)</h2>
+<p>When creating geometry from Python (such as `msp.AddLightWeightPolyline(pts)` or `msp.AddLine(pt1, pt2)`), Python lists or tuples must be explicitly marshaled as a double-precision COM `SAFEARRAY` (`VT_ARRAY | VT_R8`) using `pythoncom`:</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>def vt_point3d(x: float, y: float, z: float = 0.0):
+    return win32com.client.VARIANT(pythoncom.VT_ARRAY | pythoncom.VT_R8, (float(x), float(y), float(z)))</code></pre>
+<p>Furthermore, instead of iterating all 100,000 entities in `doc.ModelSpace` via out-of-process COM when searching for blocks, create a filtered COM `SelectionSet` (`doc.SelectionSets.Add("PY_BOM_SS")`) with DXF group code `0 = "INSERT"` so GstarCAD's native C++ engine filters the database in milliseconds before returning only matching block references to Python.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Scaling to 10,000+ Drawings with Multi-Worker Watchdog Pools</h2>
+<p>When processing 10,000+ legacy `.dwg` archives overnight on a Windows Server build node, wrap your Python `pywin32` pipeline inside a supervisor script (`subprocess` with a 90-second per-drawing timeout). If a damaged third-party `.dwg` triggers a modal font/recover prompt despite `FILEDIA = 0` and `PROXYNOTICE = 0`, the Python supervisor terminates the hung worker process, logs the offending file path to `failed_drawings.csv` for `-RECOVER` inspection, and respawns a fresh `GstarCAD.Application` instance automatically.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

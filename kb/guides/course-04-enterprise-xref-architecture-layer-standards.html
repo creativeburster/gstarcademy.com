@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">In multidisciplinary AEC and plant engineering, allowing architectural, structural, HVAC, piping, and electrical teams to edit a single monolithic DWG file invites catastrophic file-locking collisions. Enterprise worksharing relies on External References (XREFs) governed by strict ISO 13567 / AIA CAD Layer Guidelines and non-locking demand loading.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>XREF, XCLIP, VISRETAIN=1, XLOADCTL=2, INDEXCTL=3, LAYTRANS</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Eliminate circular reference loops by strictly enforcing Overlay (XREF Type) over Attachment for peer discipline background models.</li>
+  <li>Configure XLOADCTL = 2 (Demand Load with Copy) and REFPATHTYPE = 1 (Relative Paths) so 30+ engineers can reference shared NAS backgrounds simultaneously without read/write file locks.</li>
+  <li>Automate non-compliant subcontractor layer conversion into ISO 13567 / BS 1192 corporate schemas using LAYTRANS and .dws CAD Standards auditing (STANDARDS).</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 04: Enterprise External Reference (Xref) Federation, Demand Loading &amp; ISO 13567 Layer Standards</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Architect multi-disciplinary Xref project trees using Overlay vs Attachment, XLOADCTL=2 non-locking network copies, INDEXCTL=3 spatial R-trees, VISRETAIN=1, and LAYTRANS mapping. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Multi-Disciplinary External References (XREF), Overlay vs. Attach & ISO 13567 Layers</h2>
+<p>Choosing between <strong>Attachment</strong> and <strong>Overlay</strong> in the <code>XATTACH</code> dialog is the single most critical architectural decision in federated DWG coordination. If Structural attaches Architectural, and Architectural attaches Structural, an <strong>Attachment</strong> creates an infinite circular dependency loop during nested traversal. Using <strong>Overlay</strong> instructs GstarCAD's database loader to strip second-level nested references automatically.</p>
+<p>Furthermore, setting <code>VISRETAIN = 1</code> and <code>VISRETAINMODE = 255</code> ensures that viewport-specific layer color, linetype, and freeze overrides applied by the MEP engineer persist across daily background reloads while still accepting newly created architectural layers.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>XREF, XCLIP, VISRETAIN=1, XLOADCTL=2, INDEXCTL=3, LAYTRANS</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Nesting Mode</td>
+  <td style="padding:12px 16px;"><code>XATTACH (Overlay vs. Attach)</code></td>
+  <td style="padding:12px 16px;">Overlay prevents nested circular reference recursion across bi-directional discipline models.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Concurrency Lock</td>
+  <td style="padding:12px 16px;"><code>XLOADCTL = 2 / INDEXCTL = 3</code></td>
+  <td style="padding:12px 16px;">Copies referenced DWG streams to local temp cache, preventing network NAS file locking.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">Layer Persistence</td>
+  <td style="padding:12px 16px;"><code>VISRETAIN = 1 / LAYTRANS</code></td>
+  <td style="padding:12px 16px;">Preserves host layer property overrides across Xref reloads and maps external layers to ISO standards.</td>
 </tr>
 </tbody>
 </table>

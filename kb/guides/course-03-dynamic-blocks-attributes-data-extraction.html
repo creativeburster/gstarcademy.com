@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Static blocks force engineering teams to maintain ratusan of redundant symbol files for every door width, valve flange rating, or steel I-beam section. Dynamic Blocks inside GstarCAD 2027 encapsulate parametric linear/polar stretch actions, visibility state tables, and structured Attribute Definitions (ATTDEF) inside a single master BlockTableRecord.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>BEDIT, ATTDEF, BATTMAN, ATTSYNC, BURST, DATAEXTRACTION, AUTOXLSTABLE</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Author multi-state Dynamic Blocks in the Block Editor (BEDIT) combining Linear Parameters, Stretch Actions, Array Actions, and Flip Grips.</li>
+  <li>Embed non-graphical metadata (Part Number, Material Grade, Unit Weight, Supplier SKU) using ATTDEF bitcodes (Invisible, Constant, Verify, Preset) and synchronize edits via BATTMAN and ATTSYNC.</li>
+  <li>Execute DATAEXTRACTION (.dxe templates) to scrape 50,000+ block instances across multi-sheet project folders into live-linkedGstarCAD Tables or Excel ERP spreadsheets.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 03: Authoring Parametric Dynamic Blocks, Attribute Definitions &amp; Automated BOM Schedules</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Build reusable engineering libraries with BEDIT visibility states, linear stretch/array actions, ATTDEF metadata tags, BURST preservation, and live DATAEXTRACTION Excel schedules. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Parametric Block Authoring (BEDIT), Visibility States & Automated BOM Extraction</h2>
+<p>At the DWG database kernel level, when a user manipulates a custom grip on a Dynamic Block reference (<code>AcDbBlockReference</code>), GstarCAD evaluates an internal <code>AcDbEvalGraph</code> stored inside the block's extension dictionary, generating an anonymous block definition (e.g., <code>*U142</code>) on the fly while preserving the original <code>EffectiveName</code> property for BOM aggregation.</p>
+<p>When modifying attribute schemas on existing production drawings, simply editing the block in <code>BEDIT</code> does not retroactively update already-inserted references; engineers must invoke <code>ATTSYNC</code> (Select or Name) to propagate the updated <code>AcDbAttributeDefinition</code> schema across all existing <code>AcDbAttribute</code> sub-entities.</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>BEDIT, ATTDEF, BATTMAN, ATTSYNC, BURST, DATAEXTRACTION, AUTOXLSTABLE</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">Parametric Graph</td>
+  <td style="padding:12px 16px;"><code>BEDIT / BACTION / BVSTATE</code></td>
+  <td style="padding:12px 16px;">Builds constraint parameters, stretch/lookup actions, and multi-representation visibility states.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Schema Sync</td>
+  <td style="padding:12px 16px;"><code>ATTDEF / BATTMAN / ATTSYNC</code></td>
+  <td style="padding:12px 16px;">Synchronizes modified attribute tag definitions across thousands of existing block insertions.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">BOM Aggregation</td>
+  <td style="padding:12px 16px;"><code>DATAEXTRACTION / EATTEXT</code></td>
+  <td style="padding:12px 16px;">Queries EffectiveName and attribute key-value pairs into formatted schedules or CSV/XLSX files.</td>
 </tr>
 </tbody>
 </table>

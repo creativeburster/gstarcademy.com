@@ -96,19 +96,19 @@
 </header>
 
 <section style="margin-top:24px; padding:20px; background:var(--ink-surface-2); border:1px solid var(--ink-line); border-radius:12px;">
-<h2 style="margin-top:0; font-size:1.15rem;">Course Learning Objectives &amp; Prerequisites</h2>
-<p style="margin-bottom:10px;">This self-paced, full-text technical masterclass is engineered for professional drafters, mechanical/AEC engineers, and CAD administrators working in <strong>GstarCAD 2027</strong>, <strong>GstarCAD Mechanical</strong>, <strong>GstarCAD Architecture</strong>, and <strong>DWG FastView</strong>. Upon completing this module, you will be able to:</p>
+<h2 style="margin-top:0; font-size:1.15rem;">Course Technical Scope &amp; Production Competencies</h2>
+<p style="margin-bottom:10px;">Any drafting task repeated more than five times a week should be automated in code. Because GstarCAD 2027 includes a 100% compatible AutoLISP, Visual LISP (`vl-*`, `vla-*`, `vlax-*`), and DCL dialog engine, engineers can write or migrate automation scripts that manipulate the DWG database at 50x the speed of manual drafting.</p>
 <ul style="line-height:1.8; margin:0; padding-left:20px;">
-  <li>Execute production workflows using <code>APPLOAD, VLIDE, ssget, entget, entmod, vlax-ename->vla-object, *error*</code> with 100% native DWG (AC1032) binary precision.</li>
-  <li>Configure deterministic system variables and corporate <code>.dwt</code> seed template standards that eliminate manual rework.</li>
-  <li>Automate repetitive drafting sequences using production-ready AutoLISP routines and pass the corresponding <a href="/quiz">GstarCAD Certification Exam</a> track.</li>
+  <li>Master DXF Group Code entity association lists (0=Entity Type, 8=Layer, 10=Start Point, 40=Radius, 62=Color) using (ssget), (entget), (subst), (entmod), and high-speed (entmakex).</li>
+  <li>Leverage ActiveX COM object methods via (vl-load-com) and (vla-*) to manipulate dynamic block properties, layouts, layers, and external Excel workbooks.</li>
+  <li>Wrap production routines in defensive error-handling frameworks (*error*, vla-StartUndoMark, CMDECHO=0, OSMODE restoration) so cancelled commands never corrupt user system variables.</li>
 </ul>
 </section>
 
 <section style="margin-top:28px;">
-<h2>Module 1: Architectural &amp; Engineering Foundations</h2>
-<p>In professional CAD production, mastering the underlying database mechanics of <strong>Course 18: AutoLISP &amp; Visual LISP Production Scripting — Selection Sets, DXF Group Codes &amp; VLA COM</strong> separates high-velocity engineering teams from those bogged down by corrupted drawings and plotting errors. Specifically, this course focuses on: Write high-speed AutoLISP/VLISP automation in GstarCAD 2027: filter entities with ssget relational lists, manipulate entget/entmod DXF group codes, and invoke vla-* ActiveX methods. Because GstarCAD is architected by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong> with a multi-threaded graphics pipeline and native DWG object model, every command alias, ribbon panel, and system variable covered in this lesson operates identically whether you are migrating from legacy AutoCAD or deploying a greenfield engineering workstation.</p>
-<p>Before beginning the hands-on lab exercises, ensure you have installed <a href="/download">GstarCAD 2027 Professional (30-Day Full Trial or Perpetual License)</a> and initialized a clean metric (<code>MEASUREMENT=1</code>, <code>INSUNITS=4</code>) or imperial (<code>MEASUREMENT=0</code>, <code>INSUNITS=1</code>) corporate template.</p>
+<h2>Module 1: Production AutoLISP & Visual LISP Programming: DXF Group Codes, entmakex & COM Automation</h2>
+<p>Understanding the performance hierarchy of AutoLISP in GstarCAD 2027 separates amateur macro writers from enterprise CAD programmers. Calling <code>(command "_LINE" pt1 pt2 "")</code> forces the CAD engine to invoke the interactive command-line parser, evaluate running Object Snaps (`OSMODE`), and trigger screen redraws on every iteration. Conversely, calling <strong><code>(entmakex (list (cons 0 "LINE") (cons 8 "0") (cons 10 pt1) (cons 11 pt2)))</code></strong> appends the C++ `AcDbLine` struct directly into the active `BlockTableRecord` in memory—generating 10,000 entities in under 0.15 seconds.</p>
+<p>Moreover, always zero out `OSMODE` (or set bit `16384`) inside any script that must use `(command ...)`, otherwise an active Endpoint snap on screen will hijack the programmatic coordinate points!</p>
 </section>
 
 <section style="margin-top:28px;">
@@ -134,20 +134,20 @@
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--ink-line);">
-  <td style="padding:12px 16px; font-weight:600;">Core Lab Toolset</td>
-  <td style="padding:12px 16px;"><code>APPLOAD, VLIDE, ssget, entget, entmod, vlax-ename->vla-object, *error*</code></td>
-  <td style="padding:12px 16px;">100% command alias parity in <code>gcad.pgp</code> and Ribbon UI.</td>
+<tr style=" border-bottom:1px solid var(--ink-line);">
+  <td style="padding:12px 16px; font-weight:600;">DXF List Access</td>
+  <td style="padding:12px 16px;"><code>(ssget) / (entget) / (entmod)</code></td>
+  <td style="padding:12px 16px;">Queries and modifies raw entity DXF group-code association lists directly in memory.</td>
 </tr>
-<tr style="border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
-  <td style="padding:12px 16px; font-weight:600;">Database Hygiene</td>
-  <td style="padding:12px 16px;"><code>-PURGE</code>, <code>OVERKILL</code>, <code>AUDIT</code>, <code>INDEXCTL=3</code></td>
-  <td style="padding:12px 16px;">Mandatory execution before sheet set publishing or client transmittal.</td>
+<tr style=" border-bottom:1px solid var(--ink-line); background:var(--ink-surface-2);">
+  <td style="padding:12px 16px; font-weight:600;">Kernel Speed</td>
+  <td style="padding:12px 16px;"><code>(entmakex) vs. (command)</code></td>
+  <td style="padding:12px 16px;">Bypasses command-line parser and Osnap evaluation for 50x faster entity creation.</td>
 </tr>
-<tr>
-  <td style="padding:12px 16px; font-weight:600;">Cross-Platform Review</td>
-  <td style="padding:12px 16px;"><code>ETRANSMIT</code>, <code>PUBLISH</code>, <a href="/kb/software/dwg-fastview">DWG FastView</a></td>
-  <td style="padding:12px 16px;">Verify vector PDF and mobile cloud redlines before fabrication release.</td>
+<tr style="">
+  <td style="padding:12px 16px; font-weight:600;">ActiveX Bridge</td>
+  <td style="padding:12px 16px;"><code>(vl-load-com) / (vla-get-*)</code></td>
+  <td style="padding:12px 16px;">Exposes object-oriented COM properties, curve measurement methods (vlax-curve-*), and reactors.</td>
 </tr>
 </tbody>
 </table>

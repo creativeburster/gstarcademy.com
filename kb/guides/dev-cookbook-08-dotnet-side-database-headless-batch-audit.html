@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Process hundreds of DWG files in the background without opening them in the CAD editor by instantiating `new Database(false, true)` and calling `ReadDwgFile()` in C# .NET.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>new Database(false, true), ReadDwgFile, SaveAs, DwgVersion.Current, HostApplicationServices.WorkingDatabase</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. Headless Side-Database Processing (`new Database(false, true)` & `ReadDwgFile`) for Batch Processing 1,000+ DWG Files</h2>
+<p>Opening 1,000 DWG files sequentially into the visible GstarCAD MDI editor window (`DocumentCollection.Open`) forces full graphics viewport regeneration, ribbon UI updates, and layout switching—taking 45+ minutes and risking out-of-memory crashes. By instantiating an invisible in-memory **Side Database** via `new Database(buildDefaultDrawing: false, noDocument: true)` and calling `db.ReadDwgFile()`, .NET plugins process thousands of drawings in the background at 20x speed.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> When executing transactions inside a headless Side Database, **never** access `Application.DocumentManager.MdiActiveDocument.Database`. instead, start transactions directly on the side database instance (`using (Transaction tr = sideDb.TransactionManager.StartTransaction())`) and temporarily switch `HostApplicationServices.WorkingDatabase = sideDb` around any API call that implicitly queries the current working database, restoring the original working database inside a `finally` block.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Managed C# .NET Implementation (new Database(false)</h2>
+<p>Reference <code>GsMgd.dll</code> and <code>GsDbMgd.dll</code> (with <code>Copy Local = False</code>) in your C# class library project to execute <strong>.NET Cookbook 08: Headless Multi-File DWG Batch Processing Using ReadDwgFile Side Databases</strong> inside the GstarCAD 2027 CLR runtime:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>// GstarCAD 2027 C# .NET API — Headless Side-Database Batch Processor
 using Gssoft.GstarCAD.DatabaseServices;
 

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>High-Speed Curve Stationing, Offset & 3D Intersection Solvers with vlax-curve-* in AutoLISP (dev-cookbook-27) | GstarCAD Academy</title>
+<meta content="Use native C++-backed vlax-curve-* and vla-IntersectWith functions in GstarCAD 2027 AutoLISP to compute arc-length stations, first/second derivatives, and curve intersections." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dev-cookbook-27-autolisp-vlax-curve-geometric-intersections" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="High-Speed Curve Stationing, Offset & 3D Intersection Solvers with vlax-curve-* in AutoLISP (dev-cookbook-27)" property="og:title"/>
+<meta content="Use native C++-backed vlax-curve-* and vla-IntersectWith functions in GstarCAD 2027 AutoLISP to compute arc-length stations, first/second derivatives, and curve intersections." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dev-cookbook-27-autolisp-vlax-curve-geometric-intersections" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "High-Speed Curve Stationing, Offset & 3D Intersection Solvers with vlax-curve-* in AutoLISP (dev-cookbook-27)", "description": "Use native C++-backed vlax-curve-* and vla-IntersectWith functions in GstarCAD 2027 AutoLISP to compute arc-length stations, first/second derivatives, and curve intersections.", "url": "https://gstarcademy.com/kb/guides/dev-cookbook-27-autolisp-vlax-curve-geometric-intersections", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "citation": ["Suzhou Gstarsoft Co., Ltd. (SSE: 688657) \u2014 GstarCAD 2027 Visual LISP vlax-curve Reference", "Differential Geometry of NURBS Splines & Bulge Polylines in AC1032 DWG"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer GRX Hub", "item": "https://gstarcademy.com/developers"}, {"@type": "ListItem", "position": 3, "name": "High-Speed Curve Stationing, Offset & 3D Intersection Solvers with vlax-curve-* in AutoLISP (dev-cookbook-27)", "item": "https://gstarcademy.com/kb/guides/dev-cookbook-27-autolisp-vlax-curve-geometric-intersections"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header">
+          <button class="nav-close" aria-label="Close navigation menu">
+            <span class="nav-close-icon">×</span>
+          </button>
+        </div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/developers">Developer GRX Hub</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">High-Speed Curve Stationing, Offset & 3D Intersection Solvers with vlax-curve-* in AutoLISP (dev-cookbook-27)</span>
+</nav>
+<article>
+<header style="margin-bottom:28px;">
+<span class="chip pill-ok">AutoLISP / Visual LISP · Computational Geometry</span>
+<h1 style="margin-top:12px;">High-Speed Curve Stationing, Offset & 3D Intersection Solvers with vlax-curve-* in AutoLISP (dev-cookbook-27)</h1>
+<p class="hero-sub">Use native C++-backed vlax-curve-* and vla-IntersectWith functions in GstarCAD 2027 AutoLISP to compute arc-length stations, first/second derivatives, and curve intersections.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-10-26">2026-10-26</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Why `vlax-curve-*` Functions Are 40&times; Faster Than DXF List Math</h2>
+<p>In civil alignment stationing, bridge deck setting-out, and automated cable-tray routing, AutoLISP developers frequently need to compute points at exact arc-length intervals along complex `LWPOLYLINE` (containing arc bulge segments), `SPLINE` (NURBS), `ELLIPSE`, or `HELIX` entities, as well as tangent/normal vectors (`firstDeriv`) and closest perpendicular projections. Manually parsing DXF group `10` vertices and group `42` bulge tangents ($	an(	heta/4)$) in pure LISP is both mathematically fragile and slow.</p>
+<p>In <strong><a href="/kb/software/gstarcad">GstarCAD 2027</a></strong>, the **`vlax-curve-*`** family calls the underlying C++ `AcDbCurve` virtual geometry evaluator directly in compiled machine code—accepting either a classic `ENAME` (`(car (entsel))`) or a `VLA-OBJECT` without COM marshaling overhead.</p>
+</section>
+
+<section style="margin-top:28px;">
+<h2>2. Production AutoLISP: Automated Station Ticks &amp; Perpendicular Offset Labels</h2>
+<p>The following Visual LISP routine places perpendicular station tick marks and rotated chainage annotations (`0+000.00m`, `0+020.00m`, ...) at user-specified intervals along *any* curve (`LWPOLYLINE`, `SPLINE`, `ARC`, or `3DPOLY`) using exact differential tangent vectors (`vlax-curve-getFirstDeriv`):</p>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>;; StationAlignment.lsp - Place orthogonal chainage ticks &amp; labels along any AcDbCurve
+(vl-load-com)
+
+(defun C:GCSTATION ( / ent step totalLen curDist pt param deriv normAngle pTick1 pTick2 msp doc)
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object))
+        msp (vla-get-ModelSpace doc))
+  (if (and (setq ent (car (entsel "
+Select alignment curve (Polyline/Spline/Arc): ")))
+           (not (vl-catch-all-error-p (vl-catch-all-apply 'vlax-curve-getEndParam (list ent))))
+           (setq step (getdist "
+Specify station interval distance &lt;20.0&gt;: ")))
+    (progn
+      (if (null step) (setq step 20.0))
+      (setq totalLen (vlax-curve-getDistAtParam ent (vlax-curve-getEndParam ent))
+            curDist  0.0)
+      (vla-StartUndoMark doc)
+      (while (&lt;= curDist totalLen)
+        ;; 1. Evaluate exact 3D coordinate and curve parameter at arc length curDist
+        (setq pt    (vlax-curve-getPointAtDist ent curDist)
+              param (vlax-curve-getParamAtDist ent curDist)
+              deriv (vlax-curve-getFirstDeriv ent param))
+        ;; 2. Compute tangent angle and orthogonal normal (+pi/2)
+        (setq normAngle (+ (atan (cadr deriv) (car deriv)) (* 0.5 pi))
+              pTick1    (polar pt normAngle 1.5)
+              pTick2    (polar pt (+ normAngle pi) 1.5))
+        ;; 3. Draw perpendicular tick line &amp; station text
+        (entmakex (list '(0 . "LINE") '(8 . "C-ALGN-TICK") (cons 10 pTick1) (cons 11 pTick2)))
+        (entmakex (list '(0 . "TEXT")
+                        '(8 . "C-ALGN-TEXT")
+                        (cons 10 (polar pt normAngle 2.5))
+                        '(40 . 2.0)
+                        (cons 50 (- normAngle (* 0.5 pi)))
+                        (cons 1 (strcat "STA " (rtos curDist 2 2) "m"))))
+        (setq curDist (+ curDist step))
+      )
+      (vla-EndUndoMark doc)
+      (princ (strcat "
+Generated stationing along " (rtos totalLen 2 2) "m alignment."))
+    )
+  )
+  (princ)
+)</code></pre>
+</section>
+
+<section style="margin-top:28px;">
+<h2>3. Reference Matrix of Essential `vlax-curve-*` &amp; `vla-IntersectWith` Calls</h2>
+<div style="overflow-x:auto; margin-top:16px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:10px 14px;">Visual LISP Function</th>
+  <th style="padding:10px 14px;">Mathematical Return Value</th>
+  <th style="padding:10px 14px;">Engineering Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>(vlax-curve-getClosestPointTo crv pt)</code></td>
+  <td style="padding:10px 14px;">3D WCS point on curve closest to `pt`</td>
+  <td style="padding:10px 14px;">Snapping offset structures or boreholes perpendicularly onto a road centerline.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>(vlax-curve-getFirstDeriv crv param)</code></td>
+  <td style="padding:10px 14px;">Tangent vector $(dx/du, dy/du, dz/du)$</td>
+  <td style="padding:10px 14px;">Aligning block insertions (`VALVE`, `MANHOLE`, `LUMINAIRE`) tangent to host pipe/cable.</td>
+</tr>
+<tr style="border-bottom:1px solid var(--ink-line);">
+  <td style="padding:10px 14px;"><code>(vlax-curve-getArea crv)</code></td>
+  <td style="padding:10px 14px;">Exact planar enclosed area ($A$)</td>
+  <td style="padding:10px 14px;">Instant area calculation on closed splines, ellipses, and arc-bulge polylines.</td>
+</tr>
+<tr>
+  <td style="padding:10px 14px;"><code>(vlax-invoke obj1 'IntersectWith obj2 mode)</code></td>
+  <td style="padding:10px 14px;">Flat list `(x1 y1 z1 x2 y2 z2 ...)`</td>
+  <td style="padding:10px 14px;">Finding all 3D intersection points between two curves (`acExtendNone = 0`, `acExtendBoth = 3`).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Handling Non-Planar 3D Splines &amp; Variable-Width Bulge Polylines</h2>
+<p>When evaluating `vlax-curve-getPointAtProjection` on 3D utility pipelines (`3DPOLY` or non-planar `SPLINE`) that slope across varying elevations (`Z != 0`), pass the WCS projection normal `'(0.0 0.0 1.0)` so horizontal stationing distances match civil plan-view chainages rather than inclined 3D slope lengths. Conversely, when calculating true cable or pipe cut lengths for material procurement schedules, use `(vlax-curve-getDistAtParam ent (vlax-curve-getEndParam ent))`, which integrates the true 3D arc length along all three axes.</p>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Validate This Workflow in GstarCAD 2027</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG binary fidelity, perpetual licensing sovereignty, and zero-day AutoCAD command parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Explore AutoCAD Migration Hub</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261026" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261026" defer></script>
+</body>
+</html>

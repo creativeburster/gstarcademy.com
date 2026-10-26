@@ -94,14 +94,14 @@
 </header>
 
 <section style="margin-top:24px;">
-<h2>1. Architectural Problem Statement &amp; Kernel Execution Model</h2>
-<p>When developing commercial CAD plugins or porting internal enterprise automation from legacy AutoCAD to <strong>GstarCAD 2027 Professional</strong>, software architects must interact directly with the internal DWG object database (<code>AcDbDatabase</code> / <code>OdDbDatabase</code>) rather than relying on fragile command-line macro emulation. Specifically, this engineering recipe addresses: Bypass command-line overhead and OSNAP interference by constructing lines, closed LWPOLYLINEs, layers, and block inserts directly in the DWG database via `entmakex` DXF lists.</p>
-<p>Maintained by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, the GstarCAD developer ecosystem provides three fully supported runtime layers—<strong>C++ GRX SDK</strong> (source-level ObjectARX equivalent), <strong>C# .NET Managed API</strong> (<code>GsMgd.dll</code> / <code>GsDbMgd.dll</code>), and <strong>Native AutoLISP / Visual LISP / ActiveX COM</strong>. By leveraging the APIs <code>entmake, entmakex, cons, append, DXF Group Codes (0, 8, 10, 62, 70, 90)</code>, ISV partners and enterprise CAD programmers achieve deterministic memory safety, sub-millisecond transaction throughput, and 100% binary compatibility with AC1015–AC1032 DWG files.</p>
+<h2>1. High-Velocity Database Synthesis in AutoLISP: Why `(entmakex)` Outperforms `(command)` by 50x</h2>
+<p>In production AutoLISP automation—such as generating 25,000 solar panel array blocks, parametric truss grids, or survey point markers—calling `(command "_LINE" ...)` or `(command "_INSERT" ...)` bottlenecks execution because every call passes through the command-line string parser, echoes prompts, evaluates running Object Snaps (`OSMODE`), and triggers display regeneration. `(entmake)` and `(entmakex)` inject raw DXF association lists directly into the active C++ block table record.</p>
+<p><strong>Critical Kernel &amp; Memory Safety Rule:</strong> When constructing entities with `(entmakex)`, you only need to supply the mandatory DXF group codes (e.g., `(0 . "LWPOLYLINE")`, `(100 . "AcDbEntity")`, `(100 . "AcDbPolyline")`, `(90 . numVertices)`, and vertex `(10 x y)` pairs)—GstarCAD automatically assigns handles, owner IDs, and default layer/color properties. Unlike `(entmake)`, which returns the DXF list, `(entmakex)` returns the newly created `ename` entity pointer directly for immediate downstream linking.</p>
 </section>
 
 <section style="margin-top:28px;">
-<h2>2. Production-Grade Source Code Implementation</h2>
-<p>The following verified implementation pattern is ready for compilation in Visual Studio 2022 (MSVC v143 / .NET 8.0 / .NET Framework 4.8) or direct execution in the GstarCAD 2027 VLISP engine:</p>
+<h2>2. Production Visual LISP / AutoLISP Routine (entmake)</h2>
+<p>Load the following self-contained LISP routine via <code>APPLOAD</code> or <code>gcaddoc.lsp</code> in GstarCAD 2027 to automate <strong>AutoLISP Cookbook 11: 50x Faster Geometry &amp; Layer Creation Using entmake / entmakex Instead of (command)</strong> at native database speed:</p>
 <pre style="background:#0f172a; color:#f8fafc; padding:18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6;"><code>;; GstarCAD 2027 AutoLISP — Direct Database LWPOLYLINE Creation via entmakex
 (defun GcMakeClosedPoly (ptList layerName colorIdx)
   (entmakex
