@@ -4,33 +4,16 @@
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+    <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+    <script data-cfasync="false">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
-          const script = document.createElement('script');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
-          script.async = true;
-          document.head.appendChild(script);
-          gtag('js', new Date());
-          gtag('config', 'G-ZV3YR72933');
-        }
-        if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
-        } else {
-          setTimeout(initGtag, 2500);
-        }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-ZV3YR72933');
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,7 +49,7 @@
     <link rel="stylesheet" href="/styles.min.css?v=20260901z" />
       <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Tutorial Topic Decision - AutoCAD Beginner Foundation","description":"Compare CAD learning sources for one topic by goal, level, and learning style, then choose the best next step.","url":"https://gstarcademy.com/tutorial-detail","datePublished":"2026-05-24","dateModified":"2026-10-18","inLanguage":"en","mainEntityOfPage":"https://gstarcademy.com/tutorial-detail","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://www.gstarcad.net/","https://www.dwgfastview.com/","https://github.com/creativeburster/gstarcademy.com","https://www.youtube.com/@GstarCADOfficial"]},"reviewedBy":[{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#drafting-standards"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}],"citation":["ISO 128 — Technical Product Documentation (TPD): General Principles of Presentation","Native DWG Binary File Specification AC1015–AC1032 (R2000–R2027)","Suzhou Gstarsoft Co., Ltd. (SSE: 688657) — GstarCAD 2027 Professional & GRX SDK Reference Manual"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".kb-concept-definition"]}}</script>
       <link rel="manifest" href="/manifest.json" />
-    <script src="/search.min.js?v=20260827" defer></script>
+    <script data-cfasync="false" src="/search.min.js?v=20260827" defer></script>
   </head>
   <body data-page="tutorials">
           <header class="topbar">
@@ -276,6 +259,6 @@
         <p>© <span id="year">2026</span> Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="/app.min.js?v=20260827" defer></script>
+    <script data-cfasync="false" src="/app.min.js?v=20260827" defer></script>
   </body>
 </html>

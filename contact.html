@@ -4,33 +4,16 @@
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+    <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+    <script data-cfasync="false">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
-          const script = document.createElement('script');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
-          script.async = true;
-          document.head.appendChild(script);
-          gtag('js', new Date());
-          gtag('config', 'G-ZV3YR72933');
-        }
-        if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
-        } else {
-          setTimeout(initGtag, 2500);
-        }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-ZV3YR72933');
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,7 +50,7 @@
       <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Contact","description":"Contact Gstarcademy for general inquiries, partnerships, or privacy questions.","url":"https://gstarcademy.com/contact","datePublished":"2026-05-24","dateModified":"2026-05-24","inLanguage":"en","mainEntityOfPage":"https://gstarcademy.com/contact","author":{"@type":"Organization","name":"Gstarcademy Editorial Team","url":"https://gstarcademy.com/about"},"publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://gstarcademy.com/about"]}}</script>
       <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://gstarcademy.com/contact"}]}</script>
       <link rel="manifest" href="/manifest.json" />
-    <script src="/search.min.js?v=20260827" defer></script>
+    <script data-cfasync="false" src="/search.min.js?v=20260827" defer></script>
   </head>
   <body data-page="contact">
     <div class="header-stack">
@@ -175,7 +158,7 @@
                 </div>
                 <p id="site-contact-form-status" class="contact-form-status" role="status" aria-live="polite" hidden></p>
               </form>
-              <script>
+              <script data-cfasync="false">
                 (function() {
                   var form = document.getElementById("site-contact-form");
                   var status = document.getElementById("site-contact-form-status");
@@ -441,6 +424,6 @@
         <p>© <span id="year">2026</span> Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="/app.min.js?v=20260911_v3" defer></script>
+    <script data-cfasync="false" src="/app.min.js?v=20260911_v3" defer></script>
   </body>
 </html>

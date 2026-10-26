@@ -4,33 +4,16 @@
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+    <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+    <script data-cfasync="false">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
-          const script = document.createElement('script');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
-          script.async = true;
-          document.head.appendChild(script);
-          gtag('js', new Date());
-          gtag('config', 'G-ZV3YR72933');
-        }
-        if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
-        } else {
-          setTimeout(initGtag, 2500);
-        }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-ZV3YR72933');
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -72,7 +55,7 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"CADGuide.tools — Engineering Toolbox & CAD/BIM Software Comparison Platform","description":"Comprehensive review and resource directory for CADGuide.tools, highlighting 560+ client-side engineering calculation tools and independent CAD/BIM software comparisons.","url":"https://gstarcademy.com/cadguide-tools","publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"},"sameAs":["https://www.gstarcad.net/","https://www.dwgfastview.com/","https://github.com/creativeburster/gstarcademy.com","https://www.youtube.com/@GstarCADOfficial"]},"mainEntity":{"@type":"SoftwareApplication","name":"CADGuide.tools","applicationCategory":"EngineeringApplication","operatingSystem":"All (Web Browser)","url":"https://cadguide.tools/","description":"Independent CAD & BIM comparison engine, interactive software matchmaker, and engineering calculation toolbox with 560+ instant calculators.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},"author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"reviewedBy":[{"@type":"Person","name":"Dr. Lin Wei, Ph.D., PE","jobTitle":"Chief BIM & OpenBIM Interoperability Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#bim-structural"},{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657) Chief Engineering Board","url":"https://gstarcademy.com/editorial-process"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Resources & Tools","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"CADGuide.tools","item":"https://gstarcademy.com/cadguide-tools"}]}</script>
     <link rel="manifest" href="/manifest.json" />
-    <script src="/search.min.js?v=20260827" defer></script>
+    <script data-cfasync="false" src="/search.min.js?v=20260827" defer></script>
   </head>
   <body data-page="resources">
     <div class="header-stack">
@@ -510,6 +493,6 @@
       </div>
     </footer>
 
-    <script src="/app.min.js?v=20260827" defer></script>
+    <script data-cfasync="false" src="/app.min.js?v=20260827" defer></script>
   </body>
 </html>

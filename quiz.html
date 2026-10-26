@@ -4,33 +4,16 @@
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+    <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+    <script data-cfasync="false">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      (function() {
-        let loaded = false;
-        function initGtag() {
-          if (loaded) return;
-          loaded = true;
-          const script = document.createElement('script');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
-          script.async = true;
-          document.head.appendChild(script);
-          gtag('js', new Date());
-          gtag('config', 'G-ZV3YR72933');
-        }
-        if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(initGtag, { timeout: 3000 });
-          }, { passive: true });
-        } else {
-          setTimeout(initGtag, 2500);
-        }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
-          window.addEventListener(e, initGtag, { once: true, passive: true });
-        });
-      })();
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-ZV3YR72933');
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -519,8 +502,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="/app.min.js?v=20260827" defer></script>
-    <script src="./quiz.min.js?v=20260902" defer></script>
+    <script data-cfasync="false" src="/app.min.js?v=20260827" defer></script>
+    <script data-cfasync="false" src="./quiz.min.js?v=20260902" defer></script>
   
     <!-- Official GstarCAD Certificate Modal -->
     <div id="cert-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(15,23,42,0.85); backdrop-filter:blur(8px); overflow-y:auto; padding:20px; align-items:center; justify-content:center;">
@@ -686,7 +669,7 @@
       }
     </style>
 
-    <script>
+    <script data-cfasync="false">
       function openCertificateModal() {
         const modal = document.getElementById('cert-modal');
         if (!modal) return;

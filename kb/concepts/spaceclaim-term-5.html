@@ -4,25 +4,16 @@
     <!-- Google tag (gtag.js) - Performance Optimized Loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+    <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+    <script data-cfasync="false">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
-      window.addEventListener('load', function() {
-        const initGtag = () => {
-          const script = document.createElement('script');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
-          script.async = true;
-          document.head.appendChild(script);
-          gtag('js', new Date());
-          gtag('config', 'G-ZV3YR72933');
-        };
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(initGtag);
-        } else {
-          setTimeout(initGtag, 1);
-        }
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted'
       });
+      gtag('js', new Date());
+      gtag('config', 'G-ZV3YR72933');
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,7 +28,7 @@
     <link rel="canonical" href="https://gstarcademy.com/kb/concepts/spaceclaim-term-5" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="manifest" href="../../manifest.json" />
-    <script src="/search.min.js?v=20260827" defer></script>
+    <script data-cfasync="false" src="/search.min.js?v=20260827" defer></script>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Sheet Metal Unfolding (ANSYS SpaceClaim)" />
     <meta property="og:description" content="Watertight flat pattern extraction from 3D sheet metal parts." />
@@ -476,8 +467,8 @@ Without it, downstream fabrication or cross-discipline model federation will fac
         <p>© <span id="footer-year">2026</span> Suzhou Suzhou Gstarsoft Co., Ltd. (SSE: 688657) (SSE: 688657). All rights reserved.</p>
       </div>
     </footer>
-    <script src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
-    <script src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
-    <script src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script data-cfasync="false" src="../../d3.min.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script data-cfasync="false" src="../../app.js?v=v12_roadmap_sorting_credibility" defer></script>
+    <script data-cfasync="false" src="../../knowledge.js?v=v12_roadmap_sorting_credibility" defer></script>
   </body>
 </html>
