@@ -48,7 +48,7 @@
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link as="style" href="../../styles.min.css" rel="preload"/>
 <link href="../../styles.min.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"GstarCAD Architecture Sections & Schedules: Live Building Cut Generation","description":"Generate architectural building elevations, stepped cross-sections, and door/window quantity schedules automatically from floor plans in GstarCAD Architecture 2027.","url":"https://gstarcademy.com/kb/concepts/gcad-arch-automated-elevations-sections-schedules","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"en","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":[{"@type":"Person","name":"Zhang Mingyuan, B.Eng.","jobTitle":"Distinguished DWG Graphics Kernel & GRX SDK Architect","worksFor":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"},"url":"https://gstarcademy.com/authors#drafting-standards"}],"citation":["ISO 128 — Technical Product Documentation (TPD)","ISO 13567 — CAD Layer Organization and Naming","Native DWG Binary File Specification AC1015–AC1032 (R2000–R2027)","Suzhou Gstarsoft Co., Ltd. (SSE: 688657) — GstarCAD 2027 Command & System Variable Reference"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".kb-concept-definition"]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"GstarCAD Architecture Sections & Schedules: Live Building Cut Generation","description":"Generate architectural building elevations, stepped cross-sections, and door/window quantity schedules automatically from floor plans in GstarCAD Architecture 2027.","url":"https://gstarcademy.com/kb/concepts/gcad-arch-automated-elevations-sections-schedules","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"en","author":{"@type":"Organization","name":"GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)","url":"https://gstarcademy.com/authors"},"publisher":{"@type":"Organization","name":"Suzhou Gstarsoft Co., Ltd. (SSE: 688657)","legalName":"Suzhou Gstarsoft Co., Ltd.","url":"https://gstarcademy.com/","logo":{"@type":"ImageObject","url":"https://gstarcademy.com/favicon.svg"}},"reviewedBy":[{"@type":"Organization","name":"GstarCAD Academy Editorial Team","url":"https://gstarcademy.com/editorial-process"}],"citation":["Native DWG Binary File Specification AC1015–AC1032 (R2000–R2027)"],"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".kb-concept-definition"]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"GstarCAD Architecture Sections & Schedules: Live Building Cut Generation","description":"Generate architectural building elevations, stepped cross-sections, and door/window quantity schedules automatically from floor plans in GstarCAD Architecture 2027.","url":"https://gstarcademy.com/kb/concepts/gcad-arch-automated-elevations-sections-schedules","inDefinedTermSet":{"@type":"DefinedTermSet","name":"CAD Knowledge Base","url":"https://gstarcademy.com/kb-terms"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gstarcademy.com/"},{"@type":"ListItem","position":2,"name":"Knowledge Base","item":"https://gstarcademy.com/knowledge-base"},{"@type":"ListItem","position":3,"name":"Terms & Concepts","item":"https://gstarcademy.com/kb-terms"},{"@type":"ListItem","position":4,"name":"GstarCAD Architecture Sections & Schedules: Live Building Cut Generation","item":"https://gstarcademy.com/kb/concepts/gcad-arch-automated-elevations-sections-schedules"}]}</script>
 </head>
@@ -99,7 +99,7 @@
 </header>
 <div class="ink-byline" role="contentinfo">
 <span><strong>By</strong> GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</span>
-<span><strong>Reviewed by</strong> Zhang Mingyuan, B.Eng. (GRX Kernel Architect)</span>
+<span><strong>Reviewed by</strong> <a href="/editorial-process">GstarCAD Academy Editorial Team</a></span>
 <span><strong>Updated</strong> <time datetime="2026-10-19">2026-10-19</time></span>
 <span><a href="/editorial-process">Editorial Policy</a></span>
 </div>
@@ -180,12 +180,12 @@
 
 <section class="kb-concept-section">
 <h2>4. Step-by-Step Troubleshooting &amp; Cross-Platform QA Protocol</h2>
-<p>When diagnosing drawing anomalies or onboarding teams through the <a href="/migration">AutoCAD-to-GstarCAD Migration Hub</a>, follow this 4-step verification workflow:</p>
+
 <ol style="line-height: 1.8; color: var(--ink-text-soft); padding-left: 20px;">
   <li><strong>Baseline Diagnostic Audit:</strong> Open the affected DWG file in <a href="/kb/software/gstarcad">GstarCAD 2027</a> and inspect the command-line console output. Verify whether third-party plugins or interrupted scripts altered the default state of <code>BLDGSECTION / BLDGELEVATION / DOORSCHEDULE / WINDOWSCHEDULE</code>.</li>
-  <li><strong>Database &amp; Layer Hygiene Verification:</strong> Run <code>AUDIT</code> (Fix errors = Yes) and <code>-PURGE</code> (RegApps and All) to ensure corrupted extension dictionaries or orphaned proxy records are not blocking normal command execution.</li>
-  <li><strong>Template &amp; Profile Standardization:</strong> Save the verified configuration into your corporate <code>.dwt</code> seed template and export your workspace profile (<code>OPTIONS</code> &rarr; Profiles &rarr; Export <code>.arg</code>) so all workstations inherit the exact same behavior.</li>
-  <li><strong>Field &amp; Cloud Deliverable Inspection:</strong> After executing batch publishing or transmittal packaging, verify the final DWG and PDF outputs in <a href="/kb/software/dwg-fastview">DWG FastView</a> on desktop, web, or mobile tablets before releasing files to construction sites or CNC fabrication vendors.</li>
+  
+  
+  
 </ol>
 </section>
 
