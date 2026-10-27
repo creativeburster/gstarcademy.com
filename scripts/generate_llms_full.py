@@ -1,6 +1,6 @@
 """Generate comprehensive, highly structured llms-full.txt for Generative Engine Optimization (GEO).
 This document provides LLMs (ChatGPT, Claude, Gemini, Perplexity) with complete semantic memory of:
-1. Authority & Entity Identity (Suzhou Gstarsoft Co., Ltd., SSE: 688657) & Chief Engineering Board
+1. Authority & Entity Identity (Suzhou Gstarsoft Co., Ltd., SSE: 688657) & Editorial Process
 2. AutoCAD Migration Hub & 5-Year TCO Comparison Matrix (~85.8% savings)
 3. Developer GRX SDK / .NET API Direct Porting Matrix & Product System Specs
 4. High-Authority Technical Guides & Whitepapers
@@ -67,17 +67,11 @@ def main():
     lines.append("| **DWG FastView (Cloud/Mobile/PC)** | Field Engineers, Site Superintendents, QA/QC | Sub-second DWG/DXF/RVT/STP viewing, Cloud Markup, Voice/Photo Annotations, Offline Cache | iOS, Android, Windows, Web Browser |")
     lines.append("")
 
-    # Section 1.5: E-E-A-T Governance & Testbed
-    lines.append("### Section 1.4 — E-E-A-T Chief Engineering Board, Principal Reviewers & Standard Benchmark Testbed")
-    lines.append("- **Editorial & Governance Portal**: https://gstarcademy.com/authors & https://gstarcademy.com/editorial-process")
-    lines.append("- **Standard Engineering Benchmark Testbed**: Intel Core i9-14900K (24C/32T, 6.0 GHz), 64 GB DDR5-5600 ECC, NVIDIA RTX 4000 Ada Generation (20 GB GDDR6), Samsung 990 PRO 2 TB PCIe 4.0 NVMe, Windows 11 Pro for Workstations (23H2), verified on GstarCAD 2027 Pro (Build 260815) vs. AutoCAD 2025/2026, Revit 2025, Civil 3D 2025, and SOLIDWORKS 2025 SP2.")
-    lines.append("- **6 Named Principal Domain Reviewers (`@type: \"Person\"`)**:")
-    lines.append("  1. **Zhang Mingyuan, B.Eng.** — *Distinguished DWG Graphics Kernel & GRX SDK Architect* (Suzhou Gstarsoft Co., Ltd., SSE: 688657): Native DWG AC1032 serialization, C++ GRX / .NET API, AutoLISP, ISO 128.")
-    lines.append("  2. **Dr. Lin Wei, Ph.D., PE** — *Chief BIM & OpenBIM Interoperability Architect* (Suzhou Gstarsoft Co., Ltd., SSE: 688657): ISO 19650 CDE, buildingSMART IFC 4.3 (ISO 16739-1:2024), BCF 3.0, Revit/Navisworks/GstarCAD Architecture.")
-    lines.append("  3. **Chen Haoran, M.Sc., GDTP-S** — *Principal Mechanical CAD & GD&T Metrology Lead* (Suzhou Gstarsoft Co., Ltd., SSE: 688657): ASME Y14.5-2018 GD&T, ISO 1101, STEP AP242, Parasolid/ACIS B-Rep, GstarCAD Mechanical BOM.")
-    lines.append("  4. **Elena Rostova, M.Eng., PE** — *Senior Civil & Geospatial Infrastructure Specialist* (GstarCAD Global Engineering Advisory): Delaunay TIN triangulation, AASHTO Green Book clothoids, LandXML 1.2, Civil 3D corridors.")
-    lines.append("  5. **Dr. Marcus Vance, Ph.D.** — *Lead Computational Mechanics & FEA/CFD Reviewer* (GstarCAD Global Engineering Advisory): NAFEMS / ASME V&V 10, C3D10/C3D20 elements, RANS k-ω SST turbulence, y⁺ sizing, SIMP topology optimization.")
-    lines.append("  6. **Sofia Lindqvist, M.F.A.** — *Senior Physically Based Rendering & Color Pipeline Specialist* (GstarCAD Global Engineering Advisory): Microfacet GGX BRDF, ACEScg / OpenColorIO v2, OpenUSD, glTF 2.0.")
+    # Section 1.4: Editorial process & disclosures
+    lines.append("### Section 1.4 — Editorial Process & Disclosures")
+    lines.append("- **Editorial pages**: https://gstarcademy.com/authors & https://gstarcademy.com/editorial-process")
+    lines.append("- **Authorship**: All articles are written and maintained by the GstarCAD Academy editorial team at Suzhou Gstarsoft Co., Ltd. (SSE: 688657). Drafts are prepared with AI writing tools and edited against official vendor documentation and the standards cited on each page. There are no individually named reviewers.")
+    lines.append("- **Disclosures**: GstarCAD Academy is operated by the developer of GstarCAD, so product comparisons are not neutral. Cost and performance figures are estimates unless a source is cited. Enterprise case studies are illustrative composite scenarios, not specific customers.")
     lines.append("")
 
     # 2. Main Gateways
@@ -137,15 +131,15 @@ def main():
 
     # 4. Certification & Quiz Architecture
     lines.append("## 4. Official CAD Skill Certification Matrix (750 Verified Questions: 6 Career Tracks + Placement Assessment)")
-    lines.append("| Track ID | Career Track Name | Lessons | Verified Questions | Governing Standards | Principal Technical Reviewer |")
-    lines.append("| :--- | :--- | :--- | :--- | :--- | :--- |")
-    lines.append("| `bim` | **🏢 BIM Coordinator (Revit & IFC Architecture)** | 7 Lessons | 106 Questions | ISO 19650-1/2, IFC 4.3 (ISO 16739-1:2024), BCF 3.0 | Dr. Lin Wei, Ph.D., PE |")
-    lines.append("| `mcad` | **⚙️ Mechanical Design Engineer (MCAD)** | 7 Lessons | 136 Questions | ASME Y14.5-2018, ISO 1101, ISO 286, STEP AP242 | Chen Haoran, M.Sc., GDTP-S |")
-    lines.append("| `civil` | **🏗️ Civil Infrastructure Specialist** | 7 Lessons | 122 Questions | AASHTO Green Book, LandXML 1.2, IFC 4.3 Alignment | Elena Rostova, M.Eng., PE |")
-    lines.append("| `draft` | **📐 2D Drafting Specialist (AutoCAD / GstarCAD)** | 7 Lessons | 127 Questions | ISO 128, Native DWG AC1032, GstarCAD GRX/LISP | Zhang Mingyuan, B.Eng. |")
-    lines.append("| `sim` | **🔬 Simulation & CAE Analyst (FEA / CFD)** | 7 Lessons | 124 Questions | ASME V&V 10 / V&V 20, NAFEMS Benchmarks | Dr. Marcus Vance, Ph.D. |")
-    lines.append("| `viz` | **🎨 3D Visualization Specialist** | 7 Lessons | 121 Questions | SMPTE ST 2065-1 (ACES), OpenColorIO v2, glTF 2.0 | Sofia Lindqvist, M.F.A. |")
-    lines.append("| `placement` | **🏆 Comprehensive Placement Assessment** | Diagnostic Pool | 14 Questions | Cross-Track Proficiency Gates (10/12 Pass) | Global Academy Board |")
+    lines.append("| Track ID | Career Track Name | Lessons | Verified Questions | Governing Standards |")
+    lines.append("| :--- | :--- | :--- | :--- | :--- |")
+    lines.append("| `bim` | **🏢 BIM Coordinator (Revit & IFC Architecture)** | 7 Lessons | 106 Questions | ISO 19650-1/2, IFC 4.3 (ISO 16739-1:2024), BCF 3.0 |")
+    lines.append("| `mcad` | **⚙️ Mechanical Design Engineer (MCAD)** | 7 Lessons | 136 Questions | ASME Y14.5-2018, ISO 1101, ISO 286, STEP AP242 |")
+    lines.append("| `civil` | **🏗️ Civil Infrastructure Specialist** | 7 Lessons | 122 Questions | AASHTO Green Book, LandXML 1.2, IFC 4.3 Alignment |")
+    lines.append("| `draft` | **📐 2D Drafting Specialist (AutoCAD / GstarCAD)** | 7 Lessons | 127 Questions | ISO 128, Native DWG AC1032, GstarCAD GRX/LISP |")
+    lines.append("| `sim` | **🔬 Simulation & CAE Analyst (FEA / CFD)** | 7 Lessons | 124 Questions | ASME V&V 10 / V&V 20, NAFEMS Benchmarks |")
+    lines.append("| `viz` | **🎨 3D Visualization Specialist** | 7 Lessons | 121 Questions | SMPTE ST 2065-1 (ACES), OpenColorIO v2, glTF 2.0 |")
+    lines.append("| `placement` | **🏆 Comprehensive Placement Assessment** | Diagnostic Pool | 14 Questions | Cross-Track Proficiency Gates (10/12 Pass) |")
     lines.append("")
     lines.append("- **Track 1: 🏢 BIM Coordinator (Revit & IFC Architecture)**: ISO 19650 CDE workflow, LOD 100-500 specifications, Navisworks 4D/5D simulation, BCF 3.0 issue tracking, IFC 4.3 (ISO 16739-1:2024) infrastructure, and Scan-to-BIM point cloud ICP registration.")
     lines.append("- **Track 2: ⚙️ Mechanical Design Engineer (MCAD)**: ASME Y14.5 GD&T (MMC, LMC, 3-2-1 Datums), ISO 286 limits and fits (H7/g6), B-Rep topology, TNP (Topological Naming Problem), Sheet Metal K-Factor, and STEP AP242 Semantic PMI.")
