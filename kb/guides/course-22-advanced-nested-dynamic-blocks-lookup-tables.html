@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 22: Advanced Nested Dynamic Blocks, Double-Lookup Tables & Chained Actions | GstarCAD Academy</title>
+<meta content="Engineer advanced GstarCAD 2027 Dynamic Blocks with chained stretch/array actions, double-lookup tricks, and Block Properties Tables for multi-state equipment catalogs." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-22-advanced-nested-dynamic-blocks-lookup-tables" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 22: Advanced Nested Dynamic Blocks, Double-Lookup Tables & Chained Actions" property="og:title"/>
+<meta content="Engineer advanced GstarCAD 2027 Dynamic Blocks with chained stretch/array actions, double-lookup tricks, and Block Properties Tables for multi-state equipment catalogs." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-22-advanced-nested-dynamic-blocks-lookup-tables" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 22: Advanced Nested Dynamic Blocks, Double-Lookup Tables & Chained Actions", "description": "Engineer advanced GstarCAD 2027 Dynamic Blocks with chained stretch/array actions, double-lookup tricks, and Block Properties Tables for multi-state equipment catalogs.", "url": "https://gstarcademy.com/kb/guides/course-22-advanced-nested-dynamic-blocks-lookup-tables", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 22: Advanced Nested Dynamic Blocks, Double-Lookup Tables & Chained Actions", "item": "https://gstarcademy.com/kb/guides/course-22-advanced-nested-dynamic-blocks-lookup-tables"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 22: Advanced Nested Dynamic Blocks, Double-Lookup Tables & Chained Actions</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 22 · Dynamic Blocks</span>
+<h1 style="margin-top:12px;">Course 22: Advanced Nested Dynamic Blocks, Double-Lookup Tables & Chained Actions</h1>
+<p class="hero-sub">Engineer advanced GstarCAD 2027 Dynamic Blocks with chained stretch/array actions, double-lookup tricks, and Block Properties Tables for multi-state equipment catalogs.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>While basic Dynamic Blocks use a single Visibility State or Linear Stretch grip, enterprise engineering libraries require **Chained Parameter Actions** and **Multi-Parameter Lookup Tables (`AcDbBlockPropertiesTable`)**. For example, when an electrical engineer stretches a DIN mounting rail in <strong><a href='/kb/software/gstarcad'>GstarCAD 2027</a></strong>, terminal blocks should array automatically at `6.2 mm` pitch, the center mounting slot should remain centered (`0.5x` distance multiplier), and the part number attribute should update automatically via a Lookup Table.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Distance Multipliers (0.5x Symmetry) & Offset Angles</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">To keep a center stiffener rib or bolt hole centered while stretching only the right-hand grip of a steel beam, attach a **second `Stretch Action`** to the same `Linear Parameter`, select the center rib geometry, and set its **Distance Multiplier = `0.50`** in the Properties palette (`Ctrl+1`).</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Chaining Parameters (`Chain Actions = Yes`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">When Parameter A's action needs to trigger Parameter B's action (for example, a Lookup Table changes `Distance1`, which in turn must trigger an `Array Action` tied to `Distance1`), select the driven parameter in `BEDIT`, open `Ctrl+1`, set **Chain Actions = Yes**, and include the driven parameter inside the driving action's selection set.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Combining Visibility States with Lookup Tables (Double-Lookup Pattern)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Because standard CAD blocks allow only one native `Visibility Parameter` per block definition, you can synchronize multiple geometric states with parametric dimensions by wiring both `Linear/Point Parameters` and `Visibility1` columns into a single **Block Properties Table (`BPT`)**.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>BPARAMETER > Linear / Polar</code></td>
+          <td style="padding:11px 14px;">Value Set: Increment / List</td>
+          <td style="padding:11px 14px; line-height:1.6;">Restricts stretch grips to standard catalog sizes (e.g., 100mm step increments).</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>BACTIONBARMODE = 0 or 1</code></td>
+          <td style="padding:11px 14px;">Block Editor UI</td>
+          <td style="padding:11px 14px; line-height:1.6;">Set to 0 to display classic action lightning bolts so selection sets are easy to audit.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>ATTSYNC & BATTMAN</code></td>
+          <td style="padding:11px 14px;">Attribute Governance</td>
+          <td style="padding:11px 14px; line-height:1.6;">Ensure all ATTDEFs inside Dynamic Blocks have 'Lock Position = Yes' enabled.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>RESETBLOCK</code></td>
+          <td style="padding:11px 14px;">Instance Recovery</td>
+          <td style="padding:11px 14px; line-height:1.6;">Restores selected dynamic block insertions back to their default catalog state.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (Dynamic Block Property Inspector LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:INSPECTDYNBLK ( / ent obj props p)
+  (vl-load-com)
+  (if (and (setq ent (car (entsel "\nSelect a Dynamic Block insertion: ")))
+           (= (vla-get-ObjectName (setq obj (vlax-ename->vla-object ent))) "AcDbBlockReference")
+           (= (vla-get-IsDynamicBlock obj) :vlax-true))
+    (progn
+      (princ (strcat "\nEffective Block Name: " (vla-get-EffectiveName obj)))
+      (setq props (vlax-variant-value (vla-GetDynamicBlockProperties obj)))
+      (foreach p (vlax-safearray->list props)
+        (princ (strcat "\n  Param [" (vla-get-PropertyName p) "] = "
+                       (vl-princ-to-string (vlax-variant-value (vla-get-Value p)))))
+      )
+    )
+    (princ "\nSelected object is not a Dynamic Block.")
+  )
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Confirm every `ATTDEF` targeted by a Move, Stretch, or Flip action has `Lock Position = Yes` enabled in `Ctrl+1`.</li><li style='margin-bottom:8px;'>Test `RESETBLOCK` and `DATAEXTRACTION` on 5 stretched instances to verify `EffectiveName` remains unified rather than splitting by `*U###` anonymous handle.</li><li style='margin-bottom:8px;'>Set `Show Properties = No` on internal helper parameters so users only see clean catalog inputs in `Ctrl+1`.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

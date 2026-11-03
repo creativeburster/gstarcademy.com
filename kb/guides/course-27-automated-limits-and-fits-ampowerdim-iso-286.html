@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 27: Automated Limits & Fits (AMPOWERDIM), ISO 286 Hole/Shaft Basis & Tolerance Charts | GstarCAD Academy</title>
+<meta content="Master precision engineering metrology in GstarCAD Mechanical 2027 using AMPOWERDIM, automatic ISO 286 / ANSI B4.1 deviation lookups, and stacked shaft/hole fit charts." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-27-automated-limits-and-fits-ampowerdim-iso-286" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 27: Automated Limits & Fits (AMPOWERDIM), ISO 286 Hole/Shaft Basis & Tolerance Charts" property="og:title"/>
+<meta content="Master precision engineering metrology in GstarCAD Mechanical 2027 using AMPOWERDIM, automatic ISO 286 / ANSI B4.1 deviation lookups, and stacked shaft/hole fit charts." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-27-automated-limits-and-fits-ampowerdim-iso-286" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 27: Automated Limits & Fits (AMPOWERDIM), ISO 286 Hole/Shaft Basis & Tolerance Charts", "description": "Master precision engineering metrology in GstarCAD Mechanical 2027 using AMPOWERDIM, automatic ISO 286 / ANSI B4.1 deviation lookups, and stacked shaft/hole fit charts.", "url": "https://gstarcademy.com/kb/guides/course-27-automated-limits-and-fits-ampowerdim-iso-286", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 27: Automated Limits & Fits (AMPOWERDIM), ISO 286 Hole/Shaft Basis & Tolerance Charts", "item": "https://gstarcademy.com/kb/guides/course-27-automated-limits-and-fits-ampowerdim-iso-286"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 27: Automated Limits & Fits (AMPOWERDIM), ISO 286 Hole/Shaft Basis & Tolerance Charts</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 27 · Metrology & Fits</span>
+<h1 style="margin-top:12px;">Course 27: Automated Limits & Fits (AMPOWERDIM), ISO 286 Hole/Shaft Basis & Tolerance Charts</h1>
+<p class="hero-sub">Master precision engineering metrology in GstarCAD Mechanical 2027 using AMPOWERDIM, automatic ISO 286 / ANSI B4.1 deviation lookups, and stacked shaft/hole fit charts.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Looking up upper and lower micrometer deviations (`ES/EI` and `es/ei`) from printed **ISO 286-2** handbooks for every bearing bore and dowel pin hole is slow and invites transcription errors. In <strong><a href='/kb/software/gstarcad'>GstarCAD Mechanical 2027</a></strong>, the **Power Dimensioning (`AMPOWERDIM`)** engine embeds the complete mathematical ISO 286, DIN 7154/7155, ANSI B4.1, and JIS B 0401 tolerance tables—computing exact upper/lower deviations automatically based on the measured nominal diameter.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Placing ISO 286 Fit Symbols & Automatic Micrometer Deviations</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run <code>AMPOWERDIM</code>, pick a `Ø40 mm` bore, and toggle the **Fit / Tolerance** button on the Power Dimensioning ribbon. Select `H7` (or combined `H7/g6` on an assembly view). Choose between **Symbol Only (`Ø40 H7`)**, **Symbol + Deviations (`Ø40 H7 (+0.025 / 0)`)**, or **Limit Dimensions (`40.025 / 40.000`)**. If you stretch the bore from `Ø40` to `Ø60`, GstarCAD Mechanical recalculates the deviation from `+0.025` to `+0.030` automatically!</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Generating Associative Fit Lists / Tolerance Tables on Drawing Sheets</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">In European and Asian automotive/machine-tool drawings, cluttering small views with stacked micrometer limits is discouraged. Instead, place clean `Ø40 H7` symbols on the geometry and run **Fit List Generation** to place an associative summary table next to the title block listing every unique nominal diameter, fit class, and micrometer limit in the drawing.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Automatic Dimension Spacing, Chain/Baseline Alignment & Break Symbols</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">As you place multiple parallel `AMPOWERDIM` dimensions, GstarCAD Mechanical snaps dimension lines to strict **ISO 128 spacing intervals (`10 mm` first row, `7 mm` subsequent rows)** and automatically prompts to split or stagger overlapping text and extension lines (`AMDWGVIEW` / Dimension Break).</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>AMPOWERDIM</code></td>
+          <td style="padding:11px 14px;">Intelligent Dimensioning</td>
+          <td style="padding:11px 14px; line-height:1.6;">Computes ISO 286 / ANSI fits and snaps to standard 10mm/7mm baseline spacing.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>H7/g6, H7/k6, H7/p6</code></td>
+          <td style="padding:11px 14px;">Combined Assembly Fits</td>
+          <td style="padding:11px 14px; line-height:1.6;">Displays fractional or stacked hole/shaft fit notation with optional deviations.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>AMDIMALIGN / AMCAUTODIM</code></td>
+          <td style="padding:11px 14px;">Baseline & Chain Automation</td>
+          <td style="padding:11px 14px; line-height:1.6;">Dimensions entire shaft steps or hole patterns in a single window selection.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>AMHOLECHART</code></td>
+          <td style="padding:11px 14px;">CNC Coordinate Table</td>
+          <td style="padding:11px 14px; line-height:1.6;">Labels drilled holes (A1, A2, B1) and generates associative X/Y coordinate tables.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (ISO 286 Fundamental Tolerance Grade Calculator LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:ITGRADE ( / d iUnit)
+  (setq d (getreal "\nEnter nominal diameter in mm (3 to 500): "))
+  (if (and d (>= d 3.0) (<= d 500.0))
+    (progn
+      ;; Standard tolerance factor i (micrometers) = 0.45 * cbrt(D) + 0.001 * D
+      (setq iUnit (+ (* 0.45 (expt d (/ 1.0 3.0))) (* 0.001 d)))
+      (princ (strcat "\nNominal D = " (rtos d 2 1) " mm | Fundamental Unit i = " (rtos iUnit 2 3) " um"))
+      (princ (strcat "\n  IT6 (10i) = " (rtos (* 10.0 iUnit 0.001) 2 3) " mm"))
+      (princ (strcat "\n  IT7 (16i) = " (rtos (* 16.0 iUnit 0.001) 2 3) " mm"))
+      (princ (strcat "\n  IT8 (25i) = " (rtos (* 25.0 iUnit 0.001) 2 3) " mm"))
+    )
+  )
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Verify that `DIMLFAC` is handled by `AMDWGVIEW` scale factors rather than manual text overrides so `AMPOWERDIM` queries the true nominal diameter tier.</li><li style='margin-bottom:8px;'>Use `AMHOLECHART` on CNC manifold plates with >20 holes to eliminate crossed extension lines.</li><li style='margin-bottom:8px;'>Audit fit combinations in assembly views to ensure no shaft/hole pair accidentally specifies two shaft letters (`g6/k6`) or two hole letters (`H7/F7`).</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

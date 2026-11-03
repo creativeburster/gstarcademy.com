@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Architectural & Structural Drawing Scales, Text Heights & DIMSCALE Master Chart | GstarCAD Academy</title>
+<meta content="Complete lookup table for metric (1:1 to 1:500) and imperial (3"=1'-0" to 1/16"=1'-0") CAD text heights, DIMSCALE multipliers, and LTSCALE settings." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/architectural-and-structural-drawing-scales-text-heights-and-dimscale-chart" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Architectural & Structural Drawing Scales, Text Heights & DIMSCALE Master Chart" property="og:title"/>
+<meta content="Complete lookup table for metric (1:1 to 1:500) and imperial (3"=1'-0" to 1/16"=1'-0") CAD text heights, DIMSCALE multipliers, and LTSCALE settings." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/architectural-and-structural-drawing-scales-text-heights-and-dimscale-chart" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Architectural & Structural Drawing Scales, Text Heights & DIMSCALE Master Chart", "description": "Complete lookup table for metric (1:1 to 1:500) and imperial (3\"=1'-0\" to 1/16\"=1'-0\") CAD text heights, DIMSCALE multipliers, and LTSCALE settings.", "url": "https://gstarcademy.com/kb/guides/architectural-and-structural-drawing-scales-text-heights-and-dimscale-chart", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Elena Rostova, M.Eng., PE", "jobTitle": "Senior Civil Infrastructure & Geomatics Engineer", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#civil-infrastructure"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "Architectural & Structural Drawing Scales, Text Heights & DIMSCALE Master Chart", "item": "https://gstarcademy.com/kb/guides/architectural-and-structural-drawing-scales-text-heights-and-dimscale-chart"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Architectural & Structural Drawing Scales, Text Heights & DIMSCALE Master Chart</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">DRAFTING SCALES</span>
+<h1 style="margin-top:12px;">Architectural & Structural Drawing Scales, Text Heights & DIMSCALE Master Chart</h1>
+<p class="hero-sub">Complete lookup table for metric (1:1 to 1:500) and imperial (3"=1'-0" to 1/16"=1'-0") CAD text heights, DIMSCALE multipliers, and LTSCALE settings.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#civil-infrastructure">Elena Rostova, M.Eng., PE</a> (Senior Civil Infrastructure & Geomatics Engineer)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Whether you annotate in Model Space using <code>DIMSCALE</code> or in Paper Space Layouts using <strong>Annotative Scaling</strong>, plotted text on engineering drawings must measure exactly <strong>2.5 mm (3/32" / 0.0938")</strong> for body notes/dimensions and <strong>3.5 mm to 5.0 mm (1/8" to 3/16")</strong> for view titles per ISO 3098 and ASME Y14.2.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. The Universal Model Space Text Height Formula</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>To calculate the required Model Space text height $H_{\text{model}}$ for any plot scale factor $S$ (where $1:S$ is the scale ratio):</p>$$H_{\text{model}} = H_{\text{paper}} \times S$$<p>For example, at <code>1:50</code> scale with a target plotted height of <code>2.5 mm</code>, $H_{\text{model}} = 2.5 \times 50 = 125\text{ mm}$. At $1/4'' = 1'-0''$ ($S = 48$) with target $3/32''$, $H_{\text{model}} = (3/32) \times 48 = 4.5''$.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. Metric Architectural & Structural Scale Lookup (1:5 to 1:200)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Standard ISO 5455 architectural scales step through <code>1:1, 1:2, 1:5, 1:10, 1:20, 1:50, 1:100, 1:200, 1:500</code>. Never use non-standard scales like <code>1:30</code> or <code>1:75</code> that cannot be measured with a standard triangular scale rule on site.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Annotative Scaling in GstarCAD (CANNOSCALE & ANNOAUTOSCALE)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Instead of duplicating text layers for 1:50 and 1:100 viewports, enable the <strong>Annotative</strong> checkbox in <a href='/kb/software/gstarcad'>GstarCAD</a>'s <code>STYLE</code> and <code>DIMSTYLE</code> dialogs and set Paper Text Height to <code>2.5 mm</code>—GstarCAD scales the glyph automatically per viewport.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>1:10 (Detail)</code></td>
+          <td style="padding:11px 14px;">DIMSCALE = 10</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>25 mm</strong> — 35 mm / 50 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>1:20 (Enlarged Plan/Section)</code></td>
+          <td style="padding:11px 14px;">DIMSCALE = 20</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>50 mm</strong> — 70 mm / 100 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>1:50 (Working Floor Plan)</code></td>
+          <td style="padding:11px 14px;">DIMSCALE = 50</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>125 mm</strong> — 175 mm / 250 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>1:100 (General Arrangement)</code></td>
+          <td style="padding:11px 14px;">DIMSCALE = 100</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>250 mm</strong> — 350 mm / 500 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>1/4" = 1'-0" (Imperial Plan)</code></td>
+          <td style="padding:11px 14px;">DIMSCALE = 48</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>4.5" (3/32" plot)</strong> — 6.0" (1/8" plot)</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP Model Space Text & DIMSCALE Calculator by Scale Ratio)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:CALC-CAD-SCALE ( / s h25 h35)
+  (setq s (getreal "\nEnter Drawing Scale Denominator S (e.g. 50 for 1:50, 48 for 1/4"=1'): "))
+  (setq h25 (* 2.5 s) h35 (* 3.5 s))
+  (setvar "DIMSCALE" s)
+  (princ (strcat "\n[Scale 1:" (rtos s 2 0) "] DIMSCALE set to " (rtos s 2 0)
+                 " | 2.5mm Text = " (rtos h25 2 1) " | 3.5mm Header = " (rtos h35 2 1)))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Standardize on 2.5 mm (metric) or 3/32" (imperial) plotted height for all general notes and dimensions.</li><li style='margin-bottom:8px;'>Use Annotative Text and Dimensions when the same Model Space geometry appears in two viewports of different scales.</li><li style='margin-bottom:8px;'>Never use 1:75 or 1:125 scales unless mandated by legacy municipal sheet constraints.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

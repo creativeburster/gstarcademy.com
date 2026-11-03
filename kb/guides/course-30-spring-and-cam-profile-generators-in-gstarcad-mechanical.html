@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 30: Compression/Extension/Torsion Spring & Cam Profile Generators in GstarCAD Mechanical | GstarCAD Academy</title>
+<meta content="Calculate wire diameter, shear stress, active coils, and motion follower curves using the built-in Spring and Cam Design Generators in GstarCAD Mechanical 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-30-spring-and-cam-profile-generators-in-gstarcad-mechanical" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 30: Compression/Extension/Torsion Spring & Cam Profile Generators in GstarCAD Mechanical" property="og:title"/>
+<meta content="Calculate wire diameter, shear stress, active coils, and motion follower curves using the built-in Spring and Cam Design Generators in GstarCAD Mechanical 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-30-spring-and-cam-profile-generators-in-gstarcad-mechanical" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 30: Compression/Extension/Torsion Spring & Cam Profile Generators in GstarCAD Mechanical", "description": "Calculate wire diameter, shear stress, active coils, and motion follower curves using the built-in Spring and Cam Design Generators in GstarCAD Mechanical 2027.", "url": "https://gstarcademy.com/kb/guides/course-30-spring-and-cam-profile-generators-in-gstarcad-mechanical", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 30: Compression/Extension/Torsion Spring & Cam Profile Generators in GstarCAD Mechanical", "item": "https://gstarcademy.com/kb/guides/course-30-spring-and-cam-profile-generators-in-gstarcad-mechanical"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 30: Compression/Extension/Torsion Spring & Cam Profile Generators in GstarCAD Mechanical</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 30 · Mechanism Calculation</span>
+<h1 style="margin-top:12px;">Course 30: Compression/Extension/Torsion Spring & Cam Profile Generators in GstarCAD Mechanical</h1>
+<p class="hero-sub">Calculate wire diameter, shear stress, active coils, and motion follower curves using the built-in Spring and Cam Design Generators in GstarCAD Mechanical 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Rather than switching to external spreadsheets to calculate Wahl curvature stress correction factors, spring rates ($k = \frac{G d^4}{8 D^3 n_a}$), or cam follower acceleration jerk curves ($s, v, a, j$), <strong><a href='/kb/software/gstarcad'>GstarCAD Mechanical 2027</a></strong> embeds engineering calculation wizards that simultaneously verify mechanical strength and draw the exact 2D representation (detailed cross-section or simplified ISO 2162 schematic) plus load-deflection specification tables directly in the drawing.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Helical Compression & Extension Spring Sizing (`AMSPRING`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Launch the Compression/Extension Spring Generator, choose a standard spring steel material (`EN 10270-1 DH/SH`, `50CrV4`, or `Stainless 1.4310`), and enter the operating envelope (`Preload F1`, `Working Stroke s`, `Max Working Load F2`, and `Mean Coil Diameter D`). The solver filters valid wire diameters $d$, checks torsional shear stress $\tau_{k2} < \tau_{\text{allow}}$, verifies buckling slenderness, and inserts the spring at its exact installed length $L_1$ or $L_2$.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Torsion Springs & Belleville Disc Spring Stacks (`DIN 2093`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">For high-load compact clamping actuators (such as CNC spindle drawbars or circuit-breaker mechanisms), select **Belleville Disc Springs (`DIN 2093`)**. Combine series stacks (multiplying deflection) and parallel stacks (multiplying force) while GstarCAD Mechanical plots the non-linear load-deflection curve and draws the exact stacked cross-section inside your housing bore.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Disc & Cylindrical Cam Profile Synthesis & CNC Path Export (`AMCAM`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run the **Cam Design & Calculation** wizard, define segments using **Modified Sinusoid**, **Modified Trapezoid**, **5th-Order Polynomial (3-4-5)**, or **Cycloidal** motion laws to eliminate infinite jerk spikes ($j = da/dt$). The engine checks maximum pressure angle ($\alpha_{\max} \le 30^\circ$ for translating roller followers), checks minimum radius of curvature ($\rho_{\min} > R_{\text{roller}}$ to prevent undercutting), and outputs the exact cam pitch/working contour polyline for CNC wire-EDM or milling.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Compression / Extension Springs</code></td>
+          <td style="padding:11px 14px;">DIN 2089 / ISO 2162</td>
+          <td style="padding:11px 14px; line-height:1.6;">Computes wire diameter d, active coils na, solid length Lc, and buckling safety.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Belleville Disc Springs</code></td>
+          <td style="padding:11px 14px;">DIN 2093 Series/Parallel</td>
+          <td style="padding:11px 14px; line-height:1.6;">Models stacked disc springs (e.g., 2 parallel x 6 series) with friction hysteresis.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Cam Profile Generator</code></td>
+          <td style="padding:11px 14px;">Cycloidal / 3-4-5 Poly</td>
+          <td style="padding:11px 14px; line-height:1.6;">Synthesizes jerk-free follower displacement/velocity/acceleration/jerk diagrams.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Pressure Angle & Curvature</code></td>
+          <td style="padding:11px 14px;">Cam Undercut Check</td>
+          <td style="padding:11px 14px; line-height:1.6;">Verifies pressure angle <= 30 deg and minimum pitch radius > roller radius.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (Helical Spring Stiffness & Wahl Factor Calculator LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:SPRINGRATE ( / d Dmean na G c kw kRate)
+  (setq d     (getreal "\nEnter spring wire diameter d (mm): ")
+        Dmean (getreal "\nEnter mean coil diameter D (mm): ")
+        na    (getreal "\nEnter number of active coils na: ")
+        G     81500.0) ;; Shear modulus for spring steel (MPa)
+  (if (and d Dmean na (> d 0) (> Dmean d) (> na 0))
+    (progn
+      (setq c     (/ Dmean d)
+            kw    (+ (/ (- (* 4.0 c) 1.0) (- (* 4.0 c) 4.0)) (/ 0.615 c))
+            kRate (/ (* G (expt d 4)) (* 8.0 (expt Dmean 3) na)))
+      (princ (strcat "\nSpring Index C = D/d        : " (rtos c 2 2) " (Ideal: 4 to 12)"))
+      (princ (strcat "\nWahl Stress Factor Kw       : " (rtos kw 2 3)))
+      (princ (strcat "\nSpring Stiffness Rate R (k) : " (rtos kRate 2 2) " N/mm"))
+    )
+  )
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Keep the **Spring Index ($C = D/d$)** between `4.0` and `12.0` (`6–9` optimal); indices below `4` cause severe inner-fiber curvature shear stress (`Wahl factor Kw > 1.40`), while indices above `12` tangle easily.</li><li style='margin-bottom:8px;'>Always place the generated **Spring Parameter Table** (`d, De, L0, na, R, F1, F2, tau2`) on the drawing sheet per ISO 2162-2.</li><li style='margin-bottom:8px;'>In Cam design, never use simple Constant Velocity or Parabolic segments on high-speed machinery without cycloidal/polynomial transitions—infinite jerk spikes cause severe follower vibration and cam wear.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

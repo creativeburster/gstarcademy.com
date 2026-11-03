@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 23: 3D Surface Modeling — Loft, Sweep, Continuity (G0/G1/G2) & NURBS Patch Workflows | GstarCAD Academy</title>
+<meta content="Design aerodynamic transitions, HVAC square-to-round duct adapters, and architectural freeform canopies in GstarCAD 2027 using LOFT, SWEEP, SURFNETWORK, and G1/G2 continuity." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-23-3d-surface-modeling-loft-sweep-planar-nurbs" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 23: 3D Surface Modeling — Loft, Sweep, Continuity (G0/G1/G2) & NURBS Patch Workflows" property="og:title"/>
+<meta content="Design aerodynamic transitions, HVAC square-to-round duct adapters, and architectural freeform canopies in GstarCAD 2027 using LOFT, SWEEP, SURFNETWORK, and G1/G2 continuity." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-23-3d-surface-modeling-loft-sweep-planar-nurbs" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 23: 3D Surface Modeling \u2014 Loft, Sweep, Continuity (G0/G1/G2) & NURBS Patch Workflows", "description": "Design aerodynamic transitions, HVAC square-to-round duct adapters, and architectural freeform canopies in GstarCAD 2027 using LOFT, SWEEP, SURFNETWORK, and G1/G2 continuity.", "url": "https://gstarcademy.com/kb/guides/course-23-3d-surface-modeling-loft-sweep-planar-nurbs", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 23: 3D Surface Modeling \u2014 Loft, Sweep, Continuity (G0/G1/G2) & NURBS Patch Workflows", "item": "https://gstarcademy.com/kb/guides/course-23-3d-surface-modeling-loft-sweep-planar-nurbs"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 23: 3D Surface Modeling — Loft, Sweep, Continuity (G0/G1/G2) & NURBS Patch Workflows</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 23 · 3D Surface & NURBS</span>
+<h1 style="margin-top:12px;">Course 23: 3D Surface Modeling — Loft, Sweep, Continuity (G0/G1/G2) & NURBS Patch Workflows</h1>
+<p class="hero-sub">Design aerodynamic transitions, HVAC square-to-round duct adapters, and architectural freeform canopies in GstarCAD 2027 using LOFT, SWEEP, SURFNETWORK, and G1/G2 continuity.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>While prismatic mechanical brackets are easily modeled with `EXTRUDE` and `REVOLVE`, industrial sheet-metal transitions (such as a rectangular-to-circular HVAC plenum hood), ergonomic consumer enclosures, and freeform stadium roofs require **3D Procedural &amp; NURBS Surface Modeling**. <strong><a href='/kb/software/gstarcad'>GstarCAD 2027</a></strong>'s ACIS kernel supports both **Procedural Associative Surfaces (`SURFACEMODELINGMODE = 0`)** and **Control-Vertex NURBS Surfaces (`SURFACEMODELINGMODE = 1`)** with `G0` (Position), `G1` (Tangent), and `G2` (Curvature) boundary continuity.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Multi-Section LOFT with Guide Curves & Normal Controls</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run <code>LOFT</code> and select cross-section profiles in sequence (e.g., a `600x400 mm` rectangle at `Z=0` and a `Ø350 mm` circle at `Z=500`). Choose **Guides** to constrain sidewall profiles along 3D splines, or open **Settings** to enforce `Normal to Start and End Cross Sections` so flange collars remain vertical for welding.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: 3D Helical & Twisted SWEEP Pipelines</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run <code>SWEEP</code> to extrude a closed 2D profile along any 2D/3D path (`HELIX`, `3DPOLY`, or `SPLINE`). Use the **Alignment**, **Base Point**, **Scale** (tapered sweep from `1.0` to `0.6`), and **Twist** (`270°` helical twist) options for screw conveyors, springs, and twisted structural columns.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Surface Trimming, Filleting, Patching & Solidification (SURFSCULPT)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Use <code>SURFNETWORK</code>, <code>SURFPATCH</code> (with `G1`/`G2` continuity), <code>SURFTRIM</code>, and <code>SURFFILLET</code> to assemble intersecting surface sheets. Once the surface boundary forms a closed watertight volume, run <code>SURFSCULPT</code> (or `THICKEN`) to convert the surface quilt into a true volumetric `3DSOLID`.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>LOFT</code></td>
+          <td style="padding:11px 14px;">Cross-Sections + Guides</td>
+          <td style="padding:11px 14px; line-height:1.6;">Interpolates smooth 3D solids or surfaces across dissimilar planar/non-planar profiles.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SWEEP</code></td>
+          <td style="padding:11px 14px;">Profile + 3D Path</td>
+          <td style="padding:11px 14px; line-height:1.6;">Sweeps cross-sections along 3D curves with optional Twist angle and Scale taper.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SURFPATCH / SURFNETWORK</code></td>
+          <td style="padding:11px 14px;">G0 / G1 / G2 Continuity</td>
+          <td style="padding:11px 14px; line-height:1.6;">Caps open surface loops with Positional (G0), Tangent (G1), or Curvature (G2) smoothness.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SURFSCULPT / THICKEN</code></td>
+          <td style="padding:11px 14px;">Surface-to-Solid B-Rep</td>
+          <td style="padding:11px 14px; line-height:1.6;">Converts watertight surface quilts or single sheets into volumetric ACIS 3DSOLIDs.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (3D Surface Modeling Setup LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:SURFINIT ()
+  (setvar "SURFACEMODELINGMODE" 0) ;; Procedural associative surface mode
+  (setvar "SURFACEASSOCIATIVITY" 1)
+  (setvar "SURFU" 12)
+  (setvar "SURFV" 12)
+  (setvar "FACETRES" 5.0)
+  (princ "\n[Course 23] Configured associative procedural surface & ACIS tessellation settings.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Keep cross-section vertex counts equal (or align start points) before running `LOFT` to prevent unwanted helical surface twisting.</li><li style='margin-bottom:8px;'>Set `DELOBJ = 0` when experimenting with `LOFT` and `SWEEP` so defining 2D generator curves are retained for parametric edits.</li><li style='margin-bottom:8px;'>Verify watertight closure via `SURFSCULPT` and `MASSPROP` before exporting `.STEP` files for CNC machining.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

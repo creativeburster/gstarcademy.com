@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 35: Reflected Ceiling Plans (RCP), Lighting Photometric Layouts & Diffuser Coordination | GstarCAD Academy</title>
+<meta content="Coordinate architectural acoustic ceiling grids, recessed LED troffers, HVAC supply/return diffusers, fire sprinklers, and access hatches in GstarCAD 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-35-reflected-ceiling-plans-rcp-lighting-diffuser-coordination" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 35: Reflected Ceiling Plans (RCP), Lighting Photometric Layouts & Diffuser Coordination" property="og:title"/>
+<meta content="Coordinate architectural acoustic ceiling grids, recessed LED troffers, HVAC supply/return diffusers, fire sprinklers, and access hatches in GstarCAD 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-35-reflected-ceiling-plans-rcp-lighting-diffuser-coordination" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 35: Reflected Ceiling Plans (RCP), Lighting Photometric Layouts & Diffuser Coordination", "description": "Coordinate architectural acoustic ceiling grids, recessed LED troffers, HVAC supply/return diffusers, fire sprinklers, and access hatches in GstarCAD 2027.", "url": "https://gstarcademy.com/kb/guides/course-35-reflected-ceiling-plans-rcp-lighting-diffuser-coordination", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Dr. Lin Wei, Ph.D., PE", "jobTitle": "Principal BIM & Interoperability Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#bim-architecture"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 35: Reflected Ceiling Plans (RCP), Lighting Photometric Layouts & Diffuser Coordination", "item": "https://gstarcademy.com/kb/guides/course-35-reflected-ceiling-plans-rcp-lighting-diffuser-coordination"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 35: Reflected Ceiling Plans (RCP), Lighting Photometric Layouts & Diffuser Coordination</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 35 · Interior & MEP Coordination</span>
+<h1 style="margin-top:12px;">Course 35: Reflected Ceiling Plans (RCP), Lighting Photometric Layouts & Diffuser Coordination</h1>
+<p class="hero-sub">Coordinate architectural acoustic ceiling grids, recessed LED troffers, HVAC supply/return diffusers, fire sprinklers, and access hatches in GstarCAD 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#bim-architecture">Dr. Lin Wei, Ph.D., PE</a> (Principal BIM & Interoperability Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>The **Reflected Ceiling Plan (`RCP`)** is the single most crowded multi-discipline coordination drawing in commercial buildings: architecture owns the `600x600 mm` acoustic T-bar grid and gypsum bulkheads; electrical owns recessed LED luminaires, emergency exit signs, and smoke detectors; HVAC owns supply/return air diffusers and linear slot diffusers; and fire protection owns pendent sprinklers. In <strong><a href='/kb/software/gstarcad'>GstarCAD 2027</a></strong>, mastering Xref layer states, `HATCHSETORIGIN` ceiling grid centering, and access-panel clearance zones eliminates unsightly field cutting.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Architectural Xref Layer State Setup for RCPs (Hiding Doors & Furniture)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Attach the architectural floor plan as an `XREF Overlay`. In your RCP layout viewport, freeze floor-level layers (`A-FURN`, `A-DOOR-PANEL`, `A-FLOR-PATT`, `A-SANITARY`) while turning on `A-DOOR-HEADER` (so wall headers show continuous above door openings) and setting `A-WALL` to `VP Color = 252` halftone.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Centering 600x600mm Acoustic Ceiling Grids via HATCHSETORIGIN</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Never leave a `600x600 mm` ceiling hatch (`NET` user-defined double hatch at `600 mm` spacing) anchored at WCS `0,0,0`—doing so often leaves ugly `45 mm` sliver tiles along perimeter walls! Instead, snap the **Hatch Origin (`HATCHSETORIGIN`)** to the exact room center (or shifted by `300 mm`) so perimeter border tiles on opposite walls are symmetrical and $\ge 300\text{ mm}$ wide.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Multi-Discipline Grid Snapping & Ceiling Access Door (`600x600`) Placement</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Insert `600x600 mm` LED panels, `600x600 mm` 4-way supply diffusers, and centered sprinkler blocks directly into the aligned ceiling grid cells. Wherever a VAV box, fan-coil unit (`FCU`), fire damper, or isolation valve sits above a non-removable gypsum board ceiling, place a mandatory `600x600 mm` hinged **Ceiling Access Hatch (`A-CLNG-ACCS`)** directly below its service side.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>HATCH (User-Defined Double)</code></td>
+          <td style="padding:11px 14px;">600x600mm Acoustic Grid</td>
+          <td style="padding:11px 14px; line-height:1.6;">Creates orthogonal T-bar grid lines at exact 600mm (or 24 inch) spacing.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>HATCHSETORIGIN</code></td>
+          <td style="padding:11px 14px;">Symmetric Perimeter Tiles</td>
+          <td style="padding:11px 14px; line-height:1.6;">Centers hatch origin at room midpoint (or +300mm) so edge tiles are >= 300mm wide.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>A-DOOR-HEADER vs. A-DOOR</code></td>
+          <td style="padding:11px 14px;">RCP Door Header Layer</td>
+          <td style="padding:11px 14px; line-height:1.6;">Hides door swings while showing continuous wall soffits above door frames.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>A-CLNG-ACCS (600x600)</code></td>
+          <td style="padding:11px 14px;">Maintenance Access Hatch</td>
+          <td style="padding:11px 14px; line-height:1.6;">Marks mandatory ceiling access panels below concealed FCU/VAV/Fire Damper equipment.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (Symmetric Ceiling Tile Border Calculator & Hatch Origin Centerer LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:CENTERCEILING ( / ent obj minPt maxPt cx cy)
+  (vl-load-com)
+  (if (and (setq ent (car (entsel "\nSelect 600x600 ceiling grid HATCH to center symmetrically in room: ")))
+           (= (cdr (assoc 0 (entget ent))) "HATCH"))
+    (progn
+      (setq obj (vlax-ename->vla-object ent))
+      (vla-GetBoundingBox obj 'minPt 'maxPt)
+      (setq minPt (vlax-safearray->list minPt)
+            maxPt (vlax-safearray->list maxPt)
+            cx    (* 0.5 (+ (car minPt) (car maxPt)))
+            cy    (* 0.5 (+ (cadr minPt) (cadr maxPt))))
+      (vla-put-Origin obj (vlax-3d-point cx cy 0.0))
+      (vla-Evaluate obj)
+      (princ (strcat "\n[Course 35 RCP] Centered ceiling grid hatch origin at room midpoint ("
+                     (rtos cx 2 1) ", " (rtos cy 2 1) ")."))
+    )
+  )
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Verify that perimeter acoustic ceiling border tiles on opposite walls are equal in width and **never narrower than half a tile (`>= 300 mm`)**—if a border tile is `<300 mm`, shift the hatch origin by `300 mm` along that axis!</li><li style='margin-bottom:8px;'>Confirm every concealed Fan Coil Unit (FCU), VAV box, motorized fire/smoke damper, and balancing valve above a fixed gypsum ceiling has a dedicated `600x600 mm` access panel on the RCP.</li><li style='margin-bottom:8px;'>Maintain at least `1,200 mm` separation between cold supply air diffusers and wall-mounted thermostats or smoke detectors to prevent false readings and draft stratification.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

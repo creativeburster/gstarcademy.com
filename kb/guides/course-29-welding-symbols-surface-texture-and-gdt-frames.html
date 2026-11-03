@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 29: Welding Symbols (AMWELDSYM), Surface Texture (AMSURFSYM) & GD&T Feature Control Frames | GstarCAD Academy</title>
+<meta content="Author standards-compliant ISO 2553 / AWS A2.4 welding symbols, ISO 21920 surface roughness annotations, and ASME Y14.5-2018 GD&T frames in GstarCAD Mechanical 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-29-welding-symbols-surface-texture-and-gdt-frames" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 29: Welding Symbols (AMWELDSYM), Surface Texture (AMSURFSYM) & GD&T Feature Control Frames" property="og:title"/>
+<meta content="Author standards-compliant ISO 2553 / AWS A2.4 welding symbols, ISO 21920 surface roughness annotations, and ASME Y14.5-2018 GD&T frames in GstarCAD Mechanical 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-29-welding-symbols-surface-texture-and-gdt-frames" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 29: Welding Symbols (AMWELDSYM), Surface Texture (AMSURFSYM) & GD&T Feature Control Frames", "description": "Author standards-compliant ISO 2553 / AWS A2.4 welding symbols, ISO 21920 surface roughness annotations, and ASME Y14.5-2018 GD&T frames in GstarCAD Mechanical 2027.", "url": "https://gstarcademy.com/kb/guides/course-29-welding-symbols-surface-texture-and-gdt-frames", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 29: Welding Symbols (AMWELDSYM), Surface Texture (AMSURFSYM) & GD&T Feature Control Frames", "item": "https://gstarcademy.com/kb/guides/course-29-welding-symbols-surface-texture-and-gdt-frames"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 29: Welding Symbols (AMWELDSYM), Surface Texture (AMSURFSYM) & GD&T Feature Control Frames</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 29 · Symbols & Annotations</span>
+<h1 style="margin-top:12px;">Course 29: Welding Symbols (AMWELDSYM), Surface Texture (AMSURFSYM) & GD&T Feature Control Frames</h1>
+<p class="hero-sub">Author standards-compliant ISO 2553 / AWS A2.4 welding symbols, ISO 21920 surface roughness annotations, and ASME Y14.5-2018 GD&T frames in GstarCAD Mechanical 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Fabrication and machining drawings stand or fall on the clarity of their **Geometrical Product Specifications (GPS)**. A single misplaced dashed line on a weld symbol or a missing datum modifier on a Feature Control Frame can cause an entire batch of welded frames or CNC housings to be scrapped. <strong><a href='/kb/software/gstarcad'>GstarCAD Mechanical 2027</a></strong> provides intelligent, object-attached symbol builders (`AMWELDSYM`, `AMSURFSYM`, `AMFCFRAME`, `AMDATUMID`) that validate syntax automatically against **ISO, DIN, ASME/ANSI, JIS, and GB** rules.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Associative Welding Symbols (`AMWELDSYM`) — ISO 2553 vs. AWS A2.4</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run <code>AMWELDSYM</code> and click the joint edge. In the dialog, specify throat thickness (`a5`) or leg length (`z7`), elementary symbol (`Fillet`, `Single-V Butt`, `Plug/Slot`, `Spot`), intermittent weld pitch (`4 x 50 (100)`), and supplementary contour (`Flush`, `Convex`, `Concave`, `Weld-All-Around`, `Field Weld Flag`) plus EN ISO 4063 process code (`135` MAG, `141` TIG).</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Surface Texture & Machining Allowance Symbols (`AMSURFSYM` — ISO 21920 / ISO 1302)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run <code>AMSURFSYM</code> and attach the symbol directly to the contour or dimension extension line (it rotates automatically to stay perpendicular to the surface!). Configure `Material Removal Required` (machined bar), `Material Removal Prohibited` (cast/forged circle), upper/lower limits (`Ra 1.6`, `Rz 6.3`), manufacturing method (`Milled`, `Ground`), and lay direction (`=`, `X`, `C`, `M`).</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Datum Identifiers (`AMDATUMID`) & GD&T Feature Control Frames (`AMFCFRAME`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Place primary, secondary, and tertiary datum triangles (`|A|`, `|B|`, `|C|`) via <code>AMDATUMID</code>, then attach associative Feature Control Frames (`AMFCFRAME`). GstarCAD Mechanical enforces valid ASME Y14.5-2018 / ISO 1101 syntax—preventing illegal combinations such as applying a Datum Reference to a pure Form tolerance (`Flatness` or `Cylindricity`).</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>AMWELDSYM</code></td>
+          <td style="padding:11px 14px;">ISO 2553 / AWS A2.4</td>
+          <td style="padding:11px 14px; line-height:1.6;">Generates fillet/butt weld symbols with throat/leg sizes, pitch, and process numbers.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>AMSURFSYM</code></td>
+          <td style="padding:11px 14px;">ISO 21920 / ISO 1302</td>
+          <td style="padding:11px 14px; line-height:1.6;">Attaches surface roughness symbols that auto-sync with the top-right collective header.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>AMFCFRAME</code></td>
+          <td style="padding:11px 14px;">ASME Y14.5 / ISO 1101</td>
+          <td style="padding:11px 14px; line-height:1.6;">Constructs syntax-validated GD&T frames with MMC/LMC/Projected zone modifiers.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>AMEDGE</code></td>
+          <td style="padding:11px 14px;">ISO 13715 Edge State</td>
+          <td style="padding:11px 14px; line-height:1.6;">Specifies burr-free / undercut edge break tolerances (e.g., -0.2 to -0.5 mm).</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (GPS Symbol Layer & Standard Verification LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:GPSCHECK ()
+  (princ (strcat "\nActive Measurement System (MEASUREMENT): "
+                 (if (= (getvar "MEASUREMENT") 1) "Metric ISO/DIN (1)" "Imperial ANSI/ASME (0)")))
+  (princ "\nCore GstarCAD Mechanical GPS Commands:")
+  (princ "\n  AMWELDSYM  : ISO 2553 / AWS A2.4 Associative Welding Symbol")
+  (princ "\n  AMSURFSYM  : ISO 21920 / ISO 1302 Surface Roughness Symbol + Collective Header")
+  (princ "\n  AMFCFRAME  : ASME Y14.5 / ISO 1101 GD&T Feature Control Frame")
+  (princ "\n  AMDATUMID  : Datum Feature Triangle Symbol")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Enable the **Collective Surface Texture Header** option in `AMSURFSYM` so the top-right corner of the sheet automatically lists the default roughness (`Ra 3.2`) alongside parenthetical summary icons of all specific roughness callouts used on the drawing!</li><li style='margin-bottom:8px;'>Double-check whether your title block specifies **ISO 2553** (dual solid/dashed reference line) or **AWS A2.4** (single solid reference line) before releasing shop weldments.</li><li style='margin-bottom:8px;'>Attach `AMSURFSYM` and `AMFCFRAME` directly to `AMPOWERDIM` extension lines so moving the dimension moves the symbols associatively.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

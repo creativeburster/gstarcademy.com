@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>DXF Group Codes Reference Manual for AutoLISP (entget/entmake) & Python (ezdxf) | GstarCAD Academy</title>
+<meta content="Complete developer lookup guide for DXF entity group codes (0, 2, 8, 10, 40, 62, 70, 100, 1000) used in AutoLISP entget/entmod and Python ezdxf automation." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/dxf-group-codes-reference-for-autolisp-and-python-developers" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="DXF Group Codes Reference Manual for AutoLISP (entget/entmake) & Python (ezdxf)" property="og:title"/>
+<meta content="Complete developer lookup guide for DXF entity group codes (0, 2, 8, 10, 40, 62, 70, 100, 1000) used in AutoLISP entget/entmod and Python ezdxf automation." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/dxf-group-codes-reference-for-autolisp-and-python-developers" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "DXF Group Codes Reference Manual for AutoLISP (entget/entmake) & Python (ezdxf)", "description": "Complete developer lookup guide for DXF entity group codes (0, 2, 8, 10, 40, 62, 70, 100, 1000) used in AutoLISP entget/entmod and Python ezdxf automation.", "url": "https://gstarcademy.com/kb/guides/dxf-group-codes-reference-for-autolisp-and-python-developers", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "DXF Group Codes Reference Manual for AutoLISP (entget/entmake) & Python (ezdxf)", "item": "https://gstarcademy.com/kb/guides/dxf-group-codes-reference-for-autolisp-and-python-developers"}]}</script>
+</head>
+<body data-page="developers">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link active" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">DXF Group Codes Reference Manual for AutoLISP (entget/entmake) & Python (ezdxf)</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">CAD DEVELOPER REFERENCE</span>
+<h1 style="margin-top:12px;">DXF Group Codes Reference Manual for AutoLISP (entget/entmake) & Python (ezdxf)</h1>
+<p class="hero-sub">Complete developer lookup guide for DXF entity group codes (0, 2, 8, 10, 40, 62, 70, 100, 1000) used in AutoLISP entget/entmod and Python ezdxf automation.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Every entity inside a <a href='/kb/software/gstarcad'>GstarCAD</a> or AutoCAD database is stored as a tagged association list of <strong>DXF Group Codes</strong>. Whether you are manipulating entities via AutoLISP <code>(entget)</code>/<code>(entmod)</code>/<code>(entmake)</code>, C++ GRX <code>resbuf</code> chains, or headless Python <code>ezdxf</code> scripts, mastering these integer group codes gives you direct surgical control over DWG geometry.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. Universal Entity Header Group Codes (-1, 0, 5, 8, 6, 62, 370, 420)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Every graphical object shares a common set of property codes: <code>-1</code> (Entity Name pointer), <code>0</code> (Entity Type string such as <code>"LINE"</code>, <code>"LWPOLYLINE"</code>, <code>"INSERT"</code>), <code>5</code> (Hexadecimal persistent Handle), <code>8</code> (Layer name), <code>62</code> (ACI Color index 1–255; <code>256 = ByLayer</code>; <code>0 = ByBlock</code>), and <code>370</code> (Lineweight in 1/100th mm).</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. Geometric Coordinate & Scalar Codes (10–18, 40–48, 50–58, 70–78)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Group <code>10</code> is always the Primary Point (start point, center, or insertion point), <code>11</code> is the Secondary Point (line endpoint or text alignment point), <code>40</code> is Radius or Text Height, <code>41/42/43</code> are X/Y/Z block scale factors (or LWPOLYLINE bulge at <code>42</code>), <code>50</code> is Rotation angle in radians, and <code>70</code> is bit-coded integer flags (e.g., <code>1 = Closed polyline</code>).</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Extended Entity Data (XData 1000–1071) & AcDb Subclass Markers (100)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Modern AC1032 entities require <code>(100 . "AcDbEntity")</code> and <code>(100 . "AcDbPolyline")</code> subclass markers during <code>(entmake)</code>. Custom ERP/GIS payloads attach under group <code>-3</code> using codes <code>1001</code> (Registered App Name), <code>1000</code> (ASCII string), <code>1040</code> (Real), and <code>1070</code> (16-bit integer).</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>0 / 5 / 100</code></td>
+          <td style="padding:11px 14px;">String / Hex / Subclass</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Entity Type (LINE, INSERT), Handle, AcDb Marker</strong> — (assoc 0 elist)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>8 / 6 / 62 / 370</code></td>
+          <td style="padding:11px 14px;">Layer / Linetype / Color / LW</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Layer Name, Linetype, ACI Color (256=ByLayer), Lineweight</strong> — (assoc 8 elist)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>10 / 11 / 210</code></td>
+          <td style="padding:11px 14px;">3D Point (X Y Z)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Start/Center/Insert Point, Endpoint, Extrusion Normal</strong> — (cdr (assoc 10 elist))</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>40 / 41 / 42 / 50</code></td>
+          <td style="padding:11px 14px;">Double-Precision Real</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Radius/Height, X-Scale, Y-Scale/Bulge, Angle (Radians)</strong> — (cdr (assoc 40 elist))</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>1 / 2 / 7 / 70</code></td>
+          <td style="padding:11px 14px;">String / Integer Flag</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Text String (1), Block/Tag Name (2), Style (7), Bit Flags (70)</strong> — (cdr (assoc 1 elist))</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP Direct (entmake) High-Speed Closed LWPOLYLINE Generator)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>; Create a closed rectangular LWPOLYLINE via pure DXF group codes (100x faster than COMMAND)
+(defun c:FAST-RECT-DXF ( / p1 p2)
+  (setq p1 '(0.0 0.0) p2 '(200.0 100.0))
+  (entmake
+    (list '(0 . "LWPOLYLINE") '(100 . "AcDbEntity") '(8 . "0") '(62 . 256)
+          '(100 . "AcDbPolyline") '(90 . 4) '(70 . 1) ; 4 vertices, bit 1 = Closed
+          (cons 10 p1) (cons 10 (list (car p2) (cadr p1)))
+          (cons 10 p2) (cons 10 (list (car p1) (cadr p2)))))
+  (princ "\n[DXF Engine] Closed LWPOLYLINE entmade in <1 ms.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Always supply group 100 subclass markers when calling (entmake) on LWPOLYLINE, MTEXT, or HATCH.</li><li style='margin-bottom:8px;'>Remember that DXF Group 50 stores angles in Radians in AutoLISP (entget), whereas DXF ASCII files store degrees.</li><li style='margin-bottom:8px;'>Use (subst newpair oldpair elist) followed by (entmod elist) for zero-overhead property updates.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Fix 3D Boolean UNION, SUBTRACT & INTERSECT 'Modeling Operation Error' in CAD | GstarCAD Academy</title>
+<meta content="Resolve ACIS 3D solid Boolean failures, non-manifold edges, and self-intersecting sweep/loft errors in GstarCAD using SOLIDEDIT Check, Clean, and Separate." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-fix-3d-boolean-union-subtract-modeling-operation-failed" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Fix 3D Boolean UNION, SUBTRACT & INTERSECT 'Modeling Operation Error' in CAD" property="og:title"/>
+<meta content="Resolve ACIS 3D solid Boolean failures, non-manifold edges, and self-intersecting sweep/loft errors in GstarCAD using SOLIDEDIT Check, Clean, and Separate." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-fix-3d-boolean-union-subtract-modeling-operation-failed" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix 3D Boolean UNION, SUBTRACT & INTERSECT 'Modeling Operation Error' in CAD", "acceptedAnswer": {"@type": "Answer", "text": "When UNION or SUBTRACT fails with a Modeling Operation Error, run SOLIDEDIT -> Body -> Check and SOLIDEDIT -> Body -> Clean on both solids to strip redundant coplanar edges, avoid zero-thickness knife edges (overlap cutters by 0.1 mm), and move geometry near 0,0,0 before performing Boolean operations."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix 3D Boolean UNION, SUBTRACT & INTERSECT 'Modeling Operation Error' in CAD", "description": "Resolve ACIS 3D solid Boolean failures, non-manifold edges, and self-intersecting sweep/loft errors in GstarCAD using SOLIDEDIT Check, Clean, and Separate.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Fix 3D Boolean UNION, SUBTRACT & INTERSECT 'Modeling Operation Error' in CAD</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">3D SOLID MODELING FIXES</span>
+<h1 style="margin-top:12px;">How to Fix 3D Boolean UNION, SUBTRACT & INTERSECT 'Modeling Operation Error' in CAD</h1>
+<p class="hero-sub">Resolve ACIS 3D solid Boolean failures, non-manifold edges, and self-intersecting sweep/loft errors in GstarCAD using SOLIDEDIT Check, Clean, and Separate.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">When UNION or SUBTRACT fails with a Modeling Operation Error, run SOLIDEDIT -> Body -> Check and SOLIDEDIT -> Body -> Clean on both solids to strip redundant coplanar edges, avoid zero-thickness knife edges (overlap cutters by 0.1 mm), and move geometry near 0,0,0 before performing Boolean operations.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>During 3D mechanical or structural modeling in <a href='/kb/software/gstarcad'>GstarCAD</a>, Boolean operations (<code>UNION</code>, <code>SUBTRACT</code>, <code>INTERSECT</code>) occasionally abort with an ACIS kernel alert: <em>"Modeling Operation Error: Non-manifold edge detected"</em> or <em>"Inconsistent face-body relationships"</em>.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Avoid Zero-Thickness 'Knife-Edge' Tangency & Coplanar Cutter Faces</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">The #1 cause of Boolean `SUBTRACT` failure is making the cutting solid end <em>exactly</em> flush with the face of the target body, or making a hole tangent to a cylinder wall (creating a zero-thickness non-manifold edge). Always extend subtracting tool bodies <strong>0.5 mm to 1.0 mm past the target surface</strong> so the intersection loop is clean.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Run SOLIDEDIT -> Body -> Check & Clean</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Type <code>SOLIDEDIT &rarr; Body &rarr; Check</code> and select the problematic 3D solid to verify ACIS topological validity. Then run <code>SOLIDEDIT &rarr; Body &rarr; Clean</code> to delete redundant imprinted edges and vertices left behind by previous edits.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Perform 3D Booleans Near Origin (0,0,0) — Not at Civil Coordinates</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">If your 3D bridge pier sits at UTM coordinates $X = 650,000,000\text{ mm}$, double-precision floating-point rounding leaves only 6–7 digits of mantissa for ACIS surface intersection math. Move or construct the 3D solid near <code>0,0,0</code> and Xref it into the civil site plan!</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>SOLIDEDIT -> Body -> Clean</code></td>
+          <td style="padding:10px 14px;">ACIS Repair</td>
+          <td style="padding:10px 14px; line-height:1.6;">Removes redundant edges, imprints, and sliver vertices</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>SOLIDEDIT -> Body -> Separate</code></td>
+          <td style="padding:10px 14px;">Disjoint Solids</td>
+          <td style="padding:10px 14px; line-height:1.6;">Splits a single compound 3DSOLID lump into independent bodies</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>INTERFERE</code></td>
+          <td style="padding:10px 14px;">Clash Check</td>
+          <td style="padding:10px 14px; line-height:1.6;">Highlights overlapping volume regions between two 3D solid sets</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>CONVTOSOLID</code></td>
+          <td style="padding:10px 14px;">Mesh/Polyline to Solid</td>
+          <td style="padding:10px 14px; line-height:1.6;">Converts closed watertight meshes or thickened polylines to 3DSOLID</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP 3D Solid ACIS Topology Cleaner & Interference Checker)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:CLEAN-3DSOLIDS ( / ss i ent)
+  (if (setq ss (ssget '((0 . "3DSOLID"))))
+    (progn
+      (setq i 0)
+      (while (< i (sslength ss))
+        (setq ent (ssname ss i) i (1+ i))
+        (command "_.SOLIDEDIT" "_B" "_L" ent "" "_X")))) ; Body -> Clean
+  (princ "\n[ACIS 3D Doctor] Cleaned redundant edges and vertices on selected 3DSOLIDs.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

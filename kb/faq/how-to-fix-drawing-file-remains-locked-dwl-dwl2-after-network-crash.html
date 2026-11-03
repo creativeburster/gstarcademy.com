@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Fix 'Drawing File Is Currently in Use / Locked' (.DWL & .DWL2) After a Crash | GstarCAD Academy</title>
+<meta content="Safely unlock network DWG files stuck in Read-Only mode after a workstation crash or VPN drop by inspecting and removing orphaned .dwl, .dwl2, and SMB file handles." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-fix-drawing-file-remains-locked-dwl-dwl2-after-network-crash" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Fix 'Drawing File Is Currently in Use / Locked' (.DWL & .DWL2) After a Crash" property="og:title"/>
+<meta content="Safely unlock network DWG files stuck in Read-Only mode after a workstation crash or VPN drop by inspecting and removing orphaned .dwl, .dwl2, and SMB file handles." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-fix-drawing-file-remains-locked-dwl-dwl2-after-network-crash" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix 'Drawing File Is Currently in Use / Locked' (.DWL & .DWL2) After a Crash", "acceptedAnswer": {"@type": "Answer", "text": "Verify via WHOHAS that no colleague actually has the drawing open, close GstarCAD on the crashed workstation, navigate to the project folder in Windows Explorer (with 'Hidden items' enabled), and delete the orphaned 1-KB .dwl and .dwl2 lock files sharing the drawing's name."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix 'Drawing File Is Currently in Use / Locked' (.DWL & .DWL2) After a Crash", "description": "Safely unlock network DWG files stuck in Read-Only mode after a workstation crash or VPN drop by inspecting and removing orphaned .dwl, .dwl2, and SMB file handles.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Fix 'Drawing File Is Currently in Use / Locked' (.DWL & .DWL2) After a Crash</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">NETWORK & FILE RECOVERY</span>
+<h1 style="margin-top:12px;">How to Fix 'Drawing File Is Currently in Use / Locked' (.DWL & .DWL2) After a Crash</h1>
+<p class="hero-sub">Safely unlock network DWG files stuck in Read-Only mode after a workstation crash or VPN drop by inspecting and removing orphaned .dwl, .dwl2, and SMB file handles.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">Verify via WHOHAS that no colleague actually has the drawing open, close GstarCAD on the crashed workstation, navigate to the project folder in Windows Explorer (with 'Hidden items' enabled), and delete the orphaned 1-KB .dwl and .dwl2 lock files sharing the drawing's name.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>When a workstation opens <code>Plan-A101.dwg</code> on a shared SMB network drive or NAS, <a href='/kb/software/gstarcad'>GstarCAD</a> and AutoCAD automatically create two tiny hidden lock files in the same directory: <strong><code>Plan-A101.dwl</code></strong> (plain text) and <strong><code>Plan-A101.dwl2</code></strong> (XML) containing the username, computer hostname, and timestamp. If that PC loses power or drops VPN, those lock files remain behind and force the drawing into Read-Only mode.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Inspect Who Holds the Lock (.DWL / WHOHAS)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Enable <strong>View &rarr; Show &rarr; Hidden items</strong> in Windows File Explorer and open <code>DrawingName.dwl</code> in Notepad (or run <code>WHOHAS</code> in CAD). It displays the exact Windows username, workstation ID, and time the file was opened.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Delete Orphaned .DWL and .DWL2 Files After Confirming Crash</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Once you confirm with the colleague that their CAD session closed, select both <code>DrawingName.dwl</code> and <code>DrawingName.dwl2</code> in Windows Explorer and press <code>Delete</code>.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Clear Stuck Windows Server SMB File Handles (fsmgmt.msc)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">If the `.dwl` files are gone but Windows Server still says <em>"The action can't be completed because the file is open in another program"</em>, a dead SMB network socket is hanging on the server. Have your IT admin open <strong>Shared Folders (`fsmgmt.msc` &rarr; Open Files)</strong> on the file server, right-click the stuck `.dwg` handle, and click <strong>Close Open File</strong>.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>.dwl / .dwl2 Files</code></td>
+          <td style="padding:10px 14px;">Hidden Lock Sidecars</td>
+          <td style="padding:10px 14px; line-height:1.6;">Created on DWG open; deleted automatically on normal close</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>WHOHAS</code></td>
+          <td style="padding:10px 14px;">Ownership Query</td>
+          <td style="padding:10px 14px; line-height:1.6;">Displays username and PC name currently editing the DWG</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>fsmgmt.msc -> Open Files</code></td>
+          <td style="padding:10px 14px;">Windows Server Admin</td>
+          <td style="padding:10px 14px; line-height:1.6;">Releases ghost SMB network locks after a client VPN drop</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>.bak / .sv$ Files</code></td>
+          <td style="padding:10px 14px;">Crash Recovery Backups</td>
+          <td style="padding:10px 14px; line-height:1.6;">Rename .bak or DRAWRECOVERY .sv$ to .dwg if the crash corrupted the save</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP Active Drawing Lock (.DWL) WhoHas Inspector)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:CHECK-DWL-OWNER ( / dwlPath fp line)
+  (setq dwlPath (strcat (getvar "DWGPREFIX") (vl-filename-base (getvar "DWGNAME")) ".dwl"))
+  (if (findfile dwlPath)
+    (progn
+      (setq fp (open dwlPath "r"))
+      (princ "\n=== Active .DWL Lock File Info ===")
+      (while (setq line (read-line fp)) (princ (strcat "\n  " line)))
+      (close fp))
+    (princ "\n[Lock Info] No .dwl file found in current directory."))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

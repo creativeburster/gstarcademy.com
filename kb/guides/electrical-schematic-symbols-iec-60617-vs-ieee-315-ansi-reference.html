@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Electrical Schematic Symbols: IEC 60617 vs. IEEE 315 / ANSI Y32.2 Reference | GstarCAD Academy</title>
+<meta content="Comprehensive electrical CAD comparison between European/International IEC 60617 + IEC 81346 reference designations (-Q, -K, -F, -M) and North American NEMA/IEEE 315 ladder diagrams." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/electrical-schematic-symbols-iec-60617-vs-ieee-315-ansi-reference" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Electrical Schematic Symbols: IEC 60617 vs. IEEE 315 / ANSI Y32.2 Reference" property="og:title"/>
+<meta content="Comprehensive electrical CAD comparison between European/International IEC 60617 + IEC 81346 reference designations (-Q, -K, -F, -M) and North American NEMA/IEEE 315 ladder diagrams." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/electrical-schematic-symbols-iec-60617-vs-ieee-315-ansi-reference" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Electrical Schematic Symbols: IEC 60617 vs. IEEE 315 / ANSI Y32.2 Reference", "description": "Comprehensive electrical CAD comparison between European/International IEC 60617 + IEC 81346 reference designations (-Q, -K, -F, -M) and North American NEMA/IEEE 315 ladder diagrams.", "url": "https://gstarcademy.com/kb/guides/electrical-schematic-symbols-iec-60617-vs-ieee-315-ansi-reference", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "Electrical Schematic Symbols: IEC 60617 vs. IEEE 315 / ANSI Y32.2 Reference", "item": "https://gstarcademy.com/kb/guides/electrical-schematic-symbols-iec-60617-vs-ieee-315-ansi-reference"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Electrical Schematic Symbols: IEC 60617 vs. IEEE 315 / ANSI Y32.2 Reference</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">ELECTRICAL CAD</span>
+<h1 style="margin-top:12px;">Electrical Schematic Symbols: IEC 60617 vs. IEEE 315 / ANSI Y32.2 Reference</h1>
+<p class="hero-sub">Comprehensive electrical CAD comparison between European/International IEC 60617 + IEC 81346 reference designations (-Q, -K, -F, -M) and North American NEMA/IEEE 315 ladder diagrams.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Control panel builders and electrical engineers exporting machinery globally must maintain dual schematic libraries in <a href='/kb/software/gstarcad'>GstarCAD</a>: <strong>IEC 60617 / IEC 81346</strong> (vertical power flow, rectangular resistor boxes, <code>-Q/-K/-F</code> tags) and <strong>IEEE 315 / NFPA 79</strong> (horizontal ladder rungs, zig-zag resistors, <code>CB/CR/FU/M</code> tags).</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. Schematic Orientation: Vertical IEC Columns vs. Horizontal NFPA 79 Ladders</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>IEC 60617 schematics draw 3-phase power rails horizontally across the top and route control/power branches <strong>vertically downward</strong> through numbered columns. North American NFPA 79 / JIC schematics draw L1/L2 vertical rails on the left and right with <strong>horizontal ladder rungs</strong> numbered sequentially down the page.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. IEC 81346 Single-Letter Component Reference Designations</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>IEC 81346 standardized single-letter class prefixes across all schematics and BOMs: <code>-Q</code> (Switching devices: circuit breakers, contactors, motor starters), <code>-K</code> (Relays, PLC coils, timers), <code>-F</code> (Protective fuses, surge arresters), <code>-S</code> (Pushbuttons, selector/limit switches), <code>-M</code> (Motors), and <code>-X</code> (Terminal blocks).</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Contact Cross-Referencing & Wire Numbering in GstarCAD</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Every relay coil (e.g., <code>-K1</code> on Sheet 04, Column 3) must display a cross-reference table beneath it listing the exact sheet.column coordinates of its Normally Open (<code>NO: 13-14</code>) and Normally Closed (<code>NC: 21-22</code>) contacts.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Circuit Breaker / Contactor</code></td>
+          <td style="padding:11px 14px;">IEC: -Q1, -Q2</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>ANSI/NFPA: CB1, M1, CON1</strong> — IEC 81346 merges breakers & power contactors into Q</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Control Relay / Timer Coil</code></td>
+          <td style="padding:11px 14px;">IEC: -K1, -K2</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>ANSI/NFPA: CR1, TR1</strong> — Coil terminals A1/A2; NO contacts 13-14</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Fuse / Overload Protection</code></td>
+          <td style="padding:11px 14px;">IEC: -F1, -F2</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>ANSI/NFPA: FU1, OL1</strong> — Rectangular box with through-line (IEC) vs S-curve (ANSI)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Pushbutton / Limit Switch</code></td>
+          <td style="padding:11px 14px;">IEC: -S1, -S2</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>ANSI/NFPA: PB1, LS1</strong> — NC contacts numbered 1-2; NO contacts 3-4</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Resistor / Inductor</code></td>
+          <td style="padding:11px 14px;">Rectangular Box / Solid Semicircle</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Zig-Zag Line / Looped Coils</strong> — Classic visual distinction on schematics</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP Sequential Electrical Wire Number Stamping Tool)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:STAMP-WIRES ( / prefix num pt)
+  (setq prefix (getstring "\nEnter Sheet/Page Prefix (e.g. 04): ")
+        num    (getint "\nEnter Starting Wire Number (e.g. 1): "))
+  (while (setq pt (getpoint "\nPick Wire Label Point (Enter to stop): "))
+    (command "_.TEXT" "_J" "_BC" pt 2.5 0.0 (strcat prefix (if (< num 10) "0" "") (itoa num)))
+    (setq num (1+ num)))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Never mix IEC 60617 and IEEE 315 symbols on the same electrical schematic sheet.</li><li style='margin-bottom:8px;'>Follow IEC 60947 terminal numbering: 1-2 / 3-4 / 5-6 for main power poles, X1-X2 for indicator lamps, and A1-A2 for relay coils.</li><li style='margin-bottom:8px;'>Use GstarCAD Block Attributes for component tags (-Q1, -K1) so terminal strip and BOM schedules extract cleanly.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

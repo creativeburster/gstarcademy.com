@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Fix Annotative Text, Dimensions & Blocks Disappearing in Layout Viewports | GstarCAD Academy</title>
+<meta content="Diagnose and fix annotative dimensions, MTEXT, and blocks vanishing when switching Paper Space viewport scales using ANNOALLVISIBLE, OBJECTSCALE, and ANNOAUTOSCALE." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-fix-annotative-text-and-blocks-disappearing-in-layout-viewports" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Fix Annotative Text, Dimensions & Blocks Disappearing in Layout Viewports" property="og:title"/>
+<meta content="Diagnose and fix annotative dimensions, MTEXT, and blocks vanishing when switching Paper Space viewport scales using ANNOALLVISIBLE, OBJECTSCALE, and ANNOAUTOSCALE." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-fix-annotative-text-and-blocks-disappearing-in-layout-viewports" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix Annotative Text, Dimensions & Blocks Disappearing in Layout Viewports", "acceptedAnswer": {"@type": "Answer", "text": "Switch to the affected Layout viewport, type ANNOALLVISIBLE and set it to 1 to temporarily reveal all annotative objects, or select the missing objects in Model Space and run OBJECTSCALE to add the viewport's exact scale (e.g., 1:50 or 1:100) to their Annotative Scale List."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix Annotative Text, Dimensions & Blocks Disappearing in Layout Viewports", "description": "Diagnose and fix annotative dimensions, MTEXT, and blocks vanishing when switching Paper Space viewport scales using ANNOALLVISIBLE, OBJECTSCALE, and ANNOAUTOSCALE.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Dr. Lin Wei, Ph.D., PE", "jobTitle": "Principal BIM & Interoperability Architect", "url": "https://gstarcademy.com/authors#bim-architecture"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Fix Annotative Text, Dimensions & Blocks Disappearing in Layout Viewports</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">ANNOTATION SCALING FIXES</span>
+<h1 style="margin-top:12px;">How to Fix Annotative Text, Dimensions & Blocks Disappearing in Layout Viewports</h1>
+<p class="hero-sub">Diagnose and fix annotative dimensions, MTEXT, and blocks vanishing when switching Paper Space viewport scales using ANNOALLVISIBLE, OBJECTSCALE, and ANNOAUTOSCALE.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#bim-architecture">Dr. Lin Wei, Ph.D., PE</a> (Principal BIM & Interoperability Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">Switch to the affected Layout viewport, type ANNOALLVISIBLE and set it to 1 to temporarily reveal all annotative objects, or select the missing objects in Model Space and run OBJECTSCALE to add the viewport's exact scale (e.g., 1:50 or 1:100) to their Annotative Scale List.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>You set up a new Paper Space viewport at <code>1:100</code> scale in <a href='/kb/software/gstarcad'>GstarCAD</a>, and suddenly all your room tags, dimensions, and door blocks vanish—even though their layers are turned On and Thawed! This happens because <strong>Annotative Objects</strong> only display in viewports whose <code>CANNOSCALE</code> matches one of the scales attached to that object.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Toggle ANNOALLVISIBLE = 1 to Diagnose Missing Scales</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Double-click inside the Paper Space viewport, type <code>ANNOALLVISIBLE</code>, and set it to <code>1</code> (the lightbulb/scale icon on the status bar). Note: <code>ANNOALLVISIBLE</code> is saved separately for Model Space and each Layout tab. If your text immediately reappears, the layer is fine—the object simply lacks the viewport's annotation scale!</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Add the Missing Viewport Scale via OBJECTSCALE (or ANNOAUTOSCALE)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Set <code>ANNOALLVISIBLE = 0</code> (so wrong-sized text doesn't plot), select the annotative objects, type <code>OBJECTSCALE</code>, click <strong>Add</strong>, and choose the viewport's scale (e.g., <code>1:100</code>). Alternatively, turn on <code>ANNOAUTOSCALE = 4</code> and switch the viewport scale—GstarCAD automatically appends the new scale to all annotative entities.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Purge Bloated Scale Lists via -SCALELISTEDIT</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">If third-party Xrefs injected 80 garbage scales (`1:50_1`, `1:100_XREF_02`), run <code>-SCALELISTEDIT &rarr; Reset &rarr; Yes</code> to restore a clean ISO/ANSI scale table.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>ANNOALLVISIBLE = 1</code></td>
+          <td style="padding:10px 14px;">Diagnostic Mode</td>
+          <td style="padding:10px 14px; line-height:1.6;">Forces all annotative objects to display regardless of viewport scale</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>ANNOALLVISIBLE = 0</code></td>
+          <td style="padding:10px 14px;">Production Plot Mode</td>
+          <td style="padding:10px 14px; line-height:1.6;">Hides annotative objects that do not support the viewport's scale</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>OBJECTSCALE</code></td>
+          <td style="padding:10px 14px;">Scale List Manager</td>
+          <td style="padding:10px 14px; line-height:1.6;">Adds or deletes supported viewport scales on selected entities</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>-SCALELISTEDIT -> Reset</code></td>
+          <td style="padding:10px 14px;">Bloat Cleanup</td>
+          <td style="padding:10px 14px; line-height:1.6;">Purges corrupted or duplicated Xref annotation scales</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP Synchronize Current Annotation Scale Across Selected Entities)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:SYNC-ANNO-SCALE ( / ss curScale)
+  (setq curScale (getvar "CANNOSCALE"))
+  (if (setq ss (ssget '((0 . "TEXT,MTEXT,DIMENSION,MULTILEADER,INSERT,HATCH"))))
+    (command "_.-OBJECTSCALE" ss "" "_A" curScale ""))
+  (princ (strcat "\n[Annotative Sync] Added scale '" curScale "' to selected objects."))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>ISO 13567 vs. AIA / US National CAD Standard (NCS) Layer Naming Dictionary | GstarCAD Academy</title>
+<meta content="Cross-reference dictionary mapping AIA/NCS discipline-major-minor layer names to ISO 13567 European/International codes for multi-national BIM & CAD projects." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/iso-13567-vs-aia-national-cad-standard-layer-naming-dictionary" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="ISO 13567 vs. AIA / US National CAD Standard (NCS) Layer Naming Dictionary" property="og:title"/>
+<meta content="Cross-reference dictionary mapping AIA/NCS discipline-major-minor layer names to ISO 13567 European/International codes for multi-national BIM & CAD projects." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/iso-13567-vs-aia-national-cad-standard-layer-naming-dictionary" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ISO 13567 vs. AIA / US National CAD Standard (NCS) Layer Naming Dictionary", "description": "Cross-reference dictionary mapping AIA/NCS discipline-major-minor layer names to ISO 13567 European/International codes for multi-national BIM & CAD projects.", "url": "https://gstarcademy.com/kb/guides/iso-13567-vs-aia-national-cad-standard-layer-naming-dictionary", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Dr. Lin Wei, Ph.D., PE", "jobTitle": "Principal BIM & Interoperability Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#bim-architecture"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "ISO 13567 vs. AIA / US National CAD Standard (NCS) Layer Naming Dictionary", "item": "https://gstarcademy.com/kb/guides/iso-13567-vs-aia-national-cad-standard-layer-naming-dictionary"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">ISO 13567 vs. AIA / US National CAD Standard (NCS) Layer Naming Dictionary</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">CAD GOVERNANCE</span>
+<h1 style="margin-top:12px;">ISO 13567 vs. AIA / US National CAD Standard (NCS) Layer Naming Dictionary</h1>
+<p class="hero-sub">Cross-reference dictionary mapping AIA/NCS discipline-major-minor layer names to ISO 13567 European/International codes for multi-national BIM & CAD projects.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#bim-architecture">Dr. Lin Wei, Ph.D., PE</a> (Principal BIM & Interoperability Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Global engineering firms frequently exchange DWG deliverables between North American owners enforcing the <strong>AIA / US National CAD Standard (NCS)</strong> and European/Asian teams operating under <strong>ISO 13567</strong> (or BS 1192 / Uniclass). Understanding both syntax structures allows CAD managers to automate bi-directional layer translation inside <a href='/kb/software/gstarcad'>GstarCAD</a> using <code>LAYTRANS</code>.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. AIA / US National CAD Standard Syntax (Discipline-Major-Minor-Status)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>NCS uses readable 4-character alphanumeric fields separated by hyphens: e.g., <code>A-WALL-FULL-N</code> (Architectural - Wall - Full Height - New), <code>S-COLS-PRIM</code> (Structural Primary Columns), and <code>M-HVAC-CDFF</code> (Mechanical HVAC Ceiling Diffusers).</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. ISO 13567 Syntax (Agent-Element-Presentation-Status)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>ISO 13567 uses fixed-length positional fields coupled with national classification tables (SfB, Uniclass, or OmniClass): e.g., <code>A-210-G-N</code> (Architect - External Walls - Graphic element - New work) or <code>S-280-T-E</code> (Structural - Frame/Columns - Text - Existing).</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Automated Translation via GstarCAD Layer Translator (LAYTRANS)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Save a baseline <code>.dws</code> or <code>.dwt</code> file containing your target AIA or ISO 13567 layer table, open any subcontractor drawing, and run <code>LAYTRANS</code> to map incoming layers, colors, linetypes, and lineweights in batch.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Exterior Full-Height Walls</code></td>
+          <td style="padding:11px 14px;">A-WALL-EXTR / A-WALL-FULL</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>A-210-G-N</strong> — Color 2 (Yellow) / 0.50 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Interior Partition Walls</code></td>
+          <td style="padding:11px 14px;">A-WALL-INTR / A-WALL-PRHT</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>A-220-G-N</strong> — Color 3 (Green) / 0.35 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Doors & Swings</code></td>
+          <td style="padding:11px 14px;">A-DOOR / A-DOOR-iden</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>A-310-G-N</strong> — Color 1 (Red) / 0.25 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Structural Columns & Grids</code></td>
+          <td style="padding:11px 14px;">S-COLS / S-GRID</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>S-280-G-N / S-001-G</strong> — Color 4 (Cyan) / 0.50 mm & 0.18 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Dimensions & Text Notes</code></td>
+          <td style="padding:11px 14px;">A-ANNO-DIMS / A-ANNO-NOTE</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>A-000-D-N / A-000-T-N</strong> — Color 7 (White) / 0.18 mm</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP AIA-to-ISO 13567 Layer Prefix Renamer)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:AIA-TO-ISO-RENAME ( / pairs)
+  (setq pairs '(("A-WALL-EXTER" . "A-210-G-N")
+                ("A-WALL-INTER" . "A-220-G-N")
+                ("A-DOOR-FULL"  . "A-310-G-N")
+                ("S-COLS-PRIM"  . "S-280-G-N")
+                ("A-ANNO-DIMS"  . "A-000-D-N")))
+  (foreach p pairs
+    (if (and (tblsearch "LAYER" (car p)) (not (tblsearch "LAYER" (cdr p))))
+      (command "_.-RENAME" "_LA" (car p) (cdr p))))
+  (princ "\n[Layer Dictionary] Mapped core AIA layers to ISO 13567.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Never allow spaces or special characters (*, ?, |, /) inside CAD layer names.</li><li style='margin-bottom:8px;'>Store approved AIA and ISO 13567 layer schemas as .dws Standards files for automated CHECKSTANDARDS audits.</li><li style='margin-bottom:8px;'>Use Phase/Status suffixes (-N for New, -E for Existing, -D for Demolish) instead of ad-hoc layer names.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

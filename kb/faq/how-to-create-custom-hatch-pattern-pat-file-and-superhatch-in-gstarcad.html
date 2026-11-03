@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Create Custom Hatch Patterns (.PAT) and Use SUPERHATCH in GstarCAD | GstarCAD Academy</title>
+<meta content="Learn how to write vector .pat hatch pattern definitions (angle, origin, delta-x, delta-y, dash-gap) and tile blocks or raster textures using SUPERHATCH in GstarCAD." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-create-custom-hatch-pattern-pat-file-and-superhatch-in-gstarcad" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Create Custom Hatch Patterns (.PAT) and Use SUPERHATCH in GstarCAD" property="og:title"/>
+<meta content="Learn how to write vector .pat hatch pattern definitions (angle, origin, delta-x, delta-y, dash-gap) and tile blocks or raster textures using SUPERHATCH in GstarCAD." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-create-custom-hatch-pattern-pat-file-and-superhatch-in-gstarcad" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Create Custom Hatch Patterns (.PAT) and Use SUPERHATCH in GstarCAD", "acceptedAnswer": {"@type": "Answer", "text": "For simple repeating linear/brick patterns, create an ASCII .pat file named identically to the pattern (*MY_BRICK) inside your GstarCAD Support folder (ending with a mandatory blank carriage-return line). For complex curved tiles, stone masonry, or wood textures, use the Express Tool SUPERHATCH with a Block or Image."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Create Custom Hatch Patterns (.PAT) and Use SUPERHATCH in GstarCAD", "description": "Learn how to write vector .pat hatch pattern definitions (angle, origin, delta-x, delta-y, dash-gap) and tile blocks or raster textures using SUPERHATCH in GstarCAD.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Dr. Lin Wei, Ph.D., PE", "jobTitle": "Principal BIM & Interoperability Architect", "url": "https://gstarcademy.com/authors#bim-architecture"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Create Custom Hatch Patterns (.PAT) and Use SUPERHATCH in GstarCAD</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">CUSTOMIZATION & HATCHING</span>
+<h1 style="margin-top:12px;">How to Create Custom Hatch Patterns (.PAT) and Use SUPERHATCH in GstarCAD</h1>
+<p class="hero-sub">Learn how to write vector .pat hatch pattern definitions (angle, origin, delta-x, delta-y, dash-gap) and tile blocks or raster textures using SUPERHATCH in GstarCAD.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#bim-architecture">Dr. Lin Wei, Ph.D., PE</a> (Principal BIM & Interoperability Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">For simple repeating linear/brick patterns, create an ASCII .pat file named identically to the pattern (*MY_BRICK) inside your GstarCAD Support folder (ending with a mandatory blank carriage-return line). For complex curved tiles, stone masonry, or wood textures, use the Express Tool SUPERHATCH with a Block or Image.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>Architectural elevations, landscaping paving plans, and geological cross-sections often require custom tile ratios, staggered timber cladding, or irregular stone patterns that go beyond standard `ANSI31` or `AR-BRSTD` hatches in <a href='/kb/software/gstarcad'>GstarCAD</a>.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Understand the 5-Parameter .PAT Vector Line Syntax</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Each line in a `.pat` file defines an infinite family of parallel lines: <code>Angle, X-Origin, Y-Origin, Delta-X, Delta-Y, [Dash, -Gap...]</code>. Here, <code>Delta-Y</code> is the perpendicular spacing between parallel lines, while <code>Delta-X</code> shifts the dash pattern along each successive parallel line (used for staggered brick running bonds!).</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: The Golden Rule of Custom .PAT Files</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">When saving a standalone custom pattern file (e.g., <code>EuroTile_600x300.pat</code>), the <strong>filename must exactly match the pattern header name</strong> (<code>*EuroTile_600x300, 600x300mm Porcelain Tile</code>), and you <strong>must leave at least one blank empty line at the bottom of the file</strong> or GstarCAD/AutoCAD will throw a <em>"Missing parameter on line..."</em> error.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Use SUPERHATCH for Curved Roof Tiles, Blocks & Raster Textures</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Because `.pat` files only support straight line segments and dots, use <code>SUPERHATCH</code> (Express Tools) to tile any CAD `BLOCK`, `XREF`, `WIPEOUT`, or raster `IMAGE` inside a closed boundary with automatic boundary clipping!</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>Delta-Y</code></td>
+          <td style="padding:10px 14px;">Perpendicular Spacing</td>
+          <td style="padding:10px 14px; line-height:1.6;">Distance between parallel hatch lines in the family</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>Delta-X</code></td>
+          <td style="padding:10px 14px;">Stagger Shift</td>
+          <td style="padding:10px 14px; line-height:1.6;">Shifts dashed segments along alternate rows (staggered brick/tile)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>Trailing Blank Line</code></td>
+          <td style="padding:10px 14px;">Mandatory in .PAT</td>
+          <td style="padding:10px 14px; line-height:1.6;">Prevents 'Bad pattern definition' EOF parser error</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>SUPERHATCH</code></td>
+          <td style="padding:10px 14px;">Express Command</td>
+          <td style="padding:10px 14px; line-height:1.6;">Tiles any Block or Raster Image inside a closed polyline boundary</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP Custom 600x300mm Staggered Running-Bond Tile .PAT Generator)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:MAKE-TILE-PAT ( / fn fp)
+  (setq fn (strcat (getvar "ROAMABLEROOTPREFIX") "Support\\TILE600X300.pat")
+        fp (open fn "w"))
+  (write-line "*TILE600X300, 600x300mm Staggered Running Bond Tile" fp)
+  (write-line "0, 0,0, 0,300" fp)               ; Continuous horizontal joints every 300mm
+  (write-line "90, 0,0, 300,300, 300,-300" fp)  ; Vertical joints staggered every 300/600mm
+  (write-line "" fp) ; Mandatory trailing blank line!
+  (close fp)
+  (princ (strcat "\n[PAT Generator] Created custom hatch: " fn))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

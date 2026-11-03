@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Enterprise CAD Manager Onboarding Checklist & Pre-Submittal QA Audit SOP | GstarCAD Academy</title>
+<meta content="Turnkey Standard Operating Procedure (SOP) for enterprise CAD managers deploying GstarCAD across engineering teams: shared network profiles, DWS checking, and zero-defect submittal gates." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/enterprise-cad-manager-onboarding-checklist-and-qa-audit-sop" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Enterprise CAD Manager Onboarding Checklist & Pre-Submittal QA Audit SOP" property="og:title"/>
+<meta content="Turnkey Standard Operating Procedure (SOP) for enterprise CAD managers deploying GstarCAD across engineering teams: shared network profiles, DWS checking, and zero-defect submittal gates." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/enterprise-cad-manager-onboarding-checklist-and-qa-audit-sop" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Enterprise CAD Manager Onboarding Checklist & Pre-Submittal QA Audit SOP", "description": "Turnkey Standard Operating Procedure (SOP) for enterprise CAD managers deploying GstarCAD across engineering teams: shared network profiles, DWS checking, and zero-defect submittal gates.", "url": "https://gstarcademy.com/kb/guides/enterprise-cad-manager-onboarding-checklist-and-qa-audit-sop", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "Enterprise CAD Manager Onboarding Checklist & Pre-Submittal QA Audit SOP", "item": "https://gstarcademy.com/kb/guides/enterprise-cad-manager-onboarding-checklist-and-qa-audit-sop"}]}</script>
+</head>
+<body data-page="migration">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link active" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Enterprise CAD Manager Onboarding Checklist & Pre-Submittal QA Audit SOP</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">CAD MANAGEMENT SOP</span>
+<h1 style="margin-top:12px;">Enterprise CAD Manager Onboarding Checklist & Pre-Submittal QA Audit SOP</h1>
+<p class="hero-sub">Turnkey Standard Operating Procedure (SOP) for enterprise CAD managers deploying GstarCAD across engineering teams: shared network profiles, DWS checking, and zero-defect submittal gates.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Scaling a 20- to 500-seat engineering department on <a href='/kb/software/gstarcad'>GstarCAD</a> requires shifting from individual drafter habits to a locked, server-governed <strong>CAD Management Standard Operating Procedure (SOP)</strong>. This guide provides the complete Day-1 workstation onboarding checklist and the 10-point Pre-Submittal QA Gate.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. Phase 1: Central Server Repository & Shared Support Paths</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Create a read-only network share (<code>\\CAD-SVR\GstarCAD_Standards\</code>) containing four locked folders: <code>01_Templates (.dwt/.dws)</code>, <code>02_PlotStyles (.ctb/.stb/.pc3)</code>, <code>03_ToolPalettes_Blocks</code>, and <code>04_LISP_Startup (acaddoc.lsp)</code>. Export the configured profile as <code>Enterprise_Standard.arg</code> and deploy via command-line switch <code>/p "\\CAD-SVR\...\Enterprise_Standard.arg"</code>.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. Phase 2: Automated System Variable & Layer Standards Enforcement</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Configure <code>acaddoc.lsp</code> to enforce <code>FILEDIA=1</code>, <code>VISRETAIN=1</code>, <code>OSNAPZ=1</code>, <code>MIRRTEXT=0</code>, and <code>INDEXCTL=3</code> on every file open, and link your <code>.dws</code> CAD Standards file to check Layer, Text Style, and Dimension Style compliance automatically.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Phase 3: The 10-Point Pre-Submittal QA Audit Gate</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Before any DWG or PDF leaves the firm, the lead checker executes the automated QA routine: <code>AUDIT</code> (fix database errors), <code>-PURGE</code> (All + Regapps + Zero-length geometry), <code>OVERKILL</code>, Xref Relative Path verification, Viewport Lock check, and <code>ETRANSMIT</code> packaging.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Step 1: Profile & Paths</code></td>
+          <td style="padding:11px 14px;">OPTIONS -> Files / Profiles</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Point DWT, CTB, Font & LISP paths to read-only Server Share</strong> — Deploy via .arg profile</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Step 2: SysVar Lock</code></td>
+          <td style="padding:11px 14px;">acaddoc.lsp + SYSVARMONITOR</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Enforce FILEDIA=1, VISRETAIN=1, MIRRTEXT=0, INDEXCTL=3</strong> — Runs automatically on open</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Step 3: Standards Check</code></td>
+          <td style="padding:11px 14px;">STANDARDS + CHECKSTANDARDS</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Validate all layers, text styles, and dimstyles against .dws</strong> — Zero unauthorized layers</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Step 4: Database Hygiene</code></td>
+          <td style="padding:11px 14px;">QA-SUBMITTAL-GATE (LISP)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Run AUDIT, -PURGE Regapps/All, and lock all Paper Space viewports</strong> — Reduces file size 30-70%</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Step 5: Transmittal</code></td>
+          <td style="padding:11px 14px;">ETRANSMIT + PUBLISH</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Package DWG + Xrefs + CTB + Fonts alongside PDF/A set</strong> — Zero missing links at client</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP 1-Click Pre-Submittal QA Audit & Viewport Lock Enforcer)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:QA-SUBMITTAL-GATE ( / ss i ent locked)
+  (setvar "CMDECHO" 0)
+  (command "_.AUDIT" "_Y")
+  (command "_.-PURGE" "_R" "*" "_N")
+  (command "_.-PURGE" "_A" "*" "_N")
+  (setq locked 0)
+  (if (setq ss (ssget "_X" '((0 . "VIEWPORT"))))
+    (progn
+      (setq i 0)
+      (while (< i (sslength ss))
+        (setq ent (ssname ss i) i (1+ i))
+        (vlax-put-property (vlax-ename->vla-object ent) 'DisplayLocked :vlax-true)
+        (setq locked (1+ locked)))))
+  (command "_.QSAVE")
+  (princ (strcat "\n[QA Gate PASS] Audited, Purged Regapps, and Locked " (itoa locked) " Viewports."))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Make the server Templates (.dwt) and Plot Styles (.ctb) folder Read-Only for standard users and Writable only for the CAD Manager.</li><li style='margin-bottom:8px;'>Require every engineer to run QA-SUBMITTAL-GATE before moving drawings from WIP (S0) to Shared/Published CDE folders.</li><li style='margin-bottom:8px;'>Schedule a quarterly 30-minute CAD Lunch & Learn using the GstarCAD Academy 40-Course Curriculum and 850-Question Certification Engine.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

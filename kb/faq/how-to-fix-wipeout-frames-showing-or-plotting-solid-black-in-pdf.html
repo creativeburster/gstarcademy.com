@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Fix WIPEOUT Frames Showing on Screen or Plotting Solid Black Boxes in PDF | GstarCAD Academy</title>
+<meta content="Eliminate visible WIPEOUT boundary borders via WIPEOUTFRAME = 0 or 2, and permanently fix WIPEOUT masks printing as solid black rectangles in PDF viewers and plotters." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-fix-wipeout-frames-showing-or-plotting-solid-black-in-pdf" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Fix WIPEOUT Frames Showing on Screen or Plotting Solid Black Boxes in PDF" property="og:title"/>
+<meta content="Eliminate visible WIPEOUT boundary borders via WIPEOUTFRAME = 0 or 2, and permanently fix WIPEOUT masks printing as solid black rectangles in PDF viewers and plotters." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-fix-wipeout-frames-showing-or-plotting-solid-black-in-pdf" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix WIPEOUT Frames Showing on Screen or Plotting Solid Black Boxes in PDF", "acceptedAnswer": {"@type": "Answer", "text": "To hide WIPEOUT borders when plotting while keeping them selectable on screen, set WIPEOUTFRAME to 2. If WIPEOUT objects print as solid black rectangles in PDFs, replace the WIPEOUT with a Solid Hatch set to TrueColor RGB 255,255,255 (which never prints black on any PDF driver)."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix WIPEOUT Frames Showing on Screen or Plotting Solid Black Boxes in PDF", "description": "Eliminate visible WIPEOUT boundary borders via WIPEOUTFRAME = 0 or 2, and permanently fix WIPEOUT masks printing as solid black rectangles in PDF viewers and plotters.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Fix WIPEOUT Frames Showing on Screen or Plotting Solid Black Boxes in PDF</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">PLOTTING & MASKING FIXES</span>
+<h1 style="margin-top:12px;">How to Fix WIPEOUT Frames Showing on Screen or Plotting Solid Black Boxes in PDF</h1>
+<p class="hero-sub">Eliminate visible WIPEOUT boundary borders via WIPEOUTFRAME = 0 or 2, and permanently fix WIPEOUT masks printing as solid black rectangles in PDF viewers and plotters.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">To hide WIPEOUT borders when plotting while keeping them selectable on screen, set WIPEOUTFRAME to 2. If WIPEOUT objects print as solid black rectangles in PDFs, replace the WIPEOUT with a Solid Hatch set to TrueColor RGB 255,255,255 (which never prints black on any PDF driver).</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p><code>WIPEOUT</code> entities are widely used to mask background gridlines or hatching behind text tags and electrical symbols. However, two notorious issues plague submittals: visible border outlines plotting around every tag, or the entire mask printing as a <strong>solid black rectangle</strong> on client PDF plotters.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Set WIPEOUTFRAME = 2 (Display Frame on Screen, Hide on Plot)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">In <a href='/kb/software/gstarcad'>GstarCAD</a> and modern AutoCAD, <code>WIPEOUTFRAME</code> accepts three integer values: <code>0</code> (Frames completely hidden—cannot select them!), <code>1</code> (Frames visible AND plotted), and <strong><code>2</code> (Frames visible on screen for editing, but suppressed during Plot/Publish)</strong>. Always set <code>WIPEOUTFRAME = 2</code>.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Why WIPEOUT Prints Black in Some PDF Drivers (Raster Mask Bug)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Internally, a `WIPEOUT` is a 1x1 pixel clipped raster image painted with the background color. Certain third-party PDF printers (and macOS Preview / mobile PDF viewers) invert 1-bit raster masks to solid black (`RGB 0,0,0`).</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: The Bulletproof Fix — TrueColor 255,255,255 Solid Hatch or MTEXT Mask</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">For text notes, never draw a manual `WIPEOUT`: simply select the `MTEXT`, open Properties (`Ctrl+1`), set <strong>Background Mask = Yes</strong> (`Use drawing background color = Yes`, Offset = `1.15`). For dynamic blocks, replace the `WIPEOUT` with a `SOLID` hatch assigned explicitly to <strong>TrueColor <code>255,255,255</code></strong> (because TrueColor bypasses `.ctb` monochrome conversion and plots pure white vector paper space!).</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>WIPEOUTFRAME = 2</code></td>
+          <td style="padding:10px 14px;">Display On / Plot Off (Best)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Lets drafters select/stretch wipeouts without plotting borders</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>WIPEOUTFRAME = 0</code></td>
+          <td style="padding:10px 14px;">Display Off / Plot Off</td>
+          <td style="padding:10px 14px; line-height:1.6;">Hides borders completely (must toggle to 1 or 2 to delete)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>TrueColor 255,255,255 Hatch</code></td>
+          <td style="padding:10px 14px;">Vector Mask Alternative</td>
+          <td style="padding:10px 14px; line-height:1.6;">Bypasses monochrome .ctb tables; 0% chance of black PDF boxes</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>MTEXT Background Mask</code></td>
+          <td style="padding:10px 14px;">DXF Group 90 = 3</td>
+          <td style="padding:10px 14px; line-height:1.6;">Built-in self-sizing mask that moves automatically with text</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP Wipeout Frame Controller & MTEXT Background Mask Enabler)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:FIX-WIPEOUTS ( / ss i ent elist)
+  (setvar "WIPEOUTFRAME" 2) ; Show on screen, never plot frame
+  (setvar "TFRAMES" 0)
+  (princ "\n[Mask Guard] WIPEOUTFRAME set to 2 (Display On, Plot Off).")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

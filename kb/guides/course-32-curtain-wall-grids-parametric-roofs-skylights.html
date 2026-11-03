@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 32: Curtain Wall Mullion Grids, Parametric Hip/Gable Roofs, Skylights & Dormers | GstarCAD Academy</title>
+<meta content="Model complex multi-pitched hip/gable roofs, dormer cutouts, skylights, and unitized glass curtain walls in GstarCAD Architecture 2027." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-32-curtain-wall-grids-parametric-roofs-skylights" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 32: Curtain Wall Mullion Grids, Parametric Hip/Gable Roofs, Skylights & Dormers" property="og:title"/>
+<meta content="Model complex multi-pitched hip/gable roofs, dormer cutouts, skylights, and unitized glass curtain walls in GstarCAD Architecture 2027." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-32-curtain-wall-grids-parametric-roofs-skylights" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 32: Curtain Wall Mullion Grids, Parametric Hip/Gable Roofs, Skylights & Dormers", "description": "Model complex multi-pitched hip/gable roofs, dormer cutouts, skylights, and unitized glass curtain walls in GstarCAD Architecture 2027.", "url": "https://gstarcademy.com/kb/guides/course-32-curtain-wall-grids-parametric-roofs-skylights", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Dr. Lin Wei, Ph.D., PE", "jobTitle": "Principal BIM & Interoperability Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#bim-architecture"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 32: Curtain Wall Mullion Grids, Parametric Hip/Gable Roofs, Skylights & Dormers", "item": "https://gstarcademy.com/kb/guides/course-32-curtain-wall-grids-parametric-roofs-skylights"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 32: Curtain Wall Mullion Grids, Parametric Hip/Gable Roofs, Skylights & Dormers</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 32 · Building Envelope</span>
+<h1 style="margin-top:12px;">Course 32: Curtain Wall Mullion Grids, Parametric Hip/Gable Roofs, Skylights & Dormers</h1>
+<p class="hero-sub">Model complex multi-pitched hip/gable roofs, dormer cutouts, skylights, and unitized glass curtain walls in GstarCAD Architecture 2027.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#bim-architecture">Dr. Lin Wei, Ph.D., PE</a> (Principal BIM & Interoperability Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Drafting intersecting multi-pitch roofs (`30°` main hip roof intersecting a `40°` entrance gable with dormer windows) by manually calculating 3D valley/hip miter angles in 2D plan and section views is notoriously difficult. In <strong><a href='/kb/software/gstarcad'>GstarCAD Architecture 2027</a></strong>, the parametric **Roof Engine (`ROOF` / `SLOPEROOF`)** and **Curtain Wall System (`CURTAINWALL`)** solve 3D plane intersections automatically and project exact 2D elevations and sections on demand.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Multi-Pitch Hip, Gable & Mansard Roof Generation (`SLOPEROOF`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Trace a closed polyline around the outer building walls (plus eave overhang, e.g., `600 mm`), launch <code>SLOPEROOF</code>, and assign pitch angles (`25°`, `35°`, or `0°/90°` for a vertical gable end) to each eave edge. GstarCAD Architecture automatically solves all hip, valley, and ridge intersections in 3D.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Extending Walls to Roof Soffits & Cutting Dormers / Skylights (`DORMER`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Select the top-story perimeter walls and run **Extend Wall to Roof** so gable end walls trim cleanly against the underside of the sloped roof slab. Use <code>DORMER</code> and <code>SKYLIGHT</code> to punch roof openings complete with side cheeks and flashing.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Unitized & Stick-Built Curtain Wall Grids (`CURTAINWALL`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Convert any curved or straight path into a **Glass Curtain Wall** by defining vertical mullion spacing (`1500 mm`), horizontal transom heights (`1100 mm` spandrel + `2400 mm` vision glass), aluminium profile depth (`65x150 mm`), and operable awning/door panel replacements.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SLOPEROOF / FREEFORMROOF</code></td>
+          <td style="padding:11px 14px;">3D Roof Solver</td>
+          <td style="padding:11px 14px; line-height:1.6;">Computes hip, valley, and ridge intersections from 2D perimeter polylines and edge slopes.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>DORMER / SKYLIGHT</code></td>
+          <td style="padding:11px 14px;">Roof Penetrations</td>
+          <td style="padding:11px 14px; line-height:1.6;">Cuts sloped roof slabs and generates vertical dormer side walls and glazing.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>CURTAINWALL</code></td>
+          <td style="padding:11px 14px;">Facade Mullion System</td>
+          <td style="padding:11px 14px; line-height:1.6;">Generates aluminum mullions, transoms, vision glazing, and operable louver panels.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>BLDGSECTION / BLDGELEV</code></td>
+          <td style="padding:11px 14px;">Automated 2D Extraction</td>
+          <td style="padding:11px 14px; line-height:1.6;">Projects 2D exterior elevations and cross-sections directly from the 3D envelope.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (Roof Pitch Percentage vs. Degree Converter LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:ROOFPITCH ( / deg rad pct ratio12)
+  (setq deg (getreal "\nEnter roof pitch angle in degrees (e.g. 26.565): "))
+  (if (and deg (> deg 0.0) (< deg 89.0))
+    (progn
+      (setq rad     (* deg (/ pi 180.0))
+            pct     (* (tan rad) 100.0)
+            ratio12 (* (/ (sin rad) (cos rad)) 12.0))
+      (princ (strcat "\nAngle      : " (rtos deg 2 2) " deg"))
+      (princ (strcat "\nSlope (%)  : " (rtos pct 2 1) "%"))
+      (princ (strcat "\nRise : 12  : " (rtos ratio12 2 2) " : 12"))
+    )
+  )
+  (princ)
+)
+(defun tan (x) (/ (sin x) (cos x)))</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Verify eave gutter overhang distances (`500–800 mm`) and parapet flashing heights before running `BLDGELEV` to generate exterior elevations.</li><li style='margin-bottom:8px;'>Check that upper-story masonry walls are trimmed to the underside of the sloped roof (`Extend Wall to Roof`) so they don't poke through roof tiles in 3D views.</li><li style='margin-bottom:8px;'>Tag curtain wall operable panels and spandrel fire-stop zones so they appear in the automated `WINDSCHEDULE` opening table.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

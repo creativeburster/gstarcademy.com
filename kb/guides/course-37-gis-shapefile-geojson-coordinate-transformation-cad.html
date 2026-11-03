@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 37: GIS Shapefile (.SHP), GeoJSON & Coordinate System Transformation in GstarCAD | GstarCAD Academy</title>
+<meta content="Bridge Esri Shapefiles (.shp/.dbf), GeoJSON parcels, and UTM/State Plane coordinate projections with GstarCAD 2027 civil and utility drawings." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-37-gis-shapefile-geojson-coordinate-transformation-cad" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 37: GIS Shapefile (.SHP), GeoJSON & Coordinate System Transformation in GstarCAD" property="og:title"/>
+<meta content="Bridge Esri Shapefiles (.shp/.dbf), GeoJSON parcels, and UTM/State Plane coordinate projections with GstarCAD 2027 civil and utility drawings." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-37-gis-shapefile-geojson-coordinate-transformation-cad" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 37: GIS Shapefile (.SHP), GeoJSON & Coordinate System Transformation in GstarCAD", "description": "Bridge Esri Shapefiles (.shp/.dbf), GeoJSON parcels, and UTM/State Plane coordinate projections with GstarCAD 2027 civil and utility drawings.", "url": "https://gstarcademy.com/kb/guides/course-37-gis-shapefile-geojson-coordinate-transformation-cad", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Elena Rostova, M.Eng., PE", "jobTitle": "Senior Civil Infrastructure & Geomatics Engineer", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#civil-infrastructure"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 37: GIS Shapefile (.SHP), GeoJSON & Coordinate System Transformation in GstarCAD", "item": "https://gstarcademy.com/kb/guides/course-37-gis-shapefile-geojson-coordinate-transformation-cad"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 37: GIS Shapefile (.SHP), GeoJSON & Coordinate System Transformation in GstarCAD</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 37 · GIS & Geomatics</span>
+<h1 style="margin-top:12px;">Course 37: GIS Shapefile (.SHP), GeoJSON & Coordinate System Transformation in GstarCAD</h1>
+<p class="hero-sub">Bridge Esri Shapefiles (.shp/.dbf), GeoJSON parcels, and UTM/State Plane coordinate projections with GstarCAD 2027 civil and utility drawings.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#civil-infrastructure">Elena Rostova, M.Eng., PE</a> (Senior Civil Infrastructure & Geomatics Engineer)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Infrastructure projects sit at the intersection of **GIS (Geographic Information Systems)** and **CAD (Computer-Aided Design)**: municipal planners store zoning parcels, floodplains, and water mains in Esri **Shapefiles (`.shp`/`.dbf`/`.prj`)** or **GeoJSON (`.geojson`)** with rich tabular attributes, whereas construction engineers design curb alignments and utility trenches in <strong><a href='/kb/software/gstarcad'>GstarCAD 2027</a></strong> AC1032 `.dwg` files.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Understanding `.PRJ` WKT Coordinate Reference Systems (Geographic vs. Projected)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Inspect the `.prj` sidecar file in a text editor before importing GIS geometry: if it begins with `GEOGCS["GCS_WGS_1984"...]` (`EPSG:4326`), coordinates are in angular **Degrees of Longitude/Latitude** and *must* be projected into a metric/imperial planar Cartesian grid (`PROJCS[...]`, such as UTM Zone or State Plane) before CAD drafting.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Importing GeoJSON Polygons & Preserving `.DBF` / JSON Property Attributes</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Because `.geojson` (RFC 7946) is human-readable JSON containing `[Easting, Northing]` vertex rings and a `"properties": {...}` dictionary per feature, you can convert GeoJSON parcels directly into closed `LWPOLYLINE` entities in GstarCAD 2027 with parcel IDs and zoning codes attached as Block Attributes or `XDATA`.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Applying Helmert 4-Parameter Local Site Transformations</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">When converting between a local municipal construction grid and national UTM/Gauss-Krüger coordinates, apply a 2D **Helmert 4-Parameter Similarity Transformation** ($\Delta E, \Delta N$, rotation $\theta$, and combined scale factor $k$) using at least 3 monument control points with least-squares residual verification.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>EPSG:4326 vs. Projected UTM</code></td>
+          <td style="padding:11px 14px;">CRS Verification</td>
+          <td style="padding:11px 14px; line-height:1.6;">Never measure linear meters on unprojected Lat/Lon degree coordinates.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>LWPOLYLINE + XDATA</code></td>
+          <td style="padding:11px 14px;">GIS Attribute Retention</td>
+          <td style="padding:11px 14px; line-height:1.6;">Stores parcel ID, pipe material, and install year inside DXF Group 1001 XDATA.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>BASE / INSBASE = 0,0,0</code></td>
+          <td style="padding:11px 14px;">Georeferenced Xref Origin</td>
+          <td style="padding:11px 14px; line-height:1.6;">Keep INSBASE at 0,0,0 World UCS across all GIS and civil drawings.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Helmert 4-Parameter Transform</code></td>
+          <td style="padding:11px 14px;">Local Grid Calibration</td>
+          <td style="padding:11px 14px; line-height:1.6;">Maps local plant coordinates (N1000, E5000) to national geodetic grids.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (GeoJSON Feature-to-DWG Polyline Importer Template (Python / AutoLISP Ready))</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:CHECKGISCOORDS ( / extMin extMax)
+  (setq extMin (getvar "EXTMIN")
+        extMax (getvar "EXTMAX"))
+  (princ (strcat "\nDrawing Extents Min: E=" (rtos (car extMin) 2 3) ", N=" (rtos (cadr extMin) 2 3)))
+  (princ (strcat "\nDrawing Extents Max: E=" (rtos (car extMax) 2 3) ", N=" (rtos (cadr extMax) 2 3)))
+  (if (and (< (abs (car extMax)) 180.0) (< (abs (cadr extMax)) 90.0))
+    (princ "\n[ALERT] Coordinates are in unprojected Lat/Lon Degrees (EPSG:4326)! Reproject to UTM/State Plane!")
+    (princ "\n[OK] Coordinates are in a projected planar Cartesian grid.")
+  )
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Always inspect `EXTMIN` / `EXTMAX` after importing GIS data: if $X \in [-180, +180]$ and $Y \in [-90, +90]$, the dataset is in raw geographic degrees (`WGS84`) and must be projected to UTM/State Plane!</li><li style='margin-bottom:8px;'>Keep `INSUNITS` explicitly set to `6` (Meters) or `2` (Feet) so georeferenced Xrefs align without manual scaling.</li><li style='margin-bottom:8px;'>Retain unique GIS `FEATURE_ID` / `OBJECTID` keys inside block attributes or `XDATA` so as-built CAD updates can round-trip back to the municipal GIS geodatabase.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

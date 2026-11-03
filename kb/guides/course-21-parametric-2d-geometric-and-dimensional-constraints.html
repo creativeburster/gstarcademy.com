@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 21: Parametric 2D Geometric & Dimensional Constraints (GCCONSTRAINT & Formula Expressions) | GstarCAD Academy</title>
+<meta content="Master variational 2D sketching in GstarCAD 2027 using GCCONSTRAINT, AUTOCONSTRAIN, DIMCONSTRAINT, and mathematical equation variables in the Parameters Manager." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-21-parametric-2d-geometric-and-dimensional-constraints" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 21: Parametric 2D Geometric & Dimensional Constraints (GCCONSTRAINT & Formula Expressions)" property="og:title"/>
+<meta content="Master variational 2D sketching in GstarCAD 2027 using GCCONSTRAINT, AUTOCONSTRAIN, DIMCONSTRAINT, and mathematical equation variables in the Parameters Manager." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-21-parametric-2d-geometric-and-dimensional-constraints" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 21: Parametric 2D Geometric & Dimensional Constraints (GCCONSTRAINT & Formula Expressions)", "description": "Master variational 2D sketching in GstarCAD 2027 using GCCONSTRAINT, AUTOCONSTRAIN, DIMCONSTRAINT, and mathematical equation variables in the Parameters Manager.", "url": "https://gstarcademy.com/kb/guides/course-21-parametric-2d-geometric-and-dimensional-constraints", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 21: Parametric 2D Geometric & Dimensional Constraints (GCCONSTRAINT & Formula Expressions)", "item": "https://gstarcademy.com/kb/guides/course-21-parametric-2d-geometric-and-dimensional-constraints"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 21: Parametric 2D Geometric & Dimensional Constraints (GCCONSTRAINT & Formula Expressions)</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 21 · Parametric Drafting</span>
+<h1 style="margin-top:12px;">Course 21: Parametric 2D Geometric & Dimensional Constraints (GCCONSTRAINT & Formula Expressions)</h1>
+<p class="hero-sub">Master variational 2D sketching in GstarCAD 2027 using GCCONSTRAINT, AUTOCONSTRAIN, DIMCONSTRAINT, and mathematical equation variables in the Parameters Manager.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Traditional 2D CAD drafting is imperative: once you draw two perpendicular lines or a tangent fillet arc, the entities forget their geometric intent. If a client increases a mounting plate width from `240 mm` to `320 mm`, stretching one side breaks tangency and shifts bolt holes out of symmetry. In <strong><a href='/kb/software/gstarcad'>GstarCAD 2027</a></strong>, the **2D Parametric Constraint Solver (`AcDbAssoc2dConstraintGroup`)** brings SolidWorks/Inventor-style variational sketching directly into native AC1032 `.dwg` Model Space and Block Definitions.</p><p>By combining **12 Geometric Constraints** (`Horizontal`, `Vertical`, `Perpendicular`, `Parallel`, `Tangent`, `Smooth`, `Coincident`, `Concentric`, `Collinear`, `Symmetric`, `Equal`, `Fix`) with equation-driven **Dimensional Constraints** (`d1`, `d2 = d1 * 0.5 + 15`), a single master profile can morph into 50 validated part family variants instantaneously.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Applying & Inferring Geometric Constraints (GCCONSTRAINT & CONSTRAINTINFER)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Before adding dimensions, anchor a base datum point using <code>GCCONSTRAINT &rarr; Fix</code> (`GCFIX`) so the profile does not drift in WCS coordinates. Enable <code>CONSTRAINTINFER = 1</code> on the status bar to automatically attach `Perpendicular`, `Tangent`, and `Coincident` nodes as you sketch polylines and arcs, or run <code>AUTOCONSTRAIN</code> on legacy imported geometry.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Driving vs. Reference Dimensional Constraints (DIMCONSTRAINT)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run <code>DIMCONSTRAINT</code> (`DCON`) in **Dynamic** mode (`dcLinear`, `dcRadial`, `dcAngular`). Unlike standard annotations (`DIMLINEAR`), a Dynamic Constraint displays a lock icon (`d1 = 150.00`) and physically drives the geometry when edited. Toggle `PARAMETERS` to open the **Parameters Manager** palette.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Building Mathematical Formulas in the Parameters Manager</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Inside the `PARAMETERS` palette, create user variables (`PlateWidth = 300`, `EdgeMargin = 25`, `BoltCount = 4`) and set dimensional constraint expressions such as <code>BoltPitch = (PlateWidth - 2 * EdgeMargin) / (BoltCount - 1)</code>. Supports `sin()`, `cos()`, `sqrt()`, `pi`, and `min/max` expressions.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>GCCONSTRAINT / AUTOCONSTRAIN</code></td>
+          <td style="padding:11px 14px;">12 Geometric Relations</td>
+          <td style="padding:11px 14px; line-height:1.6;">Enforces Coincident, Tangent, Symmetric, Equal, and Concentric topology.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>DIMCONSTRAINT (DCON)</code></td>
+          <td style="padding:11px 14px;">Dynamic / Annotational</td>
+          <td style="padding:11px 14px; line-height:1.6;">Drives distances, radii, and angles via named algebraic variables (d1, d2).</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>PARAMETERS</code></td>
+          <td style="padding:11px 14px;">Equation Palette</td>
+          <td style="padding:11px 14px; line-height:1.6;">Manages user expressions (e.g., d2 = d1 * 0.75 + 12.5) across the drawing.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>DELCONSTRAINT</code></td>
+          <td style="padding:11px 14px;">Cleanup / Export</td>
+          <td style="padding:11px 14px; line-height:1.6;">Strips all geometric and dimensional constraints cleanly when finalizing static DXFs.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (Parametric Constraint Audit LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:PARAMINIT ()
+  (setvar "CONSTRAINTINFER" 1)
+  (setvar "CONSTRAINTBARDISPLAY" 3)
+  (setvar "CCONSTRAINTFORM" 0) ;; Dynamic constraint form
+  (command "_.PARAMETERS")
+  (princ "\n[Course 21] Enabled Geometric Constraint Inference & opened Parameters Manager.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Anchor at least one datum vertex with GCFIX before applying dimensional equations so the sketch has a deterministic origin.</li><li style='margin-bottom:8px;'>Verify zero over-constrained red warnings when modifying the primary driving variable across +/- 50% extremes.</li><li style='margin-bottom:8px;'>Combine 2D constraints inside BEDIT to build equation-driven Dynamic Blocks (`BlockPropertiesTable`).</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

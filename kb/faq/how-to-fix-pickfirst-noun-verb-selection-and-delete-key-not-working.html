@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Fix PICKFIRST: Pre-Selected Objects Dropped and DELETE Key Not Working in CAD | GstarCAD Academy</title>
+<meta content="Restore noun-verb selection, the keyboard DELETE key, and Shift-to-deselect behavior by resetting PICKFIRST, PICKADD, and PICKAUTO in GstarCAD and AutoCAD." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-fix-pickfirst-noun-verb-selection-and-delete-key-not-working" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Fix PICKFIRST: Pre-Selected Objects Dropped and DELETE Key Not Working in CAD" property="og:title"/>
+<meta content="Restore noun-verb selection, the keyboard DELETE key, and Shift-to-deselect behavior by resetting PICKFIRST, PICKADD, and PICKAUTO in GstarCAD and AutoCAD." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-fix-pickfirst-noun-verb-selection-and-delete-key-not-working" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix PICKFIRST: Pre-Selected Objects Dropped and DELETE Key Not Working in CAD", "acceptedAnswer": {"@type": "Answer", "text": "Type PICKFIRST at the command prompt and set it to 1, then set PICKADD to 2 and PICKAUTO to 1. This immediately restores the ability to select objects first and press the DELETE key, launch commands on pre-selected objects, and view properties in Ctrl+1."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix PICKFIRST: Pre-Selected Objects Dropped and DELETE Key Not Working in CAD", "description": "Restore noun-verb selection, the keyboard DELETE key, and Shift-to-deselect behavior by resetting PICKFIRST, PICKADD, and PICKAUTO in GstarCAD and AutoCAD.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Fix PICKFIRST: Pre-Selected Objects Dropped and DELETE Key Not Working in CAD</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">SELECTION & UI FIXES</span>
+<h1 style="margin-top:12px;">How to Fix PICKFIRST: Pre-Selected Objects Dropped and DELETE Key Not Working in CAD</h1>
+<p class="hero-sub">Restore noun-verb selection, the keyboard DELETE key, and Shift-to-deselect behavior by resetting PICKFIRST, PICKADD, and PICKAUTO in GstarCAD and AutoCAD.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">Type PICKFIRST at the command prompt and set it to 1, then set PICKADD to 2 and PICKAUTO to 1. This immediately restores the ability to select objects first and press the DELETE key, launch commands on pre-selected objects, and view properties in Ctrl+1.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>If you select 10 lines on screen, press the <strong><code>DELETE</code></strong> key on your keyboard, and nothing happens—or you select objects, type <code>M</code> (`MOVE`), and the software drops your selection and asks <em>"Select objects:"</em> all over again—a poorly written third-party LISP script crashed mid-execution and left <code>PICKFIRST = 0</code>.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Set PICKFIRST = 1 to Restore Noun-Verb Selection & DELETE Key</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Type <code>PICKFIRST</code> in the command line and enter <code>1</code>. In <a href='/kb/software/gstarcad'>GstarCAD</a> and AutoCAD, <em>Noun-Verb Selection</em> (picking the objects first, then invoking the action or pressing `DELETE`) is controlled entirely by `PICKFIRST`.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Set PICKADD = 2 So Clicking Additional Objects Doesn't Drop Previous Ones</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">If clicking a second line automatically deselects the first line (forcing you to hold `SHIFT` to add objects), someone clicked the `+ / 1` icon at the top of the Properties palette. Type <code>PICKADD</code> and set it to <code>2</code>.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Set PICKAUTO = 1 for Automatic Crossing / Window Selection</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Type <code>PICKAUTO</code> and set it to <code>1</code> (or `5`) so clicking in empty space automatically starts a Left-to-Right blue Window or Right-to-Left green Crossing selection box.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>PICKFIRST</code></td>
+          <td style="padding:10px 14px;">1 (Registry)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Enables Noun-Verb selection, DELETE key, and Properties palette updates</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>PICKADD</code></td>
+          <td style="padding:10px 14px;">2 (Registry)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Clicking adds to selection set; holding SHIFT removes from selection</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>PICKAUTO</code></td>
+          <td style="padding:10px 14px;">1 or 5 (Registry)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Automatically starts Window/Crossing selection when clicking empty space</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>QAFLAGS</code></td>
+          <td style="padding:10px 14px;">0 (Must be 0!)</td>
+          <td style="padding:10px 14px; line-height:1.6;">If QAFLAGS > 0, grip stretching and selection preview break; always keep 0</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP 1-Click Selection System Variables Restorer)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:FIX-SELECTION ()
+  (setvar "PICKFIRST" 1) ; Enable Noun-Verb selection & Delete key
+  (setvar "PICKADD"   2) ; Additive selection (Shift to remove)
+  (setvar "PICKAUTO"  1) ; Automatic Window/Crossing box in empty space
+  (setvar "PICKDRAG"  2) ; Support both click-click and click-drag selection
+  (princ "\n[Selection Restored] PICKFIRST=1, PICKADD=2, PICKAUTO=1.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Fix VISRETAIN: Xref Layer Colors, Linetypes & Freeze States Resetting on Reload | GstarCAD Academy</title>
+<meta content="Permanent fix when external reference (Xref) layer color, linetype, or freeze overrides reset every time you reopen a drawing or reload an Xref in GstarCAD and AutoCAD." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-fix-visretain-xref-layer-color-and-freeze-overrides-resetting" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Fix VISRETAIN: Xref Layer Colors, Linetypes & Freeze States Resetting on Reload" property="og:title"/>
+<meta content="Permanent fix when external reference (Xref) layer color, linetype, or freeze overrides reset every time you reopen a drawing or reload an Xref in GstarCAD and AutoCAD." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-fix-visretain-xref-layer-color-and-freeze-overrides-resetting" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix VISRETAIN: Xref Layer Colors, Linetypes & Freeze States Resetting on Reload", "acceptedAnswer": {"@type": "Answer", "text": "Type VISRETAIN at the command prompt and set it to 1 (Saved in Drawing), then configure VISRETAINMODE (e.g., 0 or specific bitcode) to control which Xref layer properties sync vs. stay overridden in the host sheet."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix VISRETAIN: Xref Layer Colors, Linetypes & Freeze States Resetting on Reload", "description": "Permanent fix when external reference (Xref) layer color, linetype, or freeze overrides reset every time you reopen a drawing or reload an Xref in GstarCAD and AutoCAD.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Fix VISRETAIN: Xref Layer Colors, Linetypes & Freeze States Resetting on Reload</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">XREF TROUBLESHOOTING</span>
+<h1 style="margin-top:12px;">How to Fix VISRETAIN: Xref Layer Colors, Linetypes & Freeze States Resetting on Reload</h1>
+<p class="hero-sub">Permanent fix when external reference (Xref) layer color, linetype, or freeze overrides reset every time you reopen a drawing or reload an Xref in GstarCAD and AutoCAD.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">Type VISRETAIN at the command prompt and set it to 1 (Saved in Drawing), then configure VISRETAINMODE (e.g., 0 or specific bitcode) to control which Xref layer properties sync vs. stay overridden in the host sheet.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>Few issues frustrate production drafters more than spending 20 minutes screening an architectural background Xref to Color <code>252</code> (gray) and freezing furniture layers—only to watch every single layer revert to bright yellow and green the next morning when the file is reopened. This happens whenever the host drawing has <code>VISRETAIN = 0</code>.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Set VISRETAIN = 1 in the Host Sheet Drawing</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Open the sheet/host drawing in <a href='/kb/software/gstarcad'>GstarCAD</a>, type <code>VISRETAIN</code>, and enter <code>1</code>. Because <code>VISRETAIN</code> is stored <strong>inside each individual .dwg file</strong> (not in the system registry), you must set it to <code>1</code> inside your master <code>.dwt</code> template and `acaddoc.lsp`.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Fine-Tune VISRETAINMODE for Selective Syncing</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">What if you want to keep your host sheet's Freeze/Thaw overrides, but automatically inherit new Color updates made by the architect in the source Xref? Use the bitcode variable <code>VISRETAINMODE</code> (e.g., bit <code>4</code> syncs Xref color while keeping host freeze states intact).</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Reset Specific Xref Layer Properties On-Demand</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">In the Layer Properties Manager (<code>LA</code>), right-click any Xref-dependent layer (`XREF|A-WALL`) and choose <strong>Reset Xref Layer Properties for &rarr; All Properties</strong> whenever you want to resynchronize a single layer with the source file without turning off `VISRETAIN`.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>VISRETAIN</code></td>
+          <td style="padding:10px 14px;">1 (Saved in DWG)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Preserves host drawing Xref layer visibility, color, and linetype overrides</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>VISRETAIN = 0</code></td>
+          <td style="padding:10px 14px;">Legacy Default</td>
+          <td style="padding:10px 14px; line-height:1.6;">Discards host layer overrides every time Xref reloads or DWG opens</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>VISRETAINMODE</code></td>
+          <td style="padding:10px 14px;">0 (Bitcode 0..2047)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Selectively syncs specific Xref properties (1=On, 2=Freeze, 4=Color)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>XREFOVERRIDE</code></td>
+          <td style="padding:10px 14px;">1 (Optional)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Treats objects on Color/Linetype 'ByBlock/Explicit' inside Xref as ByLayer</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP Enterprise VISRETAIN & Xref Layer Screening Macro)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:XREF-GRAY-LOCK ()
+  (setvar "VISRETAIN" 1)
+  (setvar "VISRETAINMODE" 0)
+  ; Screen all Xref layers (*|*) to Color 252 (light gray)
+  (command "_.-LAYER" "_C" "252" "*|*" "")
+  (princ "\n[Xref Guard] VISRETAIN=1 locked and all Xref layers screened to Color 252.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

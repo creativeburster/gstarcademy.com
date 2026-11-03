@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Reset GstarCAD and AutoCAD User Profiles & CUI Workspace to Factory Defaults | GstarCAD Academy</title>
+<meta content="Step-by-step instructions to export a backup .arg profile and reset corrupted toolbars, ribbons, support paths, and registry keys to clean factory defaults in GstarCAD." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-reset-gstarcad-and-autocad-user-profile-to-factory-defaults" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Reset GstarCAD and AutoCAD User Profiles & CUI Workspace to Factory Defaults" property="og:title"/>
+<meta content="Step-by-step instructions to export a backup .arg profile and reset corrupted toolbars, ribbons, support paths, and registry keys to clean factory defaults in GstarCAD." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-reset-gstarcad-and-autocad-user-profile-to-factory-defaults" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Reset GstarCAD and AutoCAD User Profiles & CUI Workspace to Factory Defaults", "acceptedAnswer": {"@type": "Answer", "text": "Before resetting, open OPTIONS -> Profiles -> Export to save a backup .arg file. Then either click 'Reset' inside the Profiles tab to restore registry settings, or run the 'Reset Settings to Default' utility from the Windows Start Menu -> GstarCAD folder to rebuild the entire Roaming/Local AppData workspace."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Reset GstarCAD and AutoCAD User Profiles & CUI Workspace to Factory Defaults", "description": "Step-by-step instructions to export a backup .arg profile and reset corrupted toolbars, ribbons, support paths, and registry keys to clean factory defaults in GstarCAD.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Reset GstarCAD and AutoCAD User Profiles & CUI Workspace to Factory Defaults</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">INSTALLATION & PROFILES</span>
+<h1 style="margin-top:12px;">How to Reset GstarCAD and AutoCAD User Profiles & CUI Workspace to Factory Defaults</h1>
+<p class="hero-sub">Step-by-step instructions to export a backup .arg profile and reset corrupted toolbars, ribbons, support paths, and registry keys to clean factory defaults in GstarCAD.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">Before resetting, open OPTIONS -> Profiles -> Export to save a backup .arg file. Then either click 'Reset' inside the Profiles tab to restore registry settings, or run the 'Reset Settings to Default' utility from the Windows Start Menu -> GstarCAD folder to rebuild the entire Roaming/Local AppData workspace.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>When ribbon tabs vanish, command-line docking breaks, or aggressive third-party plugins corrupt your support file search paths, resetting the user profile restores <a href='/kb/software/gstarcad'>GstarCAD</a> to day-one factory responsiveness in 30 seconds without reinstalling the software.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Backup Your Custom PGP, CTB & .ARG Profile First</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Before resetting, open <code>OPTIONS &rarr; Profiles</code> and click <strong>Export...</strong> to save `MyBackup.arg`. Also copy any custom `.ctb` plot styles, `.lin` linetypes, and `gcad.pgp` from your Roaming Support folder (`(getvar "ROAMABLEROOTPREFIX")`).</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Level 1 Reset — In-App Profile Reset (OPTIONS -> Profiles -> Reset)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">If GstarCAD opens normally, run <code>OPTIONS</code>, switch to the <strong>Profiles</strong> tab, select your active profile (e.g., <code>&lt;&lt;Unnamed Profile&gt;&gt;</code>), and click <strong>Reset</strong>. This restores all registry-saved system variables and support paths to factory defaults.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Level 2 Reset — Full Workspace & CUI AppData Rebuild</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">If the Ribbon or CUI customization file (`gcad.cuix`) is missing, type <code>CUI</code>, right-click the main customization node, and choose <strong>Reset / Restore gcad.cuix</strong>—or close GstarCAD and launch <strong>Windows Start Menu &rarr; GstarCAD 2027 &rarr; Reset Settings to Default</strong>.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>OPTIONS -> Profiles -> Reset</code></td>
+          <td style="padding:10px 14px;">Level 1 Registry Reset</td>
+          <td style="padding:10px 14px; line-height:1.6;">Restores active profile registry variables and support paths</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>OPTIONS -> Profiles -> Export</code></td>
+          <td style="padding:10px 14px;">.ARG Profile Backup</td>
+          <td style="padding:10px 14px; line-height:1.6;">Saves portable snapshot of all paths, colors, and preferences</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>WSCURRENT</code></td>
+          <td style="padding:10px 14px;">Workspace Switcher</td>
+          <td style="padding:10px 14px; line-height:1.6;">Switches between '2D Drafting' Ribbon and 'GstarCAD Classic' toolbars</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>ROAMABLEROOTPREFIX</code></td>
+          <td style="padding:10px 14px;">AppData Support Path</td>
+          <td style="padding:10px 14px; line-height:1.6;">Opens user's custom PGP, PAT, LIN, and CUIX folder in Explorer</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP Support Path & Roaming Profile Folder Locator)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:OPEN-SUPPORT-FOLDER ()
+  (princ (strcat "\n[Roaming Support] " (getvar "ROAMABLEROOTPREFIX") "Support"))
+  (princ (strcat "\n[Local Root]      " (getvar "LOCALROOTPREFIX")))
+  (startapp "explorer" (strcat (getvar "ROAMABLEROOTPREFIX") "Support"))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

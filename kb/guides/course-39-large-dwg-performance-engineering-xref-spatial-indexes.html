@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 39: Large DWG Performance Engineering — Spatial Indexes, Xref Demand Loading & Layer Filters | GstarCAD Academy</title>
+<meta content="Optimize 200 MB+ infrastructure and masterplan DWG files in GstarCAD 2027 to open 5x faster and pan at 60 FPS using INDEXCTL, XLOADCTL, and Layer Group Filters." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-39-large-dwg-performance-engineering-xref-spatial-indexes" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 39: Large DWG Performance Engineering — Spatial Indexes, Xref Demand Loading & Layer Filters" property="og:title"/>
+<meta content="Optimize 200 MB+ infrastructure and masterplan DWG files in GstarCAD 2027 to open 5x faster and pan at 60 FPS using INDEXCTL, XLOADCTL, and Layer Group Filters." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-39-large-dwg-performance-engineering-xref-spatial-indexes" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 39: Large DWG Performance Engineering \u2014 Spatial Indexes, Xref Demand Loading & Layer Filters", "description": "Optimize 200 MB+ infrastructure and masterplan DWG files in GstarCAD 2027 to open 5x faster and pan at 60 FPS using INDEXCTL, XLOADCTL, and Layer Group Filters.", "url": "https://gstarcademy.com/kb/guides/course-39-large-dwg-performance-engineering-xref-spatial-indexes", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 39: Large DWG Performance Engineering \u2014 Spatial Indexes, Xref Demand Loading & Layer Filters", "item": "https://gstarcademy.com/kb/guides/course-39-large-dwg-performance-engineering-xref-spatial-indexes"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 39: Large DWG Performance Engineering — Spatial Indexes, Xref Demand Loading & Layer Filters</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 39 · Performance Engineering</span>
+<h1 style="margin-top:12px;">Course 39: Large DWG Performance Engineering — Spatial Indexes, Xref Demand Loading & Layer Filters</h1>
+<p class="hero-sub">Optimize 200 MB+ infrastructure and masterplan DWG files in GstarCAD 2027 to open 5x faster and pan at 60 FPS using INDEXCTL, XLOADCTL, and Layer Group Filters.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>When a masterplan or airport terminal project grows to 150+ MB across 35 attached Xrefs and 4,000 layers, unoptimized workstations suffer from 90-second file opens, sluggish layer dropdowns, and out-of-memory crashes during batch `PUBLISH`. <strong><a href='/kb/software/gstarcad'>GstarCAD 2027</a></strong>'s multi-core graphics kernel includes specialized **Spatial &amp; Layer B-Tree Indexing (`INDEXCTL = 3`)** and **Demand-Loading (`XLOADCTL = 2`)** subsystems that reduce memory consumption by up to 70% when properly configured.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Enabling Spatial Octree & Layer Indexes Inside Xrefs (`INDEXCTL = 3`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">By default, `INDEXCTL = 0` in many templates. When you open every consultant Xref, set <code>INDEXCTL = 3</code> (writes both a **Layer Index** and a **3D Spatial Octree Index** into the AC1032 header), and save the Xref, something magical happens in the host drawing: if you `XCLIP` a small `200m x 200m` station box out of a `50 km` highway Xref, or freeze 80% of the Xref's layers, GstarCAD 2027 reads *only* the disk pages inside the clip box on open!</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Network Share Demand-Loading with Local Temp Copies (`XLOADCTL = 2`)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Set <code>XLOADCTL = 2</code> across all workstations. Mode `2` combines on-demand indexed page loading with a **local temporary copy** (`XLOADPATH`), meaning Engineer A can attach Engineer B's drawing as an Xref without placing an OS write-lock on the network `.dwg` file—so Engineer B can continue editing and saving freely!</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Taming 5,000+ Layers with Property Filters & `SHOWLAYERUSAGE = 0`</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">When a drawing contains 4,000+ Xref layers, opening the Layer Properties Manager (`LA`) with `SHOWLAYERUSAGE = 1` forces CAD to scan millions of entities to determine which layer icons should turn grey vs. blue. Set <code>SHOWLAYERUSAGE = 0</code> and create hierarchical **Layer Property Filters** (`ArchOnly: ~*|*`, `Xref_Civil: C-*|*`) for instant dialog response.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>INDEXCTL = 3</code></td>
+          <td style="padding:11px 14px;">Layer + Spatial Index</td>
+          <td style="padding:11px 14px; line-height:1.6;">Allows host drawings to skip reading frozen layers and geometry outside XCLIP boxes.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>XLOADCTL = 2</code></td>
+          <td style="padding:11px 14px;">Unlocked Demand Load</td>
+          <td style="padding:11px 14px; line-height:1.6;">Streams indexed Xref pages from a local temp copy without locking the network file.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>LAYOUTREGENCTL = 2</code></td>
+          <td style="padding:11px 14px;">Layout Tab Display Cache</td>
+          <td style="padding:11px 14px; line-height:1.6;">Caches display lists in RAM so switching between Model and Layout tabs is instant.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SHOWLAYERUSAGE = 0</code></td>
+          <td style="padding:11px 14px;">Layer Palette Acceleration</td>
+          <td style="padding:11px 14px; line-height:1.6;">Eliminates 5-second freezes when opening Layer Manager on 5,000-layer drawings.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (200MB+ Large Drawing Performance Optimizer LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:TURBODWG ()
+  (setvar "INDEXCTL" 3)          ;; Save both Layer + Spatial B-Tree indexes on QSAVE
+  (setvar "XLOADCTL" 2)          ;; Demand-load Xrefs with unlocked temp copy
+  (setvar "SHOWLAYERUSAGE" 0)    ;; Stop scanning millions of entities when opening Layer Manager
+  (setvar "WHIPTHREAD" 3)        ;; Multi-threaded Regen & Redraw across CPU cores
+  (setvar "LAYOUTREGENCTL" 2)    ;; Cache display lists across Model/Layout tab switches
+  (setvar "TREEDEPTH" 3020)      ;; Deep spatial octree index for 2D/3D databases
+  (setvar "QPMODE" 0)
+  (setvar "SELECTIONPREVIEW" 2)
+  (princ "\n[Course 39 TURBODWG] Applied enterprise large-drawing indexing & multi-core settings.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Remember that `INDEXCTL = 3` must be set and saved **inside the child Xref files** for the host drawing to benefit from spatial and layer demand-loading!</li><li style='margin-bottom:8px;'>Set `ISAVEPERCENT = 0` on weekly milestone saves to defragment the AC1032 binary stream while keeping `INDEXCTL = 3` active.</li><li style='margin-bottom:8px;'>Replace exploded 500,000-line stone/gravel hatches with lightweight standard `.pat` hatches or `SUPERHATCH` instanced blocks.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

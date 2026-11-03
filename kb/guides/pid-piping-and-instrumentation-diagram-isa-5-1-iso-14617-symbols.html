@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>P&ID Piping and Instrumentation Diagram Symbols (ISA-5.1 & ISO 14617) CAD Guide | GstarCAD Academy</title>
+<meta content="Complete engineering reference for P&ID tag identification letters (FT, FIC, PCV, PSV), instrument bubble styles, signal line types, and valve block libraries in GstarCAD." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/pid-piping-and-instrumentation-diagram-isa-5-1-iso-14617-symbols" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="P&ID Piping and Instrumentation Diagram Symbols (ISA-5.1 & ISO 14617) CAD Guide" property="og:title"/>
+<meta content="Complete engineering reference for P&ID tag identification letters (FT, FIC, PCV, PSV), instrument bubble styles, signal line types, and valve block libraries in GstarCAD." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/pid-piping-and-instrumentation-diagram-isa-5-1-iso-14617-symbols" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "P&ID Piping and Instrumentation Diagram Symbols (ISA-5.1 & ISO 14617) CAD Guide", "description": "Complete engineering reference for P&ID tag identification letters (FT, FIC, PCV, PSV), instrument bubble styles, signal line types, and valve block libraries in GstarCAD.", "url": "https://gstarcademy.com/kb/guides/pid-piping-and-instrumentation-diagram-isa-5-1-iso-14617-symbols", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "P&ID Piping and Instrumentation Diagram Symbols (ISA-5.1 & ISO 14617) CAD Guide", "item": "https://gstarcademy.com/kb/guides/pid-piping-and-instrumentation-diagram-isa-5-1-iso-14617-symbols"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">P&ID Piping and Instrumentation Diagram Symbols (ISA-5.1 & ISO 14617) CAD Guide</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">PROCESS & PIPING CAD</span>
+<h1 style="margin-top:12px;">P&ID Piping and Instrumentation Diagram Symbols (ISA-5.1 & ISO 14617) CAD Guide</h1>
+<p class="hero-sub">Complete engineering reference for P&ID tag identification letters (FT, FIC, PCV, PSV), instrument bubble styles, signal line types, and valve block libraries in GstarCAD.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>A <strong>Piping and Instrumentation Diagram (P&amp;ID)</strong> is the master functional contract for process plants, refineries, and water treatment facilities. Governed by <strong>ANSI/ISA-5.1</strong> and <strong>ISO 14617 / ISO 10628</strong>, every valve, pump, vessel, and control loop tag in <a href='/kb/software/gstarcad'>GstarCAD</a> follows a strict functional identification schema.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. ISA-5.1 Instrument Tag Identification Letters (First Letter + Succeeding Letters)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>An instrument bubble tag consists of a <strong>Measured/Initiating Variable (First Letter)</strong> followed by <strong>Readout/Output Functions</strong> and a Loop Number:</p><ul><li><code>F</code> = Flow, <code>P</code> = Pressure, <code>T</code> = Temperature, <code>L</code> = Level, <code>A</code> = Analysis.</li><li><code>I</code> = Indicate, <code>T</code> = Transmit, <code>C</code> = Control, <code>V</code> = Valve, <code>SH/SL</code> = Switch High/Low, <code>PSV</code> = Pressure Safety Valve.</li></ul></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. Instrument Bubble Montage & Location Lines</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>A plain circle indicates a <strong>Field-Mounted</strong> instrument; a circle with a single horizontal solid line through the center indicates a <strong>Main Control Room (DCS/PLC Panel)</strong> accessible display; a dashed horizontal line indicates an instrument behind the panel or inaccessible to the operator.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Process Signal Linetypes & Attributed P&ID Blocks in GstarCAD</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Major process pipelines use heavy solid lines (<code>0.50 mm</code>); pneumatic signals use double-slashed lines; electrical/4–20mA signals use dashed lines; software/DCS data links use line-circle-line patterns. Store your valves and instrument bubbles as attributed blocks with <code>TAG_ID</code> and <code>LINE_SIZE</code> attributes for instant <code>DATAEXTRACTION</code> to Instrument Index spreadsheets.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>FT / FE / FIC</code></td>
+          <td style="padding:11px 14px;">Flow</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Flow Transmitter / Flow Element / Flow Indicating Controller</strong> — 4-20mA or HART loop</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>PT / PI / PSV</code></td>
+          <td style="padding:11px 14px;">Pressure</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Pressure Transmitter / Local Gauge / Pressure Safety Relief Valve</strong> — Field & relief header</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>LT / LIC / LSHH</code></td>
+          <td style="padding:11px 14px;">Level</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Level Transmitter / Level Controller / High-High Level Switch</strong> — Tank & vessel protection</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>TT / TE / TIC</code></td>
+          <td style="padding:11px 14px;">Temperature</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Temperature Transmitter / Thermowell Element / Controller</strong> — RTD / Thermocouple loop</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>FCV / PCV / XV</code></td>
+          <td style="padding:11px 14px;">Final Control</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Flow Control Valve / Pressure Control Valve / On-Off Solenoid Valve</strong> — Pneumatic or motorized actuator</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP P&ID Instrument Bubble & Tag Generator)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:PID-BUBBLE ( / pt fn loop)
+  (setq pt   (getpoint "\nPick Instrument Bubble Center: ")
+        fn   (getstring "\nEnter Function Letters (e.g. FIT, PCV, LIC): ")
+        loop (getstring "\nEnter Loop Number (e.g. 101A): "))
+  (command "_.CIRCLE" pt 6.0)
+  (command "_.LINE" ( polar pt pi 6.0) (polar pt 0.0 6.0) "")
+  (command "_.TEXT" "_J" "_MC" (polar pt (* 0.5 pi) 2.2) 2.5 0.0 (strcase fn))
+  (command "_.TEXT" "_J" "_MC" (polar pt (* 1.5 pi) 2.2) 2.5 0.0 (strcase loop))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Keep P&ID schematics non-scale and orthogonal, maintaining at least 10 mm clearance between parallel process lines.</li><li style='margin-bottom:8px;'>Break vertical lines when crossing horizontal process lines (or use automatic gap loops) while keeping main process headers continuous.</li><li style='margin-bottom:8px;'>Embed TAG_ID and LOOP_NUM as block attributes so DATAEXTRACTION can generate the plant Instrument Index automatically.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>ISO 2553 vs. AWS A2.4 Welding Symbols Cross-Reference Guide for CAD Engineers | GstarCAD Academy</title>
+<meta content="Critical structural and mechanical comparison between ISO 2553 (System A dual reference line) and AWS A2.4 (Arrow Side vs Other Side) welding callouts in CAD." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/iso-2553-vs-aws-a2-4-welding-symbols-cross-reference-guide" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="ISO 2553 vs. AWS A2.4 Welding Symbols Cross-Reference Guide for CAD Engineers" property="og:title"/>
+<meta content="Critical structural and mechanical comparison between ISO 2553 (System A dual reference line) and AWS A2.4 (Arrow Side vs Other Side) welding callouts in CAD." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/iso-2553-vs-aws-a2-4-welding-symbols-cross-reference-guide" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ISO 2553 vs. AWS A2.4 Welding Symbols Cross-Reference Guide for CAD Engineers", "description": "Critical structural and mechanical comparison between ISO 2553 (System A dual reference line) and AWS A2.4 (Arrow Side vs Other Side) welding callouts in CAD.", "url": "https://gstarcademy.com/kb/guides/iso-2553-vs-aws-a2-4-welding-symbols-cross-reference-guide", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "ISO 2553 vs. AWS A2.4 Welding Symbols Cross-Reference Guide for CAD Engineers", "item": "https://gstarcademy.com/kb/guides/iso-2553-vs-aws-a2-4-welding-symbols-cross-reference-guide"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">ISO 2553 vs. AWS A2.4 Welding Symbols Cross-Reference Guide for CAD Engineers</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">WELDING STANDARDS</span>
+<h1 style="margin-top:12px;">ISO 2553 vs. AWS A2.4 Welding Symbols Cross-Reference Guide for CAD Engineers</h1>
+<p class="hero-sub">Critical structural and mechanical comparison between ISO 2553 (System A dual reference line) and AWS A2.4 (Arrow Side vs Other Side) welding callouts in CAD.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Misinterpreting whether a weld symbol sits on the <strong>Arrow Side</strong> or the <strong>Other Side</strong> of a joint can cause catastrophic fabrication rework. Global fabricators must distinguish between <strong>AWS A2.4</strong> (North America) and <strong>ISO 2553</strong> (Europe/Asia System A with a dashed identification line).</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. The Crucial Reference Line Rule: AWS A2.4 vs. ISO 2553 System A</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>In <strong>AWS A2.4</strong> (and ISO 2553 System B), there is a single solid reference line: symbols placed <strong>below</strong> the line indicate the <em>Arrow Side</em>, and symbols <strong>above</strong> indicate the <em>Other Side</em>. In <strong>ISO 2553 System A</strong>, there is a solid reference line plus a parallel <strong>dashed line</strong>: symbols on the <strong>solid line</strong> are Arrow Side, and symbols on the <strong>dashed line</strong> are Other Side (regardless of whether the dashed line is drawn above or below!).</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. Fillet Weld Leg Size (z) vs. Throat Thickness (a)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>ISO 2553 requires prefixing fillet weld dimensions with either <strong><code>a</code> (design throat thickness)</strong> or <strong><code>z</code> (leg length)</strong>, where for a $45^\circ$ mitre fillet:</p>$$a = \frac{z}{\sqrt{2}} \approx 0.707 z \quad \Longleftrightarrow \quad z = 1.414 a$$<p>AWS A2.4 defaults to leg size without a letter prefix (e.g., <code>1/4</code> or <code>6</code> before the triangle).</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Inserting Compliant Weld Symbols in GstarCAD Mechanical</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Launch <code>AMWELDSYM</code> in <a href='/kb/software/gstarcad'>GstarCAD Mechanical</a> and select either <code>ISO 2553</code> or <code>ANSI/AWS A2.4</code> in the drawing standard settings—the software automatically formats the dashed identification line, tail process codes (e.g., <code>135</code> for MAG / <code>GMAW</code>), and field-weld flags.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Arrow Side Location</code></td>
+          <td style="padding:11px 14px;">Below single solid reference line</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>On the continuous solid line (System A)</strong> — Check presence of dashed line</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Other Side Location</code></td>
+          <td style="padding:11px 14px;">Above single solid reference line</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>On the dashed identification line (System A)</strong> — Dashed line may be above or below</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Fillet Size Prefix</code></td>
+          <td style="padding:11px 14px;">No letter prefix (Leg size default)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Mandatory 'a' (Throat) or 'z' (Leg)</strong> — z = 1.414 * a</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Process Code in Tail</code></td>
+          <td style="padding:11px 14px;">GMAW / GTAW / SMAW / SAW</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Numeric ISO 4063 (135, 141, 111, 121)</strong> — Placed inside open V-tail</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>All-Around Weld</code></td>
+          <td style="padding:11px 14px;">Circle at leader-reference junction</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>Circle at leader-reference junction</strong> — Identical in both standards</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP Fillet Weld Throat (a) <-> Leg (z) Converter)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:WELD-AZ-CONVERT ( / val)
+  (setq val (getreal "\nEnter Fillet Weld Dimension (mm): "))
+  (princ (strcat "\n[ISO 2553] If z (Leg) = " (rtos val 2 2) " mm -> Throat a = " (rtos (* val 0.7071) 2 2)
+                 " mm | If a (Throat) = " (rtos val 2 2) " mm -> Leg z = " (rtos (* val 1.4142) 2 2) " mm"))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Always specify in the title block whether welding symbols conform to ISO 2553 (System A), ISO 2553 (System B), or AWS A2.4.</li><li style='margin-bottom:8px;'>Explicitly include the 'a' or 'z' prefix on all metric fillet welds to prevent a 30% strength undersizing error.</li><li style='margin-bottom:8px;'>Use numeric ISO 4063 process numbers (135 = MAG, 141 = TIG) in the tail when issuing drawings to European/Asian shops.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

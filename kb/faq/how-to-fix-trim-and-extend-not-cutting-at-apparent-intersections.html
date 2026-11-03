@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Fix TRIM and EXTEND Not Cutting at Apparent or 3D Intersections (PROJMODE & EDGEMODE) | GstarCAD Academy</title>
+<meta content="Fix TRIM and EXTEND commands failing to recognize cutting edges, implied extensions, or 3D elevated lines by configuring PROJMODE = 1 and EDGEMODE in GstarCAD." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-fix-trim-and-extend-not-cutting-at-apparent-intersections" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Fix TRIM and EXTEND Not Cutting at Apparent or 3D Intersections (PROJMODE & EDGEMODE)" property="og:title"/>
+<meta content="Fix TRIM and EXTEND commands failing to recognize cutting edges, implied extensions, or 3D elevated lines by configuring PROJMODE = 1 and EDGEMODE in GstarCAD." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-fix-trim-and-extend-not-cutting-at-apparent-intersections" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix TRIM and EXTEND Not Cutting at Apparent or 3D Intersections (PROJMODE & EDGEMODE)", "acceptedAnswer": {"@type": "Answer", "text": "Type PROJMODE and set it to 1 (UCS XY Plane projection) so TRIM and EXTEND cut lines even if they sit at different Z elevations. Type EDGEMODE and set it to 0 (require actual intersection) or 1 (trim/extend to implied infinite extensions of cutting edges)."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix TRIM and EXTEND Not Cutting at Apparent or 3D Intersections (PROJMODE & EDGEMODE)", "description": "Fix TRIM and EXTEND commands failing to recognize cutting edges, implied extensions, or 3D elevated lines by configuring PROJMODE = 1 and EDGEMODE in GstarCAD.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Fix TRIM and EXTEND Not Cutting at Apparent or 3D Intersections (PROJMODE & EDGEMODE)</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">MODIFY COMMAND FIXES</span>
+<h1 style="margin-top:12px;">How to Fix TRIM and EXTEND Not Cutting at Apparent or 3D Intersections (PROJMODE & EDGEMODE)</h1>
+<p class="hero-sub">Fix TRIM and EXTEND commands failing to recognize cutting edges, implied extensions, or 3D elevated lines by configuring PROJMODE = 1 and EDGEMODE in GstarCAD.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">Type PROJMODE and set it to 1 (UCS XY Plane projection) so TRIM and EXTEND cut lines even if they sit at different Z elevations. Type EDGEMODE and set it to 0 (require actual intersection) or 1 (trim/extend to implied infinite extensions of cutting edges).</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>When <code>TRIM</code> or <code>EXTEND</code> ignores an obvious intersection right under your crosshairs, the culprit is almost always <strong><code>PROJMODE</code></strong> (3D projection mode) or <strong><code>EDGEMODE</code></strong> (implied edge extension mode).</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Set PROJMODE = 1 to Trim Across Different Z Elevations</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">If a civil contour at $Z = 50\text{ m}$ crosses a parcel boundary at $Z = 0\text{ m}$, they do not physically intersect in 3D space (`PROJMODE = 0`). Type <code>PROJMODE</code> and enter <code>1</code> (Project to current UCS XY plane) or <code>2</code> (Project to current View direction)—now `TRIM` and `EXTEND` slice cleanly across any Z elevation.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Control Implied Infinite Cutting Edges via EDGEMODE (0 vs. 1)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">When <code>EDGEMODE = 1</code>, <a href='/kb/software/gstarcad'>GstarCAD</a> treats every selected cutting line as infinitely long, which can cause `TRIM` to snip segments at invisible phantom extensions across the drawing. Set <code>EDGEMODE = 0</code> so lines only trim at physical intersections.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Hold SHIFT Inside TRIM to EXTEND (and Vice Versa)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">While inside the `TRIM` command, simply <strong>hold down the <code>SHIFT</code> key</strong> and click any line to `EXTEND` it—no need to exit and launch a separate command!</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>PROJMODE = 1</code></td>
+          <td style="padding:10px 14px;">UCS XY Projection (Recommended)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Trims and extends objects even when their Z elevations differ</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>PROJMODE = 0</code></td>
+          <td style="padding:10px 14px;">True 3D Intersection Only</td>
+          <td style="padding:10px 14px; line-height:1.6;">Fails to trim if two lines miss each other in Z by 0.0001 mm</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>EDGEMODE = 0</code></td>
+          <td style="padding:10px 14px;">Actual Edges Only</td>
+          <td style="padding:10px 14px; line-height:1.6;">Prevents accidental trimming against invisible infinite line extensions</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>EDGEMODE = 1</code></td>
+          <td style="padding:10px 14px;">Implied Extension On</td>
+          <td style="padding:10px 14px; line-height:1.6;">Extends or trims to the imaginary infinite projection of the cutting edge</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP Optimal TRIM / EXTEND Projection Configuration)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:FIX-TRIM-MODES ()
+  (setvar "PROJMODE" 1) ; Project cutting edges onto UCS XY plane
+  (setvar "EDGEMODE" 0) ; Only cut at actual intersections (no phantom infinite edges)
+  (princ "\n[Trim/Extend Fixed] PROJMODE=1 (UCS Projection), EDGEMODE=0 (Actual Edges).")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

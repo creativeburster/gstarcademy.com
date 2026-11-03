@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Extract X, Y, Z Coordinates of Points, Blocks & Polylines to CSV / Excel in GstarCAD | GstarCAD Academy</title>
+<meta content="Export survey monument coordinates, piling centers, and block attributes from GstarCAD directly to CSV or Excel spreadsheets using DATAEXTRACTION or AutoLISP." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-extract-xyz-coordinates-of-points-and-blocks-to-csv-excel" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Extract X, Y, Z Coordinates of Points, Blocks & Polylines to CSV / Excel in GstarCAD" property="og:title"/>
+<meta content="Export survey monument coordinates, piling centers, and block attributes from GstarCAD directly to CSV or Excel spreadsheets using DATAEXTRACTION or AutoLISP." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-extract-xyz-coordinates-of-points-and-blocks-to-csv-excel" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Extract X, Y, Z Coordinates of Points, Blocks & Polylines to CSV / Excel in GstarCAD", "acceptedAnswer": {"@type": "Answer", "text": "Run the built-in DATAEXTRACTION wizard (or EATTEXT) in GstarCAD, select 'Point' or 'Block Reference' objects, check Position X, Position Y, Position Z (plus any block attributes like POINT_ID), and output directly to .csv or .xls. Or run our 1-click AutoLISP PENZD exporter."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Extract X, Y, Z Coordinates of Points, Blocks & Polylines to CSV / Excel in GstarCAD", "description": "Export survey monument coordinates, piling centers, and block attributes from GstarCAD directly to CSV or Excel spreadsheets using DATAEXTRACTION or AutoLISP.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Elena Rostova, M.Eng., PE", "jobTitle": "Senior Civil Infrastructure & Geomatics Engineer", "url": "https://gstarcademy.com/authors#civil-infrastructure"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Extract X, Y, Z Coordinates of Points, Blocks & Polylines to CSV / Excel in GstarCAD</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">SURVEY & DATA EXTRACTION</span>
+<h1 style="margin-top:12px;">How to Extract X, Y, Z Coordinates of Points, Blocks & Polylines to CSV / Excel in GstarCAD</h1>
+<p class="hero-sub">Export survey monument coordinates, piling centers, and block attributes from GstarCAD directly to CSV or Excel spreadsheets using DATAEXTRACTION or AutoLISP.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#civil-infrastructure">Elena Rostova, M.Eng., PE</a> (Senior Civil Infrastructure & Geomatics Engineer)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">Run the built-in DATAEXTRACTION wizard (or EATTEXT) in GstarCAD, select 'Point' or 'Block Reference' objects, check Position X, Position Y, Position Z (plus any block attributes like POINT_ID), and output directly to .csv or .xls. Or run our 1-click AutoLISP PENZD exporter.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>Civil surveyors, structural piling engineers, and MEP layout crews frequently need to extract a schedule of <strong>Point ID, Easting ($X$), Northing ($Y$), and Elevation ($Z$)</strong> from a <a href='/kb/software/gstarcad'>GstarCAD</a> drawing into a `.csv` file for Total Station stakeout or Excel quantity takeoffs.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 1: Use the Built-In DATAEXTRACTION Wizard (No Coding Required)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Type <code>DATAEXTRACTION</code> (or <code>EATTEXT</code>), create a `.dxe` template, select the target objects in the drawing, filter to <code>Point</code>, <code>Circle</code>, or your specific survey <code>Block</code>, check <strong>Position X, Position Y, Position Z</strong> under the Geometry category, and export to `.csv` or `.xls`.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 2: Export Ordered LWPOLYLINE Vertices for Boundary Stakeout</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Standard `DATAEXTRACTION` extracts block/point centers, but what if you need the sequential $X, Y$ corner coordinates of a closed property parcel `LWPOLYLINE`? Use the `LIST` command or the AutoLISP vertex/point exporter below.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Step 3: Instant PENZD CSV Export via AutoLISP</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Load the routine below and run <code>EXPORT-XYZ-CSV</code>: select any combination of `POINT`, `CIRCLE`, or `INSERT` (blocks), and GstarCAD writes a clean `PENZ` CSV file ready for Leica/Trimble/Topcon survey controllers.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>DATAEXTRACTION</code></td>
+          <td style="padding:10px 14px;">Built-in Wizard</td>
+          <td style="padding:10px 14px; line-height:1.6;">Extracts X, Y, Z plus Block Attributes to CSV/XLS or CAD Table</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>EXPORT-XYZ-CSV</code></td>
+          <td style="padding:10px 14px;">AutoLISP Utility</td>
+          <td style="padding:10px 14px; line-height:1.6;">Exports POINT, INSERT, and CIRCLE centers to CSV in 1 second</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>LIST</code></td>
+          <td style="padding:10px 14px;">Quick Inspection</td>
+          <td style="padding:10px 14px; line-height:1.6;">Prints sequential vertex X,Y coordinates of selected Polylines</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>LUPREC = 4</code></td>
+          <td style="padding:10px 14px;">Precision Variable</td>
+          <td style="padding:10px 14px; line-height:1.6;">Controls decimal precision in LIST output (rtos uses explicit 4)</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP 1-Click Point / Block / Circle X,Y,Z to CSV Exporter)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:EXPORT-XYZ-CSV ( / ss fn fp i ent elist pt lay)
+  (if (and (setq ss (ssget '((0 . "POINT,INSERT,CIRCLE"))))
+           (setq fn (getfiled "Save XYZ Coordinates CSV" "Survey_Coords.csv" "csv" 1)))
+    (progn
+      (setq fp (open fn "w") i 0)
+      (write-line "ID,Layer,X_Easting,Y_Northing,Z_Elevation" fp)
+      (while (< i (sslength ss))
+        (setq ent (ssname ss i) i (1+ i) elist (entget ent)
+              pt  (cdr (assoc 10 elist)) lay (cdr (assoc 8 elist)))
+        (write-line (strcat (itoa i) "," lay "," (rtos (car pt) 2 4) ","
+                            (rtos (cadr pt) 2 4) "," (rtos (caddr pt) 2 4)) fp))
+      (close fp)
+      (princ (strcat "\n[CSV Export] Wrote " (itoa i) " coordinates to " fn))))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

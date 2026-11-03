@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Structural Steel Profiles (EN HEA/HEB/IPE vs. ASTM AISC W-Shapes) CAD Guide | GstarCAD Academy</title>
+<meta content="Structural steel cross-section geometry guide covering European EN 10365 (IPE, HEA, HEB, UNP) and American AISC (W, C, HSS, L) profiles with exact flange/web/fillet drafting dimensions." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/structural-steel-profiles-hea-heb-ipe-astm-w-shapes-cad-library-guide" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Structural Steel Profiles (EN HEA/HEB/IPE vs. ASTM AISC W-Shapes) CAD Guide" property="og:title"/>
+<meta content="Structural steel cross-section geometry guide covering European EN 10365 (IPE, HEA, HEB, UNP) and American AISC (W, C, HSS, L) profiles with exact flange/web/fillet drafting dimensions." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/structural-steel-profiles-hea-heb-ipe-astm-w-shapes-cad-library-guide" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Structural Steel Profiles (EN HEA/HEB/IPE vs. ASTM AISC W-Shapes) CAD Guide", "description": "Structural steel cross-section geometry guide covering European EN 10365 (IPE, HEA, HEB, UNP) and American AISC (W, C, HSS, L) profiles with exact flange/web/fillet drafting dimensions.", "url": "https://gstarcademy.com/kb/guides/structural-steel-profiles-hea-heb-ipe-astm-w-shapes-cad-library-guide", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Elena Rostova, M.Eng., PE", "jobTitle": "Senior Civil Infrastructure & Geomatics Engineer", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#civil-infrastructure"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "Structural Steel Profiles (EN HEA/HEB/IPE vs. ASTM AISC W-Shapes) CAD Guide", "item": "https://gstarcademy.com/kb/guides/structural-steel-profiles-hea-heb-ipe-astm-w-shapes-cad-library-guide"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Structural Steel Profiles (EN HEA/HEB/IPE vs. ASTM AISC W-Shapes) CAD Guide</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">STRUCTURAL ENGINEERING</span>
+<h1 style="margin-top:12px;">Structural Steel Profiles (EN HEA/HEB/IPE vs. ASTM AISC W-Shapes) CAD Guide</h1>
+<p class="hero-sub">Structural steel cross-section geometry guide covering European EN 10365 (IPE, HEA, HEB, UNP) and American AISC (W, C, HSS, L) profiles with exact flange/web/fillet drafting dimensions.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#civil-infrastructure">Elena Rostova, M.Eng., PE</a> (Senior Civil Infrastructure & Geomatics Engineer)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Structural steel detailing in <a href='/kb/software/gstarcad'>GstarCAD</a> requires accurate cross-sectional geometry—especially the <strong>root fillet radius ($r$)</strong> and flange thickness ($t_f$)—to verify bolt gauge clearances, stiffener plates, and beam-to-column welded connections across both <strong>European EN 10365 (IPE / HEA / HEB)</strong> and <strong>American AISC (W-Shapes)</strong>.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. European Wide-Flange & I-Beam Series (IPE vs. HEA vs. HEB)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>European structural steel uses parallel-flange metric profiles:</p><ul><li><code>IPE</code> (e.g., <code>IPE 300</code>: depth $h=300\text{ mm}$, width $b=150\text{ mm}$): Narrower flanges optimized for bending as secondary floor beams and purlins.</li><li><code>HEA</code> (light) &amp; <code>HEB</code> (standard, e.g., <code>HEB 300</code>: $h=300\text{ mm}, b=300\text{ mm}$): Wide square H-sections with high weak-axis moment of inertia $I_z$ for columns and heavy girders.</li></ul></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. American AISC W-Shapes (Nominal Depth x Weight in lb/ft)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>An AISC designation like <strong><code>W14x90</code></strong> indicates a Wide-Flange section with a nominal depth of $14\text{ in}$ ($d = 14.02\text{ in} / 356\text{ mm}$) and a linear mass of $90\text{ lb/ft}$ ($134\text{ kg/m}$). Always look up the exact decimal depth $d$ and k-distance (outer flange face to web toe of fillet) before detailing clip angles.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Parametric Steel Profile Insertion in GstarCAD</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Instead of manually drawing flanges and fillets, use GstarCAD Mechanical's <strong>Standard Steel Shapes Library</strong> or the parametric AutoLISP generator below to draw exact parallel-flange I/H sections with root fillets and centroid axes in 1 click.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>IPE 200 / IPE 300</code></td>
+          <td style="padding:11px 14px;">h=200, b=100 / h=300, b=150 mm</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>tw=5.6..7.1, tf=8.5..10.7 mm</strong> — Primary/secondary floor beams</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>HEA 200 / HEA 300</code></td>
+          <td style="padding:11px 14px;">h=190, b=200 / h=290, b=300 mm</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>tw=6.5..8.5, tf=10.0..14.0 mm</strong> — Building columns & portal frames</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>HEB 200 / HEB 300</code></td>
+          <td style="padding:11px 14px;">h=200, b=200 / h=300, b=300 mm</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>tw=9.0..11.0, tf=15.0..19.0 mm</strong> — Heavy axial columns & crane girders</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>W12x50 (AISC)</code></td>
+          <td style="padding:11px 14px;">d=12.19" (310mm), bf=8.08" (205mm)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>tw=0.37", tf=0.64"</strong> — North American columns & beams</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>W18x35 (AISC)</code></td>
+          <td style="padding:11px 14px;">d=17.70" (450mm), bf=6.00" (152mm)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>tw=0.30", tf=0.425"</strong> — Composite floor beams</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP Parametric Structural I/H-Beam Section Generator (IPE/HEB/W))</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:DRAW-IBEAM ( / pt h b tw tf x0 y0)
+  (setq pt (getpoint "\nPick Beam Centroid Insertion Point: ")
+        h  (getreal "\nEnter Total Depth h (mm, e.g. 300): ")
+        b  (getreal "\nEnter Flange Width b (mm, e.g. 150): ")
+        tw (getreal "\nEnter Web Thickness tw (mm, e.g. 7.1): ")
+        tf (getreal "\nEnter Flange Thickness tf (mm, e.g. 10.7): "))
+  (setq x0 (car pt) y0 (cadr pt))
+  (command "_.PLINE"
+    (list (- x0 (* 0.5 b)) (- y0 (* 0.5 h)))
+    (list (+ x0 (* 0.5 b)) (- y0 (* 0.5 h)))
+    (list (+ x0 (* 0.5 b)) (+ (- y0 (* 0.5 h)) tf))
+    (list (+ x0 (* 0.5 tw)) (+ (- y0 (* 0.5 h)) tf))
+    (list (+ x0 (* 0.5 tw)) (- (+ y0 (* 0.5 h)) tf))
+    (list (+ x0 (* 0.5 b)) (- (+ y0 (* 0.5 h)) tf))
+    (list (+ x0 (* 0.5 b)) (+ y0 (* 0.5 h)))
+    (list (- x0 (* 0.5 b)) (+ y0 (* 0.5 h)))
+    (list (- x0 (* 0.5 b)) (- (+ y0 (* 0.5 h)) tf))
+    (list (- x0 (* 0.5 tw)) (- (+ y0 (* 0.5 h)) tf))
+    (list (- x0 (* 0.5 tw)) (+ (- y0 (* 0.5 h)) tf))
+    (list (- x0 (* 0.5 b)) (+ (- y0 (* 0.5 h)) tf)) "_C")
+  (princ "\n[Structural Steel] Parametric I/H section generated.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Always include the root fillet radius r (or AISC k-dimension) when checking whether stiffener plates or bolt washers clear the web-flange transition.</li><li style='margin-bottom:8px;'>Remember that HEA 300 has an actual depth h = 290 mm, whereas HEB 300 has h = 300 mm.</li><li style='margin-bottom:8px;'>Place structural steel profiles on dedicated S-COLS or S-BEAM layers with centroid reference points.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

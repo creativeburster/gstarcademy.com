@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>FEA Material Properties Reference: Young's Modulus, Poisson's Ratio & Yield Strength | GstarCAD Academy</title>
+<meta content="Verified structural and mechanical FEA material property tables (E, nu, rho, Sy, Su, alpha) for steels, aluminum alloys, titanium, plastics, and concrete with unit consistency rules." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/fea-material-properties-youngs-modulus-poisson-yield-strength-reference" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="FEA Material Properties Reference: Young's Modulus, Poisson's Ratio & Yield Strength" property="og:title"/>
+<meta content="Verified structural and mechanical FEA material property tables (E, nu, rho, Sy, Su, alpha) for steels, aluminum alloys, titanium, plastics, and concrete with unit consistency rules." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/fea-material-properties-youngs-modulus-poisson-yield-strength-reference" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "FEA Material Properties Reference: Young's Modulus, Poisson's Ratio & Yield Strength", "description": "Verified structural and mechanical FEA material property tables (E, nu, rho, Sy, Su, alpha) for steels, aluminum alloys, titanium, plastics, and concrete with unit consistency rules.", "url": "https://gstarcademy.com/kb/guides/fea-material-properties-youngs-modulus-poisson-yield-strength-reference", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "FEA Material Properties Reference: Young's Modulus, Poisson's Ratio & Yield Strength", "item": "https://gstarcademy.com/kb/guides/fea-material-properties-youngs-modulus-poisson-yield-strength-reference"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">FEA Material Properties Reference: Young's Modulus, Poisson's Ratio & Yield Strength</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">SIMULATION & FEA REFERENCE</span>
+<h1 style="margin-top:12px;">FEA Material Properties Reference: Young's Modulus, Poisson's Ratio & Yield Strength</h1>
+<p class="hero-sub">Verified structural and mechanical FEA material property tables (E, nu, rho, Sy, Su, alpha) for steels, aluminum alloys, titanium, plastics, and concrete with unit consistency rules.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Every Finite Element Analysis (FEA) solver—whether Ansys, Abaqus, Nastran, or CalculiX—is unitless at the matrix level. Feeding a 3D solid exported from <a href='/kb/software/gstarcad'>GstarCAD</a> in <strong>Millimeters (mm)</strong> requires a strictly consistent material property system (such as <strong>mm-tonne-s-N-MPa</strong>) alongside verified isotropic elastic constants ($E, \nu, \rho, S_y$).</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. The FEA Unit Consistency Matrix (SI Meter vs. CAD Millimeter)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Because $1\text{ MPa} = 1\text{ N/mm}^2$, engineers meshing CAD models in <strong>millimeters</strong> must enter Young's Modulus $E$ and Yield Strength $S_y$ in <strong>MPa ($	ext{N/mm}^2$)</strong>, Force in <strong>Newtons ($	ext{N}$)</strong>, and Mass Density $\rho$ in <strong>$\text{tonne/mm}^3$ ($10^{-9}\text{ kg/mm}^3$)</strong> so $F = m \cdot a$ holds for gravity and modal frequency calculations!</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. Isotropic Elastic Constants Relation ($E, G, K, \nu$)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Shear Modulus $G$ and Bulk Modulus $K$ are linked to Young's Modulus $E$ and Poisson's Ratio $\nu$ by:</p>$$G = \frac{E}{2(1 + \nu)}, \qquad K = \frac{E}{3(1 - 2\nu)}$$<p>Note that all structural steels share nearly identical stiffness ($E \approx 200\text{–}210\text{ GPa}$); heat treatment increases Yield Strength $S_y$ without increasing stiffness $E$!</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Preparing Watertight 3D ACIS Solids in GstarCAD for FEA Meshing</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>Before running <code>STEPOUT</code> or <code>IGESOUT</code>, suppress cosmetic fillets ($R < 1\text{ mm}$), threads, and embossed text that create sliver tetrahedral elements, and run <code>INTERFERE</code> to verify zero overlapping volumes.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Structural Steel (S235 / A36)</code></td>
+          <td style="padding:11px 14px;">200,000 MPa (200 GPa)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.30 / 7.85e-9 t/mm3</strong> — Sy = 235..250 MPa, Su = 400 MPa</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Alloy Steel (4140 Q&T / 42CrMo4)</code></td>
+          <td style="padding:11px 14px;">205,000 MPa (205 GPa)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.29 / 7.85e-9 t/mm3</strong> — Sy = 655..950 MPa, Su = 1000 MPa</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Stainless Steel (AISI 304 / 316)</code></td>
+          <td style="padding:11px 14px;">193,000 MPa (193 GPa)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.29 / 8.00e-9 t/mm3</strong> — Sy = 205..290 MPa, Su = 515 MPa</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Aluminum Alloy (6061-T6)</code></td>
+          <td style="padding:11px 14px;">68,900 MPa (68.9 GPa)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.33 / 2.70e-9 t/mm3</strong> — Sy = 276 MPa, Su = 310 MPa</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>Titanium Alloy (Ti-6Al-4V)</code></td>
+          <td style="padding:11px 14px;">113,800 MPa (113.8 GPa)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.34 / 4.43e-9 t/mm3</strong> — Sy = 880 MPa, Su = 950 MPa</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP Isotropic Shear & Bulk Modulus (G, K) Calculator from (E, nu))</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:FEA-MODULUS-CALC ( / e nu g k)
+  (setq e  (getreal "\nEnter Young's Modulus E (GPa, e.g. 200): ")
+        nu (getreal "\nEnter Poisson's Ratio nu (e.g. 0.30): "))
+  (setq g (/ e (* 2.0 (+ 1.0 nu)))
+        k (/ e (* 3.0 (- 1.0 (* 2.0 nu)))))
+  (princ (strcat "\n[FEA Isotropic] Shear Modulus G = " (rtos g 2 2)
+                 " GPa | Bulk Modulus K = " (rtos k 2 2) " GPa"))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>When meshing in millimeters (mm), always enter Density in tonnes/mm3 (e.g. 7.85e-9 for steel) if applying gravity or running modal analysis.</li><li style='margin-bottom:8px;'>Remember that upgrading from mild steel (S235) to high-strength steel (4140) reduces von Mises stress safety factor issues, but will NOT reduce elastic deflection.</li><li style='margin-bottom:8px;'>Defeature small chamfers, tapped threads, and engraved logos in GstarCAD before exporting STEP files for FEA.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

@@ -1465,5 +1465,315 @@ document.addEventListener("keydown", (ev) => {
   });
 })();
 
+// --- Phase 1 Wave 4: Zero-Login Study Passport, Auto-Scroll Replay & Bookmark Engine ---
+(function initStudyPassportAndReplay() {
+  const HISTORY_KEY = "gstarcademy_learning_history";
+  const BOOKMARKS_KEY = "gstarcademy_bookmarks";
+  const COMPLETED_KEY = "gstarcademy_completed_pages";
+  const REPLAY_KEY = "gstarcademy_last_quiz_replay";
 
+  function safeGetJson(key, fallback) {
+    try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (_) { return fallback; }
+  }
+  function safeSetJson(key, val) {
+    try { localStorage.setItem(key, JSON.stringify(val)); } catch (_) {}
+  }
 
+  // 1. Check URL Hash/Query for Magic Resume Link (#resume=... or ?resume=...)
+  function checkMagicResumeUrl() {
+    let token = "";
+    if (window.location.hash && window.location.hash.indexOf("#resume=") === 0) {
+      token = window.location.hash.substring(8);
+    } else {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("resume")) token = params.get("resume");
+    }
+    if (!token) return;
+    try {
+      const jsonStr = decodeURIComponent(escape(atob(token)));
+      const parsed = JSON.parse(jsonStr);
+      if (parsed && parsed.data) {
+        const d = parsed.data;
+        if (d.totalXp !== undefined) localStorage.setItem("gstarcademy_total_xp", String(d.totalXp));
+        if (d.streak !== undefined) localStorage.setItem("gstarcademy_streak_v1", String(d.streak));
+        if (d.lastDate !== undefined) localStorage.setItem("gstarcademy_last_quiz_completed_date", d.lastDate);
+        if (d.roadmapProgress !== undefined) localStorage.setItem("gstarcademy_roadmap_progress", d.roadmapProgress);
+        if (d.conceptMastery !== undefined) localStorage.setItem("gstarcademy_concept_mastery", d.conceptMastery);
+        if (d.lessonsProgress !== undefined) localStorage.setItem("gstarcademy_lessons_progress", d.lessonsProgress);
+        if (d.mistakes !== undefined) localStorage.setItem("gstarcademy_mistakes", d.mistakes);
+        if (d.learningHistory !== undefined) localStorage.setItem(HISTORY_KEY, d.learningHistory);
+        if (d.bookmarks !== undefined) localStorage.setItem(BOOKMARKS_KEY, d.bookmarks);
+        if (d.completedPages !== undefined) localStorage.setItem(COMPLETED_KEY, d.completedPages);
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", window.location.pathname + window.location.search.replace(/[?&]resume=[^&]+/, ""));
+        }
+        setTimeout(() => {
+          alert("🎉 Study Passport Restored! Your XP, course progress, bookmarks, and quiz mastery have been synchronized to this browser.");
+          window.location.reload();
+        }, 120);
+      }
+    } catch (e) {
+      console.warn("Magic resume parse failed:", e);
+    }
+  }
+  checkMagicResumeUrl();
+
+  function buildFullPassportToken() {
+    const payload = {
+      version: 1,
+      timestamp: Date.now(),
+      data: {
+        totalXp: parseInt(localStorage.getItem("gstarcademy_total_xp") || "0", 10),
+        streak: parseInt(localStorage.getItem("gstarcademy_streak_v1") || "0", 10),
+        lastDate: localStorage.getItem("gstarcademy_last_quiz_completed_date") || "",
+        roadmapProgress: localStorage.getItem("gstarcademy_roadmap_progress") || "{}",
+        conceptMastery: localStorage.getItem("gstarcademy_concept_mastery") || "[]",
+        lessonsProgress: localStorage.getItem("gstarcademy_lessons_progress") || "{}",
+        mistakes: localStorage.getItem("gstarcademy_mistakes") || "[]",
+        learningHistory: localStorage.getItem(HISTORY_KEY) || "[]",
+        bookmarks: localStorage.getItem(BOOKMARKS_KEY) || "[]",
+        completedPages: localStorage.getItem(COMPLETED_KEY) || "[]"
+      }
+    };
+    return btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+  }
+
+  // 2. Article Auto-Scroll Tracking, Resume Banner & Bookmark/Complete Toolbar
+  const path = window.location.pathname.replace(/\.html$/, "");
+  const isArticlePage = /^\/kb\/(guides|faq|concepts|software|vendors)\//.test(path);
+  const articleEl = document.querySelector("main article");
+
+  if (isArticlePage && articleEl) {
+    const pageTitle = (document.querySelector("h1") ? document.querySelector("h1").textContent : document.title).trim();
+    let history = safeGetJson(HISTORY_KEY, []);
+    const prevEntry = history.find(h => h.path === path);
+
+    // Inject Resume Banner if user previously scrolled >= 12% and < 95%
+    if (prevEntry && prevEntry.pct >= 12 && prevEntry.pct < 95 && prevEntry.scrollY > 220) {
+      const banner = document.createElement("div");
+      banner.style.cssText = "margin-bottom:18px;padding:12px 18px;background:rgba(37,99,235,0.08);border:1px solid #2563eb;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;";
+      const secLabel = prevEntry.section ? ` (“${prevEntry.section}”)` : "";
+      banner.innerHTML = `<span>👋 <strong>Welcome back!</strong> You previously read <strong>${prevEntry.pct}%</strong> of this guide${secLabel}.</span>
+        <div style="display:flex;gap:8px;">
+          <button type="button" id="gs-resume-scroll-btn" style="background:#2563eb;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-weight:600;font-size:12.5px;">▶ Resume Where I Left Off</button>
+          <button type="button" id="gs-dismiss-resume-btn" style="background:transparent;color:var(--ink-text-soft);border:1px solid var(--ink-line);padding:6px 10px;border-radius:6px;cursor:pointer;font-size:12px;">Dismiss</button>
+        </div>`;
+      articleEl.insertBefore(banner, articleEl.firstChild);
+      document.getElementById("gs-resume-scroll-btn").addEventListener("click", () => {
+        window.scrollTo({ top: prevEntry.scrollY, behavior: "smooth" });
+        banner.remove();
+      });
+      document.getElementById("gs-dismiss-resume-btn").addEventListener("click", () => banner.remove());
+    }
+
+    // Inject Action Bar (Bookmark, Mark Complete, Copy Magic Resume Link)
+    const actionBar = document.createElement("div");
+    actionBar.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0 22px;padding:10px 14px;background:var(--ink-surface-2,#f8fafc);border:1px solid var(--ink-line,#e2e8f0);border-radius:10px;font-size:13px;";
+    const bookmarks = safeGetJson(BOOKMARKS_KEY, []);
+    const completed = safeGetJson(COMPLETED_KEY, []);
+    const isBookmarked = bookmarks.some(b => b.path === path);
+    const isDone = completed.includes(path);
+
+    actionBar.innerHTML = `
+      <button type="button" id="gs-btn-bookmark" style="padding:6px 12px;border-radius:6px;border:1px solid var(--ink-line,#cbd5e1);background:var(--ink-surface,#fff);color:var(--ink-text);cursor:pointer;font-weight:600;">
+        ${isBookmarked ? "⭐ Bookmarked" : "☆ Bookmark Guide"}
+      </button>
+      <button type="button" id="gs-btn-complete" style="padding:6px 12px;border-radius:6px;border:1px solid ${isDone ? "#16a34a" : "var(--ink-line,#cbd5e1)"};background:${isDone ? "rgba(22,163,74,0.12)" : "var(--ink-surface,#fff)"};color:${isDone ? "#15803d" : "var(--ink-text)"};cursor:pointer;font-weight:600;">
+        ${isDone ? "✅ Completed" : "☐ Mark as Completed"}
+      </button>
+      <button type="button" id="gs-btn-magic-link" style="padding:6px 12px;border-radius:6px;border:1px solid var(--ink-line,#cbd5e1);background:var(--ink-surface,#fff);color:#2563eb;cursor:pointer;font-weight:600;margin-left:auto;">
+        🔗 Copy Cross-Device Resume Link
+      </button>
+    `;
+    const headerEl = articleEl.querySelector("header");
+    if (headerEl && headerEl.nextSibling) {
+      articleEl.insertBefore(actionBar, headerEl.nextSibling);
+    } else {
+      articleEl.insertBefore(actionBar, articleEl.firstChild);
+    }
+
+    document.getElementById("gs-btn-bookmark").addEventListener("click", function() {
+      let bks = safeGetJson(BOOKMARKS_KEY, []);
+      const idx = bks.findIndex(b => b.path === path);
+      if (idx >= 0) {
+        bks.splice(idx, 1);
+        this.textContent = "☆ Bookmark Guide";
+      } else {
+        bks.unshift({ path, title: pageTitle, ts: Date.now() });
+        this.textContent = "⭐ Bookmarked";
+      }
+      safeSetJson(BOOKMARKS_KEY, bks.slice(0, 50));
+    });
+
+    document.getElementById("gs-btn-complete").addEventListener("click", function() {
+      let cmp = safeGetJson(COMPLETED_KEY, []);
+      const idx = cmp.indexOf(path);
+      if (idx >= 0) {
+        cmp.splice(idx, 1);
+        this.textContent = "☐ Mark as Completed";
+        this.style.borderColor = "var(--ink-line,#cbd5e1)";
+        this.style.background = "var(--ink-surface,#fff)";
+        this.style.color = "var(--ink-text)";
+      } else {
+        cmp.push(path);
+        this.textContent = "✅ Completed";
+        this.style.borderColor = "#16a34a";
+        this.style.background = "rgba(22,163,74,0.12)";
+        this.style.color = "#15803d";
+      }
+      safeSetJson(COMPLETED_KEY, cmp);
+    });
+
+    document.getElementById("gs-btn-magic-link").addEventListener("click", function() {
+      const url = window.location.origin + path + "#resume=" + buildFullPassportToken();
+      if (navigator.clipboard) navigator.clipboard.writeText(url);
+      this.textContent = "✓ Magic Resume Link Copied!";
+      setTimeout(() => { this.textContent = "🔗 Copy Cross-Device Resume Link"; }, 3000);
+    });
+
+    // Throttled scroll progress recorder
+    let scrollTimer = null;
+    function recordScroll() {
+      const docH = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const pct = Math.min(100, Math.max(5, Math.round((window.scrollY / docH) * 100)));
+      let currentSec = "";
+      const headings = articleEl.querySelectorAll("h2, h3");
+      headings.forEach(h => {
+        if (h.getBoundingClientRect().top <= 180) currentSec = h.textContent.trim().slice(0, 65);
+      });
+      let hist = safeGetJson(HISTORY_KEY, []).filter(h => h.path !== path);
+      hist.unshift({ path, title: pageTitle, pct, scrollY: Math.round(window.scrollY), section: currentSec, ts: Date.now() });
+      safeSetJson(HISTORY_KEY, hist.slice(0, 20));
+    }
+    recordScroll();
+    window.addEventListener("scroll", () => {
+      if (scrollTimer) return;
+      scrollTimer = setTimeout(() => { scrollTimer = null; recordScroll(); }, 600);
+    }, { passive: true });
+  }
+
+  // 3. Decorate Course Cards on tutorials.html / kb/guides/ with completion & progress badges
+  const completedPaths = safeGetJson(COMPLETED_KEY, []);
+  const histMap = {};
+  safeGetJson(HISTORY_KEY, []).forEach(h => { histMap[h.path] = h; });
+  document.querySelectorAll('a[href^="/kb/guides/"], a[href^="/kb/faq/"]').forEach(a => {
+    const href = a.getAttribute("href").replace(/\.html$/, "");
+    if (completedPaths.includes(href)) {
+      const badge = document.createElement("span");
+      badge.style.cssText = "display:inline-block;margin-left:6px;padding:2px 6px;font-size:10.5px;font-weight:700;background:#dcfce7;color:#15803d;border-radius:4px;";
+      badge.textContent = "✅ Completed";
+      a.prepend(badge);
+    } else if (histMap[href] && histMap[href].pct >= 15) {
+      const badge = document.createElement("span");
+      badge.style.cssText = "display:inline-block;margin-left:6px;padding:2px 6px;font-size:10.5px;font-weight:700;background:#dbeafe;color:#1d4ed8;border-radius:4px;";
+      badge.textContent = `⏳ ${histMap[href].pct}% Read`;
+      a.prepend(badge);
+    }
+  });
+
+  // 4. Global Topbar "📚 Progress" Drawer & Quiz Session Replay Modal
+  const navEl = document.querySelector(".topbar .nav");
+  if (navEl) {
+    const progBtn = document.createElement("button");
+    progBtn.type = "button";
+    progBtn.className = "nav-link";
+    progBtn.style.cssText = "background:none;border:1px solid var(--ink-line,#cbd5e1);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:13px;font-weight:600;margin-left:4px;";
+    const xp = parseInt(localStorage.getItem("gstarcademy_total_xp") || "0", 10);
+    progBtn.innerHTML = `📚 Progress ${xp > 0 ? `<span style="color:#2563eb;">(${xp} XP)</span>` : ""}`;
+    navEl.insertBefore(progBtn, navEl.lastElementChild);
+
+    progBtn.addEventListener("click", openProgressDrawer);
+  }
+
+  function openProgressDrawer() {
+    let existing = document.getElementById("gs-progress-modal");
+    if (existing) existing.remove();
+
+    const hist = safeGetJson(HISTORY_KEY, []);
+    const bks = safeGetJson(BOOKMARKS_KEY, []);
+    const cmp = safeGetJson(COMPLETED_KEY, []);
+    const replay = safeGetJson(REPLAY_KEY, null);
+    const xp = parseInt(localStorage.getItem("gstarcademy_total_xp") || "0", 10);
+    const streak = parseInt(localStorage.getItem("gstarcademy_streak_v1") || "0", 10);
+
+    const histHtml = hist.length ? hist.slice(0, 6).map(h => `
+      <a href="${h.path}" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#0f172a;margin-bottom:8px;">
+        <div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:75%;">
+          <strong style="font-size:13px;">${h.title}</strong>
+          ${h.section ? `<div style="font-size:11.5px;color:#64748b;">Last section: ${h.section}</div>` : ""}
+        </div>
+        <span style="font-size:12px;font-weight:700;color:#2563eb;white-space:nowrap;">▶ ${h.pct}%</span>
+      </a>`).join("") : `<p style="font-size:13px;color:#64748b;">No recent guides yet. Open any course or guide to auto-save your reading position.</p>`;
+
+    const bkHtml = bks.length ? bks.slice(0, 6).map(b => `
+      <a href="${b.path}" style="display:block;padding:8px 12px;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#0f172a;margin-bottom:6px;font-size:13px;font-weight:600;">⭐ ${b.title}</a>`).join("") : `<p style="font-size:13px;color:#64748b;">Click "☆ Bookmark Guide" on any article to pin it here.</p>`;
+
+    const replayHtml = replay && Array.isArray(replay.questions) ? `
+      <div style="margin-top:16px;padding:12px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <strong style="font-size:13.5px;">🎬 Last Quiz Session Replay (${replay.track.toUpperCase()}${replay.lessonId ? " L"+replay.lessonId : ""})</strong>
+          <button type="button" id="gs-toggle-replay-btn" style="background:#2563eb;color:#fff;border:none;padding:4px 10px;border-radius:6px;font-size:12px;cursor:pointer;">View Q&A Replay</button>
+        </div>
+        <div id="gs-replay-details" style="display:none;margin-top:10px;max-height:220px;overflow-y:auto;font-size:12.5px;">
+          ${replay.questions.map((q, i) => `
+            <div style="padding:8px;border-bottom:1px solid #e2e8f0;">
+              <div><strong>Q${i+1}:</strong> ${q.question}</div>
+              <div style="color:#15803d;margin-top:3px;">✓ <strong>Answer:</strong> ${q.options[q.correctIdx]}</div>
+              <div style="color:#475569;margin-top:2px;"><em>${q.why}</em></div>
+            </div>`).join("")}
+        </div>
+      </div>` : "";
+
+    const modal = document.createElement("div");
+    modal.id = "gs-progress-modal";
+    modal.style.cssText = "position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:9999;display:flex;justify-content:flex-end;";
+    modal.innerHTML = `
+      <div style="width:100%;max-width:460px;background:#fff;color:#0f172a;height:100%;overflow-y:auto;padding:24px;box-shadow:-8px 0 30px rgba(0,0,0,0.2);">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e2e8f0;padding-bottom:14px;">
+          <h3 style="margin:0;font-size:18px;">📚 Zero-Login Study Passport</h3>
+          <button type="button" id="gs-close-modal" style="background:none;border:none;font-size:22px;cursor:pointer;color:#64748b;">×</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;text-align:center;">
+          <div style="padding:10px;background:#f1f5f9;border-radius:8px;"><div style="font-size:11px;color:#64748b;">TOTAL XP</div><strong style="font-size:16px;color:#2563eb;">${xp} XP</strong></div>
+          <div style="padding:10px;background:#f1f5f9;border-radius:8px;"><div style="font-size:11px;color:#64748b;">STREAK</div><strong style="font-size:16px;color:#ea580c;">🔥 ${streak}d</strong></div>
+          <div style="padding:10px;background:#f1f5f9;border-radius:8px;"><div style="font-size:11px;color:#64748b;">COMPLETED</div><strong style="font-size:16px;color:#16a34a;">✅ ${cmp.length}</strong></div>
+        </div>
+        <h4 style="margin:16px 0 8px;font-size:14px;">⏳ Continue Where You Left Off</h4>
+        ${histHtml}
+        ${replayHtml}
+        <h4 style="margin:18px 0 8px;font-size:14px;">⭐ Saved Engineering Bookmarks (${bks.length})</h4>
+        ${bkHtml}
+        <div style="margin-top:20px;padding:14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;">
+          <h4 style="margin:0 0 6px;font-size:13.5px;color:#1e40af;">⚡ Cloudless Cross-Device Sync (No Login Required)</h4>
+          <p style="margin:0 0 10px;font-size:12px;color:#3b82f6;line-height:1.5;">Save your Magic Resume Link as a browser bookmark or download your JSON Study Passport to continue on any PC or mobile device.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" id="gs-modal-copy-link" style="background:#2563eb;color:#fff;border:none;padding:7px 12px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;">🔗 Copy Magic Resume URL</button>
+            <button type="button" id="gs-modal-dl-json" style="background:#fff;color:#0f172a;border:1px solid #cbd5e1;padding:7px 12px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;">💾 Download .JSON Passport</button>
+          </div>
+        </div>
+      </div>`;
+    document.body.appendChild(modal);
+
+    document.getElementById("gs-close-modal").addEventListener("click", () => modal.remove());
+    modal.addEventListener("click", e => { if (e.target === modal) modal.remove(); });
+    const repBtn = document.getElementById("gs-toggle-replay-btn");
+    if (repBtn) {
+      repBtn.addEventListener("click", () => {
+        const det = document.getElementById("gs-replay-details");
+        det.style.display = det.style.display === "none" ? "block" : "none";
+      });
+    }
+    document.getElementById("gs-modal-copy-link").addEventListener("click", function() {
+      const url = window.location.origin + "/quiz#resume=" + buildFullPassportToken();
+      if (navigator.clipboard) navigator.clipboard.writeText(url);
+      this.textContent = "✓ Copied Magic URL!";
+    });
+    document.getElementById("gs-modal-dl-json").addEventListener("click", () => {
+      const blob = new Blob([atob(buildFullPassportToken())], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "GstarCAD-Study-Passport.json";
+      a.click();
+    });
+  }
+})();

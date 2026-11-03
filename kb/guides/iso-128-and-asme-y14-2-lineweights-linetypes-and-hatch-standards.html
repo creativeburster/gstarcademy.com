@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>ISO 128 & ASME Y14.2 Lineweights, Linetypes & Hatch Standards Handbook | GstarCAD Academy</title>
+<meta content="Definitive engineering reference for technical drawing line thicknesses, √2 metric pen hierarchies, hidden/center line conventions, and section hatching rules." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/iso-128-and-asme-y14-2-lineweights-linetypes-and-hatch-standards" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="ISO 128 & ASME Y14.2 Lineweights, Linetypes & Hatch Standards Handbook" property="og:title"/>
+<meta content="Definitive engineering reference for technical drawing line thicknesses, √2 metric pen hierarchies, hidden/center line conventions, and section hatching rules." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/iso-128-and-asme-y14-2-lineweights-linetypes-and-hatch-standards" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ISO 128 & ASME Y14.2 Lineweights, Linetypes & Hatch Standards Handbook", "description": "Definitive engineering reference for technical drawing line thicknesses, \u221a2 metric pen hierarchies, hidden/center line conventions, and section hatching rules.", "url": "https://gstarcademy.com/kb/guides/iso-128-and-asme-y14-2-lineweights-linetypes-and-hatch-standards", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Dr. Lin Wei, Ph.D., PE", "jobTitle": "Principal BIM & Interoperability Architect", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#bim-architecture"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gstarcademy.com/kb/guides/"}, {"@type": "ListItem", "position": 3, "name": "ISO 128 & ASME Y14.2 Lineweights, Linetypes & Hatch Standards Handbook", "item": "https://gstarcademy.com/kb/guides/iso-128-and-asme-y14-2-lineweights-linetypes-and-hatch-standards"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/kb/guides/">Guides</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">ISO 128 & ASME Y14.2 Lineweights, Linetypes & Hatch Standards Handbook</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">DRAFTING STANDARDS</span>
+<h1 style="margin-top:12px;">ISO 128 & ASME Y14.2 Lineweights, Linetypes & Hatch Standards Handbook</h1>
+<p class="hero-sub">Definitive engineering reference for technical drawing line thicknesses, √2 metric pen hierarchies, hidden/center line conventions, and section hatching rules.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#bim-architecture">Dr. Lin Wei, Ph.D., PE</a> (Principal BIM & Interoperability Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>Visual hierarchy on a printed or PDF engineering drawing is governed by international line conventions: <strong>ISO 128</strong> (metric $\sqrt{2}$ series) and <strong>ASME Y14.2</strong> (inch/metric visible vs. thin line hierarchy). Configuring these exact lineweights inside your <a href='/kb/software/gstarcad'>GstarCAD</a> <code>.ctb</code>/<code>.stb</code> plot styles and layer templates guarantees unmistakable legibility at A1, A3, and ANSI D scales.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">1. The ISO 128 Metric Line Group Hierarchy (0.13 mm to 1.40 mm)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>ISO 128 steps line thicknesses by a factor of $\sqrt{2} \approx 1.414$ so that when an A1 sheet is reduced 50% to A3, the lineweights step down cleanly by one standard pen size. For standard mechanical and architectural drawings, the <strong>0.5 / 0.25 / 0.18 mm</strong> or <strong>0.7 / 0.35 / 0.25 mm</strong> Line Group is mandatory.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">2. ASME Y14.2 Visible, Hidden, Center & Phantom Conventions</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>ASME Y14.2 specifies a strict 2:1 width ratio between <strong>Thick lines (0.60 mm / 0.024 in)</strong> for visible outlines, cutting planes, and short break lines, and <strong>Thin lines (0.30 mm / 0.012 in)</strong> for hidden lines, centerlines, dimension/extension lines, and section hatches.</p></p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">3. Section Hatching Angles & Material Patterns (ISO 128-50 / ANSI Y14.3)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;"><p>General metal cross-sections use <code>ANSI31</code> or <code>ISO02W100</code> at 45° to the principal axis. Adjacent mating parts in an assembly section must alternate hatch angles (45°, 135°, 30°, 60°) and pitch spacing so part boundaries stand out clearly.</p></p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>01.2 Continuous Thick</code></td>
+          <td style="padding:11px 14px;">0.50 mm (A3) / 0.70 mm (A1)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.60 mm</strong> — Visible outlines, edges, crests of threads</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>01.1 Continuous Thin</code></td>
+          <td style="padding:11px 14px;">0.25 mm (A3) / 0.35 mm (A1)</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.30 mm</strong> — Dimension lines, leaders, hatching, root of threads</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>02.1 Dashed Thin (HIDDEN)</code></td>
+          <td style="padding:11px 14px;">0.25 mm</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.30 mm</strong> — Hidden outlines and invisible edges</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>04.1 Long-Dashed Dotted (CENTER)</code></td>
+          <td style="padding:11px 14px;">0.18 mm / 0.25 mm</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.30 mm</strong> — Axes of symmetry, pitch circles, centerlines</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>04.2 Cutting Plane Thick</code></td>
+          <td style="padding:11px 14px;">0.50 mm / 0.70 mm</td>
+          <td style="padding:11px 14px; line-height:1.6;"><strong>0.60 mm</strong> — Section cutting plane traces and viewing arrows</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (AutoLISP ISO 128 Standard Linetype & Lineweight Layer Creator)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:MAKE-ISO128-LAYERS ()
+  (command "_.-LAYER"
+    "_M" "ISO-01-VISIBLE-THICK" "_C" "7" "" "_LW" "0.50" "" "_LT" "Continuous" ""
+    "_M" "ISO-02-HIDDEN-THIN"   "_C" "3" "" "_LW" "0.25" "" "_LT" "HIDDEN" ""
+    "_M" "ISO-04-CENTER-THIN"   "_C" "1" "" "_LW" "0.18" "" "_LT" "CENTER" ""
+    "_M" "ISO-05-HATCH-THIN"    "_C" "8" "" "_LW" "0.18" "" "_LT" "Continuous" "" "")
+  (princ "\n[ISO 128] Standard lineweight layers created.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Maintain at least a 2:1 thickness ratio between visible object outlines and dimension/hatch lines.</li><li style='margin-bottom:8px;'>Set PSLTSCALE = 1 and MSLTSCALE = 1 so dashed HIDDEN and CENTER lines plot at identical dash lengths across all viewport scales.</li><li style='margin-bottom:8px;'>Alternate hatch angles (45 deg vs 135 deg) on adjacent components in assembly cross-sections.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

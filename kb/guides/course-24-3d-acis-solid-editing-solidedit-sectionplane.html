@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>Course 24: 3D ACIS Solid Direct Editing (SOLIDEDIT), Shelling & Section Plane Orthographic Extraction | GstarCAD Academy</title>
+<meta content="Modify imported dumb 3D solids without history trees using SOLIDEDIT (Move/Offset/Taper/Delete Faces), SHELL, and generate 2D shop drawings via SECTIONPLANE and FLATSHOT." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/guides/course-24-3d-acis-solid-editing-solidedit-sectionplane" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Course 24: 3D ACIS Solid Direct Editing (SOLIDEDIT), Shelling & Section Plane Orthographic Extraction" property="og:title"/>
+<meta content="Modify imported dumb 3D solids without history trees using SOLIDEDIT (Move/Offset/Taper/Delete Faces), SHELL, and generate 2D shop drawings via SECTIONPLANE and FLATSHOT." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/guides/course-24-3d-acis-solid-editing-solidedit-sectionplane" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Course 24: 3D ACIS Solid Direct Editing (SOLIDEDIT), Shelling & Section Plane Orthographic Extraction", "description": "Modify imported dumb 3D solids without history trees using SOLIDEDIT (Move/Offset/Taper/Delete Faces), SHELL, and generate 2D shop drawings via SECTIONPLANE and FLATSHOT.", "url": "https://gstarcademy.com/kb/guides/course-24-3d-acis-solid-editing-solidedit-sectionplane", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "en", "author": {"@type": "Person", "name": "Chen Haoran, M.Sc., GDTP-S", "jobTitle": "Lead Mechanical CAD & ASME GD&T Specialist", "worksFor": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)"}, "url": "https://gstarcademy.com/authors#mechanical-mcad"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-sub"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gstarcademy.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn & Courses", "item": "https://gstarcademy.com/tutorials"}, {"@type": "ListItem", "position": 3, "name": "Course 24: 3D ACIS Solid Direct Editing (SOLIDEDIT), Shelling & Section Plane Orthographic Extraction", "item": "https://gstarcademy.com/kb/guides/course-24-3d-acis-solid-editing-solidedit-sectionplane"}]}</script>
+</head>
+<body data-page="tutorials">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link active" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/tutorials">Learn & Courses</a> / <a href="/kb/guides/">Engineering Guides</a> / <span aria-current="page">Course 24: 3D ACIS Solid Direct Editing (SOLIDEDIT), Shelling & Section Plane Orthographic Extraction</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">Official Course 24 · 3D Solid Detailing</span>
+<h1 style="margin-top:12px;">Course 24: 3D ACIS Solid Direct Editing (SOLIDEDIT), Shelling & Section Plane Orthographic Extraction</h1>
+<p class="hero-sub">Modify imported dumb 3D solids without history trees using SOLIDEDIT (Move/Offset/Taper/Delete Faces), SHELL, and generate 2D shop drawings via SECTIONPLANE and FLATSHOT.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#mechanical-mcad">Chen Haoran, M.Sc., GDTP-S</a> (Lead Mechanical CAD & ASME GD&T Specialist)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<section style="margin-top:24px;">
+<h2>1. Engineering Architecture &amp; Core Methodology</h2>
+<p>When mechanical engineers import a vendor `.STEP` or `.SAT` casting into <strong><a href='/kb/software/gstarcad'>GstarCAD 2027</a></strong>, the resulting `3DSOLID` has no parametric feature history tree. How do you shift a bolt boss by `15 mm`, change a counterbore diameter from `Ø18` to `Ø22`, hollow out a housing to `4.0 mm` wall thickness, or delete an unwanted fillet? The answer is **Direct B-Rep Topology Editing (`SOLIDEDIT` &amp; `PRESSPULL` / `Ctrl+Click` Sub-Object Grips)**.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Production Workflow &amp; Command Modules</h2>
+
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 1: Direct Face Manipulation (Offset, Move, Rotate, Taper & Delete Faces)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Launch <code>SOLIDEDIT &rarr; Face</code> (or hold `Ctrl` while clicking a planar or cylindrical face on a `3DSOLID`). Use **Offset Faces** on a cylindrical hole face to change its diameter directly, **Move Faces** to reposition a pocket or boss along a vector while adjacent walls heal automatically, and **Delete Faces** to strip away fillets and chamfers cleanly!</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 2: Thin-Wall Housing Shelling & Edge Imprinting (SOLIDEDIT > Body)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run <code>SOLIDEDIT &rarr; Body &rarr; Shell</code>, select the 3D solid, click the open bottom/port faces to exclude from shelling, and enter the wall thickness (e.g., `3.5 mm`). Use **Check** (`SOLIDEDIT > Body > Check`) to validate ACIS topological health, and **Separate** to split disjoint solid lumps resulting from a `SUBTRACT` operation.</p>
+        </div>
+        <div style="margin-bottom:18px; padding:20px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 10px; font-size:1.05rem; font-weight:700;">Module 3: Live Section Planes & 2D Shop Drawing Generation (SECTIONPLANE & FLATSHOT)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75;">Run <code>SECTIONPLANE</code> to place an interactive cutting plane across a 3D assembly, toggle <code>LIVESECTION</code> to inspect internal O-ring grooves, and run <code>SECTIONPLANETOBLOCK</code> (or `FLATSHOT`) to generate associative 2D orthographic and cross-hatched section blocks ready for Paper Space dimensioning.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. Command, Variable &amp; Standard Reference Matrix</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Command / Parameter</th>
+  <th style="padding:12px 14px;">Scope / Target</th>
+  <th style="padding:12px 14px;">Engineering Behavior &amp; Best Practice</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SOLIDEDIT > Face > Delete</code></td>
+          <td style="padding:11px 14px;">Fillet / Hole Removal</td>
+          <td style="padding:11px 14px; line-height:1.6;">Deletes selected fillet, chamfer, or hole faces and heals adjacent B-Rep surfaces.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SOLIDEDIT > Face > Offset</code></td>
+          <td style="padding:11px 14px;">Boss / Bore Resizing</td>
+          <td style="padding:11px 14px; line-height:1.6;">Offsets planar or cylindrical faces inward/outward without redrawing sketches.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SOLIDEDIT > Body > Shell</code></td>
+          <td style="padding:11px 14px;">Thin-Wall Enclosures</td>
+          <td style="padding:11px 14px; line-height:1.6;">Hollows a solid into a uniform wall thickness while opening selected port faces.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:11px 14px; font-weight:600;"><code>SECTIONPLANETOBLOCK</code></td>
+          <td style="padding:11px 14px;">2D Section Generation</td>
+          <td style="padding:11px 14px; line-height:1.6;">Extracts cut-plane cross-sections with automated background silhouettes and hatches.</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. Automation Script &amp; Reference Implementation (3D Solid Audit & Sub-Object Selection Setup LISP)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun C:SOLIDPREP ()
+  (setvar "SUBOBJSELECTIONMODE" 0) ;; Allow Ctrl+Click on Faces, Edges, and Vertices
+  (setvar "LEGACYCTRLPICK" 0)
+  (setvar "CULLINGOBJ" 1)          ;; Ignore hidden back-faces during 3D sub-object selection
+  (setvar "HISTORIES" 0)
+  (princ "\n[Course 24] Enabled 3D Face/Edge Ctrl+Click direct editing & back-face culling.")
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:28px;">
+<h2>5. Production QA Verification &amp; Competency Checklist</h2>
+<ul style="line-height:1.75;"><li style='margin-bottom:8px;'>Before applying `Shell` to a complex housing, add small outer fillets last (or delete tight fillets via `Face > Delete`) so offset surfaces do not self-intersect.</li><li style='margin-bottom:8px;'>Use `SOLIDEDIT > Body > Separate` whenever a `SUBTRACT` cut splits one `3DSOLID` into two disconnected pieces that still highlight as a single object.</li><li style='margin-bottom:8px;'>Always set `LEGACYCTRLPICK = 0` so `Ctrl+Click` selects 3D solid faces and edges cleanly.</li></ul>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Practice This Workflow in GstarCAD 2027 Professional</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, GstarCAD 2027 delivers 100% native AC1032 DWG compatibility, perpetual licensing, and zero-day AutoCAD parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Evaluation &rarr;</a>
+  <a href="/tutorials" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Official Courses</a>
+  <a href="/quiz" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">Take Skill Certification Quiz</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

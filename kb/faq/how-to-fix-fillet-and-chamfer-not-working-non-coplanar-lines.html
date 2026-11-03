@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Fix FILLET and CHAMFER Not Working ('Lines Are Non-Coplanar' or 'Radius Too Large') | GstarCAD Academy</title>
+<meta content="Resolve every reason why FILLET or CHAMFER fails in GstarCAD and AutoCAD: non-coplanar Z elevations, TRIMMODE=0, locked layers, or polyline arc segment conflicts." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-fix-fillet-and-chamfer-not-working-non-coplanar-lines" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Fix FILLET and CHAMFER Not Working ('Lines Are Non-Coplanar' or 'Radius Too Large')" property="og:title"/>
+<meta content="Resolve every reason why FILLET or CHAMFER fails in GstarCAD and AutoCAD: non-coplanar Z elevations, TRIMMODE=0, locked layers, or polyline arc segment conflicts." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-fix-fillet-and-chamfer-not-working-non-coplanar-lines" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Fix FILLET and CHAMFER Not Working ('Lines Are Non-Coplanar' or 'Radius Too Large')", "acceptedAnswer": {"@type": "Answer", "text": "If FILLET says 'Lines are non-coplanar', flatten both objects to Z=0 (set Start Z = 0, End Z = 0, Elevation = 0 in Properties) and set OSNAPZ=1. If FILLET creates the arc without trimming the corner, type TRIMMODE and set it to 1. Hold the SHIFT key while picking two lines to force a sharp 0-radius corner."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Fix FILLET and CHAMFER Not Working ('Lines Are Non-Coplanar' or 'Radius Too Large')", "description": "Resolve every reason why FILLET or CHAMFER fails in GstarCAD and AutoCAD: non-coplanar Z elevations, TRIMMODE=0, locked layers, or polyline arc segment conflicts.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Zhang Mingyuan, B.Eng.", "jobTitle": "Distinguished DWG Graphics Kernel & GRX SDK Architect", "url": "https://gstarcademy.com/authors#drafting-standards"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Fix FILLET and CHAMFER Not Working ('Lines Are Non-Coplanar' or 'Radius Too Large')</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">MODIFY COMMAND FIXES</span>
+<h1 style="margin-top:12px;">How to Fix FILLET and CHAMFER Not Working ('Lines Are Non-Coplanar' or 'Radius Too Large')</h1>
+<p class="hero-sub">Resolve every reason why FILLET or CHAMFER fails in GstarCAD and AutoCAD: non-coplanar Z elevations, TRIMMODE=0, locked layers, or polyline arc segment conflicts.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#drafting-standards">Zhang Mingyuan, B.Eng.</a> (Distinguished DWG Graphics Kernel & GRX SDK Architect)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">If FILLET says 'Lines are non-coplanar', flatten both objects to Z=0 (set Start Z = 0, End Z = 0, Elevation = 0 in Properties) and set OSNAPZ=1. If FILLET creates the arc without trimming the corner, type TRIMMODE and set it to 1. Hold the SHIFT key while picking two lines to force a sharp 0-radius corner.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>When <code>FILLET</code> or <code>CHAMFER</code> refuses to join two intersecting walls or mechanical edges, the command line usually prints one of three diagnostic messages: <em>"Lines are non-coplanar"</em>, <em>"Radius is too large"</em>, or <em>"Cannot fillet between these two entities"</em>.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Cause 1: 'Lines are non-coplanar' (Mismatched Z Coordinates or Extrusion Normals)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Even a $0.0001\text{ mm}$ difference in `Start Z`, `End Z`, or `Elevation`—or an inverted extrusion direction `DXF 210 = (0 0 -1)` from a 3D mirror—prevents a 2D fillet. Select both objects, open <code>Properties (Ctrl+1)</code>, set <code>Start Z = 0</code>, <code>End Z = 0</code>, and <code>Elevation = 0</code>, or run <code>FLATTEN</code>.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Cause 2: Fillet Arc Draws But Original Corner Lines Do Not Trim (TRIMMODE = 0)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">If GstarCAD draws the fillet arc but leaves the sharp corner extensions intact, type <code>TRIMMODE</code> at the command prompt and change it from <code>0</code> to <code>1</code> (or choose <code>Trim &rarr; Trim</code> inside the `FILLET` prompt).</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Cause 3: Pro Tip — Hold SHIFT to Force a Zero-Radius Corner Join</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">You never need to change `FILLETRAD` to `0` just to close a sharp corner! Keep your working `FILLETRAD` (e.g., `5.0 mm`), launch <code>FILLET</code>, and <strong>hold down the <code>SHIFT</code> key</strong> while clicking the second line—GstarCAD temporarily overrides the radius to `0.0` for that click.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>TRIMMODE</code></td>
+          <td style="padding:10px 14px;">1 (Registry)</td>
+          <td style="padding:10px 14px; line-height:1.6;">1 = Trims intersecting lines at fillet/chamfer; 0 = Leaves original lines</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>FILLETRAD</code></td>
+          <td style="padding:10px 14px;">0.0 (or Design R)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Stores current fillet radius inside the drawing</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>SHIFT + Click</code></td>
+          <td style="padding:10px 14px;">Temporary Override</td>
+          <td style="padding:10px 14px; line-height:1.6;">Forces a sharp R=0 corner join without erasing your saved FILLETRAD</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>DXF Group 210</code></td>
+          <td style="padding:10px 14px;">(0.0 0.0 1.0)</td>
+          <td style="padding:10px 14px; line-height:1.6;">Normal vector; run FLATTEN if an entity has inverted (0 0 -1) normal</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP Coplanar Normalizer & Trim-Enabled Fillet Reset)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:FIX-FILLET-STATE ()
+  (setvar "TRIMMODE" 1)
+  (setvar "OSNAPZ" 1)
+  (setvar "ELEVATION" 0.0)
+  (princ (strcat "\n[Fillet Doctor] TRIMMODE=1 (Trim On), OSNAPZ=1, Current FILLETRAD="
+                 (rtos (getvar "FILLETRAD") 2 2)))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>

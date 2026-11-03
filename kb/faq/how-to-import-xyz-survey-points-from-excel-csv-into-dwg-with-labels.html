@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+<script data-cfasync="false">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  try {
+    var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+    if (cp) gtag('consent', 'update', { 'analytics_storage': cp.analytics ? 'granted' : 'denied' });
+  } catch (e) {}
+  gtag('js', new Date());
+  gtag('config', 'G-ZV3YR72933');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="author" content="GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)" />
+<meta name="publisher" content="Suzhou Gstarsoft Co., Ltd. (SSE: 688657)" />
+<link rel="service" type="application/openapi+json" href="/openapi.json" />
+<link rel="mcp" type="application/json" href="/mcp.json" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Full Corpus" />
+<title>How to Import X,Y,Z Survey Points from Excel / CSV into GstarCAD with Point ID Labels | GstarCAD Academy</title>
+<meta content="Two fast methods to import hundreds of PENZD (Point, Easting, Northing, Elevation, Description) survey coordinates from Excel or CSV into GstarCAD with 3D nodes and text labels." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://gstarcademy.com/kb/faq/how-to-import-xyz-survey-points-from-excel-csv-into-dwg-with-labels" rel="canonical"/>
+<meta content="https://gstarcademy.com/images/og-default.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="How to Import X,Y,Z Survey Points from Excel / CSV into GstarCAD with Point ID Labels" property="og:title"/>
+<meta content="Two fast methods to import hundreds of PENZD (Point, Easting, Northing, Elevation, Description) survey coordinates from Excel or CSV into GstarCAD with 3D nodes and text labels." property="og:description"/>
+<meta content="https://gstarcademy.com/kb/faq/how-to-import-xyz-survey-points-from-excel-csv-into-dwg-with-labels" property="og:url"/>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../styles.min.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How to Import X,Y,Z Survey Points from Excel / CSV into GstarCAD with Point ID Labels", "acceptedAnswer": {"@type": "Answer", "text": "Use an Excel CONCATENATE formula (=\"_POINT \"&B2&\",\"&C2&\",\"&D2) pasted directly into the GstarCAD command bar, or run our high-speed AutoLISP CSV parser (IMPORT-PENZD-CSV) to generate 3D POINT nodes and Point ID / Elevation text labels automatically."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Import X,Y,Z Survey Points from Excel / CSV into GstarCAD with Point ID Labels", "description": "Two fast methods to import hundreds of PENZD (Point, Easting, Northing, Elevation, Description) survey coordinates from Excel or CSV into GstarCAD with 3D nodes and text labels.", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "author": {"@type": "Organization", "name": "GstarCAD Academy Engineering Editorial Board", "url": "https://gstarcademy.com/authors"}, "reviewedBy": {"@type": "Person", "name": "Elena Rostova, M.Eng., PE", "jobTitle": "Senior Civil Infrastructure & Geomatics Engineer", "url": "https://gstarcademy.com/authors#civil-infrastructure"}, "publisher": {"@type": "Organization", "name": "Suzhou Gstarsoft Co., Ltd. (SSE: 688657)", "url": "https://gstarcademy.com/"}}</script>
+</head>
+<body data-page="knowledge">
+<div class="header-stack">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge" style="background:#2563eb;color:#fff;font-weight:800;">GS</span>
+        <span>GstarCAD <span style="color:var(--accent,#2563eb);font-weight:600;">Academy</span></span>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <nav class="nav">
+        <div class="nav-header"><button class="nav-close" aria-label="Close navigation menu"><span class="nav-close-icon">×</span></button></div>
+        <a class="nav-link" data-nav="home" href="/">Home</a>
+        <a class="nav-link" data-nav="migration" href="/migration">Migration Hub</a>
+        <a class="nav-link" data-nav="tutorials" href="/tutorials">Learn &amp; Courses</a>
+        <a class="nav-link" data-nav="quiz" href="/quiz">Certification</a>
+        <a class="nav-link active" data-nav="knowledge" href="/knowledge-base">Knowledge Base</a>
+        <a class="nav-link" data-nav="developers" href="/developers">Developers</a>
+        <a class="nav-link" data-nav="about" href="/about">About Gstarsoft</a>
+        <a class="btn btn-primary" href="/download" style="margin-left: 8px; padding: 6px 14px; font-size: 13px;">Free Trial</a>
+      </nav>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </header>
+</div>
+<main class="container" style="margin-top:32px;max-width:920px;margin-bottom:60px;">
+<nav aria-label="Breadcrumb" class="kb-faq-breadcrumbs">
+<a href="/">Home</a> / <a href="/knowledge-base">Knowledge Base</a> / <a href="/kb/faq/">Engineering Troubleshooting FAQ</a> / <span aria-current="page">How to Import X,Y,Z Survey Points from Excel / CSV into GstarCAD with Point ID Labels</span>
+</nav>
+<article>
+<header style="margin-bottom:24px;">
+<span class="chip pill-ok">SURVEY & GIS IMPORT</span>
+<h1 style="margin-top:12px;">How to Import X,Y,Z Survey Points from Excel / CSV into GstarCAD with Point ID Labels</h1>
+<p class="hero-sub">Two fast methods to import hundreds of PENZD (Point, Easting, Northing, Elevation, Description) survey coordinates from Excel or CSV into GstarCAD with 3D nodes and text labels.</p>
+<div class="ink-byline" role="contentinfo">
+  <span><strong>By</strong> <a href="/authors">GstarCAD Academy Engineering Editorial Board (Suzhou Gstarsoft Co., Ltd.)</a></span>
+  <span><strong>Reviewed by</strong> <a href="/authors#civil-infrastructure">Elena Rostova, M.Eng., PE</a> (Senior Civil Infrastructure & Geomatics Engineer)</span>
+  <span><strong>Last reviewed</strong> <time datetime="2026-11-03">2026-11-03</time></span>
+  <span><a href="/editorial-process">Editorial Process &amp; Testbed</a></span>
+</div>
+</header>
+<div style="padding:18px 20px; background:rgba(37,99,235,0.08); border-left:4px solid #2563eb; border-radius:8px; margin-bottom:26px;">
+  <strong style="display:block; margin-bottom:6px; color:#1e40af;">⚡ Quick Engineering Answer (TL;DR)</strong>
+  <p style="margin:0; font-size:14.5px; line-height:1.7;">Use an Excel CONCATENATE formula (="_POINT "&B2&","&C2&","&D2) pasted directly into the GstarCAD command bar, or run our high-speed AutoLISP CSV parser (IMPORT-PENZD-CSV) to generate 3D POINT nodes and Point ID / Elevation text labels automatically.</p>
+</div>
+<section style="margin-top:24px;">
+<h2>1. Root Cause &amp; DWG Database Symptom Analysis</h2>
+<p>Field surveyors deliver topographic data as a comma-separated `.csv` or Excel `.xlsx` file containing <strong>Point Number, Easting ($X$), Northing ($Y$), Elevation ($Z$), and Feature Code ($D$)</strong>. Plotting these points manually is impossible; here are the two fastest automated methods in <a href='/kb/software/gstarcad'>GstarCAD</a>.</p>
+</section>
+<section style="margin-top:28px;">
+<h2>2. Step-by-Step Resolution in GstarCAD &amp; AutoCAD</h2>
+
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Method 1: The 30-Second Excel Formula Paste Trick (Zero Coding)</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">In Excel, assuming `B2=X`, `C2=Y`, `D2=Z`, enter the formula <code>="_POINT "&amp;B2&amp;","&amp;C2&amp;","&amp;D2</code> in column E and fill down. Set <code>OSMODE = 0</code> (turn off Osnaps so points don't snap to existing geometry!), copy column E, click inside the GstarCAD command bar, and press <code>Ctrl+V</code>.</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Method 2: Set PDMODE = 34 & PDSIZE = 1.0 So Imported Points Are Visible</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">By default, CAD points (`PDMODE = 0`) render as a single 1-pixel dot that is nearly invisible. Type <code>PDMODE</code> and enter <code>34</code> (circle with crosshairs) or <code>35</code> (box with X), and set <code>PDSIZE</code> to <code>1.5</code> (or `-2` for 2% of screen height).</p>
+        </div>
+        <div style="margin-bottom:16px; padding:18px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+          <h3 style="margin:0 0 8px; font-size:1.02rem; font-weight:700;">Method 3: Direct AutoLISP PENZD Importer with Automatic Text Labels</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.72;">Use the AutoLISP script below to read any `ID,X,Y,Z,Desc` CSV file and place both the 3D `POINT` node on layer `V-NODE-3D` and the Point ID / Elevation callout text on layer `V-NODE-TEXT` in milliseconds.</p>
+        </div>
+</section>
+<section style="margin-top:28px;">
+<h2>3. System Variables &amp; Command Diagnostic Table</h2>
+<div style="overflow-x:auto; margin-top:14px; background:var(--ink-surface); border:1px solid var(--ink-line); border-radius:12px;">
+<table style="width:100%; border-collapse:collapse; font-size:13.5px; text-align:left;">
+<thead>
+<tr style="background:var(--ink-surface-2); border-bottom:2px solid var(--ink-line);">
+  <th style="padding:12px 14px;">Variable / Command</th>
+  <th style="padding:12px 14px;">Default / Target Value</th>
+  <th style="padding:12px 14px;">Diagnostic Function &amp; Fix Behavior</th>
+</tr>
+</thead>
+<tbody>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>OSMODE = 0</code></td>
+          <td style="padding:10px 14px;">Turn Off Osnaps First!</td>
+          <td style="padding:10px 14px; line-height:1.6;">Prevents pasted command-line coordinates from snapping to nearby lines</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>PDMODE = 34 / 35</code></td>
+          <td style="padding:10px 14px;">Point Display Symbol</td>
+          <td style="padding:10px 14px; line-height:1.6;">34 = Circle + Crosshair; 35 = Box + X (makes points clearly visible)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>PDSIZE = -2</code></td>
+          <td style="padding:10px 14px;">Relative Point Size</td>
+          <td style="padding:10px 14px; line-height:1.6;">Negative value sizes points as % of viewport; positive sets exact units</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--ink-line);">
+          <td style="padding:10px 14px; font-weight:600;"><code>(entmake) CSV Loop</code></td>
+          <td style="padding:10px 14px;">10,000 Points / Sec</td>
+          <td style="padding:10px 14px; line-height:1.6;">Bypasses command echo for instant large-topography ingestion</td>
+        </tr></tbody>
+</table>
+</div>
+</section>
+<section style="margin-top:28px;">
+<h2>4. One-Click AutoLISP Fix Script (AutoLISP High-Speed CSV Survey Point & Label Importer)</h2>
+<pre style="background:#0f172a; color:#f8fafc; padding:16px; border-radius:8px; overflow-x:auto; font-size:13px; line-height:1.5;"><code>(defun c:IMPORT-PENZD-CSV ( / fn fp line parts pt id zstr)
+  (setvar "PDMODE" 34)
+  (setvar "PDSIZE" 1.5)
+  (if (setq fn (getfiled "Select Survey CSV (ID,X,Y,Z)" "" "csv;txt" 0))
+    (progn
+      (setq fp (open fn "r"))
+      (while (setq line (read-line fp))
+        (setq parts (acet-str-to-list "," line))
+        (if (and (>= (length parts) 4) (numberp (read (nth 1 parts))))
+          (progn
+            (setq id   (nth 0 parts)
+                  pt   (list (atof (nth 1 parts)) (atof (nth 2 parts)) (atof (nth 3 parts)))
+                  zstr (rtos (caddr pt) 2 2))
+            (entmake (list '(0 . "POINT") '(8 . "V-NODE-3D") (cons 10 pt)))
+            (entmake (list '(0 . "TEXT") '(8 . "V-NODE-TEXT") (cons 10 pt)
+                           '(40 . 1.8) (cons 1 (strcat id " (" zstr ")")))))))
+      (close fp)
+      (command "_.ZOOM" "_E")
+      (princ "\n[Survey Import] Imported 3D points and labels from CSV.")))
+  (princ)
+)</code></pre>
+</section>
+<section style="margin-top:36px; padding:24px; background:var(--ink-surface-2); border-radius:12px; border:1px solid var(--ink-line);">
+<h3 style="margin-top:0;">Need 100% Native DWG Compatibility Without Subscription Lock-In?</h3>
+<p style="margin-bottom:16px;">Engineered by <strong>Suzhou Gstarsoft Co., Ltd. (SSE: 688657)</strong>, <a href="/kb/software/gstarcad">GstarCAD 2027</a> opens, repairs, and plots AC1032 DWG files with full command and AutoLISP parity.</p>
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+  <a href="/download" class="btn btn-primary" style="padding:10px 20px; text-decoration:none; font-weight:700;">Download Free 30-Day Trial &rarr;</a>
+  <a href="/kb/faq/" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">All Troubleshooting FAQs</a>
+  <a href="/migration" style="padding:10px 20px; border:1px solid var(--ink-line); border-radius:8px; text-decoration:none; color:var(--ink-text); font-weight:600;">AutoCAD Migration Hub</a>
+</div>
+</section>
+</article>
+</main>
+<footer class="footer site-footer">
+<div class="container site-footer-bottom"><p>&copy; 2026 GstarCAD Academy · Suzhou Gstarsoft Co., Ltd. (SSE: 688657). All rights reserved.</p></div>
+</footer>
+<script data-cfasync="false" src="/app.min.js?v=20261103" defer></script>
+<script data-cfasync="false" src="/consent.min.js?v=20261103" defer></script>
+</body>
+</html>
