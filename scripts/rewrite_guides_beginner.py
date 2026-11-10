@@ -232,27 +232,71 @@ def generate_guide_page(g):
     html = f'''<!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) - Performance Optimized Loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <script>
+    <script data-cfasync="false" async src="https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933"></script>
+    <script data-cfasync="false">
       window.dataLayer = window.dataLayer || [];
       function gtag(){{dataLayer.push(arguments);}}
       window.gtag = gtag;
-      window.addEventListener('load', function() {{
-        const initGtag = () => {{
-          const script = document.createElement('script');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZV3YR72933';
-          script.async = true;
-          document.head.appendChild(script);
-          gtag('js', new Date());
-          gtag('config', 'G-ZV3YR72933');
-        }};
-        if ('requestIdleCallback' in window) {{
-          requestIdleCallback(initGtag);
-        }} else {{
-          setTimeout(initGtag, 1);
-        }}
-      }});
+      (function() {{
+        var gaId = 'G-ZV3YR72933';
+        if (window['ga-disable-' + gaId] === true) return;
+        try {{
+          var ua = navigator.userAgent || '';
+          if (navigator.webdriver === true) {{
+            window['ga-disable-' + gaId] = true;
+            return;
+          }}
+          if (/HeadlessChrome|PhantomJS|Playwright|Puppeteer|SlimerJS|CasperJS/i.test(ua)) {{
+            window['ga-disable-' + gaId] = true;
+            return;
+          }}
+          var sw = window.screen ? window.screen.width : 0;
+          var sh = window.screen ? window.screen.height : 0;
+          var res = sw + 'x' + sh;
+          var botRes = {{
+            '1280x1200': 1,
+            '1366x1366': 1,
+            '1280x1280': 1,
+            '1600x1600': 1,
+            '1280x1600': 1,
+            '1600x1200': 1,
+            '800x600': 1
+          }};
+          if (botRes[res] === 1 || (sw > 0 && sw === sh)) {{
+            window['ga-disable-' + gaId] = true;
+            return;
+          }}
+          var canvas = document.createElement('canvas');
+          var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+          if (gl) {{
+            var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+            if (debugInfo) {{
+              var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '';
+              if (/SwiftShader|llvmpipe|Software Rasterizer/i.test(renderer)) {{
+                window['ga-disable-' + gaId] = true;
+                return;
+              }}
+            }}
+          }}
+        }} catch (e) {{}}
+        gtag('consent', 'default', {{
+          'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+          'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+          'wait_for_update': 500
+        }});
+        gtag('consent', 'default', {{
+          'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+        }});
+        try {{
+          var cp = JSON.parse(localStorage.getItem('learncad-cookie-prefs-v2') || 'null');
+          if (cp) gtag('consent', 'update', {{ 'analytics_storage': cp.analytics ? 'granted' : 'denied' }});
+        }} catch (e) {{}}
+        gtag('js', new Date());
+        gtag('config', gaId);
+      }})();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
